@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NSDateIntervalFormatterStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
   case shortStyle

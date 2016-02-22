@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
-  init(placemark: CLPlacemark)
+  init(placemark placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(watchOS 2.0, *)

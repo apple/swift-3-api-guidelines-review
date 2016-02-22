@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum UIDynamicItemCollisionBoundsType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case rectangle
   case ellipse
@@ -18,7 +18,7 @@ protocol UIDynamicItem : NSObjectProtocol {
 }
 @available(iOS 9.0, *)
 class UIDynamicItemGroup : NSObject, UIDynamicItem {
-  init(items: [UIDynamicItem])
+  init(items items: [UIDynamicItem])
   var items: [UIDynamicItem] { get }
   init()
   @available(iOS 9.0, *)
@@ -34,8 +34,8 @@ class UIDynamicItemGroup : NSObject, UIDynamicItem {
 }
 @available(iOS 7.0, *)
 class UIDynamicBehavior : NSObject {
-  func addChildBehavior(behavior: UIDynamicBehavior)
-  func removeChildBehavior(behavior: UIDynamicBehavior)
+  func addChildBehavior(_ behavior: UIDynamicBehavior)
+  func removeChildBehavior(_ behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }
   var action: (() -> Void)?
   func willMove(to dynamicAnimator: UIDynamicAnimator?)

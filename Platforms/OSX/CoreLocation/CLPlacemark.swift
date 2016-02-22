@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
-  init(placemark: CLPlacemark)
+  init(placemark placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(OSX 10.11, *)

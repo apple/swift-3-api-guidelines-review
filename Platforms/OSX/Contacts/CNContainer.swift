@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum CNContainerType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unassigned
   case local

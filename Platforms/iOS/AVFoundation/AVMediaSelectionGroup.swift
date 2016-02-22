@@ -22,7 +22,7 @@ extension AVMediaSelectionGroup {
 class AVMediaSelectionOption : NSObject, NSCopying {
   var mediaType: String { get }
   var mediaSubTypes: [NSNumber] { get }
-  func hasMediaCharacteristic(mediaCharacteristic: String) -> Bool
+  func hasMediaCharacteristic(_ mediaCharacteristic: String) -> Bool
   var isPlayable: Bool { get }
   @available(iOS 7.0, *)
   var extendedLanguageTag: String? { get }
@@ -33,7 +33,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(iOS 7.0, *)
-  func displayName(locale: NSLocale) -> String
+  func displayName(_ locale: NSLocale) -> String
   @available(iOS 7.0, *)
   var displayName: String { get }
   init()

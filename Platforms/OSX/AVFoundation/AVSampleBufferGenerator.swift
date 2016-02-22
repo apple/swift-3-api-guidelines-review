@@ -1,19 +1,19 @@
 
 @available(OSX 10.10, *)
 class AVSampleBufferGenerator : NSObject {
-  init(asset: AVAsset, timebase: CMTimebase?)
+  init(asset asset: AVAsset, timebase timebase: CMTimebase?)
   func createSampleBuffer(for request: AVSampleBufferRequest) -> CMSampleBuffer
-  class func notifyOfDataReady(for sbuf: CMSampleBuffer, completionHandler: (Bool, NSError) -> Void)
+  class func notifyOfDataReady(for sbuf: CMSampleBuffer, completionHandler completionHandler: (Bool, NSError) -> Void)
 }
 enum AVSampleBufferRequestDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case forward
   case none
   case reverse
 }
 enum AVSampleBufferRequestMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case immediate
   case scheduled

@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class CNContactRelation : NSObject, NSCopying, NSSecureCoding {
-  init(name: String)
+  init(name name: String)
   var name: String { get }
   init()
   @available(watchOS 2.0, *)

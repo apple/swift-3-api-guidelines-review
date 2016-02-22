@@ -1,12 +1,12 @@
 
 @available(iOS 4.0, *)
 class AVCaptureVideoPreviewLayer : CALayer {
-  init!(session: AVCaptureSession!)
+  init!(session session: AVCaptureSession!)
   @available(iOS 8.0, *)
   init!(sessionWithNoConnection session: AVCaptureSession!)
   var session: AVCaptureSession!
   @available(iOS 8.0, *)
-  func setSessionWithNoConnection(session: AVCaptureSession!)
+  func setSessionWithNoConnection(_ session: AVCaptureSession!)
   @available(iOS 6.0, *)
   var connection: AVCaptureConnection! { get }
   var videoGravity: String!
@@ -21,6 +21,6 @@ class AVCaptureVideoPreviewLayer : CALayer {
   @available(iOS 6.0, *)
   func transformedMetadataObject(for metadataObject: AVMetadataObject!) -> AVMetadataObject!
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }

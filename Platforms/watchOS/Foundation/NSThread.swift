@@ -1,14 +1,14 @@
 
 class NSThread : NSObject {
   class func current() -> NSThread
-  class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
+  class func detachNewThreadSelector(_ selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   class func isMultiThreaded() -> Bool
   var threadDictionary: NSMutableDictionary { get }
   class func sleep(until date: NSDate)
   class func sleep(forTimeInterval ti: NSTimeInterval)
   class func exit()
   class func threadPriority() -> Double
-  class func setThreadPriority(p: Double) -> Bool
+  class func setThreadPriority(_ p: Double) -> Bool
   @available(watchOS 2.0, *)
   var threadPriority: Double
   @available(watchOS 2.0, *)
@@ -30,7 +30,7 @@ class NSThread : NSObject {
   @available(watchOS 2.0, *)
   init()
   @available(watchOS 2.0, *)
-  convenience init(target: AnyObject, selector: Selector, object argument: AnyObject?)
+  convenience init(target target: AnyObject, selector selector: Selector, object argument: AnyObject?)
   @available(watchOS 2.0, *)
   var isExecuting: Bool { get }
   @available(watchOS 2.0, *)
@@ -53,13 +53,13 @@ extension NSObject {
   class func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
-  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(watchOS 2.0, *)
-  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(watchOS 2.0, *)
-  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  class func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
-  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(watchOS 2.0, *)
   class func performSelector(inBackground aSelector: Selector, with arg: AnyObject?)
   @available(watchOS 2.0, *)

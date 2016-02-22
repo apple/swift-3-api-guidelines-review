@@ -24,7 +24,7 @@ extension NSAttributedString {
 }
 @available(tvOS 6.0, *)
 struct NSStringDrawingOptions : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var usesLineFragmentOrigin: NSStringDrawingOptions { get }
   static var usesFontLeading: NSStringDrawingOptions { get }
@@ -34,15 +34,15 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func draw(rect: CGRect, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?)
+  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?)
   @available(tvOS 7.0, *)
-  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], attributes: [String : AnyObject]? = [:], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(tvOS 6.0, *)
-  func draw(rect: CGRect, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?)
+  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
-  func boundingRect(with size: CGSize, options: NSStringDrawingOptions = [], context: NSStringDrawingContext?) -> CGRect
+  func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?) -> CGRect
 }
 extension NSStringDrawingContext {
 }

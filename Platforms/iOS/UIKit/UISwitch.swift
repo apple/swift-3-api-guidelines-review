@@ -12,8 +12,8 @@ class UISwitch : UIControl, NSCoding {
   @available(iOS 6.0, *)
   var offImage: UIImage?
   var isOn: Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
-  func setOn(on: Bool, animated: Bool)
+  func setOn(_ on: Bool, animated animated: Bool)
   convenience init()
 }

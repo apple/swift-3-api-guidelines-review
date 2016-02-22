@@ -52,7 +52,7 @@ class AVAudioUnitComponent : NSObject {
   @available(OSX 10.10, *)
   var configurationDictionary: [String : AnyObject] { get }
   @available(OSX 10.10, *)
-  func supportsNumberInputChannels(numInputChannels: Int, outputChannels numOutputChannels: Int) -> Bool
+  func supportsNumberInputChannels(_ numInputChannels: Int, outputChannels numOutputChannels: Int) -> Bool
   init()
 }
 @available(OSX 10.10, *)

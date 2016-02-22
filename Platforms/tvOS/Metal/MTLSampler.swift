@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
 enum MTLSamplerMinMagFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case nearest
   case linear
 }
 @available(tvOS 8.0, *)
 enum MTLSamplerMipFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notMipmapped
   case nearest
@@ -16,7 +16,7 @@ enum MTLSamplerMipFilter : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLSamplerAddressMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case clampToEdge
   case `repeat`

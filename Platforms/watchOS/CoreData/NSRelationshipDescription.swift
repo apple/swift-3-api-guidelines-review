@@ -1,6 +1,6 @@
 
 enum NSDeleteRule : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noActionDeleteRule
   case nullifyDeleteRule

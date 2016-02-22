@@ -1,7 +1,7 @@
 
 extension NSBundle {
   @available(OSX 10.8, *)
-  func loadNibNamed(nibName: String, owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func loadNibNamed(_ nibName: String, owner owner: AnyObject?, topLevel topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
 }
 extension NSObject {
   class func awakeFromNib()

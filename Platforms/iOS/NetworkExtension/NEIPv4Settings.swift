@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(addresses: [String], subnetMasks: [String])
+  init(addresses addresses: [String], subnetMasks subnetMasks: [String])
   @available(iOS 9.0, *)
   var addresses: [String] { get }
   @available(iOS 9.0, *)
@@ -23,7 +23,7 @@ class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
 @available(iOS 9.0, *)
 class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(destinationAddress address: String, subnetMask: String)
+  init(destinationAddress address: String, subnetMask subnetMask: String)
   @available(iOS 9.0, *)
   var destinationAddress: String { get }
   @available(iOS 9.0, *)

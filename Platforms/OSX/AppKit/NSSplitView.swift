@@ -1,7 +1,7 @@
 
 @available(OSX 10.5, *)
 enum NSSplitViewDividerStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case thick
   case thin
@@ -20,19 +20,19 @@ class NSSplitView : NSView {
   @NSCopying var dividerColor: NSColor { get }
   var dividerThickness: CGFloat { get }
   func adjustSubviews()
-  func isSubviewCollapsed(subview: NSView) -> Bool
+  func isSubviewCollapsed(_ subview: NSView) -> Bool
   @available(OSX 10.5, *)
   func minPossiblePositionOfDivider(at dividerIndex: Int) -> CGFloat
   @available(OSX 10.5, *)
   func maxPossiblePositionOfDivider(at dividerIndex: Int) -> CGFloat
   @available(OSX 10.5, *)
-  func setPosition(position: CGFloat, ofDividerAt dividerIndex: Int)
+  func setPosition(_ position: CGFloat, ofDividerAt dividerIndex: Int)
   @available(OSX 10.8, *)
   func holdingPriorityForSubview(at subviewIndex: Int) -> NSLayoutPriority
   @available(OSX 10.8, *)
-  func setHoldingPriority(priority: NSLayoutPriority, forSubviewAt subviewIndex: Int)
+  func setHoldingPriority(_ priority: NSLayoutPriority, forSubviewAt subviewIndex: Int)
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 extension NSSplitView {
@@ -41,30 +41,30 @@ extension NSSplitView {
   @available(OSX 10.11, *)
   var arrangedSubviews: [NSView] { get }
   @available(OSX 10.11, *)
-  func addArrangedSubview(view: NSView)
+  func addArrangedSubview(_ view: NSView)
   @available(OSX 10.11, *)
-  func insertArrangedSubview(view: NSView, at index: Int)
+  func insertArrangedSubview(_ view: NSView, at index: Int)
   @available(OSX 10.11, *)
-  func removeArrangedSubview(view: NSView)
+  func removeArrangedSubview(_ view: NSView)
 }
 protocol NSSplitViewDelegate : NSObjectProtocol {
-  optional func splitView(splitView: NSSplitView, canCollapseSubview subview: NSView) -> Bool
+  optional func splitView(_ splitView: NSSplitView, canCollapseSubview subview: NSView) -> Bool
   @available(OSX 10.5, *)
-  optional func splitView(splitView: NSSplitView, shouldCollapseSubview subview: NSView, forDoubleClickOnDividerAt dividerIndex: Int) -> Bool
-  optional func splitView(splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
-  optional func splitView(splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
-  optional func splitView(splitView: NSSplitView, constrainSplitPosition proposedPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
-  optional func splitView(splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize)
+  optional func splitView(_ splitView: NSSplitView, shouldCollapseSubview subview: NSView, forDoubleClickOnDividerAt dividerIndex: Int) -> Bool
+  optional func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  optional func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  optional func splitView(_ splitView: NSSplitView, constrainSplitPosition proposedPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  optional func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize)
   @available(OSX 10.6, *)
-  optional func splitView(splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool
+  optional func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool
   @available(OSX 10.5, *)
-  optional func splitView(splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool
+  optional func splitView(_ splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool
   @available(OSX 10.5, *)
-  optional func splitView(splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect
+  optional func splitView(_ splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect
   @available(OSX 10.5, *)
-  optional func splitView(splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
-  optional func splitViewWillResizeSubviews(notification: NSNotification)
-  optional func splitViewDidResizeSubviews(notification: NSNotification)
+  optional func splitView(_ splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
+  optional func splitViewWillResizeSubviews(_ notification: NSNotification)
+  optional func splitViewDidResizeSubviews(_ notification: NSNotification)
 }
 let NSSplitViewWillResizeSubviewsNotification: String
 let NSSplitViewDidResizeSubviewsNotification: String

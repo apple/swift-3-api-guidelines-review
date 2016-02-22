@@ -2,7 +2,7 @@
 var __DS_MACTYPES__: Int32 { get }
 struct tDirStatus : RawRepresentable, Equatable {
   init(_ rawValue: Int32)
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   var rawValue: Int32
 }
 var eDSNoErr: tDirStatus { get }
@@ -238,7 +238,7 @@ var eNotYetImplemented: tDirStatus { get }
 var eDSLastValue: tDirStatus { get }
 struct tDirPatternMatch : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var eDSNoMatch1: tDirPatternMatch { get }
@@ -291,7 +291,7 @@ struct tDataBuffer {
   var fBufferLength: UInt32
   var fBufferData: (Int8)
   init()
-  init(fBufferSize: UInt32, fBufferLength: UInt32, fBufferData: (Int8))
+  init(fBufferSize fBufferSize: UInt32, fBufferLength fBufferLength: UInt32, fBufferData fBufferData: (Int8))
 }
 typealias tDataBufferPtr = UnsafeMutablePointer<tDataBuffer>
 typealias tDataNode = tDataBuffer
@@ -300,7 +300,7 @@ struct tDataList {
   var fDataNodeCount: UInt32
   var fDataListHead: tDataNodePtr
   init()
-  init(fDataNodeCount: UInt32, fDataListHead: tDataNodePtr)
+  init(fDataNodeCount fDataNodeCount: UInt32, fDataListHead fDataListHead: tDataNodePtr)
 }
 typealias tDataListPtr = UnsafeMutablePointer<tDataList>
 struct tAccessControlEntry {
@@ -310,14 +310,14 @@ struct tAccessControlEntry {
   var fOwnerFlags: UInt32
   var fAdministratorFlags: UInt32
   init()
-  init(fGuestAccessFlags: UInt32, fDirMemberFlags: UInt32, fDirNodeMemberFlags: UInt32, fOwnerFlags: UInt32, fAdministratorFlags: UInt32)
+  init(fGuestAccessFlags fGuestAccessFlags: UInt32, fDirMemberFlags fDirMemberFlags: UInt32, fDirNodeMemberFlags fDirNodeMemberFlags: UInt32, fOwnerFlags fOwnerFlags: UInt32, fAdministratorFlags fAdministratorFlags: UInt32)
 }
 typealias tAccessControlEntryPtr = UnsafeMutablePointer<tAccessControlEntry>
 struct tAttributeValueEntry {
   var fAttributeValueID: UInt32
   var fAttributeValueData: tDataNode
   init()
-  init(fAttributeValueID: UInt32, fAttributeValueData: tDataNode)
+  init(fAttributeValueID fAttributeValueID: UInt32, fAttributeValueData fAttributeValueData: tDataNode)
 }
 typealias tAttributeValueEntryPtr = UnsafeMutablePointer<tAttributeValueEntry>
 typealias tAttributeValueListRef = UInt32
@@ -329,7 +329,7 @@ struct tAttributeEntry {
   var fAttributeValueMaxSize: UInt32
   var fAttributeSignature: tDataNode
   init()
-  init(fReserved1: UInt32, fReserved2: tAccessControlEntry, fAttributeValueCount: UInt32, fAttributeDataSize: UInt32, fAttributeValueMaxSize: UInt32, fAttributeSignature: tDataNode)
+  init(fReserved1 fReserved1: UInt32, fReserved2 fReserved2: tAccessControlEntry, fAttributeValueCount fAttributeValueCount: UInt32, fAttributeDataSize fAttributeDataSize: UInt32, fAttributeValueMaxSize fAttributeValueMaxSize: UInt32, fAttributeSignature fAttributeSignature: tDataNode)
 }
 typealias tAttributeEntryPtr = UnsafeMutablePointer<tAttributeEntry>
 typealias tAttributeListRef = UInt32
@@ -339,7 +339,7 @@ struct tRecordEntry {
   var fRecordAttributeCount: UInt32
   var fRecordNameAndType: tDataNode
   init()
-  init(fReserved1: UInt32, fReserved2: tAccessControlEntry, fRecordAttributeCount: UInt32, fRecordNameAndType: tDataNode)
+  init(fReserved1 fReserved1: UInt32, fReserved2 fReserved2: tAccessControlEntry, fRecordAttributeCount fRecordAttributeCount: UInt32, fRecordNameAndType fRecordNameAndType: tDataNode)
 }
 typealias tRecordEntryPtr = UnsafeMutablePointer<tRecordEntry>
 typealias tRecordReference = UInt32

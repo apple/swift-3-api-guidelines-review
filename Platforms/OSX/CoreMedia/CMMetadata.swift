@@ -35,13 +35,13 @@ let kCMMetadataIdentifier_QuickTimeMetadataPreferredAffineTransform: CFString
 @available(OSX 10.11, *)
 let kCMMetadataIdentifier_QuickTimeMetadataVideoOrientation: CFString
 @available(OSX 10.10, *)
-func CMMetadataCreateIdentifierForKeyAndKeySpace(allocator: CFAllocator?, _ key: CFTypeRef, _ keySpace: CFString, _ identifierOut: UnsafeMutablePointer<CFString?>) -> OSStatus
+func CMMetadataCreateIdentifierForKeyAndKeySpace(_ allocator: CFAllocator?, _ key: CFTypeRef, _ keySpace: CFString, _ identifierOut: UnsafeMutablePointer<CFString?>) -> OSStatus
 @available(OSX 10.10, *)
-func CMMetadataCreateKeyFromIdentifier(allocator: CFAllocator?, _ identifier: CFString, _ keyOut: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
+func CMMetadataCreateKeyFromIdentifier(_ allocator: CFAllocator?, _ identifier: CFString, _ keyOut: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
 @available(OSX 10.10, *)
-func CMMetadataCreateKeyFromIdentifierAsCFData(allocator: CFAllocator?, _ identifier: CFString, _ keyOut: UnsafeMutablePointer<CFData?>) -> OSStatus
+func CMMetadataCreateKeyFromIdentifierAsCFData(_ allocator: CFAllocator?, _ identifier: CFString, _ keyOut: UnsafeMutablePointer<CFData?>) -> OSStatus
 @available(OSX 10.10, *)
-func CMMetadataCreateKeySpaceFromIdentifier(allocator: CFAllocator?, _ identifier: CFString, _ keySpaceOut: UnsafeMutablePointer<CFString?>) -> OSStatus
+func CMMetadataCreateKeySpaceFromIdentifier(_ allocator: CFAllocator?, _ identifier: CFString, _ keySpaceOut: UnsafeMutablePointer<CFString?>) -> OSStatus
 @available(OSX 10.10, *)
 let kCMMetadataBaseDataType_RawData: CFString
 @available(OSX 10.10, *)
@@ -95,18 +95,18 @@ let kCMMetadataDataType_QuickTimeMetadataLocation_ISO6709: CFString
 @available(OSX 10.10, *)
 let kCMMetadataDataType_QuickTimeMetadataDirection: CFString
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryRegisterDataType(dataType: CFString, _ description: CFString, _ conformingDataTypes: CFArray) -> OSStatus
+func CMMetadataDataTypeRegistryRegisterDataType(_ dataType: CFString, _ description: CFString, _ conformingDataTypes: CFArray) -> OSStatus
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryDataTypeIsRegistered(dataType: CFString) -> Bool
+func CMMetadataDataTypeRegistryDataTypeIsRegistered(_ dataType: CFString) -> Bool
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryGetDataTypeDescription(dataType: CFString) -> CFString
+func CMMetadataDataTypeRegistryGetDataTypeDescription(_ dataType: CFString) -> CFString
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryGetConformingDataTypes(dataType: CFString) -> CFArray
+func CMMetadataDataTypeRegistryGetConformingDataTypes(_ dataType: CFString) -> CFArray
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryDataTypeConformsToDataType(dataType: CFString, _ conformsToDataType: CFString) -> Bool
+func CMMetadataDataTypeRegistryDataTypeConformsToDataType(_ dataType: CFString, _ conformsToDataType: CFString) -> Bool
 @available(OSX 10.10, *)
 func CMMetadataDataTypeRegistryGetBaseDataTypes() -> CFArray?
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryDataTypeIsBaseDataType(dataType: CFString) -> Bool
+func CMMetadataDataTypeRegistryDataTypeIsBaseDataType(_ dataType: CFString) -> Bool
 @available(OSX 10.10, *)
-func CMMetadataDataTypeRegistryGetBaseDataTypeForConformingDataType(dataType: CFString) -> CFString
+func CMMetadataDataTypeRegistryGetBaseDataTypeForConformingDataType(_ dataType: CFString) -> CFString

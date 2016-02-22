@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum PKPaymentAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case success
   case failure
@@ -17,19 +17,19 @@ enum PKPaymentAuthorizationStatus : Int {
 }
 protocol PKPaymentAuthorizationViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (PKPaymentAuthorizationStatus) -> Void)
+  func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion completion: (PKPaymentAuthorizationStatus) -> Void)
   @available(iOS 8.0, *)
-  func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController)
+  func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController)
   @available(iOS 8.3, *)
-  optional func paymentAuthorizationViewControllerWillAuthorizePayment(controller: PKPaymentAuthorizationViewController)
+  optional func paymentAuthorizationViewControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationViewController)
   @available(iOS 8.0, *)
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, completion: (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, completion completion: (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use the CNContact backed delegate method instead")
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingAddress address: ABRecord, completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelectShippingAddress address: ABRecord, completion completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
   @available(iOS 9.0, *)
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact, completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelectShippingContact contact: PKContact, completion completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void)
   @available(iOS 9.0, *)
-  optional func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelect paymentMethod: PKPaymentMethod, completion: ([PKPaymentSummaryItem]) -> Void)
+  optional func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect paymentMethod: PKPaymentMethod, completion completion: ([PKPaymentSummaryItem]) -> Void)
 }
 @available(iOS 8.0, *)
 class PKPaymentAuthorizationViewController : UIViewController {

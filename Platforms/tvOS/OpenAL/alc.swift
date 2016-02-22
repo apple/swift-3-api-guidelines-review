@@ -38,26 +38,26 @@ var ALC_ALL_DEVICES_SPECIFIER: Int32 { get }
 var ALC_CAPTURE_DEVICE_SPECIFIER: Int32 { get }
 var ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER: Int32 { get }
 var ALC_CAPTURE_SAMPLES: Int32 { get }
-func alcCreateContext(device: COpaquePointer, _ attrlist: UnsafePointer<ALCint>) -> COpaquePointer
-func alcMakeContextCurrent(context: COpaquePointer) -> ALCboolean
-func alcProcessContext(context: COpaquePointer)
-func alcSuspendContext(context: COpaquePointer)
-func alcDestroyContext(context: COpaquePointer)
+func alcCreateContext(_ device: COpaquePointer, _ attrlist: UnsafePointer<ALCint>) -> COpaquePointer
+func alcMakeContextCurrent(_ context: COpaquePointer) -> ALCboolean
+func alcProcessContext(_ context: COpaquePointer)
+func alcSuspendContext(_ context: COpaquePointer)
+func alcDestroyContext(_ context: COpaquePointer)
 func alcGetCurrentContext() -> COpaquePointer
-func alcGetContextsDevice(context: COpaquePointer) -> COpaquePointer
-func alcOpenDevice(devicename: UnsafePointer<ALCchar>) -> COpaquePointer
-func alcCloseDevice(device: COpaquePointer) -> ALCboolean
-func alcGetError(device: COpaquePointer) -> ALCenum
-func alcIsExtensionPresent(device: COpaquePointer, _ extname: UnsafePointer<ALCchar>) -> ALCboolean
-func alcGetProcAddress(device: COpaquePointer, _ funcname: UnsafePointer<ALCchar>) -> UnsafeMutablePointer<Void>
-func alcGetEnumValue(device: COpaquePointer, _ enumname: UnsafePointer<ALCchar>) -> ALCenum
-func alcGetString(device: COpaquePointer, _ param: ALCenum) -> UnsafePointer<ALCchar>
-func alcGetIntegerv(device: COpaquePointer, _ param: ALCenum, _ size: ALCsizei, _ data: UnsafeMutablePointer<ALCint>)
-func alcCaptureOpenDevice(devicename: UnsafePointer<ALCchar>, _ frequency: ALCuint, _ format: ALCenum, _ buffersize: ALCsizei) -> COpaquePointer
-func alcCaptureCloseDevice(device: COpaquePointer) -> ALCboolean
-func alcCaptureStart(device: COpaquePointer)
-func alcCaptureStop(device: COpaquePointer)
-func alcCaptureSamples(device: COpaquePointer, _ buffer: UnsafeMutablePointer<Void>, _ samples: ALCsizei)
+func alcGetContextsDevice(_ context: COpaquePointer) -> COpaquePointer
+func alcOpenDevice(_ devicename: UnsafePointer<ALCchar>) -> COpaquePointer
+func alcCloseDevice(_ device: COpaquePointer) -> ALCboolean
+func alcGetError(_ device: COpaquePointer) -> ALCenum
+func alcIsExtensionPresent(_ device: COpaquePointer, _ extname: UnsafePointer<ALCchar>) -> ALCboolean
+func alcGetProcAddress(_ device: COpaquePointer, _ funcname: UnsafePointer<ALCchar>) -> UnsafeMutablePointer<Void>
+func alcGetEnumValue(_ device: COpaquePointer, _ enumname: UnsafePointer<ALCchar>) -> ALCenum
+func alcGetString(_ device: COpaquePointer, _ param: ALCenum) -> UnsafePointer<ALCchar>
+func alcGetIntegerv(_ device: COpaquePointer, _ param: ALCenum, _ size: ALCsizei, _ data: UnsafeMutablePointer<ALCint>)
+func alcCaptureOpenDevice(_ devicename: UnsafePointer<ALCchar>, _ frequency: ALCuint, _ format: ALCenum, _ buffersize: ALCsizei) -> COpaquePointer
+func alcCaptureCloseDevice(_ device: COpaquePointer) -> ALCboolean
+func alcCaptureStart(_ device: COpaquePointer)
+func alcCaptureStop(_ device: COpaquePointer)
+func alcCaptureSamples(_ device: COpaquePointer, _ buffer: UnsafeMutablePointer<Void>, _ samples: ALCsizei)
 typealias LPALCCREATECONTEXT = @convention(c) (COpaquePointer, UnsafePointer<ALCint>) -> COpaquePointer
 typealias LPALCMAKECONTEXTCURRENT = @convention(c) (COpaquePointer) -> ALCboolean
 typealias LPALCPROCESSCONTEXT = @convention(c) (COpaquePointer) -> Void

@@ -5,7 +5,7 @@ let SCNLightTypeDirectional: String
 let SCNLightTypeSpot: String
 @available(OSX 10.10, *)
 enum SCNShadowMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case forward
   case deferred
@@ -50,10 +50,10 @@ class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecu
   @available(OSX, introduced=10.8, deprecated=10.10)
   func attribute(forKey key: String) -> AnyObject?
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func setAttribute(attribute: AnyObject?, forKey key: String)
+  func setAttribute(_ attribute: AnyObject?, forKey key: String)
   init()
   @available(OSX 10.8, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)

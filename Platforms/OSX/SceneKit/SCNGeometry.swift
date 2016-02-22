@@ -1,6 +1,6 @@
 
 enum SCNGeometryPrimitiveType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case triangles
   case triangleStrip
@@ -24,11 +24,11 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
   var name: String?
   var materials: [SCNMaterial]
   var firstMaterial: SCNMaterial?
-  func insertMaterial(material: SCNMaterial, at index: Int)
+  func insertMaterial(_ material: SCNMaterial, at index: Int)
   func removeMaterial(at index: Int)
   func replaceMaterial(at index: Int, with material: SCNMaterial)
   func material(withName name: String) -> SCNMaterial?
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
+  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
   @available(OSX 10.10, *)
   var geometrySources: [SCNGeometrySource] { get }
   func geometrySources(forSemantic semantic: String) -> [SCNGeometrySource]
@@ -46,7 +46,7 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
   var edgeCreasesSource: SCNGeometrySource?
   init()
   @available(OSX 10.8, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
@@ -64,11 +64,11 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
   @available(OSX 10.10, *)
   func removeAnimation(forKey key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.8, *)
-  func getBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>) -> Bool
+  func getBoundingBoxMin(_ min: UnsafeMutablePointer<SCNVector3>, max max: UnsafeMutablePointer<SCNVector3>) -> Bool
   @available(OSX 10.8, *)
-  func getBoundingSphereCenter(center: UnsafeMutablePointer<SCNVector3>, radius: UnsafeMutablePointer<CGFloat>) -> Bool
+  func getBoundingSphereCenter(_ center: UnsafeMutablePointer<SCNVector3>, radius radius: UnsafeMutablePointer<CGFloat>) -> Bool
   @available(OSX 10.9, *)
-  func setBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>)
+  func setBoundingBoxMin(_ min: UnsafeMutablePointer<SCNVector3>, max max: UnsafeMutablePointer<SCNVector3>)
   @available(OSX 10.8, *)
   var program: SCNProgram?
   @available(OSX 10.9, *)
@@ -87,12 +87,12 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
 }
 @available(OSX 10.8, *)
 class SCNGeometrySource : NSObject, NSSecureCoding {
-  convenience init(data: NSData, semantic: String, vectorCount: Int, floatComponents: Bool, componentsPerVector: Int, bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
-  convenience init(vertices: UnsafePointer<SCNVector3>, count: Int)
-  convenience init(normals: UnsafePointer<SCNVector3>, count: Int)
-  convenience init(textureCoordinates texcoord: UnsafePointer<CGPoint>, count: Int)
+  convenience init(data data: NSData, semantic semantic: String, vectorCount vectorCount: Int, floatComponents floatComponents: Bool, componentsPerVector componentsPerVector: Int, bytesPerComponent bytesPerComponent: Int, dataOffset offset: Int, dataStride stride: Int)
+  convenience init(vertices vertices: UnsafePointer<SCNVector3>, count count: Int)
+  convenience init(normals normals: UnsafePointer<SCNVector3>, count count: Int)
+  convenience init(textureCoordinates texcoord: UnsafePointer<CGPoint>, count count: Int)
   @available(OSX 10.11, *)
-  convenience init(buffer mtlBuffer: MTLBuffer, vertexFormat: MTLVertexFormat, semantic: String, vertexCount: Int, dataOffset offset: Int, dataStride stride: Int)
+  convenience init(buffer mtlBuffer: MTLBuffer, vertexFormat vertexFormat: MTLVertexFormat, semantic semantic: String, vertexCount vertexCount: Int, dataOffset offset: Int, dataStride stride: Int)
   var data: NSData { get }
   var semantic: String { get }
   var vectorCount: Int { get }
@@ -110,7 +110,7 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
 }
 @available(OSX 10.8, *)
 class SCNGeometryElement : NSObject, NSSecureCoding {
-  convenience init(data: NSData?, primitiveType: SCNGeometryPrimitiveType, primitiveCount: Int, bytesPerIndex: Int)
+  convenience init(data data: NSData?, primitiveType primitiveType: SCNGeometryPrimitiveType, primitiveCount primitiveCount: Int, bytesPerIndex bytesPerIndex: Int)
   var data: NSData { get }
   var primitiveType: SCNGeometryPrimitiveType { get }
   var primitiveCount: Int { get }
@@ -125,5 +125,5 @@ class SCNGeometryElement : NSObject, NSSecureCoding {
 
 @available(iOS 8.0, OSX 10.8, *)
 extension SCNGeometryElement {
-  convenience init<IndexType : IntegerType>(indices: [IndexType], primitiveType: SCNGeometryPrimitiveType)
+  convenience init<IndexType : IntegerType>(indices indices: [IndexType], primitiveType primitiveType: SCNGeometryPrimitiveType)
 }

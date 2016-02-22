@@ -157,4 +157,4 @@ let kABInsertedRecords: String
 let kABUpdatedRecords: String
 @available(OSX 10.3, *)
 let kABDeletedRecords: String
-func ABLocalizedPropertyOrLabel(propertyOrLabel: String!) -> String!
+func ABLocalizedPropertyOrLabel(_ propertyOrLabel: String!) -> String!

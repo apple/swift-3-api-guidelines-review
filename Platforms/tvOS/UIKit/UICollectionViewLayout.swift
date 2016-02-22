@@ -1,6 +1,6 @@
 
 enum UICollectionElementCategory : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case cell
   case supplementaryView
@@ -34,7 +34,7 @@ class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
   var collisionBoundingPath: UIBezierPath { get }
 }
 enum UICollectionUpdateAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case insert
   case delete
@@ -85,8 +85,8 @@ class UICollectionViewLayout : NSObject, NSCoding {
   func invalidateLayout()
   @available(tvOS 7.0, *)
   func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext)
-  func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
-  func register(nib: UINib?, forDecorationViewOfKind elementKind: String)
+  func register(_ viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
+  func register(_ nib: UINib?, forDecorationViewOfKind elementKind: String)
   @available(tvOS 6.0, *)
   func encode(with aCoder: NSCoder)
 }
@@ -143,7 +143,7 @@ extension UICollectionViewLayout {
   @available(tvOS 9.0, *)
   func layoutAttributesForInteractivelyMovingItem(at indexPath: NSIndexPath, withTargetPosition position: CGPoint) -> UICollectionViewLayoutAttributes
   @available(tvOS 9.0, *)
-  func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths: [NSIndexPath], previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContext(forInteractivelyMovingItems targetIndexPaths: [NSIndexPath], withTargetPosition targetPosition: CGPoint, previousIndexPaths previousIndexPaths: [NSIndexPath], previousPosition previousPosition: CGPoint) -> UICollectionViewLayoutInvalidationContext
   @available(tvOS 9.0, *)
-  func invalidationContextForEndingInteractiveMovementOfItems(toFinalIndexPaths indexPaths: [NSIndexPath], previousIndexPaths: [NSIndexPath], movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
+  func invalidationContextForEndingInteractiveMovementOfItems(toFinalIndexPaths indexPaths: [NSIndexPath], previousIndexPaths previousIndexPaths: [NSIndexPath], movementCancelled movementCancelled: Bool) -> UICollectionViewLayoutInvalidationContext
 }

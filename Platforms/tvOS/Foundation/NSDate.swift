@@ -22,10 +22,10 @@ extension NSDate {
   var timeIntervalSinceNow: NSTimeInterval { get }
   var timeIntervalSince1970: NSTimeInterval { get }
   @available(tvOS 2.0, *)
-  func addingTimeInterval(ti: NSTimeInterval) -> Self
-  func earlierDate(anotherDate: NSDate) -> NSDate
-  func laterDate(anotherDate: NSDate) -> NSDate
-  func compare(other: NSDate) -> NSComparisonResult
+  func addingTimeInterval(_ ti: NSTimeInterval) -> Self
+  func earlierDate(_ anotherDate: NSDate) -> NSDate
+  func laterDate(_ anotherDate: NSDate) -> NSDate
+  func compare(_ other: NSDate) -> NSComparisonResult
   func isEqual(to otherDate: NSDate) -> Bool
   var description: String { get }
   func description(withLocale locale: AnyObject?) -> String

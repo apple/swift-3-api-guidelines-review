@@ -2,11 +2,11 @@
 @available(iOS 7.0, *)
 class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   @available(iOS 7.0, *)
-  init(size: CGSize)
-  init?(coder: NSCoder)
+  init(size size: CGSize)
+  init?(coder coder: NSCoder)
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
   @available(iOS 9.0, *)
-  func replaceLayoutManager(newLayoutManager: NSLayoutManager)
+  func replaceLayoutManager(_ newLayoutManager: NSLayoutManager)
   @available(iOS 7.0, *)
   var size: CGSize
   @available(iOS 7.0, *)

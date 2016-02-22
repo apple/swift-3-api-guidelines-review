@@ -36,7 +36,7 @@ let AVAssetExportPresetAppleM4V1080pHD: String
 @available(OSX 10.7, *)
 let AVAssetExportPresetAppleProRes422LPCM: String
 enum AVAssetExportSessionStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case waiting
@@ -47,7 +47,7 @@ enum AVAssetExportSessionStatus : Int {
 }
 @available(OSX 10.7, *)
 class AVAssetExportSession : NSObject {
-  init?(asset: AVAsset, presetName: String)
+  init?(asset asset: AVAsset, presetName presetName: String)
   var presetName: String { get }
   @available(OSX 10.8, *)
   var asset: AVAsset { get }
@@ -64,7 +64,7 @@ extension AVAssetExportSession {
   class func allExportPresets() -> [String]
   class func exportPresets(compatibleWith asset: AVAsset) -> [String]
   @available(OSX 10.9, *)
-  class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
+  class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }

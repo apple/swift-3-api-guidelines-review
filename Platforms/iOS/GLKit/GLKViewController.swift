@@ -16,11 +16,11 @@ class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 5.0, *)
-  func glkView(view: GLKView, drawIn rect: CGRect)
+  func glkView(_ view: GLKView, drawIn rect: CGRect)
 }
 protocol GLKViewControllerDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
-  func glkViewControllerUpdate(controller: GLKViewController)
+  func glkViewControllerUpdate(_ controller: GLKViewController)
   @available(iOS 5.0, *)
-  optional func glkViewController(controller: GLKViewController, willPause pause: Bool)
+  optional func glkViewController(_ controller: GLKViewController, willPause pause: Bool)
 }

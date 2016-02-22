@@ -1,9 +1,9 @@
 
 @available(OSX 10.7, *)
 class AVAssetWriterInput : NSObject {
-  convenience init(mediaType: String, outputSettings: [String : AnyObject]?)
+  convenience init(mediaType mediaType: String, outputSettings outputSettings: [String : AnyObject]?)
   @available(OSX 10.8, *)
-  init(mediaType: String, outputSettings: [String : AnyObject]?, sourceFormatHint: CMFormatDescription?)
+  init(mediaType mediaType: String, outputSettings outputSettings: [String : AnyObject]?, sourceFormatHint sourceFormatHint: CMFormatDescription?)
   var mediaType: String { get }
   var outputSettings: [String : AnyObject]? { get }
   @available(OSX 10.8, *)
@@ -12,7 +12,7 @@ class AVAssetWriterInput : NSObject {
   var isReadyForMoreMediaData: Bool { get }
   var expectsMediaDataInRealTime: Bool
   func requestMediaDataWhenReady(on queue: dispatch_queue_t, using block: () -> Void)
-  func append(sampleBuffer: CMSampleBuffer) -> Bool
+  func append(_ sampleBuffer: CMSampleBuffer) -> Bool
   func markAsFinished()
 }
 extension AVAssetWriterInput {
@@ -66,15 +66,15 @@ class AVAssetWriterInputPassDescription : NSObject {
 }
 @available(OSX 10.7, *)
 class AVAssetWriterInputPixelBufferAdaptor : NSObject {
-  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]? = [:])
+  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes sourcePixelBufferAttributes: [String : AnyObject]? = [:])
   var assetWriterInput: AVAssetWriterInput { get }
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var pixelBufferPool: CVPixelBufferPool? { get }
-  func append(pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
+  func append(_ pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
 }
 @available(OSX 10.10, *)
 class AVAssetWriterInputMetadataAdaptor : NSObject {
   init(assetWriterInput input: AVAssetWriterInput)
   var assetWriterInput: AVAssetWriterInput { get }
-  func append(timedMetadataGroup: AVTimedMetadataGroup) -> Bool
+  func append(_ timedMetadataGroup: AVTimedMetadataGroup) -> Bool
 }

@@ -25,14 +25,14 @@ class AVMutableComposition : AVComposition {
   init()
 }
 extension AVMutableComposition {
-  func insert(timeRange: CMTimeRange, of asset: AVAsset, at startTime: CMTime) throws
-  func insertEmpty(timeRange: CMTimeRange)
-  func remove(timeRange: CMTimeRange)
-  func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
+  func insert(_ timeRange: CMTimeRange, of asset: AVAsset, at startTime: CMTime) throws
+  func insertEmpty(_ timeRange: CMTimeRange)
+  func remove(_ timeRange: CMTimeRange)
+  func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableComposition {
-  func addMutableTrack(mediaType mediaType: String, preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
-  func removeTrack(track: AVCompositionTrack)
+  func addMutableTrack(mediaType mediaType: String, preferredTrackID preferredTrackID: CMPersistentTrackID) -> AVMutableCompositionTrack
+  func removeTrack(_ track: AVCompositionTrack)
   func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableCompositionTrack?
 }
 extension AVMutableComposition {

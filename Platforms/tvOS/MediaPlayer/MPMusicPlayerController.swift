@@ -6,8 +6,8 @@ extension MPMusicPlayerController {
   @NSCopying var nowPlayingItem: MPMediaItem?
   @available(tvOS 5.0, *)
   var indexOfNowPlayingItem: Int { get }
-  func setQueueWith(query: MPMediaQuery)
-  func setQueueWith(itemCollection: MPMediaItemCollection)
+  func setQueueWith(_ query: MPMediaQuery)
+  func setQueueWith(_ itemCollection: MPMediaItemCollection)
   func skipToNextItem()
   func skipToBeginning()
   func skipToPreviousItem()

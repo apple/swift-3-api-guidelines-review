@@ -3,6 +3,6 @@
 class UIStoryboardPopoverSegue : UIStoryboardSegue {
   var popoverController: UIPopoverController { get }
   @available(iOS 6.0, *)
-  convenience init(identifier: String?, source: UIViewController, destination: UIViewController, performHandler: () -> Void)
-  init(identifier: String?, source: UIViewController, destination: UIViewController)
+  convenience init(identifier identifier: String?, source source: UIViewController, destination destination: UIViewController, performHandler performHandler: () -> Void)
+  init(identifier identifier: String?, source source: UIViewController, destination destination: UIViewController)
 }

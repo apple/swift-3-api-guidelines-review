@@ -5,43 +5,43 @@ let NSSplitViewControllerAutomaticDimension: CGFloat
 class NSSplitViewController : NSViewController, NSSplitViewDelegate {
   var splitView: NSSplitView
   var splitViewItems: [NSSplitViewItem]
-  func addSplitViewItem(splitViewItem: NSSplitViewItem)
-  func insertSplitViewItem(splitViewItem: NSSplitViewItem, at index: Int)
-  func removeSplitViewItem(splitViewItem: NSSplitViewItem)
+  func addSplitViewItem(_ splitViewItem: NSSplitViewItem)
+  func insertSplitViewItem(_ splitViewItem: NSSplitViewItem, at index: Int)
+  func removeSplitViewItem(_ splitViewItem: NSSplitViewItem)
   func splitViewItem(for viewController: NSViewController) -> NSSplitViewItem?
   @available(OSX 10.11, *)
   var minimumThicknessForInlineSidebars: CGFloat
   func viewDidLoad()
-  func splitView(splitView: NSSplitView, canCollapseSubview subview: NSView) -> Bool
-  func splitView(splitView: NSSplitView, shouldCollapseSubview subview: NSView, forDoubleClickOnDividerAt dividerIndex: Int) -> Bool
-  func splitView(splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool
-  func splitView(splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect
-  func splitView(splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
+  func splitView(_ splitView: NSSplitView, canCollapseSubview subview: NSView) -> Bool
+  func splitView(_ splitView: NSSplitView, shouldCollapseSubview subview: NSView, forDoubleClickOnDividerAt dividerIndex: Int) -> Bool
+  func splitView(_ splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool
+  func splitView(_ splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect
+  func splitView(_ splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
-  func splitView(splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
   @available(OSX 10.10, *)
-  func splitView(splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
   @available(OSX 10.10, *)
-  func splitView(splitView: NSSplitView, constrainSplitPosition proposedPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
+  func splitView(_ splitView: NSSplitView, constrainSplitPosition proposedPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
   @available(OSX 10.10, *)
-  func splitView(splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize)
+  func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize)
   @available(OSX 10.6, *)
-  func splitView(splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool
+  func splitView(_ splitView: NSSplitView, shouldAdjustSizeOfSubview view: NSView) -> Bool
   @available(OSX 10.10, *)
-  func splitViewWillResizeSubviews(notification: NSNotification)
+  func splitViewWillResizeSubviews(_ notification: NSNotification)
   @available(OSX 10.10, *)
-  func splitViewDidResizeSubviews(notification: NSNotification)
+  func splitViewDidResizeSubviews(_ notification: NSNotification)
 }
 extension NSSplitViewController {
   @available(OSX 10.11, *)
-  @IBAction func toggleSidebar(sender: AnyObject?)
+  @IBAction func toggleSidebar(_ sender: AnyObject?)
 }
 @available(OSX 10.11, *)
 enum NSSplitViewItemBehavior : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case sidebar
@@ -49,7 +49,7 @@ enum NSSplitViewItemBehavior : Int {
 }
 @available(OSX 10.11, *)
 enum NSSplitViewItemCollapseBehavior : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case preferResizingSplitViewWithFixedSiblings
@@ -60,7 +60,7 @@ enum NSSplitViewItemCollapseBehavior : Int {
 let NSSplitViewItemUnspecifiedDimension: CGFloat
 @available(OSX 10.10, *)
 class NSSplitViewItem : NSObject, NSAnimatablePropertyContainer, NSCoding {
-  convenience init(viewController: NSViewController)
+  convenience init(viewController viewController: NSViewController)
   @available(OSX 10.11, *)
   convenience init(sidebarWithViewController viewController: NSViewController)
   @available(OSX 10.11, *)

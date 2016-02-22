@@ -11,9 +11,9 @@ class PHAssetResourceCreationOptions : NSObject, NSCopying {
 @available(iOS 9.0, *)
 class PHAssetCreationRequest : PHAssetChangeRequest {
   class func forAsset() -> Self
-  class func supportsAssetResourceTypes(types: [NSNumber]) -> Bool
-  func addResource(type: PHAssetResourceType, fileURL: NSURL, options: PHAssetResourceCreationOptions?)
-  func addResource(type: PHAssetResourceType, data: NSData, options: PHAssetResourceCreationOptions?)
+  class func supportsAssetResourceTypes(_ types: [NSNumber]) -> Bool
+  func addResource(_ type: PHAssetResourceType, fileURL fileURL: NSURL, options options: PHAssetResourceCreationOptions?)
+  func addResource(_ type: PHAssetResourceType, data data: NSData, options options: PHAssetResourceCreationOptions?)
   convenience init(for asset: PHAsset)
   init()
 }

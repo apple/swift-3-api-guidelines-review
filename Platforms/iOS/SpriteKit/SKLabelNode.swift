@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum SKLabelVerticalAlignmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case baseline
   case center
@@ -10,14 +10,14 @@ enum SKLabelVerticalAlignmentMode : Int {
 }
 @available(iOS 7.0, *)
 enum SKLabelHorizontalAlignmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case center
   case left
   case right
 }
 class SKLabelNode : SKNode {
-  convenience init(text: String?)
+  convenience init(text text: String?)
   init(fontNamed fontName: String?)
   var verticalAlignmentMode: SKLabelVerticalAlignmentMode
   var horizontalAlignmentMode: SKLabelHorizontalAlignmentMode

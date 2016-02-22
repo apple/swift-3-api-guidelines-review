@@ -10,5 +10,5 @@ struct cssm_manager_event_notification {
   var EventId: uint32
   var EventData: CSSM_DATA
   init()
-  init(DestinationModuleManagerType: CSSM_SERVICE_MASK, SourceModuleManagerType: CSSM_SERVICE_MASK, Event: CSSM_MANAGER_EVENT_TYPES, EventId: uint32, EventData: CSSM_DATA)
+  init(DestinationModuleManagerType DestinationModuleManagerType: CSSM_SERVICE_MASK, SourceModuleManagerType SourceModuleManagerType: CSSM_SERVICE_MASK, Event Event: CSSM_MANAGER_EVENT_TYPES, EventId EventId: uint32, EventData EventData: CSSM_DATA)
 }

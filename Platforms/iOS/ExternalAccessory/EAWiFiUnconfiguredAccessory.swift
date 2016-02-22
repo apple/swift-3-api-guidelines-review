@@ -1,6 +1,6 @@
 
 struct EAWiFiUnconfiguredAccessoryProperties : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var propertySupportsAirPlay: EAWiFiUnconfiguredAccessoryProperties { get }
   static var propertySupportsAirPrint: EAWiFiUnconfiguredAccessoryProperties { get }

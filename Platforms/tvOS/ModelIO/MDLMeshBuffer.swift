@@ -1,19 +1,19 @@
 
 enum MDLMeshBufferType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case vertex
   case index
 }
 @available(tvOS 9.0, *)
 class MDLMeshBufferMap : NSObject {
-  init(bytes: UnsafeMutablePointer<Void>, deallocator: (() -> Void)? = nil)
+  init(bytes bytes: UnsafeMutablePointer<Void>, deallocator deallocator: (() -> Void)? = nil)
   var bytes: UnsafeMutablePointer<Void> { get }
   init()
 }
 @available(tvOS 9.0, *)
 protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
-  func fill(data: NSData, offset: Int)
+  func fill(_ data: NSData, offset offset: Int)
   func map() -> MDLMeshBufferMap
   var length: Int { get }
   var allocator: MDLMeshBufferAllocator { get }
@@ -21,12 +21,12 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
 }
 @available(tvOS 9.0, *)
 class MDLMeshBufferData : NSObject, MDLMeshBuffer {
-  init(type: MDLMeshBufferType, length: Int)
-  init(type: MDLMeshBufferType, data: NSData?)
+  init(type type: MDLMeshBufferType, length length: Int)
+  init(type type: MDLMeshBufferType, data data: NSData?)
   var data: NSData { get }
   init()
   @available(tvOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(_ data: NSData, offset offset: Int)
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
@@ -45,27 +45,27 @@ protocol MDLMeshBufferZone : NSObjectProtocol {
 }
 @available(tvOS 9.0, *)
 protocol MDLMeshBufferAllocator : NSObjectProtocol {
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
-  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
-  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
-  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(from zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
   init()
   @available(tvOS 9.0, *)
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 class MDLMeshBufferZoneDefault : NSObject, MDLMeshBufferZone {
   var capacity: Int { get }

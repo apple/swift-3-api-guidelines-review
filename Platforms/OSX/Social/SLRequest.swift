@@ -1,6 +1,6 @@
 
 enum SLRequestMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case GET
   case POST
@@ -10,13 +10,13 @@ enum SLRequestMethod : Int {
 typealias SLRequestHandler = (NSData!, NSHTTPURLResponse!, NSError!) -> Void
 @available(OSX 10.8, *)
 class SLRequest : NSObject {
-  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod: SLRequestMethod, url: NSURL!, parameters: [NSObject : AnyObject]!)
+  /*not inherited*/ init!(forServiceType serviceType: String!, requestMethod requestMethod: SLRequestMethod, url url: NSURL!, parameters parameters: [NSObject : AnyObject]!)
   var requestMethod: SLRequestMethod { get }
   var url: NSURL! { get }
   var parameters: [NSObject : AnyObject]! { get }
-  func addMultipartData(data: NSData!, withName name: String!, type: String!, filename: String!)
+  func addMultipartData(_ data: NSData!, withName name: String!, type type: String!, filename filename: String!)
   @available(*, deprecated)
-  func addMultipartData(data: NSData!, withName name: String!, type: String!)
+  func addMultipartData(_ data: NSData!, withName name: String!, type type: String!)
   func preparedURLRequest() -> NSURLRequest!
   func perform(handler handler: SLRequestHandler!)
   init()

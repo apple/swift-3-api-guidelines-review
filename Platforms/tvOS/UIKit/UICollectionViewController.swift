@@ -14,83 +14,83 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   var installsStandardGestureForInteractiveMovement: Bool
   convenience init()
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: NSIndexPath)
   @available(tvOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(tvOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(tvOS 7.0, *)
-  func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
+  func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   func indexPathForPreferredFocusedView(in collectionView: UICollectionView) -> NSIndexPath?
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveFromItemAt originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
+  func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
   @available(tvOS 6.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(tvOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(tvOS 6.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(tvOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(tvOS 6.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(tvOS 6.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(tvOS 6.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(tvOS 6.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(tvOS 6.0, *)
   func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(tvOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
   @available(tvOS 6.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
   @available(tvOS 6.0, *)
   func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 6.0, *)
   func scrollViewDidScroll(toTop scrollView: UIScrollView)
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: NSIndexPath) -> UICollectionViewCell
   @available(tvOS 6.0, *)
   func numberOfSections(in collectionView: UICollectionView) -> Int
   @available(tvOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: NSIndexPath) -> UICollectionReusableView
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }

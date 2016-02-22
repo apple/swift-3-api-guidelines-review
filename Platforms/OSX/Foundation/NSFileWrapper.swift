@@ -1,14 +1,14 @@
 
 @available(OSX 10.6, *)
 struct NSFileWrapperReadingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var immediate: NSFileWrapperReadingOptions { get }
   static var withoutMapping: NSFileWrapperReadingOptions { get }
 }
 @available(OSX 10.6, *)
 struct NSFileWrapperWritingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var atomic: NSFileWrapperWritingOptions { get }
   static var withNameUpdating: NSFileWrapperWritingOptions { get }
@@ -16,7 +16,7 @@ struct NSFileWrapperWritingOptions : OptionSetType {
 @available(OSX 10.0, *)
 class NSFileWrapper : NSObject, NSCoding {
   @available(OSX 10.6, *)
-  init(url: NSURL, options: NSFileWrapperReadingOptions = []) throws
+  init(url url: NSURL, options options: NSFileWrapperReadingOptions = []) throws
   init(directoryWithFileWrappers childrenByPreferredName: [String : NSFileWrapper])
   init(regularFileWithContents contents: NSData)
   @available(OSX 10.6, *)
@@ -30,15 +30,15 @@ class NSFileWrapper : NSObject, NSCoding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(OSX 10.6, *)
-  func matchesContentsOf(url: NSURL) -> Bool
+  func matchesContentsOf(_ url: NSURL) -> Bool
   @available(OSX 10.6, *)
-  func read(from url: NSURL, options: NSFileWrapperReadingOptions = []) throws
+  func read(from url: NSURL, options options: NSFileWrapperReadingOptions = []) throws
   @available(OSX 10.6, *)
-  func write(to url: NSURL, options: NSFileWrapperWritingOptions = [], originalContentsURL: NSURL?) throws
+  func write(to url: NSURL, options options: NSFileWrapperWritingOptions = [], originalContentsURL originalContentsURL: NSURL?) throws
   @NSCopying var serializedRepresentation: NSData? { get }
-  func add(child: NSFileWrapper) -> String
+  func add(_ child: NSFileWrapper) -> String
   func addRegularFile(contents data: NSData, preferredFilename fileName: String) -> String
-  func remove(child: NSFileWrapper)
+  func remove(_ child: NSFileWrapper)
   var fileWrappers: [String : NSFileWrapper]? { get }
   func key(for child: NSFileWrapper) -> String?
   @NSCopying var regularFileContents: NSData? { get }
@@ -50,7 +50,7 @@ class NSFileWrapper : NSObject, NSCoding {
 }
 extension NSFileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithURL:options:error: instead.")
-  convenience init?(path: String)
+  convenience init?(path path: String)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initSymbolicLinkWithDestinationURL: and -setPreferredFileName:, if necessary, instead.")
   convenience init(symbolicLinkWithDestination path: String)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -matchesContentsOfURL: instead.")

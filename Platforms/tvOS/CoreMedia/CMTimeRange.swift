@@ -3,23 +3,23 @@ struct CMTimeRange {
   var start: CMTime
   var duration: CMTime
   init()
-  init(start: CMTime, duration: CMTime)
+  init(start start: CMTime, duration duration: CMTime)
 }
 
 extension CMTimeRange {
-  init(start: CMTime, end: CMTime)
+  init(start start: CMTime, end end: CMTime)
   var isValid: Bool { get }
   var isIndefinite: Bool { get }
   var isEmpty: Bool { get }
   var end: CMTime { get }
   @warn_unused_result
-  func union(otherRange: CMTimeRange) -> CMTimeRange
+  func union(_ otherRange: CMTimeRange) -> CMTimeRange
   @warn_unused_result
-  func intersection(otherRange: CMTimeRange) -> CMTimeRange
+  func intersection(_ otherRange: CMTimeRange) -> CMTimeRange
   @warn_unused_result
-  func containsTime(time: CMTime) -> Bool
+  func containsTime(_ time: CMTime) -> Bool
   @warn_unused_result
-  func containsTimeRange(range: CMTimeRange) -> Bool
+  func containsTimeRange(_ range: CMTimeRange) -> Bool
 }
 
 extension CMTimeRange : Equatable {
@@ -29,60 +29,60 @@ let kCMTimeRangeZero: CMTimeRange
 @available(tvOS 4.0, *)
 let kCMTimeRangeInvalid: CMTimeRange
 @available(tvOS 4.0, *)
-func CMTimeRangeMake(start: CMTime, _ duration: CMTime) -> CMTimeRange
+func CMTimeRangeMake(_ start: CMTime, _ duration: CMTime) -> CMTimeRange
 @available(tvOS 4.0, *)
-func CMTimeRangeGetUnion(range1: CMTimeRange, _ range2: CMTimeRange) -> CMTimeRange
+func CMTimeRangeGetUnion(_ range1: CMTimeRange, _ range2: CMTimeRange) -> CMTimeRange
 @available(tvOS 4.0, *)
-func CMTimeRangeGetIntersection(range1: CMTimeRange, _ range2: CMTimeRange) -> CMTimeRange
+func CMTimeRangeGetIntersection(_ range1: CMTimeRange, _ range2: CMTimeRange) -> CMTimeRange
 @available(tvOS 4.0, *)
-func CMTimeRangeEqual(range1: CMTimeRange, _ range2: CMTimeRange) -> Bool
+func CMTimeRangeEqual(_ range1: CMTimeRange, _ range2: CMTimeRange) -> Bool
 @available(tvOS 4.0, *)
-func CMTimeRangeContainsTime(range: CMTimeRange, _ time: CMTime) -> Bool
+func CMTimeRangeContainsTime(_ range: CMTimeRange, _ time: CMTime) -> Bool
 @available(tvOS 4.0, *)
-func CMTimeRangeContainsTimeRange(range1: CMTimeRange, _ range2: CMTimeRange) -> Bool
+func CMTimeRangeContainsTimeRange(_ range1: CMTimeRange, _ range2: CMTimeRange) -> Bool
 @available(tvOS 4.0, *)
-func CMTimeRangeGetEnd(range: CMTimeRange) -> CMTime
+func CMTimeRangeGetEnd(_ range: CMTimeRange) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMapTimeFromRangeToRange(t: CMTime, _ fromRange: CMTimeRange, _ toRange: CMTimeRange) -> CMTime
+func CMTimeMapTimeFromRangeToRange(_ t: CMTime, _ fromRange: CMTimeRange, _ toRange: CMTimeRange) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeClampToRange(time: CMTime, _ range: CMTimeRange) -> CMTime
+func CMTimeClampToRange(_ time: CMTime, _ range: CMTimeRange) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMapDurationFromRangeToRange(dur: CMTime, _ fromRange: CMTimeRange, _ toRange: CMTimeRange) -> CMTime
+func CMTimeMapDurationFromRangeToRange(_ dur: CMTime, _ fromRange: CMTimeRange, _ toRange: CMTimeRange) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeRangeFromTimeToTime(start: CMTime, _ end: CMTime) -> CMTimeRange
+func CMTimeRangeFromTimeToTime(_ start: CMTime, _ end: CMTime) -> CMTimeRange
 @available(tvOS 4.0, *)
-func CMTimeRangeCopyAsDictionary(range: CMTimeRange, _ allocator: CFAllocator?) -> CFDictionary?
+func CMTimeRangeCopyAsDictionary(_ range: CMTimeRange, _ allocator: CFAllocator?) -> CFDictionary?
 @available(tvOS 4.0, *)
-func CMTimeRangeMakeFromDictionary(dict: CFDictionary) -> CMTimeRange
+func CMTimeRangeMakeFromDictionary(_ dict: CFDictionary) -> CMTimeRange
 @available(tvOS 4.0, *)
 let kCMTimeRangeStartKey: CFString
 @available(tvOS 4.0, *)
 let kCMTimeRangeDurationKey: CFString
 @available(tvOS 4.0, *)
-func CMTimeRangeCopyDescription(allocator: CFAllocator?, _ range: CMTimeRange) -> CFString?
+func CMTimeRangeCopyDescription(_ allocator: CFAllocator?, _ range: CMTimeRange) -> CFString?
 @available(tvOS 4.0, *)
-func CMTimeRangeShow(range: CMTimeRange)
+func CMTimeRangeShow(_ range: CMTimeRange)
 struct CMTimeMapping {
   var source: CMTimeRange
   var target: CMTimeRange
   init()
-  init(source: CMTimeRange, target: CMTimeRange)
+  init(source source: CMTimeRange, target target: CMTimeRange)
 }
 @available(tvOS 9.0, *)
 let kCMTimeMappingInvalid: CMTimeMapping
 @available(tvOS 9.0, *)
-func CMTimeMappingMake(source: CMTimeRange, _ target: CMTimeRange) -> CMTimeMapping
+func CMTimeMappingMake(_ source: CMTimeRange, _ target: CMTimeRange) -> CMTimeMapping
 @available(tvOS 9.0, *)
-func CMTimeMappingMakeEmpty(target: CMTimeRange) -> CMTimeMapping
+func CMTimeMappingMakeEmpty(_ target: CMTimeRange) -> CMTimeMapping
 @available(tvOS 9.0, *)
-func CMTimeMappingCopyAsDictionary(mapping: CMTimeMapping, _ allocator: CFAllocator?) -> CFDictionary?
+func CMTimeMappingCopyAsDictionary(_ mapping: CMTimeMapping, _ allocator: CFAllocator?) -> CFDictionary?
 @available(tvOS 9.0, *)
-func CMTimeMappingMakeFromDictionary(dict: CFDictionary) -> CMTimeMapping
+func CMTimeMappingMakeFromDictionary(_ dict: CFDictionary) -> CMTimeMapping
 @available(tvOS 9.0, *)
 let kCMTimeMappingSourceKey: CFString
 @available(tvOS 9.0, *)
 let kCMTimeMappingTargetKey: CFString
 @available(tvOS 9.0, *)
-func CMTimeMappingCopyDescription(allocator: CFAllocator?, _ mapping: CMTimeMapping) -> CFString?
+func CMTimeMappingCopyDescription(_ allocator: CFAllocator?, _ mapping: CMTimeMapping) -> CFString?
 @available(tvOS 9.0, *)
-func CMTimeMappingShow(mapping: CMTimeMapping)
+func CMTimeMappingShow(_ mapping: CMTimeMapping)

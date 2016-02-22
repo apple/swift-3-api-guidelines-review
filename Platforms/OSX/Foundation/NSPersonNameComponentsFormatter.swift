@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NSPersonNameComponentsFormatterStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case short
@@ -11,7 +11,7 @@ enum NSPersonNameComponentsFormatterStyle : Int {
 }
 @available(OSX 10.11, *)
 struct NSPersonNameComponentsFormatterOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var phonetic: NSPersonNameComponentsFormatterOptions { get }
 }
@@ -22,7 +22,7 @@ class NSPersonNameComponentsFormatter : NSFormatter {
   class func localizedString(from components: NSPersonNameComponents, style nameFormatStyle: NSPersonNameComponentsFormatterStyle, options nameOptions: NSPersonNameComponentsFormatterOptions = []) -> String
   func string(from components: NSPersonNameComponents) -> String
   func annotatedString(from components: NSPersonNameComponents) -> NSAttributedString
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: NSCoder)
 }

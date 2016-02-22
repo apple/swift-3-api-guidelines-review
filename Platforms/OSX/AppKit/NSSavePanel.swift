@@ -31,7 +31,7 @@ struct __SPFlags {
   var canResolveUbiquitousConflicts: UInt32
   var reserved: UInt32
   init()
-  init(saveMode: UInt32, isExpanded: UInt32, allowsOtherFileTypes: UInt32, canCreateDirectories: UInt32, canSelectedHiddenExtension: UInt32, reserved2: UInt32, delegate_shouldShowFilename: UInt32, delegate_compareFilename: UInt32, delegate_shouldEnableURL: UInt32, delegate_validateURL: UInt32, delegate_didChangeToDirectoryURL: UInt32, changingFrameSize: UInt32, movingAccessoryView: UInt32, userAccessoryViewFrameChange: UInt32, canChooseDirectories: UInt32, canChooseFiles: UInt32, delegate_selectionDidChange: UInt32, delegate_didChangeToDirectory: UInt32, calledWindowOrderedIn: UInt32, appCentric: UInt32, bottomControlsDisabled: UInt32, okButtonDisabled: UInt32, accessoryViewDisclosed: UInt32, delegate_isValidFilename: UInt32, delegate_userEnteredFilename: UInt32, delegate_panel_willExpand: UInt32, canResolveUbiquitousConflicts: UInt32, reserved: UInt32)
+  init(saveMode saveMode: UInt32, isExpanded isExpanded: UInt32, allowsOtherFileTypes allowsOtherFileTypes: UInt32, canCreateDirectories canCreateDirectories: UInt32, canSelectedHiddenExtension canSelectedHiddenExtension: UInt32, reserved2 reserved2: UInt32, delegate_shouldShowFilename delegate_shouldShowFilename: UInt32, delegate_compareFilename delegate_compareFilename: UInt32, delegate_shouldEnableURL delegate_shouldEnableURL: UInt32, delegate_validateURL delegate_validateURL: UInt32, delegate_didChangeToDirectoryURL delegate_didChangeToDirectoryURL: UInt32, changingFrameSize changingFrameSize: UInt32, movingAccessoryView movingAccessoryView: UInt32, userAccessoryViewFrameChange userAccessoryViewFrameChange: UInt32, canChooseDirectories canChooseDirectories: UInt32, canChooseFiles canChooseFiles: UInt32, delegate_selectionDidChange delegate_selectionDidChange: UInt32, delegate_didChangeToDirectory delegate_didChangeToDirectory: UInt32, calledWindowOrderedIn calledWindowOrderedIn: UInt32, appCentric appCentric: UInt32, bottomControlsDisabled bottomControlsDisabled: UInt32, okButtonDisabled okButtonDisabled: UInt32, accessoryViewDisclosed accessoryViewDisclosed: UInt32, delegate_isValidFilename delegate_isValidFilename: UInt32, delegate_userEnteredFilename delegate_userEnteredFilename: UInt32, delegate_panel_willExpand delegate_panel_willExpand: UInt32, canResolveUbiquitousConflicts canResolveUbiquitousConflicts: UInt32, reserved reserved: UInt32)
 }
 typealias _SPFlags = __SPFlags
 class NSSavePanel : NSPanel {
@@ -59,31 +59,31 @@ class NSSavePanel : NSPanel {
   var showsTagField: Bool
   @available(OSX 10.9, *)
   var tagNames: [String]?
-  @IBAction func ok(sender: AnyObject?)
-  @IBAction func cancel(sender: AnyObject?)
+  @IBAction func ok(_ sender: AnyObject?)
+  @IBAction func cancel(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   func beginSheetModal(for window: NSWindow, completionHandler handler: (Int) -> Void)
   @available(OSX 10.6, *)
   func begin(completionHandler handler: (Int) -> Void)
   func runModal() -> Int
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
   @available(OSX 10.10, *)
-  convenience init(contentViewController: NSViewController)
+  convenience init(contentViewController contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
-  convenience init?(windowRef: UnsafeMutablePointer<Void>)
+  init?(coder coder: NSCoder)
+  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
 }
 protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, shouldEnable url: NSURL) -> Bool
+  optional func panel(_ sender: AnyObject, shouldEnable url: NSURL) -> Bool
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, validate url: NSURL) throws
+  optional func panel(_ sender: AnyObject, validate url: NSURL) throws
   @available(OSX 10.6, *)
-  optional func panel(sender: AnyObject, didChangeToDirectoryURL url: NSURL?)
-  optional func panel(sender: AnyObject, userEnteredFilename filename: String, confirmed okFlag: Bool) -> String?
-  optional func panel(sender: AnyObject, willExpand expanding: Bool)
-  optional func panelSelectionDidChange(sender: AnyObject?)
+  optional func panel(_ sender: AnyObject, didChangeToDirectoryURL url: NSURL?)
+  optional func panel(_ sender: AnyObject, userEnteredFilename filename: String, confirmed okFlag: Bool) -> String?
+  optional func panel(_ sender: AnyObject, willExpand expanding: Bool)
+  optional func panelSelectionDidChange(_ sender: AnyObject?)
 }
 extension NSObject {
 }

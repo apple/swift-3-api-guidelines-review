@@ -4,11 +4,11 @@ class AMWorkflow : NSObject, NSCopying {
   init()
   convenience init(contentsOf fileURL: NSURL) throws
   func write(to fileURL: NSURL) throws
-  func setValue(value: AnyObject?, forVariableWithName variableName: String) -> Bool
+  func setValue(_ value: AnyObject?, forVariableWithName variableName: String) -> Bool
   func valueForVariable(withName variableName: String) -> AnyObject
-  func addAction(action: AMAction)
-  func removeAction(action: AMAction)
-  func insertAction(action: AMAction, at index: Int)
+  func addAction(_ action: AMAction)
+  func removeAction(_ action: AMAction)
+  func insertAction(_ action: AMAction, at index: Int)
   func moveAction(at startIndex: Int, to endIndex: Int)
   @NSCopying var fileURL: NSURL? { get }
   var actions: [AMAction] { get }

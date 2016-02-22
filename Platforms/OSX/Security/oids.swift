@@ -5,7 +5,7 @@ struct DERItem {
   var data: UnsafeMutablePointer<DERByte>
   var length: DERSize
   init()
-  init(data: UnsafeMutablePointer<DERByte>, length: DERSize)
+  init(data data: UnsafeMutablePointer<DERByte>, length length: DERSize)
 }
 let oidRsa: DERItem
 let oidMd2Rsa: DERItem

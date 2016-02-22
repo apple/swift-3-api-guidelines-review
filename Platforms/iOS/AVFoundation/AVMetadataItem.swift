@@ -45,7 +45,7 @@ extension AVMetadataItem {
 }
 extension AVMetadataItem {
   @available(iOS 8.0, *)
-  class func identifier(forKey key: AnyObject, keySpace: String) -> String?
+  class func identifier(forKey key: AnyObject, keySpace keySpace: String) -> String?
   @available(iOS 8.0, *)
   class func keySpace(forIdentifier identifier: String) -> String?
   @available(iOS 8.0, *)
@@ -86,7 +86,7 @@ extension AVMetadataItem {
 class AVMetadataItemValueRequest : NSObject {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
   func respond(withValue value: protocol<NSCopying, NSObjectProtocol>)
-  func respondWithError(error: NSError)
+  func respondWithError(_ error: NSError)
   init()
 }
 @available(iOS 7.0, *)
@@ -96,5 +96,5 @@ class AVMetadataItemFilter : NSObject {
 }
 extension AVMetadataItem {
   class func metadataItems(from metadataItems: [AVMetadataItem], with locale: NSLocale) -> [AVMetadataItem]
-  class func metadataItems(from metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace: String?) -> [AVMetadataItem]
+  class func metadataItems(from metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace keySpace: String?) -> [AVMetadataItem]
 }

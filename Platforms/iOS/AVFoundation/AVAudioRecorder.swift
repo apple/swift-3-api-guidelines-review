@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 class AVAudioRecorder : NSObject {
-  init(url: NSURL, settings: [String : AnyObject]) throws
+  init(url url: NSURL, settings settings: [String : AnyObject]) throws
   func prepareToRecord() -> Bool
   func record() -> Bool
   @available(iOS 6.0, *)
@@ -29,11 +29,11 @@ class AVAudioRecorder : NSObject {
 }
 protocol AVAudioRecorderDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool)
+  optional func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool)
   @available(iOS 3.0, *)
-  optional func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?)
+  optional func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error error: NSError?)
   @available(iOS, introduced=2.2, deprecated=8.0)
-  optional func audioRecorderBeginInterruption(recorder: AVAudioRecorder)
+  optional func audioRecorderBeginInterruption(_ recorder: AVAudioRecorder)
   @available(iOS, introduced=6.0, deprecated=8.0)
-  optional func audioRecorderEndInterruption(recorder: AVAudioRecorder, withOptions flags: Int)
+  optional func audioRecorderEndInterruption(_ recorder: AVAudioRecorder, withOptions flags: Int)
 }

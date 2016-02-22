@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum MTLSamplerMinMagFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case nearest
   case linear
 }
 @available(OSX 10.11, *)
 enum MTLSamplerMipFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notMipmapped
   case nearest
@@ -16,7 +16,7 @@ enum MTLSamplerMipFilter : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLSamplerAddressMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case clampToEdge
   @available(OSX 10.11, *)

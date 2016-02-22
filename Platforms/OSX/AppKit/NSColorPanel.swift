@@ -1,6 +1,6 @@
 
 enum NSColorPanelMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.5, *)
   case NSNoModeColorPanel
@@ -14,7 +14,7 @@ enum NSColorPanelMode : Int {
   case NSCrayonModeColorPanel
 }
 struct NSColorPanelOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var grayModeMask: NSColorPanelOptions { get }
   static var rgbModeMask: NSColorPanelOptions { get }
@@ -29,32 +29,32 @@ struct NSColorPanelOptions : OptionSetType {
 class NSColorPanel : NSPanel {
   class func shared() -> NSColorPanel
   class func sharedColorPanelExists() -> Bool
-  class func drag(color: NSColor, with theEvent: NSEvent, from sourceView: NSView) -> Bool
-  class func setPickerMask(mask: NSColorPanelOptions)
-  class func setPickerMode(mode: NSColorPanelMode)
+  class func drag(_ color: NSColor, with theEvent: NSEvent, from sourceView: NSView) -> Bool
+  class func setPickerMask(_ mask: NSColorPanelOptions)
+  class func setPickerMode(_ mode: NSColorPanelMode)
   var accessoryView: NSView?
   var isContinuous: Bool
   var showsAlpha: Bool
   var mode: NSColorPanelMode
   @NSCopying var color: NSColor
   var alpha: CGFloat { get }
-  func setAction(aSelector: Selector)
-  func setTarget(anObject: AnyObject?)
-  func attach(colorList: NSColorList)
-  func detach(colorList: NSColorList)
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  func setAction(_ aSelector: Selector)
+  func setTarget(_ anObject: AnyObject?)
+  func attach(_ colorList: NSColorList)
+  func detach(_ colorList: NSColorList)
+  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
   @available(OSX 10.10, *)
-  convenience init(contentViewController: NSViewController)
+  convenience init(contentViewController contentViewController: NSViewController)
   convenience init()
-  init?(coder: NSCoder)
-  convenience init?(windowRef: UnsafeMutablePointer<Void>)
+  init?(coder coder: NSCoder)
+  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
 }
 extension NSApplication {
-  func orderFrontColorPanel(sender: AnyObject?)
+  func orderFrontColorPanel(_ sender: AnyObject?)
 }
 extension NSObject {
-  class func changeColor(sender: AnyObject?)
-  func changeColor(sender: AnyObject?)
+  class func changeColor(_ sender: AnyObject?)
+  func changeColor(_ sender: AnyObject?)
 }
 let NSColorPanelColorDidChangeNotification: String

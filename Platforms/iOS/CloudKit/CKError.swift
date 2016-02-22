@@ -13,7 +13,7 @@ let CKRecordChangedErrorClientRecordKey: String
 let CKErrorRetryAfterKey: String
 @available(iOS 8.0, *)
 enum CKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case internalError
   case partialFailure

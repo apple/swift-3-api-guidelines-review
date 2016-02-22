@@ -1,9 +1,9 @@
 
 @available(iOS 2.0, *)
 class UIImageView : UIView {
-  init(image: UIImage?)
+  init(image image: UIImage?)
   @available(iOS 3.0, *)
-  init(image: UIImage?, highlightedImage: UIImage?)
+  init(image image: UIImage?, highlightedImage highlightedImage: UIImage?)
   var image: UIImage?
   @available(iOS 3.0, *)
   var highlightedImage: UIImage?
@@ -20,7 +20,7 @@ class UIImageView : UIView {
   func startAnimating()
   func stopAnimating()
   func isAnimating() -> Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

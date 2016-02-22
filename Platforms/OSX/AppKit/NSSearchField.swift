@@ -1,9 +1,9 @@
 
 protocol NSSearchFieldDelegate : NSTextFieldDelegate {
   @available(OSX 10.11, *)
-  optional func searchFieldDidStartSearching(sender: NSSearchField)
+  optional func searchFieldDidStartSearching(_ sender: NSSearchField)
   @available(OSX 10.11, *)
-  optional func searchFieldDidEndSearching(sender: NSSearchField)
+  optional func searchFieldDidEndSearching(_ sender: NSSearchField)
 }
 class NSSearchField : NSTextField {
   @available(OSX 10.11, *)
@@ -27,6 +27,6 @@ class NSSearchField : NSTextField {
   @available(OSX 10.11, *)
   var centersPlaceholder: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

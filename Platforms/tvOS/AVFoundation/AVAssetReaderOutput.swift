@@ -17,7 +17,7 @@ extension AVAssetReaderOutput {
 }
 @available(tvOS 4.1, *)
 class AVAssetReaderTrackOutput : AVAssetReaderOutput {
-  init(track: AVAssetTrack, outputSettings: [String : AnyObject]?)
+  init(track track: AVAssetTrack, outputSettings outputSettings: [String : AnyObject]?)
   var track: AVAssetTrack { get }
   var outputSettings: [String : AnyObject]? { get }
   @available(tvOS 7.0, *)
@@ -25,7 +25,7 @@ class AVAssetReaderTrackOutput : AVAssetReaderOutput {
 }
 @available(tvOS 4.1, *)
 class AVAssetReaderAudioMixOutput : AVAssetReaderOutput {
-  init(audioTracks: [AVAssetTrack], audioSettings: [String : AnyObject]?)
+  init(audioTracks audioTracks: [AVAssetTrack], audioSettings audioSettings: [String : AnyObject]?)
   var audioTracks: [AVAssetTrack] { get }
   var audioSettings: [String : AnyObject]? { get }
   @NSCopying var audioMix: AVAudioMix?
@@ -34,7 +34,7 @@ class AVAssetReaderAudioMixOutput : AVAssetReaderOutput {
 }
 @available(tvOS 4.1, *)
 class AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
-  init(videoTracks: [AVAssetTrack], videoSettings: [String : AnyObject]?)
+  init(videoTracks videoTracks: [AVAssetTrack], videoSettings videoSettings: [String : AnyObject]?)
   var videoTracks: [AVAssetTrack] { get }
   var videoSettings: [String : AnyObject]? { get }
   @NSCopying var videoComposition: AVVideoComposition?
@@ -49,6 +49,6 @@ class AVAssetReaderOutputMetadataAdaptor : NSObject {
 }
 @available(tvOS 8.0, *)
 class AVAssetReaderSampleReferenceOutput : AVAssetReaderOutput {
-  init(track: AVAssetTrack)
+  init(track track: AVAssetTrack)
   var track: AVAssetTrack { get }
 }

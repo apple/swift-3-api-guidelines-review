@@ -1,7 +1,7 @@
 
 struct JSType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kJSTypeUndefined: JSType { get }
@@ -10,33 +10,33 @@ var kJSTypeBoolean: JSType { get }
 var kJSTypeNumber: JSType { get }
 var kJSTypeString: JSType { get }
 var kJSTypeObject: JSType { get }
-func JSValueGetType(ctx: JSContextRef, _: JSValueRef) -> JSType
-func JSValueIsUndefined(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsNull(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsBoolean(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsNumber(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsString(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsObject(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsObjectOfClass(ctx: JSContextRef, _ value: JSValueRef, _ jsClass: JSClassRef) -> Bool
+func JSValueGetType(_ ctx: JSContextRef, _ _: JSValueRef) -> JSType
+func JSValueIsUndefined(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsNull(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsBoolean(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsNumber(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsString(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsObject(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsObjectOfClass(_ ctx: JSContextRef, _ value: JSValueRef, _ jsClass: JSClassRef) -> Bool
 @available(OSX 10.11, *)
-func JSValueIsArray(ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsArray(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
 @available(OSX 10.11, *)
-func JSValueIsDate(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueIsEqual(ctx: JSContextRef, _ a: JSValueRef, _ b: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
-func JSValueIsStrictEqual(ctx: JSContextRef, _ a: JSValueRef, _ b: JSValueRef) -> Bool
-func JSValueIsInstanceOfConstructor(ctx: JSContextRef, _ value: JSValueRef, _ constructor: JSObjectRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
-func JSValueMakeUndefined(ctx: JSContextRef) -> JSValueRef
-func JSValueMakeNull(ctx: JSContextRef) -> JSValueRef
-func JSValueMakeBoolean(ctx: JSContextRef, _ boolean: Bool) -> JSValueRef
-func JSValueMakeNumber(ctx: JSContextRef, _ number: Double) -> JSValueRef
-func JSValueMakeString(ctx: JSContextRef, _ string: JSStringRef) -> JSValueRef
+func JSValueIsDate(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueIsEqual(_ ctx: JSContextRef, _ a: JSValueRef, _ b: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
+func JSValueIsStrictEqual(_ ctx: JSContextRef, _ a: JSValueRef, _ b: JSValueRef) -> Bool
+func JSValueIsInstanceOfConstructor(_ ctx: JSContextRef, _ value: JSValueRef, _ constructor: JSObjectRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
+func JSValueMakeUndefined(_ ctx: JSContextRef) -> JSValueRef
+func JSValueMakeNull(_ ctx: JSContextRef) -> JSValueRef
+func JSValueMakeBoolean(_ ctx: JSContextRef, _ boolean: Bool) -> JSValueRef
+func JSValueMakeNumber(_ ctx: JSContextRef, _ number: Double) -> JSValueRef
+func JSValueMakeString(_ ctx: JSContextRef, _ string: JSStringRef) -> JSValueRef
 @available(OSX 10.7, *)
-func JSValueMakeFromJSONString(ctx: JSContextRef, _ string: JSStringRef) -> JSValueRef
+func JSValueMakeFromJSONString(_ ctx: JSContextRef, _ string: JSStringRef) -> JSValueRef
 @available(OSX 10.7, *)
-func JSValueCreateJSONString(ctx: JSContextRef, _ value: JSValueRef, _ indent: UInt32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSStringRef
-func JSValueToBoolean(ctx: JSContextRef, _ value: JSValueRef) -> Bool
-func JSValueToNumber(ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Double
-func JSValueToStringCopy(ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSStringRef
-func JSValueToObject(ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
-func JSValueProtect(ctx: JSContextRef, _ value: JSValueRef)
-func JSValueUnprotect(ctx: JSContextRef, _ value: JSValueRef)
+func JSValueCreateJSONString(_ ctx: JSContextRef, _ value: JSValueRef, _ indent: UInt32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSStringRef
+func JSValueToBoolean(_ ctx: JSContextRef, _ value: JSValueRef) -> Bool
+func JSValueToNumber(_ ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Double
+func JSValueToStringCopy(_ ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSStringRef
+func JSValueToObject(_ ctx: JSContextRef, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSValueProtect(_ ctx: JSContextRef, _ value: JSValueRef)
+func JSValueUnprotect(_ ctx: JSContextRef, _ value: JSValueRef)

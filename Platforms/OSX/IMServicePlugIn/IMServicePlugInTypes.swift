@@ -5,7 +5,7 @@ let IMAccountSettingLoginHandle: String
 let IMAccountSettingPassword: String
 let IMAccountSettingUsesSSL: String
 enum IMSessionAvailability : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case away
   case available
@@ -16,7 +16,7 @@ let IMSessionPropertyPictureData: String
 let IMSessionPropertyIdleDate: String
 let IMSessionPropertyIsInvisible: String
 enum IMGroupListPermissions : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case canReorderGroup
   case canRenameGroup
@@ -29,7 +29,7 @@ let IMGroupListNameKey: String
 let IMGroupListPermissionsKey: String
 let IMGroupListHandlesKey: String
 enum IMHandleAvailability : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case offline
@@ -37,7 +37,7 @@ enum IMHandleAvailability : Int {
   case available
 }
 enum IMHandleAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case accepted
   case pending

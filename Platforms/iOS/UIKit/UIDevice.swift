@@ -1,6 +1,6 @@
 
 enum UIDeviceOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case portrait
@@ -18,7 +18,7 @@ extension UIDeviceOrientation {
   var isValidInterfaceOrientation: Bool { get }
 }
 enum UIDeviceBatteryState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case unplugged
@@ -26,7 +26,7 @@ enum UIDeviceBatteryState : Int {
   case full
 }
 enum UIUserInterfaceIdiom : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   @available(iOS 3.2, *)
@@ -36,8 +36,8 @@ enum UIUserInterfaceIdiom : Int {
   @available(iOS 9.0, *)
   case TV
 }
-func UIDeviceOrientationIsPortrait(orientation: UIDeviceOrientation) -> Bool
-func UIDeviceOrientationIsLandscape(orientation: UIDeviceOrientation) -> Bool
+func UIDeviceOrientationIsPortrait(_ orientation: UIDeviceOrientation) -> Bool
+func UIDeviceOrientationIsLandscape(_ orientation: UIDeviceOrientation) -> Bool
 @available(iOS 2.0, *)
 class UIDevice : NSObject {
   class func current() -> UIDevice

@@ -3,11 +3,11 @@ protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle
   @available(iOS 8.3, *)
-  optional func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection traitCollection: UITraitCollection) -> UIModalPresentationStyle
   @available(iOS 8.0, *)
-  optional func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
+  optional func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
   @available(iOS 8.3, *)
-  optional func presentationController(presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator: UIViewControllerTransitionCoordinator?)
+  optional func presentationController(_ presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator transitionCoordinator: UIViewControllerTransitionCoordinator?)
 }
 @available(iOS 8.0, *)
 class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
@@ -16,7 +16,7 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   var presentationStyle: UIModalPresentationStyle { get }
   var containerView: UIView? { get }
   weak var delegate: @sil_weak UIAdaptivePresentationControllerDelegate?
-  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
+  init(presentedViewController presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   func adaptivePresentationStyle() -> UIModalPresentationStyle
   @available(iOS 8.3, *)
   func adaptivePresentationStyle(for traitCollection: UITraitCollection) -> UIModalPresentationStyle
@@ -27,15 +27,15 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   func shouldPresentInFullscreen() -> Bool
   func shouldRemovePresentersView() -> Bool
   func presentationTransitionWillBegin()
-  func presentationTransitionDidEnd(completed: Bool)
+  func presentationTransitionDidEnd(_ completed: Bool)
   func dismissalTransitionWillBegin()
-  func dismissalTransitionDidEnd(completed: Bool)
+  func dismissalTransitionDidEnd(_ completed: Bool)
   @NSCopying var overrideTraitCollection: UITraitCollection?
   init()
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)

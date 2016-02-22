@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 enum NSTextFinderAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case showFindInterface
   case nextMatch
@@ -23,7 +23,7 @@ let NSTextFinderCaseInsensitiveKey: String
 let NSTextFinderMatchingTypeKey: String
 @available(OSX 10.7, *)
 enum NSTextFinderMatchingType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case contains
   case startsWith
@@ -34,8 +34,8 @@ enum NSTextFinderMatchingType : Int {
 class NSTextFinder : NSObject, NSCoding {
   init()
   @IBOutlet unowned(unsafe) var client: @sil_unmanaged NSTextFinderClient?
-  func perform(op: NSTextFinderAction)
-  func validate(op: NSTextFinderAction) -> Bool
+  func perform(_ op: NSTextFinderAction)
+  func validate(_ op: NSTextFinderAction) -> Bool
   @IBOutlet unowned(unsafe) var findBarContainer: @sil_unmanaged NSTextFinderBarContainer?
   func cancelFindIndicator()
   var findIndicatorNeedsUpdate: Bool
@@ -57,7 +57,7 @@ protocol NSTextFinderClient : NSObjectProtocol {
   optional func stringLength() -> Int
   optional var firstSelectedRange: NSRange { get }
   optional var selectedRanges: [NSValue] { get set }
-  optional func scrollRangeToVisible(range: NSRange)
+  optional func scrollRangeToVisible(_ range: NSRange)
   optional func shouldReplaceCharacters(inRanges ranges: [NSValue], with strings: [String]) -> Bool
   optional func replaceCharacters(in range: NSRange, with string: String)
   optional func didReplaceCharacters()

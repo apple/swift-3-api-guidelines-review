@@ -5,7 +5,7 @@ class HMServiceGroup : NSObject {
   var services: [HMService] { get }
   @available(iOS 9.0, *)
   @NSCopying var uniqueIdentifier: NSUUID { get }
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
-  func addService(service: HMService, completionHandler completion: (NSError?) -> Void)
-  func removeService(service: HMService, completionHandler completion: (NSError?) -> Void)
+  func updateName(_ name: String, completionHandler completion: (NSError?) -> Void)
+  func addService(_ service: HMService, completionHandler completion: (NSError?) -> Void)
+  func removeService(_ service: HMService, completionHandler completion: (NSError?) -> Void)
 }

@@ -1,17 +1,17 @@
 
 protocol UIKeyInput : UITextInputTraits {
   func hasText() -> Bool
-  func insertText(text: String)
+  func insertText(_ text: String)
   func deleteBackward()
 }
 enum UITextStorageDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case forward
   case backward
 }
 enum UITextLayoutDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case right
   case left
@@ -20,14 +20,14 @@ enum UITextLayoutDirection : Int {
 }
 typealias UITextDirection = Int
 enum UITextWritingDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case natural
   case leftToRight
   case rightToLeft
 }
 enum UITextGranularity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case character
   case word
@@ -53,14 +53,14 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replace(range: UITextRange, withText text: String)
+  func replace(_ range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange? { get set }
   @available(iOS 3.2, *)
   var markedTextRange: UITextRange? { get }
   @available(iOS 2.0, *)
   var markedTextStyle: [NSObject : AnyObject]? { get set }
-  func setMarkedText(markedText: String?, selectedRange: NSRange)
+  func setMarkedText(_ markedText: String?, selectedRange selectedRange: NSRange)
   func unmarkText()
   @available(iOS 3.2, *)
   var beginningOfDocument: UITextPosition { get }
@@ -69,11 +69,11 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(_ position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   weak var inputDelegate: @sil_weak UITextInputDelegate? { get set }
@@ -85,7 +85,7 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, for range: UITextRange)
+  func setBaseWritingDirection(_ writingDirection: UITextWritingDirection, for range: UITextRange)
   @available(iOS 3.2, *)
   func firstRect(for range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
@@ -105,17 +105,17 @@ protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
   optional func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  optional func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  optional func characterOffsetOf(_ position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   optional var textInputView: UIView { get }
   optional var selectionAffinity: UITextStorageDirection { get set }
   @available(iOS 5.1, *)
-  optional func insertDictationResult(dictationResult: [UIDictationPhrase])
+  optional func insertDictationResult(_ dictationResult: [UIDictationPhrase])
   optional func dictationRecordingDidEnd()
   optional func dictationRecognitionFailed()
   optional func insertDictationResultPlaceholder() -> AnyObject
   optional func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
-  optional func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
+  optional func removeDictationResultPlaceholder(_ placeholder: AnyObject, willInsertResult willInsertResult: Bool)
   @available(iOS 9.0, *)
   optional func beginFloatingCursor(at point: CGPoint)
   @available(iOS 9.0, *)
@@ -150,33 +150,33 @@ class UITextSelectionRect : NSObject {
   init()
 }
 protocol UITextInputDelegate : NSObjectProtocol {
-  func selectionWillChange(textInput: UITextInput?)
-  func selectionDidChange(textInput: UITextInput?)
-  func textWillChange(textInput: UITextInput?)
-  func textDidChange(textInput: UITextInput?)
+  func selectionWillChange(_ textInput: UITextInput?)
+  func selectionDidChange(_ textInput: UITextInput?)
+  func textWillChange(_ textInput: UITextInput?)
+  func textDidChange(_ textInput: UITextInput?)
 }
 protocol UITextInputTokenizer : NSObjectProtocol {
   @available(iOS 3.2, *)
-  func rangeEnclosingPosition(position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
+  func rangeEnclosingPosition(_ position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
+  func isPosition(_ position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
   func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
+  func isPosition(_ position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
 @available(iOS 3.2, *)
 class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
-  init(textInput: UIResponder)
+  init(textInput textInput: UIResponder)
   init()
   @available(iOS 3.2, *)
-  func rangeEnclosingPosition(position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
+  func rangeEnclosingPosition(_ position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func isPosition(position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
+  func isPosition(_ position: UITextPosition, atBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
   @available(iOS 3.2, *)
   func position(from position: UITextPosition, toBoundary granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func isPosition(position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
+  func isPosition(_ position: UITextPosition, withinTextUnit granularity: UITextGranularity, inDirection direction: UITextDirection) -> Bool
 }
 @available(iOS 4.2, *)
 class UITextInputMode : NSObject, NSSecureCoding {

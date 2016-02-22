@@ -10,14 +10,14 @@ let SCNHitTestRootNodeKey: String
 let SCNHitTestIgnoreHiddenNodesKey: String
 @available(tvOS 9.0, *)
 enum SCNRenderingAPI : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case metal
   case openGLES2
 }
 @available(tvOS 9.0, *)
 struct SCNDebugOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: SCNDebugOptions { get }
   static var showPhysicsShapes: SCNDebugOptions { get }
@@ -47,15 +47,15 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var sceneTime: NSTimeInterval { get set }
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate? { get set }
   @available(tvOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(tvOS 8.0, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(tvOS 9.0, *)
   func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(tvOS 8.0, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(tvOS 8.0, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   var isPlaying: Bool { get set }
   var loops: Bool { get set }
   @available(tvOS 8.0, *)
@@ -63,9 +63,9 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var autoenablesDefaultLighting: Bool { get set }
   var isJitteringEnabled: Bool { get set }
   @available(tvOS 8.0, *)
-  func prepare(object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
+  func prepare(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(tvOS 8.0, *)
-  func prepare(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(tvOS 8.0, *)
   var showsStatistics: Bool { get set }
   @available(tvOS 9.0, *)
@@ -90,13 +90,13 @@ protocol SCNSceneRenderer : NSObjectProtocol {
 }
 protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
   @available(tvOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
 }

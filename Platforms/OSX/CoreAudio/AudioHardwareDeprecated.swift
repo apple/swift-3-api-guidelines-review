@@ -8,7 +8,7 @@ var kAudioPropertyWildcardChannel: AudioObjectPropertyElement { get }
 var kAudioISubOwnerControlClassID: AudioClassID { get }
 var kAudioLevelControlPropertyDecibelsToScalarTransferFunction: AudioObjectPropertySelector { get }
 enum AudioLevelControlTransferFunction : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case tranferFunctionLinear
   case tranferFunction1Over3

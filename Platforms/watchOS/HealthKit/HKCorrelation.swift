@@ -3,10 +3,10 @@
 class HKCorrelation : HKSample {
   var correlationType: HKCorrelationType { get }
   var objects: Set<HKSample> { get }
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>)
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>, metadata: [String : AnyObject]?)
+  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects objects: Set<HKSample>)
+  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects objects: Set<HKSample>, metadata metadata: [String : AnyObject]?)
   @available(watchOS 2.0, *)
-  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects: Set<HKSample>, device: HKDevice?, metadata: [String : AnyObject]?)
+  convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects objects: Set<HKSample>, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
   func objects(for objectType: HKObjectType) -> Set<HKSample>
   init?(coder aDecoder: NSCoder)
 }

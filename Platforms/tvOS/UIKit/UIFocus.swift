@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 struct UIFocusHeading : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var up: UIFocusHeading { get }
   static var down: UIFocusHeading { get }

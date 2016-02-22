@@ -1,7 +1,7 @@
 
 @available(tvOS 5.0, *)
 enum GLKViewDrawableColorFormat : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case RGBA8888
   case RGB565
@@ -9,7 +9,7 @@ enum GLKViewDrawableColorFormat : GLint {
 }
 @available(tvOS 5.0, *)
 enum GLKViewDrawableDepthFormat : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case formatNone
   case format16
@@ -17,21 +17,21 @@ enum GLKViewDrawableDepthFormat : GLint {
 }
 @available(tvOS 5.0, *)
 enum GLKViewDrawableStencilFormat : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case formatNone
   case format8
 }
 @available(tvOS 5.0, *)
 enum GLKViewDrawableMultisample : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case multisampleNone
   case multisample4X
 }
 @available(tvOS 5.0, *)
 class GLKView : UIView, NSCoding {
-  init(frame: CGRect, context: EAGLContext)
+  init(frame frame: CGRect, context context: EAGLContext)
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged GLKViewDelegate?
   var context: EAGLContext
   var drawableWidth: Int { get }
@@ -45,11 +45,11 @@ class GLKView : UIView, NSCoding {
   var snapshot: UIImage { get }
   var enableSetNeedsDisplay: Bool
   func display()
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol GLKViewDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
-  func glkView(view: GLKView, drawIn rect: CGRect)
+  func glkView(_ view: GLKView, drawIn rect: CGRect)
 }

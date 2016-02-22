@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum WKInterfaceObjectHorizontalAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case left
   case center
@@ -9,7 +9,7 @@ enum WKInterfaceObjectHorizontalAlignment : Int {
 }
 @available(watchOS 2.0, *)
 enum WKInterfaceObjectVerticalAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case top
   case center
@@ -17,20 +17,20 @@ enum WKInterfaceObjectVerticalAlignment : Int {
 }
 @available(watchOS 2.0, *)
 class WKInterfaceObject : NSObject {
-  func setHidden(hidden: Bool)
-  func setAlpha(alpha: CGFloat)
+  func setHidden(_ hidden: Bool)
+  func setAlpha(_ alpha: CGFloat)
   @available(watchOS 2.1, *)
-  func setSemanticContentAttribute(semanticContentAttribute: WKInterfaceSemanticContentAttribute)
+  func setSemanticContentAttribute(_ semanticContentAttribute: WKInterfaceSemanticContentAttribute)
   @available(watchOS 2.0, *)
-  func setHorizontalAlignment(horizontalAlignment: WKInterfaceObjectHorizontalAlignment)
+  func setHorizontalAlignment(_ horizontalAlignment: WKInterfaceObjectHorizontalAlignment)
   @available(watchOS 2.0, *)
-  func setVerticalAlignment(verticalAlignment: WKInterfaceObjectVerticalAlignment)
-  func setWidth(width: CGFloat)
-  func setHeight(height: CGFloat)
+  func setVerticalAlignment(_ verticalAlignment: WKInterfaceObjectVerticalAlignment)
+  func setWidth(_ width: CGFloat)
+  func setHeight(_ height: CGFloat)
   @available(watchOS 2.0, *)
-  func setRelativeWidth(width: CGFloat, withAdjustment adjustment: CGFloat)
+  func setRelativeWidth(_ width: CGFloat, withAdjustment adjustment: CGFloat)
   @available(watchOS 2.0, *)
-  func setRelativeHeight(height: CGFloat, withAdjustment adjustment: CGFloat)
+  func setRelativeHeight(_ height: CGFloat, withAdjustment adjustment: CGFloat)
   @available(watchOS 2.0, *)
   func sizeToFitWidth()
   @available(watchOS 2.0, *)
@@ -39,13 +39,13 @@ class WKInterfaceObject : NSObject {
 }
 extension WKInterfaceObject {
   @available(watchOS 2.0, *)
-  func setAccessibilityIdentifier(accessibilityIdentifier: String?)
-  func setAccessibilityLabel(accessibilityLabel: String?)
-  func setAccessibilityHint(accessibilityHint: String?)
-  func setAccessibilityValue(accessibilityValue: String?)
-  func setIsAccessibilityElement(isAccessibilityElement: Bool)
-  func setAccessibilityTraits(accessibilityTraits: UIAccessibilityTraits)
-  func setAccessibilityImageRegions(accessibilityImageRegions: [WKAccessibilityImageRegion])
+  func setAccessibilityIdentifier(_ accessibilityIdentifier: String?)
+  func setAccessibilityLabel(_ accessibilityLabel: String?)
+  func setAccessibilityHint(_ accessibilityHint: String?)
+  func setAccessibilityValue(_ accessibilityValue: String?)
+  func setIsAccessibilityElement(_ isAccessibilityElement: Bool)
+  func setAccessibilityTraits(_ accessibilityTraits: UIAccessibilityTraits)
+  func setAccessibilityImageRegions(_ accessibilityImageRegions: [WKAccessibilityImageRegion])
 }
 @available(watchOS 2.0, *)
 class WKAccessibilityImageRegion : NSObject {

@@ -1,6 +1,6 @@
 
 enum AVAudioConverterPrimeMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case pre
   case normal
@@ -10,11 +10,11 @@ struct AVAudioConverterPrimeInfo {
   var leadingFrames: AVAudioFrameCount
   var trailingFrames: AVAudioFrameCount
   init()
-  init(leadingFrames: AVAudioFrameCount, trailingFrames: AVAudioFrameCount)
+  init(leadingFrames leadingFrames: AVAudioFrameCount, trailingFrames trailingFrames: AVAudioFrameCount)
 }
 @available(tvOS 9.0, *)
 enum AVAudioConverterInputStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case haveData
   case noDataNow
@@ -22,7 +22,7 @@ enum AVAudioConverterInputStatus : Int {
 }
 @available(tvOS 9.0, *)
 enum AVAudioConverterOutputStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case haveData
   case inputRanDry

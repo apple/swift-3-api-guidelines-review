@@ -1,19 +1,19 @@
 
 class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   /*not inherited*/ init(circleOfRadius r: CGFloat)
-  /*not inherited*/ init(circleOfRadius r: CGFloat, center: CGPoint)
+  /*not inherited*/ init(circleOfRadius r: CGFloat, center center: CGPoint)
   /*not inherited*/ init(rectangleOf s: CGSize)
-  /*not inherited*/ init(rectangleOf s: CGSize, center: CGPoint)
+  /*not inherited*/ init(rectangleOf s: CGSize, center center: CGPoint)
   /*not inherited*/ init(polygonFrom path: CGPath)
   /*not inherited*/ init(edgeFrom p1: CGPoint, to p2: CGPoint)
   /*not inherited*/ init(edgeChainFrom path: CGPath)
   /*not inherited*/ init(edgeLoopFrom path: CGPath)
   /*not inherited*/ init(edgeLoopFrom rect: CGRect)
   @available(tvOS 8.0, *)
-  /*not inherited*/ init(texture: SKTexture, size: CGSize)
+  /*not inherited*/ init(texture texture: SKTexture, size size: CGSize)
   @available(tvOS 8.0, *)
-  /*not inherited*/ init(texture: SKTexture, alphaThreshold: Float, size: CGSize)
-  /*not inherited*/ init(bodies: [SKPhysicsBody])
+  /*not inherited*/ init(texture texture: SKTexture, alphaThreshold alphaThreshold: Float, size size: CGSize)
+  /*not inherited*/ init(bodies bodies: [SKPhysicsBody])
   var isDynamic: Bool
   var usesPreciseCollisionDetection: Bool
   var allowsRotation: Bool
@@ -39,12 +39,12 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   weak var node: @sil_weak SKNode? { get }
   var velocity: CGVector
   var angularVelocity: CGFloat
-  func applyForce(force: CGVector)
-  func applyForce(force: CGVector, at point: CGPoint)
-  func applyTorque(torque: CGFloat)
-  func applyImpulse(impulse: CGVector)
-  func applyImpulse(impulse: CGVector, at point: CGPoint)
-  func applyAngularImpulse(impulse: CGFloat)
+  func applyForce(_ force: CGVector)
+  func applyForce(_ force: CGVector, at point: CGPoint)
+  func applyTorque(_ torque: CGFloat)
+  func applyImpulse(_ impulse: CGVector)
+  func applyImpulse(_ impulse: CGVector, at point: CGPoint)
+  func applyAngularImpulse(_ impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
   init()
   func copy(with zone: NSZone = nil) -> AnyObject

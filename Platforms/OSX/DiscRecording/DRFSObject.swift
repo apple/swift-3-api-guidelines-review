@@ -9,19 +9,19 @@ class DRFSObject : NSObject {
   func sourcePath() -> String!
   func parent() -> DRFolder!
   func baseName() -> String!
-  func setBaseName(baseName: String!)
+  func setBaseName(_ baseName: String!)
   func specificName(forFilesystem filesystem: String!) -> String!
   func specificNames() -> [NSObject : AnyObject]!
-  func setSpecificName(name: String!, forFilesystem filesystem: String!)
-  func setSpecificNames(specificNames: [NSObject : AnyObject]!)
+  func setSpecificName(_ name: String!, forFilesystem filesystem: String!)
+  func setSpecificNames(_ specificNames: [NSObject : AnyObject]!)
   func mangledName(forFilesystem filesystem: String!) -> String!
   func mangledNames() -> [NSObject : AnyObject]!
   func property(forKey key: String!, inFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> AnyObject!
   func properties(forFilesystem filesystem: String!, mergeWithOtherFilesystems merge: Bool) -> [NSObject : AnyObject]!
-  func setProperty(property: AnyObject!, forKey key: String!, inFilesystem filesystem: String!)
-  func setProperties(properties: [NSObject : AnyObject]!, inFilesystem filesystem: String!)
+  func setProperty(_ property: AnyObject!, forKey key: String!, inFilesystem filesystem: String!)
+  func setProperties(_ properties: [NSObject : AnyObject]!, inFilesystem filesystem: String!)
   func explicitFilesystemMask() -> DRFilesystemInclusionMask
-  func setExplicitFilesystemMask(mask: DRFilesystemInclusionMask)
+  func setExplicitFilesystemMask(_ mask: DRFilesystemInclusionMask)
   func effectiveFilesystemMask() -> DRFilesystemInclusionMask
   init()
 }

@@ -10,14 +10,14 @@ class UIMotionEffect : NSObject, NSCopying, NSCoding {
   func encode(with aCoder: NSCoder)
 }
 enum UIInterpolatingMotionEffectType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case tiltAlongHorizontalAxis
   case tiltAlongVerticalAxis
 }
 @available(iOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {
-  init(keyPath: String, type: UIInterpolatingMotionEffectType)
+  init(keyPath keyPath: String, type type: UIInterpolatingMotionEffectType)
   init?(coder aDecoder: NSCoder)
   var keyPath: String { get }
   var type: UIInterpolatingMotionEffectType { get }

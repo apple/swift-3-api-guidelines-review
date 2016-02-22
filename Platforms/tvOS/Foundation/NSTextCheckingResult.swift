@@ -1,6 +1,6 @@
 
 struct NSTextCheckingType : OptionSetType {
-  init(rawValue: UInt64)
+  init(rawValue rawValue: UInt64)
   let rawValue: UInt64
   static var orthography: NSTextCheckingType { get }
   static var spelling: NSTextCheckingType { get }
@@ -81,23 +81,23 @@ let NSTextCheckingAirlineKey: String
 @available(tvOS 4.0, *)
 let NSTextCheckingFlightKey: String
 extension NSTextCheckingResult {
-  class func orthographyCheckingResult(with range: NSRange, orthography: NSOrthography) -> NSTextCheckingResult
-  class func spell(range: NSRange) -> NSTextCheckingResult
-  class func grammarCheckingResult(with range: NSRange, details: [String]) -> NSTextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: NSDate) -> NSTextCheckingResult
-  class func dateCheckingResult(with range: NSRange, date: NSDate, timeZone: NSTimeZone, duration: NSTimeInterval) -> NSTextCheckingResult
-  class func addressCheckingResult(with range: NSRange, components: [String : String]) -> NSTextCheckingResult
-  class func linkCheckingResult(with range: NSRange, url: NSURL) -> NSTextCheckingResult
-  class func quoteCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func dashCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func replacementCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
-  class func correctionCheckingResult(with range: NSRange, replacementString: String) -> NSTextCheckingResult
+  class func orthographyCheckingResult(with range: NSRange, orthography orthography: NSOrthography) -> NSTextCheckingResult
+  class func spell(_ range: NSRange) -> NSTextCheckingResult
+  class func grammarCheckingResult(with range: NSRange, details details: [String]) -> NSTextCheckingResult
+  class func dateCheckingResult(with range: NSRange, date date: NSDate) -> NSTextCheckingResult
+  class func dateCheckingResult(with range: NSRange, date date: NSDate, timeZone timeZone: NSTimeZone, duration duration: NSTimeInterval) -> NSTextCheckingResult
+  class func addressCheckingResult(with range: NSRange, components components: [String : String]) -> NSTextCheckingResult
+  class func linkCheckingResult(with range: NSRange, url url: NSURL) -> NSTextCheckingResult
+  class func quoteCheckingResult(with range: NSRange, replacementString replacementString: String) -> NSTextCheckingResult
+  class func dashCheckingResult(with range: NSRange, replacementString replacementString: String) -> NSTextCheckingResult
+  class func replacementCheckingResult(with range: NSRange, replacementString replacementString: String) -> NSTextCheckingResult
+  class func correctionCheckingResult(with range: NSRange, replacementString replacementString: String) -> NSTextCheckingResult
   @available(tvOS 7.0, *)
-  class func correctionCheckingResult(with range: NSRange, replacementString: String, alternativeStrings: [String]) -> NSTextCheckingResult
+  class func correctionCheckingResult(with range: NSRange, replacementString replacementString: String, alternativeStrings alternativeStrings: [String]) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
-  class func regularExpressionCheckingResult(withRanges ranges: NSRangePointer, count: Int, regularExpression: NSRegularExpression) -> NSTextCheckingResult
+  class func regularExpressionCheckingResult(withRanges ranges: NSRangePointer, count count: Int, regularExpression regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
-  class func phoneNumber(range: NSRange, phoneNumber: String) -> NSTextCheckingResult
+  class func phoneNumber(_ range: NSRange, phoneNumber phoneNumber: String) -> NSTextCheckingResult
   @available(tvOS 4.0, *)
-  class func transitInformationCheckingResult(with range: NSRange, components: [String : String]) -> NSTextCheckingResult
+  class func transitInformationCheckingResult(with range: NSRange, components components: [String : String]) -> NSTextCheckingResult
 }

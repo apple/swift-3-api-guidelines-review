@@ -5,7 +5,7 @@ class PHAssetChangeRequest : NSObject {
   class func creationRequestForAssetFromImage(atFileURL fileURL: NSURL) -> Self?
   class func creationRequestForAssetFromVideo(atFileURL fileURL: NSURL) -> Self?
   var placeholderForCreatedAsset: PHObjectPlaceholder? { get }
-  class func deleteAssets(assets: NSFastEnumeration)
+  class func deleteAssets(_ assets: NSFastEnumeration)
   convenience init(for asset: PHAsset)
   var creationDate: NSDate?
   var location: CLLocation?
@@ -26,9 +26,9 @@ class PHContentEditingInputRequestOptions : NSObject {
 }
 extension PHAsset {
   @available(iOS 8.0, *)
-  func requestContentEditingInput(options: PHContentEditingInputRequestOptions?, completionHandler: (PHContentEditingInput?, [NSObject : AnyObject]) -> Void) -> PHContentEditingInputRequestID
+  func requestContentEditingInput(_ options: PHContentEditingInputRequestOptions?, completionHandler completionHandler: (PHContentEditingInput?, [NSObject : AnyObject]) -> Void) -> PHContentEditingInputRequestID
   @available(iOS 8.0, *)
-  func cancelContentEditingInputRequest(requestID: PHContentEditingInputRequestID)
+  func cancelContentEditingInputRequest(_ requestID: PHContentEditingInputRequestID)
 }
 @available(iOS 8.0, *)
 let PHContentEditingInputResultIsInCloudKey: String
@@ -37,5 +37,5 @@ let PHContentEditingInputCancelledKey: String
 @available(iOS 8.0, *)
 let PHContentEditingInputErrorKey: String
 extension PHContentEditingOutput {
-  init(placeholderForCreatedAsset: PHObjectPlaceholder)
+  init(placeholderForCreatedAsset placeholderForCreatedAsset: PHObjectPlaceholder)
 }

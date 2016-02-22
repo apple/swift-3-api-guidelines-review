@@ -37,20 +37,20 @@ let kSecTransformTransformName: CFString
 @available(OSX 10.7, *)
 let kSecTransformAbortAttributeName: CFString
 @available(OSX 10.7, *)
-func SecTransformCreateFromExternalRepresentation(dictionary: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?
+func SecTransformCreateFromExternalRepresentation(_ dictionary: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?
 @available(OSX 10.7, *)
-func SecTransformCopyExternalRepresentation(transformRef: SecTransform) -> CFDictionary
+func SecTransformCopyExternalRepresentation(_ transformRef: SecTransform) -> CFDictionary
 func SecTransformCreateGroupTransform() -> SecGroupTransform
 @available(OSX 10.7, *)
-func SecTransformConnectTransforms(sourceTransformRef: SecTransform, _ sourceAttributeName: CFString, _ destinationTransformRef: SecTransform, _ destinationAttributeName: CFString, _ group: SecGroupTransform, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecGroupTransform?
+func SecTransformConnectTransforms(_ sourceTransformRef: SecTransform, _ sourceAttributeName: CFString, _ destinationTransformRef: SecTransform, _ destinationAttributeName: CFString, _ group: SecGroupTransform, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecGroupTransform?
 @available(OSX 10.7, *)
-func SecTransformSetAttribute(transformRef: SecTransform, _ key: CFString, _ value: CFTypeRef, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func SecTransformSetAttribute(_ transformRef: SecTransform, _ key: CFString, _ value: CFTypeRef, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.7, *)
-func SecTransformGetAttribute(transformRef: SecTransform, _ key: CFString) -> CFTypeRef?
+func SecTransformGetAttribute(_ transformRef: SecTransform, _ key: CFString) -> CFTypeRef?
 @available(OSX 10.7, *)
-func SecTransformFindByName(transform: SecGroupTransform, _ name: CFString) -> SecTransform?
+func SecTransformFindByName(_ transform: SecGroupTransform, _ name: CFString) -> SecTransform?
 @available(OSX 10.7, *)
-func SecTransformExecute(transformRef: SecTransform, _ errorRef: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFTypeRef
+func SecTransformExecute(_ transformRef: SecTransform, _ errorRef: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFTypeRef
 typealias SecMessageBlock = (CFTypeRef?, CFError?, Bool) -> Void
 @available(OSX 10.7, *)
-func SecTransformExecuteAsync(transformRef: SecTransform, _ deliveryQueue: dispatch_queue_t, _ deliveryBlock: SecMessageBlock)
+func SecTransformExecuteAsync(_ transformRef: SecTransform, _ deliveryQueue: dispatch_queue_t, _ deliveryBlock: SecMessageBlock)

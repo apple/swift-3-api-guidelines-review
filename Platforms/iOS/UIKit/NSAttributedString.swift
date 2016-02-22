@@ -43,7 +43,7 @@ let NSWritingDirectionAttributeName: String
 let NSVerticalGlyphFormAttributeName: String
 @available(iOS 6.0, *)
 enum NSUnderlineStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case styleNone
   case styleSingle
@@ -66,7 +66,7 @@ enum NSUnderlineStyle : Int {
 }
 @available(iOS 9.0, *)
 enum NSWritingDirectionFormatType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case embedding
   case override
@@ -117,9 +117,9 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(iOS 9.0, *)
-  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url url: NSURL, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data data: NSData, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(iOS 7.0, *)
   func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(iOS 7.0, *)
@@ -137,14 +137,14 @@ extension NSAttributedString {
 }
 @available(iOS, introduced=7.0, deprecated=9.0, message="Use NSWritingDirectionFormatType instead")
 enum NSTextWritingDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case embedding
   case override
 }
 extension NSAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(fileURL url: NSURL, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSMutableAttributedString {
   @available(iOS, introduced=7.0, deprecated=9.0, message="Use -readFromURL:options:documentAttributes:error: instead")

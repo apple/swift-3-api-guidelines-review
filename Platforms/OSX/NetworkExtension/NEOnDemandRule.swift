@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEOnDemandRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case connect
   case disconnect
@@ -10,7 +10,7 @@ enum NEOnDemandRuleAction : Int {
 }
 @available(OSX 10.10, *)
 enum NEOnDemandRuleInterfaceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.11, *)
   case any
@@ -66,7 +66,7 @@ class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
 }
 @available(OSX 10.10, *)
 enum NEEvaluateConnectionRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case connectIfNeeded
   case neverConnect

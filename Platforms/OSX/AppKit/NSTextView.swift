@@ -1,13 +1,13 @@
 
 enum NSSelectionGranularity : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case selectByCharacter
   case selectByWord
   case selectByParagraph
 }
 enum NSSelectionAffinity : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case upstream
   case downstream
@@ -16,80 +16,80 @@ enum NSSelectionAffinity : UInt {
 let NSAllRomanInputSourcesLocaleIdentifier: String
 class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSTextLayoutOrientationProvider, NSDraggingSource, NSTextInput, NSAccessibilityNavigableStaticText {
   init(frame frameRect: NSRect, textContainer container: NSTextContainer?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   init(frame frameRect: NSRect)
   unowned(unsafe) var textContainer: @sil_unmanaged NSTextContainer?
-  func replaceTextContainer(newContainer: NSTextContainer)
+  func replaceTextContainer(_ newContainer: NSTextContainer)
   var textContainerInset: NSSize
   var textContainerOrigin: NSPoint { get }
   func invalidateTextContainerOrigin()
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager? { get }
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage? { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -insertText:replacementRange: from NSTextInputClient instead. Since the method is designed to be used solely by the input system, the message should never be sent to a text view from applications. Any content modifications should be via either NSTextStorage or NSText methods.")
-  func insertText(insertString: AnyObject)
-  func setConstrainedFrameSize(desiredSize: NSSize)
-  func setAlignment(alignment: NSTextAlignment, range: NSRange)
-  func setBaseWritingDirection(writingDirection: NSWritingDirection, range: NSRange)
-  func turnOffKerning(sender: AnyObject?)
-  func tightenKerning(sender: AnyObject?)
-  func loosenKerning(sender: AnyObject?)
-  func useStandardKerning(sender: AnyObject?)
-  func turnOffLigatures(sender: AnyObject?)
-  func useStandardLigatures(sender: AnyObject?)
-  func useAllLigatures(sender: AnyObject?)
-  func raiseBaseline(sender: AnyObject?)
-  func lowerBaseline(sender: AnyObject?)
+  func insertText(_ insertString: AnyObject)
+  func setConstrainedFrameSize(_ desiredSize: NSSize)
+  func setAlignment(_ alignment: NSTextAlignment, range range: NSRange)
+  func setBaseWritingDirection(_ writingDirection: NSWritingDirection, range range: NSRange)
+  func turnOffKerning(_ sender: AnyObject?)
+  func tightenKerning(_ sender: AnyObject?)
+  func loosenKerning(_ sender: AnyObject?)
+  func useStandardKerning(_ sender: AnyObject?)
+  func turnOffLigatures(_ sender: AnyObject?)
+  func useStandardLigatures(_ sender: AnyObject?)
+  func useAllLigatures(_ sender: AnyObject?)
+  func raiseBaseline(_ sender: AnyObject?)
+  func lowerBaseline(_ sender: AnyObject?)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use the traditional shaped characters encoded in the Unicode standard. Access the characters via the character palette.")
-  func toggleTraditionalCharacterShape(sender: AnyObject?)
-  func outline(sender: AnyObject?)
-  func performFindPanelAction(sender: AnyObject?)
-  func alignJustified(sender: AnyObject?)
-  func changeColor(sender: AnyObject?)
-  func changeAttributes(sender: AnyObject?)
-  func changeDocumentBackgroundColor(sender: AnyObject?)
-  func orderFrontSpacingPanel(sender: AnyObject?)
-  func orderFrontLinkPanel(sender: AnyObject?)
-  func orderFrontListPanel(sender: AnyObject?)
-  func orderFrontTablePanel(sender: AnyObject?)
-  func rulerView(ruler: NSRulerView, didMove marker: NSRulerMarker)
-  func rulerView(ruler: NSRulerView, didRemove marker: NSRulerMarker)
-  func rulerView(ruler: NSRulerView, didAdd marker: NSRulerMarker)
-  func rulerView(ruler: NSRulerView, shouldMove marker: NSRulerMarker) -> Bool
-  func rulerView(ruler: NSRulerView, shouldAdd marker: NSRulerMarker) -> Bool
-  func rulerView(ruler: NSRulerView, willMove marker: NSRulerMarker, toLocation location: CGFloat) -> CGFloat
-  func rulerView(ruler: NSRulerView, shouldRemove marker: NSRulerMarker) -> Bool
-  func rulerView(ruler: NSRulerView, willAdd marker: NSRulerMarker, atLocation location: CGFloat) -> CGFloat
-  func rulerView(ruler: NSRulerView, handleMouseDown event: NSEvent)
-  func setNeedsDisplayIn(rect: NSRect, avoidAdditionalLayout flag: Bool)
+  func toggleTraditionalCharacterShape(_ sender: AnyObject?)
+  func outline(_ sender: AnyObject?)
+  func performFindPanelAction(_ sender: AnyObject?)
+  func alignJustified(_ sender: AnyObject?)
+  func changeColor(_ sender: AnyObject?)
+  func changeAttributes(_ sender: AnyObject?)
+  func changeDocumentBackgroundColor(_ sender: AnyObject?)
+  func orderFrontSpacingPanel(_ sender: AnyObject?)
+  func orderFrontLinkPanel(_ sender: AnyObject?)
+  func orderFrontListPanel(_ sender: AnyObject?)
+  func orderFrontTablePanel(_ sender: AnyObject?)
+  func rulerView(_ ruler: NSRulerView, didMove marker: NSRulerMarker)
+  func rulerView(_ ruler: NSRulerView, didRemove marker: NSRulerMarker)
+  func rulerView(_ ruler: NSRulerView, didAdd marker: NSRulerMarker)
+  func rulerView(_ ruler: NSRulerView, shouldMove marker: NSRulerMarker) -> Bool
+  func rulerView(_ ruler: NSRulerView, shouldAdd marker: NSRulerMarker) -> Bool
+  func rulerView(_ ruler: NSRulerView, willMove marker: NSRulerMarker, toLocation location: CGFloat) -> CGFloat
+  func rulerView(_ ruler: NSRulerView, shouldRemove marker: NSRulerMarker) -> Bool
+  func rulerView(_ ruler: NSRulerView, willAdd marker: NSRulerMarker, atLocation location: CGFloat) -> CGFloat
+  func rulerView(_ ruler: NSRulerView, handleMouseDown event: NSEvent)
+  func setNeedsDisplayIn(_ rect: NSRect, avoidAdditionalLayout flag: Bool)
   var shouldDrawInsertionPoint: Bool { get }
-  func drawInsertionPoint(in rect: NSRect, color: NSColor, turnedOn flag: Bool)
+  func drawInsertionPoint(in rect: NSRect, color color: NSColor, turnedOn flag: Bool)
   func drawBackground(in rect: NSRect)
   func updateRuler()
   func updateFontPanel()
   func updateDragTypeRegistration()
-  func selectionRange(forProposedRange proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange
+  func selectionRange(forProposedRange proposedCharRange: NSRange, granularity granularity: NSSelectionGranularity) -> NSRange
   func clicked(onLink link: AnyObject, at charIndex: Int)
-  func startSpeaking(sender: AnyObject?)
-  func stopSpeaking(sender: AnyObject?)
+  func startSpeaking(_ sender: AnyObject?)
+  func stopSpeaking(_ sender: AnyObject?)
   @available(OSX 10.7, *)
-  func setLayoutOrientation(theOrientation: NSTextLayoutOrientation)
+  func setLayoutOrientation(_ theOrientation: NSTextLayoutOrientation)
   @available(OSX 10.7, *)
-  func changeLayoutOrientation(sender: AnyObject?)
+  func changeLayoutOrientation(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   func characterIndexForInsertion(at point: NSPoint) -> Int
   convenience init()
-  func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func insertText(aString: AnyObject, replacementRange: NSRange)
+  func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
+  func insertText(_ aString: AnyObject, replacementRange replacementRange: NSRange)
   func doCommand(by aSelector: Selector)
-  func setMarkedText(aString: AnyObject, selectedRange: NSRange, replacementRange: NSRange)
+  func setMarkedText(_ aString: AnyObject, selectedRange selectedRange: NSRange, replacementRange replacementRange: NSRange)
   func unmarkText()
   func selectedRange() -> NSRange
   func markedRange() -> NSRange
   func hasMarkedText() -> Bool
   @available(OSX 10.0, *)
-  func attributedSubstring(forProposedRange aRange: NSRange, actualRange: NSRangePointer) -> NSAttributedString?
+  func attributedSubstring(forProposedRange aRange: NSRange, actualRange actualRange: NSRangePointer) -> NSAttributedString?
   func validAttributesForMarkedText() -> [String]
-  func firstRect(forCharacterRange aRange: NSRange, actualRange: NSRangePointer) -> NSRect
+  func firstRect(forCharacterRange aRange: NSRange, actualRange actualRange: NSRangePointer) -> NSRect
   func characterIndex(for aPoint: NSPoint) -> Int
   @available(OSX 10.0, *)
   func attributedString() -> NSAttributedString
@@ -101,13 +101,13 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   @available(OSX 10.7, *)
   var layoutOrientation: NSTextLayoutOrientation { get }
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
+  func draggingSession(_ session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, willBeginAt screenPoint: NSPoint)
+  func draggingSession(_ session: NSDraggingSession, willBeginAt screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, movedTo screenPoint: NSPoint)
+  func draggingSession(_ session: NSDraggingSession, movedTo screenPoint: NSPoint)
   @available(OSX 10.7, *)
-  func draggingSession(session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
+  func draggingSession(_ session: NSDraggingSession, endedAt screenPoint: NSPoint, operation operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
   func accessibilityString(for range: NSRange) -> String?
@@ -120,40 +120,40 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextView {
-  func complete(sender: AnyObject?)
+  func complete(_ sender: AnyObject?)
   var rangeForUserCompletion: NSRange { get }
   func completions(forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
-  func insertCompletion(word: String, forPartialWordRange charRange: NSRange, movement: Int, isFinal flag: Bool)
+  func insertCompletion(_ word: String, forPartialWordRange charRange: NSRange, movement movement: Int, isFinal flag: Bool)
 }
 extension NSTextView {
   var writablePasteboardTypes: [String] { get }
-  func writeSelection(to pboard: NSPasteboard, type: String) -> Bool
-  func writeSelection(to pboard: NSPasteboard, types: [String]) -> Bool
+  func writeSelection(to pboard: NSPasteboard, type type: String) -> Bool
+  func writeSelection(to pboard: NSPasteboard, types types: [String]) -> Bool
   var readablePasteboardTypes: [String] { get }
   func preferredPasteboardType(from availableTypes: [String], restrictedToTypesFrom allowedTypes: [String]?) -> String?
-  func readSelection(from pboard: NSPasteboard, type: String) -> Bool
+  func readSelection(from pboard: NSPasteboard, type type: String) -> Bool
   func readSelection(from pboard: NSPasteboard) -> Bool
   class func registerForServices()
-  func validRequestor(forSendType sendType: String, returnType: String) -> AnyObject?
-  func pasteAsPlainText(sender: AnyObject?)
-  func pasteAsRichText(sender: AnyObject?)
+  func validRequestor(forSendType sendType: String, returnType returnType: String) -> AnyObject?
+  func pasteAsPlainText(_ sender: AnyObject?)
+  func pasteAsRichText(_ sender: AnyObject?)
 }
 extension NSTextView {
-  func dragSelection(event: NSEvent, offset mouseOffset: NSSize, slideBack: Bool) -> Bool
-  func dragImageForSelection(event: NSEvent, origin: NSPointPointer) -> NSImage?
+  func dragSelection(_ event: NSEvent, offset mouseOffset: NSSize, slideBack slideBack: Bool) -> Bool
+  func dragImageForSelection(_ event: NSEvent, origin origin: NSPointPointer) -> NSImage?
   var acceptableDragTypes: [String] { get }
-  func dragOperation(for dragInfo: NSDraggingInfo, type: String) -> NSDragOperation
+  func dragOperation(for dragInfo: NSDraggingInfo, type type: String) -> NSDragOperation
   func cleanUpAfterDragOperation()
 }
 extension NSTextView {
   var selectedRanges: [NSValue]
-  func setSelectedRanges(ranges: [NSValue], affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool)
-  func setSelectedRange(charRange: NSRange, affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool)
+  func setSelectedRanges(_ ranges: [NSValue], affinity affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool)
+  func setSelectedRange(_ charRange: NSRange, affinity affinity: NSSelectionAffinity, stillSelecting stillSelectingFlag: Bool)
   var selectionAffinity: NSSelectionAffinity { get }
   var selectionGranularity: NSSelectionGranularity
   var selectedTextAttributes: [String : AnyObject]
   @NSCopying var insertionPointColor: NSColor
-  func updateInsertionPointStateAndRestartTimer(restartFlag: Bool)
+  func updateInsertionPointStateAndRestartTimer(_ restartFlag: Bool)
   var markedTextAttributes: [String : AnyObject]?
   var linkTextAttributes: [String : AnyObject]?
   @available(OSX 10.5, *)
@@ -163,20 +163,20 @@ extension NSTextView {
   @available(OSX 10.7, *)
   var usesInspectorBar: Bool
   var isContinuousSpellCheckingEnabled: Bool
-  func toggleContinuousSpellChecking(sender: AnyObject?)
+  func toggleContinuousSpellChecking(_ sender: AnyObject?)
   var spellCheckerDocumentTag: Int { get }
   @available(OSX 10.5, *)
   var isGrammarCheckingEnabled: Bool
   @available(OSX 10.5, *)
-  func toggleGrammarChecking(sender: AnyObject?)
+  func toggleGrammarChecking(_ sender: AnyObject?)
   @available(OSX 10.5, *)
-  func setSpellingState(value: Int, range charRange: NSRange)
+  func setSpellingState(_ value: Int, range charRange: NSRange)
   var typingAttributes: [String : AnyObject]
-  func shouldChangeText(inRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
+  func shouldChangeText(inRanges affectedRanges: [NSValue], replacementStrings replacementStrings: [String]?) -> Bool
   var rangesForUserTextChange: [NSValue]? { get }
   var rangesForUserCharacterAttributeChange: [NSValue]? { get }
   var rangesForUserParagraphAttributeChange: [NSValue]? { get }
-  func shouldChangeText(in affectedCharRange: NSRange, replacementString: String?) -> Bool
+  func shouldChangeText(in affectedCharRange: NSRange, replacementString replacementString: String?) -> Bool
   func didChangeText()
   var rangeForUserTextChange: NSRange { get }
   var rangeForUserCharacterAttributeChange: NSRange { get }
@@ -203,53 +203,53 @@ extension NSTextView {
   var isFieldEditor: Bool
   var usesFontPanel: Bool
   var isRulerVisible: Bool
-  func setSelectedRange(charRange: NSRange)
+  func setSelectedRange(_ charRange: NSRange)
   @available(OSX 10.5, *)
   var allowedInputSourceLocales: [String]?
 }
 extension NSTextView {
   var smartInsertDeleteEnabled: Bool
   func smartDeleteRange(forProposedRange proposedCharRange: NSRange) -> NSRange
-  func toggleSmartInsertDelete(sender: AnyObject?)
+  func toggleSmartInsertDelete(_ sender: AnyObject?)
   func smartInsert(for pasteString: String, replacing charRangeToReplace: NSRange, before beforeString: AutoreleasingUnsafeMutablePointer<NSString?>, after afterString: AutoreleasingUnsafeMutablePointer<NSString?>)
   func smartInsertBeforeString(for pasteString: String, replacing charRangeToReplace: NSRange) -> String?
   func smartInsertAfterString(for pasteString: String, replacing charRangeToReplace: NSRange) -> String?
   @available(OSX 10.5, *)
   var isAutomaticQuoteSubstitutionEnabled: Bool
   @available(OSX 10.5, *)
-  func toggleAutomaticQuoteSubstitution(sender: AnyObject?)
+  func toggleAutomaticQuoteSubstitution(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   var isAutomaticLinkDetectionEnabled: Bool
   @available(OSX 10.5, *)
-  func toggleAutomaticLinkDetection(sender: AnyObject?)
+  func toggleAutomaticLinkDetection(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   var isAutomaticDataDetectionEnabled: Bool
   @available(OSX 10.6, *)
-  func toggleAutomaticDataDetection(sender: AnyObject?)
+  func toggleAutomaticDataDetection(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   var isAutomaticDashSubstitutionEnabled: Bool
   @available(OSX 10.6, *)
-  func toggleAutomaticDashSubstitution(sender: AnyObject?)
+  func toggleAutomaticDashSubstitution(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   var isAutomaticTextReplacementEnabled: Bool
   @available(OSX 10.6, *)
-  func toggleAutomaticTextReplacement(sender: AnyObject?)
+  func toggleAutomaticTextReplacement(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   var isAutomaticSpellingCorrectionEnabled: Bool
   @available(OSX 10.6, *)
-  func toggleAutomaticSpellingCorrection(sender: AnyObject?)
+  func toggleAutomaticSpellingCorrection(_ sender: AnyObject?)
   @available(OSX 10.6, *)
   var enabledTextCheckingTypes: NSTextCheckingTypes
   @available(OSX 10.6, *)
-  func checkText(in range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:])
+  func checkText(in range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject] = [:])
   @available(OSX 10.6, *)
-  func handle(results: [NSTextCheckingResult], for range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], orthography: NSOrthography, wordCount: Int)
+  func handle(_ results: [NSTextCheckingResult], for range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject] = [:], orthography orthography: NSOrthography, wordCount wordCount: Int)
   @available(OSX 10.6, *)
-  func orderFrontSubstitutionsPanel(sender: AnyObject?)
+  func orderFrontSubstitutionsPanel(_ sender: AnyObject?)
   @available(OSX 10.6, *)
-  func checkTextInSelection(sender: AnyObject?)
+  func checkTextInSelection(_ sender: AnyObject?)
   @available(OSX 10.6, *)
-  func checkTextInDocument(sender: AnyObject?)
+  func checkTextInDocument(_ sender: AnyObject?)
   var usesFindPanel: Bool
   @available(OSX 10.7, *)
   var usesFindBar: Bool
@@ -258,7 +258,7 @@ extension NSTextView {
 }
 extension NSTextView {
   @available(OSX 10.7, *)
-  @IBAction func toggleQuickLookPreviewPanel(sender: AnyObject?)
+  @IBAction func toggleQuickLookPreviewPanel(_ sender: AnyObject?)
   @available(OSX 10.7, *)
   func quickLookPreviewableItems(inRanges ranges: [NSValue]) -> [AnyObject]?
   @available(OSX 10.7, *)
@@ -266,39 +266,39 @@ extension NSTextView {
 }
 extension NSTextView {
   @available(OSX 10.8, *)
-  @IBAction func orderFrontSharingServicePicker(sender: AnyObject?)
+  @IBAction func orderFrontSharingServicePicker(_ sender: AnyObject?)
 }
 extension NSTextView {
 }
 protocol NSTextViewDelegate : NSTextDelegate {
-  optional func textView(textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
-  optional func textView(textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
-  optional func textView(textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
-  optional func textView(view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event: NSEvent, at charIndex: Int)
-  optional func textView(view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
-  optional func textView(view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type: String) -> Bool
-  optional func textView(textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
-  optional func textView(textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [NSValue], toCharacterRanges newSelectedCharRanges: [NSValue]) -> [NSValue]
-  optional func textView(textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings: [String]?) -> Bool
-  optional func textView(textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject] = [:], toAttributes newTypingAttributes: [String : AnyObject] = [:]) -> [String : AnyObject]
-  optional func textViewDidChangeSelection(notification: NSNotification)
-  optional func textViewDidChangeTypingAttributes(notification: NSNotification)
-  optional func textView(textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
-  optional func textView(textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
-  optional func textView(textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool
-  optional func textView(textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool
+  optional func textView(_ textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
+  optional func textView(_ textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  optional func textView(_ textView: NSTextView, doubleClickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
+  optional func textView(_ view: NSTextView, draggedCell cell: NSTextAttachmentCellProtocol, in rect: NSRect, event event: NSEvent, at charIndex: Int)
+  optional func textView(_ view: NSTextView, writablePasteboardTypesFor cell: NSTextAttachmentCellProtocol, at charIndex: Int) -> [String]
+  optional func textView(_ view: NSTextView, write cell: NSTextAttachmentCellProtocol, at charIndex: Int, to pboard: NSPasteboard, type type: String) -> Bool
+  optional func textView(_ textView: NSTextView, willChangeSelectionFromCharacterRange oldSelectedCharRange: NSRange, toCharacterRange newSelectedCharRange: NSRange) -> NSRange
+  optional func textView(_ textView: NSTextView, willChangeSelectionFromCharacterRanges oldSelectedCharRanges: [NSValue], toCharacterRanges newSelectedCharRanges: [NSValue]) -> [NSValue]
+  optional func textView(_ textView: NSTextView, shouldChangeTextInRanges affectedRanges: [NSValue], replacementStrings replacementStrings: [String]?) -> Bool
+  optional func textView(_ textView: NSTextView, shouldChangeTypingAttributes oldTypingAttributes: [String : AnyObject] = [:], toAttributes newTypingAttributes: [String : AnyObject] = [:]) -> [String : AnyObject]
+  optional func textViewDidChangeSelection(_ notification: NSNotification)
+  optional func textViewDidChangeTypingAttributes(_ notification: NSNotification)
+  optional func textView(_ textView: NSTextView, willDisplayToolTip tooltip: String, forCharacterAt characterIndex: Int) -> String?
+  optional func textView(_ textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
+  optional func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString replacementString: String?) -> Bool
+  optional func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool
   @available(OSX 10.5, *)
-  optional func textView(textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
+  optional func textView(_ textView: NSTextView, shouldSetSpellingState value: Int, range affectedCharRange: NSRange) -> Int
   @available(OSX 10.5, *)
-  optional func textView(view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
+  optional func textView(_ view: NSTextView, menu menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu?
   @available(OSX 10.6, *)
-  optional func textView(view: NSTextView, willCheckTextIn range: NSRange, options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
+  optional func textView(_ view: NSTextView, willCheckTextIn range: NSRange, options options: [String : AnyObject] = [:], types checkingTypes: UnsafeMutablePointer<NSTextCheckingTypes>) -> [String : AnyObject]
   @available(OSX 10.6, *)
-  optional func textView(view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject] = [:], results: [NSTextCheckingResult], orthography: NSOrthography, wordCount: Int) -> [NSTextCheckingResult]
+  optional func textView(_ view: NSTextView, didCheckTextIn range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject] = [:], results results: [NSTextCheckingResult], orthography orthography: NSOrthography, wordCount wordCount: Int) -> [NSTextCheckingResult]
   @available(OSX 10.7, *)
-  optional func textView(textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
+  optional func textView(_ textView: NSTextView, urlForContentsOf textAttachment: NSTextAttachment, at charIndex: Int) -> NSURL?
   @available(OSX 10.8, *)
-  optional func textView(textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
+  optional func textView(_ textView: NSTextView, willShow servicePicker: NSSharingServicePicker, forItems items: [AnyObject]) -> NSSharingServicePicker?
   @available(OSX 10.0, *)
   optional func undoManager(for view: NSTextView) -> NSUndoManager?
 }
@@ -306,7 +306,7 @@ let NSTextViewWillChangeNotifyingTextViewNotification: String
 let NSTextViewDidChangeSelectionNotification: String
 let NSTextViewDidChangeTypingAttributesNotification: String
 enum NSFindPanelAction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case showFindPanel
   case next
@@ -326,7 +326,7 @@ let NSFindPanelCaseInsensitiveSearch: String
 @available(OSX 10.5, *)
 let NSFindPanelSubstringMatch: String
 enum NSFindPanelSubstringMatchType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case contains
   case startsWith

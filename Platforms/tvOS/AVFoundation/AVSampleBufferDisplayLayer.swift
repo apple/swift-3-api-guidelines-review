@@ -1,6 +1,6 @@
 
 extension AVSampleBufferDisplayLayer {
-  func enqueue(sampleBuffer: CMSampleBuffer)
+  func enqueue(_ sampleBuffer: CMSampleBuffer)
   func flush()
   func flushAndRemoveImage()
   var isReadyForMoreMediaData: Bool { get }

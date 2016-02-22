@@ -1,6 +1,6 @@
 
 enum UIUserInterfaceIdiom : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   @available(tvOS 3.2, *)

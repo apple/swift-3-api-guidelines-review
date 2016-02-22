@@ -3,8 +3,8 @@
 class TVContentIdentifier : NSObject, NSCopying, NSSecureCoding {
   var identifier: String { get }
   @NSCopying var container: TVContentIdentifier? { get }
-  init?(identifier: String, container: TVContentIdentifier?)
-  init?(coder: NSCoder)
+  init?(identifier identifier: String, container container: TVContentIdentifier?)
+  init?(coder coder: NSCoder)
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)

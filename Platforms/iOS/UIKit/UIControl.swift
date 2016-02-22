@@ -1,6 +1,6 @@
 
 struct UIControlEvents : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var touchDown: UIControlEvents { get }
   static var touchDownRepeat: UIControlEvents { get }
@@ -25,7 +25,7 @@ struct UIControlEvents : OptionSetType {
   static var allEvents: UIControlEvents { get }
 }
 enum UIControlContentVerticalAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case center
   case top
@@ -33,7 +33,7 @@ enum UIControlContentVerticalAlignment : Int {
   case fill
 }
 enum UIControlContentHorizontalAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case center
   case left
@@ -41,7 +41,7 @@ enum UIControlContentHorizontalAlignment : Int {
   case fill
 }
 struct UIControlState : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var normal: UIControlState { get }
   static var highlighted: UIControlState { get }
@@ -62,18 +62,18 @@ class UIControl : UIView {
   var state: UIControlState { get }
   var isTracking: Bool { get }
   var isTouchInside: Bool { get }
-  func beginTracking(touch: UITouch, with event: UIEvent?) -> Bool
-  func continueTracking(touch: UITouch, with event: UIEvent?) -> Bool
-  func endTracking(touch: UITouch?, with event: UIEvent?)
-  func cancelTracking(event: UIEvent?)
-  func addTarget(target: AnyObject?, action: Selector, for controlEvents: UIControlEvents)
-  func removeTarget(target: AnyObject?, action: Selector, for controlEvents: UIControlEvents)
+  func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
+  func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
+  func endTracking(_ touch: UITouch?, with event: UIEvent?)
+  func cancelTracking(_ event: UIEvent?)
+  func addTarget(_ target: AnyObject?, action action: Selector, for controlEvents: UIControlEvents)
+  func removeTarget(_ target: AnyObject?, action action: Selector, for controlEvents: UIControlEvents)
   func allTargets() -> Set<NSObject>
   func allControlEvents() -> UIControlEvents
   func actions(forTarget target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
-  func sendAction(action: Selector, to target: AnyObject?, for event: UIEvent?)
+  func sendAction(_ action: Selector, to target: AnyObject?, for event: UIEvent?)
   func sendActions(for controlEvents: UIControlEvents)
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

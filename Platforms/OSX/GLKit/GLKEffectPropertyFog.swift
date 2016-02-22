@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum GLKFogMode : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case exp
   case exp2

@@ -1,7 +1,7 @@
 
 class NSObjectController : NSController {
-  init(content: AnyObject?)
-  init?(coder: NSCoder)
+  init(content content: AnyObject?)
+  init?(coder coder: NSCoder)
   var content: AnyObject?
   var selection: AnyObject { get }
   var selectedObjects: [AnyObject] { get }
@@ -9,14 +9,14 @@ class NSObjectController : NSController {
   func prepareContent()
   var objectClass: AnyClass!
   func newObject() -> AnyObject
-  func add(object: AnyObject)
-  func remove(object: AnyObject)
+  func add(_ object: AnyObject)
+  func remove(_ object: AnyObject)
   var isEditable: Bool
-  func add(sender: AnyObject?)
+  func add(_ sender: AnyObject?)
   var canAdd: Bool { get }
-  func remove(sender: AnyObject?)
+  func remove(_ sender: AnyObject?)
   var canRemove: Bool { get }
-  func validate(item: NSValidatedUserInterfaceItem) -> Bool
+  func validate(_ item: NSValidatedUserInterfaceItem) -> Bool
   convenience init()
 }
 struct __objectControllerFlags {
@@ -30,14 +30,14 @@ struct __objectControllerFlags {
   var _batches: UInt32
   var _reservedObjectController: UInt32
   init()
-  init(_editable: UInt32, _automaticallyPreparesContent: UInt32, _hasLoadedData: UInt32, _explicitlyCannotAdd: UInt32, _explicitlyCannotRemove: UInt32, _isUsingManagedProxy: UInt32, _hasFetched: UInt32, _batches: UInt32, _reservedObjectController: UInt32)
+  init(_editable _editable: UInt32, _automaticallyPreparesContent _automaticallyPreparesContent: UInt32, _hasLoadedData _hasLoadedData: UInt32, _explicitlyCannotAdd _explicitlyCannotAdd: UInt32, _explicitlyCannotRemove _explicitlyCannotRemove: UInt32, _isUsingManagedProxy _isUsingManagedProxy: UInt32, _hasFetched _hasFetched: UInt32, _batches _batches: UInt32, _reservedObjectController _reservedObjectController: UInt32)
 }
 extension NSObjectController {
   var managedObjectContext: NSManagedObjectContext?
   var entityName: String?
   var fetchPredicate: NSPredicate?
-  func fetch(fetchRequest: NSFetchRequest?, merge: Bool) throws
-  func fetch(sender: AnyObject?)
+  func fetch(_ fetchRequest: NSFetchRequest?, merge merge: Bool) throws
+  func fetch(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   var usesLazyFetching: Bool
   @available(OSX 10.5, *)

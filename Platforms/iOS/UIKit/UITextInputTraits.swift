@@ -1,6 +1,6 @@
 
 enum UITextAutocapitalizationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case words
@@ -8,7 +8,7 @@ enum UITextAutocapitalizationType : Int {
   case allCharacters
 }
 enum UITextAutocorrectionType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case no
@@ -16,14 +16,14 @@ enum UITextAutocorrectionType : Int {
 }
 @available(iOS 5.0, *)
 enum UITextSpellCheckingType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case no
   case yes
 }
 enum UIKeyboardType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case asciiCapable
@@ -42,7 +42,7 @@ enum UIKeyboardType : Int {
   static var alphabet: UIKeyboardType { get }
 }
 enum UIKeyboardAppearance : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   @available(iOS 7.0, *)
@@ -52,7 +52,7 @@ enum UIKeyboardAppearance : Int {
   static var alert: UIKeyboardAppearance { get }
 }
 enum UIReturnKeyType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case go

@@ -2,7 +2,7 @@
 @available(iOS 4.0, *)
 let EKErrorDomain: String
 enum EKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case eventNotMutable
   case noCalendar

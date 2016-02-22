@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NSBatchUpdateRequestResultType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case statusOnlyResultType
   case updatedObjectIDsResultType
@@ -9,7 +9,7 @@ enum NSBatchUpdateRequestResultType : UInt {
 }
 @available(iOS 9.0, *)
 enum NSBatchDeleteRequestResultType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case resultTypeStatusOnly
   case resultTypeObjectIDs

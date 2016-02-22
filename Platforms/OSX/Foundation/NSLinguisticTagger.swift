@@ -76,7 +76,7 @@ let NSLinguisticTagPlaceName: String
 @available(OSX 10.7, *)
 let NSLinguisticTagOrganizationName: String
 struct NSLinguisticTaggerOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var omitWords: NSLinguisticTaggerOptions { get }
   static var omitPunctuation: NSLinguisticTaggerOptions { get }
@@ -87,7 +87,7 @@ struct NSLinguisticTaggerOptions : OptionSetType {
 @available(OSX 10.7, *)
 class NSLinguisticTagger : NSObject {
   @available(OSX 10.7, *)
-  init(tagSchemes: [String], options opts: Int)
+  init(tagSchemes tagSchemes: [String], options opts: Int)
   @available(OSX 10.7, *)
   var tagSchemes: [String] { get }
   @available(OSX 10.7, *)
@@ -95,9 +95,9 @@ class NSLinguisticTagger : NSObject {
   @available(OSX 10.7, *)
   class func availableTagSchemes(forLanguage language: String) -> [String]
   @available(OSX 10.7, *)
-  func setOrthography(orthography: NSOrthography?, range: NSRange)
+  func setOrthography(_ orthography: NSOrthography?, range range: NSRange)
   @available(OSX 10.7, *)
-  func orthography(at charIndex: Int, effectiveRange: NSRangePointer) -> NSOrthography?
+  func orthography(at charIndex: Int, effectiveRange effectiveRange: NSRangePointer) -> NSOrthography?
   @available(OSX 10.7, *)
   func stringEdited(in newRange: NSRange, changeInLength delta: Int)
   @available(OSX 10.7, *)
@@ -105,16 +105,16 @@ class NSLinguisticTagger : NSObject {
   @available(OSX 10.7, *)
   func sentenceRange(for range: NSRange) -> NSRange
   @available(OSX 10.7, *)
-  func tag(at charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer) -> String?
+  func tag(at charIndex: Int, scheme tagScheme: String, tokenRange tokenRange: NSRangePointer, sentenceRange sentenceRange: NSRangePointer) -> String?
   @available(OSX 10.7, *)
-  func tags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func tags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], tokenRanges tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(OSX 10.7, *)
-  func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
+  func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange tokenRange: NSRangePointer, sentenceRange sentenceRange: NSRangePointer, scores scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
   convenience init()
 }
 extension NSString {
   @available(OSX 10.7, *)
-  func linguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography orthography: NSOrthography?, tokenRanges tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(OSX 10.7, *)
-  func enumerateLinguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography: NSOrthography?, using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], orthography orthography: NSOrthography?, using block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

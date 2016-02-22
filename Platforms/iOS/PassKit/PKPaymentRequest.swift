@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 struct PKMerchantCapability : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var capability3DS: PKMerchantCapability { get }
   static var capabilityEMV: PKMerchantCapability { get }
@@ -12,7 +12,7 @@ struct PKMerchantCapability : OptionSetType {
 }
 @available(iOS 8.0, *)
 struct PKAddressField : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: PKAddressField { get }
   static var postalAddress: PKAddressField { get }
@@ -24,7 +24,7 @@ struct PKAddressField : OptionSetType {
 }
 @available(iOS 8.3, *)
 enum PKShippingType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case shipping
   case delivery
@@ -33,16 +33,16 @@ enum PKShippingType : UInt {
 }
 @available(iOS 9.0, *)
 enum PKPaymentSummaryItemType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case final
   case pending
 }
 @available(iOS 8.0, *)
 class PKPaymentSummaryItem : NSObject {
-  convenience init(label: String, amount: NSDecimalNumber)
+  convenience init(label label: String, amount amount: NSDecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label label: String, amount amount: NSDecimalNumber, type type: PKPaymentSummaryItemType)
   var label: String
   @NSCopying var amount: NSDecimalNumber
   @available(iOS 9.0, *)
@@ -53,9 +53,9 @@ class PKPaymentSummaryItem : NSObject {
 class PKShippingMethod : PKPaymentSummaryItem {
   var identifier: String?
   var detail: String?
-  convenience init(label: String, amount: NSDecimalNumber)
+  convenience init(label label: String, amount amount: NSDecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label label: String, amount amount: NSDecimalNumber, type type: PKPaymentSummaryItemType)
   init()
 }
 @available(iOS 8.0, *)

@@ -7,7 +7,7 @@ class SKVideoNode : SKNode {
   @available(OSX, introduced=10.8, deprecated=10.10)
   init(videoURL url: NSURL)
   @available(OSX 10.10, *)
-  init(url: NSURL)
+  init(url url: NSURL)
   init?(coder aDecoder: NSCoder)
   func play()
   func pause()

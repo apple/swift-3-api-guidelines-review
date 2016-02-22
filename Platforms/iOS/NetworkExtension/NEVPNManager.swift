@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEVPNError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case configurationInvalid
   case configurationDisabled

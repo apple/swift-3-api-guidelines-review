@@ -12,6 +12,6 @@ class AVMediaSelection : NSObject, NSCopying, NSMutableCopying {
 }
 @available(OSX 10.11, *)
 class AVMutableMediaSelection : AVMediaSelection {
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(_ mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   init()
 }

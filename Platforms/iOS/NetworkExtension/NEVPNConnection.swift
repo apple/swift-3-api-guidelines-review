@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEVPNStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case invalid
   case disconnected

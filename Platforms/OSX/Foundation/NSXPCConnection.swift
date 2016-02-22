@@ -1,26 +1,26 @@
 
 protocol NSXPCProxyCreating {
   func remoteObjectProxy() -> AnyObject
-  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(_ handler: (NSError) -> Void) -> AnyObject
 }
 @available(OSX 10.8, *)
 struct NSXPCConnectionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var privileged: NSXPCConnectionOptions { get }
 }
 @available(OSX 10.8, *)
 class NSXPCConnection : NSObject, NSXPCProxyCreating {
-  init(serviceName: String)
+  init(serviceName serviceName: String)
   var serviceName: String? { get }
-  init(machServiceName name: String, options: NSXPCConnectionOptions = [])
+  init(machServiceName name: String, options options: NSXPCConnectionOptions = [])
   init(listenerEndpoint endpoint: NSXPCListenerEndpoint)
   var endpoint: NSXPCListenerEndpoint { get }
   var exportedInterface: NSXPCInterface?
   var exportedObject: AnyObject?
   var remoteObjectInterface: NSXPCInterface?
   var remoteObjectProxy: AnyObject { get }
-  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(_ handler: (NSError) -> Void) -> AnyObject
   var interruptionHandler: (() -> Void)?
   var invalidationHandler: (() -> Void)?
   func resume()
@@ -46,16 +46,16 @@ class NSXPCListener : NSObject {
 }
 protocol NSXPCListenerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func listener(listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool
+  optional func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool
 }
 @available(OSX 10.8, *)
 class NSXPCInterface : NSObject {
   /*not inherited*/ init(with protocol: Protocol)
   unowned(unsafe) var `protocol`: @sil_unmanaged Protocol
-  func setClasses(classes: Set<NSObject>, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func classes(for sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<NSObject>
-  func setInterface(ifc: NSXPCInterface, for sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func forSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> NSXPCInterface?
+  func setClasses(_ classes: Set<NSObject>, for sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool)
+  func classes(for sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> Set<NSObject>
+  func setInterface(_ ifc: NSXPCInterface, for sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool)
+  func forSelector(_ sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> NSXPCInterface?
   init()
 }
 @available(OSX 10.8, *)

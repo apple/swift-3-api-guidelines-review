@@ -1,7 +1,7 @@
 
 @available(OSX 10.6, *)
 enum NSTaskTerminationReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case exit
   case uncaughtSignal
@@ -31,7 +31,7 @@ class NSTask : NSObject {
   var qualityOfService: NSQualityOfService
 }
 extension NSTask {
-  class func launchedTask(withLaunchPath path: String, arguments: [String]) -> NSTask
+  class func launchedTask(withLaunchPath path: String, arguments arguments: [String]) -> NSTask
   func waitUntilExit()
 }
 let NSTaskDidTerminateNotification: String

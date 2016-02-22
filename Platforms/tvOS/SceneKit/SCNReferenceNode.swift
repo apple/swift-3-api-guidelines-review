@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum SCNReferenceLoadingPolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case immediate
   case onDemand
@@ -17,5 +17,5 @@ class SCNReferenceNode : SCNNode {
   var isLoaded: Bool { get }
   convenience init()
   @available(tvOS 9.0, *)
-  convenience init(mdlObject: MDLObject)
+  convenience init(mdlObject mdlObject: MDLObject)
 }

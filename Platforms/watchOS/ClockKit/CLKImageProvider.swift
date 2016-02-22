@@ -1,7 +1,7 @@
 
 class CLKImageProvider : NSObject, NSCopying {
-  convenience init(onePieceImage: UIImage)
-  convenience init(onePieceImage: UIImage, twoPieceImageBackground: UIImage?, twoPieceImageForeground: UIImage?)
+  convenience init(onePieceImage onePieceImage: UIImage)
+  convenience init(onePieceImage onePieceImage: UIImage, twoPieceImageBackground twoPieceImageBackground: UIImage?, twoPieceImageForeground twoPieceImageForeground: UIImage?)
   var onePieceImage: UIImage
   var tintColor: UIColor?
   var twoPieceImageBackground: UIImage?

@@ -1,14 +1,14 @@
 
 class NSThread : NSObject {
   class func current() -> NSThread
-  class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
+  class func detachNewThreadSelector(_ selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   class func isMultiThreaded() -> Bool
   var threadDictionary: NSMutableDictionary { get }
   class func sleep(until date: NSDate)
   class func sleep(forTimeInterval ti: NSTimeInterval)
   class func exit()
   class func threadPriority() -> Double
-  class func setThreadPriority(p: Double) -> Bool
+  class func setThreadPriority(_ p: Double) -> Bool
   @available(OSX 10.6, *)
   var threadPriority: Double
   @available(OSX 10.10, *)
@@ -30,7 +30,7 @@ class NSThread : NSObject {
   @available(OSX 10.5, *)
   init()
   @available(OSX 10.5, *)
-  convenience init(target: AnyObject, selector: Selector, object argument: AnyObject?)
+  convenience init(target target: AnyObject, selector selector: Selector, object argument: AnyObject?)
   @available(OSX 10.5, *)
   var isExecuting: Bool { get }
   @available(OSX 10.5, *)
@@ -53,13 +53,13 @@ extension NSObject {
   class func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   func performSelector(onMainThread aSelector: Selector, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(OSX 10.5, *)
-  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(OSX 10.5, *)
-  class func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  class func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  func perform(aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
+  func perform(_ aSelector: Selector, on thr: NSThread, with arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
   class func performSelector(inBackground aSelector: Selector, with arg: AnyObject?)
   @available(OSX 10.5, *)

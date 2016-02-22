@@ -13,10 +13,10 @@ class UISlider : UIControl, NSCoding {
   var maximumTrackTintColor: UIColor?
   @available(iOS 5.0, *)
   var thumbTintColor: UIColor?
-  func setValue(value: Float, animated: Bool)
-  func setThumbImage(image: UIImage?, for state: UIControlState)
-  func setMinimumTrackImage(image: UIImage?, for state: UIControlState)
-  func setMaximumTrackImage(image: UIImage?, for state: UIControlState)
+  func setValue(_ value: Float, animated animated: Bool)
+  func setThumbImage(_ image: UIImage?, for state: UIControlState)
+  func setMinimumTrackImage(_ image: UIImage?, for state: UIControlState)
+  func setMaximumTrackImage(_ image: UIImage?, for state: UIControlState)
   func thumbImage(for state: UIControlState) -> UIImage?
   func minimumTrackImage(for state: UIControlState) -> UIImage?
   func maximumTrackImage(for state: UIControlState) -> UIImage?
@@ -26,8 +26,8 @@ class UISlider : UIControl, NSCoding {
   func minimumValueImageRect(forBounds bounds: CGRect) -> CGRect
   func maximumValueImageRect(forBounds bounds: CGRect) -> CGRect
   func trackRect(forBounds bounds: CGRect) -> CGRect
-  func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
-  init(frame: CGRect)
+  func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value value: Float) -> CGRect
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

@@ -1,10 +1,10 @@
 
 @available(OSX 10.9, *)
 class MKPolygon : MKMultiPoint, MKOverlay {
-  convenience init(points: UnsafeMutablePointer<MKMapPoint>, count: Int)
-  convenience init(points: UnsafeMutablePointer<MKMapPoint>, count: Int, interiorPolygons: [MKPolygon]?)
-  convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count: Int)
-  convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count: Int, interiorPolygons: [MKPolygon]?)
+  convenience init(points points: UnsafeMutablePointer<MKMapPoint>, count count: Int)
+  convenience init(points points: UnsafeMutablePointer<MKMapPoint>, count count: Int, interiorPolygons interiorPolygons: [MKPolygon]?)
+  convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count count: Int)
+  convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count count: Int, interiorPolygons interiorPolygons: [MKPolygon]?)
   var interiorPolygons: [MKPolygon]? { get }
   init()
   @available(OSX 10.9, *)
@@ -12,7 +12,7 @@ class MKPolygon : MKMultiPoint, MKOverlay {
   @available(OSX 10.9, *)
   var boundingMapRect: MKMapRect { get }
   @available(OSX 10.9, *)
-  func intersects(mapRect: MKMapRect) -> Bool
+  func intersects(_ mapRect: MKMapRect) -> Bool
   @available(OSX 10.9, *)
   func canReplaceMapContent() -> Bool
 }

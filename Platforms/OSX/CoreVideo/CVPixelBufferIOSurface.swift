@@ -6,6 +6,6 @@ let kCVPixelBufferIOSurfaceOpenGLFBOCompatibilityKey: CFString
 @available(OSX 10.6, *)
 let kCVPixelBufferIOSurfaceCoreAnimationCompatibilityKey: CFString
 @available(OSX 10.6, *)
-func CVPixelBufferGetIOSurface(pixelBuffer: CVPixelBuffer?) -> Unmanaged<IOSurface>?
+func CVPixelBufferGetIOSurface(_ pixelBuffer: CVPixelBuffer?) -> Unmanaged<IOSurface>?
 @available(OSX 10.6, *)
-func CVPixelBufferCreateWithIOSurface(allocator: CFAllocator?, _ surface: IOSurface, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<Unmanaged<CVPixelBuffer>?>) -> CVReturn
+func CVPixelBufferCreateWithIOSurface(_ allocator: CFAllocator?, _ surface: IOSurface, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<Unmanaged<CVPixelBuffer>?>) -> CVReturn

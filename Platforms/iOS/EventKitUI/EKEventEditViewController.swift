@@ -1,6 +1,6 @@
 
 enum EKEventEditViewAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case canceled
   case saved
@@ -14,15 +14,15 @@ class EKEventEditViewController : UINavigationController {
   var event: EKEvent?
   func cancelEditing()
   @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
+  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
+  init(rootViewController rootViewController: UIViewController)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol EKEventEditViewDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  func eventEditViewController(controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
+  func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction)
   @available(iOS 4.0, *)
   optional func eventEditViewControllerDefaultCalendar(forNewEvents controller: EKEventEditViewController) -> EKCalendar
 }

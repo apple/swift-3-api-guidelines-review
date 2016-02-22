@@ -16,10 +16,10 @@ class AVCaptureDevice : NSObject {
   var manufacturer: String! { get }
   @available(OSX 10.7, *)
   var transportType: Int32 { get }
-  func hasMediaType(mediaType: String!) -> Bool
+  func hasMediaType(_ mediaType: String!) -> Bool
   func lockForConfiguration() throws
   func unlockForConfiguration()
-  func supportsAVCaptureSessionPreset(preset: String!) -> Bool
+  func supportsAVCaptureSessionPreset(_ preset: String!) -> Bool
   var isConnected: Bool { get }
   @available(OSX 10.7, *)
   var isInUseByAnotherApplication: Bool { get }
@@ -43,7 +43,7 @@ class AVCaptureDevice : NSObject {
 }
 @available(OSX 10.7, *)
 enum AVCaptureDevicePosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   case back
@@ -54,7 +54,7 @@ extension AVCaptureDevice {
 }
 @available(OSX 10.7, *)
 enum AVCaptureFlashMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case on
@@ -62,12 +62,12 @@ enum AVCaptureFlashMode : Int {
 }
 extension AVCaptureDevice {
   var hasFlash: Bool { get }
-  func isFlashModeSupported(flashMode: AVCaptureFlashMode) -> Bool
+  func isFlashModeSupported(_ flashMode: AVCaptureFlashMode) -> Bool
   var flashMode: AVCaptureFlashMode
 }
 @available(OSX 10.7, *)
 enum AVCaptureTorchMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case on
@@ -76,19 +76,19 @@ enum AVCaptureTorchMode : Int {
 let AVCaptureMaxAvailableTorchLevel: Float
 extension AVCaptureDevice {
   var hasTorch: Bool { get }
-  func isTorchModeSupported(torchMode: AVCaptureTorchMode) -> Bool
+  func isTorchModeSupported(_ torchMode: AVCaptureTorchMode) -> Bool
   var torchMode: AVCaptureTorchMode
 }
 @available(OSX 10.7, *)
 enum AVCaptureFocusMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoFocus
   case continuousAutoFocus
 }
 extension AVCaptureDevice {
-  func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool
+  func isFocusModeSupported(_ focusMode: AVCaptureFocusMode) -> Bool
   var focusMode: AVCaptureFocusMode
   var isFocusPointOfInterestSupported: Bool { get }
   var focusPointOfInterest: CGPoint
@@ -96,14 +96,14 @@ extension AVCaptureDevice {
 }
 @available(OSX 10.7, *)
 enum AVCaptureExposureMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoExpose
   case continuousAutoExposure
 }
 extension AVCaptureDevice {
-  func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool
+  func isExposureModeSupported(_ exposureMode: AVCaptureExposureMode) -> Bool
   var exposureMode: AVCaptureExposureMode
   var isExposurePointOfInterestSupported: Bool { get }
   var exposurePointOfInterest: CGPoint
@@ -111,14 +111,14 @@ extension AVCaptureDevice {
 }
 @available(OSX 10.7, *)
 enum AVCaptureWhiteBalanceMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoWhiteBalance
   case continuousAutoWhiteBalance
 }
 extension AVCaptureDevice {
-  func isWhiteBalanceModeSupported(whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
+  func isWhiteBalanceModeSupported(_ whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
   var whiteBalanceMode: AVCaptureWhiteBalanceMode
   var isAdjustingWhiteBalance: Bool { get }
 }
@@ -133,7 +133,7 @@ extension AVCaptureDevice {
 typealias AVCaptureDeviceTransportControlsSpeed = Float
 @available(OSX 10.7, *)
 enum AVCaptureDeviceTransportControlsPlaybackMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notPlayingMode
   case playingMode
@@ -146,7 +146,7 @@ extension AVCaptureDevice {
   @available(OSX 10.7, *)
   var transportControlsSpeed: AVCaptureDeviceTransportControlsSpeed { get }
   @available(OSX 10.7, *)
-  func setTransportControlsPlaybackMode(mode: AVCaptureDeviceTransportControlsPlaybackMode, speed: AVCaptureDeviceTransportControlsSpeed)
+  func setTransportControlsPlaybackMode(_ mode: AVCaptureDeviceTransportControlsPlaybackMode, speed speed: AVCaptureDeviceTransportControlsSpeed)
 }
 extension AVCaptureDevice {
 }

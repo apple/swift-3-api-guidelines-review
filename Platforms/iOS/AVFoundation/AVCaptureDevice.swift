@@ -14,10 +14,10 @@ class AVCaptureDevice : NSObject {
   var uniqueID: String! { get }
   var modelID: String! { get }
   var localizedName: String! { get }
-  func hasMediaType(mediaType: String!) -> Bool
+  func hasMediaType(_ mediaType: String!) -> Bool
   func lockForConfiguration() throws
   func unlockForConfiguration()
-  func supportsAVCaptureSessionPreset(preset: String!) -> Bool
+  func supportsAVCaptureSessionPreset(_ preset: String!) -> Bool
   var isConnected: Bool { get }
   @available(iOS 7.0, *)
   var formats: [AnyObject]! { get }
@@ -31,7 +31,7 @@ class AVCaptureDevice : NSObject {
 }
 @available(iOS 4.0, *)
 enum AVCaptureDevicePosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   case back
@@ -42,7 +42,7 @@ extension AVCaptureDevice {
 }
 @available(iOS 4.0, *)
 enum AVCaptureFlashMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case on
@@ -54,12 +54,12 @@ extension AVCaptureDevice {
   var isFlashAvailable: Bool { get }
   @available(iOS 5.0, *)
   var isFlashActive: Bool { get }
-  func isFlashModeSupported(flashMode: AVCaptureFlashMode) -> Bool
+  func isFlashModeSupported(_ flashMode: AVCaptureFlashMode) -> Bool
   var flashMode: AVCaptureFlashMode
 }
 @available(iOS 4.0, *)
 enum AVCaptureTorchMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case on
@@ -74,14 +74,14 @@ extension AVCaptureDevice {
   var isTorchActive: Bool { get }
   @available(iOS 5.0, *)
   var torchLevel: Float { get }
-  func isTorchModeSupported(torchMode: AVCaptureTorchMode) -> Bool
+  func isTorchModeSupported(_ torchMode: AVCaptureTorchMode) -> Bool
   var torchMode: AVCaptureTorchMode
   @available(iOS 6.0, *)
-  func setTorchModeOnWithLevel(torchLevel: Float) throws
+  func setTorchModeOnWithLevel(_ torchLevel: Float) throws
 }
 @available(iOS 4.0, *)
 enum AVCaptureFocusMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoFocus
@@ -89,14 +89,14 @@ enum AVCaptureFocusMode : Int {
 }
 @available(iOS 7.0, *)
 enum AVCaptureAutoFocusRangeRestriction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case near
   case far
 }
 extension AVCaptureDevice {
-  func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool
+  func isFocusModeSupported(_ focusMode: AVCaptureFocusMode) -> Bool
   var focusMode: AVCaptureFocusMode
   var isFocusPointOfInterestSupported: Bool { get }
   var focusPointOfInterest: CGPoint
@@ -112,13 +112,13 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var lensPosition: Float { get }
   @available(iOS 8.0, *)
-  func setFocusModeLockedWithLensPosition(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setFocusModeLockedWithLensPosition(_ lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(iOS 8.0, *)
 let AVCaptureLensPositionCurrent: Float
 @available(iOS 4.0, *)
 enum AVCaptureExposureMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoExpose
@@ -127,7 +127,7 @@ enum AVCaptureExposureMode : Int {
   case custom
 }
 extension AVCaptureDevice {
-  func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool
+  func isExposureModeSupported(_ exposureMode: AVCaptureExposureMode) -> Bool
   var exposureMode: AVCaptureExposureMode
   var isExposurePointOfInterestSupported: Bool { get }
   var exposurePointOfInterest: CGPoint
@@ -139,7 +139,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var iso: Float { get }
   @available(iOS 8.0, *)
-  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWithDuration(_ duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
   @available(iOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(iOS 8.0, *)
@@ -149,7 +149,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var maxExposureTargetBias: Float { get }
   @available(iOS 8.0, *)
-  func setExposureTargetBias(bias: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(iOS 8.0, *)
 let AVCaptureExposureDurationCurrent: CMTime
@@ -159,7 +159,7 @@ let AVCaptureISOCurrent: Float
 let AVCaptureExposureTargetBiasCurrent: Float
 @available(iOS 4.0, *)
 enum AVCaptureWhiteBalanceMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locked
   case autoWhiteBalance
@@ -171,24 +171,24 @@ struct AVCaptureWhiteBalanceGains {
   var greenGain: Float
   var blueGain: Float
   init()
-  init(redGain: Float, greenGain: Float, blueGain: Float)
+  init(redGain redGain: Float, greenGain greenGain: Float, blueGain blueGain: Float)
 }
 @available(iOS 8.0, *)
 struct AVCaptureWhiteBalanceChromaticityValues {
   var x: Float
   var y: Float
   init()
-  init(x: Float, y: Float)
+  init(x x: Float, y y: Float)
 }
 @available(iOS 8.0, *)
 struct AVCaptureWhiteBalanceTemperatureAndTintValues {
   var temperature: Float
   var tint: Float
   init()
-  init(temperature: Float, tint: Float)
+  init(temperature temperature: Float, tint tint: Float)
 }
 extension AVCaptureDevice {
-  func isWhiteBalanceModeSupported(whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
+  func isWhiteBalanceModeSupported(_ whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
   var whiteBalanceMode: AVCaptureWhiteBalanceMode
   var isAdjustingWhiteBalance: Bool { get }
   @available(iOS 8.0, *)
@@ -198,7 +198,7 @@ extension AVCaptureDevice {
   @available(iOS 8.0, *)
   var maxWhiteBalanceGain: Float { get }
   @available(iOS 8.0, *)
-  func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
+  func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(_ whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
   @available(iOS 8.0, *)
   func chromaticityValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(iOS 8.0, *)
@@ -234,7 +234,7 @@ extension AVCaptureDevice {
 }
 @available(iOS 7.0, *)
 enum AVAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notDetermined
   case restricted
@@ -263,7 +263,7 @@ class AVFrameRateRange : NSObject {
 }
 @available(iOS 8.0, *)
 enum AVCaptureVideoStabilizationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case standard
@@ -272,7 +272,7 @@ enum AVCaptureVideoStabilizationMode : Int {
 }
 @available(iOS 8.0, *)
 enum AVCaptureAutoFocusSystem : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case contrastDetection
@@ -288,7 +288,7 @@ class AVCaptureDeviceFormat : NSObject {
   @available(iOS 7.0, *)
   var isVideoBinned: Bool { get }
   @available(iOS 8.0, *)
-  func isVideoStabilizationModeSupported(videoStabilizationMode: AVCaptureVideoStabilizationMode) -> Bool
+  func isVideoStabilizationModeSupported(_ videoStabilizationMode: AVCaptureVideoStabilizationMode) -> Bool
   @available(iOS, introduced=7.0, deprecated=8.0, message="Use isVideoStabilizationModeSupported: instead.")
   var isVideoStabilizationSupported: Bool { get }
   @available(iOS 7.0, *)

@@ -6,13 +6,13 @@ func CTFontManagerCopyAvailableFontFamilyNames() -> CFArray
 @available(OSX 10.6, *)
 func CTFontManagerCopyAvailableFontURLs() -> CFArray
 @available(OSX 10.6, *)
-func CTFontManagerCompareFontFamilyNames(family1: UnsafePointer<Void>, _ family2: UnsafePointer<Void>, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
+func CTFontManagerCompareFontFamilyNames(_ family1: UnsafePointer<Void>, _ family2: UnsafePointer<Void>, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
 @available(OSX 10.6, *)
-func CTFontManagerCreateFontDescriptorsFromURL(fileURL: CFURL) -> CFArray?
+func CTFontManagerCreateFontDescriptorsFromURL(_ fileURL: CFURL) -> CFArray?
 @available(OSX 10.7, *)
-func CTFontManagerCreateFontDescriptorFromData(data: CFData) -> CTFontDescriptor?
+func CTFontManagerCreateFontDescriptorFromData(_ data: CFData) -> CTFontDescriptor?
 enum CTFontManagerScope : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case none
   case process
@@ -20,29 +20,29 @@ enum CTFontManagerScope : UInt32 {
   case session
 }
 @available(OSX 10.6, *)
-func CTFontManagerRegisterFontsForURL(fontURL: CFURL, _ scope: CTFontManagerScope, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func CTFontManagerRegisterFontsForURL(_ fontURL: CFURL, _ scope: CTFontManagerScope, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.6, *)
-func CTFontManagerUnregisterFontsForURL(fontURL: CFURL, _ scope: CTFontManagerScope, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func CTFontManagerUnregisterFontsForURL(_ fontURL: CFURL, _ scope: CTFontManagerScope, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.8, *)
-func CTFontManagerRegisterGraphicsFont(font: CGFont, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func CTFontManagerRegisterGraphicsFont(_ font: CGFont, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.8, *)
-func CTFontManagerUnregisterGraphicsFont(font: CGFont, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func CTFontManagerUnregisterGraphicsFont(_ font: CGFont, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.6, *)
-func CTFontManagerRegisterFontsForURLs(fontURLs: CFArray, _ scope: CTFontManagerScope, _ errors: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Bool
+func CTFontManagerRegisterFontsForURLs(_ fontURLs: CFArray, _ scope: CTFontManagerScope, _ errors: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Bool
 @available(OSX 10.6, *)
-func CTFontManagerUnregisterFontsForURLs(fontURLs: CFArray, _ scope: CTFontManagerScope, _ errors: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Bool
+func CTFontManagerUnregisterFontsForURLs(_ fontURLs: CFArray, _ scope: CTFontManagerScope, _ errors: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Bool
 @available(OSX 10.6, *)
-func CTFontManagerEnableFontDescriptors(descriptors: CFArray, _ enable: Bool)
+func CTFontManagerEnableFontDescriptors(_ descriptors: CFArray, _ enable: Bool)
 @available(OSX 10.6, *)
-func CTFontManagerGetScopeForURL(fontURL: CFURL) -> CTFontManagerScope
+func CTFontManagerGetScopeForURL(_ fontURL: CFURL) -> CTFontManagerScope
 @available(OSX 10.6, *)
-func CTFontManagerIsSupportedFont(fontURL: CFURL) -> Bool
+func CTFontManagerIsSupportedFont(_ fontURL: CFURL) -> Bool
 @available(OSX 10.6, *)
-func CTFontManagerCreateFontRequestRunLoopSource(sourceOrder: CFIndex, _ createMatchesCallback: (CFDictionary, pid_t) -> Unmanaged<CFArray>) -> CFRunLoopSource?
+func CTFontManagerCreateFontRequestRunLoopSource(_ sourceOrder: CFIndex, _ createMatchesCallback: (CFDictionary, pid_t) -> Unmanaged<CFArray>) -> CFRunLoopSource?
 @available(OSX 10.6, *)
 let kCTFontManagerBundleIdentifier: CFString
 enum CTFontManagerAutoActivationSetting : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case `default`
   case disabled
@@ -50,8 +50,8 @@ enum CTFontManagerAutoActivationSetting : UInt32 {
   case promptUser
 }
 @available(OSX 10.6, *)
-func CTFontManagerSetAutoActivationSetting(bundleIdentifier: CFString?, _ setting: CTFontManagerAutoActivationSetting)
+func CTFontManagerSetAutoActivationSetting(_ bundleIdentifier: CFString?, _ setting: CTFontManagerAutoActivationSetting)
 @available(OSX 10.6, *)
-func CTFontManagerGetAutoActivationSetting(bundleIdentifier: CFString?) -> CTFontManagerAutoActivationSetting
+func CTFontManagerGetAutoActivationSetting(_ bundleIdentifier: CFString?) -> CTFontManagerAutoActivationSetting
 @available(OSX 10.6, *)
 let kCTFontManagerRegisteredFontsChangedNotification: CFString

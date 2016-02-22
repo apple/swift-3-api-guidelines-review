@@ -1,6 +1,6 @@
 
 enum UIDatePickerMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case time
   case date
@@ -18,8 +18,8 @@ class UIDatePicker : UIControl, NSCoding {
   var maximumDate: NSDate?
   var countDownDuration: NSTimeInterval
   var minuteInterval: Int
-  func setDate(date: NSDate, animated: Bool)
-  init(frame: CGRect)
+  func setDate(_ date: NSDate, animated animated: Bool)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

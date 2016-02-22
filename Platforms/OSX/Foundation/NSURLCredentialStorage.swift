@@ -3,25 +3,25 @@ class NSURLCredentialStorage : NSObject {
   class func shared() -> NSURLCredentialStorage
   func credentials(for space: NSURLProtectionSpace) -> [String : NSURLCredential]?
   var allCredentials: [NSURLProtectionSpace : [String : NSURLCredential]] { get }
-  func setCredential(credential: NSURLCredential, for space: NSURLProtectionSpace)
-  func remove(credential: NSURLCredential, for space: NSURLProtectionSpace)
+  func setCredential(_ credential: NSURLCredential, for space: NSURLProtectionSpace)
+  func remove(_ credential: NSURLCredential, for space: NSURLProtectionSpace)
   @available(OSX 10.9, *)
-  func remove(credential: NSURLCredential, for space: NSURLProtectionSpace, options: [String : AnyObject]? = [:])
+  func remove(_ credential: NSURLCredential, for space: NSURLProtectionSpace, options options: [String : AnyObject]? = [:])
   func defaultCredential(for space: NSURLProtectionSpace) -> NSURLCredential?
-  func setDefaultCredential(credential: NSURLCredential, for space: NSURLProtectionSpace)
+  func setDefaultCredential(_ credential: NSURLCredential, for space: NSURLProtectionSpace)
   init()
 }
 extension NSURLCredentialStorage {
   @available(OSX 10.10, *)
-  func getCredentialsFor(protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: ([String : NSURLCredential]?) -> Void)
+  func getCredentialsFor(_ protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask, completionHandler completionHandler: ([String : NSURLCredential]?) -> Void)
   @available(OSX 10.10, *)
-  func setCredential(credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
+  func setCredential(_ credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask)
   @available(OSX 10.10, *)
-  func remove(credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]? = [:], task: NSURLSessionTask)
+  func remove(_ credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, options options: [String : AnyObject]? = [:], task task: NSURLSessionTask)
   @available(OSX 10.10, *)
-  func getDefaultCredential(for space: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: (NSURLCredential?) -> Void)
+  func getDefaultCredential(for space: NSURLProtectionSpace, task task: NSURLSessionTask, completionHandler completionHandler: (NSURLCredential?) -> Void)
   @available(OSX 10.10, *)
-  func setDefaultCredential(credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
+  func setDefaultCredential(_ credential: NSURLCredential, for protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask)
 }
 let NSURLCredentialStorageChangedNotification: String
 @available(OSX 10.9, *)

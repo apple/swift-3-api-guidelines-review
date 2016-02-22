@@ -1,12 +1,12 @@
 
 enum UIModalTransitionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case coverVertical
   case crossDissolve
 }
 enum UIModalPresentationStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case fullScreen
   @available(tvOS 3.2, *)
@@ -54,27 +54,27 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(tvOS 5.0, *)
-  func performSegue(identifier identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender sender: AnyObject?)
   @available(tvOS 6.0, *)
-  func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
-  func prepare(for segue: UIStoryboardSegue, sender: AnyObject?)
+  func prepare(for segue: UIStoryboardSegue, sender sender: AnyObject?)
   @available(tvOS 6.0, *)
-  func canPerformUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
+  func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject) -> Bool
   @available(tvOS 9.0, *)
   func allowedChildViewControllersForUnwinding(from source: UIStoryboardUnwindSegueSource) -> [UIViewController]
   @available(tvOS 9.0, *)
-  func childViewControllerContaining(source: UIStoryboardUnwindSegueSource) -> UIViewController?
+  func childViewControllerContaining(_ source: UIStoryboardUnwindSegueSource) -> UIViewController?
   @available(tvOS, introduced=6.0, deprecated=9.0)
-  func forUnwindSegueAction(action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
+  func forUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: AnyObject?) -> UIViewController?
   @available(tvOS 9.0, *)
   func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController)
   @available(tvOS, introduced=6.0, deprecated=9.0)
-  func segueForUnwinding(to toViewController: UIViewController, from fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue?
-  func viewWillAppear(animated: Bool)
-  func viewDidAppear(animated: Bool)
-  func viewWillDisappear(animated: Bool)
-  func viewDidDisappear(animated: Bool)
+  func segueForUnwinding(to toViewController: UIViewController, from fromViewController: UIViewController, identifier identifier: String?) -> UIStoryboardSegue?
+  func viewWillAppear(_ animated: Bool)
+  func viewDidAppear(_ animated: Bool)
+  func viewWillDisappear(_ animated: Bool)
+  func viewDidDisappear(_ animated: Bool)
   @available(tvOS 5.0, *)
   func viewWillLayoutSubviews()
   @available(tvOS 5.0, *)
@@ -99,9 +99,9 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 5.0, *)
   func isMovingFromParentViewController() -> Bool
   @available(tvOS 5.0, *)
-  func present(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil)
+  func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion completion: (() -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func dismiss(animated flag: Bool, completion: (() -> Void)? = nil)
+  func dismiss(animated flag: Bool, completion completion: (() -> Void)? = nil)
   @available(tvOS 3.0, *)
   var modalTransitionStyle: UIModalTransitionStyle
   @available(tvOS 3.2, *)
@@ -117,18 +117,18 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 7.0, *)
   var preferredContentSize: CGSize
   @available(tvOS 8.0, *)
-  func targetViewController(forAction action: Selector, sender: AnyObject?) -> UIViewController?
+  func targetViewController(forAction action: Selector, sender sender: AnyObject?) -> UIViewController?
   @available(tvOS 8.0, *)
-  func show(vc: UIViewController, sender: AnyObject?)
+  func show(_ vc: UIViewController, sender sender: AnyObject?)
   @available(tvOS 8.0, *)
-  func showDetailViewController(vc: UIViewController, sender: AnyObject?)
+  func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
   convenience init()
   @available(tvOS 2.0, *)
   func encode(with aCoder: NSCoder)
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
   @available(tvOS 8.0, *)
   func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer)
   @available(tvOS 8.0, *)
@@ -154,7 +154,7 @@ extension UIViewController {
 }
 extension UIViewController {
   var isEditing: Bool
-  func setEditing(editing: Bool, animated: Bool)
+  func setEditing(_ editing: Bool, animated animated: Bool)
   func editButtonItem() -> UIBarButtonItem
 }
 extension UIViewController {
@@ -165,17 +165,17 @@ extension UIViewController {
   @available(tvOS 5.0, *)
   var childViewControllers: [UIViewController] { get }
   @available(tvOS 5.0, *)
-  func addChildViewController(childController: UIViewController)
+  func addChildViewController(_ childController: UIViewController)
   @available(tvOS 5.0, *)
   func removeFromParentViewController()
   @available(tvOS 5.0, *)
-  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  func transition(from fromViewController: UIViewController, to toViewController: UIViewController, duration duration: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: (() -> Void)?, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 5.0, *)
-  func beginAppearanceTransition(isAppearing: Bool, animated: Bool)
+  func beginAppearanceTransition(_ isAppearing: Bool, animated animated: Bool)
   @available(tvOS 5.0, *)
   func endAppearanceTransition()
   @available(tvOS 8.0, *)
-  func setOverrideTraitCollection(collection: UITraitCollection?, forChildViewController childViewController: UIViewController)
+  func setOverrideTraitCollection(_ collection: UITraitCollection?, forChildViewController childViewController: UIViewController)
   @available(tvOS 8.0, *)
   func overrideTraitCollection(forChildViewController childViewController: UIViewController) -> UITraitCollection?
 }
@@ -217,15 +217,15 @@ extension UIViewController {
 }
 extension UIViewController {
   @available(tvOS 9.0, *)
-  func addKeyCommand(keyCommand: UIKeyCommand)
+  func addKeyCommand(_ keyCommand: UIKeyCommand)
   @available(tvOS 9.0, *)
-  func removeKeyCommand(keyCommand: UIKeyCommand)
+  func removeKeyCommand(_ keyCommand: UIKeyCommand)
 }
 extension UIViewController : NSExtensionRequestHandling {
   @available(tvOS 8.0, *)
   var extensionContext: NSExtensionContext? { get }
   @available(tvOS 8.0, *)
-  func beginRequest(context: NSExtensionContext)
+  func beginRequest(_ context: NSExtensionContext)
 }
 extension UIViewController {
   @available(tvOS 8.0, *)
@@ -246,13 +246,13 @@ protocol UIViewControllerPreviewing : NSObjectProtocol {
 @available(tvOS 9.0, *)
 protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
-  func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
   @available(tvOS 9.0, *)
-  func previewingContext(previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
 }
 extension UIViewController {
   @available(tvOS 9.0, *)
-  func registerForPreviewing(delegate: UIViewControllerPreviewingDelegate, sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(_ delegate: UIViewControllerPreviewingDelegate, sourceView sourceView: UIView) -> UIViewControllerPreviewing
   @available(tvOS 9.0, *)
   func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }
@@ -266,7 +266,7 @@ protocol UIPreviewActionItem : NSObjectProtocol {
 }
 @available(tvOS 9.0, *)
 enum UIPreviewActionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case selected
@@ -275,7 +275,7 @@ enum UIPreviewActionStyle : Int {
 @available(tvOS 9.0, *)
 class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
   var handler: (UIPreviewActionItem, UIViewController) -> Void { get }
-  convenience init(title: String, style: UIPreviewActionStyle, handler: (UIPreviewAction, UIViewController) -> Void)
+  convenience init(title title: String, style style: UIPreviewActionStyle, handler handler: (UIPreviewAction, UIViewController) -> Void)
   init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -284,7 +284,7 @@ class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
 }
 @available(tvOS 9.0, *)
 class UIPreviewActionGroup : NSObject, NSCopying, UIPreviewActionItem {
-  convenience init(title: String, style: UIPreviewActionStyle, actions: [UIPreviewAction])
+  convenience init(title title: String, style style: UIPreviewActionStyle, actions actions: [UIPreviewAction])
   init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

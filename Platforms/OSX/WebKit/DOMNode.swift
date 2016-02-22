@@ -42,37 +42,37 @@ class DOMNode : DOMObject, DOMEventTarget {
   @available(OSX 10.5, *)
   var isContentEditable: Bool { get }
   @available(OSX 10.5, *)
-  func insert(before newChild: DOMNode!, refChild: DOMNode!) -> DOMNode!
+  func insert(before newChild: DOMNode!, refChild refChild: DOMNode!) -> DOMNode!
   @available(OSX 10.5, *)
-  func replaceChild(newChild: DOMNode!, oldChild: DOMNode!) -> DOMNode!
-  func removeChild(oldChild: DOMNode!) -> DOMNode!
-  func appendChild(newChild: DOMNode!) -> DOMNode!
+  func replaceChild(_ newChild: DOMNode!, oldChild oldChild: DOMNode!) -> DOMNode!
+  func removeChild(_ oldChild: DOMNode!) -> DOMNode!
+  func appendChild(_ newChild: DOMNode!) -> DOMNode!
   func hasChildNodes() -> Bool
-  func cloneNode(deep: Bool) -> DOMNode!
+  func cloneNode(_ deep: Bool) -> DOMNode!
   func normalize()
   @available(OSX 10.5, *)
-  func isSupported(feature: String!, version: String!) -> Bool
+  func isSupported(_ feature: String!, version version: String!) -> Bool
   func hasAttributes() -> Bool
   @available(OSX 10.5, *)
-  func isSameNode(other: DOMNode!) -> Bool
+  func isSameNode(_ other: DOMNode!) -> Bool
   @available(OSX 10.5, *)
-  func isEqualNode(other: DOMNode!) -> Bool
+  func isEqualNode(_ other: DOMNode!) -> Bool
   @available(OSX 10.5, *)
-  func lookupPrefix(namespaceURI: String!) -> String!
+  func lookupPrefix(_ namespaceURI: String!) -> String!
   @available(OSX 10.5, *)
-  func isDefaultNamespace(namespaceURI: String!) -> Bool
+  func isDefaultNamespace(_ namespaceURI: String!) -> Bool
   @available(OSX 10.5, *)
-  func lookupNamespaceURI(prefix: String!) -> String!
+  func lookupNamespaceURI(_ prefix: String!) -> String!
   @available(OSX 10.6, *)
-  func compareDocumentPosition(other: DOMNode!) -> UInt16
+  func compareDocumentPosition(_ other: DOMNode!) -> UInt16
   @available(OSX 10.5, *)
-  func contains(other: DOMNode!) -> Bool
+  func contains(_ other: DOMNode!) -> Bool
   @available(OSX 10.5, *)
-  func addEventListener(type: String!, listener: DOMEventListener!, useCapture: Bool)
+  func addEventListener(_ type: String!, listener listener: DOMEventListener!, useCapture useCapture: Bool)
   @available(OSX 10.5, *)
-  func removeEventListener(type: String!, listener: DOMEventListener!, useCapture: Bool)
+  func removeEventListener(_ type: String!, listener listener: DOMEventListener!, useCapture useCapture: Bool)
   @available(OSX 10.4, *)
-  func dispatchEvent(event: DOMEvent!) -> Bool
+  func dispatchEvent(_ event: DOMEvent!) -> Bool
 }
 extension DOMNode {
 }

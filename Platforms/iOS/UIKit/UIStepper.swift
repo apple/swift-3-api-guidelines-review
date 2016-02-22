@@ -11,22 +11,22 @@ class UIStepper : UIControl {
   @available(iOS 6.0, *)
   var tintColor: UIColor!
   @available(iOS 6.0, *)
-  func setBackgroundImage(image: UIImage?, for state: UIControlState)
+  func setBackgroundImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
   func backgroundImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func setDividerImage(image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
+  func setDividerImage(_ image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 6.0, *)
   func dividerImage(forLeftSegmentState state: UIControlState, rightSegmentState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func setIncrementImage(image: UIImage?, for state: UIControlState)
+  func setIncrementImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
   func incrementImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func setDecrementImage(image: UIImage?, for state: UIControlState)
+  func setDecrementImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
   func decrementImage(for state: UIControlState) -> UIImage?
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

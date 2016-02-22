@@ -1,6 +1,6 @@
 
 enum SCNFilterMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
   case none
@@ -10,7 +10,7 @@ enum SCNFilterMode : Int {
   case linear
 }
 enum SCNWrapMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
   case clamp
@@ -24,7 +24,7 @@ enum SCNWrapMode : Int {
 @available(OSX 10.8, *)
 class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   @available(OSX 10.9, *)
-  convenience init(contents: AnyObject)
+  convenience init(contents contents: AnyObject)
   var contents: AnyObject?
   @available(OSX 10.9, *)
   var intensity: CGFloat
@@ -40,7 +40,7 @@ class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   var maxAnisotropy: CGFloat
   init()
   @available(OSX 10.8, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)

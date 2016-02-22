@@ -2,7 +2,7 @@
 var kABMultiValueMask: Int32 { get }
 struct _ABPropertyType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kABErrorInProperty: _ABPropertyType { get }
@@ -25,7 +25,7 @@ var kABMultiDateComponentsProperty: _ABPropertyType { get }
 typealias ABPropertyType = CFIndex
 struct _ABSearchComparison : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kABEqual: _ABSearchComparison { get }
@@ -56,7 +56,7 @@ var kABNotWithinIntervalFromTodayYearless: _ABSearchComparison { get }
 typealias ABSearchComparison = CFIndex
 struct _ABSearchConjunction : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kABSearchAnd: _ABSearchConjunction { get }

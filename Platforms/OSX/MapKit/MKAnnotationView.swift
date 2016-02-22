@@ -2,7 +2,7 @@
 let MKAnnotationCalloutInfoDidChangeNotification: String
 @available(OSX 10.9, *)
 enum MKAnnotationViewDragState : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case starting
@@ -12,7 +12,7 @@ enum MKAnnotationViewDragState : UInt {
 }
 @available(OSX 10.9, *)
 class MKAnnotationView : NSView {
-  init(annotation: MKAnnotation?, reuseIdentifier: String?)
+  init(annotation annotation: MKAnnotation?, reuseIdentifier reuseIdentifier: String?)
   var reuseIdentifier: String? { get }
   func prepareForReuse()
   var annotation: MKAnnotation?
@@ -24,7 +24,7 @@ class MKAnnotationView : NSView {
   var isEnabled: Bool
   var isHighlighted: Bool
   var isSelected: Bool
-  func setSelected(selected: Bool, animated: Bool)
+  func setSelected(_ selected: Bool, animated animated: Bool)
   var canShowCallout: Bool
   var leftCalloutAccessoryView: NSView?
   var rightCalloutAccessoryView: NSView?
@@ -35,8 +35,8 @@ class MKAnnotationView : NSView {
   @available(OSX 10.9, *)
   var dragState: MKAnnotationViewDragState
   @available(OSX 10.9, *)
-  func setDragState(newDragState: MKAnnotationViewDragState, animated: Bool)
+  func setDragState(_ newDragState: MKAnnotationViewDragState, animated animated: Bool)
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

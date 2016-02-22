@@ -12,14 +12,14 @@ class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
   init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
-  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 class ABMutableMultiValue : ABMultiValue {
-  func add(value: AnyObject!, withLabel label: String!) -> String!
-  func insert(value: AnyObject!, withLabel label: String!, at index: Int) -> String!
+  func add(_ value: AnyObject!, withLabel label: String!) -> String!
+  func insert(_ value: AnyObject!, withLabel label: String!, at index: Int) -> String!
   func removeAndLabel(at index: Int) -> Bool
   func replace(at index: Int, withValue value: AnyObject!) -> Bool
   func replaceLabel(at index: Int, withLabel label: String!) -> Bool
-  func setPrimaryIdentifier(identifier: String!) -> Bool
+  func setPrimaryIdentifier(_ identifier: String!) -> Bool
   init()
 }

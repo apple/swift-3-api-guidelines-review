@@ -3,7 +3,7 @@
 class GKScore : NSObject, NSCoding, NSSecureCoding {
   init(leaderboardIdentifier identifier: String)
   @available(tvOS 8.0, *)
-  init(leaderboardIdentifier identifier: String, player: GKPlayer)
+  init(leaderboardIdentifier identifier: String, player player: GKPlayer)
   var value: Int64
   var formattedValue: String? { get }
   @available(tvOS 7.0, *)
@@ -17,7 +17,7 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   @available(tvOS 5.0, *)
   var shouldSetDefaultLeaderboard: Bool
   @available(tvOS 6.0, *)
-  class func report(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init()
   @available(tvOS 4.1, *)
   func encode(with aCoder: NSCoder)

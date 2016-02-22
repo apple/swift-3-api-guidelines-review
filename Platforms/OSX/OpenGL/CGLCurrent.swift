@@ -1,3 +1,3 @@
 
-func CGLSetCurrentContext(ctx: CGLContextObj) -> CGLError
+func CGLSetCurrentContext(_ ctx: CGLContextObj) -> CGLError
 func CGLGetCurrentContext() -> CGLContextObj

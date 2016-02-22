@@ -5,6 +5,6 @@ class AVAudioUnitDelay : AVAudioUnitEffect {
   var feedback: Float
   var lowPassCutoff: Float
   var wetDryMix: Float
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   init()
 }

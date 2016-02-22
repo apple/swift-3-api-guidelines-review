@@ -16,13 +16,13 @@ class PHAsset : PHObject {
   var representsBurst: Bool { get }
   @available(iOS 9.0, *)
   var sourceType: PHAssetSourceType { get }
-  func canPerform(editOperation: PHAssetEditOperation) -> Bool
-  class func fetchAssets(in assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(localIdentifiers identifiers: [String], options: PHFetchOptions?) -> PHFetchResult
-  class func fetchKeyAssets(in assetCollection: PHAssetCollection, options: PHFetchOptions?) -> PHFetchResult?
-  class func fetchAssets(burstIdentifier burstIdentifier: String, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(mediaType: PHAssetMediaType, options: PHFetchOptions?) -> PHFetchResult
-  class func fetchAssets(alAssetURLs assetURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
+  func canPerform(_ editOperation: PHAssetEditOperation) -> Bool
+  class func fetchAssets(in assetCollection: PHAssetCollection, options options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(localIdentifiers identifiers: [String], options options: PHFetchOptions?) -> PHFetchResult
+  class func fetchKeyAssets(in assetCollection: PHAssetCollection, options options: PHFetchOptions?) -> PHFetchResult?
+  class func fetchAssets(burstIdentifier burstIdentifier: String, options options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(_ options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(_ mediaType: PHAssetMediaType, options options: PHFetchOptions?) -> PHFetchResult
+  class func fetchAssets(alAssetURLs assetURLs: [NSURL], options options: PHFetchOptions?) -> PHFetchResult
   init()
 }

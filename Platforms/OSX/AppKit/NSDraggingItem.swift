@@ -5,7 +5,7 @@ let NSDraggingImageComponentIconKey: String
 let NSDraggingImageComponentLabelKey: String
 @available(OSX 10.7, *)
 class NSDraggingImageComponent : NSObject {
-  init(key: String)
+  init(key key: String)
   var key: String
   var contents: AnyObject?
   var frame: NSRect
@@ -13,11 +13,11 @@ class NSDraggingImageComponent : NSObject {
 }
 @available(OSX 10.7, *)
 class NSDraggingItem : NSObject {
-  init(pasteboardWriter: NSPasteboardWriting)
+  init(pasteboardWriter pasteboardWriter: NSPasteboardWriting)
   var item: AnyObject { get }
   var draggingFrame: NSRect
   var imageComponentsProvider: (() -> [NSDraggingImageComponent])?
-  func setDraggingFrame(frame: NSRect, contents: AnyObject)
+  func setDraggingFrame(_ frame: NSRect, contents contents: AnyObject)
   var imageComponents: [NSDraggingImageComponent]? { get }
   convenience init()
 }

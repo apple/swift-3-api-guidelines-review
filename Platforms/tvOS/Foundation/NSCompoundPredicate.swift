@@ -1,6 +1,6 @@
 
 enum NSCompoundPredicateType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notPredicateType
   case andPredicateType
@@ -8,8 +8,8 @@ enum NSCompoundPredicateType : UInt {
 }
 @available(tvOS 3.0, *)
 class NSCompoundPredicate : NSPredicate {
-  init(type: NSCompoundPredicateType, subpredicates: [NSPredicate])
-  init?(coder: NSCoder)
+  init(type type: NSCompoundPredicateType, subpredicates subpredicates: [NSPredicate])
+  init?(coder coder: NSCoder)
   var compoundPredicateType: NSCompoundPredicateType { get }
   var subpredicates: [AnyObject] { get }
   /*not inherited*/ init(andPredicateWithSubpredicates subpredicates: [NSPredicate])

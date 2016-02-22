@@ -21,9 +21,9 @@ class NSLayoutGuide : NSObject, NSCoding, NSUserInterfaceItemIdentification {
 }
 extension NSView {
   @available(OSX 10.11, *)
-  func addLayoutGuide(guide: NSLayoutGuide)
+  func addLayoutGuide(_ guide: NSLayoutGuide)
   @available(OSX 10.11, *)
-  func removeLayoutGuide(guide: NSLayoutGuide)
+  func removeLayoutGuide(_ guide: NSLayoutGuide)
   @available(OSX 10.11, *)
   var layoutGuides: [NSLayoutGuide] { get }
 }

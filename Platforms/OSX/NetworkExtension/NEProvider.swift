@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NEProviderStopReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case userInitiated
@@ -26,7 +26,7 @@ class NEProvider : NSObject {
   @available(OSX 10.11, *)
   func wake()
   @available(OSX 10.11, *)
-  func createTCPConnection(to remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
+  func createTCPConnection(to remoteEndpoint: NWEndpoint, enableTLS enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate delegate: AnyObject?) -> NWTCPConnection
   @available(OSX 10.11, *)
   func createUDPSession(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   @available(OSX 10.11, *)

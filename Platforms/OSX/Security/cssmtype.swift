@@ -24,7 +24,7 @@ struct cssm_data {
   var Length: CSSM_SIZE
   var Data: UnsafeMutablePointer<uint8>
   init()
-  init(Length: CSSM_SIZE, Data: UnsafeMutablePointer<uint8>)
+  init(Length Length: CSSM_SIZE, Data Data: UnsafeMutablePointer<uint8>)
 }
 struct cssm_guid {
   var Data1: uint32
@@ -32,7 +32,7 @@ struct cssm_guid {
   var Data3: uint16
   var Data4: (uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8)
   init()
-  init(Data1: uint32, Data2: uint16, Data3: uint16, Data4: (uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8))
+  init(Data1 Data1: uint32, Data2 Data2: uint16, Data3 Data3: uint16, Data4 Data4: (uint8, uint8, uint8, uint8, uint8, uint8, uint8, uint8))
 }
 typealias CSSM_BITMASK = uint32
 typealias CSSM_KEY_HIERARCHY = CSSM_BITMASK
@@ -51,7 +51,7 @@ struct cssm_version {
   var Major: uint32
   var Minor: uint32
   init()
-  init(Major: uint32, Minor: uint32)
+  init(Major Major: uint32, Minor Minor: uint32)
 }
 typealias CSSM_SERVICE_MASK = uint32
 var CSSM_SERVICE_CSSM: Int { get }
@@ -68,7 +68,7 @@ struct cssm_subservice_uid {
   var SubserviceId: uint32
   var SubserviceType: CSSM_SERVICE_TYPE
   init()
-  init(Guid: CSSM_GUID, Version: CSSM_VERSION, SubserviceId: uint32, SubserviceType: CSSM_SERVICE_TYPE)
+  init(Guid Guid: CSSM_GUID, Version Version: CSSM_VERSION, SubserviceId SubserviceId: uint32, SubserviceType SubserviceType: CSSM_SERVICE_TYPE)
 }
 typealias CSSM_MODULE_EVENT = uint32
 typealias CSSM_MODULE_EVENT_PTR = UnsafeMutablePointer<uint32>
@@ -102,7 +102,7 @@ struct cssm_net_address {
   var AddressType: CSSM_NET_ADDRESS_TYPE
   var Address: CSSM_DATA
   init()
-  init(AddressType: CSSM_NET_ADDRESS_TYPE, Address: CSSM_DATA)
+  init(AddressType AddressType: CSSM_NET_ADDRESS_TYPE, Address Address: CSSM_DATA)
 }
 typealias CSSM_NET_PROTOCOL = uint32
 var CSSM_NET_PROTO_NONE: Int { get }
@@ -123,7 +123,7 @@ struct cssm_crypto_data {
   var Callback: CSSM_CALLBACK!
   var CallerCtx: UnsafeMutablePointer<Void>
   init()
-  init(Param: CSSM_DATA, Callback: CSSM_CALLBACK!, CallerCtx: UnsafeMutablePointer<Void>)
+  init(Param Param: CSSM_DATA, Callback Callback: CSSM_CALLBACK!, CallerCtx CallerCtx: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_WORDID_TYPE = sint32
 var CSSM_WORDID__UNK_: Int { get }
@@ -277,14 +277,14 @@ struct cssm_list {
   var Head: CSSM_LIST_ELEMENT_PTR
   var Tail: CSSM_LIST_ELEMENT_PTR
   init()
-  init(ListType: CSSM_LIST_TYPE, Head: CSSM_LIST_ELEMENT_PTR, Tail: CSSM_LIST_ELEMENT_PTR)
+  init(ListType ListType: CSSM_LIST_TYPE, Head Head: CSSM_LIST_ELEMENT_PTR, Tail Tail: CSSM_LIST_ELEMENT_PTR)
 }
 struct cssm_list_element {
   struct __Unnamed_union_Element {
     var Sublist: CSSM_LIST
     var Word: CSSM_DATA
-    init(Sublist: CSSM_LIST)
-    init(Word: CSSM_DATA)
+    init(Sublist Sublist: CSSM_LIST)
+    init(Word Word: CSSM_DATA)
     init()
   }
   var NextElement: UnsafeMutablePointer<cssm_list_element>
@@ -292,14 +292,14 @@ struct cssm_list_element {
   var ElementType: CSSM_LIST_ELEMENT_TYPE
   var Element: cssm_list_element.__Unnamed_union_Element
   init()
-  init(NextElement: UnsafeMutablePointer<cssm_list_element>, WordID: CSSM_WORDID_TYPE, ElementType: CSSM_LIST_ELEMENT_TYPE, Element: cssm_list_element.__Unnamed_union_Element)
+  init(NextElement NextElement: UnsafeMutablePointer<cssm_list_element>, WordID WordID: CSSM_WORDID_TYPE, ElementType ElementType: CSSM_LIST_ELEMENT_TYPE, Element Element: cssm_list_element.__Unnamed_union_Element)
 }
 typealias CSSM_LIST_ELEMENT = cssm_list_element
 struct cssm_tuplegroup {
   var NumberOfTuples: uint32
   var Tuples: CSSM_TUPLE_PTR
   init()
-  init(NumberOfTuples: uint32, Tuples: CSSM_TUPLE_PTR)
+  init(NumberOfTuples NumberOfTuples: uint32, Tuples Tuples: CSSM_TUPLE_PTR)
 }
 typealias CSSM_SAMPLE_TYPE = CSSM_WORDID_TYPE
 var CSSM_SAMPLE_TYPE_PASSWORD: Int { get }
@@ -316,13 +316,13 @@ struct cssm_sample {
   var TypedSample: CSSM_LIST
   var Verifier: UnsafePointer<CSSM_SUBSERVICE_UID>
   init()
-  init(TypedSample: CSSM_LIST, Verifier: UnsafePointer<CSSM_SUBSERVICE_UID>)
+  init(TypedSample TypedSample: CSSM_LIST, Verifier Verifier: UnsafePointer<CSSM_SUBSERVICE_UID>)
 }
 struct cssm_samplegroup {
   var NumberOfSamples: uint32
   var Samples: UnsafePointer<CSSM_SAMPLE>
   init()
-  init(NumberOfSamples: uint32, Samples: UnsafePointer<CSSM_SAMPLE>)
+  init(NumberOfSamples NumberOfSamples: uint32, Samples Samples: UnsafePointer<CSSM_SAMPLE>)
 }
 typealias CSSM_MALLOC = @convention(c) (CSSM_SIZE, UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>
 typealias CSSM_FREE = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void
@@ -335,7 +335,7 @@ struct cssm_memory_funcs {
   var calloc_func: CSSM_CALLOC!
   var AllocRef: UnsafeMutablePointer<Void>
   init()
-  init(malloc_func: CSSM_MALLOC!, free_func: CSSM_FREE!, realloc_func: CSSM_REALLOC!, calloc_func: CSSM_CALLOC!, AllocRef: UnsafeMutablePointer<Void>)
+  init(malloc_func malloc_func: CSSM_MALLOC!, free_func free_func: CSSM_FREE!, realloc_func realloc_func: CSSM_REALLOC!, calloc_func calloc_func: CSSM_CALLOC!, AllocRef AllocRef: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_API_MEMORY_FUNCS = CSSM_MEMORY_FUNCS
 typealias CSSM_API_MEMORY_FUNCS_PTR = UnsafeMutablePointer<CSSM_API_MEMORY_FUNCS>
@@ -374,7 +374,7 @@ struct cssm_encoded_cert {
   var CertEncoding: CSSM_CERT_ENCODING
   var CertBlob: CSSM_DATA
   init()
-  init(CertType: CSSM_CERT_TYPE, CertEncoding: CSSM_CERT_ENCODING, CertBlob: CSSM_DATA)
+  init(CertType CertType: CSSM_CERT_TYPE, CertEncoding CertEncoding: CSSM_CERT_ENCODING, CertBlob CertBlob: CSSM_DATA)
 }
 typealias CSSM_CERT_PARSE_FORMAT = uint32
 typealias CSSM_CERT_PARSE_FORMAT_PTR = UnsafeMutablePointer<uint32>
@@ -392,13 +392,13 @@ struct cssm_parsed_cert {
   var ParsedCertFormat: CSSM_CERT_PARSE_FORMAT
   var ParsedCert: UnsafeMutablePointer<Void>
   init()
-  init(CertType: CSSM_CERT_TYPE, ParsedCertFormat: CSSM_CERT_PARSE_FORMAT, ParsedCert: UnsafeMutablePointer<Void>)
+  init(CertType CertType: CSSM_CERT_TYPE, ParsedCertFormat ParsedCertFormat: CSSM_CERT_PARSE_FORMAT, ParsedCert ParsedCert: UnsafeMutablePointer<Void>)
 }
 struct cssm_cert_pair {
   var EncodedCert: CSSM_ENCODED_CERT
   var ParsedCert: CSSM_PARSED_CERT
   init()
-  init(EncodedCert: CSSM_ENCODED_CERT, ParsedCert: CSSM_PARSED_CERT)
+  init(EncodedCert EncodedCert: CSSM_ENCODED_CERT, ParsedCert ParsedCert: CSSM_PARSED_CERT)
 }
 typealias CSSM_CERTGROUP_TYPE = uint32
 typealias CSSM_CERTGROUP_TYPE_PTR = UnsafeMutablePointer<uint32>
@@ -412,10 +412,10 @@ struct cssm_certgroup {
     var EncodedCertList: CSSM_ENCODED_CERT_PTR
     var ParsedCertList: CSSM_PARSED_CERT_PTR
     var PairCertList: CSSM_CERT_PAIR_PTR
-    init(CertList: CSSM_DATA_PTR)
-    init(EncodedCertList: CSSM_ENCODED_CERT_PTR)
-    init(ParsedCertList: CSSM_PARSED_CERT_PTR)
-    init(PairCertList: CSSM_CERT_PAIR_PTR)
+    init(CertList CertList: CSSM_DATA_PTR)
+    init(EncodedCertList EncodedCertList: CSSM_ENCODED_CERT_PTR)
+    init(ParsedCertList ParsedCertList: CSSM_PARSED_CERT_PTR)
+    init(PairCertList PairCertList: CSSM_CERT_PAIR_PTR)
     init()
   }
   var CertType: CSSM_CERT_TYPE
@@ -425,7 +425,7 @@ struct cssm_certgroup {
   var CertGroupType: CSSM_CERTGROUP_TYPE
   var Reserved: UnsafeMutablePointer<Void>
   init()
-  init(CertType: CSSM_CERT_TYPE, CertEncoding: CSSM_CERT_ENCODING, NumCerts: uint32, GroupList: cssm_certgroup.__Unnamed_union_GroupList, CertGroupType: CSSM_CERTGROUP_TYPE, Reserved: UnsafeMutablePointer<Void>)
+  init(CertType CertType: CSSM_CERT_TYPE, CertEncoding CertEncoding: CSSM_CERT_ENCODING, NumCerts NumCerts: uint32, GroupList GroupList: cssm_certgroup.__Unnamed_union_GroupList, CertGroupType CertGroupType: CSSM_CERTGROUP_TYPE, Reserved Reserved: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_CERTGROUP = cssm_certgroup
 typealias CSSM_CERTGROUP_PTR = UnsafeMutablePointer<cssm_certgroup>
@@ -434,7 +434,7 @@ struct cssm_base_certs {
   var CLHandle: CSSM_CL_HANDLE
   var Certs: CSSM_CERTGROUP
   init()
-  init(TPHandle: CSSM_TP_HANDLE, CLHandle: CSSM_CL_HANDLE, Certs: CSSM_CERTGROUP)
+  init(TPHandle TPHandle: CSSM_TP_HANDLE, CLHandle CLHandle: CSSM_CL_HANDLE, Certs Certs: CSSM_CERTGROUP)
 }
 struct cssm_access_credentials {
   var EntryTag: CSSM_STRING
@@ -443,7 +443,7 @@ struct cssm_access_credentials {
   var Callback: CSSM_CHALLENGE_CALLBACK!
   var CallerCtx: UnsafeMutablePointer<Void>
   init()
-  init(EntryTag: CSSM_STRING, BaseCerts: CSSM_BASE_CERTS, Samples: CSSM_SAMPLEGROUP, Callback: CSSM_CHALLENGE_CALLBACK!, CallerCtx: UnsafeMutablePointer<Void>)
+  init(EntryTag EntryTag: CSSM_STRING, BaseCerts BaseCerts: CSSM_BASE_CERTS, Samples Samples: CSSM_SAMPLEGROUP, Callback Callback: CSSM_CHALLENGE_CALLBACK!, CallerCtx CallerCtx: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_ACL_SUBJECT_TYPE = sint32
 var CSSM_ACL_SUBJECT_TYPE_ANY: Int { get }
@@ -483,13 +483,13 @@ struct cssm_authorizationgroup {
   var NumberOfAuthTags: uint32
   var AuthTags: UnsafeMutablePointer<CSSM_ACL_AUTHORIZATION_TAG>
   init()
-  init(NumberOfAuthTags: uint32, AuthTags: UnsafeMutablePointer<CSSM_ACL_AUTHORIZATION_TAG>)
+  init(NumberOfAuthTags NumberOfAuthTags: uint32, AuthTags AuthTags: UnsafeMutablePointer<CSSM_ACL_AUTHORIZATION_TAG>)
 }
 struct cssm_acl_validity_period {
   var StartDate: CSSM_DATA
   var EndDate: CSSM_DATA
   init()
-  init(StartDate: CSSM_DATA, EndDate: CSSM_DATA)
+  init(StartDate StartDate: CSSM_DATA, EndDate EndDate: CSSM_DATA)
 }
 struct cssm_acl_entry_prototype {
   var TypedSubject: CSSM_LIST
@@ -498,13 +498,13 @@ struct cssm_acl_entry_prototype {
   var TimeRange: CSSM_ACL_VALIDITY_PERIOD
   var EntryTag: CSSM_STRING
   init()
-  init(TypedSubject: CSSM_LIST, Delegate: CSSM_BOOL, Authorization: CSSM_AUTHORIZATIONGROUP, TimeRange: CSSM_ACL_VALIDITY_PERIOD, EntryTag: CSSM_STRING)
+  init(TypedSubject TypedSubject: CSSM_LIST, Delegate Delegate: CSSM_BOOL, Authorization Authorization: CSSM_AUTHORIZATIONGROUP, TimeRange TimeRange: CSSM_ACL_VALIDITY_PERIOD, EntryTag EntryTag: CSSM_STRING)
 }
 struct cssm_acl_owner_prototype {
   var TypedSubject: CSSM_LIST
   var Delegate: CSSM_BOOL
   init()
-  init(TypedSubject: CSSM_LIST, Delegate: CSSM_BOOL)
+  init(TypedSubject TypedSubject: CSSM_LIST, Delegate Delegate: CSSM_BOOL)
 }
 typealias CSSM_ACL_SUBJECT_CALLBACK = @convention(c) (UnsafePointer<CSSM_LIST>, CSSM_LIST_PTR, UnsafeMutablePointer<Void>, UnsafePointer<CSSM_MEMORY_FUNCS>) -> CSSM_RETURN
 struct cssm_acl_entry_input {
@@ -512,20 +512,20 @@ struct cssm_acl_entry_input {
   var Callback: CSSM_ACL_SUBJECT_CALLBACK!
   var CallerContext: UnsafeMutablePointer<Void>
   init()
-  init(Prototype: CSSM_ACL_ENTRY_PROTOTYPE, Callback: CSSM_ACL_SUBJECT_CALLBACK!, CallerContext: UnsafeMutablePointer<Void>)
+  init(Prototype Prototype: CSSM_ACL_ENTRY_PROTOTYPE, Callback Callback: CSSM_ACL_SUBJECT_CALLBACK!, CallerContext CallerContext: UnsafeMutablePointer<Void>)
 }
 struct cssm_resource_control_context {
   var AccessCred: CSSM_ACCESS_CREDENTIALS_PTR
   var InitialAclEntry: CSSM_ACL_ENTRY_INPUT
   init()
-  init(AccessCred: CSSM_ACCESS_CREDENTIALS_PTR, InitialAclEntry: CSSM_ACL_ENTRY_INPUT)
+  init(AccessCred AccessCred: CSSM_ACCESS_CREDENTIALS_PTR, InitialAclEntry InitialAclEntry: CSSM_ACL_ENTRY_INPUT)
 }
 typealias CSSM_ACL_HANDLE = CSSM_HANDLE
 struct cssm_acl_entry_info {
   var EntryPublicInfo: CSSM_ACL_ENTRY_PROTOTYPE
   var EntryHandle: CSSM_ACL_HANDLE
   init()
-  init(EntryPublicInfo: CSSM_ACL_ENTRY_PROTOTYPE, EntryHandle: CSSM_ACL_HANDLE)
+  init(EntryPublicInfo EntryPublicInfo: CSSM_ACL_ENTRY_PROTOTYPE, EntryHandle EntryHandle: CSSM_ACL_HANDLE)
 }
 typealias CSSM_ACL_EDIT_MODE = uint32
 var CSSM_ACL_EDIT_MODE_ADD: Int { get }
@@ -536,7 +536,7 @@ struct cssm_acl_edit {
   var OldEntryHandle: CSSM_ACL_HANDLE
   var NewEntry: UnsafePointer<CSSM_ACL_ENTRY_INPUT>
   init()
-  init(EditMode: CSSM_ACL_EDIT_MODE, OldEntryHandle: CSSM_ACL_HANDLE, NewEntry: UnsafePointer<CSSM_ACL_ENTRY_INPUT>)
+  init(EditMode EditMode: CSSM_ACL_EDIT_MODE, OldEntryHandle OldEntryHandle: CSSM_ACL_HANDLE, NewEntry NewEntry: UnsafePointer<CSSM_ACL_ENTRY_INPUT>)
 }
 typealias CSSM_PROC_ADDR = @convention(c) () -> Void
 typealias CSSM_PROC_ADDR_PTR = UnsafeMutablePointer<CSSM_PROC_ADDR?>
@@ -544,26 +544,26 @@ struct cssm_func_name_addr {
   var Name: CSSM_STRING
   var Address: CSSM_PROC_ADDR!
   init()
-  init(Name: CSSM_STRING, Address: CSSM_PROC_ADDR!)
+  init(Name Name: CSSM_STRING, Address Address: CSSM_PROC_ADDR!)
 }
 struct cssm_date {
   var Year: (uint8, uint8, uint8, uint8)
   var Month: (uint8, uint8)
   var Day: (uint8, uint8)
   init()
-  init(Year: (uint8, uint8, uint8, uint8), Month: (uint8, uint8), Day: (uint8, uint8))
+  init(Year Year: (uint8, uint8, uint8, uint8), Month Month: (uint8, uint8), Day Day: (uint8, uint8))
 }
 struct cssm_range {
   var Min: uint32
   var Max: uint32
   init()
-  init(Min: uint32, Max: uint32)
+  init(Min Min: uint32, Max Max: uint32)
 }
 struct cssm_query_size_data {
   var SizeInputBlock: uint32
   var SizeOutputBlock: uint32
   init()
-  init(SizeInputBlock: uint32, SizeOutputBlock: uint32)
+  init(SizeInputBlock SizeInputBlock: uint32, SizeOutputBlock SizeOutputBlock: uint32)
 }
 typealias CSSM_HEADERVERSION = uint32
 var CSSM_KEYHEADER_VERSION: Int { get }
@@ -571,7 +571,7 @@ struct cssm_key_size {
   var LogicalKeySizeInBits: uint32
   var EffectiveKeySizeInBits: uint32
   init()
-  init(LogicalKeySizeInBits: uint32, EffectiveKeySizeInBits: uint32)
+  init(LogicalKeySizeInBits LogicalKeySizeInBits: uint32, EffectiveKeySizeInBits EffectiveKeySizeInBits: uint32)
 }
 typealias CSSM_KEYBLOB_TYPE = uint32
 var CSSM_KEYBLOB_RAW: UInt32 { get }
@@ -801,13 +801,13 @@ struct cssm_keyheader {
   var WrapMode: CSSM_ENCRYPT_MODE
   var Reserved: uint32
   init()
-  init(HeaderVersion: CSSM_HEADERVERSION, CspId: CSSM_GUID, BlobType: CSSM_KEYBLOB_TYPE, Format: CSSM_KEYBLOB_FORMAT, AlgorithmId: CSSM_ALGORITHMS, KeyClass: CSSM_KEYCLASS, LogicalKeySizeInBits: uint32, KeyAttr: CSSM_KEYATTR_FLAGS, KeyUsage: CSSM_KEYUSE, StartDate: CSSM_DATE, EndDate: CSSM_DATE, WrapAlgorithmId: CSSM_ALGORITHMS, WrapMode: CSSM_ENCRYPT_MODE, Reserved: uint32)
+  init(HeaderVersion HeaderVersion: CSSM_HEADERVERSION, CspId CspId: CSSM_GUID, BlobType BlobType: CSSM_KEYBLOB_TYPE, Format Format: CSSM_KEYBLOB_FORMAT, AlgorithmId AlgorithmId: CSSM_ALGORITHMS, KeyClass KeyClass: CSSM_KEYCLASS, LogicalKeySizeInBits LogicalKeySizeInBits: uint32, KeyAttr KeyAttr: CSSM_KEYATTR_FLAGS, KeyUsage KeyUsage: CSSM_KEYUSE, StartDate StartDate: CSSM_DATE, EndDate EndDate: CSSM_DATE, WrapAlgorithmId WrapAlgorithmId: CSSM_ALGORITHMS, WrapMode WrapMode: CSSM_ENCRYPT_MODE, Reserved Reserved: uint32)
 }
 struct cssm_key {
   var KeyHeader: CSSM_KEYHEADER
   var KeyData: CSSM_DATA
   init()
-  init(KeyHeader: CSSM_KEYHEADER, KeyData: CSSM_DATA)
+  init(KeyHeader KeyHeader: CSSM_KEYHEADER, KeyData KeyData: CSSM_DATA)
 }
 typealias CSSM_WRAP_KEY = CSSM_KEY
 typealias CSSM_WRAP_KEY_PTR = UnsafeMutablePointer<CSSM_KEY>
@@ -819,7 +819,7 @@ struct cssm_dl_db_handle {
   var DLHandle: CSSM_DL_HANDLE
   var DBHandle: CSSM_DB_HANDLE
   init()
-  init(DLHandle: CSSM_DL_HANDLE, DBHandle: CSSM_DB_HANDLE)
+  init(DLHandle DLHandle: CSSM_DL_HANDLE, DBHandle DBHandle: CSSM_DB_HANDLE)
 }
 typealias CSSM_CONTEXT_TYPE = uint32
 var CSSM_ALGCLASS_NONE: Int { get }
@@ -908,7 +908,7 @@ struct cssm_context_attribute {
   var AttributeLength: uint32
   var Attribute: cssm_context_attribute_value
   init()
-  init(AttributeType: CSSM_ATTRIBUTE_TYPE, AttributeLength: uint32, Attribute: cssm_context_attribute_value)
+  init(AttributeType AttributeType: CSSM_ATTRIBUTE_TYPE, AttributeLength AttributeLength: uint32, Attribute Attribute: cssm_context_attribute_value)
 }
 struct cssm_context_attribute_value {
   var String: UnsafeMutablePointer<Int8>
@@ -923,18 +923,18 @@ struct cssm_context_attribute_value {
   var Version: CSSM_VERSION_PTR
   var DLDBHandle: CSSM_DL_DB_HANDLE_PTR
   var KRProfile: UnsafeMutablePointer<cssm_kr_profile>
-  init(String: UnsafeMutablePointer<Int8>)
-  init(Uint32: uint32)
-  init(AccessCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
-  init(Key: CSSM_KEY_PTR)
-  init(Data: CSSM_DATA_PTR)
-  init(Padding: CSSM_PADDING)
-  init(Date: CSSM_DATE_PTR)
-  init(Range: CSSM_RANGE_PTR)
-  init(CryptoData: CSSM_CRYPTO_DATA_PTR)
-  init(Version: CSSM_VERSION_PTR)
-  init(DLDBHandle: CSSM_DL_DB_HANDLE_PTR)
-  init(KRProfile: UnsafeMutablePointer<cssm_kr_profile>)
+  init(String String: UnsafeMutablePointer<Int8>)
+  init(Uint32 Uint32: uint32)
+  init(AccessCredentials AccessCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(Key Key: CSSM_KEY_PTR)
+  init(Data Data: CSSM_DATA_PTR)
+  init(Padding Padding: CSSM_PADDING)
+  init(Date Date: CSSM_DATE_PTR)
+  init(Range Range: CSSM_RANGE_PTR)
+  init(CryptoData CryptoData: CSSM_CRYPTO_DATA_PTR)
+  init(Version Version: CSSM_VERSION_PTR)
+  init(DLDBHandle DLDBHandle: CSSM_DL_DB_HANDLE_PTR)
+  init(KRProfile KRProfile: UnsafeMutablePointer<cssm_kr_profile>)
   init()
 }
 typealias CSSM_CONTEXT_ATTRIBUTE = cssm_context_attribute
@@ -950,7 +950,7 @@ struct cssm_context {
   var WorkFactor: uint32
   var Reserved: uint32
   init()
-  init(ContextType: CSSM_CONTEXT_TYPE, AlgorithmType: CSSM_ALGORITHMS, NumberOfAttributes: uint32, ContextAttributes: CSSM_CONTEXT_ATTRIBUTE_PTR, CSPHandle: CSSM_CSP_HANDLE, Privileged: CSSM_BOOL, EncryptionProhibited: uint32, WorkFactor: uint32, Reserved: uint32)
+  init(ContextType ContextType: CSSM_CONTEXT_TYPE, AlgorithmType AlgorithmType: CSSM_ALGORITHMS, NumberOfAttributes NumberOfAttributes: uint32, ContextAttributes ContextAttributes: CSSM_CONTEXT_ATTRIBUTE_PTR, CSPHandle CSPHandle: CSSM_CSP_HANDLE, Privileged Privileged: CSSM_BOOL, EncryptionProhibited EncryptionProhibited: uint32, WorkFactor WorkFactor: uint32, Reserved Reserved: uint32)
 }
 typealias CSSM_SC_FLAGS = uint32
 var CSSM_CSP_TOK_RNG: Int { get }
@@ -987,7 +987,7 @@ struct cssm_pkcs1_oaep_params {
   var PSource: CSSM_PKCS_OAEP_PSOURCE
   var PSourceParams: CSSM_DATA
   init()
-  init(HashAlgorithm: uint32, HashParams: CSSM_DATA, MGF: CSSM_PKCS_OAEP_MGF, MGFParams: CSSM_DATA, PSource: CSSM_PKCS_OAEP_PSOURCE, PSourceParams: CSSM_DATA)
+  init(HashAlgorithm HashAlgorithm: uint32, HashParams HashParams: CSSM_DATA, MGF MGF: CSSM_PKCS_OAEP_MGF, MGFParams MGFParams: CSSM_DATA, PSource PSource: CSSM_PKCS_OAEP_PSOURCE, PSourceParams PSourceParams: CSSM_DATA)
 }
 struct cssm_csp_operational_statistics {
   var UserAuthenticated: CSSM_BOOL
@@ -1001,14 +1001,14 @@ struct cssm_csp_operational_statistics {
   var TokenTotalPrivateMem: uint32
   var TokenFreePrivateMem: uint32
   init()
-  init(UserAuthenticated: CSSM_BOOL, DeviceFlags: CSSM_CSP_FLAGS, TokenMaxSessionCount: uint32, TokenOpenedSessionCount: uint32, TokenMaxRWSessionCount: uint32, TokenOpenedRWSessionCount: uint32, TokenTotalPublicMem: uint32, TokenFreePublicMem: uint32, TokenTotalPrivateMem: uint32, TokenFreePrivateMem: uint32)
+  init(UserAuthenticated UserAuthenticated: CSSM_BOOL, DeviceFlags DeviceFlags: CSSM_CSP_FLAGS, TokenMaxSessionCount TokenMaxSessionCount: uint32, TokenOpenedSessionCount TokenOpenedSessionCount: uint32, TokenMaxRWSessionCount TokenMaxRWSessionCount: uint32, TokenOpenedRWSessionCount TokenOpenedRWSessionCount: uint32, TokenTotalPublicMem TokenTotalPublicMem: uint32, TokenFreePublicMem TokenFreePublicMem: uint32, TokenTotalPrivateMem TokenTotalPrivateMem: uint32, TokenFreePrivateMem TokenFreePrivateMem: uint32)
 }
 var CSSM_VALUE_NOT_AVAILABLE: Int { get }
 struct cssm_pkcs5_pbkdf1_params {
   var Passphrase: CSSM_DATA
   var InitVector: CSSM_DATA
   init()
-  init(Passphrase: CSSM_DATA, InitVector: CSSM_DATA)
+  init(Passphrase Passphrase: CSSM_DATA, InitVector InitVector: CSSM_DATA)
 }
 typealias CSSM_PKCS5_PBKDF2_PRF = uint32
 var CSSM_PKCS5_PBKDF2_PRF_HMAC_SHA1: Int { get }
@@ -1016,19 +1016,19 @@ struct cssm_pkcs5_pbkdf2_params {
   var Passphrase: CSSM_DATA
   var PseudoRandomFunction: CSSM_PKCS5_PBKDF2_PRF
   init()
-  init(Passphrase: CSSM_DATA, PseudoRandomFunction: CSSM_PKCS5_PBKDF2_PRF)
+  init(Passphrase Passphrase: CSSM_DATA, PseudoRandomFunction PseudoRandomFunction: CSSM_PKCS5_PBKDF2_PRF)
 }
 struct cssm_kea_derive_params {
   var Rb: CSSM_DATA
   var Yb: CSSM_DATA
   init()
-  init(Rb: CSSM_DATA, Yb: CSSM_DATA)
+  init(Rb Rb: CSSM_DATA, Yb Yb: CSSM_DATA)
 }
 struct cssm_tp_authority_id {
   var AuthorityCert: UnsafeMutablePointer<CSSM_DATA>
   var AuthorityLocation: CSSM_NET_ADDRESS_PTR
   init()
-  init(AuthorityCert: UnsafeMutablePointer<CSSM_DATA>, AuthorityLocation: CSSM_NET_ADDRESS_PTR)
+  init(AuthorityCert AuthorityCert: UnsafeMutablePointer<CSSM_DATA>, AuthorityLocation AuthorityLocation: CSSM_NET_ADDRESS_PTR)
 }
 typealias CSSM_TP_AUTHORITY_REQUEST_TYPE = uint32
 typealias CSSM_TP_AUTHORITY_REQUEST_TYPE_PTR = UnsafeMutablePointer<uint32>
@@ -1047,14 +1047,14 @@ struct cssm_field {
   var FieldOid: CSSM_OID
   var FieldValue: CSSM_DATA
   init()
-  init(FieldOid: CSSM_OID, FieldValue: CSSM_DATA)
+  init(FieldOid FieldOid: CSSM_OID, FieldValue FieldValue: CSSM_DATA)
 }
 struct cssm_tp_policyinfo {
   var NumberOfPolicyIds: uint32
   var PolicyIds: CSSM_FIELD_PTR
   var PolicyControl: UnsafeMutablePointer<Void>
   init()
-  init(NumberOfPolicyIds: uint32, PolicyIds: CSSM_FIELD_PTR, PolicyControl: UnsafeMutablePointer<Void>)
+  init(NumberOfPolicyIds NumberOfPolicyIds: uint32, PolicyIds PolicyIds: CSSM_FIELD_PTR, PolicyControl PolicyControl: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_TP_SERVICES = uint32
 var CSSM_TP_KEY_ARCHIVE: Int { get }
@@ -1074,7 +1074,7 @@ struct cssm_dl_db_list {
   var NumHandles: uint32
   var DLDBHandle: CSSM_DL_DB_HANDLE_PTR
   init()
-  init(NumHandles: uint32, DLDBHandle: CSSM_DL_DB_HANDLE_PTR)
+  init(NumHandles NumHandles: uint32, DLDBHandle DLDBHandle: CSSM_DL_DB_HANDLE_PTR)
 }
 struct cssm_tp_callerauth_context {
   var Policy: CSSM_TP_POLICYINFO
@@ -1086,7 +1086,7 @@ struct cssm_tp_callerauth_context {
   var DBList: CSSM_DL_DB_LIST_PTR
   var CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(Policy: CSSM_TP_POLICYINFO, VerifyTime: CSSM_TIMESTRING, VerificationAbortOn: CSSM_TP_STOP_ON, CallbackWithVerifiedCert: CSSM_TP_VERIFICATION_RESULTS_CALLBACK!, NumberOfAnchorCerts: uint32, AnchorCerts: CSSM_DATA_PTR, DBList: CSSM_DL_DB_LIST_PTR, CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(Policy Policy: CSSM_TP_POLICYINFO, VerifyTime VerifyTime: CSSM_TIMESTRING, VerificationAbortOn VerificationAbortOn: CSSM_TP_STOP_ON, CallbackWithVerifiedCert CallbackWithVerifiedCert: CSSM_TP_VERIFICATION_RESULTS_CALLBACK!, NumberOfAnchorCerts NumberOfAnchorCerts: uint32, AnchorCerts AnchorCerts: CSSM_DATA_PTR, DBList DBList: CSSM_DL_DB_LIST_PTR, CallerCredentials CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_CRL_PARSE_FORMAT = uint32
 typealias CSSM_CRL_PARSE_FORMAT_PTR = UnsafeMutablePointer<uint32>
@@ -1120,20 +1120,20 @@ struct cssm_encoded_crl {
   var CrlEncoding: CSSM_CRL_ENCODING
   var CrlBlob: CSSM_DATA
   init()
-  init(CrlType: CSSM_CRL_TYPE, CrlEncoding: CSSM_CRL_ENCODING, CrlBlob: CSSM_DATA)
+  init(CrlType CrlType: CSSM_CRL_TYPE, CrlEncoding CrlEncoding: CSSM_CRL_ENCODING, CrlBlob CrlBlob: CSSM_DATA)
 }
 struct cssm_parsed_crl {
   var CrlType: CSSM_CRL_TYPE
   var ParsedCrlFormat: CSSM_CRL_PARSE_FORMAT
   var ParsedCrl: UnsafeMutablePointer<Void>
   init()
-  init(CrlType: CSSM_CRL_TYPE, ParsedCrlFormat: CSSM_CRL_PARSE_FORMAT, ParsedCrl: UnsafeMutablePointer<Void>)
+  init(CrlType CrlType: CSSM_CRL_TYPE, ParsedCrlFormat ParsedCrlFormat: CSSM_CRL_PARSE_FORMAT, ParsedCrl ParsedCrl: UnsafeMutablePointer<Void>)
 }
 struct cssm_crl_pair {
   var EncodedCrl: CSSM_ENCODED_CRL
   var ParsedCrl: CSSM_PARSED_CRL
   init()
-  init(EncodedCrl: CSSM_ENCODED_CRL, ParsedCrl: CSSM_PARSED_CRL)
+  init(EncodedCrl EncodedCrl: CSSM_ENCODED_CRL, ParsedCrl ParsedCrl: CSSM_PARSED_CRL)
 }
 typealias CSSM_CRLGROUP_TYPE = uint32
 typealias CSSM_CRLGROUP_TYPE_PTR = UnsafeMutablePointer<uint32>
@@ -1147,10 +1147,10 @@ struct cssm_crlgroup {
     var EncodedCrlList: CSSM_ENCODED_CRL_PTR
     var ParsedCrlList: CSSM_PARSED_CRL_PTR
     var PairCrlList: CSSM_CRL_PAIR_PTR
-    init(CrlList: CSSM_DATA_PTR)
-    init(EncodedCrlList: CSSM_ENCODED_CRL_PTR)
-    init(ParsedCrlList: CSSM_PARSED_CRL_PTR)
-    init(PairCrlList: CSSM_CRL_PAIR_PTR)
+    init(CrlList CrlList: CSSM_DATA_PTR)
+    init(EncodedCrlList EncodedCrlList: CSSM_ENCODED_CRL_PTR)
+    init(ParsedCrlList ParsedCrlList: CSSM_PARSED_CRL_PTR)
+    init(PairCrlList PairCrlList: CSSM_CRL_PAIR_PTR)
     init()
   }
   var CrlType: CSSM_CRL_TYPE
@@ -1159,7 +1159,7 @@ struct cssm_crlgroup {
   var GroupCrlList: cssm_crlgroup.__Unnamed_union_GroupCrlList
   var CrlGroupType: CSSM_CRLGROUP_TYPE
   init()
-  init(CrlType: CSSM_CRL_TYPE, CrlEncoding: CSSM_CRL_ENCODING, NumberOfCrls: uint32, GroupCrlList: cssm_crlgroup.__Unnamed_union_GroupCrlList, CrlGroupType: CSSM_CRLGROUP_TYPE)
+  init(CrlType CrlType: CSSM_CRL_TYPE, CrlEncoding CrlEncoding: CSSM_CRL_ENCODING, NumberOfCrls NumberOfCrls: uint32, GroupCrlList GroupCrlList: cssm_crlgroup.__Unnamed_union_GroupCrlList, CrlGroupType CrlGroupType: CSSM_CRLGROUP_TYPE)
 }
 typealias CSSM_CRLGROUP = cssm_crlgroup
 typealias CSSM_CRLGROUP_PTR = UnsafeMutablePointer<cssm_crlgroup>
@@ -1167,7 +1167,7 @@ struct cssm_fieldgroup {
   var NumberOfFields: Int32
   var Fields: CSSM_FIELD_PTR
   init()
-  init(NumberOfFields: Int32, Fields: CSSM_FIELD_PTR)
+  init(NumberOfFields NumberOfFields: Int32, Fields Fields: CSSM_FIELD_PTR)
 }
 typealias CSSM_EVIDENCE_FORM = uint32
 var CSSM_EVIDENCE_FORM_UNSPECIFIC: Int { get }
@@ -1184,7 +1184,7 @@ struct cssm_evidence {
   var EvidenceForm: CSSM_EVIDENCE_FORM
   var Evidence: UnsafeMutablePointer<Void>
   init()
-  init(EvidenceForm: CSSM_EVIDENCE_FORM, Evidence: UnsafeMutablePointer<Void>)
+  init(EvidenceForm EvidenceForm: CSSM_EVIDENCE_FORM, Evidence Evidence: UnsafeMutablePointer<Void>)
 }
 struct cssm_tp_verify_context {
   var Action: CSSM_TP_ACTION
@@ -1192,25 +1192,25 @@ struct cssm_tp_verify_context {
   var Crls: CSSM_CRLGROUP
   var Cred: CSSM_TP_CALLERAUTH_CONTEXT_PTR
   init()
-  init(Action: CSSM_TP_ACTION, ActionData: CSSM_DATA, Crls: CSSM_CRLGROUP, Cred: CSSM_TP_CALLERAUTH_CONTEXT_PTR)
+  init(Action Action: CSSM_TP_ACTION, ActionData ActionData: CSSM_DATA, Crls Crls: CSSM_CRLGROUP, Cred Cred: CSSM_TP_CALLERAUTH_CONTEXT_PTR)
 }
 struct cssm_tp_verify_context_result {
   var NumberOfEvidences: uint32
   var Evidence: CSSM_EVIDENCE_PTR
   init()
-  init(NumberOfEvidences: uint32, Evidence: CSSM_EVIDENCE_PTR)
+  init(NumberOfEvidences NumberOfEvidences: uint32, Evidence Evidence: CSSM_EVIDENCE_PTR)
 }
 struct cssm_tp_request_set {
   var NumberOfRequests: uint32
   var Requests: UnsafeMutablePointer<Void>
   init()
-  init(NumberOfRequests: uint32, Requests: UnsafeMutablePointer<Void>)
+  init(NumberOfRequests NumberOfRequests: uint32, Requests Requests: UnsafeMutablePointer<Void>)
 }
 struct cssm_tp_result_set {
   var NumberOfResults: uint32
   var Results: UnsafeMutablePointer<Void>
   init()
-  init(NumberOfResults: uint32, Results: UnsafeMutablePointer<Void>)
+  init(NumberOfResults NumberOfResults: uint32, Results Results: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_TP_CONFIRM_STATUS = uint32
 typealias CSSM_TP_CONFIRM_STATUS_PTR = UnsafeMutablePointer<uint32>
@@ -1221,7 +1221,7 @@ struct cssm_tp_confirm_response {
   var NumberOfResponses: uint32
   var Responses: CSSM_TP_CONFIRM_STATUS_PTR
   init()
-  init(NumberOfResponses: uint32, Responses: CSSM_TP_CONFIRM_STATUS_PTR)
+  init(NumberOfResponses NumberOfResponses: uint32, Responses Responses: CSSM_TP_CONFIRM_STATUS_PTR)
 }
 var CSSM_ESTIMATED_TIME_UNKNOWN: Int { get }
 var CSSM_ELAPSED_TIME_UNKNOWN: Int { get }
@@ -1236,7 +1236,7 @@ struct cssm_tp_certissue_input {
   var ServiceControls: CSSM_FIELD_PTR
   var UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(CSPSubserviceUid: CSSM_SUBSERVICE_UID, CLHandle: CSSM_CL_HANDLE, NumberOfTemplateFields: uint32, SubjectCertFields: CSSM_FIELD_PTR, MoreServiceRequests: CSSM_TP_SERVICES, NumberOfServiceControls: uint32, ServiceControls: CSSM_FIELD_PTR, UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(CSPSubserviceUid CSPSubserviceUid: CSSM_SUBSERVICE_UID, CLHandle CLHandle: CSSM_CL_HANDLE, NumberOfTemplateFields NumberOfTemplateFields: uint32, SubjectCertFields SubjectCertFields: CSSM_FIELD_PTR, MoreServiceRequests MoreServiceRequests: CSSM_TP_SERVICES, NumberOfServiceControls NumberOfServiceControls: uint32, ServiceControls ServiceControls: CSSM_FIELD_PTR, UserCredentials UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_TP_CERTISSUE_STATUS = uint32
 var CSSM_TP_CERTISSUE_STATUS_UNKNOWN: Int { get }
@@ -1251,7 +1251,7 @@ struct cssm_tp_certissue_output {
   var CertGroup: CSSM_CERTGROUP_PTR
   var PerformedServiceRequests: CSSM_TP_SERVICES
   init()
-  init(IssueStatus: CSSM_TP_CERTISSUE_STATUS, CertGroup: CSSM_CERTGROUP_PTR, PerformedServiceRequests: CSSM_TP_SERVICES)
+  init(IssueStatus IssueStatus: CSSM_TP_CERTISSUE_STATUS, CertGroup CertGroup: CSSM_CERTGROUP_PTR, PerformedServiceRequests PerformedServiceRequests: CSSM_TP_SERVICES)
 }
 typealias CSSM_TP_CERTCHANGE_ACTION = uint32
 var CSSM_TP_CERTCHANGE_NONE: Int { get }
@@ -1276,7 +1276,7 @@ struct cssm_tp_certchange_input {
   var StartTime: CSSM_TIMESTRING
   var CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(Action: CSSM_TP_CERTCHANGE_ACTION, Reason: CSSM_TP_CERTCHANGE_REASON, CLHandle: CSSM_CL_HANDLE, Cert: CSSM_DATA_PTR, ChangeInfo: CSSM_FIELD_PTR, StartTime: CSSM_TIMESTRING, CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(Action Action: CSSM_TP_CERTCHANGE_ACTION, Reason Reason: CSSM_TP_CERTCHANGE_REASON, CLHandle CLHandle: CSSM_CL_HANDLE, Cert Cert: CSSM_DATA_PTR, ChangeInfo ChangeInfo: CSSM_FIELD_PTR, StartTime StartTime: CSSM_TIMESTRING, CallerCredentials CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_TP_CERTCHANGE_STATUS = uint32
 var CSSM_TP_CERTCHANGE_STATUS_UNKNOWN: Int { get }
@@ -1289,14 +1289,14 @@ struct cssm_tp_certchange_output {
   var ActionStatus: CSSM_TP_CERTCHANGE_STATUS
   var RevokeInfo: CSSM_FIELD
   init()
-  init(ActionStatus: CSSM_TP_CERTCHANGE_STATUS, RevokeInfo: CSSM_FIELD)
+  init(ActionStatus ActionStatus: CSSM_TP_CERTCHANGE_STATUS, RevokeInfo RevokeInfo: CSSM_FIELD)
 }
 struct cssm_tp_certverify_input {
   var CLHandle: CSSM_CL_HANDLE
   var Cert: CSSM_DATA_PTR
   var VerifyContext: CSSM_TP_VERIFY_CONTEXT_PTR
   init()
-  init(CLHandle: CSSM_CL_HANDLE, Cert: CSSM_DATA_PTR, VerifyContext: CSSM_TP_VERIFY_CONTEXT_PTR)
+  init(CLHandle CLHandle: CSSM_CL_HANDLE, Cert Cert: CSSM_DATA_PTR, VerifyContext VerifyContext: CSSM_TP_VERIFY_CONTEXT_PTR)
 }
 typealias CSSM_TP_CERTVERIFY_STATUS = uint32
 var CSSM_TP_CERTVERIFY_UNKNOWN: Int { get }
@@ -1321,7 +1321,7 @@ struct cssm_tp_certverify_output {
   var NumberOfEvidence: uint32
   var Evidence: CSSM_EVIDENCE_PTR
   init()
-  init(VerifyStatus: CSSM_TP_CERTVERIFY_STATUS, NumberOfEvidence: uint32, Evidence: CSSM_EVIDENCE_PTR)
+  init(VerifyStatus VerifyStatus: CSSM_TP_CERTVERIFY_STATUS, NumberOfEvidence NumberOfEvidence: uint32, Evidence Evidence: CSSM_EVIDENCE_PTR)
 }
 struct cssm_tp_certnotarize_input {
   var CLHandle: CSSM_CL_HANDLE
@@ -1334,7 +1334,7 @@ struct cssm_tp_certnotarize_input {
   var ServiceControls: CSSM_FIELD_PTR
   var UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(CLHandle: CSSM_CL_HANDLE, NumberOfFields: uint32, MoreFields: CSSM_FIELD_PTR, SignScope: CSSM_FIELD_PTR, ScopeSize: uint32, MoreServiceRequests: CSSM_TP_SERVICES, NumberOfServiceControls: uint32, ServiceControls: CSSM_FIELD_PTR, UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(CLHandle CLHandle: CSSM_CL_HANDLE, NumberOfFields NumberOfFields: uint32, MoreFields MoreFields: CSSM_FIELD_PTR, SignScope SignScope: CSSM_FIELD_PTR, ScopeSize ScopeSize: uint32, MoreServiceRequests MoreServiceRequests: CSSM_TP_SERVICES, NumberOfServiceControls NumberOfServiceControls: uint32, ServiceControls ServiceControls: CSSM_FIELD_PTR, UserCredentials UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_TP_CERTNOTARIZE_STATUS = uint32
 var CSSM_TP_CERTNOTARIZE_STATUS_UNKNOWN: Int { get }
@@ -1348,7 +1348,7 @@ struct cssm_tp_certnotarize_output {
   var NotarizedCertGroup: CSSM_CERTGROUP_PTR
   var PerformedServiceRequests: CSSM_TP_SERVICES
   init()
-  init(NotarizeStatus: CSSM_TP_CERTNOTARIZE_STATUS, NotarizedCertGroup: CSSM_CERTGROUP_PTR, PerformedServiceRequests: CSSM_TP_SERVICES)
+  init(NotarizeStatus NotarizeStatus: CSSM_TP_CERTNOTARIZE_STATUS, NotarizedCertGroup NotarizedCertGroup: CSSM_CERTGROUP_PTR, PerformedServiceRequests PerformedServiceRequests: CSSM_TP_SERVICES)
 }
 struct cssm_tp_certreclaim_input {
   var CLHandle: CSSM_CL_HANDLE
@@ -1356,7 +1356,7 @@ struct cssm_tp_certreclaim_input {
   var SelectionFields: CSSM_FIELD_PTR
   var UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(CLHandle: CSSM_CL_HANDLE, NumberOfSelectionFields: uint32, SelectionFields: CSSM_FIELD_PTR, UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(CLHandle CLHandle: CSSM_CL_HANDLE, NumberOfSelectionFields NumberOfSelectionFields: uint32, SelectionFields SelectionFields: CSSM_FIELD_PTR, UserCredentials UserCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_TP_CERTRECLAIM_STATUS = uint32
 var CSSM_TP_CERTRECLAIM_STATUS_UNKNOWN: Int { get }
@@ -1369,7 +1369,7 @@ struct cssm_tp_certreclaim_output {
   var ReclaimedCertGroup: CSSM_CERTGROUP_PTR
   var KeyCacheHandle: CSSM_LONG_HANDLE
   init()
-  init(ReclaimStatus: CSSM_TP_CERTRECLAIM_STATUS, ReclaimedCertGroup: CSSM_CERTGROUP_PTR, KeyCacheHandle: CSSM_LONG_HANDLE)
+  init(ReclaimStatus ReclaimStatus: CSSM_TP_CERTRECLAIM_STATUS, ReclaimedCertGroup ReclaimedCertGroup: CSSM_CERTGROUP_PTR, KeyCacheHandle KeyCacheHandle: CSSM_LONG_HANDLE)
 }
 struct cssm_tp_crlissue_input {
   var CLHandle: CSSM_CL_HANDLE
@@ -1378,7 +1378,7 @@ struct cssm_tp_crlissue_input {
   var PolicyIdentifier: CSSM_FIELD_PTR
   var CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR
   init()
-  init(CLHandle: CSSM_CL_HANDLE, CrlIdentifier: uint32, CrlThisTime: CSSM_TIMESTRING, PolicyIdentifier: CSSM_FIELD_PTR, CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
+  init(CLHandle CLHandle: CSSM_CL_HANDLE, CrlIdentifier CrlIdentifier: uint32, CrlThisTime CrlThisTime: CSSM_TIMESTRING, PolicyIdentifier PolicyIdentifier: CSSM_FIELD_PTR, CallerCredentials CallerCredentials: CSSM_ACCESS_CREDENTIALS_PTR)
 }
 typealias CSSM_TP_CRLISSUE_STATUS = uint32
 var CSSM_TP_CRLISSUE_STATUS_UNKNOWN: Int { get }
@@ -1393,7 +1393,7 @@ struct cssm_tp_crlissue_output {
   var Crl: CSSM_ENCODED_CRL_PTR
   var CrlNextTime: CSSM_TIMESTRING
   init()
-  init(IssueStatus: CSSM_TP_CRLISSUE_STATUS, Crl: CSSM_ENCODED_CRL_PTR, CrlNextTime: CSSM_TIMESTRING)
+  init(IssueStatus IssueStatus: CSSM_TP_CRLISSUE_STATUS, Crl Crl: CSSM_ENCODED_CRL_PTR, CrlNextTime CrlNextTime: CSSM_TIMESTRING)
 }
 typealias CSSM_TP_FORM_TYPE = uint32
 var CSSM_TP_FORM_TYPE_GENERIC: Int { get }
@@ -1423,13 +1423,13 @@ struct cssm_cert_bundle_header {
   var BundleType: CSSM_CERT_BUNDLE_TYPE
   var BundleEncoding: CSSM_CERT_BUNDLE_ENCODING
   init()
-  init(BundleType: CSSM_CERT_BUNDLE_TYPE, BundleEncoding: CSSM_CERT_BUNDLE_ENCODING)
+  init(BundleType BundleType: CSSM_CERT_BUNDLE_TYPE, BundleEncoding BundleEncoding: CSSM_CERT_BUNDLE_ENCODING)
 }
 struct cssm_cert_bundle {
   var BundleHeader: CSSM_CERT_BUNDLE_HEADER
   var Bundle: CSSM_DATA
   init()
-  init(BundleHeader: CSSM_CERT_BUNDLE_HEADER, Bundle: CSSM_DATA)
+  init(BundleHeader BundleHeader: CSSM_CERT_BUNDLE_HEADER, Bundle Bundle: CSSM_DATA)
 }
 var CSSM_FIELDVALUE_COMPLEX_DATA_TYPE: UInt32 { get }
 typealias CSSM_DB_ATTRIBUTE_NAME_FORMAT = uint32
@@ -1453,15 +1453,15 @@ struct cssm_db_attribute_info {
   var Label: cssm_db_attribute_label
   var AttributeFormat: CSSM_DB_ATTRIBUTE_FORMAT
   init()
-  init(AttributeNameFormat: CSSM_DB_ATTRIBUTE_NAME_FORMAT, Label: cssm_db_attribute_label, AttributeFormat: CSSM_DB_ATTRIBUTE_FORMAT)
+  init(AttributeNameFormat AttributeNameFormat: CSSM_DB_ATTRIBUTE_NAME_FORMAT, Label Label: cssm_db_attribute_label, AttributeFormat AttributeFormat: CSSM_DB_ATTRIBUTE_FORMAT)
 }
 struct cssm_db_attribute_label {
   var AttributeName: UnsafeMutablePointer<Int8>
   var AttributeOID: CSSM_OID
   var AttributeID: uint32
-  init(AttributeName: UnsafeMutablePointer<Int8>)
-  init(AttributeOID: CSSM_OID)
-  init(AttributeID: uint32)
+  init(AttributeName AttributeName: UnsafeMutablePointer<Int8>)
+  init(AttributeOID AttributeOID: CSSM_OID)
+  init(AttributeID AttributeID: uint32)
   init()
 }
 typealias CSSM_DB_ATTRIBUTE_INFO = cssm_db_attribute_info
@@ -1471,7 +1471,7 @@ struct cssm_db_attribute_data {
   var NumberOfValues: uint32
   var Value: CSSM_DATA_PTR
   init()
-  init(Info: CSSM_DB_ATTRIBUTE_INFO, NumberOfValues: uint32, Value: CSSM_DATA_PTR)
+  init(Info Info: CSSM_DB_ATTRIBUTE_INFO, NumberOfValues NumberOfValues: uint32, Value Value: CSSM_DATA_PTR)
 }
 typealias CSSM_DB_RECORDTYPE = uint32
 var CSSM_DB_RECORDTYPE_SCHEMA_START: UInt32 { get }
@@ -1504,7 +1504,7 @@ struct cssm_db_record_attribute_info {
   var NumberOfAttributes: uint32
   var AttributeInfo: CSSM_DB_ATTRIBUTE_INFO_PTR
   init()
-  init(DataRecordType: CSSM_DB_RECORDTYPE, NumberOfAttributes: uint32, AttributeInfo: CSSM_DB_ATTRIBUTE_INFO_PTR)
+  init(DataRecordType DataRecordType: CSSM_DB_RECORDTYPE, NumberOfAttributes NumberOfAttributes: uint32, AttributeInfo AttributeInfo: CSSM_DB_ATTRIBUTE_INFO_PTR)
 }
 struct cssm_db_record_attribute_data {
   var DataRecordType: CSSM_DB_RECORDTYPE
@@ -1512,13 +1512,13 @@ struct cssm_db_record_attribute_data {
   var NumberOfAttributes: uint32
   var AttributeData: CSSM_DB_ATTRIBUTE_DATA_PTR
   init()
-  init(DataRecordType: CSSM_DB_RECORDTYPE, SemanticInformation: uint32, NumberOfAttributes: uint32, AttributeData: CSSM_DB_ATTRIBUTE_DATA_PTR)
+  init(DataRecordType DataRecordType: CSSM_DB_RECORDTYPE, SemanticInformation SemanticInformation: uint32, NumberOfAttributes NumberOfAttributes: uint32, AttributeData AttributeData: CSSM_DB_ATTRIBUTE_DATA_PTR)
 }
 struct cssm_db_parsing_module_info {
   var RecordType: CSSM_DB_RECORDTYPE
   var ModuleSubserviceUid: CSSM_SUBSERVICE_UID
   init()
-  init(RecordType: CSSM_DB_RECORDTYPE, ModuleSubserviceUid: CSSM_SUBSERVICE_UID)
+  init(RecordType RecordType: CSSM_DB_RECORDTYPE, ModuleSubserviceUid ModuleSubserviceUid: CSSM_SUBSERVICE_UID)
 }
 typealias CSSM_DB_INDEX_TYPE = uint32
 var CSSM_DB_INDEX_UNIQUE: Int { get }
@@ -1532,20 +1532,20 @@ struct cssm_db_index_info {
   var IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION
   var Info: CSSM_DB_ATTRIBUTE_INFO
   init()
-  init(IndexType: CSSM_DB_INDEX_TYPE, IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION, Info: CSSM_DB_ATTRIBUTE_INFO)
+  init(IndexType IndexType: CSSM_DB_INDEX_TYPE, IndexedDataLocation IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION, Info Info: CSSM_DB_ATTRIBUTE_INFO)
 }
 struct cssm_db_unique_record {
   var RecordLocator: CSSM_DB_INDEX_INFO
   var RecordIdentifier: CSSM_DATA
   init()
-  init(RecordLocator: CSSM_DB_INDEX_INFO, RecordIdentifier: CSSM_DATA)
+  init(RecordLocator RecordLocator: CSSM_DB_INDEX_INFO, RecordIdentifier RecordIdentifier: CSSM_DATA)
 }
 struct cssm_db_record_index_info {
   var DataRecordType: CSSM_DB_RECORDTYPE
   var NumberOfIndexes: uint32
   var IndexInfo: CSSM_DB_INDEX_INFO_PTR
   init()
-  init(DataRecordType: CSSM_DB_RECORDTYPE, NumberOfIndexes: uint32, IndexInfo: CSSM_DB_INDEX_INFO_PTR)
+  init(DataRecordType DataRecordType: CSSM_DB_RECORDTYPE, NumberOfIndexes NumberOfIndexes: uint32, IndexInfo IndexInfo: CSSM_DB_INDEX_INFO_PTR)
 }
 typealias CSSM_DB_ACCESS_TYPE = uint32
 typealias CSSM_DB_ACCESS_TYPE_PTR = UnsafeMutablePointer<uint32>
@@ -1566,7 +1566,7 @@ struct cssm_dbinfo {
   var AccessPath: UnsafeMutablePointer<Int8>
   var Reserved: UnsafeMutablePointer<Void>
   init()
-  init(NumberOfRecordTypes: uint32, DefaultParsingModules: CSSM_DB_PARSING_MODULE_INFO_PTR, RecordAttributeNames: CSSM_DB_RECORD_ATTRIBUTE_INFO_PTR, RecordIndexes: CSSM_DB_RECORD_INDEX_INFO_PTR, IsLocal: CSSM_BOOL, AccessPath: UnsafeMutablePointer<Int8>, Reserved: UnsafeMutablePointer<Void>)
+  init(NumberOfRecordTypes NumberOfRecordTypes: uint32, DefaultParsingModules DefaultParsingModules: CSSM_DB_PARSING_MODULE_INFO_PTR, RecordAttributeNames RecordAttributeNames: CSSM_DB_RECORD_ATTRIBUTE_INFO_PTR, RecordIndexes RecordIndexes: CSSM_DB_RECORD_INDEX_INFO_PTR, IsLocal IsLocal: CSSM_BOOL, AccessPath AccessPath: UnsafeMutablePointer<Int8>, Reserved Reserved: UnsafeMutablePointer<Void>)
 }
 typealias CSSM_DB_OPERATOR = uint32
 typealias CSSM_DB_OPERATOR_PTR = UnsafeMutablePointer<uint32>
@@ -1586,7 +1586,7 @@ struct cssm_selection_predicate {
   var DbOperator: CSSM_DB_OPERATOR
   var Attribute: CSSM_DB_ATTRIBUTE_DATA
   init()
-  init(DbOperator: CSSM_DB_OPERATOR, Attribute: CSSM_DB_ATTRIBUTE_DATA)
+  init(DbOperator DbOperator: CSSM_DB_OPERATOR, Attribute Attribute: CSSM_DB_ATTRIBUTE_DATA)
 }
 var CSSM_QUERY_TIMELIMIT_NONE: Int { get }
 var CSSM_QUERY_SIZELIMIT_NONE: Int { get }
@@ -1594,7 +1594,7 @@ struct cssm_query_limits {
   var TimeLimit: uint32
   var SizeLimit: uint32
   init()
-  init(TimeLimit: uint32, SizeLimit: uint32)
+  init(TimeLimit TimeLimit: uint32, SizeLimit SizeLimit: uint32)
 }
 typealias CSSM_QUERY_FLAGS = uint32
 var CSSM_QUERY_RETURN_DATA: Int { get }
@@ -1606,7 +1606,7 @@ struct cssm_query {
   var QueryLimits: CSSM_QUERY_LIMITS
   var QueryFlags: CSSM_QUERY_FLAGS
   init()
-  init(RecordType: CSSM_DB_RECORDTYPE, Conjunctive: CSSM_DB_CONJUNCTIVE, NumSelectionPredicates: uint32, SelectionPredicate: CSSM_SELECTION_PREDICATE_PTR, QueryLimits: CSSM_QUERY_LIMITS, QueryFlags: CSSM_QUERY_FLAGS)
+  init(RecordType RecordType: CSSM_DB_RECORDTYPE, Conjunctive Conjunctive: CSSM_DB_CONJUNCTIVE, NumSelectionPredicates NumSelectionPredicates: uint32, SelectionPredicate SelectionPredicate: CSSM_SELECTION_PREDICATE_PTR, QueryLimits QueryLimits: CSSM_QUERY_LIMITS, QueryFlags QueryFlags: CSSM_QUERY_FLAGS)
 }
 typealias CSSM_DLTYPE = uint32
 typealias CSSM_DLTYPE_PTR = UnsafeMutablePointer<uint32>
@@ -1625,7 +1625,7 @@ typealias CSSM_DL_FFS_ATTRIBUTES = UnsafeMutablePointer<Void>
 struct cssm_dl_pkcs11_attributes {
   var DeviceAccessFlags: uint32
   init()
-  init(DeviceAccessFlags: uint32)
+  init(DeviceAccessFlags DeviceAccessFlags: uint32)
 }
 typealias CSSM_DL_PKCS11_ATTRIBUTE = UnsafeMutablePointer<cssm_dl_pkcs11_attributes>
 typealias CSSM_DL_PKCS11_ATTRIBUTE_PTR = UnsafeMutablePointer<cssm_dl_pkcs11_attributes>
@@ -1634,7 +1634,7 @@ struct cssm_name_list {
   var NumStrings: uint32
   var String: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>
   init()
-  init(NumStrings: uint32, String: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>)
+  init(NumStrings NumStrings: uint32, String String: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>)
 }
 typealias CSSM_DB_RETRIEVAL_MODES = uint32
 var CSSM_DB_TRANSACTIONAL_MODE: Int { get }
@@ -1645,7 +1645,7 @@ struct cssm_db_schema_attribute_info {
   var AttributeNameID: CSSM_OID
   var DataType: CSSM_DB_ATTRIBUTE_FORMAT
   init()
-  init(AttributeId: uint32, AttributeName: UnsafeMutablePointer<Int8>, AttributeNameID: CSSM_OID, DataType: CSSM_DB_ATTRIBUTE_FORMAT)
+  init(AttributeId AttributeId: uint32, AttributeName AttributeName: UnsafeMutablePointer<Int8>, AttributeNameID AttributeNameID: CSSM_OID, DataType DataType: CSSM_DB_ATTRIBUTE_FORMAT)
 }
 struct cssm_db_schema_index_info {
   var AttributeId: uint32
@@ -1653,5 +1653,5 @@ struct cssm_db_schema_index_info {
   var IndexType: CSSM_DB_INDEX_TYPE
   var IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION
   init()
-  init(AttributeId: uint32, IndexId: uint32, IndexType: CSSM_DB_INDEX_TYPE, IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION)
+  init(AttributeId AttributeId: uint32, IndexId IndexId: uint32, IndexType IndexType: CSSM_DB_INDEX_TYPE, IndexedDataLocation IndexedDataLocation: CSSM_DB_INDEXED_DATA_LOCATION)
 }

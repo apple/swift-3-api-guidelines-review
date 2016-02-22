@@ -5,7 +5,7 @@ struct UIEdgeInsets {
   var bottom: CGFloat
   var right: CGFloat
   init()
-  init(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat)
+  init(top top: CGFloat, left left: CGFloat, bottom bottom: CGFloat, right right: CGFloat)
 }
 
 extension UIEdgeInsets : Equatable {
@@ -14,14 +14,14 @@ struct UIOffset {
   var horizontal: CGFloat
   var vertical: CGFloat
   init()
-  init(horizontal: CGFloat, vertical: CGFloat)
+  init(horizontal horizontal: CGFloat, vertical vertical: CGFloat)
 }
 
 extension UIOffset : Equatable {
 }
 @available(iOS 7.0, *)
 struct UIRectEdge : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: UIRectEdge { get }
   static var top: UIRectEdge { get }
@@ -30,27 +30,27 @@ struct UIRectEdge : OptionSetType {
   static var right: UIRectEdge { get }
   static var all: UIRectEdge { get }
 }
-func UIEdgeInsetsMake(top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets
-func UIEdgeInsetsInsetRect(rect: CGRect, _ insets: UIEdgeInsets) -> CGRect
-func UIOffsetMake(horizontal: CGFloat, _ vertical: CGFloat) -> UIOffset
-func UIEdgeInsetsEqualToEdgeInsets(insets1: UIEdgeInsets, _ insets2: UIEdgeInsets) -> Bool
-func UIOffsetEqualToOffset(offset1: UIOffset, _ offset2: UIOffset) -> Bool
+func UIEdgeInsetsMake(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> UIEdgeInsets
+func UIEdgeInsetsInsetRect(_ rect: CGRect, _ insets: UIEdgeInsets) -> CGRect
+func UIOffsetMake(_ horizontal: CGFloat, _ vertical: CGFloat) -> UIOffset
+func UIEdgeInsetsEqualToEdgeInsets(_ insets1: UIEdgeInsets, _ insets2: UIEdgeInsets) -> Bool
+func UIOffsetEqualToOffset(_ offset1: UIOffset, _ offset2: UIOffset) -> Bool
 let UIEdgeInsetsZero: UIEdgeInsets
 let UIOffsetZero: UIOffset
-func NSStringFromCGPoint(point: CGPoint) -> String
-func NSStringFromCGVector(vector: CGVector) -> String
-func NSStringFromCGSize(size: CGSize) -> String
-func NSStringFromCGRect(rect: CGRect) -> String
-func NSStringFromCGAffineTransform(transform: CGAffineTransform) -> String
-func NSStringFromUIEdgeInsets(insets: UIEdgeInsets) -> String
-func NSStringFromUIOffset(offset: UIOffset) -> String
-func CGPointFromString(string: String) -> CGPoint
-func CGVectorFromString(string: String) -> CGVector
-func CGSizeFromString(string: String) -> CGSize
-func CGRectFromString(string: String) -> CGRect
-func CGAffineTransformFromString(string: String) -> CGAffineTransform
-func UIEdgeInsetsFromString(string: String) -> UIEdgeInsets
-func UIOffsetFromString(string: String) -> UIOffset
+func NSStringFromCGPoint(_ point: CGPoint) -> String
+func NSStringFromCGVector(_ vector: CGVector) -> String
+func NSStringFromCGSize(_ size: CGSize) -> String
+func NSStringFromCGRect(_ rect: CGRect) -> String
+func NSStringFromCGAffineTransform(_ transform: CGAffineTransform) -> String
+func NSStringFromUIEdgeInsets(_ insets: UIEdgeInsets) -> String
+func NSStringFromUIOffset(_ offset: UIOffset) -> String
+func CGPointFromString(_ string: String) -> CGPoint
+func CGVectorFromString(_ string: String) -> CGVector
+func CGSizeFromString(_ string: String) -> CGSize
+func CGRectFromString(_ string: String) -> CGRect
+func CGAffineTransformFromString(_ string: String) -> CGAffineTransform
+func UIEdgeInsetsFromString(_ string: String) -> UIEdgeInsets
+func UIOffsetFromString(_ string: String) -> UIOffset
 extension NSValue {
   /*not inherited*/ init(cgPoint point: CGPoint)
   /*not inherited*/ init(cgVector vector: CGVector)
@@ -70,14 +70,14 @@ extension NSValue {
   func uiOffsetValue() -> UIOffset
 }
 extension NSCoder {
-  func encode(point: CGPoint, forKey key: String)
-  func encode(vector: CGVector, forKey key: String)
-  func encode(size: CGSize, forKey key: String)
-  func encode(rect: CGRect, forKey key: String)
-  func encode(transform: CGAffineTransform, forKey key: String)
-  func encode(insets: UIEdgeInsets, forKey key: String)
+  func encode(_ point: CGPoint, forKey key: String)
+  func encode(_ vector: CGVector, forKey key: String)
+  func encode(_ size: CGSize, forKey key: String)
+  func encode(_ rect: CGRect, forKey key: String)
+  func encode(_ transform: CGAffineTransform, forKey key: String)
+  func encode(_ insets: UIEdgeInsets, forKey key: String)
   @available(iOS 5.0, *)
-  func encode(offset: UIOffset, forKey key: String)
+  func encode(_ offset: UIOffset, forKey key: String)
   func decodeCGPoint(forKey key: String) -> CGPoint
   func decodeCGVector(forKey key: String) -> CGVector
   func decodeCGSize(forKey key: String) -> CGSize

@@ -1,12 +1,12 @@
 
 class SKSpriteNode : SKNode {
-  convenience init(texture: SKTexture?, size: CGSize)
-  convenience init(texture: SKTexture?, normalMap: SKTexture?)
+  convenience init(texture texture: SKTexture?, size size: CGSize)
+  convenience init(texture texture: SKTexture?, normalMap normalMap: SKTexture?)
   convenience init(imageNamed name: String, normalMapped generateNormalMap: Bool)
-  init(texture: SKTexture?, color: NSColor, size: CGSize)
-  convenience init(texture: SKTexture?)
+  init(texture texture: SKTexture?, color color: NSColor, size size: CGSize)
+  convenience init(texture texture: SKTexture?)
   convenience init(imageNamed name: String)
-  convenience init(color: NSColor, size: CGSize)
+  convenience init(color color: NSColor, size size: CGSize)
   init?(coder aDecoder: NSCoder)
   var texture: SKTexture?
   @available(OSX 10.10, *)

@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 class CKFetchRecordChangesOperation : CKDatabaseOperation {
-  init(recordZoneID: CKRecordZoneID, previousServerChangeToken: CKServerChangeToken?)
+  init(recordZoneID recordZoneID: CKRecordZoneID, previousServerChangeToken previousServerChangeToken: CKServerChangeToken?)
   @NSCopying var recordZoneID: CKRecordZoneID
   @NSCopying var previousServerChangeToken: CKServerChangeToken?
   var resultsLimit: Int

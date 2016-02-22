@@ -4,6 +4,6 @@ class NEPacketTunnelFlow : NSObject {
   @available(iOS 9.0, *)
   func readPackets(completionHandler completionHandler: ([NSData], [NSNumber]) -> Void)
   @available(iOS 9.0, *)
-  func writePackets(packets: [NSData], withProtocols protocols: [NSNumber]) -> Bool
+  func writePackets(_ packets: [NSData], withProtocols protocols: [NSNumber]) -> Bool
   init()
 }

@@ -18,11 +18,11 @@ extension AVPlayerViewController {
 }
 protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, willPresent interstitial: AVInterstitialTimeRange)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, willPresent interstitial: AVInterstitialTimeRange)
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, didPresent interstitial: AVInterstitialTimeRange)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, didPresent interstitial: AVInterstitialTimeRange)
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, willResumePlaybackAfterUserNavigatedFrom oldTime: CMTime, to targetTime: CMTime)
   @available(tvOS 9.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, didSelect mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
 }

@@ -3,12 +3,12 @@ typealias NSItemProviderCompletionHandler = (NSSecureCoding?, NSError!) -> Void
 typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClass!, [NSObject : AnyObject]!) -> Void
 @available(watchOS 2.0, *)
 class NSItemProvider : NSObject, NSCopying {
-  init(item: NSSecureCoding?, typeIdentifier: String?)
+  init(item item: NSSecureCoding?, typeIdentifier typeIdentifier: String?)
   convenience init?(contentsOf fileURL: NSURL!)
-  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
+  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConforming(toTypeIdentifier typeIdentifier: String) -> Bool
-  func loadItem(forTypeIdentifier typeIdentifier: String, options: [NSObject : AnyObject]? = [:], completionHandler: NSItemProviderCompletionHandler? = nil)
+  func loadItem(forTypeIdentifier typeIdentifier: String, options options: [NSObject : AnyObject]? = [:], completionHandler completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -19,7 +19,7 @@ extension NSItemProvider {
   @available(watchOS 2.0, *)
   var previewImageHandler: NSItemProviderLoadHandler?
   @available(watchOS 2.0, *)
-  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler: NSItemProviderCompletionHandler!)
+  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(watchOS 2.0, *)
 let NSExtensionJavaScriptPreprocessingResultsKey: String
@@ -29,7 +29,7 @@ let NSExtensionJavaScriptFinalizeArgumentKey: String
 let NSItemProviderErrorDomain: String
 @available(watchOS 2.0, *)
 enum NSItemProviderErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknownError
   case itemUnavailableError

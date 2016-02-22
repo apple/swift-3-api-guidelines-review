@@ -11,13 +11,13 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   var isBezeled: Bool
   var isEditable: Bool
   var isSelectable: Bool
-  func selectText(sender: AnyObject?)
+  func selectText(_ sender: AnyObject?)
   unowned(unsafe) var delegate: @sil_unmanaged NSTextFieldDelegate?
-  func textShouldBeginEditing(textObject: NSText) -> Bool
-  func textShouldEndEditing(textObject: NSText) -> Bool
-  func textDidBeginEditing(notification: NSNotification)
-  func textDidEndEditing(notification: NSNotification)
-  func textDidChange(notification: NSNotification)
+  func textShouldBeginEditing(_ textObject: NSText) -> Bool
+  func textShouldEndEditing(_ textObject: NSText) -> Bool
+  func textDidBeginEditing(_ notification: NSNotification)
+  func textDidEndEditing(_ notification: NSNotification)
+  func textDidChange(_ notification: NSNotification)
   var acceptsFirstResponder: Bool { get }
   var bezelStyle: NSTextFieldBezelStyle
   @available(OSX 10.8, *)
@@ -27,9 +27,9 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   @available(OSX 10.11, *)
   var allowsDefaultTighteningForTruncation: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
-  func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
+  func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   func accessibilityString(for range: NSRange) -> String?
   func accessibilityLine(for index: Int) -> Int
   func accessibilityRange(forLine lineNumber: Int) -> NSRange

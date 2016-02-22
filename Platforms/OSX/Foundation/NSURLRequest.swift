@@ -1,6 +1,6 @@
 
 enum NSURLRequestCachePolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case useProtocolCachePolicy
   case reloadIgnoringLocalCacheData
@@ -11,7 +11,7 @@ enum NSURLRequestCachePolicy : UInt {
   case reloadRevalidatingCacheData
 }
 enum NSURLRequestNetworkServiceType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case networkServiceTypeDefault
   case networkServiceTypeVoIP
@@ -22,7 +22,7 @@ enum NSURLRequestNetworkServiceType : UInt {
 class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   class func supportsSecureCoding() -> Bool
   convenience init(url URL: NSURL)
-  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  init(url URL: NSURL, cachePolicy cachePolicy: NSURLRequestCachePolicy, timeoutInterval timeoutInterval: NSTimeInterval)
   @NSCopying var url: NSURL? { get }
   var cachePolicy: NSURLRequestCachePolicy { get }
   var timeoutInterval: NSTimeInterval { get }
@@ -47,7 +47,7 @@ class NSMutableURLRequest : NSURLRequest {
   @available(OSX 10.8, *)
   var allowsCellularAccess: Bool
   convenience init(url URL: NSURL)
-  init(url URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  init(url URL: NSURL, cachePolicy cachePolicy: NSURLRequestCachePolicy, timeoutInterval timeoutInterval: NSTimeInterval)
   convenience init()
   init?(coder aDecoder: NSCoder)
 }
@@ -64,8 +64,8 @@ extension NSURLRequest {
 extension NSMutableURLRequest {
   var httpMethod: String
   var allHTTPHeaderFields: [String : String]?
-  func setValue(value: String?, forHTTPHeaderField field: String)
-  func addValue(value: String, forHTTPHeaderField field: String)
+  func setValue(_ value: String?, forHTTPHeaderField field: String)
+  func addValue(_ value: String, forHTTPHeaderField field: String)
   @NSCopying var httpBody: NSData?
   var httpBodyStream: NSInputStream?
   var httpShouldHandleCookies: Bool

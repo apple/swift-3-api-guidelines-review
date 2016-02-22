@@ -10,9 +10,9 @@ class UIFont : NSObject, NSCopying {
   class func boldSystemFont(ofSize fontSize: CGFloat) -> UIFont
   class func italicSystemFont(ofSize fontSize: CGFloat) -> UIFont
   @available(iOS 8.2, *)
-  class func systemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func systemFont(ofSize fontSize: CGFloat, weight weight: CGFloat) -> UIFont
   @available(iOS 9.0, *)
-  class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight: CGFloat) -> UIFont
+  class func monospacedDigitSystemFont(ofSize fontSize: CGFloat, weight weight: CGFloat) -> UIFont
   var familyName: String { get }
   var fontName: String { get }
   var pointSize: CGFloat { get }
@@ -23,9 +23,9 @@ class UIFont : NSObject, NSCopying {
   @available(iOS 4.0, *)
   var lineHeight: CGFloat { get }
   var leading: CGFloat { get }
-  func withSize(fontSize: CGFloat) -> UIFont
+  func withSize(_ fontSize: CGFloat) -> UIFont
   @available(iOS 7.0, *)
-  /*not inherited*/ init(descriptor: UIFontDescriptor, size pointSize: CGFloat)
+  /*not inherited*/ init(descriptor descriptor: UIFontDescriptor, size pointSize: CGFloat)
   @available(iOS 7.0, *)
   func fontDescriptor() -> UIFontDescriptor
   init()

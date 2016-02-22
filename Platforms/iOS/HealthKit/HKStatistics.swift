@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 struct HKStatisticsOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: HKStatisticsOptions { get }
   static var separateBySource: HKStatisticsOptions { get }

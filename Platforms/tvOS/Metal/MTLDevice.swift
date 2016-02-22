@@ -3,14 +3,14 @@
 func MTLCreateSystemDefaultDevice() -> MTLDevice?
 @available(tvOS 9.0, *)
 enum MTLFeatureSet : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   @available(tvOS 9.0, *)
   case tvos_GPUFamily1_v1
 }
 @available(tvOS 8.0, *)
 struct MTLPipelineOption : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: MTLPipelineOption { get }
   static var argumentInfo: MTLPipelineOption { get }
@@ -30,30 +30,30 @@ protocol MTLDevice : NSObjectProtocol {
   var maxThreadsPerThreadgroup: MTLSize { get }
   func newCommandQueue() -> MTLCommandQueue
   func newCommandQueue(withMaxCommandBufferCount maxCommandBufferCount: Int) -> MTLCommandQueue
-  func newBuffer(withLength length: Int, options: MTLResourceOptions = []) -> MTLBuffer
-  func newBuffer(withBytes pointer: UnsafePointer<Void>, length: Int, options: MTLResourceOptions = []) -> MTLBuffer
-  func newBuffer(withBytesNoCopy pointer: UnsafeMutablePointer<Void>, length: Int, options: MTLResourceOptions = [], deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
+  func newBuffer(withLength length: Int, options options: MTLResourceOptions = []) -> MTLBuffer
+  func newBuffer(withBytes pointer: UnsafePointer<Void>, length length: Int, options options: MTLResourceOptions = []) -> MTLBuffer
+  func newBuffer(withBytesNoCopy pointer: UnsafeMutablePointer<Void>, length length: Int, options options: MTLResourceOptions = [], deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil) -> MTLBuffer
   func newDepthStencilState(with descriptor: MTLDepthStencilDescriptor) -> MTLDepthStencilState
   func newTexture(with descriptor: MTLTextureDescriptor) -> MTLTexture
   func newSamplerState(with descriptor: MTLSamplerDescriptor) -> MTLSamplerState
   func newDefaultLibrary() -> MTLLibrary?
   func newLibrary(withFile filepath: String) throws -> MTLLibrary
   func newLibrary(with data: dispatch_data_t) throws -> MTLLibrary
-  func newLibrary(withSource source: String, options: MTLCompileOptions?) throws -> MTLLibrary
-  func newLibrary(withSource source: String, options: MTLCompileOptions?, completionHandler: MTLNewLibraryCompletionHandler)
+  func newLibrary(withSource source: String, options options: MTLCompileOptions?) throws -> MTLLibrary
+  func newLibrary(withSource source: String, options options: MTLCompileOptions?, completionHandler completionHandler: MTLNewLibraryCompletionHandler)
   func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor) throws -> MTLRenderPipelineState
-  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
-  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, completionHandler: MTLNewRenderPipelineStateCompletionHandler)
-  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
+  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, options options: MTLPipelineOption, reflection reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>) throws -> MTLRenderPipelineState
+  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, completionHandler completionHandler: MTLNewRenderPipelineStateCompletionHandler)
+  func newRenderPipelineState(with descriptor: MTLRenderPipelineDescriptor, options options: MTLPipelineOption, completionHandler completionHandler: MTLNewRenderPipelineStateWithReflectionCompletionHandler)
   func newComputePipelineState(with computeFunction: MTLFunction) throws -> MTLComputePipelineState
-  func newComputePipelineState(with computeFunction: MTLFunction, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
-  func newComputePipelineState(with computeFunction: MTLFunction, completionHandler: MTLNewComputePipelineStateCompletionHandler)
-  func newComputePipelineState(with computeFunction: MTLFunction, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func newComputePipelineState(with computeFunction: MTLFunction, options options: MTLPipelineOption, reflection reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineState(with computeFunction: MTLFunction, completionHandler completionHandler: MTLNewComputePipelineStateCompletionHandler)
+  func newComputePipelineState(with computeFunction: MTLFunction, options options: MTLPipelineOption, completionHandler completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
   @available(tvOS 9.0, *)
-  func newComputePipelineState(with descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
+  func newComputePipelineState(with descriptor: MTLComputePipelineDescriptor, options options: MTLPipelineOption, reflection reflection: AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>) throws -> MTLComputePipelineState
   @available(tvOS 9.0, *)
-  func newComputePipelineState(with descriptor: MTLComputePipelineDescriptor, options: MTLPipelineOption, completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
-  func supportsFeatureSet(featureSet: MTLFeatureSet) -> Bool
+  func newComputePipelineState(with descriptor: MTLComputePipelineDescriptor, options options: MTLPipelineOption, completionHandler completionHandler: MTLNewComputePipelineStateWithReflectionCompletionHandler)
+  func supportsFeatureSet(_ featureSet: MTLFeatureSet) -> Bool
   @available(tvOS 9.0, *)
-  func supportsTextureSampleCount(sampleCount: Int) -> Bool
+  func supportsTextureSampleCount(_ sampleCount: Int) -> Bool
 }

@@ -6,7 +6,7 @@ var kSecTrustSettingsKeyUsage: String { get }
 var kSecTrustSettingsAllowedError: String { get }
 var kSecTrustSettingsResult: String { get }
 struct SecTrustSettingsKeyUsage : OptionSetType {
-  init(rawValue: uint32)
+  init(rawValue rawValue: uint32)
   let rawValue: uint32
   static var useSignature: SecTrustSettingsKeyUsage { get }
   static var useEnDecryptData: SecTrustSettingsKeyUsage { get }
@@ -17,7 +17,7 @@ struct SecTrustSettingsKeyUsage : OptionSetType {
   static var useAny: SecTrustSettingsKeyUsage { get }
 }
 enum SecTrustSettingsResult : uint32 {
-  init?(rawValue: uint32)
+  init?(rawValue rawValue: uint32)
   var rawValue: uint32 { get }
   case invalid
   case trustRoot
@@ -26,16 +26,16 @@ enum SecTrustSettingsResult : uint32 {
   case unspecified
 }
 enum SecTrustSettingsDomain : uint32 {
-  init?(rawValue: uint32)
+  init?(rawValue rawValue: uint32)
   var rawValue: uint32 { get }
   case user
   case admin
   case system
 }
-func SecTrustSettingsCopyTrustSettings(certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettings: UnsafeMutablePointer<CFArray?>) -> OSStatus
-func SecTrustSettingsSetTrustSettings(certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettingsDictOrArray: CFTypeRef?) -> OSStatus
-func SecTrustSettingsRemoveTrustSettings(certRef: SecCertificate, _ domain: SecTrustSettingsDomain) -> OSStatus
-func SecTrustSettingsCopyCertificates(domain: SecTrustSettingsDomain, _ certArray: UnsafeMutablePointer<CFArray?>) -> OSStatus
-func SecTrustSettingsCopyModificationDate(certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ modificationDate: UnsafeMutablePointer<CFDate?>) -> OSStatus
-func SecTrustSettingsCreateExternalRepresentation(domain: SecTrustSettingsDomain, _ trustSettings: UnsafeMutablePointer<CFData?>) -> OSStatus
-func SecTrustSettingsImportExternalRepresentation(domain: SecTrustSettingsDomain, _ trustSettings: CFData) -> OSStatus
+func SecTrustSettingsCopyTrustSettings(_ certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettings: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecTrustSettingsSetTrustSettings(_ certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ trustSettingsDictOrArray: CFTypeRef?) -> OSStatus
+func SecTrustSettingsRemoveTrustSettings(_ certRef: SecCertificate, _ domain: SecTrustSettingsDomain) -> OSStatus
+func SecTrustSettingsCopyCertificates(_ domain: SecTrustSettingsDomain, _ certArray: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecTrustSettingsCopyModificationDate(_ certRef: SecCertificate, _ domain: SecTrustSettingsDomain, _ modificationDate: UnsafeMutablePointer<CFDate?>) -> OSStatus
+func SecTrustSettingsCreateExternalRepresentation(_ domain: SecTrustSettingsDomain, _ trustSettings: UnsafeMutablePointer<CFData?>) -> OSStatus
+func SecTrustSettingsImportExternalRepresentation(_ domain: SecTrustSettingsDomain, _ trustSettings: CFData) -> OSStatus

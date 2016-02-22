@@ -4,7 +4,7 @@ class NSUUID : NSObject, NSCopying, NSSecureCoding {
   init()
   convenience init?(uuidString string: String)
   convenience init(uuidBytes bytes: UnsafePointer<UInt8>)
-  func getBytes(uuid: UnsafeMutablePointer<UInt8>)
+  func getBytes(_ uuid: UnsafeMutablePointer<UInt8>)
   var uuidString: String { get }
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

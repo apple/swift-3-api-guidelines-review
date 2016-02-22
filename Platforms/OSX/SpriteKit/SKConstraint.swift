@@ -5,7 +5,7 @@ class SKRange : NSObject, NSCoding, NSCopying {
   convenience init(lowerLimit lower: CGFloat)
   convenience init(upperLimit upper: CGFloat)
   convenience init(constantValue value: CGFloat)
-  convenience init(value: CGFloat, variance: CGFloat)
+  convenience init(value value: CGFloat, variance variance: CGFloat)
   class func withNoLimits() -> Self
   var lowerLimit: CGFloat
   var upperLimit: CGFloat
@@ -20,13 +20,13 @@ class SKRange : NSObject, NSCoding, NSCopying {
 class SKConstraint : NSObject, NSCoding, NSCopying {
   var enabled: Bool
   var referenceNode: SKNode?
-  class func positionX(range: SKRange) -> Self
-  class func positionY(range: SKRange) -> Self
-  class func positionX(xRange: SKRange, y yRange: SKRange) -> Self
-  class func distance(range: SKRange, to node: SKNode) -> Self
-  class func distance(range: SKRange, to point: CGPoint) -> Self
-  class func distance(range: SKRange, to point: CGPoint, in node: SKNode) -> Self
-  class func zRotation(zRange: SKRange) -> Self
+  class func positionX(_ range: SKRange) -> Self
+  class func positionY(_ range: SKRange) -> Self
+  class func positionX(_ xRange: SKRange, y yRange: SKRange) -> Self
+  class func distance(_ range: SKRange, to node: SKNode) -> Self
+  class func distance(_ range: SKRange, to point: CGPoint) -> Self
+  class func distance(_ range: SKRange, to point: CGPoint, in node: SKNode) -> Self
+  class func zRotation(_ zRange: SKRange) -> Self
   class func orient(to node: SKNode, offset radians: SKRange) -> Self
   class func orient(to point: CGPoint, offset radians: SKRange) -> Self
   class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self

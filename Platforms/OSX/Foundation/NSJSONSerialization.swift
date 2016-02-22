@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 struct NSJSONReadingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var mutableContainers: NSJSONReadingOptions { get }
   static var mutableLeaves: NSJSONReadingOptions { get }
@@ -9,16 +9,16 @@ struct NSJSONReadingOptions : OptionSetType {
 }
 @available(OSX 10.7, *)
 struct NSJSONWritingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var prettyPrinted: NSJSONWritingOptions { get }
 }
 @available(OSX 10.7, *)
 class NSJSONSerialization : NSObject {
-  class func isValidJSONObject(obj: AnyObject) -> Bool
+  class func isValidJSONObject(_ obj: AnyObject) -> Bool
   class func data(withJSONObject obj: AnyObject, options opt: NSJSONWritingOptions = []) throws -> NSData
   class func jsonObject(with data: NSData, options opt: NSJSONReadingOptions = []) throws -> AnyObject
-  class func writeJSONObject(obj: AnyObject, to stream: NSOutputStream, options opt: NSJSONWritingOptions = [], error: NSErrorPointer) -> Int
+  class func writeJSONObject(_ obj: AnyObject, to stream: NSOutputStream, options opt: NSJSONWritingOptions = [], error error: NSErrorPointer) -> Int
   class func jsonObject(with stream: NSInputStream, options opt: NSJSONReadingOptions = []) throws -> AnyObject
   init()
 }

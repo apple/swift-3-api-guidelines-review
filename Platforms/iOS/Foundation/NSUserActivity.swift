@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 class NSUserActivity : NSObject {
-  init(activityType: String)
+  init(activityType activityType: String)
   init()
   var activityType: String { get }
   var title: String?
@@ -33,7 +33,7 @@ class NSUserActivity : NSObject {
 let NSUserActivityTypeBrowsingWeb: String
 @available(iOS 8.0, *)
 protocol NSUserActivityDelegate : NSObjectProtocol {
-  optional func userActivityWillSave(userActivity: NSUserActivity)
-  optional func userActivityWasContinued(userActivity: NSUserActivity)
-  optional func userActivity(userActivity: NSUserActivity?, didReceive inputStream: NSInputStream, outputStream: NSOutputStream)
+  optional func userActivityWillSave(_ userActivity: NSUserActivity)
+  optional func userActivityWasContinued(_ userActivity: NSUserActivity)
+  optional func userActivity(_ userActivity: NSUserActivity?, didReceive inputStream: NSInputStream, outputStream outputStream: NSOutputStream)
 }

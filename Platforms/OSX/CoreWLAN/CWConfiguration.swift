@@ -14,7 +14,7 @@ class CWConfiguration : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.6, *)
   init()
   @available(OSX 10.7, *)
-  init(configuration: CWConfiguration)
+  init(configuration configuration: CWConfiguration)
   @available(OSX 10.6, *)
   func isEqual(to configuration: CWConfiguration) -> Bool
   @available(OSX 10.6, *)
@@ -42,6 +42,6 @@ class CWMutableConfiguration : CWConfiguration {
   @available(OSX 10.6, *)
   init()
   @available(OSX 10.7, *)
-  init(configuration: CWConfiguration)
+  init(configuration configuration: CWConfiguration)
   init?(coder aDecoder: NSCoder)
 }

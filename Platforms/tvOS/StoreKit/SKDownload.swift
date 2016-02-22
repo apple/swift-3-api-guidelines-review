@@ -1,7 +1,7 @@
 
 @available(tvOS 6.0, *)
 enum SKDownloadState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case waiting
   case active

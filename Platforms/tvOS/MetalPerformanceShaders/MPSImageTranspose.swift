@@ -1,6 +1,6 @@
 
 @available(tvOS 9.0, *)
 class MPSImageTranspose : MPSUnaryImageKernel {
-  init(device: MTLDevice)
+  init(device device: MTLDevice)
   convenience init()
 }

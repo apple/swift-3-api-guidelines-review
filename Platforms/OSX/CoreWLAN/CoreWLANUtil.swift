@@ -1,21 +1,21 @@
 
 @available(OSX 10.9, *)
-func CWKeychainFindWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
+func CWKeychainFindWiFiPassword(_ domain: CWKeychainDomain, _ ssid: NSData, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData, _ password: String) -> OSStatus
+func CWKeychainSetWiFiPassword(_ domain: CWKeychainDomain, _ ssid: NSData, _ password: String) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainDeleteWiFiPassword(domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
+func CWKeychainDeleteWiFiPassword(_ domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainFindWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData, _ username: AutoreleasingUnsafeMutablePointer<NSString?>, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
+func CWKeychainFindWiFiEAPUsernameAndPassword(_ domain: CWKeychainDomain, _ ssid: NSData, _ username: AutoreleasingUnsafeMutablePointer<NSString?>, _ password: AutoreleasingUnsafeMutablePointer<NSString?>) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData, _ username: String?, _ password: String?) -> OSStatus
+func CWKeychainSetWiFiEAPUsernameAndPassword(_ domain: CWKeychainDomain, _ ssid: NSData, _ username: String?, _ password: String?) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainDeleteWiFiEAPUsernameAndPassword(domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
+func CWKeychainDeleteWiFiEAPUsernameAndPassword(_ domain: CWKeychainDomain, _ ssid: NSData) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainCopyWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: NSData, _ identity: UnsafeMutablePointer<Unmanaged<SecIdentity>?>) -> OSStatus
+func CWKeychainCopyWiFiEAPIdentity(_ domain: CWKeychainDomain, _ ssid: NSData, _ identity: UnsafeMutablePointer<Unmanaged<SecIdentity>?>) -> OSStatus
 @available(OSX 10.9, *)
-func CWKeychainSetWiFiEAPIdentity(domain: CWKeychainDomain, _ ssid: NSData, _ identity: SecIdentity?) -> OSStatus
+func CWKeychainSetWiFiEAPIdentity(_ domain: CWKeychainDomain, _ ssid: NSData, _ identity: SecIdentity?) -> OSStatus
 @available(OSX 10.7, *)
-func CWKeychainCopyEAPIdentityList(list: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> OSStatus
+func CWKeychainCopyEAPIdentityList(_ list: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> OSStatus
 @available(OSX 10.7, *)
-func CWMergeNetworks(networks: Set<CWNetwork>) -> Set<CWNetwork>
+func CWMergeNetworks(_ networks: Set<CWNetwork>) -> Set<CWNetwork>

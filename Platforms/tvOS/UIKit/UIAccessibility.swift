@@ -22,38 +22,38 @@ extension NSObject {
   @available(tvOS 9.0, *)
   var accessibilityHeaderElements: [AnyObject]?
   class func isAccessibilityElement() -> Bool
-  class func setIsAccessibilityElement(isAccessibilityElement: Bool)
+  class func setIsAccessibilityElement(_ isAccessibilityElement: Bool)
   class func accessibilityLabel() -> String?
-  class func setAccessibilityLabel(accessibilityLabel: String?)
+  class func setAccessibilityLabel(_ accessibilityLabel: String?)
   class func accessibilityHint() -> String?
-  class func setAccessibilityHint(accessibilityHint: String?)
+  class func setAccessibilityHint(_ accessibilityHint: String?)
   class func accessibilityValue() -> String?
-  class func setAccessibilityValue(accessibilityValue: String?)
+  class func setAccessibilityValue(_ accessibilityValue: String?)
   class func accessibilityTraits() -> UIAccessibilityTraits
-  class func setAccessibilityTraits(accessibilityTraits: UIAccessibilityTraits)
+  class func setAccessibilityTraits(_ accessibilityTraits: UIAccessibilityTraits)
   class func accessibilityFrame() -> CGRect
-  class func setAccessibilityFrame(accessibilityFrame: CGRect)
+  class func setAccessibilityFrame(_ accessibilityFrame: CGRect)
   class func accessibilityPath() -> UIBezierPath?
-  class func setAccessibilityPath(accessibilityPath: UIBezierPath?)
+  class func setAccessibilityPath(_ accessibilityPath: UIBezierPath?)
   class func accessibilityActivationPoint() -> CGPoint
-  class func setAccessibilityActivationPoint(accessibilityActivationPoint: CGPoint)
+  class func setAccessibilityActivationPoint(_ accessibilityActivationPoint: CGPoint)
   class func accessibilityLanguage() -> String?
-  class func setAccessibilityLanguage(accessibilityLanguage: String?)
+  class func setAccessibilityLanguage(_ accessibilityLanguage: String?)
   class func accessibilityElementsHidden() -> Bool
-  class func setAccessibilityElementsHidden(accessibilityElementsHidden: Bool)
+  class func setAccessibilityElementsHidden(_ accessibilityElementsHidden: Bool)
   class func accessibilityViewIsModal() -> Bool
-  class func setAccessibilityViewIsModal(accessibilityViewIsModal: Bool)
+  class func setAccessibilityViewIsModal(_ accessibilityViewIsModal: Bool)
   class func shouldGroupAccessibilityChildren() -> Bool
-  class func setShouldGroupAccessibilityChildren(shouldGroupAccessibilityChildren: Bool)
+  class func setShouldGroupAccessibilityChildren(_ shouldGroupAccessibilityChildren: Bool)
   class func accessibilityNavigationStyle() -> UIAccessibilityNavigationStyle
-  class func setAccessibilityNavigationStyle(accessibilityNavigationStyle: UIAccessibilityNavigationStyle)
+  class func setAccessibilityNavigationStyle(_ accessibilityNavigationStyle: UIAccessibilityNavigationStyle)
   class func accessibilityHeaderElements() -> [AnyObject]?
-  class func setAccessibilityHeaderElements(accessibilityHeaderElements: [AnyObject]?)
+  class func setAccessibilityHeaderElements(_ accessibilityHeaderElements: [AnyObject]?)
 }
 @available(tvOS 7.0, *)
-func UIAccessibilityConvertFrameToScreenCoordinates(rect: CGRect, _ view: UIView) -> CGRect
+func UIAccessibilityConvertFrameToScreenCoordinates(_ rect: CGRect, _ view: UIView) -> CGRect
 @available(tvOS 7.0, *)
-func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: UIView) -> UIBezierPath
+func UIAccessibilityConvertPathToScreenCoordinates(_ path: UIBezierPath, _ view: UIView) -> UIBezierPath
 extension NSObject {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
@@ -64,7 +64,7 @@ extension NSObject {
   @available(tvOS 8.0, *)
   var accessibilityElements: [AnyObject]?
   class func accessibilityElements() -> [AnyObject]?
-  class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
+  class func setAccessibilityElements(_ accessibilityElements: [AnyObject]?)
 }
 extension NSObject {
   @available(tvOS 4.0, *)
@@ -85,7 +85,7 @@ extension NSObject {
   func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
 }
 @available(tvOS 9.0, *)
-func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
+func UIAccessibilityFocusedElement(_ assistiveTechnologyIdentifier: String?) -> AnyObject?
 extension NSObject {
   @available(tvOS 7.0, *)
   class func accessibilityActivate() -> Bool
@@ -100,9 +100,9 @@ extension NSObject {
   @available(tvOS 4.0, *)
   func accessibilityDecrement()
   @available(tvOS 4.2, *)
-  class func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  class func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool
   @available(tvOS 4.2, *)
-  func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool
   @available(tvOS 5.0, *)
   class func accessibilityPerformEscape() -> Bool
   @available(tvOS 5.0, *)
@@ -114,10 +114,10 @@ extension NSObject {
   @available(tvOS 8.0, *)
   var accessibilityCustomActions: [UIAccessibilityCustomAction]?
   class func accessibilityCustomActions() -> [UIAccessibilityCustomAction]?
-  class func setAccessibilityCustomActions(accessibilityCustomActions: [UIAccessibilityCustomAction]?)
+  class func setAccessibilityCustomActions(_ accessibilityCustomActions: [UIAccessibilityCustomAction]?)
 }
 enum UIAccessibilityScrollDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case right
   case left
@@ -138,7 +138,7 @@ protocol UIAccessibilityReadingContent {
   @available(tvOS 5.0, *)
   func accessibilityPageContent() -> String?
 }
-func UIAccessibilityPostNotification(notification: UIAccessibilityNotifications, _ argument: AnyObject?)
+func UIAccessibilityPostNotification(_ notification: UIAccessibilityNotifications, _ argument: AnyObject?)
 @available(tvOS 4.0, *)
 func UIAccessibilityIsVoiceOverRunning() -> Bool
 @available(tvOS 4.0, *)
@@ -196,4 +196,4 @@ func UIAccessibilityIsShakeToUndoEnabled() -> Bool
 @available(tvOS 9.0, *)
 let UIAccessibilityShakeToUndoDidChangeNotification: String
 @available(tvOS 7.0, *)
-func UIAccessibilityRequestGuidedAccessSession(enable: Bool, _ completionHandler: (Bool) -> Void)
+func UIAccessibilityRequestGuidedAccessSession(_ enable: Bool, _ completionHandler: (Bool) -> Void)

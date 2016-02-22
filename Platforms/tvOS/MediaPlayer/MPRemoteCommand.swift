@@ -1,7 +1,7 @@
 
 @available(tvOS 7.1, *)
 enum MPRemoteCommandHandlerStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case success
   case noSuchContent
@@ -12,9 +12,9 @@ enum MPRemoteCommandHandlerStatus : Int {
 @available(tvOS 7.1, *)
 class MPRemoteCommand : NSObject {
   var isEnabled: Bool
-  func addTarget(target: AnyObject, action: Selector)
-  func removeTarget(target: AnyObject, action: Selector)
-  func removeTarget(target: AnyObject?)
+  func addTarget(_ target: AnyObject, action action: Selector)
+  func removeTarget(_ target: AnyObject, action action: Selector)
+  func removeTarget(_ target: AnyObject?)
   func addTarget(handler handler: (MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus) -> AnyObject
   init()
 }

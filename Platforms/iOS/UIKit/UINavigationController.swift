@@ -1,6 +1,6 @@
 
 enum UINavigationControllerOperation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case push
@@ -10,31 +10,31 @@ let UINavigationControllerHideShowBarDuration: CGFloat
 @available(iOS 2.0, *)
 class UINavigationController : UIViewController {
   @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
-  func pushViewController(viewController: UIViewController, animated: Bool)
+  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
+  init(rootViewController rootViewController: UIViewController)
+  func pushViewController(_ viewController: UIViewController, animated animated: Bool)
   func popViewController(animated animated: Bool) -> UIViewController?
-  func pop(to viewController: UIViewController, animated: Bool) -> [UIViewController]?
+  func pop(to viewController: UIViewController, animated animated: Bool) -> [UIViewController]?
   func popToRootViewController(animated animated: Bool) -> [UIViewController]?
   var topViewController: UIViewController? { get }
   var visibleViewController: UIViewController? { get }
   var viewControllers: [UIViewController]
   @available(iOS 3.0, *)
-  func setViewControllers(viewControllers: [UIViewController], animated: Bool)
+  func setViewControllers(_ viewControllers: [UIViewController], animated animated: Bool)
   var isNavigationBarHidden: Bool
-  func setNavigationBarHidden(hidden: Bool, animated: Bool)
+  func setNavigationBarHidden(_ hidden: Bool, animated animated: Bool)
   var navigationBar: UINavigationBar { get }
   @available(iOS 3.0, *)
   var isToolbarHidden: Bool
   @available(iOS 3.0, *)
-  func setToolbarHidden(hidden: Bool, animated: Bool)
+  func setToolbarHidden(_ hidden: Bool, animated animated: Bool)
   @available(iOS 3.0, *)
   var toolbar: UIToolbar! { get }
   weak var delegate: @sil_weak UINavigationControllerDelegate?
   @available(iOS 7.0, *)
   var interactivePopGestureRecognizer: UIGestureRecognizer? { get }
   @available(iOS 8.0, *)
-  func show(vc: UIViewController, sender: AnyObject?)
+  func show(_ vc: UIViewController, sender sender: AnyObject?)
   @available(iOS 8.0, *)
   var hidesBarsWhenKeyboardAppears: Bool
   @available(iOS 8.0, *)
@@ -53,17 +53,17 @@ class UINavigationController : UIViewController {
 }
 protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func navigationController(navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
+  optional func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated animated: Bool)
   @available(iOS 2.0, *)
-  optional func navigationController(navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
+  optional func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated animated: Bool)
   @available(iOS 7.0, *)
-  optional func navigationControllerSupportedInterfaceOrientations(navigationController: UINavigationController) -> UIInterfaceOrientationMask
+  optional func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
   optional func navigationControllerPreferredInterfaceOrientation(forPresentation navigationController: UINavigationController) -> UIInterfaceOrientation
   @available(iOS 7.0, *)
-  optional func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+  optional func navigationController(_ navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(iOS 7.0, *)
-  optional func navigationController(navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  optional func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
 }
 extension UIViewController {
   var navigationItem: UINavigationItem { get }
@@ -74,5 +74,5 @@ extension UIViewController {
   @available(iOS 3.0, *)
   var toolbarItems: [UIBarButtonItem]?
   @available(iOS 3.0, *)
-  func setToolbarItems(toolbarItems: [UIBarButtonItem]?, animated: Bool)
+  func setToolbarItems(_ toolbarItems: [UIBarButtonItem]?, animated animated: Bool)
 }

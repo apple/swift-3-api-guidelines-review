@@ -9,7 +9,7 @@ class GKLocalPlayer : GKPlayer {
   @available(iOS 8.0, *)
   func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(iOS 7.0, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)? = nil)
+  func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 7.0, *)
   func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(iOS 7.0, *)
@@ -20,9 +20,9 @@ protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKT
 }
 extension GKLocalPlayer {
   @available(iOS 7.0, *)
-  func register(listener: GKLocalPlayerListener)
+  func register(_ listener: GKLocalPlayerListener)
   @available(iOS 7.0, *)
-  func unregisterListener(listener: GKLocalPlayerListener)
+  func unregisterListener(_ listener: GKLocalPlayerListener)
   @available(iOS 7.0, *)
   func unregisterAllListeners()
 }

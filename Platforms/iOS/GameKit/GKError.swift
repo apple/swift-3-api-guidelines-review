@@ -1,7 +1,7 @@
 
 let GKErrorDomain: String
 enum GKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case cancelled

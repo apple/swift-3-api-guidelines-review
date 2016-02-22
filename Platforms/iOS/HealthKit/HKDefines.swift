@@ -3,7 +3,7 @@
 let HKErrorDomain: String
 @available(iOS 8.0, *)
 enum HKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case noError
   case errorHealthDataUnavailable
@@ -20,7 +20,7 @@ enum HKErrorCode : Int {
 }
 @available(iOS 8.0, *)
 enum HKUpdateFrequency : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case immediate
   case hourly
@@ -29,14 +29,14 @@ enum HKUpdateFrequency : Int {
 }
 @available(iOS 8.0, *)
 enum HKAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notDetermined
   case sharingDenied
   case sharingAuthorized
 }
 enum HKBiologicalSex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notSet
   @available(iOS 8.0, *)
@@ -48,7 +48,7 @@ enum HKBiologicalSex : Int {
 }
 @available(iOS 8.0, *)
 enum HKBloodType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notSet
   case aPositive
@@ -62,21 +62,21 @@ enum HKBloodType : Int {
 }
 @available(iOS 8.0, *)
 enum HKCategoryValueSleepAnalysis : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case inBed
   case asleep
 }
 @available(iOS 9.0, *)
 enum HKCategoryValueAppleStandHour : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case stood
   case idle
 }
 @available(iOS 9.0, *)
 enum HKFitzpatrickSkinType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notSet
   case I
@@ -88,7 +88,7 @@ enum HKFitzpatrickSkinType : Int {
 }
 @available(iOS 9.0, *)
 enum HKCategoryValueCervicalMucusQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case dry
   case sticky
@@ -98,7 +98,7 @@ enum HKCategoryValueCervicalMucusQuality : Int {
 }
 @available(iOS 9.0, *)
 enum HKCategoryValueOvulationTestResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case negative
   case positive
@@ -106,7 +106,7 @@ enum HKCategoryValueOvulationTestResult : Int {
 }
 @available(iOS 9.0, *)
 enum HKCategoryValueMenstrualFlow : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   case light
@@ -115,7 +115,7 @@ enum HKCategoryValueMenstrualFlow : Int {
 }
 @available(iOS 9.0, *)
 enum HKCategoryValue : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notApplicable
 }

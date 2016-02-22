@@ -14,14 +14,14 @@ let WebViewProgressStartedNotification: String
 let WebViewProgressEstimateChangedNotification: String
 let WebViewProgressFinishedNotification: String
 class WebView : NSView {
-  class func canShowMIMEType(MIMEType: String!) -> Bool
+  class func canShowMIMEType(_ MIMEType: String!) -> Bool
   class func canShowMIMEType(ashtml MIMEType: String!) -> Bool
   class func mimeTypesShownAsHTML() -> [AnyObject]!
-  class func setMIMETypesShownAsHTML(MIMETypes: [AnyObject]!)
+  class func setMIMETypesShownAsHTML(_ MIMETypes: [AnyObject]!)
   class func url(from pasteboard: NSPasteboard!) -> NSURL!
   class func urlTitle(from pasteboard: NSPasteboard!) -> String!
   class func registerURLScheme(asLocal scheme: String!)
-  init!(frame: NSRect, frameName: String!, groupName: String!)
+  init!(frame frame: NSRect, frameName frameName: String!, groupName groupName: String!)
   func close()
   var shouldCloseWithWindow: Bool
   unowned(unsafe) var uiDelegate: @sil_unmanaged WebUIDelegate!
@@ -32,7 +32,7 @@ class WebView : NSView {
   var mainFrame: WebFrame! { get }
   var selectedFrame: WebFrame! { get }
   var backForwardList: WebBackForwardList! { get }
-  func setMaintainsBackForwardList(flag: Bool)
+  func setMaintainsBackForwardList(_ flag: Bool)
   func goBack() -> Bool
   func goForward() -> Bool
   func go(toBackForwardItem item: WebHistoryItem!) -> Bool
@@ -49,7 +49,7 @@ class WebView : NSView {
   var preferencesIdentifier: String!
   var hostWindow: NSWindow!
   func search(for string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
-  class func registerClass(viewClass: AnyClass!, representationClass: AnyClass!, forMIMEType MIMEType: String!)
+  class func registerClass(_ viewClass: AnyClass!, representationClass representationClass: AnyClass!, forMIMEType MIMEType: String!)
   var groupName: String!
   var estimatedProgress: Double { get }
   var isLoading: Bool { get }
@@ -57,7 +57,7 @@ class WebView : NSView {
   var pasteboardTypesForSelection: [AnyObject]! { get }
   func writeSelection(pasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
   func pasteboardTypes(forElement element: [NSObject : AnyObject]!) -> [AnyObject]!
-  func writeElement(element: [NSObject : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
+  func writeElement(_ element: [NSObject : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
   func moveDragCaret(to point: NSPoint)
   func removeDragCaret()
   var drawsBackground: Bool
@@ -67,27 +67,27 @@ class WebView : NSView {
   var mainFrameTitle: String! { get }
   var mainFrameIcon: NSImage! { get }
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 extension WebView : NSUserInterfaceValidations {
-  @IBAction func takeStringURLFrom(sender: AnyObject?)
-  @IBAction func stopLoading(sender: AnyObject?)
-  @IBAction func reload(sender: AnyObject?)
-  @IBAction func reloadFromOrigin(sender: AnyObject?)
+  @IBAction func takeStringURLFrom(_ sender: AnyObject?)
+  @IBAction func stopLoading(_ sender: AnyObject?)
+  @IBAction func reload(_ sender: AnyObject?)
+  @IBAction func reloadFromOrigin(_ sender: AnyObject?)
   var canGoBack: Bool { get }
-  @IBAction func goBack(sender: AnyObject?)
+  @IBAction func goBack(_ sender: AnyObject?)
   var canGoForward: Bool { get }
-  @IBAction func goForward(sender: AnyObject?)
+  @IBAction func goForward(_ sender: AnyObject?)
   var canMakeTextLarger: Bool { get }
-  @IBAction func makeTextLarger(sender: AnyObject?)
+  @IBAction func makeTextLarger(_ sender: AnyObject?)
   var canMakeTextSmaller: Bool { get }
-  @IBAction func makeTextSmaller(sender: AnyObject?)
+  @IBAction func makeTextSmaller(_ sender: AnyObject?)
   var canMakeTextStandardSize: Bool { get }
-  @IBAction func makeTextStandardSize(sender: AnyObject?)
-  @IBAction func toggleContinuousSpellChecking(sender: AnyObject?)
-  @IBAction func toggleSmartInsertDelete(sender: AnyObject?)
-  func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
+  @IBAction func makeTextStandardSize(_ sender: AnyObject?)
+  @IBAction func toggleContinuousSpellChecking(_ sender: AnyObject?)
+  @IBAction func toggleSmartInsertDelete(_ sender: AnyObject?)
+  func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
 }
 let WebViewDidBeginEditingNotification: String
 let WebViewDidChangeNotification: String
@@ -95,11 +95,11 @@ let WebViewDidEndEditingNotification: String
 let WebViewDidChangeTypingStyleNotification: String
 let WebViewDidChangeSelectionNotification: String
 extension WebView {
-  func computedStyle(for element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
+  func computedStyle(for element: DOMElement!, pseudoElement pseudoElement: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
   func editableDOMRange(for point: NSPoint) -> DOMRange!
-  func setSelectedDOMRange(range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
+  func setSelectedDOMRange(_ range: DOMRange!, affinity selectionAffinity: NSSelectionAffinity)
   var selectedDOMRange: DOMRange! { get }
   var selectionAffinity: NSSelectionAffinity { get }
   var maintainsInactiveSelection: Bool { get }
@@ -113,39 +113,39 @@ extension WebView {
   func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func replaceSelection(node: DOMNode!)
+  func replaceSelection(_ node: DOMNode!)
   func replaceSelection(text text: String!)
   func replaceSelection(markupString markupString: String!)
-  func replaceSelection(archive: WebArchive!)
+  func replaceSelection(_ archive: WebArchive!)
   func deleteSelection()
-  func applyStyle(style: DOMCSSStyleDeclaration!)
+  func applyStyle(_ style: DOMCSSStyleDeclaration!)
 }
 extension WebView {
-  func copy(sender: AnyObject?)
-  func cut(sender: AnyObject?)
-  func paste(sender: AnyObject?)
-  func copyFont(sender: AnyObject?)
-  func pasteFont(sender: AnyObject?)
-  func delete(sender: AnyObject?)
-  func pasteAsPlainText(sender: AnyObject?)
-  func pasteAsRichText(sender: AnyObject?)
-  func changeFont(sender: AnyObject?)
-  func changeAttributes(sender: AnyObject?)
-  func changeDocumentBackgroundColor(sender: AnyObject?)
-  func changeColor(sender: AnyObject?)
-  func alignCenter(sender: AnyObject?)
-  func alignJustified(sender: AnyObject?)
-  func alignLeft(sender: AnyObject?)
-  func alignRight(sender: AnyObject?)
-  func checkSpelling(sender: AnyObject?)
-  func showGuessPanel(sender: AnyObject?)
-  func performFindPanelAction(sender: AnyObject?)
-  func startSpeaking(sender: AnyObject?)
-  func stopSpeaking(sender: AnyObject?)
-  func moveToBeginningOfSentence(sender: AnyObject?)
-  func moveToBeginningOfSentenceAndModifySelection(sender: AnyObject?)
-  func moveToEndOfSentence(sender: AnyObject?)
-  func moveToEndOfSentenceAndModifySelection(sender: AnyObject?)
-  func selectSentence(sender: AnyObject?)
-  func overWrite(sender: AnyObject?)
+  func copy(_ sender: AnyObject?)
+  func cut(_ sender: AnyObject?)
+  func paste(_ sender: AnyObject?)
+  func copyFont(_ sender: AnyObject?)
+  func pasteFont(_ sender: AnyObject?)
+  func delete(_ sender: AnyObject?)
+  func pasteAsPlainText(_ sender: AnyObject?)
+  func pasteAsRichText(_ sender: AnyObject?)
+  func changeFont(_ sender: AnyObject?)
+  func changeAttributes(_ sender: AnyObject?)
+  func changeDocumentBackgroundColor(_ sender: AnyObject?)
+  func changeColor(_ sender: AnyObject?)
+  func alignCenter(_ sender: AnyObject?)
+  func alignJustified(_ sender: AnyObject?)
+  func alignLeft(_ sender: AnyObject?)
+  func alignRight(_ sender: AnyObject?)
+  func checkSpelling(_ sender: AnyObject?)
+  func showGuessPanel(_ sender: AnyObject?)
+  func performFindPanelAction(_ sender: AnyObject?)
+  func startSpeaking(_ sender: AnyObject?)
+  func stopSpeaking(_ sender: AnyObject?)
+  func moveToBeginningOfSentence(_ sender: AnyObject?)
+  func moveToBeginningOfSentenceAndModifySelection(_ sender: AnyObject?)
+  func moveToEndOfSentence(_ sender: AnyObject?)
+  func moveToEndOfSentenceAndModifySelection(_ sender: AnyObject?)
+  func selectSentence(_ sender: AnyObject?)
+  func overWrite(_ sender: AnyObject?)
 }

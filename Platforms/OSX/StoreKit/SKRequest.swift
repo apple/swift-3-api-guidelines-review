@@ -8,7 +8,7 @@ class SKRequest : NSObject {
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func requestDidFinish(request: SKRequest)
+  optional func requestDidFinish(_ request: SKRequest)
   @available(OSX 10.7, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError?)
+  optional func request(_ request: SKRequest, didFailWithError error: NSError?)
 }

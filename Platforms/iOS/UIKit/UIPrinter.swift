@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 class UIPrinter : NSObject {
-  /*not inherited*/ init(url: NSURL)
+  /*not inherited*/ init(url url: NSURL)
   @NSCopying var url: NSURL { get }
   var displayName: String { get }
   var displayLocation: String? { get }
@@ -9,12 +9,12 @@ class UIPrinter : NSObject {
   var makeAndModel: String? { get }
   var supportsColor: Bool { get }
   var supportsDuplex: Bool { get }
-  func contactPrinter(completionHandler: ((Bool) -> Void)? = nil)
+  func contactPrinter(_ completionHandler: ((Bool) -> Void)? = nil)
   init()
 }
 @available(iOS 8.0, *)
 struct UIPrinterJobTypes : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var unknown: UIPrinterJobTypes { get }
   static var document: UIPrinterJobTypes { get }

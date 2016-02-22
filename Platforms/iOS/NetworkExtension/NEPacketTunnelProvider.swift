@@ -2,15 +2,15 @@
 @available(iOS 9.0, *)
 class NEPacketTunnelProvider : NETunnelProvider {
   @available(iOS 9.0, *)
-  func startTunnel(options options: [String : NSObject]? = [:], completionHandler: (NSError?) -> Void)
+  func startTunnel(options options: [String : NSObject]? = [:], completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
-  func stopTunnel(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopTunnel(_ reason: NEProviderStopReason, completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
-  func cancelTunnelWithError(error: NSError?)
+  func cancelTunnelWithError(_ error: NSError?)
   @available(iOS 9.0, *)
   var packetFlow: NEPacketTunnelFlow { get }
   @available(iOS 9.0, *)
-  func createTCPConnectionThroughTunnel(to remoteEndpoint: NWEndpoint, enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate: AnyObject?) -> NWTCPConnection
+  func createTCPConnectionThroughTunnel(to remoteEndpoint: NWEndpoint, enableTLS enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate delegate: AnyObject?) -> NWTCPConnection
   @available(iOS 9.0, *)
   func createUDPSessionThroughTunnel(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   init()

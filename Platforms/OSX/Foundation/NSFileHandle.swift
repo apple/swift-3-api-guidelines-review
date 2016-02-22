@@ -3,7 +3,7 @@ class NSFileHandle : NSObject, NSSecureCoding {
   @NSCopying var availableData: NSData { get }
   func readDataToEndOfFile() -> NSData
   func readData(ofLength length: Int) -> NSData
-  func write(data: NSData)
+  func write(_ data: NSData)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
   func seek(toFileOffset offset: UInt64)
@@ -11,7 +11,7 @@ class NSFileHandle : NSObject, NSSecureCoding {
   func synchronizeFile()
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)

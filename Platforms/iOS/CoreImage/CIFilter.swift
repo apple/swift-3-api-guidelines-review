@@ -152,16 +152,16 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
 
 extension CIFilter {
   @available(iOS 8.0, OSX 10.10, *)
-  convenience init?(name: String!, elements: (String, AnyObject)...)
+  convenience init?(name name: String!, elements elements: (String, AnyObject)...)
 }
 extension CIFilter {
-  /*not inherited*/ init?(name: String)
+  /*not inherited*/ init?(name name: String)
   @available(iOS 8.0, *)
-  /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
+  /*not inherited*/ init?(name name: String, withInputParameters params: [String : AnyObject]?)
   class func filterNames(inCategory category: String?) -> [String]
   class func filterNames(inCategories categories: [String]?) -> [String]
   @available(iOS 9.0, *)
-  class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
+  class func registerName(_ name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
   @available(iOS 9.0, *)
   class func localizedName(forFilterName filterName: String) -> String?
   @available(iOS 9.0, *)

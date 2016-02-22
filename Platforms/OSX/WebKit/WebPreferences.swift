@@ -1,6 +1,6 @@
 
 enum WebCacheModel : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case documentViewer
   case documentBrowser

@@ -2,10 +2,10 @@
 @available(OSX 10.9, *)
 class JSContext : NSObject {
   init!()
-  init!(virtualMachine: JSVirtualMachine!)
-  func evaluateScript(script: String!) -> JSValue!
+  init!(virtualMachine virtualMachine: JSVirtualMachine!)
+  func evaluateScript(_ script: String!) -> JSValue!
   @available(OSX 10.10, *)
-  func evaluateScript(script: String!, withSourceURL sourceURL: NSURL!) -> JSValue!
+  func evaluateScript(_ script: String!, withSourceURL sourceURL: NSURL!) -> JSValue!
   class func current() -> JSContext!
   @available(OSX 10.10, *)
   class func currentCallee() -> JSValue!
@@ -19,11 +19,11 @@ class JSContext : NSObject {
   var name: String!
 }
 extension JSContext {
-  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
-  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
+  func objectForKeyedSubscript(_ key: AnyObject!) -> JSValue!
+  func setObject(_ object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
 }
 extension JSContext {
-  /*not inherited*/ init!(jsGlobalContextRef: JSGlobalContextRef)
+  /*not inherited*/ init!(jsGlobalContextRef jsGlobalContextRef: JSGlobalContextRef)
   var jsGlobalContextRef: JSGlobalContextRef { get }
 }
 @available(OSX 10.9, *)
@@ -36,12 +36,12 @@ class JSValue : NSObject {
   /*not inherited*/ init!(uInt32 value: UInt32, in context: JSContext!)
   /*not inherited*/ init!(newObjectIn context: JSContext!)
   /*not inherited*/ init!(newArrayIn context: JSContext!)
-  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags: String!, in context: JSContext!)
+  /*not inherited*/ init!(newRegularExpressionFromPattern pattern: String!, flags flags: String!, in context: JSContext!)
   /*not inherited*/ init!(newErrorFromMessage message: String!, in context: JSContext!)
   /*not inherited*/ init!(nullIn context: JSContext!)
   /*not inherited*/ init!(undefinedIn context: JSContext!)
   func toObject() -> AnyObject!
-  func toObjectOf(expectedClass: AnyClass!) -> AnyObject!
+  func toObjectOf(_ expectedClass: AnyClass!) -> AnyObject!
   func toBool() -> Bool
   func toDouble() -> Double
   func toInt32() -> Int32
@@ -51,13 +51,13 @@ class JSValue : NSObject {
   func toDate() -> NSDate!
   func toArray() -> [AnyObject]!
   func toDictionary() -> [NSObject : AnyObject]!
-  func forProperty(property: String!) -> JSValue!
-  func setValue(value: AnyObject!, forProperty property: String!)
-  func deleteProperty(property: String!) -> Bool
-  func hasProperty(property: String!) -> Bool
-  func defineProperty(property: String!, descriptor: AnyObject!)
-  func atIndex(index: Int) -> JSValue!
-  func setValue(value: AnyObject!, at index: Int)
+  func forProperty(_ property: String!) -> JSValue!
+  func setValue(_ value: AnyObject!, forProperty property: String!)
+  func deleteProperty(_ property: String!) -> Bool
+  func hasProperty(_ property: String!) -> Bool
+  func defineProperty(_ property: String!, descriptor descriptor: AnyObject!)
+  func atIndex(_ index: Int) -> JSValue!
+  func setValue(_ value: AnyObject!, at index: Int)
   var isUndefined: Bool { get }
   var isNull: Bool { get }
   var isBoolean: Bool { get }
@@ -70,27 +70,27 @@ class JSValue : NSObject {
   var isDate: Bool { get }
   func isEqual(to value: AnyObject!) -> Bool
   func isEqualWithTypeCoercion(to value: AnyObject!) -> Bool
-  func isInstanceOf(value: AnyObject!) -> Bool
+  func isInstanceOf(_ value: AnyObject!) -> Bool
   func call(arguments arguments: [AnyObject]!) -> JSValue!
   func construct(withArguments arguments: [AnyObject]!) -> JSValue!
-  func invokeMethod(method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
+  func invokeMethod(_ method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
   init()
 }
 extension JSValue {
-  /*not inherited*/ init!(point: CGPoint, in context: JSContext!)
-  /*not inherited*/ init!(range: NSRange, in context: JSContext!)
-  /*not inherited*/ init!(rect: CGRect, in context: JSContext!)
-  /*not inherited*/ init!(size: CGSize, in context: JSContext!)
+  /*not inherited*/ init!(point point: CGPoint, in context: JSContext!)
+  /*not inherited*/ init!(range range: NSRange, in context: JSContext!)
+  /*not inherited*/ init!(rect rect: CGRect, in context: JSContext!)
+  /*not inherited*/ init!(size size: CGSize, in context: JSContext!)
   func toPoint() -> CGPoint
   func toRange() -> NSRange
   func toRect() -> CGRect
   func toSize() -> CGSize
 }
 extension JSValue {
-  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
-  func objectAtIndexedSubscript(index: Int) -> JSValue!
-  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
-  func setObject(object: AnyObject!, atIndexedSubscript index: Int)
+  func objectForKeyedSubscript(_ key: AnyObject!) -> JSValue!
+  func objectAtIndexedSubscript(_ index: Int) -> JSValue!
+  func setObject(_ object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
+  func setObject(_ object: AnyObject!, atIndexedSubscript index: Int)
 }
 extension JSValue {
   /*not inherited*/ init!(jsValueRef value: JSValueRef, in context: JSContext!)
@@ -105,16 +105,16 @@ let JSPropertyDescriptorSetKey: String
 @available(OSX 10.9, *)
 class JSManagedValue : NSObject {
   @available(OSX 10.10, *)
-  /*not inherited*/ init!(value: JSValue!, andOwner owner: AnyObject!)
-  init!(value: JSValue!)
+  /*not inherited*/ init!(value value: JSValue!, andOwner owner: AnyObject!)
+  init!(value value: JSValue!)
   var value: JSValue! { get }
   init()
 }
 @available(OSX 10.9, *)
 class JSVirtualMachine : NSObject {
   init!()
-  func addManagedReference(object: AnyObject!, withOwner owner: AnyObject!)
-  func removeManagedReference(object: AnyObject!, withOwner owner: AnyObject!)
+  func addManagedReference(_ object: AnyObject!, withOwner owner: AnyObject!)
+  func removeManagedReference(_ object: AnyObject!, withOwner owner: AnyObject!)
 }
 protocol JSExport {
 }

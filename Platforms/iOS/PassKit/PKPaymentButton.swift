@@ -1,7 +1,7 @@
 
 @available(iOS 8.3, *)
 enum PKPaymentButtonStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case white
   case whiteOutline
@@ -9,7 +9,7 @@ enum PKPaymentButtonStyle : Int {
 }
 @available(iOS 8.3, *)
 enum PKPaymentButtonType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case plain
   case buy
@@ -22,7 +22,7 @@ class PKPaymentButton : UIButton {
   @available(iOS 9.0, *)
   init(paymentButtonType type: PKPaymentButtonType, paymentButtonStyle style: PKPaymentButtonStyle)
   convenience init(type buttonType: UIButtonType)
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

@@ -29,11 +29,11 @@ class NSException : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
 }
 extension NSException {
-  class func raise(name: String, format: String, arguments argList: CVaListPointer)
+  class func raise(_ name: String, format format: String, arguments argList: CVaListPointer)
 }
 typealias NSUncaughtExceptionHandler = (NSException) -> Void
 func NSGetUncaughtExceptionHandler() -> (@convention(c) (NSException) -> Void)?
-func NSSetUncaughtExceptionHandler(_: (@convention(c) (NSException) -> Void)?)
+func NSSetUncaughtExceptionHandler(_ _: (@convention(c) (NSException) -> Void)?)
 @available(OSX 10.6, *)
 let NSAssertionHandlerKey: String
 class NSAssertionHandler : NSObject {

@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum PKPassLibraryAddPassesStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case didAddPasses
   case shouldReviewPasses
@@ -9,7 +9,7 @@ enum PKPassLibraryAddPassesStatus : Int {
 }
 @available(iOS 9.0, *)
 enum PKAutomaticPassPresentationSuppressionResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notSupported
   case alreadyPresenting
@@ -33,24 +33,24 @@ class PKPassLibrary : NSObject {
   @available(iOS 9.0, *)
   func isPaymentPassActivationAvailable() -> Bool
   func passes() -> [PKPass]
-  func pass(passTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
+  func pass(passTypeIdentifier identifier: String, serialNumber serialNumber: String) -> PKPass?
   @available(iOS 8.0, *)
   func passes(of passType: PKPassType) -> [PKPass]
   @available(iOS 9.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
-  func removePass(pass: PKPass)
-  func containsPass(pass: PKPass) -> Bool
-  func replacePass(pass: PKPass) -> Bool
+  func removePass(_ pass: PKPass)
+  func containsPass(_ pass: PKPass) -> Bool
+  func replacePass(_ pass: PKPass) -> Bool
   @available(iOS 7.0, *)
-  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
+  func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(iOS 8.3, *)
   func openPaymentSetup()
   @available(iOS 9.0, *)
   func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
-  func activate(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)? = nil)
+  func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion completion: ((Bool, NSError) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
-  func activate(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)? = nil)
+  func activate(_ paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion completion: ((Bool, NSError) -> Void)? = nil)
   init()
 }
 @available(iOS 6.0, *)

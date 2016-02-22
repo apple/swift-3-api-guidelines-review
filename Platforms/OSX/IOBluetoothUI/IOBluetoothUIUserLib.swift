@@ -12,6 +12,6 @@ var kIOBluetoothServiceBrowserControllerOptionsDisconnectWhenDone: Int { get }
 var kIOBluetoothUISuccess: Int { get }
 var kIOBluetoothUIUserCanceledErr: Int { get }
 @available(OSX 10.7, *)
-func IOBluetoothValidateHardwareWithDescription(cancelButtonTitle: CFString!, _ descriptionText: CFString!) -> IOReturn
+func IOBluetoothValidateHardwareWithDescription(_ cancelButtonTitle: CFString!, _ descriptionText: CFString!) -> IOReturn
 func IOBluetoothGetPairingController() -> Unmanaged<IOBluetoothPairingControllerRef>!
 func IOBluetoothGetDeviceSelectorController() -> Unmanaged<IOBluetoothDeviceSelectorControllerRef>!

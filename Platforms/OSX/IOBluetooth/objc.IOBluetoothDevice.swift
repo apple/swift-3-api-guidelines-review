@@ -7,20 +7,20 @@ var kIOBluetoothDeviceServicesChangedNotification: String { get }
 var kIOBluetoothL2CAPChannelMaxAllowedIncomingMTU: String { get }
 var kIOBluetoothL2CAPChannelDesiredOutgoingMTU: String { get }
 protocol IOBluetoothDeviceAsyncCallbacks {
-  func remoteNameRequestComplete(device: IOBluetoothDevice!, status: IOReturn)
-  func connectionComplete(device: IOBluetoothDevice!, status: IOReturn)
-  func sdpQueryComplete(device: IOBluetoothDevice!, status: IOReturn)
+  func remoteNameRequestComplete(_ device: IOBluetoothDevice!, status status: IOReturn)
+  func connectionComplete(_ device: IOBluetoothDevice!, status status: IOReturn)
+  func sdpQueryComplete(_ device: IOBluetoothDevice!, status status: IOReturn)
 }
 class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   class func register(forConnectNotifications observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
   func register(forDisconnectNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
-  convenience init!(address: UnsafePointer<BluetoothDeviceAddress>)
+  convenience init!(address address: UnsafePointer<BluetoothDeviceAddress>)
   convenience init!(addressString address: String!)
-  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn
-  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn
-  func sendL2CAPEchoRequest(data: UnsafeMutablePointer<Void>, length: UInt16) -> IOReturn
-  func openRFCOMMChannelSync(rfcommChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothRFCOMMChannel?>, withChannelID channelID: BluetoothRFCOMMChannelID, delegate channelDelegate: AnyObject!) -> IOReturn
-  func openRFCOMMChannelAsync(rfcommChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothRFCOMMChannel?>, withChannelID channelID: BluetoothRFCOMMChannelID, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openL2CAPChannelSync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openL2CAPChannelAsync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, delegate channelDelegate: AnyObject!) -> IOReturn
+  func sendL2CAPEchoRequest(_ data: UnsafeMutablePointer<Void>, length length: UInt16) -> IOReturn
+  func openRFCOMMChannelSync(_ rfcommChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothRFCOMMChannel?>, withChannelID channelID: BluetoothRFCOMMChannelID, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openRFCOMMChannelAsync(_ rfcommChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothRFCOMMChannel?>, withChannelID channelID: BluetoothRFCOMMChannelID, delegate channelDelegate: AnyObject!) -> IOReturn
   var classOfDevice: BluetoothClassOfDevice { get }
   var serviceClassMajor: BluetoothServiceClassMajor { get }
   var deviceClassMajor: BluetoothDeviceClassMajor { get }
@@ -41,19 +41,19 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   func rawRSSI() -> BluetoothHCIRSSIValue
   func isConnected() -> Bool
   func openConnection() -> IOReturn
-  func openConnection(target: AnyObject!) -> IOReturn
-  func openConnection(target: AnyObject!, withPageTimeout pageTimeoutValue: BluetoothHCIPageTimeout, authenticationRequired: Bool) -> IOReturn
+  func openConnection(_ target: AnyObject!) -> IOReturn
+  func openConnection(_ target: AnyObject!, withPageTimeout pageTimeoutValue: BluetoothHCIPageTimeout, authenticationRequired authenticationRequired: Bool) -> IOReturn
   func closeConnection() -> IOReturn
-  func remoteNameRequest(target: AnyObject!) -> IOReturn
-  func remoteNameRequest(target: AnyObject!, withPageTimeout pageTimeoutValue: BluetoothHCIPageTimeout) -> IOReturn
+  func remoteNameRequest(_ target: AnyObject!) -> IOReturn
+  func remoteNameRequest(_ target: AnyObject!, withPageTimeout pageTimeoutValue: BluetoothHCIPageTimeout) -> IOReturn
   func requestAuthentication() -> IOReturn
   var connectionHandle: BluetoothConnectionHandle { get }
   func isIncoming() -> Bool
   func getLinkType() -> BluetoothLinkType
   func getEncryptionMode() -> BluetoothHCIEncryptionMode
-  func performSDPQuery(target: AnyObject!) -> IOReturn
+  func performSDPQuery(_ target: AnyObject!) -> IOReturn
   @available(OSX 10.7, *)
-  func performSDPQuery(target: AnyObject!, uuids uuidArray: [AnyObject]!) -> IOReturn
+  func performSDPQuery(_ target: AnyObject!, uuids uuidArray: [AnyObject]!) -> IOReturn
   var services: [AnyObject]! { get }
   func getLastServicesUpdate() -> NSDate!
   func getServiceRecord(for sdpUUID: IOBluetoothSDPUUID!) -> IOBluetoothSDPServiceRecord!
@@ -61,14 +61,14 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   func isFavorite() -> Bool
   func addToFavorites() -> IOReturn
   func removeFromFavorites() -> IOReturn
-  class func recentDevices(numDevices: UInt) -> [AnyObject]!
+  class func recentDevices(_ numDevices: UInt) -> [AnyObject]!
   func recentAccessDate() -> NSDate!
   class func pairedDevices() -> [AnyObject]!
   func isPaired() -> Bool
-  func setSupervisionTimeout(timeout: UInt16) -> IOReturn
-  func openL2CAPChannelSync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func openL2CAPChannelAsync(newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfter(coder: NSCoder!) -> AnyObject!
+  func setSupervisionTimeout(_ timeout: UInt16) -> IOReturn
+  func openL2CAPChannelSync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func openL2CAPChannelAsync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
+  func awakeAfter(_ coder: NSCoder!) -> AnyObject!
   init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

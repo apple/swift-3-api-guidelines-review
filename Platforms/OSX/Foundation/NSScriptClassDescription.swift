@@ -1,17 +1,17 @@
 
 class NSScriptClassDescription : NSClassDescription {
   /*not inherited*/ init?(for aClass: AnyClass)
-  init?(suiteName: String, className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
+  init?(suiteName suiteName: String, className className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
   var suiteName: String? { get }
   var className: String? { get }
   var implementationClassName: String? { get }
   var superclass: NSScriptClassDescription? { get }
   var appleEventCode: FourCharCode { get }
-  func matchesAppleEventCode(appleEventCode: FourCharCode) -> Bool
-  func supportsCommand(commandDescription: NSScriptCommandDescription) -> Bool
+  func matchesAppleEventCode(_ appleEventCode: FourCharCode) -> Bool
+  func supportsCommand(_ commandDescription: NSScriptCommandDescription) -> Bool
   func selector(forCommand commandDescription: NSScriptCommandDescription) -> Selector
   func type(forKey key: String) -> String?
-  func forKey(key: String) -> NSScriptClassDescription?
+  func forKey(_ key: String) -> NSScriptClassDescription?
   func appleEventCode(forKey key: String) -> FourCharCode
   func key(withAppleEventCode appleEventCode: FourCharCode) -> String?
   var defaultSubcontainerAttributeKey: String? { get }

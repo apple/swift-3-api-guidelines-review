@@ -1,6 +1,6 @@
 
 enum UIAlertViewStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case secureTextInput
@@ -9,8 +9,8 @@ enum UIAlertViewStyle : Int {
 }
 @available(iOS, introduced=2.0, deprecated=9.0, message="UIAlertView is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleAlert instead")
 class UIAlertView : UIView {
-  convenience init(title: String?, message: String?, delegate: AnyObject?, cancelButtonTitle: String?)
-  init(frame: CGRect)
+  convenience init(title title: String?, message message: String?, delegate delegate: AnyObject?, cancelButtonTitle cancelButtonTitle: String?)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   weak var delegate: @sil_weak AnyObject?
   var title: String
@@ -22,7 +22,7 @@ class UIAlertView : UIView {
   var firstOtherButtonIndex: Int { get }
   var isVisible: Bool { get }
   func show()
-  func dismiss(clickedButtonIndex buttonIndex: Int, animated: Bool)
+  func dismiss(clickedButtonIndex buttonIndex: Int, animated animated: Bool)
   @available(iOS 5.0, *)
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)
@@ -31,21 +31,21 @@ class UIAlertView : UIView {
 }
 
 extension UIAlertView {
-  convenience init(title: String, message: String, delegate: UIAlertViewDelegate?, cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
+  convenience init(title title: String, message message: String, delegate delegate: UIAlertViewDelegate?, cancelButtonTitle cancelButtonTitle: String?, otherButtonTitles firstButtonTitle: String, _ moreButtonTitles: String...)
 }
 protocol UIAlertViewDelegate : NSObjectProtocol {
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertView(alertView: UIAlertView, clickedButtonAt buttonIndex: Int)
+  optional func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertViewCancel(alertView: UIAlertView)
+  optional func alertViewCancel(_ alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func willPresent(alertView: UIAlertView)
+  optional func willPresent(_ alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func didPresent(alertView: UIAlertView)
+  optional func didPresent(_ alertView: UIAlertView)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int)
+  optional func alertView(_ alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+  optional func alertView(_ alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=9.0)
-  optional func alertViewShouldEnableFirstOtherButton(alertView: UIAlertView) -> Bool
+  optional func alertViewShouldEnableFirstOtherButton(_ alertView: UIAlertView) -> Bool
 }

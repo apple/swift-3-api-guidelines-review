@@ -1,11 +1,11 @@
 
 struct NSFileVersionAddingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var byMoving: NSFileVersionAddingOptions { get }
 }
 struct NSFileVersionReplacingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var byMoving: NSFileVersionReplacingOptions { get }
 }
@@ -15,7 +15,7 @@ class NSFileVersion : NSObject {
   class func otherVersionsOfItem(at url: NSURL) -> [NSFileVersion]?
   class func unresolvedConflictVersionsOfItem(at url: NSURL) -> [NSFileVersion]?
   @available(iOS 8.0, *)
-  class func getNonlocalVersionsOfItem(at url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
+  class func getNonlocalVersionsOfItem(at url: NSURL, completionHandler completionHandler: ([NSFileVersion]?, NSError?) -> Void)
   /*not inherited*/ init?(ofItemAt url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
   @NSCopying var url: NSURL { get }
   var localizedName: String? { get }
@@ -28,7 +28,7 @@ class NSFileVersion : NSObject {
   var hasLocalContents: Bool { get }
   @available(iOS 8.0, *)
   var hasThumbnail: Bool { get }
-  func replaceItem(at url: NSURL, options: NSFileVersionReplacingOptions = []) throws -> NSURL
+  func replaceItem(at url: NSURL, options options: NSFileVersionReplacingOptions = []) throws -> NSURL
   func remove() throws
   class func removeOtherVersionsOfItem(at url: NSURL) throws
   init()

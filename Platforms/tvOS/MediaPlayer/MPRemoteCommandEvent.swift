@@ -12,7 +12,7 @@ class MPSkipIntervalCommandEvent : MPRemoteCommandEvent {
 }
 @available(tvOS 7.1, *)
 enum MPSeekCommandEventType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case beginSeeking
   case endSeeking

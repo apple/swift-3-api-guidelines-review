@@ -20,7 +20,7 @@ class GKGaussianDistribution : GKRandomDistribution {
   var mean: Float { get }
   var deviation: Float { get }
   init(randomSource source: GKRandom, lowestValue lowestInclusive: Int, highestValue highestInclusive: Int)
-  init(randomSource source: GKRandom, mean: Float, deviation: Float)
+  init(randomSource source: GKRandom, mean mean: Float, deviation deviation: Float)
   convenience init(lowestValue lowestInclusive: Int, highestValue highestInclusive: Int)
   convenience init(forDieWithSideCount sideCount: Int)
   convenience init()

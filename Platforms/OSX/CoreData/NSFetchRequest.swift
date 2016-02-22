@@ -1,6 +1,6 @@
 
 struct NSFetchRequestResultType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var managedObjectResultType: NSFetchRequestResultType { get }
   static var managedObjectIDResultType: NSFetchRequestResultType { get }
@@ -13,7 +13,7 @@ struct NSFetchRequestResultType : OptionSetType {
 class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   init()
   @available(OSX 10.7, *)
-  convenience init(entityName: String)
+  convenience init(entityName entityName: String)
   var entity: NSEntityDescription?
   @available(OSX 10.7, *)
   var entityName: String? { get }
@@ -65,5 +65,5 @@ struct _fetchRequestFlags {
   var disableCaching: UInt32
   var _RESERVED: UInt32
   init()
-  init(distinctValuesOnly: UInt32, includesSubentities: UInt32, includesPropertyValues: UInt32, resultType: UInt32, returnsObjectsAsFaults: UInt32, excludePendingChanges: UInt32, isInUse: UInt32, entityIsName: UInt32, refreshesRefetched: UInt32, propertiesValidated: UInt32, disableCaching: UInt32, _RESERVED: UInt32)
+  init(distinctValuesOnly distinctValuesOnly: UInt32, includesSubentities includesSubentities: UInt32, includesPropertyValues includesPropertyValues: UInt32, resultType resultType: UInt32, returnsObjectsAsFaults returnsObjectsAsFaults: UInt32, excludePendingChanges excludePendingChanges: UInt32, isInUse isInUse: UInt32, entityIsName entityIsName: UInt32, refreshesRefetched refreshesRefetched: UInt32, propertiesValidated propertiesValidated: UInt32, disableCaching disableCaching: UInt32, _RESERVED _RESERVED: UInt32)
 }

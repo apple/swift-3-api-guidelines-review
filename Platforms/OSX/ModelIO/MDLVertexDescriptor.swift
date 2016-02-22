@@ -15,7 +15,7 @@ let MDLVertexAttributeSubdivisionStencil: String
 let MDLVertexAttributeTangent: String
 let MDLVertexAttributeTextureCoordinate: String
 enum MDLVertexFormat : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case invalid
   case packedBit
@@ -91,7 +91,7 @@ class MDLVertexBufferLayout : NSObject, NSCopying {
 }
 @available(OSX 10.11, *)
 class MDLVertexAttribute : NSObject, NSCopying {
-  init(name: String, format: MDLVertexFormat, offset: Int, bufferIndex: Int)
+  init(name name: String, format format: MDLVertexFormat, offset offset: Int, bufferIndex bufferIndex: Int)
   var name: String
   var format: MDLVertexFormat
   var offset: Int
@@ -103,9 +103,9 @@ class MDLVertexAttribute : NSObject, NSCopying {
 }
 @available(OSX 10.11, *)
 class MDLVertexDescriptor : NSObject, NSCopying {
-  init(vertexDescriptor: MDLVertexDescriptor)
-  func attributeNamed(name: String) -> MDLVertexAttribute?
-  func addOrReplaceAttribute(attribute: MDLVertexAttribute)
+  init(vertexDescriptor vertexDescriptor: MDLVertexDescriptor)
+  func attributeNamed(_ name: String) -> MDLVertexAttribute?
+  func addOrReplaceAttribute(_ attribute: MDLVertexAttribute)
   var attributes: NSMutableArray
   var layouts: NSMutableArray
   func reset()

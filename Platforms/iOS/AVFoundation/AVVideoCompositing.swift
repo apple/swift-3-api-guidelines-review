@@ -3,7 +3,7 @@ struct AVPixelAspectRatio {
   var horizontalSpacing: Int
   var verticalSpacing: Int
   init()
-  init(horizontalSpacing: Int, verticalSpacing: Int)
+  init(horizontalSpacing horizontalSpacing: Int, verticalSpacing verticalSpacing: Int)
 }
 struct AVEdgeWidths {
   var left: CGFloat
@@ -11,7 +11,7 @@ struct AVEdgeWidths {
   var right: CGFloat
   var bottom: CGFloat
   init()
-  init(left: CGFloat, top: CGFloat, right: CGFloat, bottom: CGFloat)
+  init(left left: CGFloat, top top: CGFloat, right right: CGFloat, bottom bottom: CGFloat)
 }
 @available(iOS 7.0, *)
 class AVVideoCompositionRenderContext : NSObject {
@@ -29,8 +29,8 @@ class AVVideoCompositionRenderContext : NSObject {
 protocol AVVideoCompositing : NSObjectProtocol {
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var requiredPixelBufferAttributesForRenderContext: [String : AnyObject] { get }
-  func renderContextChanged(newRenderContext: AVVideoCompositionRenderContext)
-  func start(asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
+  func renderContextChanged(_ newRenderContext: AVVideoCompositionRenderContext)
+  func start(_ asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
   optional func cancelAllPendingVideoCompositionRequests()
 }
 @available(iOS 7.0, *)
@@ -41,7 +41,7 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
   func sourceFrame(byTrackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
   func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
-  func finishWithError(error: NSError)
+  func finishWithError(_ error: NSError)
   func finishCancelledRequest()
   init()
   @available(iOS 7.0, *)
@@ -51,7 +51,7 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
 class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
-  func finishWithError(error: NSError)
+  func finishWithError(_ error: NSError)
   init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

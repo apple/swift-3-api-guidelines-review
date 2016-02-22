@@ -5,7 +5,7 @@ class AVCaptureOutput : NSObject {
   @available(iOS 5.0, *)
   func connection(withMediaType mediaType: String!) -> AVCaptureConnection!
   @available(iOS 6.0, *)
-  func transformedMetadataObject(for metadataObject: AVMetadataObject!, connection: AVCaptureConnection!) -> AVMetadataObject!
+  func transformedMetadataObject(for metadataObject: AVMetadataObject!, connection connection: AVCaptureConnection!) -> AVMetadataObject!
   @available(iOS 7.0, *)
   func metadataOutputRectOfInterest(for rectInOutputCoordinates: CGRect) -> CGRect
   @available(iOS 7.0, *)
@@ -14,7 +14,7 @@ class AVCaptureOutput : NSObject {
 }
 @available(iOS 4.0, *)
 class AVCaptureVideoDataOutput : AVCaptureOutput {
-  func setSampleBufferDelegate(sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate!, queue sampleBufferCallbackQueue: dispatch_queue_t!)
+  func setSampleBufferDelegate(_ sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate!, queue sampleBufferCallbackQueue: dispatch_queue_t!)
   var sampleBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   var videoSettings: [NSObject : AnyObject]!
@@ -29,13 +29,13 @@ class AVCaptureVideoDataOutput : AVCaptureOutput {
 }
 protocol AVCaptureVideoDataOutputSampleBufferDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
+  optional func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
   @available(iOS 6.0, *)
-  optional func captureOutput(captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
+  optional func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
 }
 @available(iOS 4.0, *)
 class AVCaptureAudioDataOutput : AVCaptureOutput {
-  func setSampleBufferDelegate(sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate!, queue sampleBufferCallbackQueue: dispatch_queue_t!)
+  func setSampleBufferDelegate(_ sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate!, queue sampleBufferCallbackQueue: dispatch_queue_t!)
   var sampleBufferDelegate: AVCaptureAudioDataOutputSampleBufferDelegate! { get }
   var sampleBufferCallbackQueue: dispatch_queue_t! { get }
   @available(iOS 7.0, *)
@@ -44,7 +44,7 @@ class AVCaptureAudioDataOutput : AVCaptureOutput {
 }
 protocol AVCaptureAudioDataOutputSampleBufferDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
+  optional func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
 }
 @available(iOS 4.0, *)
 class AVCaptureFileOutput : AVCaptureOutput {
@@ -61,9 +61,9 @@ class AVCaptureFileOutput : AVCaptureOutput {
 }
 protocol AVCaptureFileOutputRecordingDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  optional func capture(captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
+  optional func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: NSURL!, fromConnections connections: [AnyObject]!)
   @available(iOS 4.0, *)
-  func capture(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!)
+  func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error error: NSError!)
 }
 @available(iOS 4.0, *)
 class AVCaptureMovieFileOutput : AVCaptureFileOutput {
@@ -72,7 +72,7 @@ class AVCaptureMovieFileOutput : AVCaptureFileOutput {
   @available(iOS 9.0, *)
   func recordsVideoOrientationAndMirroringChangesAsMetadataTrack(for connection: AVCaptureConnection!) -> Bool
   @available(iOS 9.0, *)
-  func setRecordsVideoOrientationAndMirroringChanges(doRecordChanges: Bool, asMetadataTrackFor connection: AVCaptureConnection!)
+  func setRecordsVideoOrientationAndMirroringChanges(_ doRecordChanges: Bool, asMetadataTrackFor connection: AVCaptureConnection!)
   init()
 }
 @available(iOS 4.0, *)
@@ -91,7 +91,7 @@ class AVCaptureStillImageOutput : AVCaptureOutput {
   @available(iOS 5.0, *)
   var isCapturingStillImage: Bool { get }
   func captureStillImageAsynchronously(from connection: AVCaptureConnection!, completionHandler handler: ((CMSampleBuffer!, NSError!) -> Void)!)
-  class func jpegStillImageNSDataRepresentation(jpegSampleBuffer: CMSampleBuffer!) -> NSData!
+  class func jpegStillImageNSDataRepresentation(_ jpegSampleBuffer: CMSampleBuffer!) -> NSData!
   init()
 }
 @available(iOS 8.0, *)
@@ -125,7 +125,7 @@ extension AVCaptureStillImageOutput {
 }
 @available(iOS 6.0, *)
 class AVCaptureMetadataOutput : AVCaptureOutput {
-  func setMetadataObjectsDelegate(objectsDelegate: AVCaptureMetadataOutputObjectsDelegate!, queue objectsCallbackQueue: dispatch_queue_t!)
+  func setMetadataObjectsDelegate(_ objectsDelegate: AVCaptureMetadataOutputObjectsDelegate!, queue objectsCallbackQueue: dispatch_queue_t!)
   var metadataObjectsDelegate: AVCaptureMetadataOutputObjectsDelegate! { get }
   var metadataObjectsCallbackQueue: dispatch_queue_t! { get }
   var availableMetadataObjectTypes: [AnyObject]! { get }
@@ -136,5 +136,5 @@ class AVCaptureMetadataOutput : AVCaptureOutput {
 }
 protocol AVCaptureMetadataOutputObjectsDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  optional func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!)
+  optional func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!)
 }

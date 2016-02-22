@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum AVAudioEnvironmentDistanceAttenuationModel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case exponential
   case inverse
@@ -20,7 +20,7 @@ class AVAudioEnvironmentReverbParameters : NSObject {
   var enable: Bool
   var level: Float
   var filterParameters: AVAudioUnitEQFilterParameters { get }
-  func loadFactoryReverbPreset(preset: AVAudioUnitReverbPreset)
+  func loadFactoryReverbPreset(_ preset: AVAudioUnitReverbPreset)
   init()
 }
 @available(tvOS 8.0, *)
@@ -35,7 +35,7 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
   var applicableRenderingAlgorithms: [NSNumber] { get }
   init()
   @available(tvOS 9.0, *)
-  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)
   var volume: Float
   @available(tvOS 8.0, *)

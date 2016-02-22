@@ -1,14 +1,14 @@
 
 @available(iOS 8.2, *)
 enum WKUserNotificationInterfaceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case custom
 }
 @available(iOS 8.2, *)
 enum WKMenuItemIcon : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case accept
   case add
@@ -28,7 +28,7 @@ enum WKMenuItemIcon : Int {
   case trash
 }
 enum WKTextInputMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case plain
   case allowEmoji
@@ -41,44 +41,44 @@ class WKInterfaceController : NSObject {
   var contentFrame: CGRect { get }
   func willActivate()
   func didDeactivate()
-  func table(table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
+  func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int)
   func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject])
   func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
-  func handleUserActivity(userInfo: [NSObject : AnyObject]?)
-  func setTitle(title: String?)
-  func push(name name: String, context: AnyObject?)
+  func handleUserActivity(_ userInfo: [NSObject : AnyObject]?)
+  func setTitle(_ title: String?)
+  func push(name name: String, context context: AnyObject?)
   func pop()
   func popToRootController()
-  class func reloadRootControllers(names names: [String], contexts: [AnyObject]?)
+  class func reloadRootControllers(names names: [String], contexts contexts: [AnyObject]?)
   func becomeCurrentPage()
-  func present(name name: String, context: AnyObject?)
-  func present(names names: [String], contexts: [AnyObject]?)
+  func present(name name: String, context context: AnyObject?)
+  func present(names names: [String], contexts contexts: [AnyObject]?)
   func dismiss()
-  func presentTextInputController(suggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
-  func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion: ([AnyObject]?) -> Void)
+  func presentTextInputController(suggestions suggestions: [String]?, allowedInputMode inputMode: WKTextInputMode, completion completion: ([AnyObject]?) -> Void)
+  func presentTextInputControllerWithSuggestions(forLanguage suggestionsHandler: ((String) -> [AnyObject]?)?, allowedInputMode inputMode: WKTextInputMode, completion completion: ([AnyObject]?) -> Void)
   func dismissTextInputController()
   func contextForSegue(withIdentifier segueIdentifier: String) -> AnyObject?
   func contextsForSegue(withIdentifier segueIdentifier: String) -> [AnyObject]?
-  func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> AnyObject?
-  func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> [AnyObject]?
-  func addMenuItem(image: UIImage, title: String, action: Selector)
-  func addMenuItem(withImageNamed imageName: String, title: String, action: Selector)
-  func addMenuItem(itemIcon: WKMenuItemIcon, title: String, action: Selector)
+  func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex rowIndex: Int) -> AnyObject?
+  func contextsForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex rowIndex: Int) -> [AnyObject]?
+  func addMenuItem(_ image: UIImage, title title: String, action action: Selector)
+  func addMenuItem(withImageNamed imageName: String, title title: String, action action: Selector)
+  func addMenuItem(_ itemIcon: WKMenuItemIcon, title title: String, action action: Selector)
   func clearAllMenuItems()
-  func updateUserActivity(type: String, userInfo: [NSObject : AnyObject]? = [:], webpageURL: NSURL?)
+  func updateUserActivity(_ type: String, userInfo userInfo: [NSObject : AnyObject]? = [:], webpageURL webpageURL: NSURL?)
   func invalidateUserActivity()
   @available(iOS 8.2, *)
-  class func openParentApplication(userInfo: [NSObject : AnyObject], reply: (([NSObject : AnyObject], NSError?) -> Void)? = nil) -> Bool
+  class func openParentApplication(_ userInfo: [NSObject : AnyObject], reply reply: (([NSObject : AnyObject], NSError?) -> Void)? = nil) -> Bool
 }
 
 @available(iOS 8.2, *)
 extension WKInterfaceController {
-  class func reloadRootControllers(namesAndContexts: [(name: String, context: AnyObject)])
-  func presentController(namesAndContexts: [(name: String, context: AnyObject)])
+  class func reloadRootControllers(_ namesAndContexts: [(name: String, context: AnyObject)])
+  func presentController(_ namesAndContexts: [(name: String, context: AnyObject)])
 }
 @available(iOS 8.2, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
   init()
-  func didReceiveRemoteNotification(remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
-  func didReceive(localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceiveRemoteNotification(_ remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
+  func didReceive(_ localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
 }

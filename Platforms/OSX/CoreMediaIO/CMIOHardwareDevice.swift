@@ -12,7 +12,7 @@ struct CMIODeviceAVCCommand {
   var mResponseLength: UInt32
   var mResponseUsed: UInt32
   init()
-  init(mCommand: UnsafeMutablePointer<UInt8>, mCommandLength: UInt32, mResponse: UnsafeMutablePointer<UInt8>, mResponseLength: UInt32, mResponseUsed: UInt32)
+  init(mCommand mCommand: UnsafeMutablePointer<UInt8>, mCommandLength mCommandLength: UInt32, mResponse mResponse: UnsafeMutablePointer<UInt8>, mResponseLength mResponseLength: UInt32, mResponseUsed mResponseUsed: UInt32)
 }
 struct CMIODeviceRS422Command {
   var mCommand: UnsafeMutablePointer<UInt8>
@@ -21,14 +21,14 @@ struct CMIODeviceRS422Command {
   var mResponseLength: UInt32
   var mResponseUsed: UInt32
   init()
-  init(mCommand: UnsafeMutablePointer<UInt8>, mCommandLength: UInt32, mResponse: UnsafeMutablePointer<UInt8>, mResponseLength: UInt32, mResponseUsed: UInt32)
+  init(mCommand mCommand: UnsafeMutablePointer<UInt8>, mCommandLength mCommandLength: UInt32, mResponse mResponse: UnsafeMutablePointer<UInt8>, mResponseLength mResponseLength: UInt32, mResponseUsed mResponseUsed: UInt32)
 }
 typealias CMIODeviceGetSMPTETimeProc = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<UInt64>, UnsafeMutablePointer<DarwinBoolean>, UnsafeMutablePointer<UInt32>) -> OSStatus
 struct CMIODeviceSMPTETimeCallback {
   var mGetSMPTETimeProc: CMIODeviceGetSMPTETimeProc!
   var mRefCon: UnsafeMutablePointer<Void>
   init()
-  init(mGetSMPTETimeProc: CMIODeviceGetSMPTETimeProc!, mRefCon: UnsafeMutablePointer<Void>)
+  init(mGetSMPTETimeProc mGetSMPTETimeProc: CMIODeviceGetSMPTETimeProc!, mRefCon mRefCon: UnsafeMutablePointer<Void>)
 }
 var kCMIODevicePropertyScopeInput: Int { get }
 var kCMIODevicePropertyScopeOutput: Int { get }
@@ -117,10 +117,10 @@ var kCMIODevicePropertyIIDCInitialUnitSpace: Int { get }
 var kCMIODevicePropertyIIDCCSRData: Int { get }
 var kCMIODevicePropertyCanSwitchFrameRatesWithoutFrameDrops: Int { get }
 @available(OSX 10.7, *)
-func CMIODeviceStartStream(deviceID: CMIODeviceID, _ streamID: CMIOStreamID) -> OSStatus
+func CMIODeviceStartStream(_ deviceID: CMIODeviceID, _ streamID: CMIOStreamID) -> OSStatus
 @available(OSX 10.7, *)
-func CMIODeviceStopStream(deviceID: CMIODeviceID, _ streamID: CMIOStreamID) -> OSStatus
+func CMIODeviceStopStream(_ deviceID: CMIODeviceID, _ streamID: CMIOStreamID) -> OSStatus
 @available(OSX 10.7, *)
-func CMIODeviceProcessAVCCommand(deviceID: CMIODeviceID, _ ioAVCCommand: UnsafeMutablePointer<CMIODeviceAVCCommand>) -> OSStatus
+func CMIODeviceProcessAVCCommand(_ deviceID: CMIODeviceID, _ ioAVCCommand: UnsafeMutablePointer<CMIODeviceAVCCommand>) -> OSStatus
 @available(OSX 10.7, *)
-func CMIODeviceProcessRS422Command(deviceID: CMIODeviceID, _ ioRS422Command: UnsafeMutablePointer<CMIODeviceRS422Command>) -> OSStatus
+func CMIODeviceProcessRS422Command(_ deviceID: CMIODeviceID, _ ioRS422Command: UnsafeMutablePointer<CMIODeviceRS422Command>) -> OSStatus

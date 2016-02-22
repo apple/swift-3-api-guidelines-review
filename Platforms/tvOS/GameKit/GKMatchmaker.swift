@@ -1,6 +1,6 @@
 
 enum GKInviteRecipientResponse : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case inviteRecipientResponseAccepted
   case inviteRecipientResponseDeclined
@@ -35,7 +35,7 @@ class GKMatchRequest : NSObject {
   init()
 }
 enum GKMatchType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case peerToPeer
   case hosted
@@ -54,25 +54,25 @@ class GKInvite : NSObject {
 }
 protocol GKInviteEventListener {
   @available(tvOS 7.0, *)
-  optional func player(player: GKPlayer, didAccept invite: GKInvite)
+  optional func player(_ player: GKPlayer, didAccept invite: GKInvite)
   @available(tvOS 8.0, *)
-  optional func player(player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(tvOS 4.1, *)
 class GKMatchmaker : NSObject {
   class func shared() -> GKMatchmaker
   @available(tvOS 6.0, *)
-  func match(for invite: GKInvite, completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
+  func match(for invite: GKInvite, completionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
   func findMatch(for request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
   @available(tvOS 8.0, *)
   func findPlayers(forHostedRequest request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
-  func addPlayers(to match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((NSError?) -> Void)? = nil)
+  func addPlayers(to match: GKMatch, matchRequest matchRequest: GKMatchRequest, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func cancel()
   @available(tvOS 8.0, *)
   func cancelPendingInvite(to player: GKPlayer)
   @available(tvOS 6.0, *)
   func finishMatchmaking(for match: GKMatch)
-  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
+  func queryPlayerGroupActivity(_ playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
   func queryActivity(completionHandler completionHandler: ((Int, NSError?) -> Void)? = nil)
   @available(tvOS 8.0, *)
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)

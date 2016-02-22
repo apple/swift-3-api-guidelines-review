@@ -1,13 +1,13 @@
 
 enum NSLayoutRelation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case lessThanOrEqual
   case equal
   case greaterThanOrEqual
 }
 enum NSLayoutAttribute : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case left
   case right
@@ -42,7 +42,7 @@ enum NSLayoutAttribute : Int {
   case notAnAttribute
 }
 struct NSLayoutFormatOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var alignAllLeft: NSLayoutFormatOptions { get }
   static var alignAllRight: NSLayoutFormatOptions { get }
@@ -73,8 +73,8 @@ let UILayoutPriorityDefaultLow: UILayoutPriority
 let UILayoutPriorityFittingSizeLevel: UILayoutPriority
 @available(tvOS 6.0, *)
 class NSLayoutConstraint : NSObject {
-  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : AnyObject]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
-  convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
+  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics metrics: [String : AnyObject]?, views views: [String : AnyObject]) -> [NSLayoutConstraint]
+  convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier multiplier: CGFloat, constant c: CGFloat)
   var priority: UILayoutPriority
   var shouldBeArchived: Bool
   unowned(unsafe) var firstItem: @sil_unmanaged AnyObject { get }
@@ -87,9 +87,9 @@ class NSLayoutConstraint : NSObject {
   @available(tvOS 8.0, *)
   var isActive: Bool
   @available(tvOS 8.0, *)
-  class func activate(constraints: [NSLayoutConstraint])
+  class func activate(_ constraints: [NSLayoutConstraint])
   @available(tvOS 8.0, *)
-  class func deactivate(constraints: [NSLayoutConstraint])
+  class func deactivate(_ constraints: [NSLayoutConstraint])
   init()
 }
 extension NSLayoutConstraint {

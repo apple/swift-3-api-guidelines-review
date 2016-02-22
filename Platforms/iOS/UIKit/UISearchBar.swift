@@ -1,6 +1,6 @@
 
 enum UISearchBarIcon : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case search
   case clear
@@ -9,7 +9,7 @@ enum UISearchBarIcon : Int {
 }
 @available(iOS 7.0, *)
 enum UISearchBarStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case prominent
@@ -18,7 +18,7 @@ enum UISearchBarStyle : UInt {
 @available(iOS 2.0, *)
 class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   convenience init()
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   var barStyle: UIBarStyle
   weak var delegate: @sil_weak UISearchBarDelegate?
@@ -32,7 +32,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 3.2, *)
   var isSearchResultsButtonSelected: Bool
   @available(iOS 3.0, *)
-  func setShowsCancelButton(showsCancelButton: Bool, animated: Bool)
+  func setShowsCancelButton(_ showsCancelButton: Bool, animated animated: Bool)
   @available(iOS 9.0, *)
   var inputAssistantItem: UITextInputAssistantItem { get }
   var tintColor: UIColor!
@@ -54,27 +54,27 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   var scopeBarBackgroundImage: UIImage?
   @available(iOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setSearchFieldBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
+  func setSearchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState)
   @available(iOS 5.0, *)
   func searchFieldBackgroundImage(for state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setImage(iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState)
+  func setImage(_ iconImage: UIImage?, for icon: UISearchBarIcon, state state: UIControlState)
   @available(iOS 5.0, *)
-  func image(for icon: UISearchBarIcon, state: UIControlState) -> UIImage?
+  func image(for icon: UISearchBarIcon, state state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
+  func setScopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState)
   @available(iOS 5.0, *)
   func scopeBarButtonBackgroundImage(for state: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
+  func setScopeBarButtonDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 5.0, *)
   func scopeBarButtonDividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(iOS 5.0, *)
-  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]?, for state: UIControlState)
+  func setScopeBarButtonTitleTextAttributes(_ attributes: [String : AnyObject]?, for state: UIControlState)
   @available(iOS 5.0, *)
   func scopeBarButtonTitleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 5.0, *)
@@ -82,7 +82,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(iOS 5.0, *)
   var searchTextPositionAdjustment: UIOffset
   @available(iOS 5.0, *)
-  func setPositionAdjustment(adjustment: UIOffset, for icon: UISearchBarIcon)
+  func setPositionAdjustment(_ adjustment: UIOffset, for icon: UISearchBarIcon)
   @available(iOS 5.0, *)
   func positionAdjustment(for icon: UISearchBarIcon) -> UIOffset
   @available(iOS 7.0, *)
@@ -106,25 +106,25 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
 }
 protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
-  optional func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool
+  optional func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
   @available(iOS 2.0, *)
-  optional func searchBarTextDidBeginEditing(searchBar: UISearchBar)
+  optional func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
   @available(iOS 2.0, *)
-  optional func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool
+  optional func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool
   @available(iOS 2.0, *)
-  optional func searchBarTextDidEndEditing(searchBar: UISearchBar)
+  optional func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
   @available(iOS 2.0, *)
-  optional func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
+  optional func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
   @available(iOS 3.0, *)
-  optional func searchBar(searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+  optional func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(iOS 2.0, *)
-  optional func searchBarSearchButtonClicked(searchBar: UISearchBar)
+  optional func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
   @available(iOS 2.0, *)
-  optional func searchBarBookmarkButtonClicked(searchBar: UISearchBar)
+  optional func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar)
   @available(iOS 2.0, *)
-  optional func searchBarCancelButtonClicked(searchBar: UISearchBar)
+  optional func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
   @available(iOS 3.2, *)
-  optional func searchBarResultsListButtonClicked(searchBar: UISearchBar)
+  optional func searchBarResultsListButtonClicked(_ searchBar: UISearchBar)
   @available(iOS 3.0, *)
-  optional func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
+  optional func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
 }

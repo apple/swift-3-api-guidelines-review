@@ -20,19 +20,19 @@ class NSUndoManager : NSObject {
   var isRedoing: Bool { get }
   func removeAllActions()
   func removeAllActions(target target: AnyObject)
-  func registerUndo(target target: AnyObject, selector: Selector, object anObject: AnyObject?)
+  func registerUndo(target target: AnyObject, selector selector: Selector, object anObject: AnyObject?)
   func prepare(invocationTarget target: AnyObject) -> AnyObject
   @available(OSX 10.11, *)
   func __registerUndo(target target: AnyObject, handler undoHandler: (AnyObject) -> Void)
   @available(OSX 10.7, *)
-  func setActionIsDiscardable(discardable: Bool)
+  func setActionIsDiscardable(_ discardable: Bool)
   @available(OSX 10.7, *)
   var undoActionIsDiscardable: Bool { get }
   @available(OSX 10.7, *)
   var redoActionIsDiscardable: Bool { get }
   var undoActionName: String { get }
   var redoActionName: String { get }
-  func setActionName(actionName: String)
+  func setActionName(_ actionName: String)
   var undoMenuItemTitle: String { get }
   var redoMenuItemTitle: String { get }
   func undoMenuTitle(forUndoActionName actionName: String) -> String
@@ -41,7 +41,7 @@ class NSUndoManager : NSObject {
 }
 
 extension NSUndoManager {
-  func registerUndoWithTarget<TargetType : AnyObject>(target: TargetType, handler: (TargetType) -> Void)
+  func registerUndoWithTarget<TargetType : AnyObject>(_ target: TargetType, handler handler: (TargetType) -> Void)
 }
 @available(OSX 10.7, *)
 let NSUndoManagerGroupIsDiscardableKey: String

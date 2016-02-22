@@ -18,13 +18,13 @@ class AVCaptureInputPort : NSObject {
 }
 @available(iOS 4.0, *)
 class AVCaptureDeviceInput : AVCaptureInput {
-  init(device: AVCaptureDevice!) throws
+  init(device device: AVCaptureDevice!) throws
   var device: AVCaptureDevice! { get }
   init()
 }
 @available(iOS 9.0, *)
 class AVCaptureMetadataInput : AVCaptureInput {
-  init!(formatDescription desc: CMMetadataFormatDescription!, clock: CMClock!)
-  func append(metadata: AVTimedMetadataGroup!) throws
+  init!(formatDescription desc: CMMetadataFormatDescription!, clock clock: CMClock!)
+  func append(_ metadata: AVTimedMetadataGroup!) throws
   init()
 }

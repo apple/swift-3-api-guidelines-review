@@ -13,16 +13,16 @@ class SCNScene : NSObject, NSSecureCoding {
   @available(OSX 10.10, *)
   var physicsWorld: SCNPhysicsWorld { get }
   func attribute(forKey key: String) -> AnyObject?
-  func setAttribute(attribute: AnyObject?, forKey key: String)
+  func setAttribute(_ attribute: AnyObject?, forKey key: String)
   @available(OSX 10.9, *)
   var background: SCNMaterialProperty { get }
   @available(OSX 10.9, *)
   convenience init?(named name: String)
   @available(OSX 10.10, *)
-  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]? = [:])
-  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
+  convenience init?(named name: String, inDirectory directory: String?, options options: [String : AnyObject]? = [:])
+  convenience init(url url: NSURL, options options: [String : AnyObject]? = [:]) throws
   @available(OSX 10.9, *)
-  func write(to url: NSURL, options: [String : AnyObject]? = [:], delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
+  func write(to url: NSURL, options options: [String : AnyObject]? = [:], delegate delegate: SCNSceneExportDelegate?, progressHandler progressHandler: SCNSceneExportProgressHandler? = nil) -> Bool
   @available(OSX 10.10, *)
   var fogStartDistance: CGFloat
   @available(OSX 10.10, *)
@@ -42,5 +42,5 @@ class SCNScene : NSObject, NSSecureCoding {
 }
 protocol SCNSceneExportDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  optional func write(image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL: NSURL?) -> NSURL?
+  optional func write(_ image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL originalImageURL: NSURL?) -> NSURL?
 }

@@ -22,85 +22,85 @@ func CMClockGetTypeID() -> CFTypeID
 @available(iOS 6.0, *)
 func CMClockGetHostTimeClock() -> CMClock
 @available(iOS 6.0, *)
-func CMClockConvertHostTimeToSystemUnits(hostTime: CMTime) -> UInt64
+func CMClockConvertHostTimeToSystemUnits(_ hostTime: CMTime) -> UInt64
 @available(iOS 6.0, *)
-func CMClockMakeHostTimeFromSystemUnits(hostTime: UInt64) -> CMTime
+func CMClockMakeHostTimeFromSystemUnits(_ hostTime: UInt64) -> CMTime
 @available(iOS 6.0, *)
-func CMClockGetTime(clock: CMClock) -> CMTime
+func CMClockGetTime(_ clock: CMClock) -> CMTime
 @available(iOS 6.0, *)
-func CMClockGetAnchorTime(clock: CMClock, _ outClockTime: UnsafeMutablePointer<CMTime>, _ outReferenceClockTime: UnsafeMutablePointer<CMTime>) -> OSStatus
+func CMClockGetAnchorTime(_ clock: CMClock, _ outClockTime: UnsafeMutablePointer<CMTime>, _ outReferenceClockTime: UnsafeMutablePointer<CMTime>) -> OSStatus
 @available(iOS 6.0, *)
-func CMClockMightDrift(clock: CMClock, _ otherClock: CMClock) -> Bool
+func CMClockMightDrift(_ clock: CMClock, _ otherClock: CMClock) -> Bool
 @available(iOS 6.0, *)
-func CMClockInvalidate(clock: CMClock)
+func CMClockInvalidate(_ clock: CMClock)
 @available(iOS 6.0, *)
 func CMTimebaseGetTypeID() -> CFTypeID
 @available(iOS 6.0, *)
-func CMTimebaseCreateWithMasterClock(allocator: CFAllocator?, _ masterClock: CMClock, _ timebaseOut: UnsafeMutablePointer<CMTimebase?>) -> OSStatus
+func CMTimebaseCreateWithMasterClock(_ allocator: CFAllocator?, _ masterClock: CMClock, _ timebaseOut: UnsafeMutablePointer<CMTimebase?>) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseCreateWithMasterTimebase(allocator: CFAllocator?, _ masterTimebase: CMTimebase, _ timebaseOut: UnsafeMutablePointer<CMTimebase?>) -> OSStatus
+func CMTimebaseCreateWithMasterTimebase(_ allocator: CFAllocator?, _ masterTimebase: CMTimebase, _ timebaseOut: UnsafeMutablePointer<CMTimebase?>) -> OSStatus
 @available(iOS 9.0, *)
-func CMTimebaseCopyMasterTimebase(timebase: CMTimebase) -> CMTimebase?
+func CMTimebaseCopyMasterTimebase(_ timebase: CMTimebase) -> CMTimebase?
 @available(iOS 9.0, *)
-func CMTimebaseCopyMasterClock(timebase: CMTimebase) -> CMClock?
+func CMTimebaseCopyMasterClock(_ timebase: CMTimebase) -> CMClock?
 @available(iOS 9.0, *)
-func CMTimebaseCopyMaster(timebase: CMTimebase) -> CMClockOrTimebase?
+func CMTimebaseCopyMaster(_ timebase: CMTimebase) -> CMClockOrTimebase?
 @available(iOS 9.0, *)
-func CMTimebaseCopyUltimateMasterClock(timebase: CMTimebase) -> CMClock?
+func CMTimebaseCopyUltimateMasterClock(_ timebase: CMTimebase) -> CMClock?
 @available(iOS, introduced=6.0, deprecated=9.0)
-func CMTimebaseGetMasterTimebase(timebase: CMTimebase) -> CMTimebase?
+func CMTimebaseGetMasterTimebase(_ timebase: CMTimebase) -> CMTimebase?
 @available(iOS, introduced=6.0, deprecated=9.0)
-func CMTimebaseGetMasterClock(timebase: CMTimebase) -> CMClock?
+func CMTimebaseGetMasterClock(_ timebase: CMTimebase) -> CMClock?
 @available(iOS, introduced=6.0, deprecated=9.0)
-func CMTimebaseGetMaster(timebase: CMTimebase) -> CMClockOrTimebase?
+func CMTimebaseGetMaster(_ timebase: CMTimebase) -> CMClockOrTimebase?
 @available(iOS, introduced=6.0, deprecated=9.0)
-func CMTimebaseGetUltimateMasterClock(timebase: CMTimebase) -> CMClock?
+func CMTimebaseGetUltimateMasterClock(_ timebase: CMTimebase) -> CMClock?
 @available(iOS 6.0, *)
-func CMTimebaseGetTime(timebase: CMTimebase) -> CMTime
+func CMTimebaseGetTime(_ timebase: CMTimebase) -> CMTime
 @available(iOS 6.0, *)
-func CMTimebaseGetTimeWithTimeScale(timebase: CMTimebase, _ timescale: CMTimeScale, _ method: CMTimeRoundingMethod) -> CMTime
+func CMTimebaseGetTimeWithTimeScale(_ timebase: CMTimebase, _ timescale: CMTimeScale, _ method: CMTimeRoundingMethod) -> CMTime
 @available(iOS 6.0, *)
-func CMTimebaseSetTime(timebase: CMTimebase, _ time: CMTime) -> OSStatus
+func CMTimebaseSetTime(_ timebase: CMTimebase, _ time: CMTime) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetAnchorTime(timebase: CMTimebase, _ timebaseTime: CMTime, _ immediateMasterTime: CMTime) -> OSStatus
+func CMTimebaseSetAnchorTime(_ timebase: CMTimebase, _ timebaseTime: CMTime, _ immediateMasterTime: CMTime) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseGetRate(timebase: CMTimebase) -> Float64
+func CMTimebaseGetRate(_ timebase: CMTimebase) -> Float64
 @available(iOS 6.0, *)
-func CMTimebaseGetTimeAndRate(timebase: CMTimebase, _ outTime: UnsafeMutablePointer<CMTime>, _ outRate: UnsafeMutablePointer<Float64>) -> OSStatus
+func CMTimebaseGetTimeAndRate(_ timebase: CMTimebase, _ outTime: UnsafeMutablePointer<CMTime>, _ outRate: UnsafeMutablePointer<Float64>) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetRate(timebase: CMTimebase, _ rate: Float64) -> OSStatus
+func CMTimebaseSetRate(_ timebase: CMTimebase, _ rate: Float64) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetRateAndAnchorTime(timebase: CMTimebase, _ rate: Float64, _ timebaseTime: CMTime, _ immediateMasterTime: CMTime) -> OSStatus
+func CMTimebaseSetRateAndAnchorTime(_ timebase: CMTimebase, _ rate: Float64, _ timebaseTime: CMTime, _ immediateMasterTime: CMTime) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseGetEffectiveRate(timebase: CMTimebase) -> Float64
+func CMTimebaseGetEffectiveRate(_ timebase: CMTimebase) -> Float64
 @available(iOS 6.0, *)
-func CMTimebaseAddTimer(timebase: CMTimebase, _ timer: CFRunLoopTimer, _ runloop: CFRunLoop) -> OSStatus
+func CMTimebaseAddTimer(_ timebase: CMTimebase, _ timer: CFRunLoopTimer, _ runloop: CFRunLoop) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseRemoveTimer(timebase: CMTimebase, _ timer: CFRunLoopTimer) -> OSStatus
+func CMTimebaseRemoveTimer(_ timebase: CMTimebase, _ timer: CFRunLoopTimer) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetTimerNextFireTime(timebase: CMTimebase, _ timer: CFRunLoopTimer, _ fireTime: CMTime, _ flags: UInt32) -> OSStatus
+func CMTimebaseSetTimerNextFireTime(_ timebase: CMTimebase, _ timer: CFRunLoopTimer, _ fireTime: CMTime, _ flags: UInt32) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetTimerToFireImmediately(timebase: CMTimebase, _ timer: CFRunLoopTimer) -> OSStatus
+func CMTimebaseSetTimerToFireImmediately(_ timebase: CMTimebase, _ timer: CFRunLoopTimer) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseAddTimerDispatchSource(timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
+func CMTimebaseAddTimerDispatchSource(_ timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseRemoveTimerDispatchSource(timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
+func CMTimebaseRemoveTimerDispatchSource(_ timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetTimerDispatchSourceNextFireTime(timebase: CMTimebase, _ timerSource: dispatch_source_t, _ fireTime: CMTime, _ flags: UInt32) -> OSStatus
+func CMTimebaseSetTimerDispatchSourceNextFireTime(_ timebase: CMTimebase, _ timerSource: dispatch_source_t, _ fireTime: CMTime, _ flags: UInt32) -> OSStatus
 @available(iOS 6.0, *)
-func CMTimebaseSetTimerDispatchSourceToFireImmediately(timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
+func CMTimebaseSetTimerDispatchSourceToFireImmediately(_ timebase: CMTimebase, _ timerSource: dispatch_source_t) -> OSStatus
 @available(iOS 6.0, *)
-func CMSyncGetRelativeRate(ofClockOrTimebase: CMClockOrTimebase, _ relativeToClockOrTimebase: CMClockOrTimebase) -> Float64
+func CMSyncGetRelativeRate(_ ofClockOrTimebase: CMClockOrTimebase, _ relativeToClockOrTimebase: CMClockOrTimebase) -> Float64
 @available(iOS 6.0, *)
-func CMSyncGetRelativeRateAndAnchorTime(ofClockOrTimebase: CMClockOrTimebase, _ relativeToClockOrTimebase: CMClockOrTimebase, _ outRelativeRate: UnsafeMutablePointer<Float64>, _ outOfClockOrTimebaseAnchorTime: UnsafeMutablePointer<CMTime>, _ outRelativeToClockOrTimebaseAnchorTime: UnsafeMutablePointer<CMTime>) -> OSStatus
+func CMSyncGetRelativeRateAndAnchorTime(_ ofClockOrTimebase: CMClockOrTimebase, _ relativeToClockOrTimebase: CMClockOrTimebase, _ outRelativeRate: UnsafeMutablePointer<Float64>, _ outOfClockOrTimebaseAnchorTime: UnsafeMutablePointer<CMTime>, _ outRelativeToClockOrTimebaseAnchorTime: UnsafeMutablePointer<CMTime>) -> OSStatus
 @available(iOS 6.0, *)
-func CMSyncConvertTime(time: CMTime, _ fromClockOrTimebase: CMClockOrTimebase, _ toClockOrTimebase: CMClockOrTimebase) -> CMTime
+func CMSyncConvertTime(_ time: CMTime, _ fromClockOrTimebase: CMClockOrTimebase, _ toClockOrTimebase: CMClockOrTimebase) -> CMTime
 @available(iOS 6.0, *)
-func CMSyncMightDrift(clockOrTimebase1: CMClockOrTimebase, _ clockOrTimebase2: CMClockOrTimebase) -> Bool
+func CMSyncMightDrift(_ clockOrTimebase1: CMClockOrTimebase, _ clockOrTimebase2: CMClockOrTimebase) -> Bool
 @available(iOS 6.0, *)
-func CMSyncGetTime(clockOrTimebase: CMClockOrTimebase) -> CMTime
+func CMSyncGetTime(_ clockOrTimebase: CMClockOrTimebase) -> CMTime
 @available(iOS 6.0, *)
-func CMTimebaseNotificationBarrier(timebase: CMTimebase) -> OSStatus
+func CMTimebaseNotificationBarrier(_ timebase: CMTimebase) -> OSStatus
 @available(iOS 6.0, *)
 let kCMTimebaseNotification_EffectiveRateChanged: CFString
 @available(iOS 6.0, *)

@@ -33,8 +33,8 @@ let kCFStreamPropertyConnectionIsCellular: CFString
 let kCFStreamErrorDomainWinSock: CFIndex
 @available(tvOS 2.0, *)
 let kCFStreamErrorDomainSOCKS: Int32
-func CFSocketStreamSOCKSGetErrorSubdomain(error: UnsafePointer<CFStreamError>) -> Int32
-func CFSocketStreamSOCKSGetError(error: UnsafePointer<CFStreamError>) -> Int32
+func CFSocketStreamSOCKSGetErrorSubdomain(_ error: UnsafePointer<CFStreamError>) -> Int32
+func CFSocketStreamSOCKSGetError(_ error: UnsafePointer<CFStreamError>) -> Int32
 var kCFStreamErrorSOCKSSubDomainNone: Int { get }
 var kCFStreamErrorSOCKSSubDomainVersionCode: Int { get }
 var kCFStreamErrorSOCKS4SubDomainResponse: Int { get }
@@ -89,6 +89,6 @@ let kCFStreamPropertySocketRemoteNetService: CFString
 @available(tvOS 9.0, *)
 let kCFStreamPropertySocketExtendedBackgroundIdleMode: CFString
 @available(tvOS 2.0, *)
-func CFStreamCreatePairWithSocketToCFHost(alloc: CFAllocator?, _ host: CFHost, _ port: Int32, _ readStream: UnsafeMutablePointer<Unmanaged<CFReadStream>?>, _ writeStream: UnsafeMutablePointer<Unmanaged<CFWriteStream>?>)
+func CFStreamCreatePairWithSocketToCFHost(_ alloc: CFAllocator?, _ host: CFHost, _ port: Int32, _ readStream: UnsafeMutablePointer<Unmanaged<CFReadStream>?>, _ writeStream: UnsafeMutablePointer<Unmanaged<CFWriteStream>?>)
 @available(tvOS 2.0, *)
-func CFStreamCreatePairWithSocketToNetService(alloc: CFAllocator?, _ service: CFNetService, _ readStream: UnsafeMutablePointer<Unmanaged<CFReadStream>?>, _ writeStream: UnsafeMutablePointer<Unmanaged<CFWriteStream>?>)
+func CFStreamCreatePairWithSocketToNetService(_ alloc: CFAllocator?, _ service: CFNetService, _ readStream: UnsafeMutablePointer<Unmanaged<CFReadStream>?>, _ writeStream: UnsafeMutablePointer<Unmanaged<CFWriteStream>?>)

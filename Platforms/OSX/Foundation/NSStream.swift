@@ -1,6 +1,6 @@
 
 enum NSStreamStatus : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notOpen
   case opening
@@ -12,7 +12,7 @@ enum NSStreamStatus : UInt {
   case error
 }
 struct NSStreamEvent : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: NSStreamEvent { get }
   static var openCompleted: NSStreamEvent { get }
@@ -26,7 +26,7 @@ class NSStream : NSObject {
   func close()
   unowned(unsafe) var delegate: @sil_unmanaged NSStreamDelegate?
   func property(forKey key: String) -> AnyObject?
-  func setProperty(property: AnyObject?, forKey key: String) -> Bool
+  func setProperty(_ property: AnyObject?, forKey key: String) -> Bool
   func schedule(in aRunLoop: NSRunLoop, forMode mode: String)
   func remove(from aRunLoop: NSRunLoop, forMode mode: String)
   var streamStatus: NSStreamStatus { get }
@@ -34,32 +34,32 @@ class NSStream : NSObject {
   init()
 }
 class NSInputStream : NSStream {
-  func read(buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
-  func getBuffer(buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length len: UnsafeMutablePointer<Int>) -> Bool
+  func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
+  func getBuffer(_ buffer: UnsafeMutablePointer<UnsafeMutablePointer<UInt8>>, length len: UnsafeMutablePointer<Int>) -> Bool
   var hasBytesAvailable: Bool { get }
-  init(data: NSData)
+  init(data data: NSData)
   @available(OSX 10.6, *)
-  init?(url: NSURL)
+  init?(url url: NSURL)
   convenience init()
 }
 class NSOutputStream : NSStream {
-  func write(buffer: UnsafePointer<UInt8>, maxLength len: Int) -> Int
+  func write(_ buffer: UnsafePointer<UInt8>, maxLength len: Int) -> Int
   var hasSpaceAvailable: Bool { get }
-  init(toMemory: ())
-  init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity: Int)
+  init(toMemory toMemory: ())
+  init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity capacity: Int)
   @available(OSX 10.6, *)
-  init?(url: NSURL, append shouldAppend: Bool)
+  init?(url url: NSURL, append shouldAppend: Bool)
   convenience init()
 }
 extension NSStream {
   @available(OSX 10.10, *)
-  class func getStreamsToHost(name hostname: String, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getStreamsToHost(name hostname: String, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
   @available(OSX, introduced=10.3, deprecated=10.10, message="Please use getStreamsToHostWithName:port:inputStream:outputStream: instead")
-  class func getStreamsTo(host: NSHost, port: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getStreamsTo(_ host: NSHost, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSStream {
   @available(OSX 10.10, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getBoundStreams(bufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSInputStream {
   convenience init?(fileAtPath path: String)
@@ -69,7 +69,7 @@ extension NSOutputStream {
   class func toMemory() -> Self
 }
 protocol NSStreamDelegate : NSObjectProtocol {
-  optional func stream(aStream: NSStream, handle eventCode: NSStreamEvent)
+  optional func stream(_ aStream: NSStream, handle eventCode: NSStreamEvent)
 }
 @available(OSX 10.3, *)
 let NSStreamSocketSecurityLevelKey: String

@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVColorType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case plain

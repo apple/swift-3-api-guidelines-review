@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum PHAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notDetermined
   case restricted
@@ -10,16 +10,16 @@ enum PHAuthorizationStatus : Int {
 }
 @available(iOS 8.0, *)
 protocol PHPhotoLibraryChangeObserver : NSObjectProtocol {
-  func photoLibraryDidChange(changeInstance: PHChange)
+  func photoLibraryDidChange(_ changeInstance: PHChange)
 }
 @available(iOS 8.0, *)
 class PHPhotoLibrary : NSObject {
   class func shared() -> PHPhotoLibrary
   class func authorizationStatus() -> PHAuthorizationStatus
-  class func requestAuthorization(handler: (PHAuthorizationStatus) -> Void)
-  func performChanges(changeBlock: dispatch_block_t, completionHandler: ((Bool, NSError?) -> Void)? = nil)
-  func performChangesAndWait(changeBlock: dispatch_block_t) throws
-  func register(observer: PHPhotoLibraryChangeObserver)
-  func unregisterChangeObserver(observer: PHPhotoLibraryChangeObserver)
+  class func requestAuthorization(_ handler: (PHAuthorizationStatus) -> Void)
+  func performChanges(_ changeBlock: dispatch_block_t, completionHandler completionHandler: ((Bool, NSError?) -> Void)? = nil)
+  func performChangesAndWait(_ changeBlock: dispatch_block_t) throws
+  func register(_ observer: PHPhotoLibraryChangeObserver)
+  func unregisterChangeObserver(_ observer: PHPhotoLibraryChangeObserver)
   init()
 }

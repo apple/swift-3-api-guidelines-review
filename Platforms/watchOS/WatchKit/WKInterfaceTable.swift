@@ -1,8 +1,8 @@
 
 @available(watchOS 2.0, *)
 class WKInterfaceTable : WKInterfaceObject {
-  func setRowTypes(rowTypes: [String])
-  func setNumberOfRows(numberOfRows: Int, withRowType rowType: String)
+  func setRowTypes(_ rowTypes: [String])
+  func setNumberOfRows(_ numberOfRows: Int, withRowType rowType: String)
   var numberOfRows: Int { get }
   func rowController(at index: Int) -> AnyObject?
   func insertRows(at rows: NSIndexSet, withRowType rowType: String)

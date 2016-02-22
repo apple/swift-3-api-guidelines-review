@@ -16,14 +16,14 @@ class ABAddressBook : NSObject {
   func saveAndReturnError() throws
   func hasUnsavedChanges() -> Bool
   func me() -> ABPerson!
-  func setMe(moi: ABPerson!)
+  func setMe(_ moi: ABPerson!)
   func record(forUniqueId uniqueId: String!) -> ABRecord!
   @available(OSX 10.7, *)
-  func add(record: ABRecord!, error: ()) throws
-  func add(record: ABRecord!) -> Bool
+  func add(_ record: ABRecord!, error error: ()) throws
+  func add(_ record: ABRecord!) -> Bool
   @available(OSX 10.7, *)
-  func remove(record: ABRecord!, error: ()) throws
-  func remove(record: ABRecord!) -> Bool
+  func remove(_ record: ABRecord!, error error: ()) throws
+  func remove(_ record: ABRecord!) -> Bool
   func people() -> [AnyObject]!
   func groups() -> [AnyObject]!
   @available(OSX 10.3, *)
@@ -50,5 +50,5 @@ struct __ABBookflags {
   var tracksAllSources: UInt32
   var _reserved: UInt32
   init()
-  init(hasUnsavedChanges: UInt32, readOnly: UInt32, importMe: UInt32, needConversion: UInt32, cleanedUp: UInt32, importTips: UInt32, restoreFromMetaData: UInt32, prefsNeedSync: UInt32, waitingForReset: UInt32, enforcesConstraints: UInt32, tracksAllSources: UInt32, _reserved: UInt32)
+  init(hasUnsavedChanges hasUnsavedChanges: UInt32, readOnly readOnly: UInt32, importMe importMe: UInt32, needConversion needConversion: UInt32, cleanedUp cleanedUp: UInt32, importTips importTips: UInt32, restoreFromMetaData restoreFromMetaData: UInt32, prefsNeedSync prefsNeedSync: UInt32, waitingForReset waitingForReset: UInt32, enforcesConstraints enforcesConstraints: UInt32, tracksAllSources tracksAllSources: UInt32, _reserved _reserved: UInt32)
 }

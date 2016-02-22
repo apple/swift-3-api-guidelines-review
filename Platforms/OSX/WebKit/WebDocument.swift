@@ -1,8 +1,8 @@
 
 protocol WebDocumentView : NSObjectProtocol {
-  func setDataSource(dataSource: WebDataSource!)
-  func dataSourceUpdated(dataSource: WebDataSource!)
-  func setNeedsLayout(flag: Bool)
+  func setDataSource(_ dataSource: WebDataSource!)
+  func dataSourceUpdated(_ dataSource: WebDataSource!)
+  func setNeedsLayout(_ flag: Bool)
   func layout()
   func viewWillMove(toHostWindow hostWindow: NSWindow!)
   func viewDidMoveToHostWindow()
@@ -22,9 +22,9 @@ protocol WebDocumentText : NSObjectProtocol {
   func deselectAll()
 }
 protocol WebDocumentRepresentation : NSObjectProtocol {
-  func setDataSource(dataSource: WebDataSource!)
-  func receivedData(data: NSData!, with dataSource: WebDataSource!)
-  func receivedError(error: NSError!, with dataSource: WebDataSource!)
+  func setDataSource(_ dataSource: WebDataSource!)
+  func receivedData(_ data: NSData!, with dataSource: WebDataSource!)
+  func receivedError(_ error: NSError!, with dataSource: WebDataSource!)
   func finishedLoading(with dataSource: WebDataSource!)
   func canProvideDocumentSource() -> Bool
   func documentSource() -> String!

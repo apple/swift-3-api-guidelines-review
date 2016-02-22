@@ -13,14 +13,14 @@ class SCNScene : NSObject, NSSecureCoding {
   @available(tvOS 8.0, *)
   var physicsWorld: SCNPhysicsWorld { get }
   func attribute(forKey key: String) -> AnyObject?
-  func setAttribute(attribute: AnyObject?, forKey key: String)
+  func setAttribute(_ attribute: AnyObject?, forKey key: String)
   @available(tvOS 8.0, *)
   var background: SCNMaterialProperty { get }
   @available(tvOS 8.0, *)
   convenience init?(named name: String)
   @available(tvOS 8.0, *)
-  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]? = [:])
-  convenience init(url: NSURL, options: [String : AnyObject]? = [:]) throws
+  convenience init?(named name: String, inDirectory directory: String?, options options: [String : AnyObject]? = [:])
+  convenience init(url url: NSURL, options options: [String : AnyObject]? = [:]) throws
   @available(tvOS 8.0, *)
   var fogStartDistance: CGFloat
   @available(tvOS 8.0, *)

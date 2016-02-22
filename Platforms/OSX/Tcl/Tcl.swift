@@ -20,7 +20,7 @@ struct Tcl_Interp {
   var freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!
   var errorLine: Int32
   init()
-  init(result: UnsafeMutablePointer<Int8>, freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!, errorLine: Int32)
+  init(result result: UnsafeMutablePointer<Int8>, freeProc freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!, errorLine errorLine: Int32)
 }
 typealias Tcl_AsyncHandler = COpaquePointer
 typealias Tcl_Channel = COpaquePointer
@@ -63,7 +63,7 @@ struct Tcl_RegExpIndices {
   var start: Int
   var end: Int
   init()
-  init(start: Int, end: Int)
+  init(start start: Int, end end: Int)
 }
 struct Tcl_RegExpInfo {
   var nsubs: Int32
@@ -71,7 +71,7 @@ struct Tcl_RegExpInfo {
   var extendStart: Int
   var reserved: Int
   init()
-  init(nsubs: Int32, matches: UnsafeMutablePointer<Tcl_RegExpIndices>, extendStart: Int, reserved: Int)
+  init(nsubs nsubs: Int32, matches matches: UnsafeMutablePointer<Tcl_RegExpIndices>, extendStart extendStart: Int, reserved reserved: Int)
 }
 typealias Tcl_Stat_ = UnsafeMutablePointer<Tcl_StatBuf>
 typealias Tcl_OldStat_ = UnsafeMutablePointer<stat>
@@ -87,7 +87,7 @@ var TCL_SUBST_BACKSLASHES: Int32 { get }
 var TCL_SUBST_ALL: Int32 { get }
 struct Tcl_ValueType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var TCL_INT: Tcl_ValueType { get }
@@ -100,7 +100,7 @@ struct Tcl_Value {
   var doubleValue: Double
   var wideValue: Tcl_WideInt
   init()
-  init(type: Tcl_ValueType, intValue: Int, doubleValue: Double, wideValue: Tcl_WideInt)
+  init(type type: Tcl_ValueType, intValue intValue: Int, doubleValue doubleValue: Double, wideValue wideValue: Tcl_WideInt)
 }
 typealias Tcl_AppInitProc = ((UnsafeMutablePointer<Tcl_Interp>) -> Int32)
 typealias Tcl_AsyncProc = ((ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32) -> Int32)
@@ -150,7 +150,7 @@ struct Tcl_ObjType {
   var updateStringProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Void)!
   var setFromAnyProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!
   init()
-  init(name: UnsafeMutablePointer<Int8>, freeIntRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Void)!, dupIntRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Void)!, updateStringProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Void)!, setFromAnyProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!)
+  init(name name: UnsafeMutablePointer<Int8>, freeIntRepProc freeIntRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Void)!, dupIntRepProc dupIntRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Void)!, updateStringProc updateStringProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Void)!, setFromAnyProc setFromAnyProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!)
 }
 struct Tcl_Obj {
   struct __Unnamed_union_internalRep {
@@ -158,13 +158,13 @@ struct Tcl_Obj {
       var ptr1: UnsafeMutablePointer<Void>
       var ptr2: UnsafeMutablePointer<Void>
       init()
-      init(ptr1: UnsafeMutablePointer<Void>, ptr2: UnsafeMutablePointer<Void>)
+      init(ptr1 ptr1: UnsafeMutablePointer<Void>, ptr2 ptr2: UnsafeMutablePointer<Void>)
     }
     struct __Unnamed_struct_ptrAndLongRep {
       var ptr: UnsafeMutablePointer<Void>
       var value: UInt
       init()
-      init(ptr: UnsafeMutablePointer<Void>, value: UInt)
+      init(ptr ptr: UnsafeMutablePointer<Void>, value value: UInt)
     }
     var longValue: Int
     var doubleValue: Double
@@ -172,12 +172,12 @@ struct Tcl_Obj {
     var wideValue: Tcl_WideInt
     var twoPtrValue: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_twoPtrValue
     var ptrAndLongRep: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_ptrAndLongRep
-    init(longValue: Int)
-    init(doubleValue: Double)
-    init(otherValuePtr: UnsafeMutablePointer<Void>)
-    init(wideValue: Tcl_WideInt)
-    init(twoPtrValue: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_twoPtrValue)
-    init(ptrAndLongRep: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_ptrAndLongRep)
+    init(longValue longValue: Int)
+    init(doubleValue doubleValue: Double)
+    init(otherValuePtr otherValuePtr: UnsafeMutablePointer<Void>)
+    init(wideValue wideValue: Tcl_WideInt)
+    init(twoPtrValue twoPtrValue: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_twoPtrValue)
+    init(ptrAndLongRep ptrAndLongRep: Tcl_Obj.__Unnamed_union_internalRep.__Unnamed_struct_ptrAndLongRep)
     init()
   }
   var refCount: Int32
@@ -186,11 +186,11 @@ struct Tcl_Obj {
   var typePtr: UnsafeMutablePointer<Tcl_ObjType>
   var internalRep: Tcl_Obj.__Unnamed_union_internalRep
   init()
-  init(refCount: Int32, bytes: UnsafeMutablePointer<Int8>, length: Int32, typePtr: UnsafeMutablePointer<Tcl_ObjType>, internalRep: Tcl_Obj.__Unnamed_union_internalRep)
+  init(refCount refCount: Int32, bytes bytes: UnsafeMutablePointer<Int8>, length length: Int32, typePtr typePtr: UnsafeMutablePointer<Tcl_ObjType>, internalRep internalRep: Tcl_Obj.__Unnamed_union_internalRep)
 }
-func Tcl_IncrRefCount(objPtr: UnsafeMutablePointer<Tcl_Obj>)
-func Tcl_DecrRefCount(objPtr: UnsafeMutablePointer<Tcl_Obj>)
-func Tcl_IsShared(objPtr: UnsafeMutablePointer<Tcl_Obj>) -> Int32
+func Tcl_IncrRefCount(_ objPtr: UnsafeMutablePointer<Tcl_Obj>)
+func Tcl_DecrRefCount(_ objPtr: UnsafeMutablePointer<Tcl_Obj>)
+func Tcl_IsShared(_ objPtr: UnsafeMutablePointer<Tcl_Obj>) -> Int32
 struct Tcl_SavedResult {
   var result: UnsafeMutablePointer<Int8>
   var freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!
@@ -200,7 +200,7 @@ struct Tcl_SavedResult {
   var appendUsed: Int32
   var resultSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8)
   init()
-  init(result: UnsafeMutablePointer<Int8>, freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!, objResultPtr: UnsafeMutablePointer<Tcl_Obj>, appendResult: UnsafeMutablePointer<Int8>, appendAvl: Int32, appendUsed: Int32, resultSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
+  init(result result: UnsafeMutablePointer<Int8>, freeProc freeProc: (@convention(c) (UnsafeMutablePointer<Int8>) -> Void)!, objResultPtr objResultPtr: UnsafeMutablePointer<Tcl_Obj>, appendResult appendResult: UnsafeMutablePointer<Int8>, appendAvl appendAvl: Int32, appendUsed appendUsed: Int32, resultSpace resultSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
 }
 struct Tcl_Namespace {
   var name: UnsafeMutablePointer<Int8>
@@ -209,7 +209,7 @@ struct Tcl_Namespace {
   var deleteProc: (@convention(c) (ClientData) -> Void)!
   var parentPtr: UnsafeMutablePointer<Tcl_Namespace>
   init()
-  init(name: UnsafeMutablePointer<Int8>, fullName: UnsafeMutablePointer<Int8>, clientData: ClientData, deleteProc: (@convention(c) (ClientData) -> Void)!, parentPtr: UnsafeMutablePointer<Tcl_Namespace>)
+  init(name name: UnsafeMutablePointer<Int8>, fullName fullName: UnsafeMutablePointer<Int8>, clientData clientData: ClientData, deleteProc deleteProc: (@convention(c) (ClientData) -> Void)!, parentPtr parentPtr: UnsafeMutablePointer<Tcl_Namespace>)
 }
 struct Tcl_CallFrame {
   var nsPtr: UnsafeMutablePointer<Tcl_Namespace>
@@ -227,7 +227,7 @@ struct Tcl_CallFrame {
   var dummy12: UnsafeMutablePointer<Void>
   var dummy13: UnsafeMutablePointer<Void>
   init()
-  init(nsPtr: UnsafeMutablePointer<Tcl_Namespace>, dummy1: Int32, dummy2: Int32, dummy3: UnsafeMutablePointer<Void>, dummy4: UnsafeMutablePointer<Void>, dummy5: UnsafeMutablePointer<Void>, dummy6: Int32, dummy7: UnsafeMutablePointer<Void>, dummy8: UnsafeMutablePointer<Void>, dummy9: Int32, dummy10: UnsafeMutablePointer<Void>, dummy11: UnsafeMutablePointer<Void>, dummy12: UnsafeMutablePointer<Void>, dummy13: UnsafeMutablePointer<Void>)
+  init(nsPtr nsPtr: UnsafeMutablePointer<Tcl_Namespace>, dummy1 dummy1: Int32, dummy2 dummy2: Int32, dummy3 dummy3: UnsafeMutablePointer<Void>, dummy4 dummy4: UnsafeMutablePointer<Void>, dummy5 dummy5: UnsafeMutablePointer<Void>, dummy6 dummy6: Int32, dummy7 dummy7: UnsafeMutablePointer<Void>, dummy8 dummy8: UnsafeMutablePointer<Void>, dummy9 dummy9: Int32, dummy10 dummy10: UnsafeMutablePointer<Void>, dummy11 dummy11: UnsafeMutablePointer<Void>, dummy12 dummy12: UnsafeMutablePointer<Void>, dummy13 dummy13: UnsafeMutablePointer<Void>)
 }
 struct Tcl_CmdInfo {
   var isNativeObjectProc: Int32
@@ -239,7 +239,7 @@ struct Tcl_CmdInfo {
   var deleteData: ClientData
   var namespacePtr: UnsafeMutablePointer<Tcl_Namespace>
   init()
-  init(isNativeObjectProc: Int32, objProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, objClientData: ClientData, proc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32)!, clientData: ClientData, deleteProc: (@convention(c) (ClientData) -> Void)!, deleteData: ClientData, namespacePtr: UnsafeMutablePointer<Tcl_Namespace>)
+  init(isNativeObjectProc isNativeObjectProc: Int32, objProc objProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, objClientData objClientData: ClientData, proc proc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32)!, clientData clientData: ClientData, deleteProc deleteProc: (@convention(c) (ClientData) -> Void)!, deleteData deleteData: ClientData, namespacePtr namespacePtr: UnsafeMutablePointer<Tcl_Namespace>)
 }
 var TCL_DSTRING_STATIC_SIZE: Int32 { get }
 struct Tcl_DString {
@@ -248,7 +248,7 @@ struct Tcl_DString {
   var spaceAvl: Int32
   var staticSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8)
   init()
-  init(string: UnsafeMutablePointer<Int8>, length: Int32, spaceAvl: Int32, staticSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
+  init(string string: UnsafeMutablePointer<Int8>, length length: Int32, spaceAvl spaceAvl: Int32, staticSpace staticSpace: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
 }
 var TCL_MAX_PREC: Int32 { get }
 var TCL_INTEGER_SPACE: Int32 { get }
@@ -304,10 +304,10 @@ struct Tcl_HashEntry {
     var objPtr: UnsafeMutablePointer<Tcl_Obj>
     var words: (Int32)
     var string: (Int8, Int8, Int8, Int8)
-    init(oneWordValue: UnsafeMutablePointer<Int8>)
-    init(objPtr: UnsafeMutablePointer<Tcl_Obj>)
-    init(words: (Int32))
-    init(string: (Int8, Int8, Int8, Int8))
+    init(oneWordValue oneWordValue: UnsafeMutablePointer<Int8>)
+    init(objPtr objPtr: UnsafeMutablePointer<Tcl_Obj>)
+    init(words words: (Int32))
+    init(string string: (Int8, Int8, Int8, Int8))
     init()
   }
   var nextPtr: UnsafeMutablePointer<Tcl_HashEntry>
@@ -316,7 +316,7 @@ struct Tcl_HashEntry {
   var clientData: ClientData
   var key: Tcl_HashEntry.__Unnamed_union_key
   init()
-  init(nextPtr: UnsafeMutablePointer<Tcl_HashEntry>, tablePtr: UnsafeMutablePointer<Tcl_HashTable>, hash: UnsafeMutablePointer<Void>, clientData: ClientData, key: Tcl_HashEntry.__Unnamed_union_key)
+  init(nextPtr nextPtr: UnsafeMutablePointer<Tcl_HashEntry>, tablePtr tablePtr: UnsafeMutablePointer<Tcl_HashTable>, hash hash: UnsafeMutablePointer<Void>, clientData clientData: ClientData, key key: Tcl_HashEntry.__Unnamed_union_key)
 }
 var TCL_HASH_KEY_RANDOMIZE_HASH: Int32 { get }
 var TCL_HASH_KEY_SYSTEM_HASH: Int32 { get }
@@ -329,7 +329,7 @@ struct Tcl_HashKeyType {
   var allocEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Tcl_HashEntry>)!
   var freeEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashEntry>) -> Void)!
   init()
-  init(version: Int32, flags: Int32, hashKeyProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafeMutablePointer<Void>) -> UInt32)!, compareKeysProc: (@convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Tcl_HashEntry>) -> Int32)!, allocEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, freeEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashEntry>) -> Void)!)
+  init(version version: Int32, flags flags: Int32, hashKeyProc hashKeyProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafeMutablePointer<Void>) -> UInt32)!, compareKeysProc compareKeysProc: (@convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Tcl_HashEntry>) -> Int32)!, allocEntryProc allocEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, freeEntryProc freeEntryProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashEntry>) -> Void)!)
 }
 var TCL_SMALL_HASH_TABLE: Int32 { get }
 struct Tcl_HashTable {
@@ -345,14 +345,14 @@ struct Tcl_HashTable {
   var createProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafePointer<Int8>, UnsafeMutablePointer<Int32>) -> UnsafeMutablePointer<Tcl_HashEntry>)!
   var typePtr: UnsafeMutablePointer<Tcl_HashKeyType>
   init()
-  init(buckets: UnsafeMutablePointer<UnsafeMutablePointer<Tcl_HashEntry>>, staticBuckets: (UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>), numBuckets: Int32, numEntries: Int32, rebuildSize: Int32, downShift: Int32, mask: Int32, keyType: Int32, findProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafePointer<Int8>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, createProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafePointer<Int8>, UnsafeMutablePointer<Int32>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, typePtr: UnsafeMutablePointer<Tcl_HashKeyType>)
+  init(buckets buckets: UnsafeMutablePointer<UnsafeMutablePointer<Tcl_HashEntry>>, staticBuckets staticBuckets: (UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>, UnsafeMutablePointer<Tcl_HashEntry>), numBuckets numBuckets: Int32, numEntries numEntries: Int32, rebuildSize rebuildSize: Int32, downShift downShift: Int32, mask mask: Int32, keyType keyType: Int32, findProc findProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafePointer<Int8>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, createProc createProc: (@convention(c) (UnsafeMutablePointer<Tcl_HashTable>, UnsafePointer<Int8>, UnsafeMutablePointer<Int32>) -> UnsafeMutablePointer<Tcl_HashEntry>)!, typePtr typePtr: UnsafeMutablePointer<Tcl_HashKeyType>)
 }
 struct Tcl_HashSearch {
   var tablePtr: UnsafeMutablePointer<Tcl_HashTable>
   var nextIndex: Int32
   var nextEntryPtr: UnsafeMutablePointer<Tcl_HashEntry>
   init()
-  init(tablePtr: UnsafeMutablePointer<Tcl_HashTable>, nextIndex: Int32, nextEntryPtr: UnsafeMutablePointer<Tcl_HashEntry>)
+  init(tablePtr tablePtr: UnsafeMutablePointer<Tcl_HashTable>, nextIndex nextIndex: Int32, nextEntryPtr nextEntryPtr: UnsafeMutablePointer<Tcl_HashEntry>)
 }
 var TCL_STRING_KEYS: Int32 { get }
 var TCL_ONE_WORD_KEYS: Int32 { get }
@@ -363,7 +363,7 @@ struct Tcl_DictSearch {
   var epoch: Int32
   var dictionaryPtr: Tcl_Dict
   init()
-  init(next: UnsafeMutablePointer<Void>, epoch: Int32, dictionaryPtr: Tcl_Dict)
+  init(next next: UnsafeMutablePointer<Void>, epoch epoch: Int32, dictionaryPtr dictionaryPtr: Tcl_Dict)
 }
 var TCL_DONT_WAIT: Int32 { get }
 var TCL_WINDOW_EVENTS: Int32 { get }
@@ -374,11 +374,11 @@ struct Tcl_Event {
   var proc: (@convention(c) (UnsafeMutablePointer<Tcl_Event>, Int32) -> Int32)!
   var nextPtr: UnsafeMutablePointer<Tcl_Event>
   init()
-  init(proc: (@convention(c) (UnsafeMutablePointer<Tcl_Event>, Int32) -> Int32)!, nextPtr: UnsafeMutablePointer<Tcl_Event>)
+  init(proc proc: (@convention(c) (UnsafeMutablePointer<Tcl_Event>, Int32) -> Int32)!, nextPtr nextPtr: UnsafeMutablePointer<Tcl_Event>)
 }
 struct Tcl_QueuePosition : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var TCL_QUEUE_TAIL: Tcl_QueuePosition { get }
@@ -390,7 +390,7 @@ struct Tcl_Time {
   var sec: Int
   var usec: Int
   init()
-  init(sec: Int, usec: Int)
+  init(sec sec: Int, usec usec: Int)
 }
 typealias Tcl_SetTimerProc = ((UnsafeMutablePointer<Tcl_Time>) -> Void)
 typealias Tcl_WaitForEventProc = ((UnsafeMutablePointer<Tcl_Time>) -> Int32)
@@ -441,13 +441,13 @@ struct Tcl_ChannelType {
   var threadActionProc: (@convention(c) (ClientData, Int32) -> Void)!
   var truncateProc: (@convention(c) (ClientData, Tcl_WideInt) -> Int32)!
   init()
-  init(typeName: UnsafeMutablePointer<Int8>, version: Tcl_ChannelTypeVersion, closeProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>) -> Int32)!, inputProc: (@convention(c) (ClientData, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, outputProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, seekProc: (@convention(c) (ClientData, Int, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, setOptionProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, UnsafePointer<Int8>, UnsafePointer<Int8>) -> Int32)!, getOptionProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, UnsafePointer<Int8>, UnsafeMutablePointer<Tcl_DString>) -> Int32)!, watchProc: (@convention(c) (ClientData, Int32) -> Void)!, getHandleProc: (@convention(c) (ClientData, Int32, UnsafeMutablePointer<ClientData>) -> Int32)!, close2Proc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32) -> Int32)!, blockModeProc: (@convention(c) (ClientData, Int32) -> Int32)!, flushProc: (@convention(c) (ClientData) -> Int32)!, handlerProc: (@convention(c) (ClientData, Int32) -> Int32)!, wideSeekProc: (@convention(c) (ClientData, Tcl_WideInt, Int32, UnsafeMutablePointer<Int32>) -> Tcl_WideInt)!, threadActionProc: (@convention(c) (ClientData, Int32) -> Void)!, truncateProc: (@convention(c) (ClientData, Tcl_WideInt) -> Int32)!)
+  init(typeName typeName: UnsafeMutablePointer<Int8>, version version: Tcl_ChannelTypeVersion, closeProc closeProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>) -> Int32)!, inputProc inputProc: (@convention(c) (ClientData, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, outputProc outputProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, seekProc seekProc: (@convention(c) (ClientData, Int, Int32, UnsafeMutablePointer<Int32>) -> Int32)!, setOptionProc setOptionProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, UnsafePointer<Int8>, UnsafePointer<Int8>) -> Int32)!, getOptionProc getOptionProc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, UnsafePointer<Int8>, UnsafeMutablePointer<Tcl_DString>) -> Int32)!, watchProc watchProc: (@convention(c) (ClientData, Int32) -> Void)!, getHandleProc getHandleProc: (@convention(c) (ClientData, Int32, UnsafeMutablePointer<ClientData>) -> Int32)!, close2Proc close2Proc: (@convention(c) (ClientData, UnsafeMutablePointer<Tcl_Interp>, Int32) -> Int32)!, blockModeProc blockModeProc: (@convention(c) (ClientData, Int32) -> Int32)!, flushProc flushProc: (@convention(c) (ClientData) -> Int32)!, handlerProc handlerProc: (@convention(c) (ClientData, Int32) -> Int32)!, wideSeekProc wideSeekProc: (@convention(c) (ClientData, Tcl_WideInt, Int32, UnsafeMutablePointer<Int32>) -> Tcl_WideInt)!, threadActionProc threadActionProc: (@convention(c) (ClientData, Int32) -> Void)!, truncateProc truncateProc: (@convention(c) (ClientData, Tcl_WideInt) -> Int32)!)
 }
 var TCL_MODE_BLOCKING: Int32 { get }
 var TCL_MODE_NONBLOCKING: Int32 { get }
 struct Tcl_PathType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var TCL_PATH_ABSOLUTE: Tcl_PathType { get }
@@ -459,7 +459,7 @@ struct Tcl_GlobTypeData {
   var macType: UnsafeMutablePointer<Tcl_Obj>
   var macCreator: UnsafeMutablePointer<Tcl_Obj>
   init()
-  init(type: Int32, perm: Int32, macType: UnsafeMutablePointer<Tcl_Obj>, macCreator: UnsafeMutablePointer<Tcl_Obj>)
+  init(type type: Int32, perm perm: Int32, macType macType: UnsafeMutablePointer<Tcl_Obj>, macCreator macCreator: UnsafeMutablePointer<Tcl_Obj>)
 }
 var TCL_GLOB_TYPE_BLOCK: Int32 { get }
 var TCL_GLOB_TYPE_CHAR: Int32 { get }
@@ -539,7 +539,7 @@ struct Tcl_Filesystem {
   var getCwdProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>) -> UnsafeMutablePointer<Tcl_Obj>)!
   var chdirProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!
   init()
-  init(typeName: UnsafePointer<Int8>, structureLength: Int32, version: Tcl_FSVersion, pathInFilesystemProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<ClientData>) -> Int32)!, dupInternalRepProc: (@convention(c) (ClientData) -> ClientData)!, freeInternalRepProc: (@convention(c) (ClientData) -> Void)!, internalToNormalizedProc: (@convention(c) (ClientData) -> UnsafeMutablePointer<Tcl_Obj>)!, createInternalRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> ClientData)!, normalizePathProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, Int32) -> Int32)!, filesystemPathTypeProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> UnsafeMutablePointer<Tcl_Obj>)!, filesystemSeparatorProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> UnsafeMutablePointer<Tcl_Obj>)!, statProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_StatBuf>) -> Int32)!, accessProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, Int32) -> Int32)!, openFileChannelProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, Int32, Int32) -> Tcl_Channel)!, matchInDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, UnsafePointer<Int8>, UnsafeMutablePointer<Tcl_GlobTypeData>) -> Int32)!, utimeProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<utimbuf>) -> Int32)!, linkProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, Int32) -> UnsafeMutablePointer<Tcl_Obj>)!, listVolumesProc: (@convention(c) () -> UnsafeMutablePointer<Tcl_Obj>)!, fileAttrStringsProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> UnsafeMutablePointer<UnsafePointer<Int8>>)!, fileAttrsGetProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, fileAttrsSetProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, createDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, removeDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, Int32, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, deleteFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, copyFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, renameFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, copyDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, lstatProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_StatBuf>) -> Int32)!, loadFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_LoadHandle>, UnsafeMutablePointer<(@convention(c) (Tcl_LoadHandle) -> Void)?>) -> Int32)!, getCwdProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>) -> UnsafeMutablePointer<Tcl_Obj>)!, chdirProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!)
+  init(typeName typeName: UnsafePointer<Int8>, structureLength structureLength: Int32, version version: Tcl_FSVersion, pathInFilesystemProc pathInFilesystemProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<ClientData>) -> Int32)!, dupInternalRepProc dupInternalRepProc: (@convention(c) (ClientData) -> ClientData)!, freeInternalRepProc freeInternalRepProc: (@convention(c) (ClientData) -> Void)!, internalToNormalizedProc internalToNormalizedProc: (@convention(c) (ClientData) -> UnsafeMutablePointer<Tcl_Obj>)!, createInternalRepProc createInternalRepProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> ClientData)!, normalizePathProc normalizePathProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, Int32) -> Int32)!, filesystemPathTypeProc filesystemPathTypeProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> UnsafeMutablePointer<Tcl_Obj>)!, filesystemSeparatorProc filesystemSeparatorProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> UnsafeMutablePointer<Tcl_Obj>)!, statProc statProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_StatBuf>) -> Int32)!, accessProc accessProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, Int32) -> Int32)!, openFileChannelProc openFileChannelProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, Int32, Int32) -> Tcl_Channel)!, matchInDirectoryProc matchInDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, UnsafePointer<Int8>, UnsafeMutablePointer<Tcl_GlobTypeData>) -> Int32)!, utimeProc utimeProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<utimbuf>) -> Int32)!, linkProc linkProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, Int32) -> UnsafeMutablePointer<Tcl_Obj>)!, listVolumesProc listVolumesProc: (@convention(c) () -> UnsafeMutablePointer<Tcl_Obj>)!, fileAttrStringsProc fileAttrStringsProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> UnsafeMutablePointer<UnsafePointer<Int8>>)!, fileAttrsGetProc fileAttrsGetProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, fileAttrsSetProc fileAttrsSetProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, Int32, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, createDirectoryProc createDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, removeDirectoryProc removeDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, Int32, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, deleteFileProc deleteFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, copyFileProc copyFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, renameFileProc renameFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>) -> Int32)!, copyDirectoryProc copyDirectoryProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<UnsafeMutablePointer<Tcl_Obj>>) -> Int32)!, lstatProc lstatProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_StatBuf>) -> Int32)!, loadFileProc loadFileProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>, UnsafeMutablePointer<Tcl_Obj>, UnsafeMutablePointer<Tcl_LoadHandle>, UnsafeMutablePointer<(@convention(c) (Tcl_LoadHandle) -> Void)?>) -> Int32)!, getCwdProc getCwdProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>) -> UnsafeMutablePointer<Tcl_Obj>)!, chdirProc chdirProc: (@convention(c) (UnsafeMutablePointer<Tcl_Obj>) -> Int32)!)
 }
 var TCL_CREATE_SYMBOLIC_LINK: Int32 { get }
 var TCL_CREATE_HARD_LINK: Int32 { get }
@@ -553,7 +553,7 @@ struct Tcl_NotifierProcs {
   var alertNotifierProc: (@convention(c) (ClientData) -> Void)!
   var serviceModeHookProc: (@convention(c) (Int32) -> Void)!
   init()
-  init(setTimerProc: (@convention(c) (UnsafeMutablePointer<Tcl_Time>) -> Void)!, waitForEventProc: (@convention(c) (UnsafeMutablePointer<Tcl_Time>) -> Int32)!, createFileHandlerProc: (@convention(c) (Int32, Int32, (@convention(c) (ClientData, Int32) -> Void)!, ClientData) -> Void)!, deleteFileHandlerProc: (@convention(c) (Int32) -> Void)!, initNotifierProc: (@convention(c) () -> ClientData)!, finalizeNotifierProc: (@convention(c) (ClientData) -> Void)!, alertNotifierProc: (@convention(c) (ClientData) -> Void)!, serviceModeHookProc: (@convention(c) (Int32) -> Void)!)
+  init(setTimerProc setTimerProc: (@convention(c) (UnsafeMutablePointer<Tcl_Time>) -> Void)!, waitForEventProc waitForEventProc: (@convention(c) (UnsafeMutablePointer<Tcl_Time>) -> Int32)!, createFileHandlerProc createFileHandlerProc: (@convention(c) (Int32, Int32, (@convention(c) (ClientData, Int32) -> Void)!, ClientData) -> Void)!, deleteFileHandlerProc deleteFileHandlerProc: (@convention(c) (Int32) -> Void)!, initNotifierProc initNotifierProc: (@convention(c) () -> ClientData)!, finalizeNotifierProc finalizeNotifierProc: (@convention(c) (ClientData) -> Void)!, alertNotifierProc alertNotifierProc: (@convention(c) (ClientData) -> Void)!, serviceModeHookProc serviceModeHookProc: (@convention(c) (Int32) -> Void)!)
 }
 struct Tcl_EncodingType {
   var encodingName: UnsafePointer<Int8>
@@ -563,7 +563,7 @@ struct Tcl_EncodingType {
   var clientData: ClientData
   var nullSize: Int32
   init()
-  init(encodingName: UnsafePointer<Int8>, toUtfProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, Int32, UnsafeMutablePointer<Tcl_EncodingState>, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>) -> Int32)!, fromUtfProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, Int32, UnsafeMutablePointer<Tcl_EncodingState>, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>) -> Int32)!, freeProc: (@convention(c) (ClientData) -> Void)!, clientData: ClientData, nullSize: Int32)
+  init(encodingName encodingName: UnsafePointer<Int8>, toUtfProc toUtfProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, Int32, UnsafeMutablePointer<Tcl_EncodingState>, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>) -> Int32)!, fromUtfProc fromUtfProc: (@convention(c) (ClientData, UnsafePointer<Int8>, Int32, Int32, UnsafeMutablePointer<Tcl_EncodingState>, UnsafeMutablePointer<Int8>, Int32, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>, UnsafeMutablePointer<Int32>) -> Int32)!, freeProc freeProc: (@convention(c) (ClientData) -> Void)!, clientData clientData: ClientData, nullSize nullSize: Int32)
 }
 var TCL_ENCODING_START: Int32 { get }
 var TCL_ENCODING_END: Int32 { get }
@@ -574,7 +574,7 @@ struct Tcl_Token {
   var size: Int32
   var numComponents: Int32
   init()
-  init(type: Int32, start: UnsafePointer<Int8>, size: Int32, numComponents: Int32)
+  init(type type: Int32, start start: UnsafePointer<Int8>, size size: Int32, numComponents numComponents: Int32)
 }
 var TCL_TOKEN_WORD: Int32 { get }
 var TCL_TOKEN_SIMPLE_WORD: Int32 { get }
@@ -613,7 +613,7 @@ struct Tcl_Parse {
   var incomplete: Int32
   var staticTokens: (Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token)
   init()
-  init(commentStart: UnsafePointer<Int8>, commentSize: Int32, commandStart: UnsafePointer<Int8>, commandSize: Int32, numWords: Int32, tokenPtr: UnsafeMutablePointer<Tcl_Token>, numTokens: Int32, tokensAvailable: Int32, errorType: Int32, string: UnsafePointer<Int8>, end: UnsafePointer<Int8>, interp: UnsafeMutablePointer<Tcl_Interp>, term: UnsafePointer<Int8>, incomplete: Int32, staticTokens: (Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token))
+  init(commentStart commentStart: UnsafePointer<Int8>, commentSize commentSize: Int32, commandStart commandStart: UnsafePointer<Int8>, commandSize commandSize: Int32, numWords numWords: Int32, tokenPtr tokenPtr: UnsafeMutablePointer<Tcl_Token>, numTokens numTokens: Int32, tokensAvailable tokensAvailable: Int32, errorType errorType: Int32, string string: UnsafePointer<Int8>, end end: UnsafePointer<Int8>, interp interp: UnsafeMutablePointer<Tcl_Interp>, term term: UnsafePointer<Int8>, incomplete incomplete: Int32, staticTokens staticTokens: (Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token, Tcl_Token))
 }
 var TCL_CONVERT_MULTIBYTE: Int32 { get }
 var TCL_CONVERT_SYNTAX: Int32 { get }
@@ -625,15 +625,15 @@ struct Tcl_Config {
   var key: UnsafePointer<Int8>
   var value: UnsafePointer<Int8>
   init()
-  init(key: UnsafePointer<Int8>, value: UnsafePointer<Int8>)
+  init(key key: UnsafePointer<Int8>, value value: UnsafePointer<Int8>)
 }
 var TCL_LIMIT_COMMANDS: Int32 { get }
 var TCL_LIMIT_TIME: Int32 { get }
 typealias Tcl_LimitHandlerProc = ((ClientData, UnsafeMutablePointer<Tcl_Interp>) -> Void)
 typealias Tcl_LimitHandlerDeleteProc = ((ClientData) -> Void)
 typealias mp_digit = UInt32
-func Tcl_InitStubs(interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ exact: Int32) -> UnsafePointer<Int8>
-func TclTomMathInitializeStubs(interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ epoch: Int32, _ revision: Int32) -> UnsafePointer<Int8>
-func Tcl_Main(argc: Int32, _ argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ appInitProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>) -> Int32)!)
-func Tcl_PkgInitStubsCheck(interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ exact: Int32) -> UnsafePointer<Int8>
-func Tcl_AppInit(interp: UnsafeMutablePointer<Tcl_Interp>) -> Int32
+func Tcl_InitStubs(_ interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ exact: Int32) -> UnsafePointer<Int8>
+func TclTomMathInitializeStubs(_ interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ epoch: Int32, _ revision: Int32) -> UnsafePointer<Int8>
+func Tcl_Main(_ argc: Int32, _ argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ appInitProc: (@convention(c) (UnsafeMutablePointer<Tcl_Interp>) -> Int32)!)
+func Tcl_PkgInitStubsCheck(_ interp: UnsafeMutablePointer<Tcl_Interp>, _ version: UnsafePointer<Int8>, _ exact: Int32) -> UnsafePointer<Int8>
+func Tcl_AppInit(_ interp: UnsafeMutablePointer<Tcl_Interp>) -> Int32

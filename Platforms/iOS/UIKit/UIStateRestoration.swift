@@ -11,7 +11,7 @@ let UIApplicationStateRestorationTimestampKey: String
 let UIApplicationStateRestorationSystemVersionKey: String
 protocol UIViewControllerRestoration {
   @available(iOS 2.0, *)
-  static func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
+  static func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder coder: NSCoder) -> UIViewController?
 }
 protocol UIDataSourceModelAssociation {
   @available(iOS 2.0, *)
@@ -27,5 +27,5 @@ protocol UIStateRestoring : NSObjectProtocol {
   optional func applicationFinishedRestoringState()
 }
 protocol UIObjectRestoration {
-  static func object(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIStateRestoring?
+  static func object(withRestorationIdentifierPath identifierComponents: [String], coder coder: NSCoder) -> UIStateRestoring?
 }

@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum CNContactFormatterStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case fullName
   case phoneticFullName
 }
 @available(OSX 10.11, *)
 enum CNContactDisplayNameOrder : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case userDefault
   case givenNameFirst
@@ -17,8 +17,8 @@ enum CNContactDisplayNameOrder : Int {
 @available(OSX 10.11, *)
 class CNContactFormatter : NSFormatter {
   class func descriptorForRequiredKeys(for style: CNContactFormatterStyle) -> CNKeyDescriptor
-  class func string(from contact: CNContact, style: CNContactFormatterStyle) -> String?
-  class func attributedString(from contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
+  class func string(from contact: CNContact, style style: CNContactFormatterStyle) -> String?
+  class func attributedString(from contact: CNContact, style style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
   class func nameOrder(for contact: CNContact) -> CNContactDisplayNameOrder
   class func delimiter(for contact: CNContact) -> String
   var style: CNContactFormatterStyle

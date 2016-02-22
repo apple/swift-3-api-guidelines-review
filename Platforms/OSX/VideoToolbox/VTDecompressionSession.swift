@@ -6,24 +6,24 @@ struct VTDecompressionOutputCallbackRecord {
   var decompressionOutputCallback: VTDecompressionOutputCallback?
   var decompressionOutputRefCon: UnsafeMutablePointer<Void>
   init()
-  init(decompressionOutputCallback: VTDecompressionOutputCallback?, decompressionOutputRefCon: UnsafeMutablePointer<Void>)
+  init(decompressionOutputCallback decompressionOutputCallback: VTDecompressionOutputCallback?, decompressionOutputRefCon decompressionOutputRefCon: UnsafeMutablePointer<Void>)
 }
 @available(OSX 10.8, *)
-func VTDecompressionSessionCreate(allocator: CFAllocator?, _ videoFormatDescription: CMVideoFormatDescription, _ videoDecoderSpecification: CFDictionary?, _ destinationImageBufferAttributes: CFDictionary?, _ outputCallback: UnsafePointer<VTDecompressionOutputCallbackRecord>, _ decompressionSessionOut: UnsafeMutablePointer<VTDecompressionSession?>) -> OSStatus
+func VTDecompressionSessionCreate(_ allocator: CFAllocator?, _ videoFormatDescription: CMVideoFormatDescription, _ videoDecoderSpecification: CFDictionary?, _ destinationImageBufferAttributes: CFDictionary?, _ outputCallback: UnsafePointer<VTDecompressionOutputCallbackRecord>, _ decompressionSessionOut: UnsafeMutablePointer<VTDecompressionSession?>) -> OSStatus
 @available(OSX 10.8, *)
-func VTDecompressionSessionInvalidate(session: VTDecompressionSession)
+func VTDecompressionSessionInvalidate(_ session: VTDecompressionSession)
 @available(OSX 10.8, *)
 func VTDecompressionSessionGetTypeID() -> CFTypeID
 @available(OSX 10.8, *)
-func VTDecompressionSessionDecodeFrame(session: VTDecompressionSession, _ sampleBuffer: CMSampleBuffer, _ decodeFlags: VTDecodeFrameFlags, _ sourceFrameRefCon: UnsafeMutablePointer<Void>, _ infoFlagsOut: UnsafeMutablePointer<VTDecodeInfoFlags>) -> OSStatus
+func VTDecompressionSessionDecodeFrame(_ session: VTDecompressionSession, _ sampleBuffer: CMSampleBuffer, _ decodeFlags: VTDecodeFrameFlags, _ sourceFrameRefCon: UnsafeMutablePointer<Void>, _ infoFlagsOut: UnsafeMutablePointer<VTDecodeInfoFlags>) -> OSStatus
 typealias VTDecompressionOutputHandler = (OSStatus, VTDecodeInfoFlags, CVImageBuffer?, CMTime, CMTime) -> Void
 @available(OSX 10.11, *)
-func VTDecompressionSessionDecodeFrameWithOutputHandler(session: VTDecompressionSession, _ sampleBuffer: CMSampleBuffer, _ decodeFlags: VTDecodeFrameFlags, _ infoFlagsOut: UnsafeMutablePointer<VTDecodeInfoFlags>, _ outputHandler: VTDecompressionOutputHandler) -> OSStatus
+func VTDecompressionSessionDecodeFrameWithOutputHandler(_ session: VTDecompressionSession, _ sampleBuffer: CMSampleBuffer, _ decodeFlags: VTDecodeFrameFlags, _ infoFlagsOut: UnsafeMutablePointer<VTDecodeInfoFlags>, _ outputHandler: VTDecompressionOutputHandler) -> OSStatus
 @available(OSX 10.8, *)
-func VTDecompressionSessionFinishDelayedFrames(session: VTDecompressionSession) -> OSStatus
+func VTDecompressionSessionFinishDelayedFrames(_ session: VTDecompressionSession) -> OSStatus
 @available(OSX 10.8, *)
-func VTDecompressionSessionCanAcceptFormatDescription(session: VTDecompressionSession, _ newFormatDesc: CMFormatDescription) -> Bool
+func VTDecompressionSessionCanAcceptFormatDescription(_ session: VTDecompressionSession, _ newFormatDesc: CMFormatDescription) -> Bool
 @available(OSX 10.8, *)
-func VTDecompressionSessionWaitForAsynchronousFrames(session: VTDecompressionSession) -> OSStatus
+func VTDecompressionSessionWaitForAsynchronousFrames(_ session: VTDecompressionSession) -> OSStatus
 @available(OSX 10.8, *)
-func VTDecompressionSessionCopyBlackPixelBuffer(session: VTDecompressionSession, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> OSStatus
+func VTDecompressionSessionCopyBlackPixelBuffer(_ session: VTDecompressionSession, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> OSStatus

@@ -8,7 +8,7 @@ let UIScreenModeDidChangeNotification: String
 @available(tvOS 5.0, *)
 let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case scale
   case insetBounds
@@ -51,7 +51,7 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UIScreen {
   @available(tvOS 7.0, *)

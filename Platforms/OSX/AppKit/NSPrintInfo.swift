@@ -1,13 +1,13 @@
 
 @available(OSX 10.9, *)
 enum NSPaperOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case portrait
   case landscape
 }
 enum NSPrintingPaginationMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case autoPagination
   case fitPagination
@@ -51,7 +51,7 @@ let NSPrintJobSavingURL: String
 let NSPrintJobSavingFileNameExtensionHidden: String
 let NSPrintHeaderAndFooter: String
 class NSPrintInfo : NSObject, NSCopying, NSCoding {
-  class func setSharedPrintInfo(printInfo: NSPrintInfo)
+  class func setSharedPrintInfo(_ printInfo: NSPrintInfo)
   class func shared() -> NSPrintInfo
   init(dictionary attributes: [String : AnyObject])
   func dictionary() -> NSMutableDictionary
@@ -98,7 +98,7 @@ class NSPrintInfo : NSObject, NSCopying, NSCoding {
 extension NSPrintInfo {
 }
 enum NSPrintingOrientation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case portraitOrientation
   case landscapeOrientation

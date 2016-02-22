@@ -3,7 +3,7 @@
 let WatchKitErrorDomain: String
 @available(watchOS 2.0, *)
 enum WatchKitErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknownError
   case applicationDelegateWatchKitRequestReplyNotCalledError

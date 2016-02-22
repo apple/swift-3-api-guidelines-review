@@ -5,15 +5,15 @@ let kCIFilterGeneratorExportedKeyName: String
 @available(OSX 10.5, *)
 class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstructor {
   init?(contentsOf aURL: NSURL)
-  func connect(sourceObject: AnyObject, withKey sourceKey: String?, to targetObject: AnyObject, withKey targetKey: String)
-  func disconnectObject(sourceObject: AnyObject, withKey key: String, to targetObject: AnyObject, withKey targetKey: String)
-  func exportKey(key: String, from targetObject: AnyObject, withName exportedKeyName: String?)
-  func removeExportedKey(exportedKeyName: String)
+  func connect(_ sourceObject: AnyObject, withKey sourceKey: String?, to targetObject: AnyObject, withKey targetKey: String)
+  func disconnectObject(_ sourceObject: AnyObject, withKey key: String, to targetObject: AnyObject, withKey targetKey: String)
+  func exportKey(_ key: String, from targetObject: AnyObject, withName exportedKeyName: String?)
+  func removeExportedKey(_ exportedKeyName: String)
   var exportedKeys: [NSObject : AnyObject] { get }
-  func setAttributes(attributes: [NSObject : AnyObject], forExportedKey key: String)
+  func setAttributes(_ attributes: [NSObject : AnyObject], forExportedKey key: String)
   var classAttributes: [NSObject : AnyObject]
   func filter() -> CIFilter
-  func registerFilterName(name: String)
+  func registerFilterName(_ name: String)
   func write(to aURL: NSURL, atomically flag: Bool) -> Bool
   init()
   @available(OSX 10.5, *)

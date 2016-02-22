@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum AVQueuedSampleBufferRenderingStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case rendering
@@ -20,11 +20,11 @@ class AVSampleBufferDisplayLayer : CALayer {
   @available(OSX 10.10, *)
   var error: NSError? { get }
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }
 extension AVSampleBufferDisplayLayer {
-  func enqueue(sampleBuffer: CMSampleBuffer)
+  func enqueue(_ sampleBuffer: CMSampleBuffer)
   func flush()
   func flushAndRemoveImage()
   var isReadyForMoreMediaData: Bool { get }

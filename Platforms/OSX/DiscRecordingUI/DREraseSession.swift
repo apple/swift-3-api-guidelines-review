@@ -6,9 +6,9 @@ func DREraseSessionGetTypeID() -> CFTypeID
 @available(OSX 10.3, *)
 func DREraseSessionCreate() -> Unmanaged<DREraseSession>!
 @available(OSX 10.3, *)
-func DREraseSessionSetErase(eraseSession: DREraseSession!, _ erase: DREraseRef!)
+func DREraseSessionSetErase(_ eraseSession: DREraseSession!, _ erase: DREraseRef!)
 @available(OSX 10.3, *)
-func DREraseSessionGetErase(eraseSession: DREraseSession!) -> Unmanaged<DREraseRef>!
+func DREraseSessionGetErase(_ eraseSession: DREraseSession!) -> Unmanaged<DREraseRef>!
 var kDREraseSessionOK: Int { get }
 var kDREraseSessionCancel: Int { get }
 var kEraseSessionSetupDialogOptionsCurrentVersion: Int { get }
@@ -19,7 +19,7 @@ struct DREraseSessionSetupDialogOptions {
   var version: UInt32
   var dialogOptionFlags: DREraseSessionSetupDialogOptionFlags
   init()
-  init(version: UInt32, dialogOptionFlags: DREraseSessionSetupDialogOptionFlags)
+  init(version version: UInt32, dialogOptionFlags dialogOptionFlags: DREraseSessionSetupDialogOptionFlags)
 }
 var kDREraseSessionSetupCallbacksCurrentVersion: Int { get }
 typealias DREraseSessionDeviceCheckProcPtr = @convention(c) (DREraseSession!, DRDeviceRef!) -> DarwinBoolean
@@ -31,10 +31,10 @@ struct DREraseSessionSetupCallbacks {
   var containsSuitableMedia: DREraseSessionMediaCheckProcPtr!
   var deviceSelectionChanged: DREraseSessionDeviceSelectionNotificationProcPtr!
   init()
-  init(version: UInt32, deviceShouldBeTarget: DREraseSessionDeviceCheckProcPtr!, containsSuitableMedia: DREraseSessionMediaCheckProcPtr!, deviceSelectionChanged: DREraseSessionDeviceSelectionNotificationProcPtr!)
+  init(version version: UInt32, deviceShouldBeTarget deviceShouldBeTarget: DREraseSessionDeviceCheckProcPtr!, containsSuitableMedia containsSuitableMedia: DREraseSessionMediaCheckProcPtr!, deviceSelectionChanged deviceSelectionChanged: DREraseSessionDeviceSelectionNotificationProcPtr!)
 }
 @available(OSX 10.3, *)
-func DREraseSessionSetupDialog(eraseSession: DREraseSession!, _ options: UnsafeMutablePointer<DREraseSessionSetupDialogOptions>, _ setupCallbacks: UnsafeMutablePointer<DREraseSessionSetupCallbacks>) -> Int8
+func DREraseSessionSetupDialog(_ eraseSession: DREraseSession!, _ options: UnsafeMutablePointer<DREraseSessionSetupDialogOptions>, _ setupCallbacks: UnsafeMutablePointer<DREraseSessionSetupCallbacks>) -> Int8
 var kDREraseProgressSetupCallbacksCurrentVersion: Int { get }
 typealias DREraseSessionProgressBeginNotificationProcPtr = @convention(c) (DREraseSession!) -> Void
 typealias DREraseSessionProgressFinishNotificationProcPtr = @convention(c) (DREraseSession!) -> Void
@@ -45,7 +45,7 @@ struct DREraseSessionProgressCallbacks {
   var progressDidFinish: DREraseSessionProgressFinishNotificationProcPtr!
   var eraseDidFinish: DREraseSessionEraseCompleteProcPtr!
   init()
-  init(version: UInt32, progressWillBegin: DREraseSessionProgressBeginNotificationProcPtr!, progressDidFinish: DREraseSessionProgressFinishNotificationProcPtr!, eraseDidFinish: DREraseSessionEraseCompleteProcPtr!)
+  init(version version: UInt32, progressWillBegin progressWillBegin: DREraseSessionProgressBeginNotificationProcPtr!, progressDidFinish progressDidFinish: DREraseSessionProgressFinishNotificationProcPtr!, eraseDidFinish eraseDidFinish: DREraseSessionEraseCompleteProcPtr!)
 }
 var kEraseSessionProgressDialogOptionsCurrentVersion: Int { get }
 var kEraseSessionProgressDialogDefaultOptions: Int { get }
@@ -55,7 +55,7 @@ struct DREraseSessionProgressDialogOptions {
   var dialogOptionFlags: DREraseSessionProgressDialogOptionFlags
   var description: Unmanaged<CFString>!
   init()
-  init(version: UInt32, dialogOptionFlags: DREraseSessionProgressDialogOptionFlags, description: Unmanaged<CFString>!)
+  init(version version: UInt32, dialogOptionFlags dialogOptionFlags: DREraseSessionProgressDialogOptionFlags, description description: Unmanaged<CFString>!)
 }
 @available(OSX 10.3, *)
-func DREraseSessionBeginProgressDialog(eraseSession: DREraseSession!, _ options: UnsafeMutablePointer<DREraseSessionProgressDialogOptions>, _ progressCallbacks: UnsafeMutablePointer<DREraseSessionProgressCallbacks>)
+func DREraseSessionBeginProgressDialog(_ eraseSession: DREraseSession!, _ options: UnsafeMutablePointer<DREraseSessionProgressDialogOptions>, _ progressCallbacks: UnsafeMutablePointer<DREraseSessionProgressCallbacks>)

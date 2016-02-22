@@ -22,9 +22,9 @@ class NSMetadataQuery : NSObject {
   var resultCount: Int { get }
   func result(at idx: Int) -> AnyObject
   @available(tvOS 7.0, *)
-  func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 7.0, *)
-  func enumerateResults(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(_ opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func indexOf(result result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
@@ -34,9 +34,9 @@ class NSMetadataQuery : NSObject {
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(tvOS 5.0, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(tvOS 5.0, *)
 let NSMetadataQueryDidStartGatheringNotification: String

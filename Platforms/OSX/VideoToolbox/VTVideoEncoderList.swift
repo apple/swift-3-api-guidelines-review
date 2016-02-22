@@ -1,6 +1,6 @@
 
 @available(OSX 10.8, *)
-func VTCopyVideoEncoderList(options: CFDictionary?, _ listOfVideoEncodersOut: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func VTCopyVideoEncoderList(_ options: CFDictionary?, _ listOfVideoEncodersOut: UnsafeMutablePointer<CFArray?>) -> OSStatus
 @available(OSX 10.8, *)
 let kVTVideoEncoderList_CodecType: CFString
 @available(OSX 10.8, *)

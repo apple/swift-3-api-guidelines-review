@@ -6,15 +6,15 @@ func DRTrackGetTypeID() -> CFTypeID
 typealias DRTrackMessage = UInt32
 typealias DRTrackCallbackProc = @convention(c) (DRTrackRef!, DRTrackMessage, UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.2, *)
-func DRTrackCreate(properties: CFDictionary!, _ callback: DRTrackCallbackProc!) -> Unmanaged<DRTrackRef>!
+func DRTrackCreate(_ properties: CFDictionary!, _ callback: DRTrackCallbackProc!) -> Unmanaged<DRTrackRef>!
 @available(OSX 10.2, *)
-func DRTrackSetProperties(track: DRTrackRef!, _ properties: CFDictionary!)
+func DRTrackSetProperties(_ track: DRTrackRef!, _ properties: CFDictionary!)
 @available(OSX 10.2, *)
-func DRTrackGetProperties(track: DRTrackRef!) -> Unmanaged<CFDictionary>!
+func DRTrackGetProperties(_ track: DRTrackRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.2, *)
-func DRTrackSpeedTest(track: DRTrackRef!, _ howManyMilliseconds: UInt32, _ howManyBytes: UInt32) -> Float
+func DRTrackSpeedTest(_ track: DRTrackRef!, _ howManyMilliseconds: UInt32, _ howManyBytes: UInt32) -> Float
 @available(OSX 10.3, *)
-func DRTrackEstimateLength(track: DRTrackRef!) -> UInt64
+func DRTrackEstimateLength(_ track: DRTrackRef!) -> UInt64
 @available(OSX 10.2, *)
 let kDRTrackLengthKey: CFString!
 @available(OSX 10.2, *)
@@ -153,5 +153,5 @@ struct DRTrackProductionInfo {
   var blockSize: UInt32
   var requestedAddress: UInt64
   init()
-  init(buffer: UnsafeMutablePointer<Void>, reqCount: UInt32, actCount: UInt32, flags: UInt32, blockSize: UInt32, requestedAddress: UInt64)
+  init(buffer buffer: UnsafeMutablePointer<Void>, reqCount reqCount: UInt32, actCount actCount: UInt32, flags flags: UInt32, blockSize blockSize: UInt32, requestedAddress requestedAddress: UInt64)
 }

@@ -1,6 +1,6 @@
 
 enum UIMenuControllerArrowDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   @available(iOS 3.2, *)
@@ -16,8 +16,8 @@ enum UIMenuControllerArrowDirection : Int {
 class UIMenuController : NSObject {
   class func shared() -> UIMenuController
   var isMenuVisible: Bool
-  func setMenuVisible(menuVisible: Bool, animated: Bool)
-  func setTargetRect(targetRect: CGRect, in targetView: UIView)
+  func setMenuVisible(_ menuVisible: Bool, animated animated: Bool)
+  func setTargetRect(_ targetRect: CGRect, in targetView: UIView)
   @available(iOS 3.2, *)
   var arrowDirection: UIMenuControllerArrowDirection
   @available(iOS 3.2, *)
@@ -33,7 +33,7 @@ let UIMenuControllerDidHideMenuNotification: String
 let UIMenuControllerMenuFrameDidChangeNotification: String
 @available(iOS 3.2, *)
 class UIMenuItem : NSObject {
-  init(title: String, action: Selector)
+  init(title title: String, action action: Selector)
   var title: String
   var action: Selector
   convenience init()

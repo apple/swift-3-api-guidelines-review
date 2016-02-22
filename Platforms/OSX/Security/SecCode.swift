@@ -1,9 +1,9 @@
 
 func SecCodeGetTypeID() -> CFTypeID
-func SecCodeCopySelf(flags: SecCSFlags, _ self: UnsafeMutablePointer<SecCode?>) -> OSStatus
+func SecCodeCopySelf(_ flags: SecCSFlags, _ self: UnsafeMutablePointer<SecCode?>) -> OSStatus
 var kSecCSUseAllArchitectures: UInt32 { get }
-func SecCodeCopyStaticCode(code: SecCode, _ flags: SecCSFlags, _ staticCode: UnsafeMutablePointer<SecStaticCode?>) -> OSStatus
-func SecCodeCopyHost(guest: SecCode, _ flags: SecCSFlags, _ host: UnsafeMutablePointer<SecCode?>) -> OSStatus
+func SecCodeCopyStaticCode(_ code: SecCode, _ flags: SecCSFlags, _ staticCode: UnsafeMutablePointer<SecStaticCode?>) -> OSStatus
+func SecCodeCopyHost(_ guest: SecCode, _ flags: SecCSFlags, _ host: UnsafeMutablePointer<SecCode?>) -> OSStatus
 let kSecGuestAttributeCanonical: CFString
 let kSecGuestAttributeHash: CFString
 let kSecGuestAttributeMachPort: CFString
@@ -12,11 +12,11 @@ let kSecGuestAttributeDynamicCode: CFString
 let kSecGuestAttributeDynamicCodeInfoPlist: CFString
 let kSecGuestAttributeArchitecture: CFString
 let kSecGuestAttributeSubarchitecture: CFString
-func SecCodeCopyGuestWithAttributes(host: SecCode?, _ attributes: CFDictionary?, _ flags: SecCSFlags, _ guest: UnsafeMutablePointer<SecCode?>) -> OSStatus
-func SecCodeCheckValidity(code: SecCode, _ flags: SecCSFlags, _ requirement: SecRequirement?) -> OSStatus
-func SecCodeCheckValidityWithErrors(code: SecCode, _ flags: SecCSFlags, _ requirement: SecRequirement?, _ errors: UnsafeMutablePointer<Unmanaged<CFError>?>) -> OSStatus
-func SecCodeCopyPath(staticCode: SecStaticCode, _ flags: SecCSFlags, _ path: UnsafeMutablePointer<CFURL?>) -> OSStatus
-func SecCodeCopyDesignatedRequirement(code: SecStaticCode, _ flags: SecCSFlags, _ requirement: UnsafeMutablePointer<SecRequirement?>) -> OSStatus
+func SecCodeCopyGuestWithAttributes(_ host: SecCode?, _ attributes: CFDictionary?, _ flags: SecCSFlags, _ guest: UnsafeMutablePointer<SecCode?>) -> OSStatus
+func SecCodeCheckValidity(_ code: SecCode, _ flags: SecCSFlags, _ requirement: SecRequirement?) -> OSStatus
+func SecCodeCheckValidityWithErrors(_ code: SecCode, _ flags: SecCSFlags, _ requirement: SecRequirement?, _ errors: UnsafeMutablePointer<Unmanaged<CFError>?>) -> OSStatus
+func SecCodeCopyPath(_ staticCode: SecStaticCode, _ flags: SecCSFlags, _ path: UnsafeMutablePointer<CFURL?>) -> OSStatus
+func SecCodeCopyDesignatedRequirement(_ code: SecStaticCode, _ flags: SecCSFlags, _ requirement: UnsafeMutablePointer<SecRequirement?>) -> OSStatus
 var kSecCSInternalInformation: UInt32 { get }
 var kSecCSSigningInformation: UInt32 { get }
 var kSecCSRequirementInformation: UInt32 { get }
@@ -45,5 +45,5 @@ let kSecCodeInfoTime: CFString
 let kSecCodeInfoTimestamp: CFString
 let kSecCodeInfoTrust: CFString
 let kSecCodeInfoUnique: CFString
-func SecCodeCopySigningInformation(code: SecStaticCode, _ flags: SecCSFlags, _ information: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
-func SecCodeMapMemory(code: SecStaticCode, _ flags: SecCSFlags) -> OSStatus
+func SecCodeCopySigningInformation(_ code: SecStaticCode, _ flags: SecCSFlags, _ information: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
+func SecCodeMapMemory(_ code: SecStaticCode, _ flags: SecCSFlags) -> OSStatus

@@ -3,28 +3,28 @@
 class SKPaymentQueue : NSObject {
   class func defaultQueue() -> SKPaymentQueue
   class func canMakePayments() -> Bool
-  func add(payment: SKPayment)
+  func add(_ payment: SKPayment)
   func restoreCompletedTransactions()
   func restoreCompletedTransactions(applicationUsername username: String?)
-  func finishTransaction(transaction: SKPaymentTransaction)
-  func add(observer: SKPaymentTransactionObserver)
-  func remove(observer: SKPaymentTransactionObserver)
+  func finishTransaction(_ transaction: SKPaymentTransaction)
+  func add(_ observer: SKPaymentTransactionObserver)
+  func remove(_ observer: SKPaymentTransactionObserver)
   var transactions: [SKPaymentTransaction]? { get }
-  func start(downloads: [SKDownload])
-  func pause(downloads: [SKDownload])
-  func resumeDownloads(downloads: [SKDownload])
-  func cancel(downloads: [SKDownload])
+  func start(_ downloads: [SKDownload])
+  func pause(_ downloads: [SKDownload])
+  func resumeDownloads(_ downloads: [SKDownload])
+  func cancel(_ downloads: [SKDownload])
   init()
 }
 protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(OSX 10.7, *)
-  func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
+  func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])
   @available(OSX 10.7, *)
-  optional func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
+  optional func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction])
   @available(OSX 10.7, *)
-  optional func paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
+  optional func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: NSError)
   @available(OSX 10.7, *)
-  optional func paymentQueueRestoreCompletedTransactionsFinished(queue: SKPaymentQueue)
+  optional func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue)
   @available(OSX 10.8, *)
-  optional func paymentQueue(queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload])
+  optional func paymentQueue(_ queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload])
 }

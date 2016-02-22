@@ -8,7 +8,7 @@ class AVBInterface : NSObject {
   class func macAddress(forInterfaceNamed anInterfaceName: String) -> AVBMACAddress?
   class func supportedInterfaces() -> [String]?
   class func isAVBEnabled(onInterfaceNamed anInterfaceName: String) -> Bool
-  class func isAVBCapableInterfaceNamed(anInterfaceName: String) -> Bool
+  class func isAVBCapableInterfaceNamed(_ anInterfaceName: String) -> Bool
   init?(interfaceName anInterfaceName: String)
   @available(OSX, introduced=10.8, deprecated=10.10)
   class func myGUID() -> UInt64

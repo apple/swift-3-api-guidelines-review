@@ -3,12 +3,12 @@ typealias NSItemProviderCompletionHandler = (NSSecureCoding?, NSError!) -> Void
 typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClass!, [NSObject : AnyObject]!) -> Void
 @available(OSX 10.10, *)
 class NSItemProvider : NSObject, NSCopying {
-  init(item: NSSecureCoding?, typeIdentifier: String?)
+  init(item item: NSSecureCoding?, typeIdentifier typeIdentifier: String?)
   convenience init?(contentsOf fileURL: NSURL!)
-  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
+  func registerItem(forTypeIdentifier typeIdentifier: String, loadHandler loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConforming(toTypeIdentifier typeIdentifier: String) -> Bool
-  func loadItem(forTypeIdentifier typeIdentifier: String, options: [NSObject : AnyObject]? = [:], completionHandler: NSItemProviderCompletionHandler? = nil)
+  func loadItem(forTypeIdentifier typeIdentifier: String, options options: [NSObject : AnyObject]? = [:], completionHandler completionHandler: NSItemProviderCompletionHandler? = nil)
   convenience init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -19,7 +19,7 @@ extension NSItemProvider {
   @available(OSX 10.10, *)
   var previewImageHandler: NSItemProviderLoadHandler?
   @available(OSX 10.10, *)
-  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler: NSItemProviderCompletionHandler!)
+  func loadPreviewImage(options options: [NSObject : AnyObject]! = [:], completionHandler completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(OSX 10.10, *)
 let NSExtensionJavaScriptPreprocessingResultsKey: String
@@ -27,7 +27,7 @@ let NSExtensionJavaScriptPreprocessingResultsKey: String
 let NSItemProviderErrorDomain: String
 @available(OSX 10.10, *)
 enum NSItemProviderErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknownError
   case itemUnavailableError

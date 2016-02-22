@@ -13,7 +13,7 @@ class NSPopUpButton : NSButton {
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func indexOf(item: NSMenuItem) -> Int
+  func indexOf(_ item: NSMenuItem) -> Int
   func indexOfItem(withTitle title: String) -> Int
   func indexOfItem(withTag tag: Int) -> Int
   func indexOfItem(withRepresentedObject obj: AnyObject?) -> Int
@@ -21,11 +21,11 @@ class NSPopUpButton : NSButton {
   func item(at index: Int) -> NSMenuItem?
   func item(withTitle title: String) -> NSMenuItem?
   var lastItem: NSMenuItem? { get }
-  func select(item: NSMenuItem?)
+  func select(_ item: NSMenuItem?)
   func selectItem(at index: Int)
   func selectItem(title title: String)
   func selectItem(tag tag: Int) -> Bool
-  func setTitle(aString: String)
+  func setTitle(_ aString: String)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
   func synchronizeTitleAndSelectedItem()
@@ -34,13 +34,13 @@ class NSPopUpButton : NSButton {
   var titleOfSelectedItem: String? { get }
   func selectedTag() -> Int
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __pbFlags {
   var needsPullsDownFromTemplate: UInt32
   var RESERVED: UInt32
   init()
-  init(needsPullsDownFromTemplate: UInt32, RESERVED: UInt32)
+  init(needsPullsDownFromTemplate needsPullsDownFromTemplate: UInt32, RESERVED RESERVED: UInt32)
 }
 let NSPopUpButtonWillPopUpNotification: String

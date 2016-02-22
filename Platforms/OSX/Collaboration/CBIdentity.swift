@@ -1,11 +1,11 @@
 
 @available(OSX 10.5, *)
 class CBIdentity : NSObject, NSCoding, NSCopying {
-  /*not inherited*/ init?(name: String, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(name name: String, authority authority: CBIdentityAuthority)
   @available(OSX 10.11, *)
-  /*not inherited*/ init?(uniqueIdentifier uuid: NSUUID, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(uniqueIdentifier uuid: NSUUID, authority authority: CBIdentityAuthority)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use +identityWithUniqueIdentifier:authority: instead.")
-  /*not inherited*/ init?(uuidString uuid: String, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(uuidString uuid: String, authority authority: CBIdentityAuthority)
   /*not inherited*/ init?(persistentReference data: NSData)
   var authority: CBIdentityAuthority { get }
   @available(OSX 10.11, *)
@@ -29,7 +29,7 @@ class CBIdentity : NSObject, NSCoding, NSCopying {
 }
 @available(OSX 10.5, *)
 class CBUserIdentity : CBIdentity, NSCoding, NSCopying {
-  /*not inherited*/ init?(posixUID uid: uid_t, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(posixUID uid: uid_t, authority authority: CBIdentityAuthority)
   var posixUID: uid_t { get }
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
@@ -39,7 +39,7 @@ class CBUserIdentity : CBIdentity, NSCoding, NSCopying {
 }
 @available(OSX 10.5, *)
 class CBGroupIdentity : CBIdentity {
-  /*not inherited*/ init?(posixGID gid: gid_t, authority: CBIdentityAuthority)
+  /*not inherited*/ init?(posixGID gid: gid_t, authority authority: CBIdentityAuthority)
   var posixGID: gid_t { get }
   @available(OSX 10.11, *)
   var memberIdentities: [CBIdentity] { get }

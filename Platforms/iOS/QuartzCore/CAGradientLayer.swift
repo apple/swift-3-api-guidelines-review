@@ -6,7 +6,7 @@ class CAGradientLayer : CALayer {
   var endPoint: CGPoint
   var type: String
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 3.0, *)

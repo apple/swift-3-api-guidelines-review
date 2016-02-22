@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(addresses: [String], networkPrefixLengths: [NSNumber])
+  init(addresses addresses: [String], networkPrefixLengths networkPrefixLengths: [NSNumber])
   @available(iOS 9.0, *)
   var addresses: [String] { get }
   @available(iOS 9.0, *)
@@ -23,7 +23,7 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
 @available(iOS 9.0, *)
 class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(destinationAddress address: String, networkPrefixLength: NSNumber)
+  init(destinationAddress address: String, networkPrefixLength networkPrefixLength: NSNumber)
   @available(iOS 9.0, *)
   var destinationAddress: String { get }
   @available(iOS 9.0, *)

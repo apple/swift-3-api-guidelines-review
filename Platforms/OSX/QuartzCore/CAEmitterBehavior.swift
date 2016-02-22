@@ -1,7 +1,7 @@
 
 class CAEmitterBehavior : NSObject, NSCoding {
   class func behaviorTypes() -> [String]
-  init(type: String)
+  init(type type: String)
   var type: String { get }
   var name: String?
   var isEnabled: Bool

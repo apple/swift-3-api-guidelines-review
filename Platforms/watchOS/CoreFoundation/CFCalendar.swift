@@ -3,18 +3,18 @@ class CFCalendar {
 }
 func CFCalendarGetTypeID() -> CFTypeID
 func CFCalendarCopyCurrent() -> CFCalendar!
-func CFCalendarCreateWithIdentifier(allocator: CFAllocator!, _ identifier: CFString!) -> CFCalendar!
-func CFCalendarGetIdentifier(calendar: CFCalendar!) -> CFString!
-func CFCalendarCopyLocale(calendar: CFCalendar!) -> CFLocale!
-func CFCalendarSetLocale(calendar: CFCalendar!, _ locale: CFLocale!)
-func CFCalendarCopyTimeZone(calendar: CFCalendar!) -> CFTimeZone!
-func CFCalendarSetTimeZone(calendar: CFCalendar!, _ tz: CFTimeZone!)
-func CFCalendarGetFirstWeekday(calendar: CFCalendar!) -> CFIndex
-func CFCalendarSetFirstWeekday(calendar: CFCalendar!, _ wkdy: CFIndex)
-func CFCalendarGetMinimumDaysInFirstWeek(calendar: CFCalendar!) -> CFIndex
-func CFCalendarSetMinimumDaysInFirstWeek(calendar: CFCalendar!, _ mwd: CFIndex)
+func CFCalendarCreateWithIdentifier(_ allocator: CFAllocator!, _ identifier: CFString!) -> CFCalendar!
+func CFCalendarGetIdentifier(_ calendar: CFCalendar!) -> CFString!
+func CFCalendarCopyLocale(_ calendar: CFCalendar!) -> CFLocale!
+func CFCalendarSetLocale(_ calendar: CFCalendar!, _ locale: CFLocale!)
+func CFCalendarCopyTimeZone(_ calendar: CFCalendar!) -> CFTimeZone!
+func CFCalendarSetTimeZone(_ calendar: CFCalendar!, _ tz: CFTimeZone!)
+func CFCalendarGetFirstWeekday(_ calendar: CFCalendar!) -> CFIndex
+func CFCalendarSetFirstWeekday(_ calendar: CFCalendar!, _ wkdy: CFIndex)
+func CFCalendarGetMinimumDaysInFirstWeek(_ calendar: CFCalendar!) -> CFIndex
+func CFCalendarSetMinimumDaysInFirstWeek(_ calendar: CFCalendar!, _ mwd: CFIndex)
 struct CFCalendarUnit : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var era: CFCalendarUnit { get }
   static var year: CFCalendarUnit { get }
@@ -36,10 +36,10 @@ struct CFCalendarUnit : OptionSetType {
   @available(watchOS 2.0, *)
   static var yearForWeekOfYear: CFCalendarUnit { get }
 }
-func CFCalendarGetMinimumRangeOfUnit(calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange
-func CFCalendarGetMaximumRangeOfUnit(calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange
-func CFCalendarGetRangeOfUnit(calendar: CFCalendar!, _ smallerUnit: CFCalendarUnit, _ biggerUnit: CFCalendarUnit, _ at: CFAbsoluteTime) -> CFRange
-func CFCalendarGetOrdinalityOfUnit(calendar: CFCalendar!, _ smallerUnit: CFCalendarUnit, _ biggerUnit: CFCalendarUnit, _ at: CFAbsoluteTime) -> CFIndex
+func CFCalendarGetMinimumRangeOfUnit(_ calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange
+func CFCalendarGetMaximumRangeOfUnit(_ calendar: CFCalendar!, _ unit: CFCalendarUnit) -> CFRange
+func CFCalendarGetRangeOfUnit(_ calendar: CFCalendar!, _ smallerUnit: CFCalendarUnit, _ biggerUnit: CFCalendarUnit, _ at: CFAbsoluteTime) -> CFRange
+func CFCalendarGetOrdinalityOfUnit(_ calendar: CFCalendar!, _ smallerUnit: CFCalendarUnit, _ biggerUnit: CFCalendarUnit, _ at: CFAbsoluteTime) -> CFIndex
 @available(watchOS 2.0, *)
-func CFCalendarGetTimeRangeOfUnit(calendar: CFCalendar!, _ unit: CFCalendarUnit, _ at: CFAbsoluteTime, _ startp: UnsafeMutablePointer<CFAbsoluteTime>, _ tip: UnsafeMutablePointer<CFTimeInterval>) -> Bool
+func CFCalendarGetTimeRangeOfUnit(_ calendar: CFCalendar!, _ unit: CFCalendarUnit, _ at: CFAbsoluteTime, _ startp: UnsafeMutablePointer<CFAbsoluteTime>, _ tip: UnsafeMutablePointer<CFTimeInterval>) -> Bool
 var kCFCalendarComponentsWrap: CFOptionFlags { get }

@@ -1,6 +1,6 @@
 
 enum NSCharacterCollection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case identityMappingCharacterCollection
   case adobeCNS1CharacterCollection
@@ -10,8 +10,8 @@ enum NSCharacterCollection : UInt {
   case adobeKorea1CharacterCollection
 }
 class NSGlyphInfo : NSObject, NSCopying, NSSecureCoding {
-  /*not inherited*/ init?(glyphName: String, for font: NSFont, baseString theString: String)
-  /*not inherited*/ init?(glyph: NSGlyph, for font: NSFont, baseString theString: String)
+  /*not inherited*/ init?(glyphName glyphName: String, for font: NSFont, baseString theString: String)
+  /*not inherited*/ init?(glyph glyph: NSGlyph, for font: NSFont, baseString theString: String)
   /*not inherited*/ init?(characterIdentifier cid: Int, collection characterCollection: NSCharacterCollection, baseString theString: String)
   var glyphName: String? { get }
   var characterIdentifier: Int { get }

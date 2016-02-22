@@ -9,7 +9,7 @@ let AVCaptureSessionDidStartRunningNotification: String
 let AVCaptureSessionDidStopRunningNotification: String
 @available(OSX 10.7, *)
 enum AVCaptureVideoOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case portrait
   case portraitUpsideDown
@@ -40,26 +40,26 @@ let AVCaptureSessionPresetiFrame960x540: String
 let AVCaptureSessionPresetiFrame1280x720: String
 @available(OSX 10.7, *)
 class AVCaptureSession : NSObject {
-  func canSetSessionPreset(preset: String!) -> Bool
+  func canSetSessionPreset(_ preset: String!) -> Bool
   var sessionPreset: String!
   var inputs: [AnyObject]! { get }
-  func canAddInput(input: AVCaptureInput!) -> Bool
-  func addInput(input: AVCaptureInput!)
-  func removeInput(input: AVCaptureInput!)
+  func canAddInput(_ input: AVCaptureInput!) -> Bool
+  func addInput(_ input: AVCaptureInput!)
+  func removeInput(_ input: AVCaptureInput!)
   var outputs: [AnyObject]! { get }
-  func canAddOutput(output: AVCaptureOutput!) -> Bool
-  func addOutput(output: AVCaptureOutput!)
-  func removeOutput(output: AVCaptureOutput!)
+  func canAddOutput(_ output: AVCaptureOutput!) -> Bool
+  func addOutput(_ output: AVCaptureOutput!)
+  func removeOutput(_ output: AVCaptureOutput!)
   @available(OSX 10.7, *)
-  func addInputWithNoConnections(input: AVCaptureInput!)
+  func addInputWithNoConnections(_ input: AVCaptureInput!)
   @available(OSX 10.7, *)
-  func addOutputWithNoConnections(output: AVCaptureOutput!)
+  func addOutputWithNoConnections(_ output: AVCaptureOutput!)
   @available(OSX 10.7, *)
-  func canAdd(connection: AVCaptureConnection!) -> Bool
+  func canAdd(_ connection: AVCaptureConnection!) -> Bool
   @available(OSX 10.7, *)
-  func add(connection: AVCaptureConnection!)
+  func add(_ connection: AVCaptureConnection!)
   @available(OSX 10.7, *)
-  func remove(connection: AVCaptureConnection!)
+  func remove(_ connection: AVCaptureConnection!)
   func beginConfiguration()
   func commitConfiguration()
   var isRunning: Bool { get }
@@ -71,7 +71,7 @@ class AVCaptureSession : NSObject {
 }
 @available(OSX 10.7, *)
 enum AVVideoFieldMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case both
   case topOnly
@@ -81,7 +81,7 @@ enum AVVideoFieldMode : Int {
 @available(OSX 10.7, *)
 class AVCaptureConnection : NSObject {
   @available(OSX 10.7, *)
-  init!(inputPorts ports: [AnyObject]!, output: AVCaptureOutput!)
+  init!(inputPorts ports: [AnyObject]!, output output: AVCaptureOutput!)
   @available(OSX 10.7, *)
   init!(inputPort port: AVCaptureInputPort!, videoPreviewLayer layer: AVCaptureVideoPreviewLayer!)
   var inputPorts: [AnyObject]! { get }

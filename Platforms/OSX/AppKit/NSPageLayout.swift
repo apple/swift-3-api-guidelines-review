@@ -1,13 +1,13 @@
 
 class NSPageLayout : NSObject {
   @available(OSX 10.5, *)
-  func addAccessoryController(accessoryController: NSViewController)
+  func addAccessoryController(_ accessoryController: NSViewController)
   @available(OSX 10.5, *)
-  func removeAccessoryController(accessoryController: NSViewController)
+  func removeAccessoryController(_ accessoryController: NSViewController)
   @available(OSX 10.5, *)
   var accessoryControllers: [NSViewController] { get }
-  func beginSheet(printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func runModal(printInfo: NSPrintInfo) -> Int
+  func beginSheet(_ printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func runModal(_ printInfo: NSPrintInfo) -> Int
   func runModal() -> Int
   var printInfo: NSPrintInfo? { get }
   init()
@@ -15,5 +15,5 @@ class NSPageLayout : NSObject {
 extension NSPageLayout {
 }
 extension NSApplication {
-  func runPageLayout(sender: AnyObject?)
+  func runPageLayout(_ sender: AnyObject?)
 }

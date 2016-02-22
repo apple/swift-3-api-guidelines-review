@@ -1,6 +1,6 @@
 
 struct CBCharacteristicProperties : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var broadcast: CBCharacteristicProperties { get }
   static var read: CBCharacteristicProperties { get }
@@ -27,7 +27,7 @@ class CBCharacteristic : CBAttribute {
 }
 @available(tvOS 6.0, *)
 struct CBAttributePermissions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var readable: CBAttributePermissions { get }
   static var writeable: CBAttributePermissions { get }

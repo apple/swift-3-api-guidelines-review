@@ -5,7 +5,7 @@ let HKMetadataKeyDeviceSerialNumber: String
 let HKMetadataKeyBodyTemperatureSensorLocation: String
 @available(watchOS 2.0, *)
 enum HKBodyTemperatureSensorLocation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case other
   case armpit
@@ -24,7 +24,7 @@ enum HKBodyTemperatureSensorLocation : Int {
 let HKMetadataKeyHeartRateSensorLocation: String
 @available(watchOS 2.0, *)
 enum HKHeartRateSensorLocation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case other
   case chest

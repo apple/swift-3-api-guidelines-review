@@ -35,7 +35,7 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   @available(tvOS 3.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 3.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32
@@ -52,5 +52,5 @@ struct __entityDescriptionFlags {
   var _validationUniqueProperties: UInt32
   var _reservedEntityDescription: UInt32
   init()
-  init(_isAbstract: UInt32, _shouldValidateOnSave: UInt32, _isImmutable: UInt32, _isFlattened: UInt32, _skipValidation: UInt32, _hasPropertiesIndexedBySpotlight: UInt32, _hasPropertiesStoredInTruthFile: UInt32, _rangesAreInDataBlob: UInt32, _hasAttributesWithExternalDataReferences: UInt32, _hasNonstandardPrimitiveProperties: UInt32, _hasUniqueProperties: UInt32, _validationUniqueProperties: UInt32, _reservedEntityDescription: UInt32)
+  init(_isAbstract _isAbstract: UInt32, _shouldValidateOnSave _shouldValidateOnSave: UInt32, _isImmutable _isImmutable: UInt32, _isFlattened _isFlattened: UInt32, _skipValidation _skipValidation: UInt32, _hasPropertiesIndexedBySpotlight _hasPropertiesIndexedBySpotlight: UInt32, _hasPropertiesStoredInTruthFile _hasPropertiesStoredInTruthFile: UInt32, _rangesAreInDataBlob _rangesAreInDataBlob: UInt32, _hasAttributesWithExternalDataReferences _hasAttributesWithExternalDataReferences: UInt32, _hasNonstandardPrimitiveProperties _hasNonstandardPrimitiveProperties: UInt32, _hasUniqueProperties _hasUniqueProperties: UInt32, _validationUniqueProperties _validationUniqueProperties: UInt32, _reservedEntityDescription _reservedEntityDescription: UInt32)
 }

@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum SKParticleRenderOrder : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case oldestLast
   case oldestFirst
   case dontCare
 }
 class SKEmitterNode : SKNode {
-  func advanceSimulationTime(sec: NSTimeInterval)
+  func advanceSimulationTime(_ sec: NSTimeInterval)
   func resetSimulation()
   var particleTexture: SKTexture?
   var particleBlendMode: SKBlendMode

@@ -56,7 +56,7 @@ struct cssm_acl_process_subject_selector {
   var uid: uint32
   var gid: uint32
   init()
-  init(version: uint16, mask: uint16, uid: uint32, gid: uint32)
+  init(version version: uint16, mask mask: uint16, uid uid: uint32, gid gid: uint32)
 }
 typealias CSSM_ACL_PROCESS_SUBJECT_SELECTOR = cssm_acl_process_subject_selector
 var CSSM_ACL_KEYCHAIN_PROMPT_CURRENT_VERSION: Int { get }
@@ -69,7 +69,7 @@ struct cssm_acl_keychain_prompt_selector {
   var version: uint16
   var flags: uint16
   init()
-  init(version: uint16, flags: uint16)
+  init(version version: uint16, flags flags: uint16)
 }
 typealias CSSM_ACL_KEYCHAIN_PROMPT_SELECTOR = cssm_acl_keychain_prompt_selector
 typealias CSSM_ACL_PREAUTH_TRACKING_STATE = uint32
@@ -271,7 +271,7 @@ var CSSMERR_APPLE_DOTMAC_FAILED_CONSISTENCY_CHECK: Int { get }
 var CSSM_APPLEDL_OPEN_PARAMETERS_VERSION: Int { get }
 struct cssm_appledl_open_parameters_mask : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCSSM_APPLEDL_MASK_MODE: cssm_appledl_open_parameters_mask { get }
@@ -282,7 +282,7 @@ struct cssm_appledl_open_parameters {
   var mask: uint32
   var mode: mode_t
   init()
-  init(length: uint32, version: uint32, autoCommit: CSSM_BOOL, mask: uint32, mode: mode_t)
+  init(length length: uint32, version version: uint32, autoCommit autoCommit: CSSM_BOOL, mask mask: uint32, mode mode: mode_t)
 }
 typealias CSSM_APPLEDL_OPEN_PARAMETERS = cssm_appledl_open_parameters
 typealias CSSM_APPLEDL_OPEN_PARAMETERS_PTR = UnsafeMutablePointer<cssm_appledl_open_parameters>
@@ -310,21 +310,21 @@ struct cssm_applecspdl_db_settings_parameters {
   var idleTimeout: uint32
   var lockOnSleep: uint8
   init()
-  init(idleTimeout: uint32, lockOnSleep: uint8)
+  init(idleTimeout idleTimeout: uint32, lockOnSleep lockOnSleep: uint8)
 }
 typealias CSSM_APPLECSPDL_DB_SETTINGS_PARAMETERS = cssm_applecspdl_db_settings_parameters
 typealias CSSM_APPLECSPDL_DB_SETTINGS_PARAMETERS_PTR = UnsafeMutablePointer<cssm_applecspdl_db_settings_parameters>
 struct cssm_applecspdl_db_is_locked_parameters {
   var isLocked: uint8
   init()
-  init(isLocked: uint8)
+  init(isLocked isLocked: uint8)
 }
 typealias CSSM_APPLECSPDL_DB_IS_LOCKED_PARAMETERS = cssm_applecspdl_db_is_locked_parameters
 typealias CSSM_APPLECSPDL_DB_IS_LOCKED_PARAMETERS_PTR = UnsafeMutablePointer<cssm_applecspdl_db_is_locked_parameters>
 struct cssm_applecspdl_db_change_password_parameters {
   var accessCredentials: UnsafeMutablePointer<CSSM_ACCESS_CREDENTIALS>
   init()
-  init(accessCredentials: UnsafeMutablePointer<CSSM_ACCESS_CREDENTIALS>)
+  init(accessCredentials accessCredentials: UnsafeMutablePointer<CSSM_ACCESS_CREDENTIALS>)
 }
 typealias CSSM_APPLECSPDL_DB_CHANGE_PASSWORD_PARAMETERS = cssm_applecspdl_db_change_password_parameters
 typealias CSSM_APPLECSPDL_DB_CHANGE_PASSWORD_PARAMETERS_PTR = UnsafeMutablePointer<cssm_applecspdl_db_change_password_parameters>
@@ -361,7 +361,7 @@ struct CSSM_APPLE_TP_NAME_OID {
   var string: UnsafePointer<Int8>
   var oid: UnsafePointer<CSSM_OID>
   init()
-  init(string: UnsafePointer<Int8>, oid: UnsafePointer<CSSM_OID>)
+  init(string string: UnsafePointer<Int8>, oid oid: UnsafePointer<CSSM_OID>)
 }
 struct CSSM_APPLE_TP_CERT_REQUEST {
   var cspHand: CSSM_CSP_HANDLE
@@ -382,7 +382,7 @@ struct CSSM_APPLE_TP_CERT_REQUEST {
   var extensions: UnsafeMutablePointer<CE_DataAndType>
   var challengeString: UnsafePointer<Int8>
   init()
-  init(cspHand: CSSM_CSP_HANDLE, clHand: CSSM_CL_HANDLE, serialNumber: uint32, numSubjectNames: uint32, subjectNames: UnsafeMutablePointer<CSSM_APPLE_TP_NAME_OID>, numIssuerNames: uint32, issuerNames: UnsafeMutablePointer<CSSM_APPLE_TP_NAME_OID>, issuerNameX509: CSSM_X509_NAME_PTR, certPublicKey: UnsafePointer<CSSM_KEY>, issuerPrivateKey: UnsafePointer<CSSM_KEY>, signatureAlg: CSSM_ALGORITHMS, signatureOid: CSSM_OID, notBefore: uint32, notAfter: uint32, numExtensions: uint32, extensions: UnsafeMutablePointer<CE_DataAndType>, challengeString: UnsafePointer<Int8>)
+  init(cspHand cspHand: CSSM_CSP_HANDLE, clHand clHand: CSSM_CL_HANDLE, serialNumber serialNumber: uint32, numSubjectNames numSubjectNames: uint32, subjectNames subjectNames: UnsafeMutablePointer<CSSM_APPLE_TP_NAME_OID>, numIssuerNames numIssuerNames: uint32, issuerNames issuerNames: UnsafeMutablePointer<CSSM_APPLE_TP_NAME_OID>, issuerNameX509 issuerNameX509: CSSM_X509_NAME_PTR, certPublicKey certPublicKey: UnsafePointer<CSSM_KEY>, issuerPrivateKey issuerPrivateKey: UnsafePointer<CSSM_KEY>, signatureAlg signatureAlg: CSSM_ALGORITHMS, signatureOid signatureOid: CSSM_OID, notBefore notBefore: uint32, notAfter notAfter: uint32, numExtensions numExtensions: uint32, extensions extensions: UnsafeMutablePointer<CE_DataAndType>, challengeString challengeString: UnsafePointer<Int8>)
 }
 var CSSM_APPLE_TP_SSL_OPTS_VERSION: Int32 { get }
 var CSSM_APPLE_TP_SSL_CLIENT: Int32 { get }
@@ -392,7 +392,7 @@ struct CSSM_APPLE_TP_SSL_OPTIONS {
   var ServerName: UnsafePointer<Int8>
   var Flags: uint32
   init()
-  init(Version: uint32, ServerNameLen: uint32, ServerName: UnsafePointer<Int8>, Flags: uint32)
+  init(Version Version: uint32, ServerNameLen ServerNameLen: uint32, ServerName ServerName: UnsafePointer<Int8>, Flags Flags: uint32)
 }
 var CSSM_APPLE_TP_CRL_OPTS_VERSION: Int32 { get }
 typealias CSSM_APPLE_TP_CRL_OPT_FLAGS = uint32
@@ -405,7 +405,7 @@ struct CSSM_APPLE_TP_CRL_OPTIONS {
   var CrlFlags: CSSM_APPLE_TP_CRL_OPT_FLAGS
   var crlStore: CSSM_DL_DB_HANDLE_PTR
   init()
-  init(Version: uint32, CrlFlags: CSSM_APPLE_TP_CRL_OPT_FLAGS, crlStore: CSSM_DL_DB_HANDLE_PTR)
+  init(Version Version: uint32, CrlFlags CrlFlags: CSSM_APPLE_TP_CRL_OPT_FLAGS, crlStore crlStore: CSSM_DL_DB_HANDLE_PTR)
 }
 var CSSM_APPLE_TP_SMIME_OPTS_VERSION: Int32 { get }
 struct CSSM_APPLE_TP_SMIME_OPTIONS {
@@ -414,7 +414,7 @@ struct CSSM_APPLE_TP_SMIME_OPTIONS {
   var SenderEmailLen: uint32
   var SenderEmail: UnsafePointer<Int8>
   init()
-  init(Version: uint32, IntendedUsage: CE_KeyUsage, SenderEmailLen: uint32, SenderEmail: UnsafePointer<Int8>)
+  init(Version Version: uint32, IntendedUsage IntendedUsage: CE_KeyUsage, SenderEmailLen SenderEmailLen: uint32, SenderEmail SenderEmail: UnsafePointer<Int8>)
 }
 typealias CSSM_APPLE_TP_ACTION_FLAGS = uint32
 var CSSM_TP_ACTION_ALLOW_EXPIRED: Int { get }
@@ -429,7 +429,7 @@ struct CSSM_APPLE_TP_ACTION_DATA {
   var Version: uint32
   var ActionFlags: CSSM_APPLE_TP_ACTION_FLAGS
   init()
-  init(Version: uint32, ActionFlags: CSSM_APPLE_TP_ACTION_FLAGS)
+  init(Version Version: uint32, ActionFlags ActionFlags: CSSM_APPLE_TP_ACTION_FLAGS)
 }
 typealias CSSM_TP_APPLE_CERT_STATUS = uint32
 var CSSM_CERT_STATUS_EXPIRED: Int { get }
@@ -452,13 +452,13 @@ struct CSSM_TP_APPLE_EVIDENCE_INFO {
   var DlDbHandle: CSSM_DL_DB_HANDLE
   var UniqueRecord: CSSM_DB_UNIQUE_RECORD_PTR
   init()
-  init(StatusBits: CSSM_TP_APPLE_CERT_STATUS, NumStatusCodes: uint32, StatusCodes: UnsafeMutablePointer<CSSM_RETURN>, Index: uint32, DlDbHandle: CSSM_DL_DB_HANDLE, UniqueRecord: CSSM_DB_UNIQUE_RECORD_PTR)
+  init(StatusBits StatusBits: CSSM_TP_APPLE_CERT_STATUS, NumStatusCodes NumStatusCodes: uint32, StatusCodes StatusCodes: UnsafeMutablePointer<CSSM_RETURN>, Index Index: uint32, DlDbHandle DlDbHandle: CSSM_DL_DB_HANDLE, UniqueRecord UniqueRecord: CSSM_DB_UNIQUE_RECORD_PTR)
 }
 var CSSM_TP_APPLE_EVIDENCE_VERSION: Int32 { get }
 struct CSSM_TP_APPLE_EVIDENCE_HEADER {
   var Version: uint32
   init()
-  init(Version: uint32)
+  init(Version Version: uint32)
 }
 var CSSM_EVIDENCE_FORM_APPLE_CUSTOM: UInt32 { get }
 var CSSM_EVIDENCE_FORM_APPLE_HEADER: UInt32 { get }
@@ -475,15 +475,15 @@ struct CSSM_APPLE_CL_CSR_REQUEST {
   var subjectPrivateKey: UnsafePointer<CSSM_KEY>
   var challengeString: UnsafePointer<Int8>
   init()
-  init(subjectNameX509: CSSM_X509_NAME_PTR, signatureAlg: CSSM_ALGORITHMS, signatureOid: CSSM_OID, cspHand: CSSM_CSP_HANDLE, subjectPublicKey: UnsafePointer<CSSM_KEY>, subjectPrivateKey: UnsafePointer<CSSM_KEY>, challengeString: UnsafePointer<Int8>)
+  init(subjectNameX509 subjectNameX509: CSSM_X509_NAME_PTR, signatureAlg signatureAlg: CSSM_ALGORITHMS, signatureOid signatureOid: CSSM_OID, cspHand cspHand: CSSM_CSP_HANDLE, subjectPublicKey subjectPublicKey: UnsafePointer<CSSM_KEY>, subjectPrivateKey subjectPrivateKey: UnsafePointer<CSSM_KEY>, challengeString challengeString: UnsafePointer<Int8>)
 }
 var CSSM_APPLE_CRL_END_OF_TIME: String { get }
 var kKeychainSuffix: String { get }
 var kSystemKeychainName: String { get }
 var kSystemKeychainDir: String { get }
 var kSystemUnlockFile: String { get }
-func cssmPerror(how: UnsafePointer<Int8>, _ error: CSSM_RETURN)
-func cssmOidToAlg(oid: UnsafePointer<CSSM_OID>, _ alg: UnsafeMutablePointer<CSSM_ALGORITHMS>) -> Bool
-func cssmAlgToOid(algId: CSSM_ALGORITHMS) -> UnsafePointer<CSSM_OID>
+func cssmPerror(_ how: UnsafePointer<Int8>, _ error: CSSM_RETURN)
+func cssmOidToAlg(_ oid: UnsafePointer<CSSM_OID>, _ alg: UnsafeMutablePointer<CSSM_ALGORITHMS>) -> Bool
+func cssmAlgToOid(_ algId: CSSM_ALGORITHMS) -> UnsafePointer<CSSM_OID>
 var errSecErrnoBase: Int32 { get }
 var errSecErrnoLimit: Int32 { get }

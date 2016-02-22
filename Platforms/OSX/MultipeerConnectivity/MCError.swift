@@ -2,7 +2,7 @@
 let MCErrorDomain: String
 @available(OSX 10.10, *)
 enum MCErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case notConnected

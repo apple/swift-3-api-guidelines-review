@@ -8,7 +8,7 @@ let kUTTypePolygon: String
 @available(iOS 9.0, *)
 let kUTTypeStereolithography: String
 enum MDLIndexBitDepth : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case invalid
   case uInt8
@@ -19,7 +19,7 @@ enum MDLIndexBitDepth : UInt {
   static var uint32: MDLIndexBitDepth { get }
 }
 enum MDLGeometryType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case typePoints
   case typeLines
@@ -42,14 +42,14 @@ protocol MDLComponent : NSObjectProtocol {
 }
 @available(iOS 9.0, *)
 protocol MDLObjectContainerComponent : MDLComponent, NSFastEnumeration {
-  func add(object: MDLObject)
-  func remove(object: MDLObject)
+  func add(_ object: MDLObject)
+  func remove(_ object: MDLObject)
   var objects: [MDLObject] { get }
 }
 struct MDL_EXPORT_CPPCLASS {
   var maxBounds: vector_float3
   var minBounds: vector_float3
   init()
-  init(maxBounds: vector_float3, minBounds: vector_float3)
+  init(maxBounds maxBounds: vector_float3, minBounds minBounds: vector_float3)
 }
 typealias MDLAxisAlignedBoundingBox = MDL_EXPORT_CPPCLASS

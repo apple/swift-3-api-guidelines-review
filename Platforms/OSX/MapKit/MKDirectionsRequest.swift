@@ -19,5 +19,5 @@ extension MKDirectionsRequest {
   @available(OSX 10.9, *)
   init(contentsOf url: NSURL)
   @available(OSX 10.9, *)
-  class func isDirectionsRequest(url: NSURL) -> Bool
+  class func isDirectionsRequest(_ url: NSURL) -> Bool
 }

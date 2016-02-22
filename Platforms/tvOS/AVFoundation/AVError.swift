@@ -22,7 +22,7 @@ let AVErrorPersistentTrackIDKey: String
 @available(tvOS 8.0, *)
 let AVErrorFileTypeKey: String
 enum AVError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case outOfMemory

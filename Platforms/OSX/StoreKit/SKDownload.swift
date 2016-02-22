@@ -1,7 +1,7 @@
 
 struct SKDownloadState : RawRepresentable, Equatable {
   init(_ rawValue: Int)
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   var rawValue: Int
 }
 var SKDownloadStateWaiting: SKDownloadState { get }

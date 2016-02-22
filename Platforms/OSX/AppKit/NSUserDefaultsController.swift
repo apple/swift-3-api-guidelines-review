@@ -1,16 +1,16 @@
 
 class NSUserDefaultsController : NSController {
   class func shared() -> NSUserDefaultsController
-  init(defaults: NSUserDefaults?, initialValues: [String : AnyObject]?)
-  init?(coder: NSCoder)
+  init(defaults defaults: NSUserDefaults?, initialValues initialValues: [String : AnyObject]?)
+  init?(coder coder: NSCoder)
   var defaults: NSUserDefaults { get }
   var initialValues: [String : AnyObject]?
   var appliesImmediately: Bool
   var hasUnappliedChanges: Bool { get }
   var values: AnyObject { get }
-  func revert(sender: AnyObject?)
-  func save(sender: AnyObject?)
-  func revertToInitialValues(sender: AnyObject?)
+  func revert(_ sender: AnyObject?)
+  func save(_ sender: AnyObject?)
+  func revertToInitialValues(_ sender: AnyObject?)
   convenience init()
 }
 struct __userDefaultsControllerFlags {
@@ -18,5 +18,5 @@ struct __userDefaultsControllerFlags {
   var _appliesImmediately: UInt32
   var _reservedUserDefaultsController: UInt32
   init()
-  init(_sharedInstance: UInt32, _appliesImmediately: UInt32, _reservedUserDefaultsController: UInt32)
+  init(_sharedInstance _sharedInstance: UInt32, _appliesImmediately _appliesImmediately: UInt32, _reservedUserDefaultsController _reservedUserDefaultsController: UInt32)
 }

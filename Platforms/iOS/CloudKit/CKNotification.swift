@@ -12,7 +12,7 @@ class CKNotificationID : NSObject, NSCopying, NSSecureCoding {
 }
 @available(iOS 8.0, *)
 enum CKNotificationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case query
   case recordZone
@@ -39,7 +39,7 @@ class CKNotification : NSObject {
 }
 @available(iOS 8.0, *)
 enum CKQueryNotificationReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case recordCreated
   case recordUpdated

@@ -2,11 +2,11 @@
 @available(iOS 9.0, *)
 class NEFilterDataProvider : NEFilterProvider {
   @available(iOS 9.0, *)
-  func handleNewFlow(flow: NEFilterFlow) -> NEFilterNewFlowVerdict
+  func handleNewFlow(_ flow: NEFilterFlow) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
+  func handleInboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes readBytes: NSData) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes: NSData) -> NEFilterDataVerdict
+  func handleOutboundData(from flow: NEFilterFlow, readBytesStartOffset offset: Int, readBytes readBytes: NSData) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
   func handleInboundDataComplete(for flow: NEFilterFlow) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
@@ -24,9 +24,9 @@ class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func drop() -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  class func remediateVerdict(withRemediationURLMapKey remediationURLMapKey: String?, remediationButtonTextMapKey: String?) -> NEFilterDataVerdict
+  class func remediateVerdict(withRemediationURLMapKey remediationURLMapKey: String?, remediationButtonTextMapKey remediationButtonTextMapKey: String?) -> NEFilterDataVerdict
   @available(iOS 9.0, *)
-  /*not inherited*/ init(passBytes: Int, peekBytes: Int)
+  /*not inherited*/ init(passBytes passBytes: Int, peekBytes peekBytes: Int)
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterDataVerdict
   init()

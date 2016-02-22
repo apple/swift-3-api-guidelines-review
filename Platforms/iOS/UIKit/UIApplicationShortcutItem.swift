@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum UIApplicationShortcutIconType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case compose
   case play
@@ -57,16 +57,16 @@ enum UIApplicationShortcutIconType : Int {
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutIcon : NSObject, NSCopying {
-  convenience init(type: UIApplicationShortcutIconType)
-  convenience init(templateImageName: String)
+  convenience init(type type: UIApplicationShortcutIconType)
+  convenience init(templateImageName templateImageName: String)
   init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]? = [:])
-  convenience init(type: String, localizedTitle: String)
+  init(type type: String, localizedTitle localizedTitle: String, localizedSubtitle localizedSubtitle: String?, icon icon: UIApplicationShortcutIcon?, userInfo userInfo: [NSObject : AnyObject]? = [:])
+  convenience init(type type: String, localizedTitle localizedTitle: String)
   var type: String { get }
   var localizedTitle: String { get }
   var localizedSubtitle: String? { get }
@@ -84,6 +84,6 @@ class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {
   var localizedSubtitle: String?
   @NSCopying var icon: UIApplicationShortcutIcon?
   var userInfo: [String : NSSecureCoding]?
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]? = [:])
-  convenience init(type: String, localizedTitle: String)
+  init(type type: String, localizedTitle localizedTitle: String, localizedSubtitle localizedSubtitle: String?, icon icon: UIApplicationShortcutIcon?, userInfo userInfo: [NSObject : AnyObject]? = [:])
+  convenience init(type type: String, localizedTitle localizedTitle: String)
 }

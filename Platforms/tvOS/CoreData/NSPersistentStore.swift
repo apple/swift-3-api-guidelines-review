@@ -2,10 +2,10 @@
 @available(tvOS 3.0, *)
 class NSPersistentStore : NSObject {
   class func metadataForPersistentStore(with url: NSURL) throws -> [String : AnyObject]
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreWith url: NSURL) throws
+  class func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStoreWith url: NSURL) throws
   @available(tvOS 3.0, *)
   class func migrationManagerClass() -> AnyClass
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url: NSURL, options: [NSObject : AnyObject]? = [:])
+  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url url: NSURL, options options: [NSObject : AnyObject]? = [:])
   func loadMetadata() throws
   weak var persistentStoreCoordinator: @sil_weak NSPersistentStoreCoordinator? { get }
   var configurationName: String { get }
@@ -24,5 +24,5 @@ struct _objectStoreFlags {
   var isMDDirty: UInt32
   var _RESERVED: UInt32
   init()
-  init(isReadOnly: UInt32, cleanOnRemove: UInt32, isMDDirty: UInt32, _RESERVED: UInt32)
+  init(isReadOnly isReadOnly: UInt32, cleanOnRemove cleanOnRemove: UInt32, isMDDirty isMDDirty: UInt32, _RESERVED _RESERVED: UInt32)
 }

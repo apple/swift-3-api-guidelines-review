@@ -21,7 +21,7 @@ struct ScannerObjectInfo {
   var privateData: Ptr
   var tag: UInt32
   init()
-  init(icaObject: ICAObject, reserved: UInt, icaObjectInfo: ICAObjectInfo, uniqueID: UInt32, uniqueIDFireWire: UInt64, thumbnailSize: UInt32, dataSize: UInt32, dataWidth: UInt32, dataHeight: UInt32, name: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), creationDate: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), flags: UInt32, privateData: Ptr, tag: UInt32)
+  init(icaObject icaObject: ICAObject, reserved reserved: UInt, icaObjectInfo icaObjectInfo: ICAObjectInfo, uniqueID uniqueID: UInt32, uniqueIDFireWire uniqueIDFireWire: UInt64, thumbnailSize thumbnailSize: UInt32, dataSize dataSize: UInt32, dataWidth dataWidth: UInt32, dataHeight dataHeight: UInt32, name name: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), creationDate creationDate: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), flags flags: UInt32, privateData privateData: Ptr, tag tag: UInt32)
 }
 struct ICD_ScannerObjectSendMessagePB {
   var header: ICDHeader
@@ -32,7 +32,7 @@ struct ICD_ScannerObjectSendMessagePB {
   var totalDataSize: UInt32
   var result: UInt32
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, message: ICAMessage, totalDataSize: UInt32, result: UInt32)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, message message: ICAMessage, totalDataSize totalDataSize: UInt32, result result: UInt32)
 }
 struct ICD_ScannerOpenSessionPB {
   var header: ICDHeader
@@ -41,7 +41,7 @@ struct ICD_ScannerOpenSessionPB {
   var connectionID: ICAConnectionID
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICD_ScannerCloseSessionPB {
   var header: ICDHeader
@@ -50,7 +50,7 @@ struct ICD_ScannerCloseSessionPB {
   var connectionID: ICAConnectionID
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICD_ScannerInitializePB {
   var header: ICDHeader
@@ -59,7 +59,7 @@ struct ICD_ScannerInitializePB {
   var connectionID: ICAConnectionID
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICD_ScannerGetParametersPB {
   var header: ICDHeader
@@ -69,7 +69,7 @@ struct ICD_ScannerGetParametersPB {
   var sessionID: ICAScannerSessionID
   var theDict: Unmanaged<CFMutableDictionary>!
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID, theDict: Unmanaged<CFMutableDictionary>!)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID, theDict theDict: Unmanaged<CFMutableDictionary>!)
 }
 struct ICD_ScannerSetParametersPB {
   var header: ICDHeader
@@ -79,7 +79,7 @@ struct ICD_ScannerSetParametersPB {
   var sessionID: ICAScannerSessionID
   var theDict: Unmanaged<CFMutableDictionary>!
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID, theDict: Unmanaged<CFMutableDictionary>!)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID, theDict theDict: Unmanaged<CFMutableDictionary>!)
 }
 struct ICD_ScannerStatusPB {
   var header: ICDHeader
@@ -89,7 +89,7 @@ struct ICD_ScannerStatusPB {
   var sessionID: ICAScannerSessionID
   var status: UInt32
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID, status: UInt32)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID, status status: UInt32)
 }
 struct ICD_ScannerStartPB {
   var header: ICDHeader
@@ -98,7 +98,7 @@ struct ICD_ScannerStartPB {
   var connectionID: ICAConnectionID
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, sessionID: ICAScannerSessionID)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, sessionID sessionID: ICAScannerSessionID)
 }
 typealias __ICD_ScannerOpenUSBDevice = @convention(c) (UInt32, UnsafeMutablePointer<ScannerObjectInfo>) -> ICAError
 typealias __ICD_ScannerOpenUSBDeviceWithIORegPath = @convention(c) (UInt32, UnsafeMutablePointer<Int8>, UnsafeMutablePointer<ScannerObjectInfo>) -> ICAError
@@ -156,24 +156,24 @@ struct ICD_Scannerscanner_callback_functions {
   var f_ICD_ScannerWriteDataToFileDescriptor: __ICD_ScannerWriteDataToFileDescriptor!
   var f_ICD_ScannerWriteDataToFileDescriptor64: __ICD_ScannerWriteDataToFileDescriptor64!
   init()
-  init(f_ICD_ScannerOpenUSBDevice: __ICD_ScannerOpenUSBDevice!, f_ICD_ScannerOpenUSBDeviceWithIORegPath: __ICD_ScannerOpenUSBDeviceWithIORegPath!, f_ICD_ScannerCloseDevice: __ICD_ScannerCloseDevice!, f_ICD_ScannerPeriodicTask: __ICD_ScannerPeriodicTask!, f_ICD_ScannerGetObjectInfo: __ICD_ScannerGetObjectInfo!, f_ICD_ScannerCleanup: __ICD_ScannerCleanup!, f_ICD_ScannerGetPropertyData: __ICD_ScannerGetPropertyData!, f_ICD_ScannerSetPropertyData: __ICD_ScannerSetPropertyData!, f_ICD_ScannerReadFileData: __ICD_ScannerReadFileData!, f_ICD_ScannerWriteFileData: __ICD_ScannerWriteFileData!, f_ICD_ScannerSendMessage: __ICD_ScannerSendMessage!, f_ICD_ScannerAddPropertiesToCFDictionary: __ICD_ScannerAddPropertiesToCFDictionary!, f_ICD_ScannerOpenFireWireDevice: __ICD_ScannerOpenFireWireDevice!, f_ICD_ScannerOpenFireWireDeviceWithIORegPath: __ICD_ScannerOpenFireWireDeviceWithIORegPath!, f_ICD_ScannerOpenSession: __ICD_ScannerOpenSession!, f_ICD_ScannerCloseSession: __ICD_ScannerCloseSession!, f_ICD_ScannerInitialize: __ICD_ScannerInitialize!, f_ICD_ScannerGetParameters: __ICD_ScannerGetParameters!, f_ICD_ScannerSetParameters: __ICD_ScannerSetParameters!, f_ICD_ScannerStatus: __ICD_ScannerStatus!, f_ICD_ScannerStart: __ICD_ScannerStart!, f_ICD_ScannerOpenBluetoothDevice: __ICD_ScannerOpenBluetoothDevice!, f_ICD_ScannerOpenTCPIPDevice: __ICD_ScannerOpenTCPIPDevice!, f_ICD_ScannerWriteDataToFile: __ICD_ScannerWriteDataToFile!, f_ICD_ScannerOpenMassStorageDevice: __ICD_ScannerOpenMassStorageDevice!, f_ICD_ScannerWriteDataToFileDescriptor: __ICD_ScannerWriteDataToFileDescriptor!, f_ICD_ScannerWriteDataToFileDescriptor64: __ICD_ScannerWriteDataToFileDescriptor64!)
+  init(f_ICD_ScannerOpenUSBDevice f_ICD_ScannerOpenUSBDevice: __ICD_ScannerOpenUSBDevice!, f_ICD_ScannerOpenUSBDeviceWithIORegPath f_ICD_ScannerOpenUSBDeviceWithIORegPath: __ICD_ScannerOpenUSBDeviceWithIORegPath!, f_ICD_ScannerCloseDevice f_ICD_ScannerCloseDevice: __ICD_ScannerCloseDevice!, f_ICD_ScannerPeriodicTask f_ICD_ScannerPeriodicTask: __ICD_ScannerPeriodicTask!, f_ICD_ScannerGetObjectInfo f_ICD_ScannerGetObjectInfo: __ICD_ScannerGetObjectInfo!, f_ICD_ScannerCleanup f_ICD_ScannerCleanup: __ICD_ScannerCleanup!, f_ICD_ScannerGetPropertyData f_ICD_ScannerGetPropertyData: __ICD_ScannerGetPropertyData!, f_ICD_ScannerSetPropertyData f_ICD_ScannerSetPropertyData: __ICD_ScannerSetPropertyData!, f_ICD_ScannerReadFileData f_ICD_ScannerReadFileData: __ICD_ScannerReadFileData!, f_ICD_ScannerWriteFileData f_ICD_ScannerWriteFileData: __ICD_ScannerWriteFileData!, f_ICD_ScannerSendMessage f_ICD_ScannerSendMessage: __ICD_ScannerSendMessage!, f_ICD_ScannerAddPropertiesToCFDictionary f_ICD_ScannerAddPropertiesToCFDictionary: __ICD_ScannerAddPropertiesToCFDictionary!, f_ICD_ScannerOpenFireWireDevice f_ICD_ScannerOpenFireWireDevice: __ICD_ScannerOpenFireWireDevice!, f_ICD_ScannerOpenFireWireDeviceWithIORegPath f_ICD_ScannerOpenFireWireDeviceWithIORegPath: __ICD_ScannerOpenFireWireDeviceWithIORegPath!, f_ICD_ScannerOpenSession f_ICD_ScannerOpenSession: __ICD_ScannerOpenSession!, f_ICD_ScannerCloseSession f_ICD_ScannerCloseSession: __ICD_ScannerCloseSession!, f_ICD_ScannerInitialize f_ICD_ScannerInitialize: __ICD_ScannerInitialize!, f_ICD_ScannerGetParameters f_ICD_ScannerGetParameters: __ICD_ScannerGetParameters!, f_ICD_ScannerSetParameters f_ICD_ScannerSetParameters: __ICD_ScannerSetParameters!, f_ICD_ScannerStatus f_ICD_ScannerStatus: __ICD_ScannerStatus!, f_ICD_ScannerStart f_ICD_ScannerStart: __ICD_ScannerStart!, f_ICD_ScannerOpenBluetoothDevice f_ICD_ScannerOpenBluetoothDevice: __ICD_ScannerOpenBluetoothDevice!, f_ICD_ScannerOpenTCPIPDevice f_ICD_ScannerOpenTCPIPDevice: __ICD_ScannerOpenTCPIPDevice!, f_ICD_ScannerWriteDataToFile f_ICD_ScannerWriteDataToFile: __ICD_ScannerWriteDataToFile!, f_ICD_ScannerOpenMassStorageDevice f_ICD_ScannerOpenMassStorageDevice: __ICD_ScannerOpenMassStorageDevice!, f_ICD_ScannerWriteDataToFileDescriptor f_ICD_ScannerWriteDataToFileDescriptor: __ICD_ScannerWriteDataToFileDescriptor!, f_ICD_ScannerWriteDataToFileDescriptor64 f_ICD_ScannerWriteDataToFileDescriptor64: __ICD_ScannerWriteDataToFileDescriptor64!)
 }
 typealias ICD_scanner_callback_functions = ICD_Scannerscanner_callback_functions
 var gICDScannerCallbackFunctions: ICD_scanner_callback_functions
-func ICD_ScannerMain(argc: Int32, _ argv: UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32
-func ICDScannerGetStandardPropertyData(objectInfo: UnsafePointer<ScannerObjectInfo>, _ pb: UnsafeMutablePointer<Void>) -> ICAError
-func ICDScannerNewObjectInfoCreated(parentInfo: UnsafePointer<ScannerObjectInfo>, _ index: UInt32, _ newICAObject: UnsafeMutablePointer<ICAObject>) -> ICAError
-func ICDScannerCopyDeviceInfoDictionary(deviceName: UnsafePointer<Int8>, _ theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> ICAError
-func ICDScannerCreateEventDataCookie(object: ICAObject, _ cookie: UnsafeMutablePointer<ICAEventDataCookie>) -> ICAError
-func ICDScannerConnectUSBDevice(locationID: UInt32) -> ICAError
-func ICDScannerConnectUSBDeviceWithIORegPath(locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDScannerDisconnectUSBDevice(locationID: UInt32) -> ICAError
-func ICDScannerDisconnectUSBDeviceWithIORegPath(locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDScannerConnectFWDevice(guid: UInt64) -> ICAError
-func ICDScannerConnectFWDeviceWithIORegPath(guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDScannerDisconnectFWDevice(guid: UInt64) -> ICAError
-func ICDScannerDisconnectFWDeviceWithIORegPath(guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDScannerConnectBluetoothDevice(params: CFDictionary!) -> ICAError
-func ICDScannerDisconnectBluetoothDevice(params: CFDictionary!) -> ICAError
-func ICDScannerConnectTCPIPDevice(params: CFDictionary!) -> ICAError
-func ICDScannerDisconnectTCPIPDevice(params: CFDictionary!) -> ICAError
+func ICD_ScannerMain(_ argc: Int32, _ argv: UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32
+func ICDScannerGetStandardPropertyData(_ objectInfo: UnsafePointer<ScannerObjectInfo>, _ pb: UnsafeMutablePointer<Void>) -> ICAError
+func ICDScannerNewObjectInfoCreated(_ parentInfo: UnsafePointer<ScannerObjectInfo>, _ index: UInt32, _ newICAObject: UnsafeMutablePointer<ICAObject>) -> ICAError
+func ICDScannerCopyDeviceInfoDictionary(_ deviceName: UnsafePointer<Int8>, _ theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> ICAError
+func ICDScannerCreateEventDataCookie(_ object: ICAObject, _ cookie: UnsafeMutablePointer<ICAEventDataCookie>) -> ICAError
+func ICDScannerConnectUSBDevice(_ locationID: UInt32) -> ICAError
+func ICDScannerConnectUSBDeviceWithIORegPath(_ locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDScannerDisconnectUSBDevice(_ locationID: UInt32) -> ICAError
+func ICDScannerDisconnectUSBDeviceWithIORegPath(_ locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDScannerConnectFWDevice(_ guid: UInt64) -> ICAError
+func ICDScannerConnectFWDeviceWithIORegPath(_ guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDScannerDisconnectFWDevice(_ guid: UInt64) -> ICAError
+func ICDScannerDisconnectFWDeviceWithIORegPath(_ guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDScannerConnectBluetoothDevice(_ params: CFDictionary!) -> ICAError
+func ICDScannerDisconnectBluetoothDevice(_ params: CFDictionary!) -> ICAError
+func ICDScannerConnectTCPIPDevice(_ params: CFDictionary!) -> ICAError
+func ICDScannerDisconnectTCPIPDevice(_ params: CFDictionary!) -> ICAError

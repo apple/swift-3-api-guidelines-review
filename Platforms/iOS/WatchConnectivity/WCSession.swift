@@ -10,38 +10,38 @@ class WCSession : NSObject {
   var isComplicationEnabled: Bool { get }
   var watchDirectoryURL: NSURL? { get }
   var isReachable: Bool { get }
-  func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)? = nil)
-  func sendMessageData(data: NSData, replyHandler: ((NSData) -> Void)?, errorHandler: ((NSError) -> Void)? = nil)
+  func sendMessage(_ message: [String : AnyObject], replyHandler replyHandler: (([String : AnyObject]) -> Void)?, errorHandler errorHandler: ((NSError) -> Void)? = nil)
+  func sendMessageData(_ data: NSData, replyHandler replyHandler: ((NSData) -> Void)?, errorHandler errorHandler: ((NSError) -> Void)? = nil)
   var applicationContext: [String : AnyObject] { get }
-  func updateApplicationContext(applicationContext: [String : AnyObject]) throws
+  func updateApplicationContext(_ applicationContext: [String : AnyObject]) throws
   var receivedApplicationContext: [String : AnyObject] { get }
-  func transferUserInfo(userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
-  func transferCurrentComplicationUserInfo(userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
+  func transferUserInfo(_ userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
+  func transferCurrentComplicationUserInfo(_ userInfo: [String : AnyObject] = [:]) -> WCSessionUserInfoTransfer
   var outstandingUserInfoTransfers: [WCSessionUserInfoTransfer] { get }
-  func transferFile(file: NSURL, metadata: [String : AnyObject]?) -> WCSessionFileTransfer
+  func transferFile(_ file: NSURL, metadata metadata: [String : AnyObject]?) -> WCSessionFileTransfer
   var outstandingFileTransfers: [WCSessionFileTransfer] { get }
 }
 protocol WCSessionDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
-  optional func sessionWatchStateDidChange(session: WCSession)
+  optional func sessionWatchStateDidChange(_ session: WCSession)
   @available(iOS 9.0, *)
-  optional func sessionReachabilityDidChange(session: WCSession)
+  optional func sessionReachabilityDidChange(_ session: WCSession)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveMessage message: [String : AnyObject])
+  optional func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject])
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void)
+  optional func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler replyHandler: ([String : AnyObject]) -> Void)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveMessageData messageData: NSData)
+  optional func session(_ session: WCSession, didReceiveMessageData messageData: NSData)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveMessageData messageData: NSData, replyHandler: (NSData) -> Void)
+  optional func session(_ session: WCSession, didReceiveMessageData messageData: NSData, replyHandler replyHandler: (NSData) -> Void)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject])
+  optional func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject])
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error: NSError?)
+  optional func session(_ session: WCSession, didFinish userInfoTransfer: WCSessionUserInfoTransfer, error error: NSError?)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:])
+  optional func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject] = [:])
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didFinish fileTransfer: WCSessionFileTransfer, error: NSError?)
+  optional func session(_ session: WCSession, didFinish fileTransfer: WCSessionFileTransfer, error error: NSError?)
   @available(iOS 9.0, *)
-  optional func session(session: WCSession, didReceive file: WCSessionFile)
+  optional func session(_ session: WCSession, didReceive file: WCSessionFile)
 }

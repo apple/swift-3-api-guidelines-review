@@ -7,9 +7,9 @@ class NSSlider : NSControl, NSAccessibilitySlider {
   var altIncrementValue: Double
   var knobThickness: CGFloat { get }
   var vertical: Int { get }
-  func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
+  func acceptsFirstMouse(_ theEvent: NSEvent?) -> Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   func accessibilityLabel() -> String?
   func accessibilityValue() -> AnyObject?

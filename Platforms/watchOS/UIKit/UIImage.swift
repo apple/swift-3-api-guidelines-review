@@ -1,6 +1,6 @@
 
 enum UIImageOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case up
   case down
@@ -12,14 +12,14 @@ enum UIImageOrientation : Int {
   case rightMirrored
 }
 enum UIImageResizingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case tile
   case stretch
 }
 @available(watchOS 2.0, *)
 enum UIImageRenderingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case alwaysOriginal
@@ -29,48 +29,48 @@ enum UIImageRenderingMode : Int {
 class UIImage : NSObject, NSSecureCoding {
   /*not inherited*/ init?(named name: String)
   init?(contentsOfFile path: String)
-  init?(data: NSData)
+  init?(data data: NSData)
   @available(watchOS 2.0, *)
-  init?(data: NSData, scale: CGFloat)
-  init(cgImage: CGImage)
+  init?(data data: NSData, scale scale: CGFloat)
+  init(cgImage cgImage: CGImage)
   @available(watchOS 2.0, *)
-  init(cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
+  init(cgImage cgImage: CGImage, scale scale: CGFloat, orientation orientation: UIImageOrientation)
   var size: CGSize { get }
   var cgImage: CGImage? { get }
   var imageOrientation: UIImageOrientation { get }
   @available(watchOS 2.0, *)
   var scale: CGFloat { get }
   @available(watchOS 2.0, *)
-  class func animatedImageNamed(name: String, duration: NSTimeInterval) -> UIImage?
+  class func animatedImageNamed(_ name: String, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(_ name: String, capInsets capInsets: UIEdgeInsets, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(_ name: String, capInsets capInsets: UIEdgeInsets, resizingMode resizingMode: UIImageResizingMode, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedImage(with images: [UIImage], duration: NSTimeInterval) -> UIImage?
+  class func animatedImage(with images: [UIImage], duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
   var images: [UIImage]? { get }
   @available(watchOS 2.0, *)
   var duration: NSTimeInterval { get }
   func draw(at point: CGPoint)
-  func draw(at point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
+  func draw(at point: CGPoint, blendMode blendMode: CGBlendMode, alpha alpha: CGFloat)
   func draw(in rect: CGRect)
-  func draw(in rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
+  func draw(in rect: CGRect, blendMode blendMode: CGBlendMode, alpha alpha: CGFloat)
   func drawAsPattern(in rect: CGRect)
   @available(watchOS 2.0, *)
   func resizableImage(withCapInsets capInsets: UIEdgeInsets) -> UIImage
   @available(watchOS 2.0, *)
-  func resizableImage(withCapInsets capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImage(withCapInsets capInsets: UIEdgeInsets, resizingMode resizingMode: UIImageResizingMode) -> UIImage
   @available(watchOS 2.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(watchOS 2.0, *)
   var resizingMode: UIImageResizingMode { get }
   @available(watchOS 2.0, *)
-  func withAlignmentRectInsets(alignmentInsets: UIEdgeInsets) -> UIImage
+  func withAlignmentRectInsets(_ alignmentInsets: UIEdgeInsets) -> UIImage
   @available(watchOS 2.0, *)
   var alignmentRectInsets: UIEdgeInsets { get }
   @available(watchOS 2.0, *)
-  func withRenderingMode(renderingMode: UIImageRenderingMode) -> UIImage
+  func withRenderingMode(_ renderingMode: UIImageRenderingMode) -> UIImage
   @available(watchOS 2.0, *)
   var renderingMode: UIImageRenderingMode { get }
   @available(watchOS 2.0, *)
@@ -90,9 +90,9 @@ extension UIImage : _ImageLiteralConvertible {
   required convenience init(imageLiteral name: String)
 }
 extension UIImage {
-  func stretchableImage(withLeftCapWidth leftCapWidth: Int, topCapHeight: Int) -> UIImage
+  func stretchableImage(withLeftCapWidth leftCapWidth: Int, topCapHeight topCapHeight: Int) -> UIImage
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }
-func UIImagePNGRepresentation(image: UIImage) -> NSData?
-func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
+func UIImagePNGRepresentation(_ image: UIImage) -> NSData?
+func UIImageJPEGRepresentation(_ image: UIImage, _ compressionQuality: CGFloat) -> NSData?

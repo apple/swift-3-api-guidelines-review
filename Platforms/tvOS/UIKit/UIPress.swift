@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum UIPressPhase : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case began
   case changed
@@ -11,7 +11,7 @@ enum UIPressPhase : Int {
 }
 @available(tvOS 9.0, *)
 enum UIPressType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case upArrow
   case downArrow

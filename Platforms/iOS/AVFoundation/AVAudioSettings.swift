@@ -34,7 +34,7 @@ let AVSampleRateConverterAlgorithm_Normal: String
 @available(iOS 7.0, *)
 let AVSampleRateConverterAlgorithm_Mastering: String
 enum AVAudioQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case min
   case low

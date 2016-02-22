@@ -1,7 +1,7 @@
 
 typealias VTSession = CFTypeRef
 @available(iOS 8.0, *)
-func VTSessionCopySupportedPropertyDictionary(session: VTSession, _ supportedPropertyDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
+func VTSessionCopySupportedPropertyDictionary(_ session: VTSession, _ supportedPropertyDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
 @available(iOS 8.0, *)
 let kVTPropertyTypeKey: CFString
 @available(iOS 8.0, *)
@@ -27,10 +27,10 @@ let kVTPropertySupportedValueListKey: CFString
 @available(iOS 8.0, *)
 let kVTPropertyDocumentationKey: CFString
 @available(iOS 8.0, *)
-func VTSessionSetProperty(session: VTSession, _ propertyKey: CFString, _ propertyValue: CFTypeRef) -> OSStatus
+func VTSessionSetProperty(_ session: VTSession, _ propertyKey: CFString, _ propertyValue: CFTypeRef) -> OSStatus
 @available(iOS 8.0, *)
-func VTSessionCopyProperty(session: VTSession, _ propertyKey: CFString, _ allocator: CFAllocator?, _ propertyValueOut: UnsafeMutablePointer<Void>) -> OSStatus
+func VTSessionCopyProperty(_ session: VTSession, _ propertyKey: CFString, _ allocator: CFAllocator?, _ propertyValueOut: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS 8.0, *)
-func VTSessionSetProperties(session: VTSession, _ propertyDictionary: CFDictionary) -> OSStatus
+func VTSessionSetProperties(_ session: VTSession, _ propertyDictionary: CFDictionary) -> OSStatus
 @available(iOS 8.0, *)
-func VTSessionCopySerializableProperties(session: VTSession, _ allocator: CFAllocator?, _ dictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
+func VTSessionCopySerializableProperties(_ session: VTSession, _ allocator: CFAllocator?, _ dictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus

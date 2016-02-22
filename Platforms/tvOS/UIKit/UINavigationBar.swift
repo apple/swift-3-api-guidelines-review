@@ -4,21 +4,21 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(tvOS 3.0, *)
   var isTranslucent: Bool
-  func push(item: UINavigationItem, animated: Bool)
+  func push(_ item: UINavigationItem, animated animated: Bool)
   func popNavigationItem(animated animated: Bool) -> UINavigationItem?
   var topItem: UINavigationItem? { get }
   var backItem: UINavigationItem? { get }
   var items: [UINavigationItem]?
-  func setItems(items: [UINavigationItem]?, animated: Bool)
+  func setItems(_ items: [UINavigationItem]?, animated animated: Bool)
   var tintColor: UIColor!
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 7.0, *)
-  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func backgroundImage(for barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 6.0, *)
@@ -26,10 +26,10 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   @available(tvOS 5.0, *)
   var titleTextAttributes: [String : AnyObject]?
   @available(tvOS 5.0, *)
-  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, for barMetrics: UIBarMetrics)
+  func setTitleVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 7.0, *)
@@ -37,18 +37,18 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
 }
 protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   @available(tvOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
+  optional func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
   @available(tvOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPush item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem)
   @available(tvOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
+  optional func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
   @available(tvOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(tvOS 2.0, *)
 class UINavigationItem : NSObject, NSCoding {
-  init(title: String)
-  init?(coder: NSCoder)
+  init(title title: String)
+  init?(coder coder: NSCoder)
   var title: String?
   var titleView: UIView?
   @available(tvOS 5.0, *)
@@ -56,13 +56,13 @@ class UINavigationItem : NSObject, NSCoding {
   @available(tvOS 5.0, *)
   var rightBarButtonItems: [UIBarButtonItem]?
   @available(tvOS 5.0, *)
-  func setLeftBarButtonItems(items: [UIBarButtonItem]?, animated: Bool)
+  func setLeftBarButtonItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
   @available(tvOS 5.0, *)
-  func setRightBarButtonItems(items: [UIBarButtonItem]?, animated: Bool)
+  func setRightBarButtonItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
   var leftBarButtonItem: UIBarButtonItem?
   var rightBarButtonItem: UIBarButtonItem?
-  func setLeftBarButtonItem(item: UIBarButtonItem?, animated: Bool)
-  func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
+  func setLeftBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
+  func setRightBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
   convenience init()
   @available(tvOS 2.0, *)
   func encode(with aCoder: NSCoder)

@@ -42,8 +42,8 @@ let kCFFTPResourceType: CFString
 @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSessionAPI for ftp requests")
 let kCFFTPResourceModDate: CFString
 @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSessionAPI for ftp requests")
-func CFReadStreamCreateWithFTPURL(alloc: CFAllocator?, _ ftpURL: CFURL) -> Unmanaged<CFReadStream>
+func CFReadStreamCreateWithFTPURL(_ alloc: CFAllocator?, _ ftpURL: CFURL) -> Unmanaged<CFReadStream>
 @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSessionAPI for ftp requests")
-func CFFTPCreateParsedResourceListing(alloc: CFAllocator?, _ buffer: UnsafePointer<UInt8>, _ bufferLength: CFIndex, _ parsed: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> CFIndex
+func CFFTPCreateParsedResourceListing(_ alloc: CFAllocator?, _ buffer: UnsafePointer<UInt8>, _ bufferLength: CFIndex, _ parsed: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> CFIndex
 @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSessionAPI for ftp requests")
-func CFWriteStreamCreateWithFTPURL(alloc: CFAllocator?, _ ftpURL: CFURL) -> Unmanaged<CFWriteStream>
+func CFWriteStreamCreateWithFTPURL(_ alloc: CFAllocator?, _ ftpURL: CFURL) -> Unmanaged<CFWriteStream>

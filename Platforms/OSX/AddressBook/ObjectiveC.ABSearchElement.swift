@@ -1,6 +1,6 @@
 
 class ABSearchElement : NSObject {
-  /*not inherited*/ init!(forConjunction conjuction: ABSearchConjunction, children: [AnyObject]!)
-  func matchesRecord(record: ABRecord!) -> Bool
+  /*not inherited*/ init!(forConjunction conjuction: ABSearchConjunction, children children: [AnyObject]!)
+  func matchesRecord(_ record: ABRecord!) -> Bool
   init()
 }

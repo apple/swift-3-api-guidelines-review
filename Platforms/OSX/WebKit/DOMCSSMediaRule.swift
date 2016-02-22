@@ -4,8 +4,8 @@ class DOMCSSMediaRule : DOMCSSRule {
   var media: DOMMediaList! { get }
   var cssRules: DOMCSSRuleList! { get }
   @available(OSX 10.5, *)
-  func insert(rule: String!, index: UInt32) -> UInt32
-  func delete(index: UInt32)
+  func insert(_ rule: String!, index index: UInt32) -> UInt32
+  func delete(_ index: UInt32)
 }
 extension DOMCSSMediaRule {
 }

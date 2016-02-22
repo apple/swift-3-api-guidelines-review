@@ -1,6 +1,6 @@
 
 struct CBCharacteristicProperties : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var broadcast: CBCharacteristicProperties { get }
   static var read: CBCharacteristicProperties { get }
@@ -28,7 +28,7 @@ class CBCharacteristic : NSObject {
 }
 @available(OSX 10.9, *)
 struct CBAttributePermissions : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var readable: CBAttributePermissions { get }
   static var writeable: CBAttributePermissions { get }
@@ -44,6 +44,6 @@ class CBMutableCharacteristic : CBCharacteristic {
   var properties: CBCharacteristicProperties
   var value: NSData?
   var descriptors: [CBDescriptor]?
-  init(type UUID: CBUUID?, properties: CBCharacteristicProperties, value: NSData?, permissions: CBAttributePermissions)
+  init(type UUID: CBUUID?, properties properties: CBCharacteristicProperties, value value: NSData?, permissions permissions: CBAttributePermissions)
   init()
 }

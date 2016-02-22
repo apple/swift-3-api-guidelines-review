@@ -1,6 +1,6 @@
 
 enum NSEntityMappingType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case undefinedEntityMappingType
   case customEntityMappingType
@@ -28,5 +28,5 @@ struct __entityMappingFlags {
   var _isInUse: UInt32
   var _reservedEntityMapping: UInt32
   init()
-  init(_isInUse: UInt32, _reservedEntityMapping: UInt32)
+  init(_isInUse _isInUse: UInt32, _reservedEntityMapping _reservedEntityMapping: UInt32)
 }

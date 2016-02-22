@@ -9,7 +9,7 @@ class AVAudioIONode : AVAudioNode {
 class AVAudioInputNode : AVAudioIONode, AVAudioMixing {
   init()
   @available(tvOS 9.0, *)
-  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)
   var volume: Float
   @available(tvOS 8.0, *)

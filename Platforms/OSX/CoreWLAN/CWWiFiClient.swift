@@ -7,7 +7,7 @@ protocol CWEventDelegate {
   optional func bssidDidChangeForWiFiInterface(withName interfaceName: String)
   optional func countryCodeDidChangeForWiFiInterface(withName interfaceName: String)
   optional func linkDidChangeForWiFiInterface(withName interfaceName: String)
-  optional func linkQualityDidChangeForWiFiInterface(withName interfaceName: String, rssi: Int, transmitRate: Double)
+  optional func linkQualityDidChangeForWiFiInterface(withName interfaceName: String, rssi rssi: Int, transmitRate transmitRate: Double)
   optional func modeDidChangeForWiFiInterface(withName interfaceName: String)
   optional func scanCacheUpdatedForWiFiInterface(withName interfaceName: String)
 }
@@ -28,9 +28,9 @@ class CWWiFiClient : NSObject {
   @available(OSX 10.10, *)
   func interfaces() -> [CWInterface]?
   @available(OSX 10.10, *)
-  func startMonitoringEvent(type: CWEventType) throws
+  func startMonitoringEvent(_ type: CWEventType) throws
   @available(OSX 10.10, *)
-  func stopMonitoringEvent(type: CWEventType) throws
+  func stopMonitoringEvent(_ type: CWEventType) throws
   @available(OSX 10.10, *)
   func stopMonitoringAllEvents() throws
 }

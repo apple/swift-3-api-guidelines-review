@@ -1,13 +1,13 @@
 
 @available(OSX 10.1, *)
-func SCPreferencesPathCreateUniqueChild(prefs: SCPreferences, _ prefix: CFString) -> CFString?
+func SCPreferencesPathCreateUniqueChild(_ prefs: SCPreferences, _ prefix: CFString) -> CFString?
 @available(OSX 10.1, *)
-func SCPreferencesPathGetValue(prefs: SCPreferences, _ path: CFString) -> CFDictionary?
+func SCPreferencesPathGetValue(_ prefs: SCPreferences, _ path: CFString) -> CFDictionary?
 @available(OSX 10.1, *)
-func SCPreferencesPathGetLink(prefs: SCPreferences, _ path: CFString) -> CFString?
+func SCPreferencesPathGetLink(_ prefs: SCPreferences, _ path: CFString) -> CFString?
 @available(OSX 10.1, *)
-func SCPreferencesPathSetValue(prefs: SCPreferences, _ path: CFString, _ value: CFDictionary) -> Bool
+func SCPreferencesPathSetValue(_ prefs: SCPreferences, _ path: CFString, _ value: CFDictionary) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesPathSetLink(prefs: SCPreferences, _ path: CFString, _ link: CFString) -> Bool
+func SCPreferencesPathSetLink(_ prefs: SCPreferences, _ path: CFString, _ link: CFString) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesPathRemoveValue(prefs: SCPreferences, _ path: CFString) -> Bool
+func SCPreferencesPathRemoveValue(_ prefs: SCPreferences, _ path: CFString) -> Bool

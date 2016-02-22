@@ -73,18 +73,18 @@ var NSFoundationVersionNumber10_10: Double { get }
 var NSFoundationVersionNumber10_10_1: Double { get }
 var NSFoundationVersionNumber10_10_2: Double { get }
 var NSFoundationVersionNumber10_10_3: Double { get }
-func NSStringFromSelector(aSelector: Selector) -> String
-func NSSelectorFromString(aSelectorName: String) -> Selector
-func NSStringFromClass(aClass: AnyClass) -> String
-func NSClassFromString(aClassName: String) -> AnyClass?
+func NSStringFromSelector(_ aSelector: Selector) -> String
+func NSSelectorFromString(_ aSelectorName: String) -> Selector
+func NSStringFromClass(_ aClass: AnyClass) -> String
+func NSClassFromString(_ aClassName: String) -> AnyClass?
 @available(OSX 10.5, *)
-func NSStringFromProtocol(proto: Protocol) -> String
+func NSStringFromProtocol(_ proto: Protocol) -> String
 @available(OSX 10.5, *)
-func NSProtocolFromString(namestr: String) -> Protocol?
-func NSGetSizeAndAlignment(typePtr: UnsafePointer<Int8>, _ sizep: UnsafeMutablePointer<Int>, _ alignp: UnsafeMutablePointer<Int>) -> UnsafePointer<Int8>
-func NSLogv(format: String, _ args: CVaListPointer)
+func NSProtocolFromString(_ namestr: String) -> Protocol?
+func NSGetSizeAndAlignment(_ typePtr: UnsafePointer<Int8>, _ sizep: UnsafeMutablePointer<Int>, _ alignp: UnsafeMutablePointer<Int>) -> UnsafePointer<Int8>
+func NSLogv(_ format: String, _ args: CVaListPointer)
 enum NSComparisonResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case orderedAscending
   case orderedSame
@@ -92,20 +92,20 @@ enum NSComparisonResult : Int {
 }
 typealias NSComparator = (AnyObject, AnyObject) -> NSComparisonResult
 struct NSEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var concurrent: NSEnumerationOptions { get }
   static var reverse: NSEnumerationOptions { get }
 }
 struct NSSortOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var concurrent: NSSortOptions { get }
   static var stable: NSSortOptions { get }
 }
 @available(OSX 10.10, *)
 enum NSQualityOfService : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case userInteractive
   case userInitiated

@@ -6,5 +6,5 @@ class NSEPSImageRep : NSImageRep {
   @NSCopying var epsRepresentation: NSData { get }
   var boundingBox: NSRect { get }
   init()
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
 }

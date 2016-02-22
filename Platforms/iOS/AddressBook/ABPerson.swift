@@ -2,15 +2,15 @@
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [[CNMutableContact alloc] init]")
 func ABPersonCreate() -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [[CNMutableContact alloc] init] and [CNSaveRequest addContact:toContainerWithIdentifier:]")
-func ABPersonCreateInSource(source: ABRecord!) -> Unmanaged<ABRecord>!
+func ABPersonCreateInSource(_ source: ABRecord!) -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore containersMatchingPredicate:[CNContainer predicateForContainerOfContactWithIdentifier:] error:]")
-func ABPersonCopySource(person: ABRecord!) -> Unmanaged<ABRecord>!
+func ABPersonCopySource(_ person: ABRecord!) -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactFetchRequest with predicate = [CNContact predicateForContactsLinkedToContact:] and unifyResults = NO")
-func ABPersonCopyArrayOfAllLinkedPeople(person: ABRecord!) -> Unmanaged<CFArray>!
+func ABPersonCopyArrayOfAllLinkedPeople(_ person: ABRecord!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0)
-func ABPersonGetTypeOfProperty(property: ABPropertyID) -> ABPropertyType
+func ABPersonGetTypeOfProperty(_ property: ABPropertyID) -> ABPropertyType
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContact localizedStringForKey:]")
-func ABPersonCopyLocalizedPropertyName(property: ABPropertyID) -> Unmanaged<CFString>!
+func ABPersonCopyLocalizedPropertyName(_ property: ABPropertyID) -> Unmanaged<CFString>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactSortOrder")
 typealias ABPersonSortOrdering = UInt32
 var kABPersonSortByFirstName: Int { get }
@@ -24,45 +24,45 @@ var kABPersonCompositeNameFormatLastNameFirst: Int { get }
 @available(iOS, introduced=2.0, deprecated=9.0)
 func ABPersonGetCompositeNameFormat() -> ABPersonCompositeNameFormat
 @available(iOS, introduced=2.0, deprecated=9.0)
-func ABPersonGetCompositeNameFormatForRecord(record: ABRecord!) -> ABPersonCompositeNameFormat
+func ABPersonGetCompositeNameFormatForRecord(_ record: ABRecord!) -> ABPersonCompositeNameFormat
 @available(iOS, introduced=2.0, deprecated=9.0)
-func ABPersonCopyCompositeNameDelimiterForRecord(record: ABRecord!) -> Unmanaged<CFString>!
+func ABPersonCopyCompositeNameDelimiterForRecord(_ record: ABRecord!) -> Unmanaged<CFString>!
 @available(iOS, introduced=2.0, deprecated=9.0)
 struct ABPersonImageFormat : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kABPersonImageFormatThumbnail: ABPersonImageFormat { get }
 var kABPersonImageFormatOriginalSize: ABPersonImageFormat { get }
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNMutableContact.imageData")
-func ABPersonSetImageData(person: ABRecord!, _ imageData: CFData!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func ABPersonSetImageData(_ person: ABRecord!, _ imageData: CFData!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContact.imageData")
-func ABPersonCopyImageData(person: ABRecord!) -> Unmanaged<CFData>!
+func ABPersonCopyImageData(_ person: ABRecord!) -> Unmanaged<CFData>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContact.imageData or CNContact.thumbnailImageData")
-func ABPersonCopyImageDataWithFormat(person: ABRecord!, _ format: ABPersonImageFormat) -> Unmanaged<CFData>!
+func ABPersonCopyImageDataWithFormat(_ person: ABRecord!, _ format: ABPersonImageFormat) -> Unmanaged<CFData>!
 @available(iOS, introduced=2.0, deprecated=9.0)
-func ABPersonHasImageData(person: ABRecord!) -> Bool
+func ABPersonHasImageData(_ person: ABRecord!) -> Bool
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNMutableContact.imageData = nil")
-func ABPersonRemoveImageData(person: ABRecord!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func ABPersonRemoveImageData(_ person: ABRecord!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContact comparatorForNameSortOrder:]")
-func ABPersonComparePeopleByName(person1: ABRecord!, _ person2: ABRecord!, _ ordering: ABPersonSortOrdering) -> CFComparisonResult
+func ABPersonComparePeopleByName(_ person1: ABRecord!, _ person2: ABRecord!, _ ordering: ABPersonSortOrdering) -> CFComparisonResult
 @available(iOS, introduced=2.0, deprecated=9.0, message="use count of fetch results for CNContactFetchRequest with predicate = nil")
-func ABAddressBookGetPersonCount(addressBook: ABAddressBook!) -> CFIndex
+func ABAddressBookGetPersonCount(_ addressBook: ABAddressBook!) -> CFIndex
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore unifiedContactWithIdentifier:keysToFetch:error:]")
-func ABAddressBookGetPersonWithRecordID(addressBook: ABAddressBook!, _ recordID: ABRecordID) -> Unmanaged<ABRecord>!
+func ABAddressBookGetPersonWithRecordID(_ addressBook: ABAddressBook!, _ recordID: ABRecordID) -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactFetchRequest with predicate = nil")
-func ABAddressBookCopyArrayOfAllPeople(addressBook: ABAddressBook!) -> Unmanaged<CFArray>!
+func ABAddressBookCopyArrayOfAllPeople(_ addressBook: ABAddressBook!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactFetchRequest with predicate = [CNContact predicateForContactsInContainerWithIdentifier:] and unifyResults = NO")
-func ABAddressBookCopyArrayOfAllPeopleInSource(addressBook: ABAddressBook!, _ source: ABRecord!) -> Unmanaged<CFArray>!
+func ABAddressBookCopyArrayOfAllPeopleInSource(_ addressBook: ABAddressBook!, _ source: ABRecord!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactFetchRequest with predicate = [CNContact predicateForContactsInContainerWithIdentifier:] and unifyResults = NO and sortOrder")
-func ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBook: ABAddressBook!, _ source: ABRecord!, _ sortOrdering: ABPersonSortOrdering) -> Unmanaged<CFArray>!
+func ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(_ addressBook: ABAddressBook!, _ source: ABRecord!, _ sortOrdering: ABPersonSortOrdering) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore unifiedContactsMatchingPredicate:[CNContact predicateForContactsMatchingName:] keysToFetch: error:]")
-func ABAddressBookCopyPeopleWithName(addressBook: ABAddressBook!, _ name: CFString!) -> Unmanaged<CFArray>!
+func ABAddressBookCopyPeopleWithName(_ addressBook: ABAddressBook!, _ name: CFString!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactVCardSerialization contactsWithData:error:]")
-func ABPersonCreatePeopleInSourceWithVCardRepresentation(source: ABRecord!, _ vCardData: CFData!) -> Unmanaged<CFArray>!
+func ABPersonCreatePeopleInSourceWithVCardRepresentation(_ source: ABRecord!, _ vCardData: CFData!) -> Unmanaged<CFArray>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactVCardSerialization dataWithContacts:error:]")
-func ABPersonCreateVCardRepresentationWithPeople(people: CFArray!) -> Unmanaged<CFData>!
+func ABPersonCreateVCardRepresentationWithPeople(_ people: CFArray!) -> Unmanaged<CFData>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNLabelWork")
 let kABWorkLabel: CFString!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNLabelHome")

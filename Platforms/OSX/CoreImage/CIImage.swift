@@ -3,49 +3,49 @@
 class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
-  init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
+  init(cgImage image: CGImage, options options: [String : AnyObject]? = [:])
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage: instead.")
   init(cgLayer layer: CGLayer)
   @available(OSX, introduced=10.4, deprecated=10.11, message="Use initWithCGImage:options instead.")
-  init(cgLayer layer: CGLayer, options: [String : AnyObject]? = [:])
-  init?(data: NSData)
-  init?(data: NSData, options: [String : AnyObject]? = [:])
-  init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
+  init(cgLayer layer: CGLayer, options options: [String : AnyObject]? = [:])
+  init?(data data: NSData)
+  init?(data data: NSData, options options: [String : AnyObject]? = [:])
+  init(bitmapData data: NSData, bytesPerRow bytesPerRow: Int, size size: CGSize, format format: CIFormat, colorSpace colorSpace: CGColorSpace?)
   @available(OSX 10.4, *)
-  init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
+  init(texture name: UInt32, size size: CGSize, flipped flipped: Bool, colorSpace colorSpace: CGColorSpace?)
   @available(OSX 10.9, *)
-  init(texture name: UInt32, size: CGSize, flipped: Bool, options: [String : AnyObject]? = [:])
+  init(texture name: UInt32, size size: CGSize, flipped flipped: Bool, options options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
+  init(mtlTexture texture: MTLTexture, options options: [String : AnyObject]? = [:])
   init?(contentsOf url: NSURL)
-  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
+  init?(contentsOf url: NSURL, options options: [String : AnyObject]? = [:])
   @available(OSX 10.6, *)
   init(ioSurface surface: IOSurface)
   @available(OSX 10.6, *)
-  init(ioSurface surface: IOSurface, options: [String : AnyObject]? = [:])
+  init(ioSurface surface: IOSurface, options options: [String : AnyObject]? = [:])
   @available(OSX, introduced=10.9, deprecated=10.11)
-  init(ioSurface surface: IOSurface, plane: Int, format: CIFormat, options: [String : AnyObject]? = [:])
+  init(ioSurface surface: IOSurface, plane plane: Int, format format: CIFormat, options options: [String : AnyObject]? = [:])
   @available(OSX 10.4, *)
   init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(OSX 10.4, *)
-  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]? = [:])
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
   init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(OSX 10.11, *)
-  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]? = [:])
-  init(color: CIColor)
-  func applying(matrix: CGAffineTransform) -> CIImage
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options options: [String : AnyObject]? = [:])
+  init(color color: CIColor)
+  func applying(_ matrix: CGAffineTransform) -> CIImage
   @available(OSX 10.10, *)
-  func applyingOrientation(orientation: Int32) -> CIImage
+  func applyingOrientation(_ orientation: Int32) -> CIImage
   @available(OSX 10.10, *)
   func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(OSX 10.4, *)
-  func compositingOverImage(dest: CIImage) -> CIImage
+  func compositingOverImage(_ dest: CIImage) -> CIImage
   func cropping(to rect: CGRect) -> CIImage
   @available(OSX 10.10, *)
   func clampingToExtent() -> CIImage
   @available(OSX 10.10, *)
-  func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
+  func applyingFilter(_ filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }
   @available(OSX 10.8, *)
   var properties: [String : AnyObject] { get }

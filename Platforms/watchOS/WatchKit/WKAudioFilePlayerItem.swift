@@ -7,7 +7,7 @@ let WKAudioFilePlayerItemDidPlayToEndTimeNotification: String
 let WKAudioFilePlayerItemFailedToPlayToEndTimeNotification: String
 @available(watchOS 2.0, *)
 enum WKAudioFilePlayerItemStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case readyToPlay
@@ -15,7 +15,7 @@ enum WKAudioFilePlayerItemStatus : Int {
 }
 @available(watchOS 2.0, *)
 class WKAudioFilePlayerItem : NSObject {
-  /*not inherited*/ init(asset: WKAudioFileAsset)
+  /*not inherited*/ init(asset asset: WKAudioFileAsset)
   var asset: WKAudioFileAsset { get }
   var status: WKAudioFilePlayerItemStatus { get }
   var error: NSError? { get }

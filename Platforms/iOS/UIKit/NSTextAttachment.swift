@@ -3,7 +3,7 @@
 var NSAttachmentCharacter: Int { get }
 protocol NSTextAttachmentContainer : NSObjectProtocol {
   @available(iOS 7.0, *)
-  func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func image(forBounds imageBounds: CGRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
@@ -22,7 +22,7 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   var fileWrapper: NSFileWrapper?
   convenience init()
   @available(iOS 7.0, *)
-  func image(forBounds imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func image(forBounds imageBounds: CGRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(iOS 7.0, *)
   func attachmentBounds(for textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(iOS 7.0, *)
@@ -31,5 +31,5 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
 }
 extension NSAttributedString {
   @available(iOS 7.0, *)
-  /*not inherited*/ init(attachment: NSTextAttachment)
+  /*not inherited*/ init(attachment attachment: NSTextAttachment)
 }

@@ -5,7 +5,7 @@ let CSSearchableItemActionType: String
 let CSSearchableItemActivityIdentifier: String
 @available(iOS 9.0, *)
 class CSSearchableItem : NSObject, NSSecureCoding, NSCopying {
-  init(uniqueIdentifier: String?, domainIdentifier: String?, attributeSet: CSSearchableItemAttributeSet)
+  init(uniqueIdentifier uniqueIdentifier: String?, domainIdentifier domainIdentifier: String?, attributeSet attributeSet: CSSearchableItemAttributeSet)
   var uniqueIdentifier: String
   var domainIdentifier: String?
   @NSCopying var expirationDate: NSDate!

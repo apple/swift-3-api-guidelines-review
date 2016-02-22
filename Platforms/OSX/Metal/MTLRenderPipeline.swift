@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLBlendFactor : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case zero
   case one
@@ -21,7 +21,7 @@ enum MTLBlendFactor : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLBlendOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case add
   case subtract
@@ -31,7 +31,7 @@ enum MTLBlendOperation : UInt {
 }
 @available(OSX 10.11, *)
 struct MTLColorWriteMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: MTLColorWriteMask { get }
   static var red: MTLColorWriteMask { get }
@@ -42,7 +42,7 @@ struct MTLColorWriteMask : OptionSetType {
 }
 @available(OSX 10.11, *)
 enum MTLPrimitiveTopologyClass : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unspecified
   case point
@@ -97,6 +97,6 @@ protocol MTLRenderPipelineState : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
-  subscript(attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
+  subscript(_ attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

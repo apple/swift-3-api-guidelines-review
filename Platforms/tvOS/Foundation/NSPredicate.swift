@@ -3,11 +3,11 @@
 class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   /*not inherited*/ init(format predicateFormat: String, argumentArray arguments: [AnyObject]?)
   /*not inherited*/ init(format predicateFormat: String, arguments argList: CVaListPointer)
-  /*not inherited*/ init(value: Bool)
+  /*not inherited*/ init(value value: Bool)
   @available(tvOS 4.0, *)
-  /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
+  /*not inherited*/ init(block block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
-  func withSubstitutionVariables(variables: [String : AnyObject]) -> Self
+  func withSubstitutionVariables(_ variables: [String : AnyObject]) -> Self
   func evaluate(with object: AnyObject?) -> Bool
   @available(tvOS 3.0, *)
   func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
@@ -30,7 +30,7 @@ struct _predicateFlags {
   var _evaluationBlocked: UInt32
   var _reservedPredicateFlags: UInt32
   init()
-  init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
+  init(_evaluationBlocked _evaluationBlocked: UInt32, _reservedPredicateFlags _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
   func filteredArray(using predicate: NSPredicate) -> [AnyObject]

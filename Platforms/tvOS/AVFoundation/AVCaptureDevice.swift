@@ -8,7 +8,7 @@ extension AVCaptureDevice {
   var isFlashAvailable: Bool { get }
   @available(tvOS 5.0, *)
   var isFlashActive: Bool { get }
-  func isFlashModeSupported(flashMode: AVCaptureFlashMode) -> Bool
+  func isFlashModeSupported(_ flashMode: AVCaptureFlashMode) -> Bool
   var flashMode: AVCaptureFlashMode
 }
 let AVCaptureMaxAvailableTorchLevel: Float
@@ -20,13 +20,13 @@ extension AVCaptureDevice {
   var isTorchActive: Bool { get }
   @available(tvOS 5.0, *)
   var torchLevel: Float { get }
-  func isTorchModeSupported(torchMode: AVCaptureTorchMode) -> Bool
+  func isTorchModeSupported(_ torchMode: AVCaptureTorchMode) -> Bool
   var torchMode: AVCaptureTorchMode
   @available(tvOS 6.0, *)
-  func setTorchModeOnWithLevel(torchLevel: Float) throws
+  func setTorchModeOnWithLevel(_ torchLevel: Float) throws
 }
 extension AVCaptureDevice {
-  func isFocusModeSupported(focusMode: AVCaptureFocusMode) -> Bool
+  func isFocusModeSupported(_ focusMode: AVCaptureFocusMode) -> Bool
   var focusMode: AVCaptureFocusMode
   var isFocusPointOfInterestSupported: Bool { get }
   var focusPointOfInterest: CGPoint
@@ -42,12 +42,12 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var lensPosition: Float { get }
   @available(tvOS 8.0, *)
-  func setFocusModeLockedWithLensPosition(lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setFocusModeLockedWithLensPosition(_ lensPosition: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(tvOS 8.0, *)
 let AVCaptureLensPositionCurrent: Float
 extension AVCaptureDevice {
-  func isExposureModeSupported(exposureMode: AVCaptureExposureMode) -> Bool
+  func isExposureModeSupported(_ exposureMode: AVCaptureExposureMode) -> Bool
   var exposureMode: AVCaptureExposureMode
   var isExposurePointOfInterestSupported: Bool { get }
   var exposurePointOfInterest: CGPoint
@@ -59,7 +59,7 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var iso: Float { get }
   @available(tvOS 8.0, *)
-  func setExposureModeCustomWithDuration(duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureModeCustomWithDuration(_ duration: CMTime, iso ISO: Float, completionHandler handler: ((CMTime) -> Void)!)
   @available(tvOS 8.0, *)
   var exposureTargetOffset: Float { get }
   @available(tvOS 8.0, *)
@@ -69,7 +69,7 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var maxExposureTargetBias: Float { get }
   @available(tvOS 8.0, *)
-  func setExposureTargetBias(bias: Float, completionHandler handler: ((CMTime) -> Void)!)
+  func setExposureTargetBias(_ bias: Float, completionHandler handler: ((CMTime) -> Void)!)
 }
 @available(tvOS 8.0, *)
 let AVCaptureExposureDurationCurrent: CMTime
@@ -78,7 +78,7 @@ let AVCaptureISOCurrent: Float
 @available(tvOS 8.0, *)
 let AVCaptureExposureTargetBiasCurrent: Float
 extension AVCaptureDevice {
-  func isWhiteBalanceModeSupported(whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
+  func isWhiteBalanceModeSupported(_ whiteBalanceMode: AVCaptureWhiteBalanceMode) -> Bool
   var whiteBalanceMode: AVCaptureWhiteBalanceMode
   var isAdjustingWhiteBalance: Bool { get }
   @available(tvOS 8.0, *)
@@ -88,7 +88,7 @@ extension AVCaptureDevice {
   @available(tvOS 8.0, *)
   var maxWhiteBalanceGain: Float { get }
   @available(tvOS 8.0, *)
-  func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
+  func setWhiteBalanceModeLockedWithDeviceWhiteBalanceGains(_ whiteBalanceGains: AVCaptureWhiteBalanceGains, completionHandler handler: ((CMTime) -> Void)!)
   @available(tvOS 8.0, *)
   func chromaticityValues(forDeviceWhiteBalanceGains whiteBalanceGains: AVCaptureWhiteBalanceGains) -> AVCaptureWhiteBalanceChromaticityValues
   @available(tvOS 8.0, *)

@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVElementAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case undefined
   case left
@@ -10,7 +10,7 @@ enum TVElementAlignment : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementContentAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case undefined
   case top
@@ -19,7 +19,7 @@ enum TVElementContentAlignment : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case undefined
   case center

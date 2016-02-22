@@ -1,6 +1,6 @@
 
 enum UIScrollViewIndicatorStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case black
@@ -8,7 +8,7 @@ enum UIScrollViewIndicatorStyle : Int {
 }
 @available(tvOS 7.0, *)
 enum UIScrollViewKeyboardDismissMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case onDrag
@@ -35,24 +35,24 @@ class UIScrollView : UIView, NSCoding {
   var indicatorStyle: UIScrollViewIndicatorStyle
   @available(tvOS 3.0, *)
   var decelerationRate: CGFloat
-  func setContentOffset(contentOffset: CGPoint, animated: Bool)
-  func scrollRectToVisible(rect: CGRect, animated: Bool)
+  func setContentOffset(_ contentOffset: CGPoint, animated animated: Bool)
+  func scrollRectToVisible(_ rect: CGRect, animated animated: Bool)
   func flashScrollIndicators()
   var isTracking: Bool { get }
   var isDragging: Bool { get }
   var isDecelerating: Bool { get }
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
-  func touchesShouldBegin(touches: Set<UITouch>, with event: UIEvent?, inContentView view: UIView) -> Bool
+  func touchesShouldBegin(_ touches: Set<UITouch>, with event: UIEvent?, inContentView view: UIView) -> Bool
   func touchesShouldCancel(inContentView view: UIView) -> Bool
   var minimumZoomScale: CGFloat
   var maximumZoomScale: CGFloat
   @available(tvOS 3.0, *)
   var zoomScale: CGFloat
   @available(tvOS 3.0, *)
-  func setZoomScale(scale: CGFloat, animated: Bool)
+  func setZoomScale(_ scale: CGFloat, animated animated: Bool)
   @available(tvOS 3.0, *)
-  func zoom(to rect: CGRect, animated: Bool)
+  func zoom(to rect: CGRect, animated animated: Bool)
   var bouncesZoom: Bool
   var isZooming: Bool { get }
   var isZoomBouncing: Bool { get }
@@ -64,33 +64,33 @@ class UIScrollView : UIView, NSCoding {
   var directionalPressGestureRecognizer: UIGestureRecognizer { get }
   @available(tvOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
-  optional func scrollViewDidScroll(scrollView: UIScrollView)
+  optional func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(tvOS 3.2, *)
-  optional func scrollViewDidZoom(scrollView: UIScrollView)
+  optional func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(tvOS 2.0, *)
-  optional func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  optional func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(tvOS 5.0, *)
-  optional func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  optional func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(tvOS 2.0, *)
-  optional func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  optional func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(tvOS 2.0, *)
-  optional func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  optional func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(tvOS 2.0, *)
-  optional func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  optional func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(tvOS 2.0, *)
-  optional func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  optional func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(tvOS 2.0, *)
   optional func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(tvOS 3.2, *)
-  optional func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
+  optional func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
   @available(tvOS 2.0, *)
-  optional func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+  optional func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
   @available(tvOS 2.0, *)
   optional func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(tvOS 2.0, *)

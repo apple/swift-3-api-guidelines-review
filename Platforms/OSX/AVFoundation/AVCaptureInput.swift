@@ -18,13 +18,13 @@ class AVCaptureInputPort : NSObject {
 }
 @available(OSX 10.7, *)
 class AVCaptureDeviceInput : AVCaptureInput {
-  init(device: AVCaptureDevice!) throws
+  init(device device: AVCaptureDevice!) throws
   var device: AVCaptureDevice! { get }
   init()
 }
 @available(OSX 10.7, *)
 class AVCaptureScreenInput : AVCaptureInput {
-  init!(displayID: CGDirectDisplayID)
+  init!(displayID displayID: CGDirectDisplayID)
   var minFrameDuration: CMTime
   var cropRect: CGRect
   var scaleFactor: CGFloat

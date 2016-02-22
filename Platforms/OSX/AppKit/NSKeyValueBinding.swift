@@ -2,19 +2,19 @@
 var NSMultipleValuesMarker: AnyObject
 var NSNoSelectionMarker: AnyObject
 var NSNotApplicableMarker: AnyObject
-func NSIsControllerMarker(object: AnyObject?) -> Bool
+func NSIsControllerMarker(_ object: AnyObject?) -> Bool
 let NSObservedObjectKey: String
 let NSObservedKeyPathKey: String
 let NSOptionsKey: String
 extension NSObject {
-  class func exposeBinding(binding: String)
+  class func exposeBinding(_ binding: String)
   var exposedBindings: [String] { get }
   class func valueClass(forBinding binding: String) -> AnyClass?
   func valueClass(forBinding binding: String) -> AnyClass?
-  class func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
-  func bind(binding: String, to observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]? = [:])
-  class func unbind(binding: String)
-  func unbind(binding: String)
+  class func bind(_ binding: String, to observable: AnyObject, withKeyPath keyPath: String, options options: [String : AnyObject]? = [:])
+  func bind(_ binding: String, to observable: AnyObject, withKeyPath keyPath: String, options options: [String : AnyObject]? = [:])
+  class func unbind(_ binding: String)
+  func unbind(_ binding: String)
   class func info(forBinding binding: String) -> [String : AnyObject]?
   func info(forBinding binding: String) -> [String : AnyObject]?
   @available(OSX 10.5, *)
@@ -24,22 +24,22 @@ extension NSObject {
   class func exposedBindings() -> [String]
 }
 extension NSObject {
-  class func setDefaultPlaceholder(placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
+  class func setDefaultPlaceholder(_ placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
   class func defaultPlaceholder(forMarker marker: AnyObject?, withBinding binding: String) -> AnyObject?
 }
 extension NSObject {
-  class func objectDidBeginEditing(editor: AnyObject)
-  func objectDidBeginEditing(editor: AnyObject)
-  class func objectDidEndEditing(editor: AnyObject)
-  func objectDidEndEditing(editor: AnyObject)
+  class func objectDidBeginEditing(_ editor: AnyObject)
+  func objectDidBeginEditing(_ editor: AnyObject)
+  class func objectDidEndEditing(_ editor: AnyObject)
+  func objectDidEndEditing(_ editor: AnyObject)
 }
 extension NSObject {
   class func discardEditing()
   func discardEditing()
   class func commitEditing() -> Bool
   func commitEditing() -> Bool
-  class func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)

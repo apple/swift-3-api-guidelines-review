@@ -1,6 +1,6 @@
 
 enum NSColorSpaceModel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NSUnknownColorSpaceModel
   case NSGrayColorSpaceModel
@@ -17,7 +17,7 @@ class NSColorSpace : NSObject, NSSecureCoding {
   init?(colorSyncProfile prof: UnsafeMutablePointer<Void>)
   var colorSyncProfile: UnsafeMutablePointer<Void> { get }
   @available(OSX 10.5, *)
-  init?(cgColorSpace: CGColorSpace)
+  init?(cgColorSpace cgColorSpace: CGColorSpace)
   @available(OSX 10.5, *)
   var cgColorSpace: CGColorSpace? { get }
   var numberOfColorComponents: Int { get }

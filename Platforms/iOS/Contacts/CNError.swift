@@ -3,7 +3,7 @@
 let CNErrorDomain: String
 @available(iOS 9.0, *)
 enum CNErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case communicationError
   case dataAccessError

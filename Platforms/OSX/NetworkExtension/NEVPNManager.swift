@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEVPNError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case configurationInvalid
   case configurationDisabled
@@ -25,7 +25,7 @@ class NEVPNManager : NSObject {
   @available(OSX 10.10, *)
   func saveToPreferences(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func setAuthorization(authorization: AuthorizationRef)
+  func setAuthorization(_ authorization: AuthorizationRef)
   @available(OSX 10.10, *)
   var onDemandRules: [NEOnDemandRule]?
   @available(OSX 10.10, *)

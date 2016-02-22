@@ -8,10 +8,10 @@ struct SCNetworkConnectionContext {
   var release: (@convention(c) (UnsafePointer<Void>) -> Void)?
   var copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
 }
 enum SCNetworkConnectionStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case invalid
   case disconnected
@@ -20,7 +20,7 @@ enum SCNetworkConnectionStatus : Int32 {
   case disconnecting
 }
 enum SCNetworkConnectionPPPStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case disconnected
   case initializing

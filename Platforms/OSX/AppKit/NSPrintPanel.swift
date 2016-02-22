@@ -1,7 +1,7 @@
 
 @available(OSX 10.5, *)
 struct NSPrintPanelOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var showsCopies: NSPrintPanelOptions { get }
   static var showsPageRange: NSPrintPanelOptions { get }
@@ -28,23 +28,23 @@ protocol NSPrintPanelAccessorizing {
 }
 class NSPrintPanel : NSObject {
   @available(OSX 10.5, *)
-  func addAccessoryController(accessoryController: NSViewController)
+  func addAccessoryController(_ accessoryController: NSViewController)
   @available(OSX 10.5, *)
-  func removeAccessoryController(accessoryController: NSViewController)
+  func removeAccessoryController(_ accessoryController: NSViewController)
   @available(OSX 10.5, *)
   var accessoryControllers: [NSViewController] { get }
   @available(OSX 10.5, *)
   var options: NSPrintPanelOptions
   @available(OSX 10.5, *)
-  func setDefaultButtonTitle(defaultButtonTitle: String?)
+  func setDefaultButtonTitle(_ defaultButtonTitle: String?)
   @available(OSX 10.5, *)
   func defaultButtonTitle() -> String?
   @available(OSX 10.5, *)
   var helpAnchor: String?
   var jobStyleHint: String?
-  func beginSheet(printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheet(_ printInfo: NSPrintInfo, modalFor docWindow: NSWindow, delegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.5, *)
-  func runModal(printInfo: NSPrintInfo) -> Int
+  func runModal(_ printInfo: NSPrintInfo) -> Int
   func runModal() -> Int
   @available(OSX 10.5, *)
   var printInfo: NSPrintInfo { get }

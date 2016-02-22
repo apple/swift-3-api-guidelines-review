@@ -1,6 +1,6 @@
 
 class WebDataSource : NSObject {
-  init!(request: NSURLRequest!)
+  init!(request request: NSURLRequest!)
   @NSCopying var data: NSData! { get }
   var representation: WebDocumentRepresentation! { get }
   var webFrame: WebFrame! { get }
@@ -15,6 +15,6 @@ class WebDataSource : NSObject {
   var mainResource: WebResource! { get }
   var subresources: [AnyObject]! { get }
   func subresource(for URL: NSURL!) -> WebResource!
-  func addSubresource(subresource: WebResource!)
+  func addSubresource(_ subresource: WebResource!)
   init()
 }

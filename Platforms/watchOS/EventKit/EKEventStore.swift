@@ -1,6 +1,6 @@
 
 enum EKSpan : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case thisEvent
   case futureEvents
@@ -13,7 +13,7 @@ class EKEventStore : NSObject {
   @available(watchOS 2.0, *)
   init()
   @available(watchOS 2.0, *)
-  func requestAccess(to entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
+  func requestAccess(to entityType: EKEntityType, completion completion: EKEventStoreRequestAccessCompletionHandler)
   var eventStoreIdentifier: String { get }
   @available(watchOS 2.0, *)
   var sources: [EKSource] { get }
@@ -35,17 +35,17 @@ class EKEventStore : NSObject {
   func event(withIdentifier identifier: String) -> EKEvent?
   func events(matching predicate: NSPredicate) -> [EKEvent]
   func enumerateEvents(matching predicate: NSPredicate, using block: EKEventSearchCallback)
-  func predicateForEvents(withStart startDate: NSDate, end endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForEvents(withStart startDate: NSDate, end endDate: NSDate, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func fetchReminders(matching predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchReminders(matching predicate: NSPredicate, completion completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(watchOS 2.0, *)
-  func cancelFetchRequest(fetchIdentifier: AnyObject)
+  func cancelFetchRequest(_ fetchIdentifier: AnyObject)
   @available(watchOS 2.0, *)
   func predicateForReminders(in calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func predicateForIncompleteReminders(withDueDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForIncompleteReminders(withDueDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func predicateForCompletedReminders(withCompletionDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForCompletedReminders(withCompletionDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
   func reset()
 }

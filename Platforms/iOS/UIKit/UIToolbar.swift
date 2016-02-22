@@ -5,21 +5,21 @@ class UIToolbar : UIView, UIBarPositioning {
   var items: [UIBarButtonItem]?
   @available(iOS 3.0, *)
   var isTranslucent: Bool
-  func setItems(items: [UIBarButtonItem]?, animated: Bool)
+  func setItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
   var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImage(forToolbarPosition topOrBottom: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(forToolbarPosition topOrBottom: UIBarPosition, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
-  func setShadowImage(shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition)
+  func setShadowImage(_ shadowImage: UIImage?, forToolbarPosition topOrBottom: UIBarPosition)
   @available(iOS 6.0, *)
   func shadowImage(forToolbarPosition topOrBottom: UIBarPosition) -> UIImage?
   @available(iOS 7.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged UIToolbarDelegate?
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 7.0, *)

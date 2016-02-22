@@ -1,17 +1,17 @@
 
 @available(OSX 10.10, *)
 class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
-  /*not inherited*/ init?(dictionary: [String : AnyObject])
+  /*not inherited*/ init?(dictionary dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
   func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(OSX 10.11, *)
-  subscript(key: AnyObject) -> AnyObject? { get }
+  subscript(_ key: AnyObject) -> AnyObject? { get }
   @available(OSX 10.11, *)
-  func setObject(obj: AnyObject?, forKeyedSubscript key: NSCopying)
+  func setObject(_ obj: AnyObject?, forKeyedSubscript key: NSCopying)
   init()
   @available(OSX 10.10, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.10, *)
   func removeAllAnimations()
   @available(OSX 10.10, *)

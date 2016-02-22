@@ -1,6 +1,6 @@
 
 enum CFStringEncodings : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case macJapanese
   case macChineseTrad

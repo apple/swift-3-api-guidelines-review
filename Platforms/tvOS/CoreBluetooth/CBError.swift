@@ -1,7 +1,7 @@
 
 let CBErrorDomain: String
 enum CBError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   @available(tvOS 6.0, *)
@@ -34,7 +34,7 @@ extension CBError : _BridgedNSError {
 }
 let CBATTErrorDomain: String
 enum CBATTError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(tvOS 6.0, *)
   case success

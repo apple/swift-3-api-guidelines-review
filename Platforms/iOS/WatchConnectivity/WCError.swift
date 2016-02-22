@@ -3,7 +3,7 @@
 let WCErrorDomain: String
 @available(iOS 9.0, *)
 enum WCErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case genericError
   case sessionNotSupported

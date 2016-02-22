@@ -7,17 +7,17 @@ let kGLKModelErrorKey: String
 class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
   init()
   @available(iOS 9.0, *)
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
   func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)
-  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(iOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(iOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(iOS 9.0, *)
 class GLKMeshBuffer : NSObject, MDLMeshBuffer {
@@ -29,7 +29,7 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   func zone() -> MDLMeshBufferZone?
   init()
   @available(iOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(_ data: NSData, offset offset: Int)
   @available(iOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(iOS 9.0, *)
@@ -46,8 +46,8 @@ class GLKSubmesh : NSObject {
 }
 @available(iOS 9.0, *)
 class GLKMesh : NSObject {
-  init(mesh: MDLMesh) throws
-  class func newMeshes(from asset: MDLAsset, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
+  init(mesh mesh: MDLMesh) throws
+  class func newMeshes(from asset: MDLAsset, sourceMeshes sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [GLKMesh]
   var vertexCount: Int { get }
   var vertexBuffers: [GLKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }
@@ -59,7 +59,7 @@ struct _GLKVertexAttributeParameters {
   var size: GLint
   var normalized: GLboolean
   init()
-  init(type: GLenum, size: GLint, normalized: GLboolean)
+  init(type type: GLenum, size size: GLint, normalized normalized: GLboolean)
 }
 typealias GLKVertexAttributeParameters = _GLKVertexAttributeParameters
-func GLKVertexAttributeParametersFromModelIO(vertexFormat: MDLVertexFormat) -> GLKVertexAttributeParameters
+func GLKVertexAttributeParametersFromModelIO(_ vertexFormat: MDLVertexFormat) -> GLKVertexAttributeParameters

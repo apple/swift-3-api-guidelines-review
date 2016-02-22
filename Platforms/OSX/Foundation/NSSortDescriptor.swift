@@ -1,18 +1,18 @@
 
 class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
-  init(key: String?, ascending: Bool)
-  init(key: String?, ascending: Bool, selector: Selector)
-  init?(coder: NSCoder)
+  init(key key: String?, ascending ascending: Bool)
+  init(key key: String?, ascending ascending: Bool, selector selector: Selector)
+  init?(coder coder: NSCoder)
   var key: String? { get }
   var ascending: Bool { get }
   var selector: Selector { get }
   @available(OSX 10.9, *)
   func allowEvaluation()
   @available(OSX 10.6, *)
-  init(key: String?, ascending: Bool, comparator cmptr: NSComparator)
+  init(key key: String?, ascending ascending: Bool, comparator cmptr: NSComparator)
   @available(OSX 10.6, *)
   var comparator: NSComparator { get }
-  func compare(object1: AnyObject, to object2: AnyObject) -> NSComparisonResult
+  func compare(_ object1: AnyObject, to object2: AnyObject) -> NSComparisonResult
   var reversedSortDescriptor: AnyObject { get }
   init()
   class func supportsSecureCoding() -> Bool

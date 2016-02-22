@@ -3,7 +3,7 @@
 let WKErrorDomain: String
 @available(iOS 8.0, *)
 enum WKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case webContentProcessTerminated

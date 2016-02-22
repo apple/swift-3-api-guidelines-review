@@ -20,7 +20,7 @@ class HKUnit : NSObject, NSSecureCoding, NSCopying {
 }
 @available(iOS 8.0, *)
 enum HKMetricPrefix : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case pico

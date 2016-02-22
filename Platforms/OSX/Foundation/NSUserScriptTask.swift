@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 class NSUserScriptTask : NSObject {
-  init(url: NSURL) throws
+  init(url url: NSURL) throws
   @NSCopying var scriptURL: NSURL { get }
   func execute(completionHandler handler: NSUserScriptTaskCompletionHandler? = nil)
   convenience init()
@@ -13,14 +13,14 @@ class NSUserUnixTask : NSUserScriptTask {
   var standardOutput: NSFileHandle?
   var standardError: NSFileHandle?
   func execute(arguments arguments: [String]?, completionHandler handler: NSUserUnixTaskCompletionHandler? = nil)
-  init(url: NSURL) throws
+  init(url url: NSURL) throws
   convenience init()
 }
 typealias NSUserUnixTaskCompletionHandler = (NSError?) -> Void
 @available(OSX 10.8, *)
 class NSUserAppleScriptTask : NSUserScriptTask {
   func execute(appleEvent event: NSAppleEventDescriptor?, completionHandler handler: NSUserAppleScriptTaskCompletionHandler? = nil)
-  init(url: NSURL) throws
+  init(url url: NSURL) throws
   convenience init()
 }
 typealias NSUserAppleScriptTaskCompletionHandler = (NSAppleEventDescriptor?, NSError?) -> Void
@@ -28,7 +28,7 @@ typealias NSUserAppleScriptTaskCompletionHandler = (NSAppleEventDescriptor?, NSE
 class NSUserAutomatorTask : NSUserScriptTask {
   var variables: [String : AnyObject]?
   func execute(input input: NSSecureCoding?, completionHandler handler: NSUserAutomatorTaskCompletionHandler? = nil)
-  init(url: NSURL) throws
+  init(url url: NSURL) throws
   convenience init()
 }
 typealias NSUserAutomatorTaskCompletionHandler = (AnyObject?, NSError?) -> Void

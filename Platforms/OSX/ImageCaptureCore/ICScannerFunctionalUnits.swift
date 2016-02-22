@@ -1,6 +1,6 @@
 
 enum ICScannerFunctionalUnitType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case flatbed
   case positiveTransparency
@@ -8,7 +8,7 @@ enum ICScannerFunctionalUnitType : UInt {
   case documentFeeder
 }
 enum ICScannerMeasurementUnit : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case inches
   case centimeters
@@ -18,20 +18,20 @@ enum ICScannerMeasurementUnit : UInt {
   case pixels
 }
 enum ICScannerBitDepth : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case depth1Bit
   case depth8Bits
   case depth16Bits
 }
 enum ICScannerColorDataFormatType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case chunky
   case planar
 }
 enum ICScannerPixelDataType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case BW
   case gray
@@ -44,7 +44,7 @@ enum ICScannerPixelDataType : UInt {
   case CIEXYZ
 }
 enum ICScannerDocumentType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case typeDefault
   case typeA4
@@ -120,14 +120,14 @@ enum ICScannerDocumentType : UInt {
   case typeLF
 }
 enum ICScannerFunctionalUnitState : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case ready
   case scanInProgress
   case overviewScanInProgress
 }
 enum ICScannerFeatureType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case enumeration
   case range

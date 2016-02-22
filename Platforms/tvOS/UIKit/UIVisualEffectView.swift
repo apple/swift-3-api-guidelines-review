@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum UIBlurEffectStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case extraLight
   case light
@@ -20,7 +20,7 @@ class UIVisualEffect : NSObject, NSCopying, NSSecureCoding {
 }
 @available(tvOS 8.0, *)
 class UIBlurEffect : UIVisualEffect {
-  /*not inherited*/ init(style: UIBlurEffectStyle)
+  /*not inherited*/ init(style style: UIBlurEffectStyle)
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -34,9 +34,9 @@ class UIVibrancyEffect : UIVisualEffect {
 class UIVisualEffectView : UIView, NSSecureCoding {
   var contentView: UIView { get }
   @NSCopying var effect: UIVisualEffect?
-  init(effect: UIVisualEffect?)
+  init(effect effect: UIVisualEffect?)
   init?(coder aDecoder: NSCoder)
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool

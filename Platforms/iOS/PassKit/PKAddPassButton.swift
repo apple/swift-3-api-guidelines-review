@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum PKAddPassButtonStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case black
   case blackOutline
@@ -12,7 +12,7 @@ class PKAddPassButton : UIButton {
   init(addPassButtonStyle style: PKAddPassButtonStyle)
   var addPassButtonStyle: PKAddPassButtonStyle
   convenience init(type buttonType: UIButtonType)
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

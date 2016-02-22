@@ -8,4 +8,4 @@ let kSecLineLength76: CFString
 let kSecEncodeLineLengthAttribute: CFString
 let kSecCompressionRatio: CFString
 @available(OSX 10.7, *)
-func SecEncodeTransformCreate(encodeType: CFTypeRef, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?
+func SecEncodeTransformCreate(_ encodeType: CFTypeRef, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?

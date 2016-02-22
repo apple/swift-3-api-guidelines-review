@@ -91,7 +91,7 @@ struct ICAPTPPassThroughPB {
   var dataSize: UInt32
   var data: (UInt8)
   init()
-  init(commandCode: UInt32, resultCode: UInt32, numOfInputParams: UInt32, numOfOutputParams: UInt32, params: (UInt32, UInt32, UInt32, UInt32), dataUsageMode: UInt32, flags: UInt32, dataSize: UInt32, data: (UInt8))
+  init(commandCode commandCode: UInt32, resultCode resultCode: UInt32, numOfInputParams numOfInputParams: UInt32, numOfOutputParams numOfOutputParams: UInt32, params params: (UInt32, UInt32, UInt32, UInt32), dataUsageMode dataUsageMode: UInt32, flags flags: UInt32, dataSize dataSize: UInt32, data data: (UInt8))
 }
 struct ICAPTPEventDataset {
   var dataLength: UInt32
@@ -100,7 +100,7 @@ struct ICAPTPEventDataset {
   var transactionID: UInt32
   var params: (UInt32, UInt32, UInt32)
   init()
-  init(dataLength: UInt32, containerType: UInt16, eventCode: UInt16, transactionID: UInt32, params: (UInt32, UInt32, UInt32))
+  init(dataLength dataLength: UInt32, containerType containerType: UInt16, eventCode eventCode: UInt16, transactionID transactionID: UInt32, params params: (UInt32, UInt32, UInt32))
 }
 @available(OSX 10.5, *)
 let kICADevicesArrayKey: CFString!
@@ -206,7 +206,7 @@ struct ICAHeader {
   var err: ICAError
   var refcon: UInt
   init()
-  init(err: ICAError, refcon: UInt)
+  init(err err: ICAError, refcon refcon: UInt)
 }
 typealias ICACompletion = @convention(c) (UnsafeMutablePointer<ICAHeader>) -> Void
 typealias ICAImportFilterProc = @convention(c) (CFDictionary!, UInt) -> DarwinBoolean
@@ -221,7 +221,7 @@ struct ICAObjectInfo {
   var objectType: OSType
   var objectSubtype: OSType
   init()
-  init(objectType: OSType, objectSubtype: OSType)
+  init(objectType objectType: OSType, objectSubtype objectSubtype: OSType)
 }
 var kICAAllowMultipleImages: Int { get }
 var kICADownloadAndReturnPathArray: Int { get }
@@ -233,7 +233,7 @@ struct ICAImportImagePB {
   var filterProc: ICAImportFilterProc!
   var importedImages: UnsafeMutablePointer<Unmanaged<CFArray>?>
   init()
-  init(header: ICAHeader, deviceObject: ICAObject, flags: UInt32, supportedFileTypes: Unmanaged<CFArray>!, filterProc: ICAImportFilterProc!, importedImages: UnsafeMutablePointer<Unmanaged<CFArray>?>)
+  init(header header: ICAHeader, deviceObject deviceObject: ICAObject, flags flags: UInt32, supportedFileTypes supportedFileTypes: Unmanaged<CFArray>!, filterProc filterProc: ICAImportFilterProc!, importedImages importedImages: UnsafeMutablePointer<Unmanaged<CFArray>?>)
 }
 typealias ICANotification = @convention(c) (CFString!, CFDictionary!) -> Void
 @available(OSX 10.5, *)
@@ -429,27 +429,27 @@ struct ICARegisterForEventNotificationPB {
   var notificationProc: ICANotification!
   var options: Unmanaged<CFDictionary>!
   init()
-  init(header: ICAHeader, objectOfInterest: ICAObject, eventsOfInterest: Unmanaged<CFArray>!, notificationProc: ICANotification!, options: Unmanaged<CFDictionary>!)
+  init(header header: ICAHeader, objectOfInterest objectOfInterest: ICAObject, eventsOfInterest eventsOfInterest: Unmanaged<CFArray>!, notificationProc notificationProc: ICANotification!, options options: Unmanaged<CFDictionary>!)
 }
 struct ICASendNotificationPB {
   var header: ICAHeader
   var notificationDictionary: Unmanaged<CFMutableDictionary>!
   var replyCode: UInt32
   init()
-  init(header: ICAHeader, notificationDictionary: Unmanaged<CFMutableDictionary>!, replyCode: UInt32)
+  init(header header: ICAHeader, notificationDictionary notificationDictionary: Unmanaged<CFMutableDictionary>!, replyCode replyCode: UInt32)
 }
 struct ICAGetDeviceListPB {
   var header: ICAHeader
   var object: ICAObject
   init()
-  init(header: ICAHeader, object: ICAObject)
+  init(header header: ICAHeader, object object: ICAObject)
 }
 struct ICACopyObjectPropertyDictionaryPB {
   var header: ICAHeader
   var object: ICAObject
   var theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>
   init()
-  init(header: ICAHeader, object: ICAObject, theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>)
+  init(header header: ICAHeader, object object: ICAObject, theDict theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>)
 }
 var kICAThumbnailFormatJPEG: Int { get }
 var kICAThumbnailFormatTIFF: Int { get }
@@ -460,7 +460,7 @@ struct ICACopyObjectThumbnailPB {
   var thumbnailFormat: OSType
   var thumbnailData: UnsafeMutablePointer<Unmanaged<CFData>?>
   init()
-  init(header: ICAHeader, object: ICAObject, thumbnailFormat: OSType, thumbnailData: UnsafeMutablePointer<Unmanaged<CFData>?>)
+  init(header header: ICAHeader, object object: ICAObject, thumbnailFormat thumbnailFormat: OSType, thumbnailData thumbnailData: UnsafeMutablePointer<Unmanaged<CFData>?>)
 }
 struct ICACopyObjectDataPB {
   var header: ICAHeader
@@ -469,7 +469,7 @@ struct ICACopyObjectDataPB {
   var requestedSize: Int
   var data: UnsafeMutablePointer<Unmanaged<CFData>?>
   init()
-  init(header: ICAHeader, object: ICAObject, startByte: Int, requestedSize: Int, data: UnsafeMutablePointer<Unmanaged<CFData>?>)
+  init(header header: ICAHeader, object object: ICAObject, startByte startByte: Int, requestedSize requestedSize: Int, data data: UnsafeMutablePointer<Unmanaged<CFData>?>)
 }
 struct ICAMessage {
   var messageType: OSType
@@ -478,7 +478,7 @@ struct ICAMessage {
   var dataSize: UInt32
   var dataType: OSType
   init()
-  init(messageType: OSType, startByte: UInt32, dataPtr: UnsafeMutablePointer<Void>, dataSize: UInt32, dataType: OSType)
+  init(messageType messageType: OSType, startByte startByte: UInt32, dataPtr dataPtr: UnsafeMutablePointer<Void>, dataSize dataSize: UInt32, dataType dataType: OSType)
 }
 var kICAMessageConnect: Int { get }
 var kICAMessageDisconnect: Int { get }
@@ -496,7 +496,7 @@ struct ICAObjectSendMessagePB {
   var message: ICAMessage
   var result: UInt32
   init()
-  init(header: ICAHeader, object: ICAObject, message: ICAMessage, result: UInt32)
+  init(header header: ICAHeader, object object: ICAObject, message message: ICAMessage, result result: UInt32)
 }
 var kDeleteAfterDownload: Int { get }
 var kCreateCustomIcon: Int { get }
@@ -515,7 +515,7 @@ struct ICADownloadFilePB {
   var rotationAngle: Fixed
   var fileFSRef: UnsafeMutablePointer<FSRef>
   init()
-  init(header: ICAHeader, object: ICAObject, dirFSRef: UnsafeMutablePointer<FSRef>, flags: UInt32, fileType: OSType, fileCreator: OSType, rotationAngle: Fixed, fileFSRef: UnsafeMutablePointer<FSRef>)
+  init(header header: ICAHeader, object object: ICAObject, dirFSRef dirFSRef: UnsafeMutablePointer<FSRef>, flags flags: UInt32, fileType fileType: OSType, fileCreator fileCreator: OSType, rotationAngle rotationAngle: Fixed, fileFSRef fileFSRef: UnsafeMutablePointer<FSRef>)
 }
 var kICAUploadFileAsIs: Int { get }
 var kICAUploadFileScaleToFit: Int { get }
@@ -525,76 +525,76 @@ struct ICAUploadFilePB {
   var fileFSRef: UnsafeMutablePointer<FSRef>
   var flags: UInt32
   init()
-  init(header: ICAHeader, parentObject: ICAObject, fileFSRef: UnsafeMutablePointer<FSRef>, flags: UInt32)
+  init(header header: ICAHeader, parentObject parentObject: ICAObject, fileFSRef fileFSRef: UnsafeMutablePointer<FSRef>, flags flags: UInt32)
 }
 struct ICALoadDeviceModulePB {
   var header: ICAHeader
   var paramDictionary: Unmanaged<CFDictionary>!
   init()
-  init(header: ICAHeader, paramDictionary: Unmanaged<CFDictionary>!)
+  init(header header: ICAHeader, paramDictionary paramDictionary: Unmanaged<CFDictionary>!)
 }
 struct ICAUnloadDeviceModulePB {
   var header: ICAHeader
   var deviceObject: ICAObject
   init()
-  init(header: ICAHeader, deviceObject: ICAObject)
+  init(header header: ICAHeader, deviceObject deviceObject: ICAObject)
 }
 struct ICAOpenSessionPB {
   var header: ICAHeader
   var deviceObject: ICAObject
   var sessionID: ICASessionID
   init()
-  init(header: ICAHeader, deviceObject: ICAObject, sessionID: ICASessionID)
+  init(header header: ICAHeader, deviceObject deviceObject: ICAObject, sessionID sessionID: ICASessionID)
 }
 struct ICACloseSessionPB {
   var header: ICAHeader
   var sessionID: ICASessionID
   init()
-  init(header: ICAHeader, sessionID: ICASessionID)
+  init(header header: ICAHeader, sessionID sessionID: ICASessionID)
 }
 struct ICAScannerOpenSessionPB {
   var header: ICAHeader
   var object: ICAObject
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICAHeader, object: ICAObject, sessionID: ICAScannerSessionID)
+  init(header header: ICAHeader, object object: ICAObject, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICAScannerCloseSessionPB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICAScannerInitializePB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID)
 }
 struct ICAScannerGetParametersPB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   var theDict: Unmanaged<CFMutableDictionary>!
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID, theDict: Unmanaged<CFMutableDictionary>!)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID, theDict theDict: Unmanaged<CFMutableDictionary>!)
 }
 struct ICAScannerSetParametersPB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   var theDict: Unmanaged<CFMutableDictionary>!
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID, theDict: Unmanaged<CFMutableDictionary>!)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID, theDict theDict: Unmanaged<CFMutableDictionary>!)
 }
 struct ICAScannerStatusPB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   var status: UInt32
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID, status: UInt32)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID, status status: UInt32)
 }
 struct ICAScannerStartPB {
   var header: ICAHeader
   var sessionID: ICAScannerSessionID
   init()
-  init(header: ICAHeader, sessionID: ICAScannerSessionID)
+  init(header header: ICAHeader, sessionID sessionID: ICAScannerSessionID)
 }

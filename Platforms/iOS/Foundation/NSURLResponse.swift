@@ -14,7 +14,7 @@ class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
 }
 class NSHTTPURLResponse : NSURLResponse {
   @available(iOS 5.0, *)
-  init?(url: NSURL, statusCode: Int, httpVersion HTTPVersion: String?, headerFields: [String : String]?)
+  init?(url url: NSURL, statusCode statusCode: Int, httpVersion HTTPVersion: String?, headerFields headerFields: [String : String]?)
   var statusCode: Int { get }
   var allHeaderFields: [NSObject : AnyObject] { get }
   class func localizedString(forStatusCode statusCode: Int) -> String

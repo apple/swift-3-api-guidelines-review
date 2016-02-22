@@ -12,6 +12,6 @@ class NSDockTile : NSObject {
 }
 protocol NSDockTilePlugIn : NSObjectProtocol {
   @available(OSX 10.5, *)
-  func setDockTile(dockTile: NSDockTile?)
+  func setDockTile(_ dockTile: NSDockTile?)
   optional func dockMenu() -> NSMenu?
 }

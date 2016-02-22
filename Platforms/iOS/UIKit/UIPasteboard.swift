@@ -4,26 +4,26 @@ let UIPasteboardNameFind: String
 @available(iOS 3.0, *)
 class UIPasteboard : NSObject {
   class func general() -> UIPasteboard
-  /*not inherited*/ init?(name pasteboardName: String, create: Bool)
+  /*not inherited*/ init?(name pasteboardName: String, create create: Bool)
   class func withUniqueName() -> UIPasteboard
   var name: String { get }
   class func remove(name pasteboardName: String)
   var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
-  func containsTypes(pasteboardTypes: [String]) -> Bool
+  func containsTypes(_ pasteboardTypes: [String]) -> Bool
   func data(forPasteboardType pasteboardType: String) -> NSData?
   func value(forPasteboardType pasteboardType: String) -> AnyObject?
-  func setValue(value: AnyObject, forPasteboardType pasteboardType: String)
-  func setData(data: NSData, forPasteboardType pasteboardType: String)
+  func setValue(_ value: AnyObject, forPasteboardType pasteboardType: String)
+  func setData(_ data: NSData, forPasteboardType pasteboardType: String)
   var numberOfItems: Int { get }
   func pasteboardTypes(forItemSet itemSet: NSIndexSet?) -> [AnyObject]?
-  func containsTypes(pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
+  func containsTypes(_ pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
   func itemSet(withPasteboardTypes pasteboardTypes: [AnyObject]) -> NSIndexSet?
   func values(forPasteboardType pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
   func data(forPasteboardType pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
   var items: [AnyObject]
-  func addItems(items: [[String : AnyObject]])
+  func addItems(_ items: [[String : AnyObject]])
   init()
 }
 let UIPasteboardChangedNotification: String

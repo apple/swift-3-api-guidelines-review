@@ -20,7 +20,7 @@ let AVAssetExportPresetAppleM4A: String
 @available(tvOS 4.0, *)
 let AVAssetExportPresetPassthrough: String
 enum AVAssetExportSessionStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case waiting
@@ -31,7 +31,7 @@ enum AVAssetExportSessionStatus : Int {
 }
 @available(tvOS 4.0, *)
 class AVAssetExportSession : NSObject {
-  init?(asset: AVAsset, presetName: String)
+  init?(asset asset: AVAsset, presetName presetName: String)
   var presetName: String { get }
   @available(tvOS 5.0, *)
   var asset: AVAsset { get }
@@ -48,7 +48,7 @@ extension AVAssetExportSession {
   class func allExportPresets() -> [String]
   class func exportPresets(compatibleWith asset: AVAsset) -> [String]
   @available(tvOS 6.0, *)
-  class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
+  class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }

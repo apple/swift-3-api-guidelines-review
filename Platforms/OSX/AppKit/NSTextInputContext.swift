@@ -8,7 +8,7 @@ class NSTextInputContext : NSObject {
   var allowedInputSourceLocales: [String]?
   func activate()
   func deactivate()
-  func handle(theEvent: NSEvent) -> Bool
+  func handle(_ theEvent: NSEvent) -> Bool
   func discardMarkedText()
   func invalidateCharacterCoordinates()
   var keyboardInputSources: [String]? { get }

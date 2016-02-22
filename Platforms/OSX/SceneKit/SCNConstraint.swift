@@ -12,7 +12,7 @@ class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.9, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.9, *)
   func removeAllAnimations()
   @available(OSX 10.9, *)
@@ -32,14 +32,14 @@ class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
 }
 @available(OSX 10.9, *)
 class SCNLookAtConstraint : SCNConstraint {
-  convenience init(target: SCNNode)
+  convenience init(target target: SCNNode)
   var target: SCNNode { get }
   var gimbalLockEnabled: Bool
   init()
   init?(coder aDecoder: NSCoder)
 }
 struct SCNBillboardAxis : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var X: SCNBillboardAxis { get }
   static var Y: SCNBillboardAxis { get }
@@ -61,11 +61,11 @@ class SCNTransformConstraint : SCNConstraint {
 @available(OSX 10.10, *)
 class SCNIKConstraint : SCNConstraint {
   @available(OSX 10.11, *)
-  init(chainRootNode: SCNNode)
+  init(chainRootNode chainRootNode: SCNNode)
   class func inverseKinematicsConstraint(withChainRootNode chainRootNode: SCNNode) -> Self
   var chainRootNode: SCNNode { get }
   var targetPosition: SCNVector3
-  func setMaxAllowedRotationAngle(angle: CGFloat, forJoint node: SCNNode)
+  func setMaxAllowedRotationAngle(_ angle: CGFloat, forJoint node: SCNNode)
   func maxAllowedRotationAngle(forJoint node: SCNNode) -> CGFloat
   init()
   init?(coder aDecoder: NSCoder)

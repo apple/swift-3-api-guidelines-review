@@ -2,11 +2,11 @@
 class NSColorList : NSObject, NSSecureCoding {
   class func availableColorLists() -> [NSColorList]
   /*not inherited*/ init?(named name: String)
-  init(name: String)
-  init?(name: String, fromFile path: String?)
+  init(name name: String)
+  init?(name name: String, fromFile path: String?)
   var name: String? { get }
-  func setColor(color: NSColor, forKey key: String)
-  func insert(color: NSColor, key: String, at loc: Int)
+  func setColor(_ color: NSColor, forKey key: String)
+  func insert(_ color: NSColor, key key: String, at loc: Int)
   func removeColor(key key: String)
   func color(withKey key: String) -> NSColor?
   var allKeys: [String] { get }
@@ -28,6 +28,6 @@ struct _colorListFlags {
   var hasAttemptedLoadingBundleForDirectory: UInt32
   var isProfileBased: UInt32
   init()
-  init(colorsLoaded: UInt32, editable: UInt32, hasDeviceSpecificLists: UInt32, dirty: UInt32, hasFrozen: UInt32, notificationsDisabled: UInt32, hasAttemptedLoadingBundleForDirectory: UInt32, isProfileBased: UInt32)
+  init(colorsLoaded colorsLoaded: UInt32, editable editable: UInt32, hasDeviceSpecificLists hasDeviceSpecificLists: UInt32, dirty dirty: UInt32, hasFrozen hasFrozen: UInt32, notificationsDisabled notificationsDisabled: UInt32, hasAttemptedLoadingBundleForDirectory hasAttemptedLoadingBundleForDirectory: UInt32, isProfileBased isProfileBased: UInt32)
 }
 let NSColorListDidChangeNotification: String

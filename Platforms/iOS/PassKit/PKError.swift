@@ -3,7 +3,7 @@
 let PKPassKitErrorDomain: String
 @available(iOS 6.0, *)
 enum PKPassKitErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknownError
   case invalidDataError

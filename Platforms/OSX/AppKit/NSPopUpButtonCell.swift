@@ -1,6 +1,6 @@
 
 enum NSPopUpArrowPosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noArrow
   case arrowAtCenter
@@ -22,7 +22,7 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func indexOf(item: NSMenuItem) -> Int
+  func indexOf(_ item: NSMenuItem) -> Int
   func indexOfItem(withTitle title: String) -> Int
   func indexOfItem(withTag tag: Int) -> Int
   func indexOfItem(withRepresentedObject obj: AnyObject?) -> Int
@@ -30,11 +30,11 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func item(at index: Int) -> NSMenuItem?
   func item(withTitle title: String) -> NSMenuItem?
   var lastItem: NSMenuItem? { get }
-  func select(item: NSMenuItem?)
+  func select(_ item: NSMenuItem?)
   func selectItem(at index: Int)
   func selectItem(title title: String)
   func selectItem(tag tag: Int) -> Bool
-  func setTitle(aString: String?)
+  func setTitle(_ aString: String?)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
   func synchronizeTitleAndSelectedItem()
@@ -63,6 +63,6 @@ struct __pbcFlags {
   var menuShouldBeUniquedAgainstMain: UInt32
   var RESERVED: UInt32
   init()
-  init(pullsDown: UInt32, preferredEdge: UInt32, menuIsAttached: UInt32, usesItemFromMenu: UInt32, altersStateOfSelectedItem: UInt32, decoding: UInt32, arrowPosition: UInt32, ignoreMenuLayout: UInt32, drawing: UInt32, menuShouldBeUniquedAgainstMain: UInt32, RESERVED: UInt32)
+  init(pullsDown pullsDown: UInt32, preferredEdge preferredEdge: UInt32, menuIsAttached menuIsAttached: UInt32, usesItemFromMenu usesItemFromMenu: UInt32, altersStateOfSelectedItem altersStateOfSelectedItem: UInt32, decoding decoding: UInt32, arrowPosition arrowPosition: UInt32, ignoreMenuLayout ignoreMenuLayout: UInt32, drawing drawing: UInt32, menuShouldBeUniquedAgainstMain menuShouldBeUniquedAgainstMain: UInt32, RESERVED RESERVED: UInt32)
 }
 let NSPopUpButtonCellWillPopUpNotification: String

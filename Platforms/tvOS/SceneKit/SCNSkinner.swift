@@ -3,7 +3,7 @@
 class SCNSkinner : NSObject, NSSecureCoding {
   var skeleton: SCNNode?
   @available(tvOS 8.0, *)
-  convenience init(baseGeometry: SCNGeometry?, bones: [SCNNode], boneInverseBindTransforms: [NSValue]?, boneWeights: SCNGeometrySource, boneIndices: SCNGeometrySource)
+  convenience init(baseGeometry baseGeometry: SCNGeometry?, bones bones: [SCNNode], boneInverseBindTransforms boneInverseBindTransforms: [NSValue]?, boneWeights boneWeights: SCNGeometrySource, boneIndices boneIndices: SCNGeometrySource)
   @available(tvOS 8.0, *)
   var baseGeometry: SCNGeometry?
   @available(tvOS 8.0, *)

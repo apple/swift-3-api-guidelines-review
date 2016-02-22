@@ -1,12 +1,12 @@
 
 enum UISearchBarIcon : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case search
 }
 @available(tvOS 7.0, *)
 enum UISearchBarStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case prominent
@@ -37,27 +37,27 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   var scopeBarBackgroundImage: UIImage?
   @available(tvOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 7.0, *)
-  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
-  func setSearchFieldBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
+  func setSearchFieldBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState)
   @available(tvOS 5.0, *)
   func searchFieldBackgroundImage(for state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
-  func setImage(iconImage: UIImage?, for icon: UISearchBarIcon, state: UIControlState)
+  func setImage(_ iconImage: UIImage?, for icon: UISearchBarIcon, state state: UIControlState)
   @available(tvOS 5.0, *)
-  func image(for icon: UISearchBarIcon, state: UIControlState) -> UIImage?
+  func image(for icon: UISearchBarIcon, state state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
-  func setScopeBarButtonBackgroundImage(backgroundImage: UIImage?, for state: UIControlState)
+  func setScopeBarButtonBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState)
   @available(tvOS 5.0, *)
   func scopeBarButtonBackgroundImage(for state: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
-  func setScopeBarButtonDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
+  func setScopeBarButtonDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(tvOS 5.0, *)
   func scopeBarButtonDividerImage(forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState) -> UIImage?
   @available(tvOS 5.0, *)
-  func setScopeBarButtonTitleTextAttributes(attributes: [String : AnyObject]?, for state: UIControlState)
+  func setScopeBarButtonTitleTextAttributes(_ attributes: [String : AnyObject]?, for state: UIControlState)
   @available(tvOS 5.0, *)
   func scopeBarButtonTitleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(tvOS 5.0, *)
@@ -65,7 +65,7 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   @available(tvOS 5.0, *)
   var searchTextPositionAdjustment: UIOffset
   @available(tvOS 5.0, *)
-  func setPositionAdjustment(adjustment: UIOffset, for icon: UISearchBarIcon)
+  func setPositionAdjustment(_ adjustment: UIOffset, for icon: UISearchBarIcon)
   @available(tvOS 5.0, *)
   func positionAdjustment(for icon: UISearchBarIcon) -> UIOffset
   @available(tvOS 7.0, *)
@@ -89,19 +89,19 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
 }
 protocol UISearchBarDelegate : UIBarPositioningDelegate {
   @available(tvOS 2.0, *)
-  optional func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool
+  optional func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
   @available(tvOS 2.0, *)
-  optional func searchBarTextDidBeginEditing(searchBar: UISearchBar)
+  optional func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
   @available(tvOS 2.0, *)
-  optional func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool
+  optional func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool
   @available(tvOS 2.0, *)
-  optional func searchBarTextDidEndEditing(searchBar: UISearchBar)
+  optional func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
   @available(tvOS 2.0, *)
-  optional func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
+  optional func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
   @available(tvOS 3.0, *)
-  optional func searchBar(searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+  optional func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(tvOS 2.0, *)
-  optional func searchBarSearchButtonClicked(searchBar: UISearchBar)
+  optional func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
   @available(tvOS 3.0, *)
-  optional func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
+  optional func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
 }

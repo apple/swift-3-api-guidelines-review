@@ -14,7 +14,7 @@ let AVPlayerItemNewErrorLogEntryNotification: String
 @available(tvOS 4.3, *)
 let AVPlayerItemFailedToPlayToEndTimeErrorKey: String
 enum AVPlayerItemStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case readyToPlay
@@ -23,9 +23,9 @@ enum AVPlayerItemStatus : Int {
 @available(tvOS 4.0, *)
 class AVPlayerItem : NSObject, NSCopying {
   convenience init(url URL: NSURL)
-  convenience init(asset: AVAsset)
+  convenience init(asset asset: AVAsset)
   @available(tvOS 7.0, *)
-  init(asset: AVAsset, automaticallyLoadedAssetKeys: [String]?)
+  init(asset asset: AVAsset, automaticallyLoadedAssetKeys automaticallyLoadedAssetKeys: [String]?)
   var status: AVPlayerItemStatus { get }
   var error: NSError? { get }
   @available(tvOS 4.0, *)
@@ -64,16 +64,16 @@ extension AVPlayerItem {
   var seekableTimeRanges: [NSValue] { get }
   func seek(to time: CMTime)
   @available(tvOS 5.0, *)
-  func seek(to time: CMTime, completionHandler: (Bool) -> Void)
-  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seek(to time: CMTime, completionHandler completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime)
   @available(tvOS 5.0, *)
-  func seek(to time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seek(to time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime, completionHandler completionHandler: (Bool) -> Void)
   @available(tvOS 5.0, *)
   func cancelPendingSeeks()
   func currentDate() -> NSDate?
   func seek(to date: NSDate) -> Bool
   @available(tvOS 6.0, *)
-  func seek(to date: NSDate, completionHandler: (Bool) -> Void) -> Bool
+  func seek(to date: NSDate, completionHandler completionHandler: (Bool) -> Void) -> Bool
   func step(byCount stepCount: Int)
   @available(tvOS 6.0, *)
   var timebase: CMTimebase? { get }
@@ -106,7 +106,7 @@ extension AVPlayerItem {
 }
 extension AVPlayerItem {
   @available(tvOS 5.0, *)
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(_ mediaSelectionOption: AVMediaSelectionOption?, in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(tvOS 7.0, *)
   func selectMediaOptionAutomatically(in mediaSelectionGroup: AVMediaSelectionGroup)
   @available(tvOS 5.0, *)
@@ -122,9 +122,9 @@ extension AVPlayerItem {
 }
 extension AVPlayerItem {
   @available(tvOS 6.0, *)
-  func addOutput(output: AVPlayerItemOutput)
+  func addOutput(_ output: AVPlayerItemOutput)
   @available(tvOS 6.0, *)
-  func removeOutput(output: AVPlayerItemOutput)
+  func removeOutput(_ output: AVPlayerItemOutput)
   @available(tvOS 6.0, *)
   var outputs: [AVPlayerItemOutput] { get }
 }

@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class WKExtension : NSObject {
   class func shared() -> WKExtension
-  func openSystemURL(url: NSURL)
+  func openSystemURL(_ url: NSURL)
   weak var delegate: @sil_weak WKExtensionDelegate?
   var rootInterfaceController: WKInterfaceController? { get }
   init()
@@ -16,7 +16,7 @@ protocol WKExtensionDelegate : NSObjectProtocol {
   optional func handleAction(identifier identifier: String?, for localNotification: UILocalNotification)
   optional func handleAction(identifier identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject])
   optional func handleAction(identifier identifier: String?, for localNotification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject])
-  optional func handleUserActivity(userInfo: [NSObject : AnyObject]?)
-  optional func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject])
-  optional func didReceive(notification: UILocalNotification)
+  optional func handleUserActivity(_ userInfo: [NSObject : AnyObject]?)
+  optional func didReceiveRemoteNotification(_ userInfo: [NSObject : AnyObject])
+  optional func didReceive(_ notification: UILocalNotification)
 }

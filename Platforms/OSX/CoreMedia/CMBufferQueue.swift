@@ -32,43 +32,43 @@ func CMBufferQueueGetCallbacksForUnsortedSampleBuffers() -> UnsafePointer<CMBuff
 @available(OSX 10.7, *)
 func CMBufferQueueGetCallbacksForSampleBuffersSortedByOutputPTS() -> UnsafePointer<CMBufferCallbacks>
 @available(OSX 10.7, *)
-func CMBufferQueueCreate(allocator: CFAllocator?, _ capacity: CMItemCount, _ callbacks: UnsafePointer<CMBufferCallbacks>, _ queueOut: UnsafeMutablePointer<CMBufferQueue?>) -> OSStatus
+func CMBufferQueueCreate(_ allocator: CFAllocator?, _ capacity: CMItemCount, _ callbacks: UnsafePointer<CMBufferCallbacks>, _ queueOut: UnsafeMutablePointer<CMBufferQueue?>) -> OSStatus
 @available(OSX 10.7, *)
 func CMBufferQueueGetTypeID() -> CFTypeID
 @available(OSX 10.7, *)
-func CMBufferQueueEnqueue(queue: CMBufferQueue, _ buf: CMBuffer) -> OSStatus
+func CMBufferQueueEnqueue(_ queue: CMBufferQueue, _ buf: CMBuffer) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueGetHead(queue: CMBufferQueue) -> CMBuffer?
+func CMBufferQueueGetHead(_ queue: CMBufferQueue) -> CMBuffer?
 @available(OSX 10.7, *)
-func CMBufferQueueIsEmpty(queue: CMBufferQueue) -> Bool
+func CMBufferQueueIsEmpty(_ queue: CMBufferQueue) -> Bool
 @available(OSX 10.7, *)
-func CMBufferQueueMarkEndOfData(queue: CMBufferQueue) -> OSStatus
+func CMBufferQueueMarkEndOfData(_ queue: CMBufferQueue) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueContainsEndOfData(queue: CMBufferQueue) -> Bool
+func CMBufferQueueContainsEndOfData(_ queue: CMBufferQueue) -> Bool
 @available(OSX 10.7, *)
-func CMBufferQueueIsAtEndOfData(queue: CMBufferQueue) -> Bool
+func CMBufferQueueIsAtEndOfData(_ queue: CMBufferQueue) -> Bool
 @available(OSX 10.7, *)
-func CMBufferQueueReset(queue: CMBufferQueue) -> OSStatus
+func CMBufferQueueReset(_ queue: CMBufferQueue) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueResetWithCallback(queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> Void, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueResetWithCallback(_ queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> Void, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueGetBufferCount(queue: CMBufferQueue) -> CMItemCount
+func CMBufferQueueGetBufferCount(_ queue: CMBufferQueue) -> CMItemCount
 @available(OSX 10.7, *)
-func CMBufferQueueGetDuration(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetDuration(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetMinDecodeTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMinDecodeTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetFirstDecodeTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetFirstDecodeTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetMinPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMinPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetFirstPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetFirstPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetMaxPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMaxPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.7, *)
-func CMBufferQueueGetEndPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetEndPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(OSX 10.10, *)
-func CMBufferQueueGetTotalSize(queue: CMBufferQueue) -> Int
+func CMBufferQueueGetTotalSize(_ queue: CMBufferQueue) -> Int
 typealias CMBufferQueueTriggerToken = COpaquePointer
 typealias CMBufferQueueTriggerCallback = @convention(c) (UnsafeMutablePointer<Void>, CMBufferQueueTriggerToken) -> Void
 typealias CMBufferQueueTriggerCondition = Int32
@@ -85,15 +85,15 @@ var kCMBufferQueueTrigger_WhenBufferCountBecomesLessThan: CMBufferQueueTriggerCo
 var kCMBufferQueueTrigger_WhenBufferCountBecomesGreaterThan: CMBufferQueueTriggerCondition { get }
 var kCMBufferQueueTrigger_WhenDurationBecomesGreaterThanOrEqualToAndBufferCountBecomesGreaterThan: CMBufferQueueTriggerCondition { get }
 @available(OSX 10.7, *)
-func CMBufferQueueInstallTrigger(queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerTime: CMTime, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
+func CMBufferQueueInstallTrigger(_ queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerTime: CMTime, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueInstallTriggerWithIntegerThreshold(queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerThreshold: CMItemCount, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
+func CMBufferQueueInstallTriggerWithIntegerThreshold(_ queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerThreshold: CMItemCount, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueRemoveTrigger(queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> OSStatus
+func CMBufferQueueRemoveTrigger(_ queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueTestTrigger(queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> Bool
+func CMBufferQueueTestTrigger(_ queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> Bool
 @available(OSX 10.7, *)
-func CMBufferQueueCallForEachBuffer(queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueCallForEachBuffer(_ queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
 typealias CMBufferValidationCallback = @convention(c) (CMBufferQueue, CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.7, *)
-func CMBufferQueueSetValidationCallback(queue: CMBufferQueue, _ validationCallback: CMBufferValidationCallback, _ validationRefCon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueSetValidationCallback(_ queue: CMBufferQueue, _ validationCallback: CMBufferValidationCallback, _ validationRefCon: UnsafeMutablePointer<Void>) -> OSStatus

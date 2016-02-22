@@ -1,6 +1,6 @@
 
 struct NSSnapshotEventType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var undoInsertion: NSSnapshotEventType { get }
   static var undoDeletion: NSSnapshotEventType { get }
@@ -13,7 +13,7 @@ struct NSSnapshotEventType : OptionSetType {
 class NSManagedObject : NSObject {
   @available(OSX 10.6, *)
   class func contextShouldIgnoreUnmodeledPropertyChanges() -> Bool
-  init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
+  init(entity entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
   unowned(unsafe) var managedObjectContext: @sil_unmanaged NSManagedObjectContext? { get }
   var entity: NSEntityDescription { get }
   var objectID: NSManagedObjectID { get }
@@ -49,18 +49,18 @@ class NSManagedObject : NSObject {
   func willTurnIntoFault()
   func didTurnIntoFault()
   func value(forKey key: String) -> AnyObject?
-  func setValue(value: AnyObject?, forKey key: String)
+  func setValue(_ value: AnyObject?, forKey key: String)
   func primitiveValue(forKey key: String) -> AnyObject?
-  func setPrimitiveValue(value: AnyObject?, forKey key: String)
+  func setPrimitiveValue(_ value: AnyObject?, forKey key: String)
   func committedValues(forKeys keys: [String]?) -> [String : AnyObject]
   func changedValues() -> [String : AnyObject]
   @available(OSX 10.7, *)
   func changedValuesForCurrentEvent() -> [String : AnyObject]
-  func validateValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
+  func validateValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   func validateForDelete() throws
   func validateForInsert() throws
   func validateForUpdate() throws
-  func setObservationInfo(inObservationInfo: UnsafeMutablePointer<Void>)
+  func setObservationInfo(_ inObservationInfo: UnsafeMutablePointer<Void>)
   func observationInfo() -> UnsafeMutablePointer<Void>
   convenience init()
 }

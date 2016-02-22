@@ -13,9 +13,9 @@ let SCNPhysicsTestSearchModeClosest: String
 let SCNPhysicsTestSearchModeAll: String
 @available(iOS 8.0, *)
 protocol SCNPhysicsContactDelegate : NSObjectProtocol {
-  optional func physicsWorld(world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
-  optional func physicsWorld(world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
-  optional func physicsWorld(world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact)
+  optional func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact)
 }
 @available(iOS 8.0, *)
 class SCNPhysicsWorld : NSObject, NSSecureCoding {
@@ -23,14 +23,14 @@ class SCNPhysicsWorld : NSObject, NSSecureCoding {
   var speed: CGFloat
   var timeStep: NSTimeInterval
   unowned(unsafe) var contactDelegate: @sil_unmanaged SCNPhysicsContactDelegate?
-  func add(behavior: SCNPhysicsBehavior)
-  func remove(behavior: SCNPhysicsBehavior)
+  func add(_ behavior: SCNPhysicsBehavior)
+  func remove(_ behavior: SCNPhysicsBehavior)
   func removeAllBehaviors()
   var allBehaviors: [SCNPhysicsBehavior] { get }
-  func rayTestWithSegment(fromPoint origin: SCNVector3, toPoint dest: SCNVector3, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
-  func contactTestBetweenBody(bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
-  func contactTest(with body: SCNPhysicsBody, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
-  func convexSweepTest(with shape: SCNPhysicsShape, fromTransform from: SCNMatrix4, toTransform to: SCNMatrix4, options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func rayTestWithSegment(fromPoint origin: SCNVector3, toPoint dest: SCNVector3, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func contactTestBetweenBody(_ bodyA: SCNPhysicsBody, andBody bodyB: SCNPhysicsBody, options options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func contactTest(with body: SCNPhysicsBody, options options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
+  func convexSweepTest(with shape: SCNPhysicsShape, fromTransform from: SCNMatrix4, toTransform to: SCNMatrix4, options options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func updateCollisionPairs()
   init()
   @available(iOS 8.0, *)

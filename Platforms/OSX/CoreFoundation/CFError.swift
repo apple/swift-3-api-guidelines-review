@@ -26,18 +26,18 @@ let kCFErrorURLKey: CFString!
 @available(OSX 10.7, *)
 let kCFErrorFilePathKey: CFString!
 @available(OSX 10.5, *)
-func CFErrorCreate(allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfo: CFDictionary!) -> CFError!
+func CFErrorCreate(_ allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfo: CFDictionary!) -> CFError!
 @available(OSX 10.5, *)
-func CFErrorCreateWithUserInfoKeysAndValues(allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfoKeys: UnsafePointer<UnsafePointer<Void>>, _ userInfoValues: UnsafePointer<UnsafePointer<Void>>, _ numUserInfoValues: CFIndex) -> CFError!
+func CFErrorCreateWithUserInfoKeysAndValues(_ allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfoKeys: UnsafePointer<UnsafePointer<Void>>, _ userInfoValues: UnsafePointer<UnsafePointer<Void>>, _ numUserInfoValues: CFIndex) -> CFError!
 @available(OSX 10.5, *)
-func CFErrorGetDomain(err: CFError!) -> CFString!
+func CFErrorGetDomain(_ err: CFError!) -> CFString!
 @available(OSX 10.5, *)
-func CFErrorGetCode(err: CFError!) -> CFIndex
+func CFErrorGetCode(_ err: CFError!) -> CFIndex
 @available(OSX 10.5, *)
-func CFErrorCopyUserInfo(err: CFError!) -> CFDictionary!
+func CFErrorCopyUserInfo(_ err: CFError!) -> CFDictionary!
 @available(OSX 10.5, *)
-func CFErrorCopyDescription(err: CFError!) -> CFString!
+func CFErrorCopyDescription(_ err: CFError!) -> CFString!
 @available(OSX 10.5, *)
-func CFErrorCopyFailureReason(err: CFError!) -> CFString!
+func CFErrorCopyFailureReason(_ err: CFError!) -> CFString!
 @available(OSX 10.5, *)
-func CFErrorCopyRecoverySuggestion(err: CFError!) -> CFString!
+func CFErrorCopyRecoverySuggestion(_ err: CFError!) -> CFString!

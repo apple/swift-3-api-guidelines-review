@@ -1,6 +1,6 @@
 
 enum CTCellularDataRestrictedState : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case restrictedStateUnknown
   case restricted

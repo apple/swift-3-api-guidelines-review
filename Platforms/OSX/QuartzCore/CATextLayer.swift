@@ -9,7 +9,7 @@ class CATextLayer : CALayer {
   var alignmentMode: String
   var allowsFontSubpixelQuantization: Bool
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)

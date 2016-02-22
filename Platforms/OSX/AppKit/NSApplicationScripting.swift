@@ -4,6 +4,6 @@ extension NSApplication {
   var orderedWindows: [NSWindow] { get }
 }
 extension NSObject {
-  class func application(sender: NSApplication, delegateHandlesKey key: String) -> Bool
-  func application(sender: NSApplication, delegateHandlesKey key: String) -> Bool
+  class func application(_ sender: NSApplication, delegateHandlesKey key: String) -> Bool
+  func application(_ sender: NSApplication, delegateHandlesKey key: String) -> Bool
 }

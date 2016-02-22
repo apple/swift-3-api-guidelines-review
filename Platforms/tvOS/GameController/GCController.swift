@@ -9,7 +9,7 @@ class GCEventViewController : UIViewController {
   convenience init()
 }
 enum GCControllerPlayerIndex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case indexUnset
   case index1

@@ -11,12 +11,12 @@ class AVPlayerView : NSView {
   @available(OSX 10.10, *)
   var contentOverlayView: NSView? { get }
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 @available(OSX 10.9, *)
 enum AVPlayerViewControlsStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case inline
@@ -36,11 +36,11 @@ extension AVPlayerView {
 }
 @available(OSX 10.9, *)
 enum AVPlayerViewTrimResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case okButton
   case cancelButton
 }
 extension AVPlayerView {
-  func flashChapterNumber(chapterNumber: Int, chapterTitle: String)
+  func flashChapterNumber(_ chapterNumber: Int, chapterTitle chapterTitle: String)
 }

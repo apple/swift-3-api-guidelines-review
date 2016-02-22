@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 enum SKPaymentTransactionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case purchasing
   case purchased

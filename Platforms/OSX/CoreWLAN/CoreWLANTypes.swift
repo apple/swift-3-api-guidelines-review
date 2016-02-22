@@ -1,7 +1,7 @@
 
 @available(OSX 10.6, *)
 enum CWErr : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case cwNoErr
   case cweapolErr
@@ -40,7 +40,7 @@ enum CWErr : Int {
 }
 @available(OSX 10.7, *)
 enum CWPHYMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case modeNone
   case mode11a
@@ -51,7 +51,7 @@ enum CWPHYMode : Int {
 }
 @available(OSX 10.7, *)
 enum CWInterfaceMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case station
@@ -60,7 +60,7 @@ enum CWInterfaceMode : Int {
 }
 @available(OSX 10.7, *)
 enum CWSecurity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case WEP
@@ -77,7 +77,7 @@ enum CWSecurity : Int {
 }
 @available(OSX 10.7, *)
 enum CWIBSSModeSecurity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case WEP40
@@ -85,7 +85,7 @@ enum CWIBSSModeSecurity : Int {
 }
 @available(OSX 10.7, *)
 enum CWChannelWidth : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case widthUnknown
   case width20MHz
@@ -95,7 +95,7 @@ enum CWChannelWidth : Int {
 }
 @available(OSX 10.7, *)
 enum CWChannelBand : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case bandUnknown
   case band2GHz
@@ -103,7 +103,7 @@ enum CWChannelBand : Int {
 }
 @available(OSX 10.7, *)
 struct CWCipherKeyFlags : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: CWCipherKeyFlags { get }
   static var unicast: CWCipherKeyFlags { get }
@@ -113,7 +113,7 @@ struct CWCipherKeyFlags : OptionSetType {
 }
 @available(OSX 10.10, *)
 enum CWKeychainDomain : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case user
@@ -121,7 +121,7 @@ enum CWKeychainDomain : Int {
 }
 @available(OSX 10.10, *)
 enum CWEventType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case powerDidChange

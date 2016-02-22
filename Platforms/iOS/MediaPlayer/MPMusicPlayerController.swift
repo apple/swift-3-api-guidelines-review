@@ -1,6 +1,6 @@
 
 enum MPMusicPlaybackState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case stopped
   case playing
@@ -10,7 +10,7 @@ enum MPMusicPlaybackState : Int {
   case seekingBackward
 }
 enum MPMusicRepeatMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case none
@@ -18,7 +18,7 @@ enum MPMusicRepeatMode : Int {
   case all
 }
 enum MPMusicShuffleMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case off
@@ -60,8 +60,8 @@ extension MPMusicPlayerController {
   @NSCopying var nowPlayingItem: MPMediaItem?
   @available(iOS 5.0, *)
   var indexOfNowPlayingItem: Int { get }
-  func setQueueWith(query: MPMediaQuery)
-  func setQueueWith(itemCollection: MPMediaItemCollection)
+  func setQueueWith(_ query: MPMediaQuery)
+  func setQueueWith(_ itemCollection: MPMediaItemCollection)
   func skipToNextItem()
   func skipToBeginning()
   func skipToPreviousItem()

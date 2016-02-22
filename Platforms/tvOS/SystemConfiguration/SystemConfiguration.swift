@@ -26,4 +26,4 @@ func SCCopyLastError() -> CFError
 @available(tvOS 2.0, *)
 func SCError() -> Int32
 @available(tvOS 2.0, *)
-func SCErrorString(status: Int32) -> UnsafePointer<Int8>
+func SCErrorString(_ status: Int32) -> UnsafePointer<Int8>

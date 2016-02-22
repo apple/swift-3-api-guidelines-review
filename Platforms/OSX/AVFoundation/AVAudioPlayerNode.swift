@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 struct AVAudioPlayerNodeBufferOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var loops: AVAudioPlayerNodeBufferOptions { get }
   static var interrupts: AVAudioPlayerNodeBufferOptions { get }
@@ -9,10 +9,10 @@ struct AVAudioPlayerNodeBufferOptions : OptionSetType {
 }
 @available(OSX 10.10, *)
 class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, completionHandler: AVAudioNodeCompletionHandler? = nil)
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, at when: AVAudioTime?, options: AVAudioPlayerNodeBufferOptions = [], completionHandler: AVAudioNodeCompletionHandler? = nil)
-  func scheduleFile(file: AVAudioFile, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
-  func scheduleSegment(file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, at when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler? = nil)
+  func scheduleBuffer(_ buffer: AVAudioPCMBuffer, completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
+  func scheduleBuffer(_ buffer: AVAudioPCMBuffer, at when: AVAudioTime?, options options: AVAudioPlayerNodeBufferOptions = [], completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
+  func scheduleFile(_ file: AVAudioFile, at when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
+  func scheduleSegment(_ file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, at when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
   func stop()
   func prepare(frameCount frameCount: AVAudioFrameCount)
   func play()
@@ -23,7 +23,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   var isPlaying: Bool { get }
   init()
   @available(OSX 10.11, *)
-  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

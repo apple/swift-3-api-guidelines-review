@@ -1,13 +1,13 @@
 
 struct NSTableColumnResizingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var noResizing: NSTableColumnResizingOptions { get }
   static var autoresizingMask: NSTableColumnResizingOptions { get }
   static var userResizingMask: NSTableColumnResizingOptions { get }
 }
 class NSTableColumn : NSObject, NSCoding, NSUserInterfaceItemIdentification {
-  init(identifier: String)
+  init(identifier identifier: String)
   var identifier: String
   unowned(unsafe) var tableView: @sil_unmanaged NSTableView?
   var width: CGFloat
@@ -37,7 +37,7 @@ struct __colFlags {
   var hidden: UInt32
   var RESERVED: UInt32
   init()
-  init(oldIsResizable: UInt32, isEditable: UInt32, resizedPostingDisableCount: UInt32, canUseReorderResizeImageCache: UInt32, userResizingAllowed: UInt32, autoResizingAllowed: UInt32, hidden: UInt32, RESERVED: UInt32)
+  init(oldIsResizable oldIsResizable: UInt32, isEditable isEditable: UInt32, resizedPostingDisableCount resizedPostingDisableCount: UInt32, canUseReorderResizeImageCache canUseReorderResizeImageCache: UInt32, userResizingAllowed userResizingAllowed: UInt32, autoResizingAllowed autoResizingAllowed: UInt32, hidden hidden: UInt32, RESERVED RESERVED: UInt32)
 }
 extension NSTableColumn {
   var dataCell: AnyObject

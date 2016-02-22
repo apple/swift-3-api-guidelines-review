@@ -1,6 +1,6 @@
 
 class NSValue : NSObject, NSCopying, NSSecureCoding {
-  func getValue(value: UnsafeMutablePointer<Void>)
+  func getValue(_ value: UnsafeMutablePointer<Void>)
   var objCType: UnsafePointer<Int8> { get }
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   init?(coder aDecoder: NSCoder)
@@ -15,7 +15,7 @@ extension NSValue {
 extension NSValue {
   /*not inherited*/ init(nonretainedObject anObject: AnyObject?)
   var nonretainedObjectValue: AnyObject? { get }
-  /*not inherited*/ init(pointer: UnsafePointer<Void>)
+  /*not inherited*/ init(pointer pointer: UnsafePointer<Void>)
   var pointerValue: UnsafeMutablePointer<Void> { get }
   func isEqual(to value: NSValue) -> Bool
 }
@@ -56,7 +56,7 @@ class NSNumber : NSValue {
   @available(watchOS 2.0, *)
   var unsignedIntegerValue: UInt { get }
   var stringValue: String { get }
-  func compare(otherNumber: NSNumber) -> NSComparisonResult
+  func compare(_ otherNumber: NSNumber) -> NSComparisonResult
   func isEqual(to number: NSNumber) -> Bool
   func description(withLocale locale: AnyObject?) -> String
   convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)

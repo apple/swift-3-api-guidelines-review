@@ -1,6 +1,6 @@
 
 enum AMLogLevel : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case debug
   case info
@@ -29,7 +29,7 @@ class AMAction : NSObject {
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)
-  func finishRunningWithError(error: NSError?)
+  func finishRunningWithError(_ error: NSError?)
   @available(OSX 10.5, *)
   var output: AnyObject?
   func stop()

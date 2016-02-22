@@ -27,14 +27,14 @@ var kABMultiRealPropertyType: Int { get }
 var kABMultiDateTimePropertyType: Int { get }
 var kABMultiDictionaryPropertyType: Int { get }
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CN object's identifier")
-func ABRecordGetRecordID(record: ABRecord!) -> ABRecordID
+func ABRecordGetRecordID(_ record: ABRecord!) -> ABRecordID
 @available(iOS, introduced=2.0, deprecated=9.0)
-func ABRecordGetRecordType(record: ABRecord!) -> ABRecordType
+func ABRecordGetRecordType(_ record: ABRecord!) -> ABRecordType
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CN object's properties")
-func ABRecordCopyValue(record: ABRecord!, _ property: ABPropertyID) -> Unmanaged<CFTypeRef>!
+func ABRecordCopyValue(_ record: ABRecord!, _ property: ABPropertyID) -> Unmanaged<CFTypeRef>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CN mutable object's properties")
-func ABRecordSetValue(record: ABRecord!, _ property: ABPropertyID, _ value: CFTypeRef!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func ABRecordSetValue(_ record: ABRecord!, _ property: ABPropertyID, _ value: CFTypeRef!, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CN mutable object's properties, setting to @, @[], or nil")
-func ABRecordRemoveValue(record: ABRecord!, _ property: ABPropertyID, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func ABRecordRemoveValue(_ record: ABRecord!, _ property: ABPropertyID, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContactFormatter or CN object's name")
-func ABRecordCopyCompositeName(record: ABRecord!) -> Unmanaged<CFString>!
+func ABRecordCopyCompositeName(_ record: ABRecord!) -> Unmanaged<CFString>!

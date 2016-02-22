@@ -17,9 +17,9 @@ class UIPrintFormatter : NSObject, NSCopying {
 }
 @available(iOS 4.2, *)
 class UISimpleTextPrintFormatter : UIPrintFormatter {
-  init(text: String)
+  init(text text: String)
   @available(iOS 7.0, *)
-  init(attributedText: NSAttributedString)
+  init(attributedText attributedText: NSAttributedString)
   var text: String?
   @available(iOS 7.0, *)
   @NSCopying var attributedText: NSAttributedString?
@@ -30,7 +30,7 @@ class UISimpleTextPrintFormatter : UIPrintFormatter {
 }
 @available(iOS 4.2, *)
 class UIMarkupTextPrintFormatter : UIPrintFormatter {
-  init(markupText: String)
+  init(markupText markupText: String)
   var markupText: String?
   init()
 }
@@ -41,5 +41,5 @@ class UIViewPrintFormatter : UIPrintFormatter {
 }
 extension UIView {
   func viewPrintFormatter() -> UIViewPrintFormatter
-  func draw(rect: CGRect, for formatter: UIViewPrintFormatter)
+  func draw(_ rect: CGRect, for formatter: UIViewPrintFormatter)
 }

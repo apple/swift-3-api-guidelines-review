@@ -11,7 +11,7 @@ struct NSOperatingSystemVersion {
   var minorVersion: Int
   var patchVersion: Int
   init()
-  init(majorVersion: Int, minorVersion: Int, patchVersion: Int)
+  init(majorVersion majorVersion: Int, minorVersion minorVersion: Int, patchVersion patchVersion: Int)
 }
 class NSProcessInfo : NSObject {
   class func processInfo() -> NSProcessInfo
@@ -42,7 +42,7 @@ class NSProcessInfo : NSObject {
 }
 @available(iOS 7.0, *)
 struct NSActivityOptions : OptionSetType {
-  init(rawValue: UInt64)
+  init(rawValue rawValue: UInt64)
   let rawValue: UInt64
   static var idleDisplaySleepDisabled: NSActivityOptions { get }
   static var idleSystemSleepDisabled: NSActivityOptions { get }
@@ -55,11 +55,11 @@ struct NSActivityOptions : OptionSetType {
 }
 extension NSProcessInfo {
   @available(iOS 7.0, *)
-  func beginActivity(options: NSActivityOptions = [], reason: String) -> NSObjectProtocol
+  func beginActivity(_ options: NSActivityOptions = [], reason reason: String) -> NSObjectProtocol
   @available(iOS 7.0, *)
-  func endActivity(activity: NSObjectProtocol)
+  func endActivity(_ activity: NSObjectProtocol)
   @available(iOS 7.0, *)
-  func performActivity(options: NSActivityOptions = [], reason: String, using block: () -> Void)
+  func performActivity(_ options: NSActivityOptions = [], reason reason: String, using block: () -> Void)
   @available(iOS 8.2, *)
   func performExpiringActivity(reason reason: String, using block: (Bool) -> Void)
 }

@@ -2,7 +2,7 @@
 let GCControllerDidConnectNotification: String
 let GCControllerDidDisconnectNotification: String
 enum GCControllerPlayerIndex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case indexUnset
   case index1

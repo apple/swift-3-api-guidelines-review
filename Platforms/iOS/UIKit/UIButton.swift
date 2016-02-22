@@ -1,6 +1,6 @@
 
 enum UIButtonType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case custom
   @available(iOS 7.0, *)
@@ -24,13 +24,13 @@ class UIButton : UIControl, NSCoding {
   @available(iOS 5.0, *)
   var tintColor: UIColor!
   var buttonType: UIButtonType { get }
-  func setTitle(title: String?, for state: UIControlState)
-  func setTitleColor(color: UIColor?, for state: UIControlState)
-  func setTitleShadowColor(color: UIColor?, for state: UIControlState)
-  func setImage(image: UIImage?, for state: UIControlState)
-  func setBackgroundImage(image: UIImage?, for state: UIControlState)
+  func setTitle(_ title: String?, for state: UIControlState)
+  func setTitleColor(_ color: UIColor?, for state: UIControlState)
+  func setTitleShadowColor(_ color: UIColor?, for state: UIControlState)
+  func setImage(_ image: UIImage?, for state: UIControlState)
+  func setBackgroundImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
-  func setAttributedTitle(title: NSAttributedString?, for state: UIControlState)
+  func setAttributedTitle(_ title: NSAttributedString?, for state: UIControlState)
   func title(for state: UIControlState) -> String?
   func titleColor(for state: UIControlState) -> UIColor?
   func titleShadowColor(for state: UIControlState) -> UIColor?
@@ -53,7 +53,7 @@ class UIButton : UIControl, NSCoding {
   func contentRect(forBounds bounds: CGRect) -> CGRect
   func titleRect(forContentRect contentRect: CGRect) -> CGRect
   func imageRect(forContentRect contentRect: CGRect) -> CGRect
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

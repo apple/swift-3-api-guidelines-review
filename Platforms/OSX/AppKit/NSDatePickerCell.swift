@@ -1,19 +1,19 @@
 
 enum NSDatePickerStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case textFieldAndStepperDatePickerStyle
   case clockAndCalendarDatePickerStyle
   case textFieldDatePickerStyle
 }
 enum NSDatePickerMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case singleDateMode
   case rangeDateMode
 }
 struct NSDatePickerElementFlags : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var hourMinuteDatePickerElementFlag: NSDatePickerElementFlags { get }
   static var hourMinuteSecondDatePickerElementFlag: NSDatePickerElementFlags { get }
@@ -53,8 +53,8 @@ struct __dateCellFlags {
   var forcesLeadingZeroes: UInt32
   var wrapsDateComponentArithmetic: UInt32
   init()
-  init(elements: UInt32, controlStyle: UInt32, controlMode: UInt32, trackingHand: UInt32, reserved2: UInt32, drawsBackground: UInt32, digitsEntered: UInt32, forcesLeadingZeroes: UInt32, wrapsDateComponentArithmetic: UInt32)
+  init(elements elements: UInt32, controlStyle controlStyle: UInt32, controlMode controlMode: UInt32, trackingHand trackingHand: UInt32, reserved2 reserved2: UInt32, drawsBackground drawsBackground: UInt32, digitsEntered digitsEntered: UInt32, forcesLeadingZeroes forcesLeadingZeroes: UInt32, wrapsDateComponentArithmetic wrapsDateComponentArithmetic: UInt32)
 }
 protocol NSDatePickerCellDelegate : NSObjectProtocol {
-  optional func datePickerCell(aDatePickerCell: NSDatePickerCell, validateProposedDateValue proposedDateValue: AutoreleasingUnsafeMutablePointer<NSDate?>, timeInterval proposedTimeInterval: UnsafeMutablePointer<NSTimeInterval>)
+  optional func datePickerCell(_ aDatePickerCell: NSDatePickerCell, validateProposedDateValue proposedDateValue: AutoreleasingUnsafeMutablePointer<NSDate?>, timeInterval proposedTimeInterval: UnsafeMutablePointer<NSTimeInterval>)
 }

@@ -6,15 +6,15 @@ class CATransaction : NSObject {
   class func lock()
   class func unlock()
   class func animationDuration() -> CFTimeInterval
-  class func setAnimationDuration(dur: CFTimeInterval)
+  class func setAnimationDuration(_ dur: CFTimeInterval)
   class func animationTimingFunction() -> CAMediaTimingFunction?
-  class func setAnimationTimingFunction(function: CAMediaTimingFunction?)
+  class func setAnimationTimingFunction(_ function: CAMediaTimingFunction?)
   class func disableActions() -> Bool
-  class func setDisableActions(flag: Bool)
+  class func setDisableActions(_ flag: Bool)
   class func completionBlock() -> (() -> Void)?
-  class func setCompletionBlock(block: (() -> Void)?)
+  class func setCompletionBlock(_ block: (() -> Void)?)
   class func value(forKey key: String) -> AnyObject?
-  class func setValue(anObject: AnyObject?, forKey key: String)
+  class func setValue(_ anObject: AnyObject?, forKey key: String)
   init()
 }
 @available(OSX 10.5, *)

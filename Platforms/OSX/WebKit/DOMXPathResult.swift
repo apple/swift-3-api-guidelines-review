@@ -19,5 +19,5 @@ class DOMXPathResult : DOMObject {
   var invalidIteratorState: Bool { get }
   var snapshotLength: UInt32 { get }
   func iterateNext() -> DOMNode!
-  func snapshotItem(index: UInt32) -> DOMNode!
+  func snapshotItem(_ index: UInt32) -> DOMNode!
 }

@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum UITabBarItemPositioning : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case fill
@@ -12,8 +12,8 @@ class UITabBar : UIView {
   unowned(unsafe) var delegate: @sil_unmanaged UITabBarDelegate?
   var items: [UITabBarItem]?
   unowned(unsafe) var selectedItem: @sil_unmanaged UITabBarItem?
-  func setItems(items: [UITabBarItem]?, animated: Bool)
-  func beginCustomizingItems(items: [UITabBarItem])
+  func setItems(_ items: [UITabBarItem]?, animated animated: Bool)
+  func beginCustomizingItems(_ items: [UITabBarItem])
   func endCustomizing(animated animated: Bool) -> Bool
   func isCustomizing() -> Bool
   @available(iOS 5.0, *)
@@ -38,19 +38,19 @@ class UITabBar : UIView {
   var barStyle: UIBarStyle
   @available(iOS 7.0, *)
   var isTranslucent: Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didSelect item: UITabBarItem)
+  optional func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem])
+  optional func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
+  optional func tabBar(_ tabBar: UITabBar, didBeginCustomizing items: [UITabBarItem])
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, willEndCustomizing items: [UITabBarItem], changed: Bool)
+  optional func tabBar(_ tabBar: UITabBar, willEndCustomizing items: [UITabBarItem], changed changed: Bool)
   @available(iOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool)
+  optional func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed changed: Bool)
 }

@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum SCNBufferFrequency : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case perFrame
   case perNode
   case perShadable
 }
 protocol SCNBufferStream : NSObjectProtocol {
-  func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
+  func writeBytes(_ bytes: UnsafeMutablePointer<Void>, length length: Int)
 }
 typealias SCNBufferBindingBlock = (SCNBufferStream, SCNNode, SCNShadable, SCNRenderer) -> Void
 typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
@@ -38,10 +38,10 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.11, *)
   var fragmentFunctionName: String?
   @available(OSX 10.11, *)
-  func handleBindingOf(bufferNamed name: String, frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
+  func handleBindingOf(bufferNamed name: String, frequency frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
   @available(OSX 10.10, *)
   var isOpaque: Bool
-  func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
+  func setSemantic(_ semantic: String?, forSymbol symbol: String, options options: [String : AnyObject]? = [:])
   func semantic(forSymbol symbol: String) -> String?
   unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
   @available(OSX 10.11, *)
@@ -57,13 +57,13 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
 }
 protocol SCNProgramDelegate : NSObjectProtocol {
   @available(OSX, introduced=10.8, deprecated=10.10)
-  optional func program(program: SCNProgram, bindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer) -> Bool
+  optional func program(_ program: SCNProgram, bindValueForSymbol symbol: String, atLocation location: UInt32, programID programID: UInt32, renderer renderer: SCNRenderer) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
-  optional func program(program: SCNProgram, unbindValueForSymbol symbol: String, atLocation location: UInt32, programID: UInt32, renderer: SCNRenderer)
+  optional func program(_ program: SCNProgram, unbindValueForSymbol symbol: String, atLocation location: UInt32, programID programID: UInt32, renderer renderer: SCNRenderer)
   @available(OSX 10.8, *)
-  optional func program(program: SCNProgram, handleError error: NSError)
+  optional func program(_ program: SCNProgram, handleError error: NSError)
   @available(OSX, introduced=10.8, deprecated=10.10)
-  optional func programIsOpaque(program: SCNProgram) -> Bool
+  optional func programIsOpaque(_ program: SCNProgram) -> Bool
 }
 @available(OSX 10.9, *)
 let SCNShaderModifierEntryPointGeometry: String

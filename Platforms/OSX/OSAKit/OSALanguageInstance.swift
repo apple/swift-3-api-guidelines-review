@@ -1,6 +1,6 @@
 
 class OSALanguageInstance : NSObject {
-  init(language: OSALanguage)
+  init(language language: OSALanguage)
   var language: OSALanguage { get }
   var componentInstance: ComponentInstance { get }
   @available(OSX 10.10, *)

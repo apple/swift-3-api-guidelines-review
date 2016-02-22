@@ -30,27 +30,27 @@ var kDRCDTextGenreCodeSoundtrack: Int { get }
 var kDRCDTextGenreCodeSpokenWord: Int { get }
 var kDRCDTextGenreCodeWorldMusic: Int { get }
 @available(OSX 10.4, *)
-func DRCDTextBlockCreateArrayFromPackList(packs: CFData!) -> Unmanaged<CFArray>!
+func DRCDTextBlockCreateArrayFromPackList(_ packs: CFData!) -> Unmanaged<CFArray>!
 class DRCDTextBlockRef {
 }
 @available(OSX 10.4, *)
 func DRCDTextBlockGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func DRCDTextBlockCreate(language: CFString!, _ encoding: CFStringEncoding) -> Unmanaged<DRCDTextBlockRef>!
+func DRCDTextBlockCreate(_ language: CFString!, _ encoding: CFStringEncoding) -> Unmanaged<DRCDTextBlockRef>!
 @available(OSX 10.4, *)
-func DRCDTextBlockGetProperties(block: DRCDTextBlockRef!) -> Unmanaged<CFDictionary>!
+func DRCDTextBlockGetProperties(_ block: DRCDTextBlockRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.4, *)
-func DRCDTextBlockSetProperties(block: DRCDTextBlockRef!, _ properties: CFDictionary!)
+func DRCDTextBlockSetProperties(_ block: DRCDTextBlockRef!, _ properties: CFDictionary!)
 @available(OSX 10.4, *)
-func DRCDTextBlockGetTrackDictionaries(block: DRCDTextBlockRef!) -> Unmanaged<CFArray>!
+func DRCDTextBlockGetTrackDictionaries(_ block: DRCDTextBlockRef!) -> Unmanaged<CFArray>!
 @available(OSX 10.4, *)
-func DRCDTextBlockSetTrackDictionaries(block: DRCDTextBlockRef!, _ array: CFArray!)
+func DRCDTextBlockSetTrackDictionaries(_ block: DRCDTextBlockRef!, _ array: CFArray!)
 @available(OSX 10.4, *)
-func DRCDTextBlockGetValue(block: DRCDTextBlockRef!, _ trackIndex: CFIndex, _ key: CFString!) -> Unmanaged<CFTypeRef>!
+func DRCDTextBlockGetValue(_ block: DRCDTextBlockRef!, _ trackIndex: CFIndex, _ key: CFString!) -> Unmanaged<CFTypeRef>!
 @available(OSX 10.4, *)
-func DRCDTextBlockSetValue(block: DRCDTextBlockRef!, _ trackIndex: CFIndex, _ key: CFString!, _ value: CFTypeRef!)
+func DRCDTextBlockSetValue(_ block: DRCDTextBlockRef!, _ trackIndex: CFIndex, _ key: CFString!, _ value: CFTypeRef!)
 @available(OSX 10.4, *)
-func DRCDTextBlockFlatten(block: DRCDTextBlockRef!) -> UInt32
+func DRCDTextBlockFlatten(_ block: DRCDTextBlockRef!) -> UInt32
 @available(OSX 10.4, *)
 let kDRCDTextLanguageKey: CFString!
 @available(OSX 10.4, *)

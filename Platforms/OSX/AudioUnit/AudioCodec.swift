@@ -5,7 +5,7 @@ struct AudioCodecMagicCookieInfo {
   var mMagicCookieSize: UInt32
   var mMagicCookie: UnsafePointer<Void>
   init()
-  init(mMagicCookieSize: UInt32, mMagicCookie: UnsafePointer<Void>)
+  init(mMagicCookieSize mMagicCookieSize: UInt32, mMagicCookie mMagicCookie: UnsafePointer<Void>)
 }
 var kAudioDecoderComponentType: UInt32 { get }
 var kAudioEncoderComponentType: UInt32 { get }
@@ -82,7 +82,7 @@ struct AudioCodecPrimeInfo {
   var leadingFrames: UInt32
   var trailingFrames: UInt32
   init()
-  init(leadingFrames: UInt32, trailingFrames: UInt32)
+  init(leadingFrames leadingFrames: UInt32, trailingFrames trailingFrames: UInt32)
 }
 var kAudioSettings_TopLevelKey: String { get }
 var kAudioSettings_Version: String { get }
@@ -97,7 +97,7 @@ var kAudioSettings_Summary: String { get }
 var kAudioSettings_Hint: String { get }
 var kAudioSettings_Unit: String { get }
 struct AudioSettingsFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var expertParameter: AudioSettingsFlags { get }
   static var invisibleParameter: AudioSettingsFlags { get }
@@ -128,25 +128,25 @@ var kAudioCodecUnsupportedFormatError: OSStatus { get }
 var kAudioCodecStateError: OSStatus { get }
 var kAudioCodecNotEnoughBufferSpaceError: OSStatus { get }
 @available(OSX 10.2, *)
-func AudioCodecGetPropertyInfo(inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ outSize: UnsafeMutablePointer<UInt32>, _ outWritable: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AudioCodecGetPropertyInfo(_ inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ outSize: UnsafeMutablePointer<UInt32>, _ outWritable: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecGetProperty(inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ ioPropertyDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioCodecGetProperty(_ inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ ioPropertyDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecSetProperty(inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ inPropertyDataSize: UInt32, _ inPropertyData: UnsafePointer<Void>) -> OSStatus
+func AudioCodecSetProperty(_ inCodec: AudioCodec, _ inPropertyID: AudioCodecPropertyID, _ inPropertyDataSize: UInt32, _ inPropertyData: UnsafePointer<Void>) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecInitialize(inCodec: AudioCodec, _ inInputFormat: UnsafePointer<AudioStreamBasicDescription>, _ inOutputFormat: UnsafePointer<AudioStreamBasicDescription>, _ inMagicCookie: UnsafePointer<Void>, _ inMagicCookieByteSize: UInt32) -> OSStatus
+func AudioCodecInitialize(_ inCodec: AudioCodec, _ inInputFormat: UnsafePointer<AudioStreamBasicDescription>, _ inOutputFormat: UnsafePointer<AudioStreamBasicDescription>, _ inMagicCookie: UnsafePointer<Void>, _ inMagicCookieByteSize: UInt32) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecUninitialize(inCodec: AudioCodec) -> OSStatus
+func AudioCodecUninitialize(_ inCodec: AudioCodec) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecAppendInputData(inCodec: AudioCodec, _ inInputData: UnsafePointer<Void>, _ ioInputDataByteSize: UnsafeMutablePointer<UInt32>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ inPacketDescription: UnsafePointer<AudioStreamPacketDescription>) -> OSStatus
+func AudioCodecAppendInputData(_ inCodec: AudioCodec, _ inInputData: UnsafePointer<Void>, _ ioInputDataByteSize: UnsafeMutablePointer<UInt32>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ inPacketDescription: UnsafePointer<AudioStreamPacketDescription>) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecProduceOutputPackets(inCodec: AudioCodec, _ outOutputData: UnsafeMutablePointer<Void>, _ ioOutputDataByteSize: UnsafeMutablePointer<UInt32>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ outPacketDescription: UnsafeMutablePointer<AudioStreamPacketDescription>, _ outStatus: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioCodecProduceOutputPackets(_ inCodec: AudioCodec, _ outOutputData: UnsafeMutablePointer<Void>, _ ioOutputDataByteSize: UnsafeMutablePointer<UInt32>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ outPacketDescription: UnsafeMutablePointer<AudioStreamPacketDescription>, _ outStatus: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(OSX 10.7, *)
-func AudioCodecAppendInputBufferList(inCodec: AudioCodec, _ inBufferList: UnsafePointer<AudioBufferList>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ inPacketDescription: UnsafePointer<AudioStreamPacketDescription>, _ outBytesConsumed: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioCodecAppendInputBufferList(_ inCodec: AudioCodec, _ inBufferList: UnsafePointer<AudioBufferList>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ inPacketDescription: UnsafePointer<AudioStreamPacketDescription>, _ outBytesConsumed: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(OSX 10.7, *)
-func AudioCodecProduceOutputBufferList(inCodec: AudioCodec, _ ioBufferList: UnsafeMutablePointer<AudioBufferList>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ outPacketDescription: UnsafeMutablePointer<AudioStreamPacketDescription>, _ outStatus: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioCodecProduceOutputBufferList(_ inCodec: AudioCodec, _ ioBufferList: UnsafeMutablePointer<AudioBufferList>, _ ioNumberPackets: UnsafeMutablePointer<UInt32>, _ outPacketDescription: UnsafeMutablePointer<AudioStreamPacketDescription>, _ outStatus: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(OSX 10.2, *)
-func AudioCodecReset(inCodec: AudioCodec) -> OSStatus
+func AudioCodecReset(_ inCodec: AudioCodec) -> OSStatus
 typealias AudioCodecGetPropertyInfoProc = @convention(c) (UnsafeMutablePointer<Void>, AudioCodecPropertyID, UnsafeMutablePointer<UInt32>, UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 typealias AudioCodecGetPropertyProc = @convention(c) (UnsafeMutablePointer<Void>, AudioCodecPropertyID, UnsafeMutablePointer<UInt32>, UnsafeMutablePointer<Void>) -> OSStatus
 typealias AudioCodecSetPropertyProc = @convention(c) (UnsafeMutablePointer<Void>, AudioCodecPropertyID, UInt32, UnsafePointer<Void>) -> OSStatus

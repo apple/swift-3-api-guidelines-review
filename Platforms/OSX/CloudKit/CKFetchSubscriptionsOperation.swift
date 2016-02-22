@@ -3,7 +3,7 @@
 class CKFetchSubscriptionsOperation : CKDatabaseOperation {
   init()
   class func fetchAll() -> Self
-  convenience init(subscriptionIDs: [String])
+  convenience init(subscriptionIDs subscriptionIDs: [String])
   var subscriptionIDs: [String]?
   var fetchSubscriptionCompletionBlock: (([String : CKSubscription]?, NSError?) -> Void)?
 }

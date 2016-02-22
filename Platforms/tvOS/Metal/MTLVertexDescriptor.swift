@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum MTLVertexFormat : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case invalid
   case uChar2
@@ -48,7 +48,7 @@ enum MTLVertexFormat : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLVertexStepFunction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case constant
   case perVertex
@@ -65,7 +65,7 @@ class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
 }
 @available(tvOS 8.0, *)
 class MTLVertexBufferLayoutDescriptorArray : NSObject {
-  subscript(index: Int) -> MTLVertexBufferLayoutDescriptor!
+  subscript(_ index: Int) -> MTLVertexBufferLayoutDescriptor!
   init()
 }
 @available(tvOS 8.0, *)
@@ -79,7 +79,7 @@ class MTLVertexAttributeDescriptor : NSObject, NSCopying {
 }
 @available(tvOS 8.0, *)
 class MTLVertexAttributeDescriptorArray : NSObject {
-  subscript(index: Int) -> MTLVertexAttributeDescriptor!
+  subscript(_ index: Int) -> MTLVertexAttributeDescriptor!
   init()
 }
 @available(tvOS 8.0, *)

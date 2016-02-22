@@ -1,6 +1,6 @@
 
 class WebBackForwardList : NSObject {
-  func add(item: WebHistoryItem!)
+  func add(_ item: WebHistoryItem!)
   func goBack()
   func goForward()
   func go(to item: WebHistoryItem!)
@@ -12,11 +12,11 @@ class WebBackForwardList : NSObject {
   var capacity: Int32
   var backListCount: Int32 { get }
   var forwardListCount: Int32 { get }
-  func contains(item: WebHistoryItem!) -> Bool
+  func contains(_ item: WebHistoryItem!) -> Bool
   func item(at index: Int32) -> WebHistoryItem!
   init()
 }
 extension WebBackForwardList {
-  func setPageCacheSize(size: Int)
+  func setPageCacheSize(_ size: Int)
   func pageCacheSize() -> Int
 }

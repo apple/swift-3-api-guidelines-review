@@ -19,10 +19,10 @@ class HMAccessory : NSObject {
 }
 @available(watchOS 20000, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {
-  optional func accessoryDidUpdateName(accessory: HMAccessory)
-  optional func accessory(accessory: HMAccessory, didUpdateNameFor service: HMService)
-  optional func accessory(accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)
-  optional func accessoryDidUpdateServices(accessory: HMAccessory)
-  optional func accessoryDidUpdateReachability(accessory: HMAccessory)
-  optional func accessory(accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic)
+  optional func accessoryDidUpdateName(_ accessory: HMAccessory)
+  optional func accessory(_ accessory: HMAccessory, didUpdateNameFor service: HMService)
+  optional func accessory(_ accessory: HMAccessory, didUpdateAssociatedServiceTypeFor service: HMService)
+  optional func accessoryDidUpdateServices(_ accessory: HMAccessory)
+  optional func accessoryDidUpdateReachability(_ accessory: HMAccessory)
+  optional func accessory(_ accessory: HMAccessory, service service: HMService, didUpdateValueFor characteristic: HMCharacteristic)
 }

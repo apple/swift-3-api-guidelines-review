@@ -1,6 +1,6 @@
 
 enum CAConstraintAttribute : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case minX
   case midX
@@ -13,7 +13,7 @@ enum CAConstraintAttribute : Int32 {
 }
 extension CALayer {
   var constraints: [CAConstraint]?
-  func addConstraint(c: CAConstraint)
+  func addConstraint(_ c: CAConstraint)
 }
 class CAConstraintLayoutManager : NSObject {
   init()

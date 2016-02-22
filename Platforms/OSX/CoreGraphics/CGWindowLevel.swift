@@ -1,6 +1,6 @@
 
 enum CGWindowLevelKey : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case baseWindowLevelKey
   case minimumWindowLevelKey
@@ -27,5 +27,5 @@ enum CGWindowLevelKey : Int32 {
 }
 typealias CGWindowLevel = Int32
 @available(OSX 10.0, *)
-func CGWindowLevelForKey(key: CGWindowLevelKey) -> CGWindowLevel
+func CGWindowLevelForKey(_ key: CGWindowLevelKey) -> CGWindowLevel
 var kCGNumReservedWindowLevels: Int32 { get }

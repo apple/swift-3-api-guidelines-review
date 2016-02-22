@@ -111,10 +111,10 @@ let kCVImageBufferChromaSubsampling_411: CFString
 let kCVImageBufferAlphaChannelIsOpaque: CFString
 typealias CVImageBuffer = CVBuffer
 @available(tvOS 4.0, *)
-func CVImageBufferGetEncodedSize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetEncodedSize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(tvOS 4.0, *)
-func CVImageBufferGetDisplaySize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetDisplaySize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(tvOS 4.0, *)
-func CVImageBufferGetCleanRect(imageBuffer: CVImageBuffer) -> CGRect
+func CVImageBufferGetCleanRect(_ imageBuffer: CVImageBuffer) -> CGRect
 @available(tvOS 4.0, *)
-func CVImageBufferIsFlipped(imageBuffer: CVImageBuffer) -> Bool
+func CVImageBufferIsFlipped(_ imageBuffer: CVImageBuffer) -> Bool

@@ -15,16 +15,16 @@ var CL_GL_TEXTURE_TARGET: Int32 { get }
 var CL_GL_MIPMAP_LEVEL: Int32 { get }
 var CL_GL_NUM_SAMPLES: Int32 { get }
 @available(OSX 10.6, *)
-func clCreateFromGLBuffer(_: cl_context, _: cl_mem_flags, _: cl_GLuint, _: UnsafeMutablePointer<Int32>) -> cl_mem
+func clCreateFromGLBuffer(_ _: cl_context, _ _: cl_mem_flags, _ _: cl_GLuint, _ _: UnsafeMutablePointer<Int32>) -> cl_mem
 @available(OSX 10.8, *)
-func clCreateFromGLTexture(_: cl_context, _: cl_mem_flags, _: cl_GLenum, _: cl_GLint, _: cl_GLuint, _: UnsafeMutablePointer<cl_int>) -> cl_mem
+func clCreateFromGLTexture(_ _: cl_context, _ _: cl_mem_flags, _ _: cl_GLenum, _ _: cl_GLint, _ _: cl_GLuint, _ _: UnsafeMutablePointer<cl_int>) -> cl_mem
 @available(OSX 10.6, *)
-func clCreateFromGLRenderbuffer(_: cl_context, _: cl_mem_flags, _: cl_GLuint, _: UnsafeMutablePointer<cl_int>) -> cl_mem
+func clCreateFromGLRenderbuffer(_ _: cl_context, _ _: cl_mem_flags, _ _: cl_GLuint, _ _: UnsafeMutablePointer<cl_int>) -> cl_mem
 @available(OSX 10.6, *)
-func clGetGLObjectInfo(_: cl_mem, _: UnsafeMutablePointer<cl_gl_object_type>, _: UnsafeMutablePointer<cl_GLuint>) -> cl_int
+func clGetGLObjectInfo(_ _: cl_mem, _ _: UnsafeMutablePointer<cl_gl_object_type>, _ _: UnsafeMutablePointer<cl_GLuint>) -> cl_int
 @available(OSX 10.6, *)
-func clGetGLTextureInfo(_: cl_mem, _: cl_gl_texture_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetGLTextureInfo(_ _: cl_mem, _ _: cl_gl_texture_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueAcquireGLObjects(_: cl_command_queue, _: cl_uint, _: UnsafePointer<cl_mem>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueAcquireGLObjects(_ _: cl_command_queue, _ _: cl_uint, _ _: UnsafePointer<cl_mem>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueReleaseGLObjects(_: cl_command_queue, _: cl_uint, _: UnsafePointer<cl_mem>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueReleaseGLObjects(_ _: cl_command_queue, _ _: cl_uint, _ _: UnsafePointer<cl_mem>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int

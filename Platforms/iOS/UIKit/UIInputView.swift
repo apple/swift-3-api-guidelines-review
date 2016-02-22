@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum UIInputViewStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case keyboard
@@ -11,8 +11,8 @@ class UIInputView : UIView {
   var inputViewStyle: UIInputViewStyle { get }
   @available(iOS 9.0, *)
   var allowsSelfSizing: Bool
-  init(frame: CGRect, inputViewStyle: UIInputViewStyle)
+  init(frame frame: CGRect, inputViewStyle inputViewStyle: UIInputViewStyle)
   init?(coder aDecoder: NSCoder)
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
 }

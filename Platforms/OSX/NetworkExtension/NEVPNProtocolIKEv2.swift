@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEVPNIKEv2EncryptionAlgorithm : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case algorithmDES
   case algorithm3DES
@@ -14,7 +14,7 @@ enum NEVPNIKEv2EncryptionAlgorithm : Int {
 }
 @available(OSX 10.10, *)
 enum NEVPNIKEv2IntegrityAlgorithm : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case SHA96
   case SHA160
@@ -24,7 +24,7 @@ enum NEVPNIKEv2IntegrityAlgorithm : Int {
 }
 @available(OSX 10.10, *)
 enum NEVPNIKEv2DeadPeerDetectionRate : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case low
@@ -33,7 +33,7 @@ enum NEVPNIKEv2DeadPeerDetectionRate : Int {
 }
 @available(OSX 10.10, *)
 enum NEVPNIKEv2DiffieHellmanGroup : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case group0
   case group1
@@ -50,7 +50,7 @@ enum NEVPNIKEv2DiffieHellmanGroup : Int {
 }
 @available(OSX 10.11, *)
 enum NEVPNIKEv2CertificateType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case RSA
   case ECDSA256

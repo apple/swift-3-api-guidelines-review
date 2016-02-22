@@ -2,14 +2,14 @@
 var NSFoundationVersionWithFileManagerResourceForkSupport: Int32 { get }
 @available(OSX 10.6, *)
 struct NSVolumeEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var skipHiddenVolumes: NSVolumeEnumerationOptions { get }
   static var produceFileReferenceURLs: NSVolumeEnumerationOptions { get }
 }
 @available(OSX 10.6, *)
 struct NSDirectoryEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var skipsSubdirectoryDescendants: NSDirectoryEnumerationOptions { get }
   static var skipsPackageDescendants: NSDirectoryEnumerationOptions { get }
@@ -17,14 +17,14 @@ struct NSDirectoryEnumerationOptions : OptionSetType {
 }
 @available(OSX 10.6, *)
 struct NSFileManagerItemReplacementOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var usingNewMetadataOnly: NSFileManagerItemReplacementOptions { get }
   static var withoutDeletingBackupItem: NSFileManagerItemReplacementOptions { get }
 }
 @available(OSX 10.10, *)
 enum NSURLRelationship : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case contains
   case same
@@ -32,7 +32,7 @@ enum NSURLRelationship : Int {
 }
 @available(OSX 10.11, *)
 struct NSFileManagerUnmountOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var allPartitionsAndEjectDisk: NSFileManagerUnmountOptions { get }
   static var withoutUI: NSFileManagerUnmountOptions { get }
@@ -44,9 +44,9 @@ let NSUbiquityIdentityDidChangeNotification: String
 class NSFileManager : NSObject {
   class func defaultManager() -> NSFileManager
   @available(OSX 10.6, *)
-  func mountedVolumeURLsIncludingResourceValues(forKeys propertyKeys: [String]?, options: NSVolumeEnumerationOptions = []) -> [NSURL]?
+  func mountedVolumeURLsIncludingResourceValues(forKeys propertyKeys: [String]?, options options: NSVolumeEnumerationOptions = []) -> [NSURL]?
   @available(OSX 10.11, *)
-  func unmountVolume(at url: NSURL, options mask: NSFileManagerUnmountOptions = [], completionHandler: (NSError?) -> Void)
+  func unmountVolume(at url: NSURL, options mask: NSFileManagerUnmountOptions = [], completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.6, *)
   func contentsOfDirectory(at url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions = []) throws -> [NSURL]
   @available(OSX 10.6, *)
@@ -54,19 +54,19 @@ class NSFileManager : NSObject {
   @available(OSX 10.6, *)
   func url(for directory: NSSearchPathDirectory, in domain: NSSearchPathDomainMask, appropriateFor url: NSURL?, create shouldCreate: Bool) throws -> NSURL
   @available(OSX 10.10, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAt directoryURL: NSURL, toItemAt otherURL: NSURL) throws
+  func getRelationship(_ outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAt directoryURL: NSURL, toItemAt otherURL: NSURL) throws
   @available(OSX 10.10, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, in domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
+  func getRelationship(_ outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, in domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
   @available(OSX 10.7, *)
-  func createDirectory(at url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(at url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.7, *)
   func createSymbolicLink(at url: NSURL, withDestinationURL destURL: NSURL) throws
   @available(OSX 10.5, *)
   unowned(unsafe) var delegate: @sil_unmanaged NSFileManagerDelegate?
   @available(OSX 10.5, *)
-  func setAttributes(attributes: [String : AnyObject], ofItemAtPath path: String) throws
+  func setAttributes(_ attributes: [String : AnyObject], ofItemAtPath path: String) throws
   @available(OSX 10.5, *)
-  func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes attributes: [String : AnyObject]? = [:]) throws
   @available(OSX 10.5, *)
   func contentsOfDirectory(atPath path: String) throws -> [String]
   @available(OSX 10.5, *)
@@ -98,9 +98,9 @@ class NSFileManager : NSObject {
   @available(OSX 10.8, *)
   func trashItem(at url: NSURL, resultingItemURL outResultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
   var currentDirectoryPath: String { get }
-  func changeCurrentDirectoryPath(path: String) -> Bool
+  func changeCurrentDirectoryPath(_ path: String) -> Bool
   func fileExists(atPath path: String) -> Bool
-  func fileExists(atPath path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
+  func fileExists(atPath path: String, isDirectory isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
   func isReadableFile(atPath path: String) -> Bool
   func isWritableFile(atPath path: String) -> Bool
   func isExecutableFile(atPath path: String) -> Bool
@@ -117,9 +117,9 @@ class NSFileManager : NSObject {
   func fileSystemRepresentation(withPath path: String) -> UnsafePointer<Int8>
   func string(withFileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(OSX 10.6, *)
-  func replaceItem(at originalItemURL: NSURL, withItemAt newItemURL: NSURL, backupItemName: String?, options: NSFileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
+  func replaceItem(at originalItemURL: NSURL, withItemAt newItemURL: NSURL, backupItemName backupItemName: String?, options options: NSFileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
   @available(OSX 10.7, *)
-  func setUbiquitous(flag: Bool, itemAt url: NSURL, destinationURL: NSURL) throws
+  func setUbiquitous(_ flag: Bool, itemAt url: NSURL, destinationURL destinationURL: NSURL) throws
   @available(OSX 10.7, *)
   func isUbiquitousItem(at url: NSURL) -> Bool
   @available(OSX 10.7, *)
@@ -139,30 +139,30 @@ class NSFileManager : NSObject {
 extension NSObject {
 }
 protocol NSFileManagerDelegate : NSObjectProtocol {
-  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
   @available(OSX 10.6, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAt URL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAt URL: NSURL) -> Bool
 }
 class NSDirectoryEnumerator : NSEnumerator {
   var fileAttributes: [String : AnyObject]? { get }

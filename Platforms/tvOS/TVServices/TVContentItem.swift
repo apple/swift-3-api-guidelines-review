@@ -16,7 +16,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var displayURL: NSURL?
   var topShelfItems: [TVContentItem]?
   init?(contentIdentifier ident: TVContentIdentifier)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
@@ -26,7 +26,7 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
 }
 @available(tvOS 9.0, *)
 enum TVContentItemImageShape : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case poster

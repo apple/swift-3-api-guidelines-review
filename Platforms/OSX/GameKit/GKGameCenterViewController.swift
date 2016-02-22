@@ -1,6 +1,6 @@
 
 enum GKGameCenterViewControllerState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case leaderboards
@@ -10,7 +10,7 @@ enum GKGameCenterViewControllerState : Int {
 @available(OSX 10.9, *)
 class GKGameCenterViewController : NSViewController, GKViewController {
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 extension GKGameCenterViewController {
@@ -27,5 +27,5 @@ extension GKGameCenterViewController {
 }
 protocol GKGameCenterControllerDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController)
+  func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController)
 }

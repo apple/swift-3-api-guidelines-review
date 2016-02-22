@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum AVAudioUnitReverbPreset : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case smallRoom
   case mediumRoom
@@ -19,8 +19,8 @@ enum AVAudioUnitReverbPreset : Int {
 }
 @available(OSX 10.10, *)
 class AVAudioUnitReverb : AVAudioUnitEffect {
-  func loadFactoryPreset(preset: AVAudioUnitReverbPreset)
+  func loadFactoryPreset(_ preset: AVAudioUnitReverbPreset)
   var wetDryMix: Float
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   init()
 }

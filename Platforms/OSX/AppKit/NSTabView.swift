@@ -1,7 +1,7 @@
 
 var NSAppKitVersionNumberWithDirectionalTabs: Double { get }
 enum NSTabViewType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case topTabsBezelBorder
   case leftTabsBezelBorder
@@ -12,14 +12,14 @@ enum NSTabViewType : UInt {
   case noTabsNoBorder
 }
 class NSTabView : NSView {
-  func select(tabViewItem: NSTabViewItem?)
+  func select(_ tabViewItem: NSTabViewItem?)
   func selectItem(at index: Int)
   func selectItem(identifier identifier: AnyObject)
-  func takeSelectedTabViewItemFromSender(sender: AnyObject?)
-  func selectFirstTabViewItem(sender: AnyObject?)
-  func selectLastItem(sender: AnyObject?)
-  func selectNextTabViewItem(sender: AnyObject?)
-  func selectPreviousTabViewItem(sender: AnyObject?)
+  func takeSelectedTabViewItemFromSender(_ sender: AnyObject?)
+  func selectFirstTabViewItem(_ sender: AnyObject?)
+  func selectLastItem(_ sender: AnyObject?)
+  func selectNextTabViewItem(_ sender: AnyObject?)
+  func selectPreviousTabViewItem(_ sender: AnyObject?)
   var selectedTabViewItem: NSTabViewItem? { get }
   var font: NSFont
   var tabViewType: NSTabViewType
@@ -29,18 +29,18 @@ class NSTabView : NSView {
   var drawsBackground: Bool
   var controlTint: NSControlTint
   var controlSize: NSControlSize
-  func add(tabViewItem: NSTabViewItem)
-  func insert(tabViewItem: NSTabViewItem, at index: Int)
-  func remove(tabViewItem: NSTabViewItem)
+  func add(_ tabViewItem: NSTabViewItem)
+  func insert(_ tabViewItem: NSTabViewItem, at index: Int)
+  func remove(_ tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
   func tabViewItem(at point: NSPoint) -> NSTabViewItem?
   var contentRect: NSRect { get }
   var numberOfTabViewItems: Int { get }
-  func indexOf(tabViewItem: NSTabViewItem) -> Int
+  func indexOf(_ tabViewItem: NSTabViewItem) -> Int
   func tabViewItem(at index: Int) -> NSTabViewItem
   func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __NSTabViewDelegateRespondTo {
@@ -50,7 +50,7 @@ struct __NSTabViewDelegateRespondTo {
   var didChangeNumberOfTabViewItems: UInt32
   var reserved: UInt32
   init()
-  init(shouldSelectTabViewItem: UInt32, willSelectTabViewItem: UInt32, didSelectTabViewItem: UInt32, didChangeNumberOfTabViewItems: UInt32, reserved: UInt32)
+  init(shouldSelectTabViewItem shouldSelectTabViewItem: UInt32, willSelectTabViewItem willSelectTabViewItem: UInt32, didSelectTabViewItem didSelectTabViewItem: UInt32, didChangeNumberOfTabViewItems didChangeNumberOfTabViewItems: UInt32, reserved reserved: UInt32)
 }
 struct __NSTabViewFlags {
   var needsLayout: UInt32
@@ -65,11 +65,11 @@ struct __NSTabViewFlags {
   var ownedByTabViewController: UInt32
   var reserved: UInt32
   init()
-  init(needsLayout: UInt32, controlTint: UInt32, controlSize: UInt32, wiringNibConnections: UInt32, wiringInteriorLastKeyView: UInt32, originalNextKeyViewChanged: UInt32, liveResizeSkippedResetToolTips: UInt32, subviewsAddedForTabs: UInt32, allowsPropertyChange: UInt32, ownedByTabViewController: UInt32, reserved: UInt32)
+  init(needsLayout needsLayout: UInt32, controlTint controlTint: UInt32, controlSize controlSize: UInt32, wiringNibConnections wiringNibConnections: UInt32, wiringInteriorLastKeyView wiringInteriorLastKeyView: UInt32, originalNextKeyViewChanged originalNextKeyViewChanged: UInt32, liveResizeSkippedResetToolTips liveResizeSkippedResetToolTips: UInt32, subviewsAddedForTabs subviewsAddedForTabs: UInt32, allowsPropertyChange allowsPropertyChange: UInt32, ownedByTabViewController ownedByTabViewController: UInt32, reserved reserved: UInt32)
 }
 protocol NSTabViewDelegate : NSObjectProtocol {
-  optional func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
-  optional func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
-  optional func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
+  optional func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
+  optional func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
+  optional func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
   optional func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
 }

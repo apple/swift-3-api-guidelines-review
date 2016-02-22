@@ -1,6 +1,6 @@
 
 struct NSByteCountFormatterUnits : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var useDefault: NSByteCountFormatterUnits { get }
   static var useBytes: NSByteCountFormatterUnits { get }
@@ -15,7 +15,7 @@ struct NSByteCountFormatterUnits : OptionSetType {
   static var useAll: NSByteCountFormatterUnits { get }
 }
 enum NSByteCountFormatterCountStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case file
   case memory
@@ -24,7 +24,7 @@ enum NSByteCountFormatterCountStyle : Int {
 }
 @available(tvOS 6.0, *)
 class NSByteCountFormatter : NSFormatter {
-  class func string(fromByteCount byteCount: Int64, countStyle: NSByteCountFormatterCountStyle) -> String
+  class func string(fromByteCount byteCount: Int64, countStyle countStyle: NSByteCountFormatterCountStyle) -> String
   func string(fromByteCount byteCount: Int64) -> String
   var allowedUnits: NSByteCountFormatterUnits
   var countStyle: NSByteCountFormatterCountStyle

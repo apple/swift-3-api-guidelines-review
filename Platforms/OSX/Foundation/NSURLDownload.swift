@@ -2,29 +2,29 @@
 class NSURLDownload : NSObject {
   class func canResumeDownloadDecoded(withEncodingMIMEType MIMEType: String) -> Bool
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(request: NSURLRequest, delegate: NSURLDownloadDelegate?)
+  init(request request: NSURLRequest, delegate delegate: NSURLDownloadDelegate?)
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(resumeData: NSData, delegate: NSURLDownloadDelegate?, path: String)
+  init(resumeData resumeData: NSData, delegate delegate: NSURLDownloadDelegate?, path path: String)
   func cancel()
-  func setDestination(path: String, allowOverwrite: Bool)
+  func setDestination(_ path: String, allowOverwrite allowOverwrite: Bool)
   @NSCopying var request: NSURLRequest { get }
   @NSCopying var resumeData: NSData? { get }
   var deletesFileUponFailure: Bool
   init()
 }
 protocol NSURLDownloadDelegate : NSObjectProtocol {
-  optional func downloadDidBegin(download: NSURLDownload)
-  optional func download(download: NSURLDownload, willSend request: NSURLRequest, redirectResponse: NSURLResponse?) -> NSURLRequest?
-  optional func download(connection: NSURLDownload, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
-  optional func download(download: NSURLDownload, didReceive challenge: NSURLAuthenticationChallenge)
-  optional func download(download: NSURLDownload, didCancel challenge: NSURLAuthenticationChallenge)
-  optional func downloadShouldUseCredentialStorage(download: NSURLDownload) -> Bool
-  optional func download(download: NSURLDownload, didReceive response: NSURLResponse)
-  optional func download(download: NSURLDownload, willResumeWith response: NSURLResponse, fromByte startingByte: Int64)
-  optional func download(download: NSURLDownload, didReceiveDataOfLength length: Int)
-  optional func download(download: NSURLDownload, shouldDecodeSourceDataOfMIMEType encodingType: String) -> Bool
-  optional func download(download: NSURLDownload, decideDestinationWithSuggestedFilename filename: String)
-  optional func download(download: NSURLDownload, didCreateDestination path: String)
-  optional func downloadDidFinish(download: NSURLDownload)
-  optional func download(download: NSURLDownload, didFailWithError error: NSError)
+  optional func downloadDidBegin(_ download: NSURLDownload)
+  optional func download(_ download: NSURLDownload, willSend request: NSURLRequest, redirectResponse redirectResponse: NSURLResponse?) -> NSURLRequest?
+  optional func download(_ connection: NSURLDownload, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
+  optional func download(_ download: NSURLDownload, didReceive challenge: NSURLAuthenticationChallenge)
+  optional func download(_ download: NSURLDownload, didCancel challenge: NSURLAuthenticationChallenge)
+  optional func downloadShouldUseCredentialStorage(_ download: NSURLDownload) -> Bool
+  optional func download(_ download: NSURLDownload, didReceive response: NSURLResponse)
+  optional func download(_ download: NSURLDownload, willResumeWith response: NSURLResponse, fromByte startingByte: Int64)
+  optional func download(_ download: NSURLDownload, didReceiveDataOfLength length: Int)
+  optional func download(_ download: NSURLDownload, shouldDecodeSourceDataOfMIMEType encodingType: String) -> Bool
+  optional func download(_ download: NSURLDownload, decideDestinationWithSuggestedFilename filename: String)
+  optional func download(_ download: NSURLDownload, didCreateDestination path: String)
+  optional func downloadDidFinish(_ download: NSURLDownload)
+  optional func download(_ download: NSURLDownload, didFailWithError error: NSError)
 }

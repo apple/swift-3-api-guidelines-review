@@ -3,7 +3,7 @@
 class GKScore : NSObject, NSCoding, NSSecureCoding {
   init(leaderboardIdentifier identifier: String)
   @available(OSX 10.10, *)
-  init(leaderboardIdentifier identifier: String, player: GKPlayer)
+  init(leaderboardIdentifier identifier: String, player player: GKPlayer)
   var value: Int64
   var formattedValue: String? { get }
   @available(OSX 10.10, *)
@@ -17,7 +17,7 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   @available(OSX 10.8, *)
   var shouldSetDefaultLeaderboard: Bool
   @available(OSX 10.8, *)
-  class func report(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   init()
   @available(OSX 10.8, *)
   func encode(with aCoder: NSCoder)
@@ -29,7 +29,7 @@ extension GKScore {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use +reportScores:withCompletionhandler: instead")
   func report(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use initWithLeaderboardIdentifier: instead")
-  init(category: String?)
+  init(category category: String?)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")
   var playerID: String { get }
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use leaderboardIdentifier instead")

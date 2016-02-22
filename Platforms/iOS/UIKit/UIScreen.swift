@@ -8,7 +8,7 @@ let UIScreenModeDidChangeNotification: String
 @available(iOS 5.0, *)
 let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case scale
   case insetBounds
@@ -61,7 +61,7 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UIScreen {
   @available(iOS 7.0, *)

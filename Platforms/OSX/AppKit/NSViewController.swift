@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 struct NSViewControllerTransitionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: NSViewControllerTransitionOptions { get }
   static var crossfade: NSViewControllerTransitionOptions { get }
@@ -16,14 +16,14 @@ struct NSViewControllerTransitionOptions : OptionSetType {
 @available(OSX 10.5, *)
 class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfaceItemIdentification {
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   var nibName: String? { get }
   var nibBundle: NSBundle? { get }
   var representedObject: AnyObject?
   var title: String?
   var view: NSView
   func loadView()
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func commitEditing() -> Bool
   func discardEditing()
   @available(OSX 10.10, *)
@@ -48,21 +48,21 @@ class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfa
   func viewDidLayout()
   convenience init()
   @available(OSX 10.10, *)
-  func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
+  func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegue(identifier identifier: String, sender: AnyObject?)
+  func performSegue(identifier identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
   @available(OSX 10.5, *)
   var identifier: String?
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func present(viewController: NSViewController, animator: NSViewControllerPresentationAnimator)
+  func present(_ viewController: NSViewController, animator animator: NSViewControllerPresentationAnimator)
   @available(OSX 10.10, *)
-  func dismiss(viewController: NSViewController)
+  func dismiss(_ viewController: NSViewController)
   @available(OSX 10.10, *)
-  @IBAction func dismiss(sender: AnyObject?)
+  @IBAction func dismiss(_ sender: AnyObject?)
   @available(OSX 10.10, *)
   var presentedViewControllers: [NSViewController]? { get }
   @available(OSX 10.10, *)
@@ -74,9 +74,9 @@ extension NSViewController {
   @available(OSX 10.10, *)
   func present(asModalWindow viewController: NSViewController)
   @available(OSX 10.10, *)
-  func present(viewController: NSViewController, asPopoverRelativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
+  func present(_ viewController: NSViewController, asPopoverRelativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge preferredEdge: NSRectEdge, behavior behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
-  func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options: NSViewControllerTransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
+  func transition(from fromViewController: NSViewController, to toViewController: NSViewController, options options: NSViewControllerTransitionOptions = [], completionHandler completion: (() -> Void)? = nil)
 }
 extension NSViewController {
   @available(OSX 10.10, *)
@@ -84,11 +84,11 @@ extension NSViewController {
   @available(OSX 10.10, *)
   var childViewControllers: [NSViewController]
   @available(OSX 10.10, *)
-  func addChildViewController(childViewController: NSViewController)
+  func addChildViewController(_ childViewController: NSViewController)
   @available(OSX 10.10, *)
   func removeFromParentViewController()
   @available(OSX 10.10, *)
-  func insertChildViewController(childViewController: NSViewController, at index: Int)
+  func insertChildViewController(_ childViewController: NSViewController, at index: Int)
   @available(OSX 10.10, *)
   func removeChildViewController(at index: Int)
   @available(OSX 10.10, *)
@@ -98,9 +98,9 @@ extension NSViewController {
 }
 protocol NSViewControllerPresentationAnimator : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func animatePresentationOf(viewController: NSViewController, from fromViewController: NSViewController)
+  func animatePresentationOf(_ viewController: NSViewController, from fromViewController: NSViewController)
   @available(OSX 10.10, *)
-  func animateDismissalOf(viewController: NSViewController, from fromViewController: NSViewController)
+  func animateDismissalOf(_ viewController: NSViewController, from fromViewController: NSViewController)
 }
 extension NSViewController {
   @available(OSX 10.10, *)
@@ -118,5 +118,5 @@ extension NSViewController : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
   var preferredMaximumSize: NSSize { get }
   @available(OSX 10.10, *)
-  func beginRequest(context: NSExtensionContext)
+  func beginRequest(_ context: NSExtensionContext)
 }

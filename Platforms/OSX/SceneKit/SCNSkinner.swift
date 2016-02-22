@@ -3,7 +3,7 @@
 class SCNSkinner : NSObject, NSSecureCoding {
   var skeleton: SCNNode?
   @available(OSX 10.10, *)
-  convenience init(baseGeometry: SCNGeometry?, bones: [SCNNode], boneInverseBindTransforms: [NSValue]?, boneWeights: SCNGeometrySource, boneIndices: SCNGeometrySource)
+  convenience init(baseGeometry baseGeometry: SCNGeometry?, bones bones: [SCNNode], boneInverseBindTransforms boneInverseBindTransforms: [NSValue]?, boneWeights boneWeights: SCNGeometrySource, boneIndices boneIndices: SCNGeometrySource)
   @available(OSX 10.9, *)
   var baseGeometry: SCNGeometry?
   @available(OSX 10.10, *)

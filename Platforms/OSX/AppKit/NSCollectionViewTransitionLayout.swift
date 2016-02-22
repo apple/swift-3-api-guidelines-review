@@ -4,8 +4,8 @@ class NSCollectionViewTransitionLayout : NSCollectionViewLayout {
   var transitionProgress: CGFloat
   var currentLayout: NSCollectionViewLayout { get }
   var nextLayout: NSCollectionViewLayout { get }
-  init(currentLayout: NSCollectionViewLayout, nextLayout newLayout: NSCollectionViewLayout)
-  func updateValue(value: CGFloat, forAnimatedKey key: String)
+  init(currentLayout currentLayout: NSCollectionViewLayout, nextLayout newLayout: NSCollectionViewLayout)
+  func updateValue(_ value: CGFloat, forAnimatedKey key: String)
   func value(forAnimatedKey key: String) -> CGFloat
   init()
   init?(coder aDecoder: NSCoder)

@@ -1,6 +1,6 @@
 
 enum UIBarMetrics : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case compact
@@ -13,7 +13,7 @@ enum UIBarMetrics : Int {
 }
 @available(tvOS 7.0, *)
 enum UIBarPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case any
   case bottom

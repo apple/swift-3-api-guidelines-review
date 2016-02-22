@@ -1,6 +1,6 @@
 
 enum UIWebViewNavigationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case linkClicked
   case formSubmitted
@@ -10,7 +10,7 @@ enum UIWebViewNavigationType : Int {
   case other
 }
 enum UIWebPaginationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unpaginated
   case leftToRight
@@ -19,7 +19,7 @@ enum UIWebPaginationMode : Int {
   case rightToLeft
 }
 enum UIWebPaginationBreakingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case page
   case column
@@ -29,9 +29,9 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   unowned(unsafe) var delegate: @sil_unmanaged UIWebViewDelegate?
   @available(iOS 5.0, *)
   var scrollView: UIScrollView { get }
-  func loadRequest(request: NSURLRequest)
-  func loadHTMLString(string: String, baseURL: NSURL?)
-  func load(data: NSData, mimeType MIMEType: String, textEncodingName: String, baseURL: NSURL)
+  func loadRequest(_ request: NSURLRequest)
+  func loadHTMLString(_ string: String, baseURL baseURL: NSURL?)
+  func load(_ data: NSData, mimeType MIMEType: String, textEncodingName textEncodingName: String, baseURL baseURL: NSURL)
   var request: NSURLRequest? { get }
   func reload()
   func stopLoading()
@@ -68,31 +68,31 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   var allowsPictureInPictureMediaPlayback: Bool
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 2.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
   func viewForZooming(in scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, with view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?)
   @available(iOS 2.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
   func scrollViewShouldScroll(toTop scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
@@ -100,11 +100,11 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
 }
 protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, shouldStartLoadWith request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
+  optional func webView(_ webView: UIWebView, shouldStartLoadWith request: NSURLRequest, navigationType navigationType: UIWebViewNavigationType) -> Bool
   @available(iOS 2.0, *)
-  optional func webViewDidStartLoad(webView: UIWebView)
+  optional func webViewDidStartLoad(_ webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webViewDidFinishLoad(webView: UIWebView)
+  optional func webViewDidFinishLoad(_ webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
+  optional func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?)
 }

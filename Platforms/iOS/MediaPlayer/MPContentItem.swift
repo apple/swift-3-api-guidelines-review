@@ -8,6 +8,6 @@ class MPContentItem : NSObject {
   var isContainer: Bool
   var isPlayable: Bool
   var playbackProgress: Float
-  init(identifier: String)
+  init(identifier identifier: String)
   convenience init()
 }

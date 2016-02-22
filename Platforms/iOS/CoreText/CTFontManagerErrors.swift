@@ -4,7 +4,7 @@ let kCTFontManagerErrorDomain: CFString
 @available(iOS 3.2, *)
 let kCTFontManagerErrorFontURLsKey: CFString
 enum CTFontManagerError : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case fileNotFound
   case insufficientPermissions

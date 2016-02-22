@@ -36,7 +36,7 @@ var SCNConsistencyMissingElementError: Int { get }
 var SCNConsistencyMissingAttributeError: Int { get }
 var SCNConsistencyXMLSchemaValidationError: Int { get }
 enum SCNSceneSourceStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case error
   case parsing
@@ -47,11 +47,11 @@ enum SCNSceneSourceStatus : Int {
 typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 8.0, *)
 class SCNSceneSource : NSObject {
-  init?(url: NSURL, options: [String : AnyObject]? = [:])
-  init?(data: NSData, options: [String : AnyObject]? = [:])
+  init?(url url: NSURL, options options: [String : AnyObject]? = [:])
+  init?(data data: NSData, options options: [String : AnyObject]? = [:])
   var url: NSURL? { get }
   var data: NSData? { get }
-  func scene(options options: [String : AnyObject]? = [:], statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
+  func scene(options options: [String : AnyObject]? = [:], statusHandler statusHandler: SCNSceneSourceStatusHandler? = nil) -> SCNScene?
   func scene(options options: [String : AnyObject]? = [:]) throws -> SCNScene
   func property(forKey key: String) -> AnyObject?
   func __entry(withIdentifier uid: String, with entryClass: AnyClass) -> AnyObject?
@@ -64,5 +64,5 @@ class SCNSceneSource : NSObject {
 @available(iOS 8.0, OSX 10.8, *)
 extension SCNSceneSource {
   @warn_unused_result
-  func entryWithIdentifier<T>(uid: String, withClass entryClass: T.Type) -> T?
+  func entryWithIdentifier<T>(_ uid: String, withClass entryClass: T.Type) -> T?
 }

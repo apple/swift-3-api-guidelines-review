@@ -2,7 +2,7 @@
 let NSNetServicesErrorCode: String
 let NSNetServicesErrorDomain: String
 enum NSNetServicesError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknownError
   case collisionError
@@ -14,7 +14,7 @@ enum NSNetServicesError : Int {
   case timeoutError
 }
 struct NSNetServiceOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var noAutoRename: NSNetServiceOptions { get }
   @available(watchOS 2.0, *)

@@ -1,6 +1,6 @@
 
 class NSScriptCommandDescription : NSObject, NSCoding {
-  init?(suiteName: String, commandName: String, dictionary commandDeclaration: [NSObject : AnyObject]?)
+  init?(suiteName suiteName: String, commandName commandName: String, dictionary commandDeclaration: [NSObject : AnyObject]?)
   init?(coder inCoder: NSCoder)
   var suiteName: String { get }
   var commandName: String { get }

@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum PKPassLibraryAddPassesStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case didAddPasses
   case shouldReviewPasses
@@ -17,16 +17,16 @@ class PKPassLibrary : NSObject {
   @available(watchOS 2.0, *)
   func isPaymentPassActivationAvailable() -> Bool
   func passes() -> [PKPass]
-  func pass(passTypeIdentifier identifier: String, serialNumber: String) -> PKPass?
+  func pass(passTypeIdentifier identifier: String, serialNumber serialNumber: String) -> PKPass?
   @available(watchOS 2.0, *)
   func passes(of passType: PKPassType) -> [PKPass]
   @available(watchOS 2.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
-  func removePass(pass: PKPass)
-  func containsPass(pass: PKPass) -> Bool
-  func replacePass(pass: PKPass) -> Bool
+  func removePass(_ pass: PKPass)
+  func containsPass(_ pass: PKPass) -> Bool
+  func replacePass(_ pass: PKPass) -> Bool
   @available(watchOS 2.0, *)
-  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
+  func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(watchOS 2.0, *)
   func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
   init()

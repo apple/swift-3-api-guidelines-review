@@ -20,5 +20,5 @@ class DOMHTMLTextAreaElement : DOMHTMLElement {
   var selectionEnd: Int32
   func select()
   @available(OSX 10.5, *)
-  func setSelectionRange(start: Int32, end: Int32)
+  func setSelectionRange(_ start: Int32, end end: Int32)
 }

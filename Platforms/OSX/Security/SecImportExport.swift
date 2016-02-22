@@ -1,6 +1,6 @@
 
 enum SecExternalFormat : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case formatUnknown
   case formatOpenSSL
@@ -19,7 +19,7 @@ enum SecExternalFormat : UInt32 {
   case formatSSHv2
 }
 enum SecExternalItemType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case itemTypeUnknown
   case itemTypePrivateKey
@@ -29,12 +29,12 @@ enum SecExternalItemType : UInt32 {
   case itemTypeAggregate
 }
 struct SecItemImportExportFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var pemArmour: SecItemImportExportFlags { get }
 }
 struct SecKeyImportExportFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var importOnlyOne: SecKeyImportExportFlags { get }
   static var securePassphrase: SecKeyImportExportFlags { get }
@@ -62,9 +62,9 @@ struct SecItemImportExportKeyParameters {
   var keyAttributes: Unmanaged<CFArray>?
 }
 @available(OSX 10.7, *)
-func SecItemExport(secItemOrArray: CFTypeRef, _ outputFormat: SecExternalFormat, _ flags: SecItemImportExportFlags, _ keyParams: UnsafePointer<SecItemImportExportKeyParameters>, _ exportedData: UnsafeMutablePointer<CFData?>) -> OSStatus
+func SecItemExport(_ secItemOrArray: CFTypeRef, _ outputFormat: SecExternalFormat, _ flags: SecItemImportExportFlags, _ keyParams: UnsafePointer<SecItemImportExportKeyParameters>, _ exportedData: UnsafeMutablePointer<CFData?>) -> OSStatus
 @available(OSX 10.7, *)
-func SecItemImport(importedData: CFData, _ fileNameOrExtension: CFString?, _ inputFormat: UnsafeMutablePointer<SecExternalFormat>, _ itemType: UnsafeMutablePointer<SecExternalItemType>, _ flags: SecItemImportExportFlags, _ keyParams: UnsafePointer<SecItemImportExportKeyParameters>, _ importKeychain: SecKeychain?, _ outItems: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecItemImport(_ importedData: CFData, _ fileNameOrExtension: CFString?, _ inputFormat: UnsafeMutablePointer<SecExternalFormat>, _ itemType: UnsafeMutablePointer<SecExternalItemType>, _ flags: SecItemImportExportFlags, _ keyParams: UnsafePointer<SecItemImportExportKeyParameters>, _ importKeychain: SecKeychain?, _ outItems: UnsafeMutablePointer<CFArray?>) -> OSStatus
 let kSecImportExportPassphrase: CFString
 let kSecImportExportKeychain: CFString
 let kSecImportExportAccess: CFString
@@ -73,4 +73,4 @@ let kSecImportItemKeyID: CFString
 let kSecImportItemTrust: CFString
 let kSecImportItemCertChain: CFString
 let kSecImportItemIdentity: CFString
-func SecPKCS12Import(pkcs12_data: CFData, _ options: CFDictionary, _ items: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecPKCS12Import(_ pkcs12_data: CFData, _ options: CFDictionary, _ items: UnsafeMutablePointer<CFArray?>) -> OSStatus

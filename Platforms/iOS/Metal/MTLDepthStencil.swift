@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum MTLCompareFunction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case never
   case less
@@ -14,7 +14,7 @@ enum MTLCompareFunction : UInt {
 }
 @available(iOS 8.0, *)
 enum MTLStencilOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case keep
   case zero

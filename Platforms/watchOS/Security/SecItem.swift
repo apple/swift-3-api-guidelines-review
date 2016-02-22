@@ -262,10 +262,10 @@ let kSecUseAuthenticationUISkip: CFString
 @available(watchOS 2.0, *)
 let kSecAttrTokenIDSecureEnclave: CFString
 @available(watchOS 2.0, *)
-func SecItemCopyMatching(query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
+func SecItemCopyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
 @available(watchOS 2.0, *)
-func SecItemAdd(attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
+func SecItemAdd(_ attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
 @available(watchOS 2.0, *)
-func SecItemUpdate(query: CFDictionary, _ attributesToUpdate: CFDictionary) -> OSStatus
+func SecItemUpdate(_ query: CFDictionary, _ attributesToUpdate: CFDictionary) -> OSStatus
 @available(watchOS 2.0, *)
-func SecItemDelete(query: CFDictionary) -> OSStatus
+func SecItemDelete(_ query: CFDictionary) -> OSStatus

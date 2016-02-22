@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 struct NSTouchPhase : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var began: NSTouchPhase { get }
   static var moved: NSTouchPhase { get }

@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 struct MPMediaPlaylistAttribute : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: MPMediaPlaylistAttribute { get }
   static var onTheGo: MPMediaPlaylistAttribute { get }
@@ -18,7 +18,7 @@ class MPMediaPlaylist : MPMediaItemCollection {
   var playlistAttributes: MPMediaPlaylistAttribute { get }
   @available(iOS 8.0, *)
   var seedItems: [MPMediaItem]? { get }
-  init(items: [MPMediaItem])
+  init(items items: [MPMediaItem])
   convenience init()
   init?(coder aDecoder: NSCoder)
 }

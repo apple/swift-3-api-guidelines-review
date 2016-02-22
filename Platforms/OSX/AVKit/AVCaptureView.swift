@@ -5,12 +5,12 @@ class AVCaptureView : NSView {
   var controlsStyle: AVCaptureViewControlsStyle
   var videoGravity: String
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 @available(OSX 10.10, *)
 enum AVCaptureViewControlsStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case inline
   case floating

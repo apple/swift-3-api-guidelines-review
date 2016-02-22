@@ -4,6 +4,6 @@ class UILongPressGestureRecognizer : UIGestureRecognizer {
   var numberOfTapsRequired: Int
   var minimumPressDuration: CFTimeInterval
   var allowableMovement: CGFloat
-  init(target: AnyObject?, action: Selector)
+  init(target target: AnyObject?, action action: Selector)
   convenience init()
 }

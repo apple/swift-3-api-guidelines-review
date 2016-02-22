@@ -1,21 +1,21 @@
 
 @available(tvOS 6.0, *)
 class AVAssetResourceLoader : NSObject {
-  func setDelegate(delegate: AVAssetResourceLoaderDelegate?, queue delegateQueue: dispatch_queue_t?)
+  func setDelegate(_ delegate: AVAssetResourceLoaderDelegate?, queue delegateQueue: dispatch_queue_t?)
   weak var delegate: @sil_weak AVAssetResourceLoaderDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
 }
 protocol AVAssetResourceLoaderDelegate : NSObjectProtocol {
   @available(tvOS 6.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForLoadingOfRequestedResource loadingRequest: AVAssetResourceLoadingRequest) -> Bool
   @available(tvOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForRenewalOfRequestedResource renewalRequest: AVAssetResourceRenewalRequest) -> Bool
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForRenewalOfRequestedResource renewalRequest: AVAssetResourceRenewalRequest) -> Bool
   @available(tvOS 7.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel loadingRequest: AVAssetResourceLoadingRequest)
   @available(tvOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, shouldWaitForResponseTo authenticationChallenge: NSURLAuthenticationChallenge) -> Bool
   @available(tvOS 8.0, *)
-  optional func resourceLoader(resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: NSURLAuthenticationChallenge)
+  optional func resourceLoader(_ resourceLoader: AVAssetResourceLoader, didCancel authenticationChallenge: NSURLAuthenticationChallenge)
 }
 @available(tvOS 6.0, *)
 class AVAssetResourceLoadingRequest : NSObject {
@@ -33,7 +33,7 @@ class AVAssetResourceLoadingRequest : NSObject {
   @NSCopying var redirect: NSURLRequest?
   @available(tvOS 7.0, *)
   func finishLoading()
-  func finishLoadingWithError(error: NSError?)
+  func finishLoadingWithError(_ error: NSError?)
 }
 @available(tvOS 8.0, *)
 class AVAssetResourceRenewalRequest : AVAssetResourceLoadingRequest {
@@ -60,9 +60,9 @@ extension AVAssetResourceLoader {
   var preloadsEligibleContentKeys: Bool
 }
 extension AVAssetResourceLoadingRequest {
-  func streamingContentKeyRequestData(forApp appIdentifier: NSData, contentIdentifier: NSData, options: [String : AnyObject]? = [:]) throws -> NSData
+  func streamingContentKeyRequestData(forApp appIdentifier: NSData, contentIdentifier contentIdentifier: NSData, options options: [String : AnyObject]? = [:]) throws -> NSData
   @available(tvOS 9.0, *)
-  func persistentContentKey(fromKeyVendorResponse keyVendorResponse: NSData, options: [String : AnyObject]? = [:], error outError: NSErrorPointer) -> NSData
+  func persistentContentKey(fromKeyVendorResponse keyVendorResponse: NSData, options options: [String : AnyObject]? = [:], error outError: NSErrorPointer) -> NSData
 }
 @available(tvOS 9.0, *)
 let AVAssetResourceLoadingRequestStreamingContentKeyRequestRequiresPersistentKey: String

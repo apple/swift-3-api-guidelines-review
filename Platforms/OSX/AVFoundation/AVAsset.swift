@@ -23,7 +23,7 @@ extension AVAsset {
   var referenceRestrictions: AVAssetReferenceRestrictions { get }
 }
 struct AVAssetReferenceRestrictions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var forbidNone: AVAssetReferenceRestrictions { get }
   static var forbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
@@ -99,8 +99,8 @@ class AVURLAsset : AVAsset {
   @available(OSX 10.7, *)
   class func audiovisualMIMETypes() -> [String]
   @available(OSX 10.7, *)
-  class func isPlayableExtendedMIMEType(extendedMIMEType: String) -> Bool
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  class func isPlayableExtendedMIMEType(_ extendedMIMEType: String) -> Bool
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
   convenience init(url URL: NSURL)
 }
@@ -128,7 +128,7 @@ protocol AVFragmentMinding {
 @available(OSX 10.11, *)
 class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
   var tracks: [AVFragmentedAssetTrack] { get }
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   convenience init(url URL: NSURL)
   @available(OSX 10.11, *)
   var isAssociatedWithFragmentMinder: Bool { get }
@@ -140,10 +140,10 @@ extension AVFragmentedAsset {
 }
 @available(OSX 10.11, *)
 class AVFragmentedAssetMinder : NSObject {
-  convenience init(asset: AVAsset, mindingInterval: NSTimeInterval)
+  convenience init(asset asset: AVAsset, mindingInterval mindingInterval: NSTimeInterval)
   var mindingInterval: NSTimeInterval
   var assets: [AVAsset] { get }
-  func addFragmentedAsset(asset: AVAsset)
-  func removeFragmentedAsset(asset: AVAsset)
+  func addFragmentedAsset(_ asset: AVAsset)
+  func removeFragmentedAsset(_ asset: AVAsset)
   init()
 }

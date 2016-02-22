@@ -1,8 +1,8 @@
 
 class DRMSFFormatter : NSFormatter {
-  init!(format: String!)
+  init!(format format: String!)
   func format() -> String!
-  func setFormat(format: String!)
+  func setFormat(_ format: String!)
   init()
   init?(coder aDecoder: NSCoder)
 }

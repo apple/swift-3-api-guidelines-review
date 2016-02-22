@@ -2,29 +2,29 @@
 @available(tvOS 5.0, *)
 class CIContext : NSObject {
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(cgContext cgctx: CGContext, options: [String : AnyObject]? = [:])
+  /*not inherited*/ init(cgContext cgctx: CGContext, options options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(options: [String : AnyObject]? = [:])
+  /*not inherited*/ init(options options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(eaglContext: EAGLContext)
+  /*not inherited*/ init(eaglContext eaglContext: EAGLContext)
   @available(tvOS 5.0, *)
-  /*not inherited*/ init(eaglContext: EAGLContext, options: [String : AnyObject]? = [:])
+  /*not inherited*/ init(eaglContext eaglContext: EAGLContext, options options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   /*not inherited*/ init(mtlDevice device: MTLDevice)
   @available(tvOS 9.0, *)
-  /*not inherited*/ init(mtlDevice device: MTLDevice, options: [String : AnyObject]? = [:])
+  /*not inherited*/ init(mtlDevice device: MTLDevice, options options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   var workingColorSpace: CGColorSpace { get }
-  func draw(image: CIImage, in inRect: CGRect, from fromRect: CGRect)
-  func createCGImage(image: CIImage, from fromRect: CGRect) -> CGImage
-  func createCGImage(image: CIImage, from fromRect: CGRect, format: CIFormat, colorSpace: CGColorSpace?) -> CGImage
-  func render(image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes: Int, bounds: CGRect, format: CIFormat, colorSpace: CGColorSpace?)
+  func draw(_ image: CIImage, in inRect: CGRect, from fromRect: CGRect)
+  func createCGImage(_ image: CIImage, from fromRect: CGRect) -> CGImage
+  func createCGImage(_ image: CIImage, from fromRect: CGRect, format format: CIFormat, colorSpace colorSpace: CGColorSpace?) -> CGImage
+  func render(_ image: CIImage, toBitmap data: UnsafeMutablePointer<Void>, rowBytes rowBytes: Int, bounds bounds: CGRect, format format: CIFormat, colorSpace colorSpace: CGColorSpace?)
   @available(tvOS 5.0, *)
-  func render(image: CIImage, to buffer: CVPixelBuffer)
+  func render(_ image: CIImage, to buffer: CVPixelBuffer)
   @available(tvOS 5.0, *)
-  func render(image: CIImage, to buffer: CVPixelBuffer, bounds: CGRect, colorSpace: CGColorSpace?)
+  func render(_ image: CIImage, to buffer: CVPixelBuffer, bounds bounds: CGRect, colorSpace colorSpace: CGColorSpace?)
   @available(tvOS 9.0, *)
-  func render(image: CIImage, to texture: MTLTexture, commandBuffer: MTLCommandBuffer?, bounds: CGRect, colorSpace: CGColorSpace)
+  func render(_ image: CIImage, to texture: MTLTexture, commandBuffer commandBuffer: MTLCommandBuffer?, bounds bounds: CGRect, colorSpace colorSpace: CGColorSpace)
   @available(tvOS 5.0, *)
   func inputImageMaximumSize() -> CGSize
   @available(tvOS 5.0, *)

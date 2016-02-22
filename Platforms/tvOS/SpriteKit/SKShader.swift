@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
 class SKShader : NSObject, NSCopying, NSCoding {
-  init(source: String)
-  init(source: String, uniforms: [SKUniform])
+  init(source source: String)
+  init(source source: String, uniforms uniforms: [SKUniform])
   convenience init(fileNamed name: String)
   var source: String?
   var uniforms: [SKUniform]
-  func addUniform(uniform: SKUniform)
-  func uniformNamed(name: String) -> SKUniform?
-  func removeUniformNamed(name: String)
+  func addUniform(_ uniform: SKUniform)
+  func uniformNamed(_ name: String) -> SKUniform?
+  func removeUniformNamed(_ name: String)
   init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

@@ -5,7 +5,7 @@ let SCNLightTypeDirectional: String
 let SCNLightTypeSpot: String
 @available(tvOS 8.0, *)
 enum SCNShadowMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case forward
   case deferred
@@ -49,7 +49,7 @@ class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecu
   var categoryBitMask: Int
   init()
   @available(tvOS 8.0, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)

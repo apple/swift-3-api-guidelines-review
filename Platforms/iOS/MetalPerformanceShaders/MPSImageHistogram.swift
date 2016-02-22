@@ -5,32 +5,32 @@ struct MPSImageHistogramInfo {
   var minPixelValue: vector_float4
   var maxPixelValue: vector_float4
   init()
-  init(numberOfHistogramEntries: Int, histogramForAlpha: ObjCBool, minPixelValue: vector_float4, maxPixelValue: vector_float4)
+  init(numberOfHistogramEntries numberOfHistogramEntries: Int, histogramForAlpha histogramForAlpha: ObjCBool, minPixelValue minPixelValue: vector_float4, maxPixelValue maxPixelValue: vector_float4)
 }
 @available(iOS 9.0, *)
 class MPSImageHistogram : MPSKernel {
   var clipRectSource: MTLRegion
   var zeroHistogram: Bool
   var histogramInfo: MPSImageHistogramInfo { get }
-  init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encode(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
+  init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
+  func encode(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram histogram: MTLBuffer, histogramOffset histogramOffset: Int)
   func histogramSize(forSourceFormat sourceFormat: MTLPixelFormat) -> Int
-  convenience init(device: MTLDevice)
+  convenience init(device device: MTLDevice)
   convenience init()
 }
 @available(iOS 9.0, *)
 class MPSImageHistogramEqualization : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
-  init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram: MTLBuffer, histogramOffset: Int)
-  convenience init(device: MTLDevice)
+  init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
+  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram histogram: MTLBuffer, histogramOffset histogramOffset: Int)
+  convenience init(device device: MTLDevice)
   convenience init()
 }
 @available(iOS 9.0, *)
 class MPSImageHistogramSpecification : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
-  init(device: MTLDevice, histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
-  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram: MTLBuffer, sourceHistogramOffset: Int, desiredHistogram: MTLBuffer, desiredHistogramOffset: Int)
-  convenience init(device: MTLDevice)
+  init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
+  func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram sourceHistogram: MTLBuffer, sourceHistogramOffset sourceHistogramOffset: Int, desiredHistogram desiredHistogram: MTLBuffer, desiredHistogramOffset desiredHistogramOffset: Int)
+  convenience init(device device: MTLDevice)
   convenience init()
 }

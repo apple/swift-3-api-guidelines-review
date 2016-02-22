@@ -2,14 +2,14 @@
 class FIFinderSyncController : NSExtensionContext {
   class func defaultController() -> Self
   var directoryURLs: Set<NSURL>!
-  func setBadgeImage(image: NSImage, label: String?, forBadgeIdentifier badgeID: String)
-  func setBadgeIdentifier(badgeID: String, for url: NSURL)
+  func setBadgeImage(_ image: NSImage, label label: String?, forBadgeIdentifier badgeID: String)
+  func setBadgeIdentifier(_ badgeID: String, for url: NSURL)
   func targetedURL() -> NSURL?
   func selectedItemURLs() -> [NSURL]?
   init()
 }
 enum FIMenuKind : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case contextualMenuForItems
   case contextualMenuForContainer
@@ -35,5 +35,5 @@ class FIFinderSync : NSObject, FIFinderSyncProtocol, NSExtensionRequestHandling 
   @NSCopying var toolbarItemImage: NSImage { get }
   var toolbarItemToolTip: String { get }
   @available(OSX 10.10, *)
-  func beginRequest(context: NSExtensionContext)
+  func beginRequest(_ context: NSExtensionContext)
 }

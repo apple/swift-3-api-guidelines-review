@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 struct CKRecordZoneCapabilities : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var fetchChanges: CKRecordZoneCapabilities { get }
   static var atomic: CKRecordZoneCapabilities { get }
@@ -11,8 +11,8 @@ let CKRecordZoneDefaultName: String
 @available(tvOS 8.0, *)
 class CKRecordZone : NSObject, NSSecureCoding, NSCopying {
   class func defaultRecordZone() -> CKRecordZone
-  init(zoneName: String)
-  init(zoneID: CKRecordZoneID)
+  init(zoneName zoneName: String)
+  init(zoneID zoneID: CKRecordZoneID)
   var zoneID: CKRecordZoneID { get }
   var capabilities: CKRecordZoneCapabilities { get }
   @available(tvOS 8.0, *)

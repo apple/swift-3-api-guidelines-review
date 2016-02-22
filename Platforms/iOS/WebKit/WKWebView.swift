@@ -5,13 +5,13 @@ class WKWebView : UIView {
   weak var navigationDelegate: @sil_weak WKNavigationDelegate?
   weak var uiDelegate: @sil_weak WKUIDelegate?
   var backForwardList: WKBackForwardList { get }
-  init(frame: CGRect, configuration: WKWebViewConfiguration)
-  func load(request: NSURLRequest) -> WKNavigation?
+  init(frame frame: CGRect, configuration configuration: WKWebViewConfiguration)
+  func load(_ request: NSURLRequest) -> WKNavigation?
   @available(iOS 9.0, *)
-  func loadFileURL(URL: NSURL, allowingReadAccessTo readAccessURL: NSURL) -> WKNavigation?
-  func loadHTMLString(string: String, baseURL: NSURL?) -> WKNavigation?
+  func loadFileURL(_ URL: NSURL, allowingReadAccessTo readAccessURL: NSURL) -> WKNavigation?
+  func loadHTMLString(_ string: String, baseURL baseURL: NSURL?) -> WKNavigation?
   @available(iOS 9.0, *)
-  func load(data: NSData, mimeType MIMEType: String, characterEncodingName: String, baseURL: NSURL) -> WKNavigation?
+  func load(_ data: NSData, mimeType MIMEType: String, characterEncodingName characterEncodingName: String, baseURL baseURL: NSURL) -> WKNavigation?
   func go(to item: WKBackForwardListItem) -> WKNavigation?
   var title: String? { get }
   @NSCopying var url: NSURL? { get }
@@ -27,13 +27,13 @@ class WKWebView : UIView {
   func reload() -> WKNavigation?
   func reloadFromOrigin() -> WKNavigation?
   func stopLoading()
-  func evaluateJavaScript(javaScriptString: String, completionHandler: ((AnyObject?, NSError?) -> Void)? = nil)
+  func evaluateJavaScript(_ javaScriptString: String, completionHandler completionHandler: ((AnyObject?, NSError?) -> Void)? = nil)
   var allowsBackForwardNavigationGestures: Bool
   @available(iOS 9.0, *)
   var customUserAgent: String?
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
   var scrollView: UIScrollView { get }
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
 }

@@ -1,12 +1,12 @@
 
 enum UITableViewStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case plain
   case grouped
 }
 enum UITableViewScrollPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case top
@@ -14,7 +14,7 @@ enum UITableViewScrollPosition : Int {
   case bottom
 }
 enum UITableViewRowAnimation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case fade
   case right
@@ -35,76 +35,76 @@ class UITableViewFocusUpdateContext : UIFocusUpdateContext {
 }
 protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
+  optional func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(_ tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+  optional func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+  optional func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
-  optional func tableView(tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
+  optional func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: NSIndexPath) -> CGFloat
   @available(tvOS 7.0, *)
-  optional func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
+  optional func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(tvOS 7.0, *)
-  optional func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+  optional func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+  optional func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+  optional func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)
-  optional func tableView(tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: NSIndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(_ tableView: UITableView, willSelectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(tvOS 3.0, *)
-  optional func tableView(tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
+  optional func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: NSIndexPath) -> NSIndexPath?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, didSelectRowAt indexPath: NSIndexPath)
   @available(tvOS 3.0, *)
-  optional func tableView(tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: NSIndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  optional func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: NSIndexPath) -> UITableViewCellEditingStyle
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  optional func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
+  optional func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: NSIndexPath) -> Int
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  optional func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
-  optional func tableView(tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
+  optional func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(tvOS 9.0, *)
-  optional func tableView(tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, canFocusRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 9.0, *)
-  optional func tableView(tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
+  optional func tableView(_ tableView: UITableView, shouldUpdateFocusIn context: UITableViewFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  optional func tableView(tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
+  optional func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator)
   @available(tvOS 9.0, *)
   optional func indexPathForPreferredFocusedView(in tableView: UITableView) -> NSIndexPath?
 }
 let UITableViewSelectionDidChangeNotification: String
 @available(tvOS 2.0, *)
 class UITableView : UIScrollView, NSCoding {
-  init(frame: CGRect, style: UITableViewStyle)
+  init(frame frame: CGRect, style style: UITableViewStyle)
   init?(coder aDecoder: NSCoder)
   var style: UITableViewStyle { get }
   weak var dataSource: @sil_weak UITableViewDataSource?
@@ -141,16 +141,16 @@ class UITableView : UIScrollView, NSCoding {
   func headerView(forSection section: Int) -> UITableViewHeaderFooterView?
   @available(tvOS 6.0, *)
   func footerView(forSection section: Int) -> UITableViewHeaderFooterView?
-  func scrollToRow(at indexPath: NSIndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool)
-  func scrollToNearestSelectedRow(at scrollPosition: UITableViewScrollPosition, animated: Bool)
+  func scrollToRow(at indexPath: NSIndexPath, at scrollPosition: UITableViewScrollPosition, animated animated: Bool)
+  func scrollToNearestSelectedRow(at scrollPosition: UITableViewScrollPosition, animated animated: Bool)
   func beginUpdates()
   func endUpdates()
-  func insertSections(sections: NSIndexSet, with animation: UITableViewRowAnimation)
-  func deleteSections(sections: NSIndexSet, with animation: UITableViewRowAnimation)
+  func insertSections(_ sections: NSIndexSet, with animation: UITableViewRowAnimation)
+  func deleteSections(_ sections: NSIndexSet, with animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
-  func reloadSections(sections: NSIndexSet, with animation: UITableViewRowAnimation)
+  func reloadSections(_ sections: NSIndexSet, with animation: UITableViewRowAnimation)
   @available(tvOS 5.0, *)
-  func moveSection(section: Int, toSection newSection: Int)
+  func moveSection(_ section: Int, toSection newSection: Int)
   func insertRows(at indexPaths: [NSIndexPath], with animation: UITableViewRowAnimation)
   func deleteRows(at indexPaths: [NSIndexPath], with animation: UITableViewRowAnimation)
   @available(tvOS 3.0, *)
@@ -158,7 +158,7 @@ class UITableView : UIScrollView, NSCoding {
   @available(tvOS 5.0, *)
   func moveRow(at indexPath: NSIndexPath, to newIndexPath: NSIndexPath)
   var isEditing: Bool
-  func setEditing(editing: Bool, animated: Bool)
+  func setEditing(_ editing: Bool, animated animated: Bool)
   @available(tvOS 3.0, *)
   var allowsSelection: Bool
   var allowsSelectionDuringEditing: Bool
@@ -169,8 +169,8 @@ class UITableView : UIScrollView, NSCoding {
   var indexPathForSelectedRow: NSIndexPath? { get }
   @available(tvOS 5.0, *)
   var indexPathsForSelectedRows: [NSIndexPath]? { get }
-  func selectRow(at indexPath: NSIndexPath?, animated: Bool, scrollPosition: UITableViewScrollPosition)
-  func deselectRow(at indexPath: NSIndexPath, animated: Bool)
+  func selectRow(at indexPath: NSIndexPath?, animated animated: Bool, scrollPosition scrollPosition: UITableViewScrollPosition)
+  func deselectRow(at indexPath: NSIndexPath, animated animated: Bool)
   var sectionIndexMinimumDisplayRowCount: Int
   @available(tvOS 6.0, *)
   var sectionIndexColor: UIColor?
@@ -188,37 +188,37 @@ class UITableView : UIScrollView, NSCoding {
   @available(tvOS 6.0, *)
   func dequeueReusableHeaderFooterView(identifier identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)
-  func register(nib: UINib?, forCellReuseIdentifier identifier: String)
+  func register(_ nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(tvOS 6.0, *)
-  func register(cellClass: AnyClass?, forCellReuseIdentifier identifier: String)
+  func register(_ cellClass: AnyClass?, forCellReuseIdentifier identifier: String)
   @available(tvOS 6.0, *)
-  func register(nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String)
+  func register(_ nib: UINib?, forHeaderFooterViewReuseIdentifier identifier: String)
   @available(tvOS 6.0, *)
-  func register(aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
+  func register(_ aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
   @available(tvOS 9.0, *)
   var remembersLastFocusedIndexPath: Bool
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
 }
 protocol UITableViewDataSource : NSObjectProtocol {
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(tvOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: NSIndexPath) -> UITableViewCell
   @available(tvOS 2.0, *)
   optional func numberOfSections(in tableView: UITableView) -> Int
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+  optional func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
+  optional func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, canEditRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
+  optional func tableView(_ tableView: UITableView, canMoveRowAt indexPath: NSIndexPath) -> Bool
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: NSIndexPath)
   @available(tvOS 2.0, *)
-  optional func tableView(tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
+  optional func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: NSIndexPath, to destinationIndexPath: NSIndexPath)
 }
 extension NSIndexPath {
   convenience init(forRow row: Int, inSection section: Int)

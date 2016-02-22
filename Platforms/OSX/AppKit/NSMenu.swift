@@ -2,26 +2,26 @@
 class NSMenu : NSObject, NSCopying, NSCoding {
   init(title aTitle: String)
   var title: String
-  class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView)
-  class func popUpContextMenu(menu: NSMenu, with event: NSEvent, for view: NSView, with font: NSFont?)
+  class func popUpContextMenu(_ menu: NSMenu, with event: NSEvent, for view: NSView)
+  class func popUpContextMenu(_ menu: NSMenu, with event: NSEvent, for view: NSView, with font: NSFont?)
   @available(OSX 10.6, *)
-  func popUpPositioningItem(item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
-  class func setMenuBarVisible(visible: Bool)
+  func popUpPositioningItem(_ item: NSMenuItem?, atLocation location: NSPoint, in view: NSView?) -> Bool
+  class func setMenuBarVisible(_ visible: Bool)
   class func menuBarVisible() -> Bool
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
-  func insert(newItem: NSMenuItem, at index: Int)
-  func add(newItem: NSMenuItem)
+  func insert(_ newItem: NSMenuItem, at index: Int)
+  func add(_ newItem: NSMenuItem)
   func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
   func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItem(at index: Int)
-  func remove(item: NSMenuItem)
-  func setSubmenu(aMenu: NSMenu?, for anItem: NSMenuItem)
+  func remove(_ item: NSMenuItem)
+  func setSubmenu(_ aMenu: NSMenu?, for anItem: NSMenuItem)
   @available(OSX 10.6, *)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
   func item(at index: Int) -> NSMenuItem?
-  func indexOf(item: NSMenuItem) -> Int
+  func indexOf(_ item: NSMenuItem) -> Int
   func indexOfItem(withTitle aTitle: String) -> Int
   func indexOfItem(withTag aTag: Int) -> Int
   func indexOfItem(withRepresentedObject object: AnyObject) -> Int
@@ -31,8 +31,8 @@ class NSMenu : NSObject, NSCopying, NSCoding {
   func item(withTag tag: Int) -> NSMenuItem?
   var autoenablesItems: Bool
   func update()
-  func performKeyEquivalent(theEvent: NSEvent) -> Bool
-  func itemChanged(item: NSMenuItem)
+  func performKeyEquivalent(_ theEvent: NSEvent) -> Bool
+  func itemChanged(_ item: NSMenuItem)
   func performActionForItem(at index: Int)
   unowned(unsafe) var delegate: @sil_unmanaged NSMenuDelegate?
   var menuBarHeight: CGFloat { get }
@@ -81,31 +81,31 @@ struct __mFlags {
   var delegateIsUnsafeUnretained: UInt32
   var RESERVED: UInt32
   init()
-  init(noAutoenable: UInt32, inMain: UInt32, internalPerformAction: UInt32, condenseSeparators: UInt32, disabled: UInt32, ownedByPopUp: UInt32, delegateNeedsUpdate: UInt32, delegateUpdateItem: UInt32, delegateHasKeyEquiv: UInt32, delegateHasAltKeyEquiv: UInt32, excludeMarkColumn: UInt32, isContextualMenu: UInt32, cmPluginMode: UInt32, invertedCMPluginTypes: UInt32, allowsDifferentSelection: UInt32, noTopPadding: UInt32, noBottomPadding: UInt32, hasNCStyle: UInt32, delegateIsUnsafeUnretained: UInt32, RESERVED: UInt32)
+  init(noAutoenable noAutoenable: UInt32, inMain inMain: UInt32, internalPerformAction internalPerformAction: UInt32, condenseSeparators condenseSeparators: UInt32, disabled disabled: UInt32, ownedByPopUp ownedByPopUp: UInt32, delegateNeedsUpdate delegateNeedsUpdate: UInt32, delegateUpdateItem delegateUpdateItem: UInt32, delegateHasKeyEquiv delegateHasKeyEquiv: UInt32, delegateHasAltKeyEquiv delegateHasAltKeyEquiv: UInt32, excludeMarkColumn excludeMarkColumn: UInt32, isContextualMenu isContextualMenu: UInt32, cmPluginMode cmPluginMode: UInt32, invertedCMPluginTypes invertedCMPluginTypes: UInt32, allowsDifferentSelection allowsDifferentSelection: UInt32, noTopPadding noTopPadding: UInt32, noBottomPadding noBottomPadding: UInt32, hasNCStyle hasNCStyle: UInt32, delegateIsUnsafeUnretained delegateIsUnsafeUnretained: UInt32, RESERVED RESERVED: UInt32)
 }
 extension NSMenu {
-  func submenuAction(sender: AnyObject?)
+  func submenuAction(_ sender: AnyObject?)
 }
 extension NSObject {
-  class func validate(menuItem: NSMenuItem) -> Bool
-  func validate(menuItem: NSMenuItem) -> Bool
+  class func validate(_ menuItem: NSMenuItem) -> Bool
+  func validate(_ menuItem: NSMenuItem) -> Bool
 }
 protocol NSMenuDelegate : NSObjectProtocol {
-  optional func menuNeedsUpdate(menu: NSMenu)
+  optional func menuNeedsUpdate(_ menu: NSMenu)
   optional func numberOfItems(in menu: NSMenu) -> Int
-  optional func menu(menu: NSMenu, update item: NSMenuItem, at index: Int, shouldCancel: Bool) -> Bool
-  optional func menuHasKeyEquivalent(menu: NSMenu, for event: NSEvent, target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action: UnsafeMutablePointer<Selector>) -> Bool
+  optional func menu(_ menu: NSMenu, update item: NSMenuItem, at index: Int, shouldCancel shouldCancel: Bool) -> Bool
+  optional func menuHasKeyEquivalent(_ menu: NSMenu, for event: NSEvent, target target: AutoreleasingUnsafeMutablePointer<AnyObject?>, action action: UnsafeMutablePointer<Selector>) -> Bool
   @available(OSX 10.5, *)
-  optional func menuWillOpen(menu: NSMenu)
+  optional func menuWillOpen(_ menu: NSMenu)
   @available(OSX 10.5, *)
-  optional func menuDidClose(menu: NSMenu)
+  optional func menuDidClose(_ menu: NSMenu)
   @available(OSX 10.5, *)
-  optional func menu(menu: NSMenu, willHighlight item: NSMenuItem?)
+  optional func menu(_ menu: NSMenu, willHighlight item: NSMenuItem?)
   @available(OSX 10.6, *)
   optional func confinementRect(for menu: NSMenu, on screen: NSScreen?) -> NSRect
 }
 struct NSMenuProperties : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var propertyItemTitle: NSMenuProperties { get }
   static var propertyItemAttributedTitle: NSMenuProperties { get }
@@ -131,7 +131,7 @@ extension NSMenu {
   @available(OSX, introduced=10.0, deprecated=10.11)
   var menuChangedMessagesEnabled: Bool
   @available(OSX, introduced=10.0, deprecated=10.11)
-  func helpRequested(eventPtr: NSEvent)
+  func helpRequested(_ eventPtr: NSEvent)
   @available(OSX, introduced=10.0, deprecated=10.11)
   var isTornOff: Bool { get }
 }

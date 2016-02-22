@@ -26,18 +26,18 @@ let kCFErrorURLKey: CFString!
 @available(watchOS 2.0, *)
 let kCFErrorFilePathKey: CFString!
 @available(watchOS 2.0, *)
-func CFErrorCreate(allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfo: CFDictionary!) -> CFError!
+func CFErrorCreate(_ allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfo: CFDictionary!) -> CFError!
 @available(watchOS 2.0, *)
-func CFErrorCreateWithUserInfoKeysAndValues(allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfoKeys: UnsafePointer<UnsafePointer<Void>>, _ userInfoValues: UnsafePointer<UnsafePointer<Void>>, _ numUserInfoValues: CFIndex) -> CFError!
+func CFErrorCreateWithUserInfoKeysAndValues(_ allocator: CFAllocator!, _ domain: CFString!, _ code: CFIndex, _ userInfoKeys: UnsafePointer<UnsafePointer<Void>>, _ userInfoValues: UnsafePointer<UnsafePointer<Void>>, _ numUserInfoValues: CFIndex) -> CFError!
 @available(watchOS 2.0, *)
-func CFErrorGetDomain(err: CFError!) -> CFString!
+func CFErrorGetDomain(_ err: CFError!) -> CFString!
 @available(watchOS 2.0, *)
-func CFErrorGetCode(err: CFError!) -> CFIndex
+func CFErrorGetCode(_ err: CFError!) -> CFIndex
 @available(watchOS 2.0, *)
-func CFErrorCopyUserInfo(err: CFError!) -> CFDictionary!
+func CFErrorCopyUserInfo(_ err: CFError!) -> CFDictionary!
 @available(watchOS 2.0, *)
-func CFErrorCopyDescription(err: CFError!) -> CFString!
+func CFErrorCopyDescription(_ err: CFError!) -> CFString!
 @available(watchOS 2.0, *)
-func CFErrorCopyFailureReason(err: CFError!) -> CFString!
+func CFErrorCopyFailureReason(_ err: CFError!) -> CFString!
 @available(watchOS 2.0, *)
-func CFErrorCopyRecoverySuggestion(err: CFError!) -> CFString!
+func CFErrorCopyRecoverySuggestion(_ err: CFError!) -> CFString!

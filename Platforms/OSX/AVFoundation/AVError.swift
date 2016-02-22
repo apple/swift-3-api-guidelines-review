@@ -24,7 +24,7 @@ let AVErrorFileTypeKey: String
 @available(OSX 10.7, *)
 let AVErrorDiscontinuityFlagsKey: String
 enum AVError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case outOfMemory

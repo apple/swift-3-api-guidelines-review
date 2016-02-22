@@ -1,15 +1,15 @@
 
 protocol UISearchControllerDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func willPresent(searchController: UISearchController)
+  optional func willPresent(_ searchController: UISearchController)
   @available(tvOS 8.0, *)
-  optional func didPresent(searchController: UISearchController)
+  optional func didPresent(_ searchController: UISearchController)
   @available(tvOS 8.0, *)
-  optional func willDismiss(searchController: UISearchController)
+  optional func willDismiss(_ searchController: UISearchController)
   @available(tvOS 8.0, *)
-  optional func didDismiss(searchController: UISearchController)
+  optional func didDismiss(_ searchController: UISearchController)
   @available(tvOS 8.0, *)
-  optional func present(searchController: UISearchController)
+  optional func present(_ searchController: UISearchController)
 }
 protocol UISearchResultsUpdating : NSObjectProtocol {
   @available(tvOS 8.0, *)
@@ -17,7 +17,7 @@ protocol UISearchResultsUpdating : NSObjectProtocol {
 }
 @available(tvOS 8.0, *)
 class UISearchController : UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
-  init(searchResultsController: UIViewController?)
+  init(searchResultsController searchResultsController: UIViewController?)
   weak var searchResultsUpdater: @sil_weak UISearchResultsUpdating?
   var isActive: Bool
   weak var delegate: @sil_weak UISearchControllerDelegate?
@@ -30,7 +30,7 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 8.0, *)
-  func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+  func animationController(forPresentedController presented: UIViewController, presenting presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 8.0, *)
   func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 8.0, *)
@@ -38,11 +38,11 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   @available(tvOS 8.0, *)
   func interactionController(forDismissal animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
   @available(tvOS 8.0, *)
-  func presentationController(forPresentedViewController presented: UIViewController, presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
+  func presentationController(forPresentedViewController presented: UIViewController, presenting presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController?
   @available(tvOS 8.0, *)
-  func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+  func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
   @available(tvOS 8.0, *)
-  func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+  func animateTransition(_ transitionContext: UIViewControllerContextTransitioning)
   @available(tvOS 8.0, *)
-  func animationEnded(transitionCompleted: Bool)
+  func animationEnded(_ transitionCompleted: Bool)
 }

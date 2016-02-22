@@ -1,13 +1,13 @@
 
 enum NSAlertStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case warningAlertStyle
   case informationalAlertStyle
   case criticalAlertStyle
 }
 class NSAlert : NSObject {
-  /*not inherited*/ init(error: NSError)
+  /*not inherited*/ init(error error: NSError)
   var messageText: String
   var informativeText: String
   var icon: NSImage!
@@ -27,7 +27,7 @@ class NSAlert : NSObject {
   func layout()
   func runModal() -> NSModalResponse
   @available(OSX, introduced=10.3, deprecated=10.10, message="Use -beginSheetModalForWindow:completionHandler: instead")
-  func beginSheetModal(for window: NSWindow, modalDelegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func beginSheetModal(for window: NSWindow, modalDelegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
   func beginSheetModal(for sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)? = nil)
   var window: NSWindow { get }
@@ -37,5 +37,5 @@ var NSAlertFirstButtonReturn: Int { get }
 var NSAlertSecondButtonReturn: Int { get }
 var NSAlertThirdButtonReturn: Int { get }
 protocol NSAlertDelegate : NSObjectProtocol {
-  optional func alertShowHelp(alert: NSAlert) -> Bool
+  optional func alertShowHelp(_ alert: NSAlert) -> Bool
 }

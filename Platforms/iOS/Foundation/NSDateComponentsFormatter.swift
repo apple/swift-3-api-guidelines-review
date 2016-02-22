@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NSDateComponentsFormatterUnitsStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case positional
   case abbreviated
@@ -11,7 +11,7 @@ enum NSDateComponentsFormatterUnitsStyle : Int {
 }
 @available(iOS 8.0, *)
 struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: NSDateComponentsFormatterZeroFormattingBehavior { get }
   static var `default`: NSDateComponentsFormatterZeroFormattingBehavior { get }
@@ -27,7 +27,7 @@ class NSDateComponentsFormatter : NSFormatter {
   func string(from components: NSDateComponents) -> String?
   func string(from startDate: NSDate, to endDate: NSDate) -> String?
   func string(fromTimeInterval ti: NSTimeInterval) -> String?
-  class func localizedString(from components: NSDateComponents, unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
+  class func localizedString(from components: NSDateComponents, unitsStyle unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
   var unitsStyle: NSDateComponentsFormatterUnitsStyle
   var allowedUnits: NSCalendarUnit
   var zeroFormattingBehavior: NSDateComponentsFormatterZeroFormattingBehavior
@@ -38,7 +38,7 @@ class NSDateComponentsFormatter : NSFormatter {
   var includesApproximationPhrase: Bool
   var includesTimeRemainingPhrase: Bool
   var formattingContext: NSFormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   init()
   init?(coder aDecoder: NSCoder)
 }

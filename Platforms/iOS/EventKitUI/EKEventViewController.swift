@@ -1,6 +1,6 @@
 
 enum EKEventViewAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case done
   case responded
@@ -19,5 +19,5 @@ class EKEventViewController : UIViewController {
 }
 protocol EKEventViewDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
-  func eventViewController(controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
+  func eventViewController(_ controller: EKEventViewController, didCompleteWith action: EKEventViewAction)
 }

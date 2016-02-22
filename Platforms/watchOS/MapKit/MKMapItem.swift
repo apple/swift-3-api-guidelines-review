@@ -9,9 +9,9 @@ class MKMapItem : NSObject {
   @available(watchOS 2.0, *)
   @NSCopying var timeZone: NSTimeZone?
   class func forCurrentLocation() -> MKMapItem
-  init(placemark: MKPlacemark)
+  init(placemark placemark: MKPlacemark)
   func openInMaps(launchOptions launchOptions: [String : AnyObject]? = [:]) -> Bool
-  class func openMaps(mapItems: [MKMapItem], launchOptions: [String : AnyObject]? = [:]) -> Bool
+  class func openMaps(_ mapItems: [MKMapItem], launchOptions launchOptions: [String : AnyObject]? = [:]) -> Bool
   init()
 }
 @available(watchOS 2.0, *)

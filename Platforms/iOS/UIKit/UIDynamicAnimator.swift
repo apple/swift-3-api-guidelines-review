@@ -1,15 +1,15 @@
 
 protocol UIDynamicAnimatorDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  optional func dynamicAnimatorWillResume(animator: UIDynamicAnimator)
+  optional func dynamicAnimatorWillResume(_ animator: UIDynamicAnimator)
   @available(iOS 7.0, *)
-  optional func dynamicAnimatorDidPause(animator: UIDynamicAnimator)
+  optional func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator)
 }
 @available(iOS 7.0, *)
 class UIDynamicAnimator : NSObject {
   init(referenceView view: UIView)
-  func addBehavior(behavior: UIDynamicBehavior)
-  func removeBehavior(behavior: UIDynamicBehavior)
+  func addBehavior(_ behavior: UIDynamicBehavior)
+  func removeBehavior(_ behavior: UIDynamicBehavior)
   func removeAllBehaviors()
   var referenceView: UIView? { get }
   var behaviors: [UIDynamicBehavior] { get }

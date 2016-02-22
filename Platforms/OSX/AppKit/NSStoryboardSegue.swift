@@ -1,8 +1,8 @@
 
 @available(OSX 10.10, *)
 class NSStoryboardSegue : NSObject {
-  convenience init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject, performHandler: () -> Void)
-  init(identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject)
+  convenience init(identifier identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject, performHandler performHandler: () -> Void)
+  init(identifier identifier: String, source sourceController: AnyObject, destination destinationController: AnyObject)
   var identifier: String? { get }
   var sourceController: AnyObject { get }
   var destinationController: AnyObject { get }
@@ -11,9 +11,9 @@ class NSStoryboardSegue : NSObject {
 }
 protocol NSSeguePerforming : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func prepare(for segue: NSStoryboardSegue, sender: AnyObject?)
+  optional func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  optional func performSegue(identifier identifier: String, sender: AnyObject?)
+  optional func performSegue(identifier identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  optional func shouldPerformSegue(withIdentifier identifier: String, sender: AnyObject?) -> Bool
+  optional func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
 }

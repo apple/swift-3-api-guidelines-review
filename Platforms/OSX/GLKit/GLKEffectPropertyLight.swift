@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum GLKLightingType : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case perVertex
   case perPixel

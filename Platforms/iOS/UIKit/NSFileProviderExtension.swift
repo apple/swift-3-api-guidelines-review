@@ -7,8 +7,8 @@ class NSFileProviderExtension : NSObject {
   func documentStorageURL() -> NSURL
   func urlForItem(withPersistentIdentifier identifier: String) -> NSURL?
   func persistentIdentifierForItem(at url: NSURL) -> String?
-  func providePlaceholder(at url: NSURL, completionHandler: (NSError?) -> Void)
-  func startProvidingItem(at url: NSURL, completionHandler: (NSError?) -> Void)
+  func providePlaceholder(at url: NSURL, completionHandler completionHandler: (NSError?) -> Void)
+  func startProvidingItem(at url: NSURL, completionHandler completionHandler: (NSError?) -> Void)
   func itemChanged(at url: NSURL)
   func stopProvidingItem(at url: NSURL)
   init()

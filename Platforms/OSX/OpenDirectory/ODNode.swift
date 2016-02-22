@@ -17,39 +17,39 @@ class ODNode : NSObject {
   @available(OSX 10.6, *)
   func supportedAttributes(forRecordType inRecordType: String!) throws -> [AnyObject]
   @available(OSX 10.6, *)
-  func setCredentialsWithRecordType(inRecordType: String!, recordName inRecordName: String!, password inPassword: String!) throws
+  func setCredentialsWithRecordType(_ inRecordType: String!, recordName inRecordName: String!, password inPassword: String!) throws
   @available(OSX 10.6, *)
-  func setCredentialsWithRecordType(inRecordType: String!, authenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
+  func setCredentialsWithRecordType(_ inRecordType: String!, authenticationType inType: String!, authenticationItems inItems: [AnyObject]!, continueItems outItems: AutoreleasingUnsafeMutablePointer<NSArray?>, context outContext: AutoreleasingUnsafeMutablePointer<AnyObject?>) throws
   @available(OSX 10.6, *)
-  func setCredentialsUsingKerberosCache(inCacheName: String!) throws
+  func setCredentialsUsingKerberosCache(_ inCacheName: String!) throws
   @available(OSX 10.6, *)
   func createRecord(withRecordType inRecordType: String!, name inRecordName: String!, attributes inAttributes: [NSObject : AnyObject]! = [:]) throws -> ODRecord
   @available(OSX 10.6, *)
   func record(recordType inRecordType: String!, name inRecordName: String!, attributes inAttributes: AnyObject!) throws -> ODRecord
   @available(OSX 10.6, *)
-  func customCall(inCustomCode: Int, send inSendData: NSData!) throws -> NSData
+  func customCall(_ inCustomCode: Int, send inSendData: NSData!) throws -> NSData
   @available(OSX 10.9, *)
-  func customFunction(function: String!, payload: AnyObject!) throws -> AnyObject
+  func customFunction(_ function: String!, payload payload: AnyObject!) throws -> AnyObject
   var configuration: ODConfiguration! { get }
   @available(OSX, introduced=10.9, deprecated=10.10, message="use accountPoliciesAndReturnError:")
   func policies() throws -> [NSObject : AnyObject]
   @available(OSX, introduced=10.9, deprecated=10.10)
   func supportedPolicies() throws -> [NSObject : AnyObject]
   @available(OSX, introduced=10.9, deprecated=10.10, message="use setAccountPolicies:error:")
-  func setPolicies(policies: [NSObject : AnyObject]!) throws
+  func setPolicies(_ policies: [NSObject : AnyObject]!) throws
   @available(OSX, introduced=10.9, deprecated=10.10, message="use addAccountPolicy:toCategory:error:")
-  func setPolicy(policy: ODPolicyType!, value: AnyObject!) throws
+  func setPolicy(_ policy: ODPolicyType!, value value: AnyObject!) throws
   @available(OSX, introduced=10.9, deprecated=10.10, message="use removeAccountPolicy:fromCategory:error:")
-  func remove(policy: ODPolicyType!) throws
+  func remove(_ policy: ODPolicyType!) throws
   @available(OSX 10.10, *)
-  func addAccountPolicy(policy: [NSObject : AnyObject]!, toCategory category: String!) throws
+  func addAccountPolicy(_ policy: [NSObject : AnyObject]!, toCategory category: String!) throws
   @available(OSX 10.10, *)
-  func removeAccountPolicy(policy: [NSObject : AnyObject]!, fromCategory category: String!) throws
+  func removeAccountPolicy(_ policy: [NSObject : AnyObject]!, fromCategory category: String!) throws
   @available(OSX 10.10, *)
-  func setAccountPolicies(policies: [NSObject : AnyObject]!) throws
+  func setAccountPolicies(_ policies: [NSObject : AnyObject]!) throws
   @available(OSX 10.10, *)
   func accountPolicies() throws -> [NSObject : AnyObject]
   @available(OSX 10.10, *)
-  func passwordContentCheck(password: String!, forRecordName recordName: String!) throws
+  func passwordContentCheck(_ password: String!, forRecordName recordName: String!) throws
   init()
 }

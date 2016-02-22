@@ -1,9 +1,9 @@
 
 @available(tvOS 3.0, *)
 class NSMappingModel : NSObject {
-  /*not inherited*/ init?(from bundles: [NSBundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel: NSManagedObjectModel?)
+  /*not inherited*/ init?(from bundles: [NSBundle]?, forSourceModel sourceModel: NSManagedObjectModel?, destinationModel destinationModel: NSManagedObjectModel?)
   @available(tvOS 3.0, *)
-  class func inferredMappingModel(forSourceModel sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel) throws -> NSMappingModel
+  class func inferredMappingModel(forSourceModel sourceModel: NSManagedObjectModel, destinationModel destinationModel: NSManagedObjectModel) throws -> NSMappingModel
   init?(contentsOf url: NSURL?)
   var entityMappings: [NSEntityMapping]!
   var entityMappingsByName: [String : NSEntityMapping] { get }
@@ -13,5 +13,5 @@ struct __modelMappingFlags {
   var _isInUse: UInt32
   var _reservedModelMapping: UInt32
   init()
-  init(_isInUse: UInt32, _reservedModelMapping: UInt32)
+  init(_isInUse _isInUse: UInt32, _reservedModelMapping _reservedModelMapping: UInt32)
 }

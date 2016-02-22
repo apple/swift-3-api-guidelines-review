@@ -2,68 +2,68 @@
 @available(OSX 10.4, *)
 func CGEventGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func CGEventCreate(source: CGEventSource?) -> CGEvent?
+func CGEventCreate(_ source: CGEventSource?) -> CGEvent?
 @available(OSX 10.4, *)
-func CGEventCreateData(allocator: CFAllocator?, _ event: CGEvent?) -> CFData?
+func CGEventCreateData(_ allocator: CFAllocator?, _ event: CGEvent?) -> CFData?
 @available(OSX 10.4, *)
-func CGEventCreateFromData(allocator: CFAllocator?, _ data: CFData?) -> CGEvent?
+func CGEventCreateFromData(_ allocator: CFAllocator?, _ data: CFData?) -> CGEvent?
 @available(OSX 10.4, *)
-func CGEventCreateMouseEvent(source: CGEventSource?, _ mouseType: CGEventType, _ mouseCursorPosition: CGPoint, _ mouseButton: CGMouseButton) -> CGEvent?
+func CGEventCreateMouseEvent(_ source: CGEventSource?, _ mouseType: CGEventType, _ mouseCursorPosition: CGPoint, _ mouseButton: CGMouseButton) -> CGEvent?
 @available(OSX 10.4, *)
-func CGEventCreateKeyboardEvent(source: CGEventSource?, _ virtualKey: CGKeyCode, _ keyDown: Bool) -> CGEvent?
+func CGEventCreateKeyboardEvent(_ source: CGEventSource?, _ virtualKey: CGKeyCode, _ keyDown: Bool) -> CGEvent?
 @available(OSX 10.4, *)
-func CGEventCreateCopy(event: CGEvent?) -> CGEvent?
+func CGEventCreateCopy(_ event: CGEvent?) -> CGEvent?
 @available(OSX 10.4, *)
-func CGEventCreateSourceFromEvent(event: CGEvent?) -> CGEventSource?
+func CGEventCreateSourceFromEvent(_ event: CGEvent?) -> CGEventSource?
 @available(OSX 10.4, *)
-func CGEventSetSource(event: CGEvent?, _ source: CGEventSource?)
+func CGEventSetSource(_ event: CGEvent?, _ source: CGEventSource?)
 @available(OSX 10.4, *)
-func CGEventGetType(event: CGEvent?) -> CGEventType
+func CGEventGetType(_ event: CGEvent?) -> CGEventType
 @available(OSX 10.4, *)
-func CGEventSetType(event: CGEvent?, _ type: CGEventType)
+func CGEventSetType(_ event: CGEvent?, _ type: CGEventType)
 @available(OSX 10.4, *)
-func CGEventGetTimestamp(event: CGEvent?) -> CGEventTimestamp
+func CGEventGetTimestamp(_ event: CGEvent?) -> CGEventTimestamp
 @available(OSX 10.4, *)
-func CGEventSetTimestamp(event: CGEvent?, _ timestamp: CGEventTimestamp)
+func CGEventSetTimestamp(_ event: CGEvent?, _ timestamp: CGEventTimestamp)
 @available(OSX 10.4, *)
-func CGEventGetLocation(event: CGEvent?) -> CGPoint
+func CGEventGetLocation(_ event: CGEvent?) -> CGPoint
 @available(OSX 10.5, *)
-func CGEventGetUnflippedLocation(event: CGEvent?) -> CGPoint
+func CGEventGetUnflippedLocation(_ event: CGEvent?) -> CGPoint
 @available(OSX 10.4, *)
-func CGEventSetLocation(event: CGEvent?, _ location: CGPoint)
+func CGEventSetLocation(_ event: CGEvent?, _ location: CGPoint)
 @available(OSX 10.4, *)
-func CGEventGetFlags(event: CGEvent?) -> CGEventFlags
+func CGEventGetFlags(_ event: CGEvent?) -> CGEventFlags
 @available(OSX 10.4, *)
-func CGEventSetFlags(event: CGEvent?, _ flags: CGEventFlags)
+func CGEventSetFlags(_ event: CGEvent?, _ flags: CGEventFlags)
 @available(OSX 10.4, *)
-func CGEventKeyboardGetUnicodeString(event: CGEvent?, _ maxStringLength: Int, _ actualStringLength: UnsafeMutablePointer<Int>, _ unicodeString: UnsafeMutablePointer<UniChar>)
+func CGEventKeyboardGetUnicodeString(_ event: CGEvent?, _ maxStringLength: Int, _ actualStringLength: UnsafeMutablePointer<Int>, _ unicodeString: UnsafeMutablePointer<UniChar>)
 @available(OSX 10.4, *)
-func CGEventKeyboardSetUnicodeString(event: CGEvent?, _ stringLength: Int, _ unicodeString: UnsafePointer<UniChar>)
+func CGEventKeyboardSetUnicodeString(_ event: CGEvent?, _ stringLength: Int, _ unicodeString: UnsafePointer<UniChar>)
 @available(OSX 10.4, *)
-func CGEventGetIntegerValueField(event: CGEvent?, _ field: CGEventField) -> Int64
+func CGEventGetIntegerValueField(_ event: CGEvent?, _ field: CGEventField) -> Int64
 @available(OSX 10.4, *)
-func CGEventSetIntegerValueField(event: CGEvent?, _ field: CGEventField, _ value: Int64)
+func CGEventSetIntegerValueField(_ event: CGEvent?, _ field: CGEventField, _ value: Int64)
 @available(OSX 10.4, *)
-func CGEventGetDoubleValueField(event: CGEvent?, _ field: CGEventField) -> Double
+func CGEventGetDoubleValueField(_ event: CGEvent?, _ field: CGEventField) -> Double
 @available(OSX 10.4, *)
-func CGEventSetDoubleValueField(event: CGEvent?, _ field: CGEventField, _ value: Double)
+func CGEventSetDoubleValueField(_ event: CGEvent?, _ field: CGEventField, _ value: Double)
 @available(OSX 10.4, *)
-func CGEventTapCreate(tap: CGEventTapLocation, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack?, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
+func CGEventTapCreate(_ tap: CGEventTapLocation, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack?, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
 @available(OSX 10.4, *)
-func CGEventTapCreateForPSN(processSerialNumber: UnsafeMutablePointer<Void>, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack?, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
+func CGEventTapCreateForPSN(_ processSerialNumber: UnsafeMutablePointer<Void>, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack?, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
 @available(OSX 10.4, *)
-func CGEventTapCreateForPid(pid: pid_t, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
+func CGEventTapCreateForPid(_ pid: pid_t, _ place: CGEventTapPlacement, _ options: CGEventTapOptions, _ eventsOfInterest: CGEventMask, _ callback: CGEventTapCallBack, _ userInfo: UnsafeMutablePointer<Void>) -> CFMachPort?
 @available(OSX 10.4, *)
-func CGEventTapEnable(tap: CFMachPort, _ enable: Bool)
+func CGEventTapEnable(_ tap: CFMachPort, _ enable: Bool)
 @available(OSX 10.4, *)
-func CGEventTapIsEnabled(tap: CFMachPort) -> Bool
+func CGEventTapIsEnabled(_ tap: CFMachPort) -> Bool
 @available(OSX 10.4, *)
-func CGEventTapPostEvent(proxy: CGEventTapProxy, _ event: CGEvent?)
+func CGEventTapPostEvent(_ proxy: CGEventTapProxy, _ event: CGEvent?)
 @available(OSX 10.4, *)
-func CGEventPost(tap: CGEventTapLocation, _ event: CGEvent?)
+func CGEventPost(_ tap: CGEventTapLocation, _ event: CGEvent?)
 @available(OSX 10.4, *)
-func CGEventPostToPSN(processSerialNumber: UnsafeMutablePointer<Void>, _ event: CGEvent?)
+func CGEventPostToPSN(_ processSerialNumber: UnsafeMutablePointer<Void>, _ event: CGEvent?)
 @available(OSX 10.11, *)
-func CGEventPostToPid(pid: pid_t, _ event: CGEvent?)
+func CGEventPostToPid(_ pid: pid_t, _ event: CGEvent?)
 @available(OSX 10.4, *)
-func CGGetEventTapList(maxNumberOfTaps: UInt32, _ tapList: UnsafeMutablePointer<CGEventTapInformation>, _ eventTapCount: UnsafeMutablePointer<UInt32>) -> CGError
+func CGGetEventTapList(_ maxNumberOfTaps: UInt32, _ tapList: UnsafeMutablePointer<CGEventTapInformation>, _ eventTapCount: UnsafeMutablePointer<UInt32>) -> CGError

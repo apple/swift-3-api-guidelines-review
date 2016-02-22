@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum GLKTextureTarget : GLenum {
-  init?(rawValue: GLenum)
+  init?(rawValue rawValue: GLenum)
   var rawValue: GLenum { get }
   case target2D
   case targetCubeMap
@@ -9,7 +9,7 @@ enum GLKTextureTarget : GLenum {
 }
 @available(OSX 10.8, *)
 enum GLKTextureEnvMode : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case replace
   case modulate

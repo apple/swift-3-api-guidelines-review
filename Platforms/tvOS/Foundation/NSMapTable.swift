@@ -11,9 +11,9 @@ let NSMapTableWeakMemory: NSPointerFunctionsOptions
 typealias NSMapTableOptions = Int
 @available(tvOS 6.0, *)
 class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
-  init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
+  init(keyOptions keyOptions: NSPointerFunctionsOptions = [], valueOptions valueOptions: NSPointerFunctionsOptions = [], capacity initialCapacity: Int)
   init(keyPointerFunctions keyFunctions: NSPointerFunctions, valuePointerFunctions valueFunctions: NSPointerFunctions, capacity initialCapacity: Int)
-  /*not inherited*/ init(keyOptions: NSPointerFunctionsOptions = [], valueOptions: NSPointerFunctionsOptions = [])
+  /*not inherited*/ init(keyOptions keyOptions: NSPointerFunctionsOptions = [], valueOptions valueOptions: NSPointerFunctionsOptions = [])
   @available(tvOS 6.0, *)
   class func strongToStrongObjects() -> NSMapTable
   @available(tvOS 6.0, *)
@@ -26,7 +26,7 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   @NSCopying var valuePointerFunctions: NSPointerFunctions { get }
   func object(forKey aKey: AnyObject?) -> AnyObject?
   func removeObject(forKey aKey: AnyObject?)
-  func setObject(anObject: AnyObject?, forKey aKey: AnyObject?)
+  func setObject(_ anObject: AnyObject?, forKey aKey: AnyObject?)
   var count: Int { get }
   func keyEnumerator() -> NSEnumerator
   func objectEnumerator() -> NSEnumerator?
@@ -39,5 +39,5 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 6.0, *)
-  func countByEnumerating(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

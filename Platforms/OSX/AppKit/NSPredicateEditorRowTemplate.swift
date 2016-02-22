@@ -3,12 +3,12 @@
 class NSPredicateEditorRowTemplate : NSObject, NSCoding, NSCopying {
   func match(for predicate: NSPredicate) -> Double
   var templateViews: [NSView] { get }
-  func setPredicate(predicate: NSPredicate)
+  func setPredicate(_ predicate: NSPredicate)
   func predicate(withSubpredicates subpredicates: [NSPredicate]?) -> NSPredicate
-  func displayableSubpredicatesOf(predicate: NSPredicate) -> [NSPredicate]?
-  init(leftExpressions: [NSExpression], rightExpressions: [NSExpression], modifier: NSComparisonPredicateModifier, operators: [NSNumber], options: Int)
-  init(leftExpressions: [NSExpression], rightExpressionAttributeType attributeType: NSAttributeType, modifier: NSComparisonPredicateModifier, operators: [NSNumber], options: Int)
-  init(compoundTypes: [NSNumber])
+  func displayableSubpredicatesOf(_ predicate: NSPredicate) -> [NSPredicate]?
+  init(leftExpressions leftExpressions: [NSExpression], rightExpressions rightExpressions: [NSExpression], modifier modifier: NSComparisonPredicateModifier, operators operators: [NSNumber], options options: Int)
+  init(leftExpressions leftExpressions: [NSExpression], rightExpressionAttributeType attributeType: NSAttributeType, modifier modifier: NSComparisonPredicateModifier, operators operators: [NSNumber], options options: Int)
+  init(compoundTypes compoundTypes: [NSNumber])
   var leftExpressions: [NSExpression]? { get }
   var rightExpressions: [NSExpression]? { get }
   var rightExpressionAttributeType: NSAttributeType { get }

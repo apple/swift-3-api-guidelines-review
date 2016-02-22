@@ -1,6 +1,6 @@
 
 enum AVKeyValueStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case loading

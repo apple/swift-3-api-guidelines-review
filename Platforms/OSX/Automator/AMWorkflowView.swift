@@ -3,7 +3,7 @@ class AMWorkflowView : NSView {
   var isEditable: Bool
   var workflowController: AMWorkflowController?
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __AMWorkflowViewFlags {
@@ -11,5 +11,5 @@ struct __AMWorkflowViewFlags {
   var editingEnabled: ObjCBool
   var reserved: Int
   init()
-  init(ignoreSubviewFrameChanges: ObjCBool, editingEnabled: ObjCBool, reserved: Int)
+  init(ignoreSubviewFrameChanges ignoreSubviewFrameChanges: ObjCBool, editingEnabled editingEnabled: ObjCBool, reserved reserved: Int)
 }

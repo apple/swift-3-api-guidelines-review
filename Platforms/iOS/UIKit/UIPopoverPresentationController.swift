@@ -3,11 +3,11 @@ protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControl
   @available(iOS 8.0, *)
   optional func prepare(forPopoverPresentation popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool
+  optional func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool
   @available(iOS 8.0, *)
-  optional func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController)
+  optional func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 @available(iOS 8.0, *)
 class UIPopoverPresentationController : UIPresentationController {
@@ -23,6 +23,6 @@ class UIPopoverPresentationController : UIPresentationController {
   @NSCopying var backgroundColor: UIColor?
   var popoverLayoutMargins: UIEdgeInsets
   var popoverBackgroundViewClass: AnyObject.Type?
-  init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
+  init(presentedViewController presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
   init()
 }

@@ -1,26 +1,26 @@
 
 @available(iOS 6.0, *)
 struct AVAudioSessionInterruptionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var shouldResume: AVAudioSessionInterruptionOptions { get }
 }
 @available(iOS 6.0, *)
 struct AVAudioSessionSetActiveOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var notifyOthersOnDeactivation: AVAudioSessionSetActiveOptions { get }
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionPortOverride : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case speaker
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionRouteChangeReason : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unknown
   case newDeviceAvailable
@@ -34,7 +34,7 @@ enum AVAudioSessionRouteChangeReason : UInt {
 }
 @available(iOS 6.0, *)
 struct AVAudioSessionCategoryOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var mixWithOthers: AVAudioSessionCategoryOptions { get }
   static var duckOthers: AVAudioSessionCategoryOptions { get }
@@ -45,21 +45,21 @@ struct AVAudioSessionCategoryOptions : OptionSetType {
 }
 @available(iOS 6.0, *)
 enum AVAudioSessionInterruptionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case began
   case ended
 }
 @available(iOS 8.0, *)
 enum AVAudioSessionSilenceSecondaryAudioHintType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case begin
   case end
 }
 @available(iOS 8.0, *)
 struct AVAudioSessionRecordPermission : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var undetermined: AVAudioSessionRecordPermission { get }
   static var denied: AVAudioSessionRecordPermission { get }
@@ -67,7 +67,7 @@ struct AVAudioSessionRecordPermission : OptionSetType {
 }
 @available(iOS 7.0, *)
 enum AVAudioSessionErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case codeNone
   case codeMediaServicesFailed
@@ -86,29 +86,29 @@ enum AVAudioSessionErrorCode : Int {
 @available(iOS 3.0, *)
 class AVAudioSession : NSObject {
   class func sharedInstance() -> AVAudioSession
-  func setActive(active: Bool) throws
+  func setActive(_ active: Bool) throws
   @available(iOS 6.0, *)
-  func setActive(active: Bool, with options: AVAudioSessionSetActiveOptions = []) throws
+  func setActive(_ active: Bool, with options: AVAudioSessionSetActiveOptions = []) throws
   @available(iOS 9.0, *)
   var availableCategories: [String] { get }
-  func setCategory(category: String) throws
+  func setCategory(_ category: String) throws
   @available(iOS 6.0, *)
-  func setCategory(category: String, with options: AVAudioSessionCategoryOptions = []) throws
+  func setCategory(_ category: String, with options: AVAudioSessionCategoryOptions = []) throws
   var category: String { get }
   @available(iOS 8.0, *)
   func recordPermission() -> AVAudioSessionRecordPermission
   @available(iOS 7.0, *)
-  func requestRecordPermission(response: PermissionBlock)
+  func requestRecordPermission(_ response: PermissionBlock)
   @available(iOS 6.0, *)
   var categoryOptions: AVAudioSessionCategoryOptions { get }
   @available(iOS 9.0, *)
   var availableModes: [String] { get }
   @available(iOS 5.0, *)
-  func setMode(mode: String) throws
+  func setMode(_ mode: String) throws
   @available(iOS 5.0, *)
   var mode: String { get }
   @available(iOS 6.0, *)
-  func overrideOutputAudioPort(portOverride: AVAudioSessionPortOverride) throws
+  func overrideOutputAudioPort(_ portOverride: AVAudioSessionPortOverride) throws
   @available(iOS 6.0, *)
   var isOtherAudioPlaying: Bool { get }
   @available(iOS 8.0, *)
@@ -116,7 +116,7 @@ class AVAudioSession : NSObject {
   @available(iOS 6.0, *)
   var currentRoute: AVAudioSessionRouteDescription { get }
   @available(iOS 7.0, *)
-  func setPreferredInput(inPort: AVAudioSessionPortDescription?) throws
+  func setPreferredInput(_ inPort: AVAudioSessionPortDescription?) throws
   @available(iOS 7.0, *)
   var preferredInput: AVAudioSessionPortDescription? { get }
   @available(iOS 7.0, *)
@@ -126,17 +126,17 @@ class AVAudioSession : NSObject {
 typealias PermissionBlock = (Bool) -> Void
 extension AVAudioSession {
   @available(iOS 6.0, *)
-  func setPreferredSampleRate(sampleRate: Double) throws
+  func setPreferredSampleRate(_ sampleRate: Double) throws
   @available(iOS 6.0, *)
   var preferredSampleRate: Double { get }
-  func setPreferredIOBufferDuration(duration: NSTimeInterval) throws
+  func setPreferredIOBufferDuration(_ duration: NSTimeInterval) throws
   var preferredIOBufferDuration: NSTimeInterval { get }
   @available(iOS 7.0, *)
-  func setPreferredInputNumberOfChannels(count: Int) throws
+  func setPreferredInputNumberOfChannels(_ count: Int) throws
   @available(iOS 7.0, *)
   var preferredInputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)
-  func setPreferredOutputNumberOfChannels(count: Int) throws
+  func setPreferredOutputNumberOfChannels(_ count: Int) throws
   @available(iOS 7.0, *)
   var preferredOutputNumberOfChannels: Int { get }
   @available(iOS 7.0, *)
@@ -144,7 +144,7 @@ extension AVAudioSession {
   @available(iOS 7.0, *)
   var maximumOutputNumberOfChannels: Int { get }
   @available(iOS 6.0, *)
-  func setInputGain(gain: Float) throws
+  func setInputGain(_ gain: Float) throws
   @available(iOS 6.0, *)
   var inputGain: Float { get }
   @available(iOS 6.0, *)
@@ -156,13 +156,13 @@ extension AVAudioSession {
   @available(iOS 6.0, *)
   var inputDataSource: AVAudioSessionDataSourceDescription? { get }
   @available(iOS 6.0, *)
-  func setInputDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  func setInputDataSource(_ dataSource: AVAudioSessionDataSourceDescription?) throws
   @available(iOS 6.0, *)
   var outputDataSources: [AVAudioSessionDataSourceDescription]? { get }
   @available(iOS 6.0, *)
   var outputDataSource: AVAudioSessionDataSourceDescription? { get }
   @available(iOS 6.0, *)
-  func setOutputDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  func setOutputDataSource(_ dataSource: AVAudioSessionDataSourceDescription?) throws
   @available(iOS 6.0, *)
   var sampleRate: Double { get }
   @available(iOS 6.0, *)
@@ -295,7 +295,7 @@ class AVAudioSessionPortDescription : NSObject {
   @available(iOS 7.0, *)
   var preferredDataSource: AVAudioSessionDataSourceDescription? { get }
   @available(iOS 7.0, *)
-  func setPreferredDataSource(dataSource: AVAudioSessionDataSourceDescription?) throws
+  func setPreferredDataSource(_ dataSource: AVAudioSessionDataSourceDescription?) throws
   init()
 }
 @available(iOS 6.0, *)
@@ -319,7 +319,7 @@ class AVAudioSessionDataSourceDescription : NSObject {
   @available(iOS 7.0, *)
   var preferredPolarPattern: String? { get }
   @available(iOS 7.0, *)
-  func setPreferredPolarPattern(pattern: String?) throws
+  func setPreferredPolarPattern(_ pattern: String?) throws
   init()
 }
 protocol AVAudioSessionDelegate : NSObjectProtocol {
@@ -327,7 +327,7 @@ protocol AVAudioSessionDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
   optional func endInterruption(flags flags: Int)
   optional func endInterruption()
-  optional func inputIsAvailableChanged(isInputAvailable: Bool)
+  optional func inputIsAvailableChanged(_ isInputAvailable: Bool)
 }
 var AVAudioSessionInterruptionFlags_ShouldResume: Int { get }
 var AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation: Int { get }

@@ -4,7 +4,7 @@ typealias CGPDFInteger = Int
 typealias CGPDFReal = CGFloat
 typealias CGPDFObjectRef = COpaquePointer
 enum CGPDFObjectType : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case null
   case boolean
@@ -17,6 +17,6 @@ enum CGPDFObjectType : Int32 {
   case stream
 }
 @available(iOS 2.0, *)
-func CGPDFObjectGetType(object: CGPDFObjectRef) -> CGPDFObjectType
+func CGPDFObjectGetType(_ object: CGPDFObjectRef) -> CGPDFObjectType
 @available(iOS 2.0, *)
-func CGPDFObjectGetValue(object: CGPDFObjectRef, _ type: CGPDFObjectType, _ value: UnsafeMutablePointer<Void>) -> Bool
+func CGPDFObjectGetValue(_ object: CGPDFObjectRef, _ type: CGPDFObjectType, _ value: UnsafeMutablePointer<Void>) -> Bool

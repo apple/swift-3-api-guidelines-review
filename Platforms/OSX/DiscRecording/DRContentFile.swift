@@ -23,7 +23,7 @@ struct DRFileForkSizeInfo {
   var query: DRFileForkSizeQuery
   var size: UInt64
   init()
-  init(fork: DRFileForkIndex, query: DRFileForkSizeQuery, size: UInt64)
+  init(fork fork: DRFileForkIndex, query query: DRFileForkSizeQuery, size size: UInt64)
 }
 struct DRFileProductionInfo {
   var requestedAddress: UInt64
@@ -33,16 +33,16 @@ struct DRFileProductionInfo {
   var blockSize: UInt32
   var fork: DRFileForkIndex
   init()
-  init(requestedAddress: UInt64, buffer: UnsafeMutablePointer<Void>, reqCount: UInt32, actCount: UInt32, blockSize: UInt32, fork: DRFileForkIndex)
+  init(requestedAddress requestedAddress: UInt64, buffer buffer: UnsafeMutablePointer<Void>, reqCount reqCount: UInt32, actCount actCount: UInt32, blockSize blockSize: UInt32, fork fork: DRFileForkIndex)
 }
 typealias DRFileProc = @convention(c) (UnsafeMutablePointer<Void>, DRFileRef!, DRFileMessage, UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.2, *)
-func DRFileCreateReal(fsRef: UnsafePointer<FSRef>) -> Unmanaged<DRFileRef>!
+func DRFileCreateReal(_ fsRef: UnsafePointer<FSRef>) -> Unmanaged<DRFileRef>!
 @available(OSX 10.2, *)
-func DRFileCreateRealWithURL(urlRef: CFURL!) -> Unmanaged<DRFileRef>!
+func DRFileCreateRealWithURL(_ urlRef: CFURL!) -> Unmanaged<DRFileRef>!
 @available(OSX 10.2, *)
-func DRFileCreateVirtualWithData(baseName: CFString!, _ fileData: UnsafeMutablePointer<Void>, _ fileDataLength: UInt32) -> Unmanaged<DRFileRef>!
+func DRFileCreateVirtualWithData(_ baseName: CFString!, _ fileData: UnsafeMutablePointer<Void>, _ fileDataLength: UInt32) -> Unmanaged<DRFileRef>!
 @available(OSX 10.2, *)
-func DRFileCreateVirtualWithCallback(baseName: CFString!, _ fileProc: DRFileProc!, _ fileProcRefCon: UnsafeMutablePointer<Void>) -> Unmanaged<DRFileRef>!
+func DRFileCreateVirtualWithCallback(_ baseName: CFString!, _ fileProc: DRFileProc!, _ fileProcRefCon: UnsafeMutablePointer<Void>) -> Unmanaged<DRFileRef>!
 @available(OSX 10.2, *)
-func DRFileCreateVirtualLink(original: DRFSObjectRef!, _ linkType: DRLinkType, _ fsKey: CFString!) -> Unmanaged<DRFileRef>!
+func DRFileCreateVirtualLink(_ original: DRFSObjectRef!, _ linkType: DRLinkType, _ fsKey: CFString!) -> Unmanaged<DRFileRef>!

@@ -1,6 +1,6 @@
 
 enum UITextBorderStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case line
@@ -8,7 +8,7 @@ enum UITextBorderStyle : Int {
   case roundedRect
 }
 enum UITextFieldViewMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case never
   case whileEditing
@@ -58,13 +58,13 @@ class UITextField : UIControl, UITextInput, NSCoding {
   var inputAccessoryView: UIView?
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replace(range: UITextRange, withText text: String)
+  func replace(_ range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(iOS 3.2, *)
@@ -72,7 +72,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   var markedTextStyle: [NSObject : AnyObject]?
   @available(iOS 2.0, *)
-  func setMarkedText(markedText: String?, selectedRange: NSRange)
+  func setMarkedText(_ markedText: String?, selectedRange selectedRange: NSRange)
   @available(iOS 2.0, *)
   func unmarkText()
   @available(iOS 3.2, *)
@@ -82,11 +82,11 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(_ position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
@@ -100,7 +100,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, for range: UITextRange)
+  func setBaseWritingDirection(_ writingDirection: UITextWritingDirection, for range: UITextRange)
   @available(iOS 3.2, *)
   func firstRect(for range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
@@ -120,13 +120,13 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffsetOf(_ position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
   var selectionAffinity: UITextStorageDirection
   @available(iOS 5.1, *)
-  func insertDictationResult(dictationResult: [UIDictationPhrase])
+  func insertDictationResult(_ dictationResult: [UIDictationPhrase])
   @available(iOS 2.0, *)
   func dictationRecordingDidEnd()
   @available(iOS 2.0, *)
@@ -136,7 +136,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(iOS 2.0, *)
-  func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
+  func removeDictationResultPlaceholder(_ placeholder: AnyObject, willInsertResult willInsertResult: Bool)
   @available(iOS 9.0, *)
   func beginFloatingCursor(at point: CGPoint)
   @available(iOS 9.0, *)
@@ -146,7 +146,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   func hasText() -> Bool
   @available(iOS 2.0, *)
-  func insertText(text: String)
+  func insertText(_ text: String)
   @available(iOS 2.0, *)
   func deleteBackward()
   @available(iOS 2.0, *)
@@ -167,23 +167,23 @@ class UITextField : UIControl, UITextInput, NSCoding {
   var isSecureTextEntry: Bool
 }
 extension UIView {
-  func endEditing(force: Bool) -> Bool
+  func endEditing(_ force: Bool) -> Bool
 }
 protocol UITextFieldDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+  optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidBeginEditing(textField: UITextField)
+  optional func textFieldDidBeginEditing(_ textField: UITextField)
   @available(iOS 2.0, *)
-  optional func textFieldShouldEndEditing(textField: UITextField) -> Bool
+  optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidEndEditing(textField: UITextField)
+  optional func textFieldDidEndEditing(_ textField: UITextField)
   @available(iOS 2.0, *)
-  optional func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+  optional func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldShouldClear(textField: UITextField) -> Bool
+  optional func textFieldShouldClear(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldShouldReturn(textField: UITextField) -> Bool
+  optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
 }
 let UITextFieldTextDidBeginEditingNotification: String
 let UITextFieldTextDidEndEditingNotification: String

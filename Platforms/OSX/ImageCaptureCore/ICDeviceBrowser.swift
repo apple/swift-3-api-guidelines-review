@@ -1,11 +1,11 @@
 
 protocol ICDeviceBrowserDelegate : NSObjectProtocol {
-  func deviceBrowser(browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing: Bool)
-  func deviceBrowser(browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing: Bool)
-  optional func deviceBrowser(browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
-  optional func deviceBrowser(browser: ICDeviceBrowser, deviceDidChangeSharingState device: ICDevice)
-  optional func deviceBrowser(browser: ICDeviceBrowser, requestsSelect device: ICDevice)
-  optional func deviceBrowserDidEnumerateLocalDevices(browser: ICDeviceBrowser)
+  func deviceBrowser(_ browser: ICDeviceBrowser, didAdd device: ICDevice, moreComing moreComing: Bool)
+  func deviceBrowser(_ browser: ICDeviceBrowser, didRemove device: ICDevice, moreGoing moreGoing: Bool)
+  optional func deviceBrowser(_ browser: ICDeviceBrowser, deviceDidChangeName device: ICDevice)
+  optional func deviceBrowser(_ browser: ICDeviceBrowser, deviceDidChangeSharingState device: ICDevice)
+  optional func deviceBrowser(_ browser: ICDeviceBrowser, requestsSelect device: ICDevice)
+  optional func deviceBrowserDidEnumerateLocalDevices(_ browser: ICDeviceBrowser)
 }
 class ICDeviceBrowser : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged ICDeviceBrowserDelegate?

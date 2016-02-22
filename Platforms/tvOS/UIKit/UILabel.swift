@@ -25,7 +25,7 @@ class UILabel : UIView, NSCoding {
   func drawText(in rect: CGRect)
   @available(tvOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

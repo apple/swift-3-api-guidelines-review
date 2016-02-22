@@ -1,6 +1,6 @@
 
 struct NSTextListOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var prependEnclosingMarker: NSTextListOptions { get }
 }

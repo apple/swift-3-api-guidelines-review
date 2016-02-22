@@ -1,9 +1,9 @@
 
 protocol GKAgentDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)
-  optional func agentWillUpdate(agent: GKAgent)
+  optional func agentWillUpdate(_ agent: GKAgent)
   @available(OSX 10.11, *)
-  optional func agentDidUpdate(agent: GKAgent)
+  optional func agentDidUpdate(_ agent: GKAgent)
 }
 @available(OSX 10.11, *)
 class GKAgent : GKComponent {

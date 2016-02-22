@@ -1,6 +1,6 @@
 
 enum UITableViewCellStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case value1
@@ -8,7 +8,7 @@ enum UITableViewCellStyle : Int {
   case subtitle
 }
 enum UITableViewCellSelectionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case blue
@@ -18,27 +18,27 @@ enum UITableViewCellSelectionStyle : Int {
 }
 @available(tvOS 9.0, *)
 enum UITableViewCellFocusStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case custom
 }
 enum UITableViewCellEditingStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case delete
   case insert
 }
 enum UITableViewCellAccessoryType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case disclosureIndicator
   case checkmark
 }
 struct UITableViewCellStateMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var defaultMask: UITableViewCellStateMask { get }
   static var showingEditControlMask: UITableViewCellStateMask { get }
@@ -47,7 +47,7 @@ struct UITableViewCellStateMask : OptionSetType {
 @available(tvOS 2.0, *)
 class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(tvOS 3.0, *)
-  init(style: UITableViewCellStyle, reuseIdentifier: String?)
+  init(style style: UITableViewCellStyle, reuseIdentifier reuseIdentifier: String?)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 3.0, *)
   var imageView: UIImageView? { get }
@@ -65,8 +65,8 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var selectionStyle: UITableViewCellSelectionStyle
   var isSelected: Bool
   var isHighlighted: Bool
-  func setSelected(selected: Bool, animated: Bool)
-  func setHighlighted(highlighted: Bool, animated: Bool)
+  func setSelected(_ selected: Bool, animated animated: Bool)
+  func setHighlighted(_ highlighted: Bool, animated animated: Bool)
   var editingStyle: UITableViewCellEditingStyle { get }
   var showsReorderControl: Bool
   var shouldIndentWhileEditing: Bool
@@ -77,7 +77,7 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var indentationLevel: Int
   var indentationWidth: CGFloat
   var isEditing: Bool
-  func setEditing(editing: Bool, animated: Bool)
+  func setEditing(_ editing: Bool, animated animated: Bool)
   var showingDeleteConfirmation: Bool { get }
   @available(tvOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
@@ -85,20 +85,20 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   func willTransition(to state: UITableViewCellStateMask)
   @available(tvOS 3.0, *)
   func didTransition(to state: UITableViewCellStateMask)
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
   @available(tvOS 3.2, *)
-  func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
   @available(tvOS 9.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
 }
 extension UITableViewCell {
 }

@@ -21,10 +21,10 @@ class CAAnimation : NSObject, NSCoding, NSCopying, CAMediaTiming, CAAction {
   func run(forKey event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
 extension NSObject {
-  class func animationDidStart(anim: CAAnimation)
-  func animationDidStart(anim: CAAnimation)
-  class func animationDidStop(anim: CAAnimation, finished flag: Bool)
-  func animationDidStop(anim: CAAnimation, finished flag: Bool)
+  class func animationDidStart(_ anim: CAAnimation)
+  func animationDidStart(_ anim: CAAnimation)
+  class func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
 }
 class CAPropertyAnimation : CAAnimation {
   convenience init(keyPath path: String?)

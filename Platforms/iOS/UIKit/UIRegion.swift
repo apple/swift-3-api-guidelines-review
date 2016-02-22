@@ -2,13 +2,13 @@
 @available(iOS 9.0, *)
 class UIRegion : NSObject, NSCopying, NSCoding {
   class func infinite() -> Self
-  init(radius: CGFloat)
-  init(size: CGSize)
+  init(radius radius: CGFloat)
+  init(size size: CGSize)
   func inverse() -> Self
   func byUnion(with region: UIRegion) -> Self
   func byDifference(from region: UIRegion) -> Self
   func byIntersection(with region: UIRegion) -> Self
-  func contains(point: CGPoint) -> Bool
+  func contains(_ point: CGPoint) -> Bool
   init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

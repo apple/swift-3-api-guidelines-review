@@ -21,6 +21,6 @@ class DOMHTMLTableElement : DOMHTMLElement {
   func deleteTFoot()
   func createCaption() -> DOMHTMLElement!
   func deleteCaption()
-  func insertRow(index: Int32) -> DOMHTMLElement!
-  func deleteRow(index: Int32)
+  func insertRow(_ index: Int32) -> DOMHTMLElement!
+  func deleteRow(_ index: Int32)
 }

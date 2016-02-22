@@ -2,7 +2,7 @@
 @available(tvOS 8.0, *)
 class AVAudioUnit : AVAudioNode {
   @available(tvOS 9.0, *)
-  class func instantiate(with audioComponentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions = [], completionHandler: (AVAudioUnit?, NSError?) -> Void)
+  class func instantiate(with audioComponentDescription: AudioComponentDescription, options options: AudioComponentInstantiationOptions = [], completionHandler completionHandler: (AVAudioUnit?, NSError?) -> Void)
   func loadPreset(at url: NSURL) throws
   var audioComponentDescription: AudioComponentDescription { get }
   var audioUnit: AudioUnit { get }

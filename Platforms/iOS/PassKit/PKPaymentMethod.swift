@@ -9,7 +9,7 @@ class PKPaymentMethod : NSObject {
 }
 @available(iOS 9.0, *)
 struct PKPaymentMethodType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var unknown: PKPaymentMethodType { get }
   static var debit: PKPaymentMethodType { get }

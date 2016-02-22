@@ -33,27 +33,27 @@ struct __OvFlags {
   var delegateShouldEditTableColumn: UInt32
   var delegateWillDisplayCell: UInt32
   init()
-  init(allItemsLoaded: UInt32, dataSourceObjectValueByItem: UInt32, allowAutomaticAnimations: UInt32, dontRedisplayOnFrameChange: UInt32, _isSpringLoadingFlashing: UInt32, unused2: UInt32, delegateShouldAutoExpandItem: UInt32, delegateAutoCollapseItem: UInt32, delegateAutoExpandItem: UInt32, delegateShouldShowOutlineCellForItem: UInt32, dataSourceDraggedImageMovedTo: UInt32, dataSourceDraggingEndedAt: UInt32, reloadingData: UInt32, validDataSourceMethods: UInt32, numberOfRowsDataExpandEntered: UInt32, delayRowEntryFreeDisabled: UInt32, delegateHeightOfRowByItem: UInt32, animateExpandAndCollapse: UInt32, unused: UInt32, selectionAdjustmentDisabled: UInt32, subclassRowForItem: UInt32, delegateWillDisplayOutlineCell: UInt32, enableExpandNotifications: UInt32, autoSaveExpandItems: UInt32, autoresizesOutlineColumn: UInt32, delegateShouldExpandItem: UInt32, delegateShouldCollapseItem: UInt32, delegateSelectionShouldChangeInOutlineView: UInt32, delegateShouldSelectTableColumn: UInt32, delegateShouldSelectItem: UInt32, delegateShouldEditTableColumn: UInt32, delegateWillDisplayCell: UInt32)
+  init(allItemsLoaded allItemsLoaded: UInt32, dataSourceObjectValueByItem dataSourceObjectValueByItem: UInt32, allowAutomaticAnimations allowAutomaticAnimations: UInt32, dontRedisplayOnFrameChange dontRedisplayOnFrameChange: UInt32, _isSpringLoadingFlashing _isSpringLoadingFlashing: UInt32, unused2 unused2: UInt32, delegateShouldAutoExpandItem delegateShouldAutoExpandItem: UInt32, delegateAutoCollapseItem delegateAutoCollapseItem: UInt32, delegateAutoExpandItem delegateAutoExpandItem: UInt32, delegateShouldShowOutlineCellForItem delegateShouldShowOutlineCellForItem: UInt32, dataSourceDraggedImageMovedTo dataSourceDraggedImageMovedTo: UInt32, dataSourceDraggingEndedAt dataSourceDraggingEndedAt: UInt32, reloadingData reloadingData: UInt32, validDataSourceMethods validDataSourceMethods: UInt32, numberOfRowsDataExpandEntered numberOfRowsDataExpandEntered: UInt32, delayRowEntryFreeDisabled delayRowEntryFreeDisabled: UInt32, delegateHeightOfRowByItem delegateHeightOfRowByItem: UInt32, animateExpandAndCollapse animateExpandAndCollapse: UInt32, unused unused: UInt32, selectionAdjustmentDisabled selectionAdjustmentDisabled: UInt32, subclassRowForItem subclassRowForItem: UInt32, delegateWillDisplayOutlineCell delegateWillDisplayOutlineCell: UInt32, enableExpandNotifications enableExpandNotifications: UInt32, autoSaveExpandItems autoSaveExpandItems: UInt32, autoresizesOutlineColumn autoresizesOutlineColumn: UInt32, delegateShouldExpandItem delegateShouldExpandItem: UInt32, delegateShouldCollapseItem delegateShouldCollapseItem: UInt32, delegateSelectionShouldChangeInOutlineView delegateSelectionShouldChangeInOutlineView: UInt32, delegateShouldSelectTableColumn delegateShouldSelectTableColumn: UInt32, delegateShouldSelectItem delegateShouldSelectItem: UInt32, delegateShouldEditTableColumn delegateShouldEditTableColumn: UInt32, delegateWillDisplayCell delegateWillDisplayCell: UInt32)
 }
 typealias _OVFlags = __OvFlags
 var NSOutlineViewDropOnItemIndex: Int { get }
 class NSOutlineView : NSTableView, NSAccessibilityOutline {
-  func setDelegate(anObject: NSOutlineViewDelegate?)
+  func setDelegate(_ anObject: NSOutlineViewDelegate?)
   func delegate() -> NSOutlineViewDelegate?
-  func setDataSource(aSource: NSOutlineViewDataSource?)
+  func setDataSource(_ aSource: NSOutlineViewDataSource?)
   func dataSource() -> NSOutlineViewDataSource?
   unowned(unsafe) var outlineTableColumn: @sil_unmanaged NSTableColumn?
-  func isExpandable(item: AnyObject?) -> Bool
+  func isExpandable(_ item: AnyObject?) -> Bool
   @available(OSX 10.10, *)
   func numberOfChildrenOf(item item: AnyObject?) -> Int
   @available(OSX 10.10, *)
-  func child(index: Int, ofItem item: AnyObject?) -> AnyObject?
-  func expandItem(item: AnyObject?, expandChildren: Bool)
-  func expandItem(item: AnyObject?)
-  func collapseItem(item: AnyObject?, collapseChildren: Bool)
-  func collapseItem(item: AnyObject?)
-  func reloadItem(item: AnyObject?, reloadChildren: Bool)
-  func reloadItem(item: AnyObject?)
+  func child(_ index: Int, ofItem item: AnyObject?) -> AnyObject?
+  func expandItem(_ item: AnyObject?, expandChildren expandChildren: Bool)
+  func expandItem(_ item: AnyObject?)
+  func collapseItem(_ item: AnyObject?, collapseChildren collapseChildren: Bool)
+  func collapseItem(_ item: AnyObject?)
+  func reloadItem(_ item: AnyObject?, reloadChildren reloadChildren: Bool)
+  func reloadItem(_ item: AnyObject?)
   func parent(forItem item: AnyObject?) -> AnyObject?
   @available(OSX 10.11, *)
   func childIndex(forItem item: AnyObject) -> Int
@@ -61,13 +61,13 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   func row(forItem item: AnyObject?) -> Int
   func level(forItem item: AnyObject?) -> Int
   func level(forRow row: Int) -> Int
-  func isItemExpanded(item: AnyObject?) -> Bool
+  func isItemExpanded(_ item: AnyObject?) -> Bool
   var indentationPerLevel: CGFloat
   var indentationMarkerFollowsCell: Bool
   var autoresizesOutlineColumn: Bool
   @available(OSX 10.5, *)
   func frameOfOutlineCell(atRow row: Int) -> NSRect
-  func setDropItem(item: AnyObject?, dropChildIndex index: Int)
+  func setDropItem(_ item: AnyObject?, dropChildIndex index: Int)
   func shouldCollapseAutoExpandedItems(forDeposited deposited: Bool) -> Bool
   var autosaveExpandedItems: Bool
   @available(OSX 10.7, *)
@@ -79,83 +79,83 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   @available(OSX 10.7, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 protocol NSOutlineViewDataSource : NSObjectProtocol {
-  optional func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int
-  optional func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject
-  optional func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject?
-  optional func outlineView(outlineView: NSOutlineView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, byItem item: AnyObject?)
-  optional func outlineView(outlineView: NSOutlineView, itemForPersistentObject object: AnyObject) -> AnyObject?
-  optional func outlineView(outlineView: NSOutlineView, persistentObjectForItem item: AnyObject?) -> AnyObject?
-  optional func outlineView(outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor])
+  optional func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int
+  optional func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject
+  optional func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject?
+  optional func outlineView(_ outlineView: NSOutlineView, setObjectValue object: AnyObject?, for tableColumn: NSTableColumn?, byItem item: AnyObject?)
+  optional func outlineView(_ outlineView: NSOutlineView, itemForPersistentObject object: AnyObject) -> AnyObject?
+  optional func outlineView(_ outlineView: NSOutlineView, persistentObjectForItem item: AnyObject?) -> AnyObject?
+  optional func outlineView(_ outlineView: NSOutlineView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor])
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting?
+  optional func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: AnyObject) -> NSPasteboardWriting?
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [AnyObject])
+  optional func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [AnyObject])
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation)
-  optional func outlineView(outlineView: NSOutlineView, writeItems items: [AnyObject], to pasteboard: NSPasteboard) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation operation: NSDragOperation)
+  optional func outlineView(_ outlineView: NSOutlineView, writeItems items: [AnyObject], to pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo)
-  optional func outlineView(outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation
-  optional func outlineView(outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: AnyObject?, childIndex index: Int) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedItems items: [AnyObject]) -> [String]
+  optional func outlineView(_ outlineView: NSOutlineView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo)
+  optional func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: AnyObject?, proposedChildIndex index: Int) -> NSDragOperation
+  optional func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item item: AnyObject?, childIndex index: Int) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedItems items: [AnyObject]) -> [String]
 }
 protocol NSOutlineViewDelegate : NSControlTextEditingDelegate {
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: AnyObject) -> NSView?
+  optional func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item item: AnyObject) -> NSView?
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, rowViewForItem item: AnyObject) -> NSTableRowView?
+  optional func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: AnyObject) -> NSTableRowView?
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int)
+  optional func outlineView(_ outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int)
   @available(OSX 10.7, *)
-  optional func outlineView(outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
-  optional func outlineView(outlineView: NSOutlineView, willDisplayCell cell: AnyObject, for tableColumn: NSTableColumn?, item: AnyObject)
-  optional func outlineView(outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int)
+  optional func outlineView(_ outlineView: NSOutlineView, willDisplayCell cell: AnyObject, for tableColumn: NSTableColumn?, item item: AnyObject)
+  optional func outlineView(_ outlineView: NSOutlineView, shouldEdit tableColumn: NSTableColumn?, item item: AnyObject) -> Bool
   optional func selectionShouldChange(in outlineView: NSOutlineView) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet
-  optional func outlineView(outlineView: NSOutlineView, shouldSelect tableColumn: NSTableColumn?) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, mouseDownInHeaderOf tableColumn: NSTableColumn)
-  optional func outlineView(outlineView: NSOutlineView, didClick tableColumn: NSTableColumn)
-  optional func outlineView(outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn)
-  optional func outlineView(outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: AnyObject, mouseLocation: NSPoint) -> String
-  optional func outlineView(outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat
+  optional func outlineView(_ outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet
+  optional func outlineView(_ outlineView: NSOutlineView, shouldSelect tableColumn: NSTableColumn?) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, mouseDownInHeaderOf tableColumn: NSTableColumn)
+  optional func outlineView(_ outlineView: NSOutlineView, didClick tableColumn: NSTableColumn)
+  optional func outlineView(_ outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn)
+  optional func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect rect: NSRectPointer, tableColumn tableColumn: NSTableColumn?, item item: AnyObject, mouseLocation mouseLocation: NSPoint) -> String
+  optional func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, typeSelectStringFor tableColumn: NSTableColumn?, item: AnyObject) -> String?
+  optional func outlineView(_ outlineView: NSOutlineView, typeSelectStringFor tableColumn: NSTableColumn?, item item: AnyObject) -> String?
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, nextTypeSelectMatchFromItem startItem: AnyObject, toItem endItem: AnyObject, for searchString: String) -> AnyObject?
+  optional func outlineView(_ outlineView: NSOutlineView, nextTypeSelectMatchFromItem startItem: AnyObject, toItem endItem: AnyObject, for searchString: String) -> AnyObject?
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldTypeSelectFor event: NSEvent, withCurrentSearch searchString: String?) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldShowCellExpansionFor tableColumn: NSTableColumn?, item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldShowCellExpansionFor tableColumn: NSTableColumn?, item item: AnyObject) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldTrackCell cell: NSCell, for tableColumn: NSTableColumn?, item item: AnyObject) -> Bool
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, dataCellFor tableColumn: NSTableColumn?, item: AnyObject) -> NSCell?
+  optional func outlineView(_ outlineView: NSOutlineView, dataCellFor tableColumn: NSTableColumn?, item item: AnyObject) -> NSCell?
   @available(OSX 10.5, *)
-  optional func outlineView(outlineView: NSOutlineView, isGroupItem item: AnyObject) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, shouldExpandItem item: AnyObject) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, shouldCollapseItem item: AnyObject) -> Bool
-  optional func outlineView(outlineView: NSOutlineView, willDisplayOutlineCell cell: AnyObject, for tableColumn: NSTableColumn?, item: AnyObject)
+  optional func outlineView(_ outlineView: NSOutlineView, isGroupItem item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldExpandItem item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldCollapseItem item: AnyObject) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, willDisplayOutlineCell cell: AnyObject, for tableColumn: NSTableColumn?, item item: AnyObject)
   @available(OSX 10.6, *)
-  optional func outlineView(outlineView: NSOutlineView, sizeToFitWidthOfColumn column: Int) -> CGFloat
+  optional func outlineView(_ outlineView: NSOutlineView, sizeToFitWidthOfColumn column: Int) -> CGFloat
   @available(OSX 10.6, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
+  optional func outlineView(_ outlineView: NSOutlineView, shouldReorderColumn columnIndex: Int, toColumn newColumnIndex: Int) -> Bool
   @available(OSX 10.6, *)
-  optional func outlineView(outlineView: NSOutlineView, shouldShowOutlineCellForItem item: AnyObject) -> Bool
-  optional func outlineViewSelectionDidChange(notification: NSNotification)
-  optional func outlineViewColumnDidMove(notification: NSNotification)
-  optional func outlineViewColumnDidResize(notification: NSNotification)
-  optional func outlineViewSelectionIsChanging(notification: NSNotification)
-  optional func outlineViewItemWillExpand(notification: NSNotification)
-  optional func outlineViewItemDidExpand(notification: NSNotification)
-  optional func outlineViewItemWillCollapse(notification: NSNotification)
-  optional func outlineViewItemDidCollapse(notification: NSNotification)
+  optional func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: AnyObject) -> Bool
+  optional func outlineViewSelectionDidChange(_ notification: NSNotification)
+  optional func outlineViewColumnDidMove(_ notification: NSNotification)
+  optional func outlineViewColumnDidResize(_ notification: NSNotification)
+  optional func outlineViewSelectionIsChanging(_ notification: NSNotification)
+  optional func outlineViewItemWillExpand(_ notification: NSNotification)
+  optional func outlineViewItemDidExpand(_ notification: NSNotification)
+  optional func outlineViewItemWillCollapse(_ notification: NSNotification)
+  optional func outlineViewItemDidCollapse(_ notification: NSNotification)
 }
 @available(OSX 10.9, *)
 let NSOutlineViewDisclosureButtonKey: String

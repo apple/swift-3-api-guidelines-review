@@ -34,28 +34,28 @@ class DOMElement : DOMNode {
   var lastElementChild: DOMElement! { get }
   @available(OSX 10.6, *)
   var childElementCount: UInt32 { get }
-  func getAttribute(name: String!) -> String!
+  func getAttribute(_ name: String!) -> String!
   @available(OSX 10.5, *)
-  func setAttribute(name: String!, value: String!)
-  func removeAttribute(name: String!)
-  func getAttributeNode(name: String!) -> DOMAttr!
-  func setAttributeNode(newAttr: DOMAttr!) -> DOMAttr!
-  func removeAttributeNode(oldAttr: DOMAttr!) -> DOMAttr!
-  func getElementsByTagName(name: String!) -> DOMNodeList!
+  func setAttribute(_ name: String!, value value: String!)
+  func removeAttribute(_ name: String!)
+  func getAttributeNode(_ name: String!) -> DOMAttr!
+  func setAttributeNode(_ newAttr: DOMAttr!) -> DOMAttr!
+  func removeAttributeNode(_ oldAttr: DOMAttr!) -> DOMAttr!
+  func getElementsByTagName(_ name: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func getAttributeNS(namespaceURI: String!, localName: String!) -> String!
+  func getAttributeNS(_ namespaceURI: String!, localName localName: String!) -> String!
   @available(OSX 10.5, *)
-  func setAttributeNS(namespaceURI: String!, qualifiedName: String!, value: String!)
+  func setAttributeNS(_ namespaceURI: String!, qualifiedName qualifiedName: String!, value value: String!)
   @available(OSX 10.5, *)
-  func removeAttributeNS(namespaceURI: String!, localName: String!)
+  func removeAttributeNS(_ namespaceURI: String!, localName localName: String!)
   @available(OSX 10.5, *)
-  func getElementsByTagNameNS(namespaceURI: String!, localName: String!) -> DOMNodeList!
+  func getElementsByTagNameNS(_ namespaceURI: String!, localName localName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func getAttributeNodeNS(namespaceURI: String!, localName: String!) -> DOMAttr!
-  func setAttributeNodeNS(newAttr: DOMAttr!) -> DOMAttr!
-  func hasAttribute(name: String!) -> Bool
+  func getAttributeNodeNS(_ namespaceURI: String!, localName localName: String!) -> DOMAttr!
+  func setAttributeNodeNS(_ newAttr: DOMAttr!) -> DOMAttr!
+  func hasAttribute(_ name: String!) -> Bool
   @available(OSX 10.5, *)
-  func hasAttributeNS(namespaceURI: String!, localName: String!) -> Bool
+  func hasAttributeNS(_ namespaceURI: String!, localName localName: String!) -> Bool
   @available(OSX 10.6, *)
   func focus()
   @available(OSX 10.6, *)
@@ -69,13 +69,13 @@ class DOMElement : DOMNode {
   @available(OSX 10.5, *)
   func scroll(byPages pages: Int32)
   @available(OSX 10.6, *)
-  func getElementsByClassName(name: String!) -> DOMNodeList!
+  func getElementsByClassName(_ name: String!) -> DOMNodeList!
   @available(OSX 10.6, *)
-  func webkitRequestFullScreen(flags: UInt16)
+  func webkitRequestFullScreen(_ flags: UInt16)
   @available(OSX 10.6, *)
-  func querySelector(selectors: String!) -> DOMElement!
+  func querySelector(_ selectors: String!) -> DOMElement!
   @available(OSX 10.6, *)
-  func querySelectorAll(selectors: String!) -> DOMNodeList!
+  func querySelectorAll(_ selectors: String!) -> DOMNodeList!
 }
 extension DOMElement {
 }

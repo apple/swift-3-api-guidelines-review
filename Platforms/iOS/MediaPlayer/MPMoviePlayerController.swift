@@ -1,7 +1,7 @@
 
 @available(iOS, introduced=2.0, deprecated=9.0)
 enum MPMovieScalingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case aspectFit
@@ -10,7 +10,7 @@ enum MPMovieScalingMode : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMoviePlaybackState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case stopped
   case playing
@@ -21,7 +21,7 @@ enum MPMoviePlaybackState : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieLoadState : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var unknown: MPMovieLoadState { get }
   static var playable: MPMovieLoadState { get }
@@ -30,14 +30,14 @@ struct MPMovieLoadState : OptionSetType {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieRepeatMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case one
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieControlStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case embedded
@@ -46,7 +46,7 @@ enum MPMovieControlStyle : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieFinishReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case playbackEnded
   case playbackError
@@ -54,7 +54,7 @@ enum MPMovieFinishReason : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieMediaTypeMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: MPMovieMediaTypeMask { get }
   static var video: MPMovieMediaTypeMask { get }
@@ -62,7 +62,7 @@ struct MPMovieMediaTypeMask : OptionSetType {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieSourceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case file
@@ -81,7 +81,7 @@ class MPMoviePlayerController : NSObject, MPMediaPlayback {
   var repeatMode: MPMovieRepeatMode
   var shouldAutoplay: Bool
   var isFullscreen: Bool
-  func setFullscreen(fullscreen: Bool, animated: Bool)
+  func setFullscreen(_ fullscreen: Bool, animated animated: Bool)
   var scalingMode: MPMovieScalingMode
   @available(iOS 6.0, *)
   var readyForDisplay: Bool { get }
@@ -165,7 +165,7 @@ let MPMovieDurationAvailableNotification: String
 let MPMovieNaturalSizeAvailableNotification: String
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieTimeOption : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case nearestKeyFrame
   case exact

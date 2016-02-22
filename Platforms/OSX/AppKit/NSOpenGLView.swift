@@ -9,7 +9,7 @@ class NSOpenGLView : NSView {
   var pixelFormat: NSOpenGLPixelFormat?
   func prepareOpenGL()
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 extension NSView {

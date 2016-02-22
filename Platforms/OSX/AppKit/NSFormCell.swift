@@ -1,7 +1,7 @@
 
 class NSFormCell : NSActionCell {
   init(textCell aString: String?)
-  func titleWidth(aSize: NSSize) -> CGFloat
+  func titleWidth(_ aSize: NSSize) -> CGFloat
   var titleWidth: CGFloat
   var title: String
   var titleFont: NSFont

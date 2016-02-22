@@ -1,11 +1,11 @@
 
 @available(OSX 10.10, *)
 class AVAudioUnitGenerator : AVAudioUnit, AVAudioMixing {
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   var bypass: Bool
   init()
   @available(OSX 10.11, *)
-  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

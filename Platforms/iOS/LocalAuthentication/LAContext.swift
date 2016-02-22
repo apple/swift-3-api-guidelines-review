@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum LAPolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 8.0, *)
   case deviceOwnerAuthenticationWithBiometrics
@@ -12,16 +12,16 @@ enum LAPolicy : Int {
 let LATouchIDAuthenticationMaximumAllowableReuseDuration: NSTimeInterval
 @available(iOS 8.0, *)
 class LAContext : NSObject {
-  func canEvaluatePolicy(policy: LAPolicy, error: NSErrorPointer) -> Bool
-  func evaluatePolicy(policy: LAPolicy, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func canEvaluatePolicy(_ policy: LAPolicy, error error: NSErrorPointer) -> Bool
+  func evaluatePolicy(_ policy: LAPolicy, localizedReason localizedReason: String, reply reply: (Bool, NSError?) -> Void)
   @available(iOS 9.0, *)
   func invalidate()
   @available(iOS 9.0, *)
-  func setCredential(credential: NSData?, type: LACredentialType) -> Bool
+  func setCredential(_ credential: NSData?, type type: LACredentialType) -> Bool
   @available(iOS 9.0, *)
-  func isCredentialSet(type: LACredentialType) -> Bool
+  func isCredentialSet(_ type: LACredentialType) -> Bool
   @available(iOS 9.0, *)
-  func evaluateAccessControl(accessControl: SecAccessControl, operation: LAAccessControlOperation, localizedReason: String, reply: (Bool, NSError?) -> Void)
+  func evaluateAccessControl(_ accessControl: SecAccessControl, operation operation: LAAccessControlOperation, localizedReason localizedReason: String, reply reply: (Bool, NSError?) -> Void)
   var localizedFallbackTitle: String?
   @available(iOS, introduced=8.3, deprecated=9.0)
   var maxBiometryFailures: NSNumber?
@@ -33,13 +33,13 @@ class LAContext : NSObject {
 }
 @available(iOS 9.0, *)
 enum LACredentialType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case applicationPassword
 }
 @available(iOS 9.0, *)
 enum LAAccessControlOperation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case createItem
   case useItem

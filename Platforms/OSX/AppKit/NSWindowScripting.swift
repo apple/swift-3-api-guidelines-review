@@ -8,10 +8,10 @@ extension NSWindow {
   var isResizable: Bool { get }
   var isZoomable: Bool { get }
   var orderedIndex: Int
-  func setIsMiniaturized(flag: Bool)
-  func setIsVisible(flag: Bool)
-  func setIsZoomed(flag: Bool)
-  func handleCloseScriptCommand(command: NSCloseCommand) -> AnyObject?
-  func handlePrint(command: NSScriptCommand) -> AnyObject?
-  func handleSave(command: NSScriptCommand) -> AnyObject?
+  func setIsMiniaturized(_ flag: Bool)
+  func setIsVisible(_ flag: Bool)
+  func setIsZoomed(_ flag: Bool)
+  func handleCloseScriptCommand(_ command: NSCloseCommand) -> AnyObject?
+  func handlePrint(_ command: NSScriptCommand) -> AnyObject?
+  func handleSave(_ command: NSScriptCommand) -> AnyObject?
 }

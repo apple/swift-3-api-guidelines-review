@@ -1,6 +1,6 @@
 
 enum NSTickMarkPosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case below
   case above
@@ -8,7 +8,7 @@ enum NSTickMarkPosition : UInt {
   static var right: NSTickMarkPosition { get }
 }
 enum NSSliderType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case linearSlider
   case circularSlider
@@ -22,12 +22,12 @@ class NSSliderCell : NSActionCell {
   var vertical: Int { get }
   var trackRect: NSRect { get }
   var knobThickness: CGFloat { get }
-  func knobRectFlipped(flipped: Bool) -> NSRect
-  func drawKnob(knobRect: NSRect)
+  func knobRectFlipped(_ flipped: Bool) -> NSRect
+  func drawKnob(_ knobRect: NSRect)
   func drawKnob()
   @available(OSX 10.9, *)
-  func barRectFlipped(flipped: Bool) -> NSRect
-  func drawBar(inside aRect: NSRect, flipped: Bool)
+  func barRectFlipped(_ flipped: Bool) -> NSRect
+  func drawBar(inside aRect: NSRect, flipped flipped: Bool)
   init(textCell aString: String)
   init(imageCell image: NSImage?)
   convenience init()
@@ -48,7 +48,7 @@ struct __sliderCellFlags {
   var snappingAllowed: UInt32
   var reserved2: UInt32
   init()
-  init(weAreVertical: UInt32, weAreVerticalSet: UInt32, reserved1: UInt32, isPressed: UInt32, allowsTickMarkValuesOnly: UInt32, tickMarkPosition: UInt32, sliderType: UInt32, drawing: UInt32, snappedToTickMark: UInt32, snappedToPreviousValue: UInt32, snappedToDefaultValue: UInt32, snappingAllowed: UInt32, reserved2: UInt32)
+  init(weAreVertical weAreVertical: UInt32, weAreVerticalSet weAreVerticalSet: UInt32, reserved1 reserved1: UInt32, isPressed isPressed: UInt32, allowsTickMarkValuesOnly allowsTickMarkValuesOnly: UInt32, tickMarkPosition tickMarkPosition: UInt32, sliderType sliderType: UInt32, drawing drawing: UInt32, snappedToTickMark snappedToTickMark: UInt32, snappedToPreviousValue snappedToPreviousValue: UInt32, snappedToDefaultValue snappedToDefaultValue: UInt32, snappingAllowed snappingAllowed: UInt32, reserved2 reserved2: UInt32)
 }
 extension NSSliderCell {
   var numberOfTickMarks: Int

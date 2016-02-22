@@ -1,12 +1,12 @@
 
 protocol SKProductsRequestDelegate : SKRequestDelegate {
   @available(iOS 3.0, *)
-  func productsRequest(request: SKProductsRequest, didReceive response: SKProductsResponse)
+  func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse)
 }
 @available(iOS 3.0, *)
 class SKProductsRequest : SKRequest {
   @available(iOS 3.0, *)
-  init(productIdentifiers: Set<String>)
+  init(productIdentifiers productIdentifiers: Set<String>)
   @available(iOS 3.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKProductsRequestDelegate?
   init()

@@ -1,6 +1,6 @@
 
 enum NSPersistentStoreRequestType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case fetchRequestType
   case saveRequestType

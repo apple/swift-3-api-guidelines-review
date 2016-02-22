@@ -1,8 +1,8 @@
 
 extension NSDocument {
   var lastComponentOfFileName: String
-  func handleSave(command: NSScriptCommand) -> AnyObject?
-  func handleCloseScriptCommand(command: NSCloseCommand) -> AnyObject?
-  func handlePrint(command: NSScriptCommand) -> AnyObject?
+  func handleSave(_ command: NSScriptCommand) -> AnyObject?
+  func handleCloseScriptCommand(_ command: NSCloseCommand) -> AnyObject?
+  func handlePrint(_ command: NSScriptCommand) -> AnyObject?
   var objectSpecifier: NSScriptObjectSpecifier { get }
 }

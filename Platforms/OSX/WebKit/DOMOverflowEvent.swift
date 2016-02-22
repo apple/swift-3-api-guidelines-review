@@ -7,5 +7,5 @@ class DOMOverflowEvent : DOMEvent {
   var orient: UInt16 { get }
   var horizontalOverflow: Bool { get }
   var verticalOverflow: Bool { get }
-  func initOverflowEvent(orient: UInt16, horizontalOverflow: Bool, verticalOverflow: Bool)
+  func initOverflowEvent(_ orient: UInt16, horizontalOverflow horizontalOverflow: Bool, verticalOverflow verticalOverflow: Bool)
 }

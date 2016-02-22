@@ -1,6 +1,6 @@
 
 struct OSALanguageFeatures : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var supportsCompiling: OSALanguageFeatures { get }
   static var supportsGetSource: OSALanguageFeatures { get }
@@ -17,8 +17,8 @@ class OSALanguage : NSObject {
   @available(OSX 10.6, *)
   /*not inherited*/ init?(forScriptDataDescriptor descriptor: NSAppleEventDescriptor)
   class func defaultLanguage() -> OSALanguage?
-  class func setDefaultLanguage(defaultLanguage: OSALanguage)
-  init(component: Component)
+  class func setDefaultLanguage(_ defaultLanguage: OSALanguage)
+  init(component component: Component)
   @available(OSX 10.6, *)
   func sharedLanguageInstance() -> OSALanguageInstance
   var componentInstance: ComponentInstance { get }

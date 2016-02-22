@@ -3,7 +3,7 @@
 class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   var username: String { get }
   var service: String { get }
-  init(username: String, service: String)
+  init(username username: String, service service: String)
   class func localizedString(forKey key: String) -> String
   class func localizedString(forService service: String) -> String
   init()

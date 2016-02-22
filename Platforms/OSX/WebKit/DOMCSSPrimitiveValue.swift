@@ -33,10 +33,10 @@ var DOM_CSS_VMAX: Int { get }
 class DOMCSSPrimitiveValue : DOMCSSValue {
   var primitiveType: UInt16 { get }
   @available(OSX 10.5, *)
-  func setFloat(unitType: UInt16, floatValue: Float)
-  func getFloat(unitType: UInt16) -> Float
+  func setFloat(_ unitType: UInt16, floatValue floatValue: Float)
+  func getFloat(_ unitType: UInt16) -> Float
   @available(OSX 10.5, *)
-  func setStringValue(stringType: UInt16, stringValue: String!)
+  func setStringValue(_ stringType: UInt16, stringValue stringValue: String!)
   func getStringValue() -> String!
   func getCounterValue() -> DOMCounter!
   func getRectValue() -> DOMRect!

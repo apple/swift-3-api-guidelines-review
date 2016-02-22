@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum CNContainerType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unassigned
   case local

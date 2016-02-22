@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVViewElementStyleType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case integer
   case double
@@ -14,6 +14,6 @@ enum TVViewElementStyleType : Int {
 }
 @available(tvOS 9.0, *)
 class TVStyleFactory : NSObject {
-  class func registerStyle(styleName: String, with type: TVViewElementStyleType, inherited: Bool)
+  class func registerStyle(_ styleName: String, with type: TVViewElementStyleType, inherited inherited: Bool)
   init()
 }

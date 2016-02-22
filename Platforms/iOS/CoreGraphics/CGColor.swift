@@ -2,26 +2,26 @@
 class CGColor {
 }
 @available(iOS 2.0, *)
-func CGColorCreate(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
+func CGColorCreate(_ space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
 @available(iOS 2.0, *)
-func CGColorCreateWithPattern(space: CGColorSpace?, _ pattern: CGPattern?, _ components: UnsafePointer<CGFloat>) -> CGColor?
+func CGColorCreateWithPattern(_ space: CGColorSpace?, _ pattern: CGPattern?, _ components: UnsafePointer<CGFloat>) -> CGColor?
 @available(iOS 2.0, *)
-func CGColorCreateCopy(color: CGColor?) -> CGColor?
+func CGColorCreateCopy(_ color: CGColor?) -> CGColor?
 @available(iOS 2.0, *)
-func CGColorCreateCopyWithAlpha(color: CGColor?, _ alpha: CGFloat) -> CGColor?
+func CGColorCreateCopyWithAlpha(_ color: CGColor?, _ alpha: CGFloat) -> CGColor?
 @available(iOS 9.0, *)
-func CGColorCreateCopyByMatchingToColorSpace(_: CGColorSpace?, _ intent: CGColorRenderingIntent, _ color: CGColor?, _ options: CFDictionary?) -> CGColor?
+func CGColorCreateCopyByMatchingToColorSpace(_ _: CGColorSpace?, _ intent: CGColorRenderingIntent, _ color: CGColor?, _ options: CFDictionary?) -> CGColor?
 @available(iOS 2.0, *)
-func CGColorEqualToColor(color1: CGColor?, _ color2: CGColor?) -> Bool
+func CGColorEqualToColor(_ color1: CGColor?, _ color2: CGColor?) -> Bool
 @available(iOS 2.0, *)
-func CGColorGetNumberOfComponents(color: CGColor?) -> Int
+func CGColorGetNumberOfComponents(_ color: CGColor?) -> Int
 @available(iOS 2.0, *)
-func CGColorGetComponents(color: CGColor?) -> UnsafePointer<CGFloat>
+func CGColorGetComponents(_ color: CGColor?) -> UnsafePointer<CGFloat>
 @available(iOS 2.0, *)
-func CGColorGetAlpha(color: CGColor?) -> CGFloat
+func CGColorGetAlpha(_ color: CGColor?) -> CGFloat
 @available(iOS 2.0, *)
-func CGColorGetColorSpace(color: CGColor?) -> CGColorSpace?
+func CGColorGetColorSpace(_ color: CGColor?) -> CGColorSpace?
 @available(iOS 2.0, *)
-func CGColorGetPattern(color: CGColor?) -> CGPattern?
+func CGColorGetPattern(_ color: CGColor?) -> CGPattern?
 @available(iOS 2.0, *)
 func CGColorGetTypeID() -> CFTypeID

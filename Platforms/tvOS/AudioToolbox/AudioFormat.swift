@@ -1,7 +1,7 @@
 
 typealias AudioFormatPropertyID = UInt32
 enum AudioPanningMode : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case panningMode_SoundField
   case panningMode_VectorBasedPanning
@@ -14,7 +14,7 @@ struct AudioPanningInfo {
   var mOutputChannelMap: UnsafePointer<AudioChannelLayout>
 }
 enum AudioBalanceFadeType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case maxUnityGain
   case equalPower
@@ -40,7 +40,7 @@ struct AudioFormatListItem {
   var mASBD: AudioStreamBasicDescription
   var mChannelLayoutTag: AudioChannelLayoutTag
   init()
-  init(mASBD: AudioStreamBasicDescription, mChannelLayoutTag: AudioChannelLayoutTag)
+  init(mASBD mASBD: AudioStreamBasicDescription, mChannelLayoutTag mChannelLayoutTag: AudioChannelLayoutTag)
 }
 var kAudioFormatProperty_FormatInfo: AudioFormatPropertyID { get }
 var kAudioFormatProperty_FormatName: AudioFormatPropertyID { get }
@@ -86,9 +86,9 @@ var kAudioEncoderComponentType: UInt32 { get }
 var kAppleSoftwareAudioCodecManufacturer: UInt32 { get }
 var kAppleHardwareAudioCodecManufacturer: UInt32 { get }
 @available(tvOS 2.0, *)
-func AudioFormatGetPropertyInfo(inPropertyID: AudioFormatPropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafePointer<Void>, _ outPropertyDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioFormatGetPropertyInfo(_ inPropertyID: AudioFormatPropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafePointer<Void>, _ outPropertyDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioFormatGetProperty(inPropertyID: AudioFormatPropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafePointer<Void>, _ ioPropertyDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFormatGetProperty(_ inPropertyID: AudioFormatPropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafePointer<Void>, _ ioPropertyDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
 var kAudioFormatUnspecifiedError: OSStatus { get }
 var kAudioFormatUnsupportedPropertyError: OSStatus { get }
 var kAudioFormatBadPropertySizeError: OSStatus { get }

@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NWPathStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case invalid
   case satisfied

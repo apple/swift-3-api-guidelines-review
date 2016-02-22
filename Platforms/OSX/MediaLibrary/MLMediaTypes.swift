@@ -1,13 +1,13 @@
 
 struct MLMediaSourceType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var audio: MLMediaSourceType { get }
   static var image: MLMediaSourceType { get }
   static var movie: MLMediaSourceType { get }
 }
 enum MLMediaType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case audio
   case image

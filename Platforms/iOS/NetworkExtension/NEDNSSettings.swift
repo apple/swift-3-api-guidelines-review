@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(servers: [String])
+  init(servers servers: [String])
   @available(iOS 9.0, *)
   var servers: [String] { get }
   @available(iOS 9.0, *)

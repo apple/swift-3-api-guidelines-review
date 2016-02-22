@@ -1,6 +1,6 @@
 
 enum NSHTTPCookieAcceptPolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case always
   case never
@@ -11,12 +11,12 @@ class NSHTTPCookieStorage : NSObject {
   @available(watchOS 2.0, *)
   class func sharedCookieStorage(forGroupContainerIdentifier identifier: String) -> NSHTTPCookieStorage
   var cookies: [NSHTTPCookie]? { get }
-  func setCookie(cookie: NSHTTPCookie)
-  func deleteCookie(cookie: NSHTTPCookie)
+  func setCookie(_ cookie: NSHTTPCookie)
+  func deleteCookie(_ cookie: NSHTTPCookie)
   @available(watchOS 2.0, *)
   func removeCookies(since date: NSDate)
   func cookies(for URL: NSURL) -> [NSHTTPCookie]?
-  func setCookies(cookies: [NSHTTPCookie], for URL: NSURL?, mainDocumentURL: NSURL?)
+  func setCookies(_ cookies: [NSHTTPCookie], for URL: NSURL?, mainDocumentURL mainDocumentURL: NSURL?)
   var cookieAcceptPolicy: NSHTTPCookieAcceptPolicy
   @available(watchOS 2.0, *)
   func sortedCookies(using sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
@@ -24,9 +24,9 @@ class NSHTTPCookieStorage : NSObject {
 }
 extension NSHTTPCookieStorage {
   @available(watchOS 2.0, *)
-  func storeCookies(cookies: [NSHTTPCookie], for task: NSURLSessionTask)
+  func storeCookies(_ cookies: [NSHTTPCookie], for task: NSURLSessionTask)
   @available(watchOS 2.0, *)
-  func getCookiesFor(task: NSURLSessionTask, completionHandler: ([NSHTTPCookie]?) -> Void)
+  func getCookiesFor(_ task: NSURLSessionTask, completionHandler completionHandler: ([NSHTTPCookie]?) -> Void)
 }
 let NSHTTPCookieManagerAcceptPolicyChangedNotification: String
 let NSHTTPCookieManagerCookiesChangedNotification: String

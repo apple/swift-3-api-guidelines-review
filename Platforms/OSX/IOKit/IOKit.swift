@@ -10,7 +10,7 @@ struct _IODataQueueEntry {
   var size: UInt32
   var data: (UInt8, UInt8, UInt8, UInt8)
   init()
-  init(size: UInt32, data: (UInt8, UInt8, UInt8, UInt8))
+  init(size size: UInt32, data data: (UInt8, UInt8, UInt8, UInt8))
 }
 typealias IODataQueueEntry = _IODataQueueEntry
 struct _IODataQueueMemory {
@@ -19,25 +19,25 @@ struct _IODataQueueMemory {
   var tail: UInt32
   var queue: (IODataQueueEntry)
   init()
-  init(queueSize: UInt32, head: UInt32, tail: UInt32, queue: (IODataQueueEntry))
+  init(queueSize queueSize: UInt32, head head: UInt32, tail tail: UInt32, queue queue: (IODataQueueEntry))
 }
 typealias IODataQueueMemory = _IODataQueueMemory
 struct _IODataQueueAppendix {
   var version: UInt32
   var msgh: mach_msg_header_t
   init()
-  init(version: UInt32, msgh: mach_msg_header_t)
+  init(version version: UInt32, msgh msgh: mach_msg_header_t)
 }
 typealias IODataQueueAppendix = _IODataQueueAppendix
-func IODataQueueDataAvailable(dataQueue: UnsafeMutablePointer<IODataQueueMemory>) -> Bool
-func IODataQueuePeek(dataQueue: UnsafeMutablePointer<IODataQueueMemory>) -> UnsafeMutablePointer<IODataQueueEntry>
-func IODataQueueDequeue(dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ data: UnsafeMutablePointer<Void>, _ dataSize: UnsafeMutablePointer<UInt32>) -> IOReturn
-func IODataQueueWaitForAvailableData(dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ notificationPort: mach_port_t) -> IOReturn
+func IODataQueueDataAvailable(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>) -> Bool
+func IODataQueuePeek(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>) -> UnsafeMutablePointer<IODataQueueEntry>
+func IODataQueueDequeue(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ data: UnsafeMutablePointer<Void>, _ dataSize: UnsafeMutablePointer<UInt32>) -> IOReturn
+func IODataQueueWaitForAvailableData(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ notificationPort: mach_port_t) -> IOReturn
 func IODataQueueAllocateNotificationPort() -> mach_port_t
 @available(OSX 10.5, *)
-func IODataQueueEnqueue(dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ data: UnsafeMutablePointer<Void>, _ dataSize: UInt32) -> IOReturn
+func IODataQueueEnqueue(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ data: UnsafeMutablePointer<Void>, _ dataSize: UInt32) -> IOReturn
 @available(OSX 10.5, *)
-func IODataQueueSetNotificationPort(dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ notifyPort: mach_port_t) -> IOReturn
+func IODataQueueSetNotificationPort(_ dataQueue: UnsafeMutablePointer<IODataQueueMemory>, _ notifyPort: mach_port_t) -> IOReturn
 var kIOBundleInfoDictionaryVersionKey: String { get }
 var kIOBundleExecutableKey: String { get }
 var kIOBundleIdentifierKey: String { get }
@@ -66,20 +66,20 @@ struct IOPhysicalRange {
   var address: IOPhysicalAddress
   var length: IOByteCount
   init()
-  init(address: IOPhysicalAddress, length: IOByteCount)
+  init(address address: IOPhysicalAddress, length length: IOByteCount)
 }
 struct IOVirtualRange {
   var address: IOVirtualAddress
   var length: IOByteCount
   init()
-  init(address: IOVirtualAddress, length: IOByteCount)
+  init(address address: IOVirtualAddress, length length: IOByteCount)
 }
 typealias IOAddressRange = IOVirtualRange
 struct IONamedValue {
   var value: Int32
   var name: UnsafePointer<Int8>
   init()
-  init(value: Int32, name: UnsafePointer<Int8>)
+  init(value value: Int32, name name: UnsafePointer<Int8>)
 }
 typealias IOAlignment = UInt32
 typealias io_object_t = mach_port_t
@@ -236,7 +236,7 @@ struct IOServiceInterestContent64 {
   var messageType: natural_t
   var messageArgument: (io_user_reference_t)
   init()
-  init(messageType: natural_t, messageArgument: (io_user_reference_t))
+  init(messageType messageType: natural_t, messageArgument messageArgument: (io_user_reference_t))
 }
 var kOSAsyncRefCount: Int { get }
 var kOSAsyncRefSize: Int { get }
@@ -251,7 +251,7 @@ struct IOServiceInterestContent {
   var messageType: natural_t
   var messageArgument: (UnsafeMutablePointer<Void>)
   init()
-  init(messageType: natural_t, messageArgument: (UnsafeMutablePointer<Void>))
+  init(messageType messageType: natural_t, messageArgument messageArgument: (UnsafeMutablePointer<Void>))
 }
 struct IOAsyncCompletionContent {
   var result: IOReturn
@@ -261,127 +261,127 @@ typealias IONotificationPortRef = COpaquePointer
 typealias IOServiceMatchingCallback = @convention(c) (UnsafeMutablePointer<Void>, io_iterator_t) -> Void
 typealias IOServiceInterestCallback = @convention(c) (UnsafeMutablePointer<Void>, io_service_t, UInt32, UnsafeMutablePointer<Void>) -> Void
 let kIOMasterPortDefault: mach_port_t
-func IOMasterPort(bootstrapPort: mach_port_t, _ masterPort: UnsafeMutablePointer<mach_port_t>) -> kern_return_t
-func IONotificationPortCreate(masterPort: mach_port_t) -> IONotificationPortRef
-func IONotificationPortDestroy(notify: IONotificationPortRef)
-func IONotificationPortGetRunLoopSource(notify: IONotificationPortRef) -> Unmanaged<CFRunLoopSource>!
-func IONotificationPortGetMachPort(notify: IONotificationPortRef) -> mach_port_t
+func IOMasterPort(_ bootstrapPort: mach_port_t, _ masterPort: UnsafeMutablePointer<mach_port_t>) -> kern_return_t
+func IONotificationPortCreate(_ masterPort: mach_port_t) -> IONotificationPortRef
+func IONotificationPortDestroy(_ notify: IONotificationPortRef)
+func IONotificationPortGetRunLoopSource(_ notify: IONotificationPortRef) -> Unmanaged<CFRunLoopSource>!
+func IONotificationPortGetMachPort(_ notify: IONotificationPortRef) -> mach_port_t
 @available(OSX 10.6, *)
-func IONotificationPortSetDispatchQueue(notify: IONotificationPortRef, _ queue: dispatch_queue_t!)
-func IODispatchCalloutFromMessage(unused: UnsafeMutablePointer<Void>, _ msg: UnsafeMutablePointer<mach_msg_header_t>, _ reference: UnsafeMutablePointer<Void>)
-func IOCreateReceivePort(msgType: UInt32, _ recvPort: UnsafeMutablePointer<mach_port_t>) -> kern_return_t
-func IOObjectRelease(object: io_object_t) -> kern_return_t
-func IOObjectRetain(object: io_object_t) -> kern_return_t
-func IOObjectGetClass(object: io_object_t, _ className: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IONotificationPortSetDispatchQueue(_ notify: IONotificationPortRef, _ queue: dispatch_queue_t!)
+func IODispatchCalloutFromMessage(_ unused: UnsafeMutablePointer<Void>, _ msg: UnsafeMutablePointer<mach_msg_header_t>, _ reference: UnsafeMutablePointer<Void>)
+func IOCreateReceivePort(_ msgType: UInt32, _ recvPort: UnsafeMutablePointer<mach_port_t>) -> kern_return_t
+func IOObjectRelease(_ object: io_object_t) -> kern_return_t
+func IOObjectRetain(_ object: io_object_t) -> kern_return_t
+func IOObjectGetClass(_ object: io_object_t, _ className: UnsafeMutablePointer<Int8>) -> kern_return_t
 @available(OSX 10.4, *)
-func IOObjectCopyClass(object: io_object_t) -> Unmanaged<CFString>!
+func IOObjectCopyClass(_ object: io_object_t) -> Unmanaged<CFString>!
 @available(OSX 10.4, *)
-func IOObjectCopySuperclassForClass(classname: CFString!) -> Unmanaged<CFString>!
+func IOObjectCopySuperclassForClass(_ classname: CFString!) -> Unmanaged<CFString>!
 @available(OSX 10.4, *)
-func IOObjectCopyBundleIdentifierForClass(classname: CFString!) -> Unmanaged<CFString>!
-func IOObjectConformsTo(object: io_object_t, _ className: UnsafePointer<Int8>) -> boolean_t
-func IOObjectIsEqualTo(object: io_object_t, _ anObject: io_object_t) -> boolean_t
+func IOObjectCopyBundleIdentifierForClass(_ classname: CFString!) -> Unmanaged<CFString>!
+func IOObjectConformsTo(_ object: io_object_t, _ className: UnsafePointer<Int8>) -> boolean_t
+func IOObjectIsEqualTo(_ object: io_object_t, _ anObject: io_object_t) -> boolean_t
 @available(OSX 10.6, *)
-func IOObjectGetKernelRetainCount(object: io_object_t) -> UInt32
+func IOObjectGetKernelRetainCount(_ object: io_object_t) -> UInt32
 @available(OSX 10.6, *)
-func IOObjectGetUserRetainCount(object: io_object_t) -> UInt32
-func IOObjectGetRetainCount(object: io_object_t) -> UInt32
-func IOIteratorNext(iterator: io_iterator_t) -> io_object_t
-func IOIteratorReset(iterator: io_iterator_t)
-func IOIteratorIsValid(iterator: io_iterator_t) -> boolean_t
-func IOServiceGetMatchingService(masterPort: mach_port_t, _ matching: CFDictionary!) -> io_service_t
-func IOServiceGetMatchingServices(masterPort: mach_port_t, _ matching: CFDictionary!, _ existing: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IOObjectGetUserRetainCount(_ object: io_object_t) -> UInt32
+func IOObjectGetRetainCount(_ object: io_object_t) -> UInt32
+func IOIteratorNext(_ iterator: io_iterator_t) -> io_object_t
+func IOIteratorReset(_ iterator: io_iterator_t)
+func IOIteratorIsValid(_ iterator: io_iterator_t) -> boolean_t
+func IOServiceGetMatchingService(_ masterPort: mach_port_t, _ matching: CFDictionary!) -> io_service_t
+func IOServiceGetMatchingServices(_ masterPort: mach_port_t, _ matching: CFDictionary!, _ existing: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
 @available(*, deprecated)
-func IOServiceAddNotification(masterPort: mach_port_t, _ notificationType: UnsafePointer<Int8>, _ matching: CFDictionary!, _ wakePort: mach_port_t, _ reference: UInt, _ notification: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IOServiceAddMatchingNotification(notifyPort: IONotificationPortRef, _ notificationType: UnsafePointer<Int8>, _ matching: CFDictionary!, _ callback: IOServiceMatchingCallback!, _ refCon: UnsafeMutablePointer<Void>, _ notification: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IOServiceAddInterestNotification(notifyPort: IONotificationPortRef, _ service: io_service_t, _ interestType: UnsafePointer<Int8>, _ callback: IOServiceInterestCallback!, _ refCon: UnsafeMutablePointer<Void>, _ notification: UnsafeMutablePointer<io_object_t>) -> kern_return_t
-func IOServiceMatchPropertyTable(service: io_service_t, _ matching: CFDictionary!, _ matches: UnsafeMutablePointer<boolean_t>) -> kern_return_t
-func IOServiceGetBusyState(service: io_service_t, _ busyState: UnsafeMutablePointer<UInt32>) -> kern_return_t
-func IOServiceWaitQuiet(service: io_service_t, _ waitTime: UnsafeMutablePointer<mach_timespec_t>) -> kern_return_t
-func IOKitGetBusyState(masterPort: mach_port_t, _ busyState: UnsafeMutablePointer<UInt32>) -> kern_return_t
-func IOKitWaitQuiet(masterPort: mach_port_t, _ waitTime: UnsafeMutablePointer<mach_timespec_t>) -> kern_return_t
-func IOServiceOpen(service: io_service_t, _ owningTask: task_port_t, _ type: UInt32, _ connect: UnsafeMutablePointer<io_connect_t>) -> kern_return_t
-func IOServiceRequestProbe(service: io_service_t, _ options: UInt32) -> kern_return_t
+func IOServiceAddNotification(_ masterPort: mach_port_t, _ notificationType: UnsafePointer<Int8>, _ matching: CFDictionary!, _ wakePort: mach_port_t, _ reference: UInt, _ notification: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IOServiceAddMatchingNotification(_ notifyPort: IONotificationPortRef, _ notificationType: UnsafePointer<Int8>, _ matching: CFDictionary!, _ callback: IOServiceMatchingCallback!, _ refCon: UnsafeMutablePointer<Void>, _ notification: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IOServiceAddInterestNotification(_ notifyPort: IONotificationPortRef, _ service: io_service_t, _ interestType: UnsafePointer<Int8>, _ callback: IOServiceInterestCallback!, _ refCon: UnsafeMutablePointer<Void>, _ notification: UnsafeMutablePointer<io_object_t>) -> kern_return_t
+func IOServiceMatchPropertyTable(_ service: io_service_t, _ matching: CFDictionary!, _ matches: UnsafeMutablePointer<boolean_t>) -> kern_return_t
+func IOServiceGetBusyState(_ service: io_service_t, _ busyState: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IOServiceWaitQuiet(_ service: io_service_t, _ waitTime: UnsafeMutablePointer<mach_timespec_t>) -> kern_return_t
+func IOKitGetBusyState(_ masterPort: mach_port_t, _ busyState: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IOKitWaitQuiet(_ masterPort: mach_port_t, _ waitTime: UnsafeMutablePointer<mach_timespec_t>) -> kern_return_t
+func IOServiceOpen(_ service: io_service_t, _ owningTask: task_port_t, _ type: UInt32, _ connect: UnsafeMutablePointer<io_connect_t>) -> kern_return_t
+func IOServiceRequestProbe(_ service: io_service_t, _ options: UInt32) -> kern_return_t
 var kIOServiceInteractionAllowed: Int { get }
-func IOServiceAuthorize(service: io_service_t, _ options: UInt32) -> kern_return_t
-func IOServiceOpenAsFileDescriptor(service: io_service_t, _ oflag: Int32) -> Int32
-func IOServiceClose(connect: io_connect_t) -> kern_return_t
-func IOConnectAddRef(connect: io_connect_t) -> kern_return_t
-func IOConnectRelease(connect: io_connect_t) -> kern_return_t
-func IOConnectGetService(connect: io_connect_t, _ service: UnsafeMutablePointer<io_service_t>) -> kern_return_t
-func IOConnectSetNotificationPort(connect: io_connect_t, _ type: UInt32, _ port: mach_port_t, _ reference: UInt) -> kern_return_t
-func IOConnectMapMemory(connect: io_connect_t, _ memoryType: UInt32, _ intoTask: task_port_t, _ atAddress: UnsafeMutablePointer<mach_vm_address_t>, _ ofSize: UnsafeMutablePointer<mach_vm_size_t>, _ options: IOOptionBits) -> kern_return_t
-func IOConnectMapMemory64(connect: io_connect_t, _ memoryType: UInt32, _ intoTask: task_port_t, _ atAddress: UnsafeMutablePointer<mach_vm_address_t>, _ ofSize: UnsafeMutablePointer<mach_vm_size_t>, _ options: IOOptionBits) -> kern_return_t
-func IOConnectUnmapMemory(connect: io_connect_t, _ memoryType: UInt32, _ fromTask: task_port_t, _ atAddress: mach_vm_address_t) -> kern_return_t
-func IOConnectUnmapMemory64(connect: io_connect_t, _ memoryType: UInt32, _ fromTask: task_port_t, _ atAddress: mach_vm_address_t) -> kern_return_t
-func IOConnectSetCFProperties(connect: io_connect_t, _ properties: CFTypeRef!) -> kern_return_t
-func IOConnectSetCFProperty(connect: io_connect_t, _ propertyName: CFString!, _ property: CFTypeRef!) -> kern_return_t
+func IOServiceAuthorize(_ service: io_service_t, _ options: UInt32) -> kern_return_t
+func IOServiceOpenAsFileDescriptor(_ service: io_service_t, _ oflag: Int32) -> Int32
+func IOServiceClose(_ connect: io_connect_t) -> kern_return_t
+func IOConnectAddRef(_ connect: io_connect_t) -> kern_return_t
+func IOConnectRelease(_ connect: io_connect_t) -> kern_return_t
+func IOConnectGetService(_ connect: io_connect_t, _ service: UnsafeMutablePointer<io_service_t>) -> kern_return_t
+func IOConnectSetNotificationPort(_ connect: io_connect_t, _ type: UInt32, _ port: mach_port_t, _ reference: UInt) -> kern_return_t
+func IOConnectMapMemory(_ connect: io_connect_t, _ memoryType: UInt32, _ intoTask: task_port_t, _ atAddress: UnsafeMutablePointer<mach_vm_address_t>, _ ofSize: UnsafeMutablePointer<mach_vm_size_t>, _ options: IOOptionBits) -> kern_return_t
+func IOConnectMapMemory64(_ connect: io_connect_t, _ memoryType: UInt32, _ intoTask: task_port_t, _ atAddress: UnsafeMutablePointer<mach_vm_address_t>, _ ofSize: UnsafeMutablePointer<mach_vm_size_t>, _ options: IOOptionBits) -> kern_return_t
+func IOConnectUnmapMemory(_ connect: io_connect_t, _ memoryType: UInt32, _ fromTask: task_port_t, _ atAddress: mach_vm_address_t) -> kern_return_t
+func IOConnectUnmapMemory64(_ connect: io_connect_t, _ memoryType: UInt32, _ fromTask: task_port_t, _ atAddress: mach_vm_address_t) -> kern_return_t
+func IOConnectSetCFProperties(_ connect: io_connect_t, _ properties: CFTypeRef!) -> kern_return_t
+func IOConnectSetCFProperty(_ connect: io_connect_t, _ propertyName: CFString!, _ property: CFTypeRef!) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallMethod(connection: mach_port_t, _ selector: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
+func IOConnectCallMethod(_ connection: mach_port_t, _ selector: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallAsyncMethod(connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
+func IOConnectCallAsyncMethod(_ connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallStructMethod(connection: mach_port_t, _ selector: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
+func IOConnectCallStructMethod(_ connection: mach_port_t, _ selector: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallAsyncStructMethod(connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
+func IOConnectCallAsyncStructMethod(_ connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ inputStruct: UnsafePointer<Void>, _ inputStructCnt: Int, _ outputStruct: UnsafeMutablePointer<Void>, _ outputStructCnt: UnsafeMutablePointer<Int>) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallScalarMethod(connection: mach_port_t, _ selector: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IOConnectCallScalarMethod(_ connection: mach_port_t, _ selector: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>) -> kern_return_t
 @available(OSX 10.5, *)
-func IOConnectCallAsyncScalarMethod(connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>) -> kern_return_t
-func IOConnectTrap0(connect: io_connect_t, _ index: UInt32) -> kern_return_t
-func IOConnectTrap1(connect: io_connect_t, _ index: UInt32, _ p1: UInt) -> kern_return_t
-func IOConnectTrap2(connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt) -> kern_return_t
-func IOConnectTrap3(connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt) -> kern_return_t
-func IOConnectTrap4(connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt) -> kern_return_t
-func IOConnectTrap5(connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt, _ p5: UInt) -> kern_return_t
-func IOConnectTrap6(connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt, _ p5: UInt, _ p6: UInt) -> kern_return_t
-func IOConnectAddClient(connect: io_connect_t, _ client: io_connect_t) -> kern_return_t
-func IORegistryGetRootEntry(masterPort: mach_port_t) -> io_registry_entry_t
-func IORegistryEntryFromPath(masterPort: mach_port_t, _ path: UnsafePointer<Int8>) -> io_registry_entry_t
+func IOConnectCallAsyncScalarMethod(_ connection: mach_port_t, _ selector: UInt32, _ wake_port: mach_port_t, _ reference: UnsafeMutablePointer<UInt64>, _ referenceCnt: UInt32, _ input: UnsafePointer<UInt64>, _ inputCnt: UInt32, _ output: UnsafeMutablePointer<UInt64>, _ outputCnt: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IOConnectTrap0(_ connect: io_connect_t, _ index: UInt32) -> kern_return_t
+func IOConnectTrap1(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt) -> kern_return_t
+func IOConnectTrap2(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt) -> kern_return_t
+func IOConnectTrap3(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt) -> kern_return_t
+func IOConnectTrap4(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt) -> kern_return_t
+func IOConnectTrap5(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt, _ p5: UInt) -> kern_return_t
+func IOConnectTrap6(_ connect: io_connect_t, _ index: UInt32, _ p1: UInt, _ p2: UInt, _ p3: UInt, _ p4: UInt, _ p5: UInt, _ p6: UInt) -> kern_return_t
+func IOConnectAddClient(_ connect: io_connect_t, _ client: io_connect_t) -> kern_return_t
+func IORegistryGetRootEntry(_ masterPort: mach_port_t) -> io_registry_entry_t
+func IORegistryEntryFromPath(_ masterPort: mach_port_t, _ path: UnsafePointer<Int8>) -> io_registry_entry_t
 @available(OSX 10.11, *)
-func IORegistryEntryCopyFromPath(masterPort: mach_port_t, _ path: CFString!) -> io_registry_entry_t
+func IORegistryEntryCopyFromPath(_ masterPort: mach_port_t, _ path: CFString!) -> io_registry_entry_t
 var kIORegistryIterateRecursively: Int { get }
 var kIORegistryIterateParents: Int { get }
-func IORegistryCreateIterator(masterPort: mach_port_t, _ plane: UnsafePointer<Int8>, _ options: IOOptionBits, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IORegistryEntryCreateIterator(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ options: IOOptionBits, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IORegistryIteratorEnterEntry(iterator: io_iterator_t) -> kern_return_t
-func IORegistryIteratorExitEntry(iterator: io_iterator_t) -> kern_return_t
-func IORegistryEntryGetName(entry: io_registry_entry_t, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
-func IORegistryEntryGetNameInPlane(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
-func IORegistryEntryGetLocationInPlane(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ location: UnsafeMutablePointer<Int8>) -> kern_return_t
-func IORegistryEntryGetPath(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ path: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IORegistryCreateIterator(_ masterPort: mach_port_t, _ plane: UnsafePointer<Int8>, _ options: IOOptionBits, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IORegistryEntryCreateIterator(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ options: IOOptionBits, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IORegistryIteratorEnterEntry(_ iterator: io_iterator_t) -> kern_return_t
+func IORegistryIteratorExitEntry(_ iterator: io_iterator_t) -> kern_return_t
+func IORegistryEntryGetName(_ entry: io_registry_entry_t, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IORegistryEntryGetNameInPlane(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IORegistryEntryGetLocationInPlane(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ location: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IORegistryEntryGetPath(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ path: UnsafeMutablePointer<Int8>) -> kern_return_t
 @available(OSX 10.11, *)
-func IORegistryEntryCopyPath(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>) -> Unmanaged<CFString>!
-func IORegistryEntryGetRegistryEntryID(entry: io_registry_entry_t, _ entryID: UnsafeMutablePointer<UInt64>) -> kern_return_t
-func IORegistryEntryCreateCFProperties(entry: io_registry_entry_t, _ properties: UnsafeMutablePointer<Unmanaged<CFMutableDictionary>?>, _ allocator: CFAllocator!, _ options: IOOptionBits) -> kern_return_t
-func IORegistryEntryCreateCFProperty(entry: io_registry_entry_t, _ key: CFString!, _ allocator: CFAllocator!, _ options: IOOptionBits) -> Unmanaged<CFTypeRef>!
-func IORegistryEntrySearchCFProperty(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ key: CFString!, _ allocator: CFAllocator!, _ options: IOOptionBits) -> CFTypeRef!
-func IORegistryEntryGetProperty(entry: io_registry_entry_t, _ propertyName: UnsafePointer<Int8>, _ buffer: UnsafeMutablePointer<Int8>, _ size: UnsafeMutablePointer<UInt32>) -> kern_return_t
-func IORegistryEntrySetCFProperties(entry: io_registry_entry_t, _ properties: CFTypeRef!) -> kern_return_t
-func IORegistryEntrySetCFProperty(entry: io_registry_entry_t, _ propertyName: CFString!, _ property: CFTypeRef!) -> kern_return_t
-func IORegistryEntryGetChildIterator(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IORegistryEntryGetChildEntry(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ child: UnsafeMutablePointer<io_registry_entry_t>) -> kern_return_t
-func IORegistryEntryGetParentIterator(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
-func IORegistryEntryGetParentEntry(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ parent: UnsafeMutablePointer<io_registry_entry_t>) -> kern_return_t
-func IORegistryEntryInPlane(entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>) -> boolean_t
-func IOServiceMatching(name: UnsafePointer<Int8>) -> CFMutableDictionary!
-func IOServiceNameMatching(name: UnsafePointer<Int8>) -> CFMutableDictionary!
-func IOBSDNameMatching(masterPort: mach_port_t, _ options: UInt32, _ bsdName: UnsafePointer<Int8>) -> CFMutableDictionary!
+func IORegistryEntryCopyPath(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>) -> Unmanaged<CFString>!
+func IORegistryEntryGetRegistryEntryID(_ entry: io_registry_entry_t, _ entryID: UnsafeMutablePointer<UInt64>) -> kern_return_t
+func IORegistryEntryCreateCFProperties(_ entry: io_registry_entry_t, _ properties: UnsafeMutablePointer<Unmanaged<CFMutableDictionary>?>, _ allocator: CFAllocator!, _ options: IOOptionBits) -> kern_return_t
+func IORegistryEntryCreateCFProperty(_ entry: io_registry_entry_t, _ key: CFString!, _ allocator: CFAllocator!, _ options: IOOptionBits) -> Unmanaged<CFTypeRef>!
+func IORegistryEntrySearchCFProperty(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ key: CFString!, _ allocator: CFAllocator!, _ options: IOOptionBits) -> CFTypeRef!
+func IORegistryEntryGetProperty(_ entry: io_registry_entry_t, _ propertyName: UnsafePointer<Int8>, _ buffer: UnsafeMutablePointer<Int8>, _ size: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IORegistryEntrySetCFProperties(_ entry: io_registry_entry_t, _ properties: CFTypeRef!) -> kern_return_t
+func IORegistryEntrySetCFProperty(_ entry: io_registry_entry_t, _ propertyName: CFString!, _ property: CFTypeRef!) -> kern_return_t
+func IORegistryEntryGetChildIterator(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IORegistryEntryGetChildEntry(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ child: UnsafeMutablePointer<io_registry_entry_t>) -> kern_return_t
+func IORegistryEntryGetParentIterator(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ iterator: UnsafeMutablePointer<io_iterator_t>) -> kern_return_t
+func IORegistryEntryGetParentEntry(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>, _ parent: UnsafeMutablePointer<io_registry_entry_t>) -> kern_return_t
+func IORegistryEntryInPlane(_ entry: io_registry_entry_t, _ plane: UnsafePointer<Int8>) -> boolean_t
+func IOServiceMatching(_ name: UnsafePointer<Int8>) -> CFMutableDictionary!
+func IOServiceNameMatching(_ name: UnsafePointer<Int8>) -> CFMutableDictionary!
+func IOBSDNameMatching(_ masterPort: mach_port_t, _ options: UInt32, _ bsdName: UnsafePointer<Int8>) -> CFMutableDictionary!
 @available(*, deprecated)
-func IOOpenFirmwarePathMatching(masterPort: mach_port_t, _ options: UInt32, _ path: UnsafePointer<Int8>) -> Unmanaged<CFMutableDictionary>!
-func IORegistryEntryIDMatching(entryID: UInt64) -> CFMutableDictionary!
+func IOOpenFirmwarePathMatching(_ masterPort: mach_port_t, _ options: UInt32, _ path: UnsafePointer<Int8>) -> Unmanaged<CFMutableDictionary>!
+func IORegistryEntryIDMatching(_ entryID: UInt64) -> CFMutableDictionary!
 @available(*, deprecated)
-func IOServiceOFPathToBSDName(masterPort: mach_port_t, _ openFirmwarePath: UnsafePointer<Int8>, _ bsdName: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IOServiceOFPathToBSDName(_ masterPort: mach_port_t, _ openFirmwarePath: UnsafePointer<Int8>, _ bsdName: UnsafeMutablePointer<Int8>) -> kern_return_t
 typealias IOAsyncCallback0 = @convention(c) (UnsafeMutablePointer<Void>, IOReturn) -> Void
 typealias IOAsyncCallback1 = @convention(c) (UnsafeMutablePointer<Void>, IOReturn, UnsafeMutablePointer<Void>) -> Void
 typealias IOAsyncCallback2 = @convention(c) (UnsafeMutablePointer<Void>, IOReturn, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> Void
 typealias IOAsyncCallback = @convention(c) (UnsafeMutablePointer<Void>, IOReturn, UnsafeMutablePointer<UnsafeMutablePointer<Void>>, UInt32) -> Void
-func OSGetNotificationFromMessage(msg: UnsafeMutablePointer<mach_msg_header_t>, _ index: UInt32, _ type: UnsafeMutablePointer<UInt32>, _ reference: UnsafeMutablePointer<UInt>, _ content: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ size: UnsafeMutablePointer<vm_size_t>) -> kern_return_t
-func IOCatalogueSendData(masterPort: mach_port_t, _ flag: UInt32, _ buffer: UnsafePointer<Int8>, _ size: UInt32) -> kern_return_t
-func IOCatalogueTerminate(masterPort: mach_port_t, _ flag: UInt32, _ description: UnsafeMutablePointer<Int8>) -> kern_return_t
-func IOCatalogueGetData(masterPort: mach_port_t, _ flag: UInt32, _ buffer: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ size: UnsafeMutablePointer<UInt32>) -> kern_return_t
-func IOCatalogueModuleLoaded(masterPort: mach_port_t, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
-func IOCatalogueReset(masterPort: mach_port_t, _ flag: UInt32) -> kern_return_t
+func OSGetNotificationFromMessage(_ msg: UnsafeMutablePointer<mach_msg_header_t>, _ index: UInt32, _ type: UnsafeMutablePointer<UInt32>, _ reference: UnsafeMutablePointer<UInt>, _ content: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ size: UnsafeMutablePointer<vm_size_t>) -> kern_return_t
+func IOCatalogueSendData(_ masterPort: mach_port_t, _ flag: UInt32, _ buffer: UnsafePointer<Int8>, _ size: UInt32) -> kern_return_t
+func IOCatalogueTerminate(_ masterPort: mach_port_t, _ flag: UInt32, _ description: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IOCatalogueGetData(_ masterPort: mach_port_t, _ flag: UInt32, _ buffer: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ size: UnsafeMutablePointer<UInt32>) -> kern_return_t
+func IOCatalogueModuleLoaded(_ masterPort: mach_port_t, _ name: UnsafeMutablePointer<Int8>) -> kern_return_t
+func IOCatalogueReset(_ masterPort: mach_port_t, _ flag: UInt32) -> kern_return_t
 struct IOCFPlugInInterfaceStruct {
   var _reserved: UnsafeMutablePointer<Void>
   var QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!
@@ -393,16 +393,16 @@ struct IOCFPlugInInterfaceStruct {
   var Start: (@convention(c) (UnsafeMutablePointer<Void>, CFDictionary!, io_service_t) -> IOReturn)!
   var Stop: (@convention(c) (UnsafeMutablePointer<Void>) -> IOReturn)!
   init()
-  init(_reserved: UnsafeMutablePointer<Void>, QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, version: UInt16, revision: UInt16, Probe: (@convention(c) (UnsafeMutablePointer<Void>, CFDictionary!, io_service_t, UnsafeMutablePointer<Int32>) -> IOReturn)!, Start: (@convention(c) (UnsafeMutablePointer<Void>, CFDictionary!, io_service_t) -> IOReturn)!, Stop: (@convention(c) (UnsafeMutablePointer<Void>) -> IOReturn)!)
+  init(_reserved _reserved: UnsafeMutablePointer<Void>, QueryInterface QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, version version: UInt16, revision revision: UInt16, Probe Probe: (@convention(c) (UnsafeMutablePointer<Void>, CFDictionary!, io_service_t, UnsafeMutablePointer<Int32>) -> IOReturn)!, Start Start: (@convention(c) (UnsafeMutablePointer<Void>, CFDictionary!, io_service_t) -> IOReturn)!, Stop Stop: (@convention(c) (UnsafeMutablePointer<Void>) -> IOReturn)!)
 }
 typealias IOCFPlugInInterface = IOCFPlugInInterfaceStruct
-func IOCreatePlugInInterfaceForService(service: io_service_t, _ pluginType: CFUUID!, _ interfaceType: CFUUID!, _ theInterface: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<IOCFPlugInInterface>>>, _ theScore: UnsafeMutablePointer<Int32>) -> kern_return_t
-func IODestroyPlugInInterface(interface: UnsafeMutablePointer<UnsafeMutablePointer<IOCFPlugInInterface>>) -> kern_return_t
+func IOCreatePlugInInterfaceForService(_ service: io_service_t, _ pluginType: CFUUID!, _ interfaceType: CFUUID!, _ theInterface: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<IOCFPlugInInterface>>>, _ theScore: UnsafeMutablePointer<Int32>) -> kern_return_t
+func IODestroyPlugInInterface(_ interface: UnsafeMutablePointer<UnsafeMutablePointer<IOCFPlugInInterface>>) -> kern_return_t
 var kIOCFSerializeToBinary: Int { get }
-func IOCFSerialize(object: CFTypeRef!, _ options: CFOptionFlags) -> CFData!
-func IOURLCreatePropertyFromResource(alloc: CFAllocator!, _ url: CFURL!, _ property: CFString!, _ errorCode: UnsafeMutablePointer<Int32>) -> Unmanaged<CFTypeRef>!
-func IOURLCreateDataAndPropertiesFromResource(alloc: CFAllocator!, _ url: CFURL!, _ resourceData: UnsafeMutablePointer<Unmanaged<CFData>?>, _ properties: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ desiredProperties: CFArray!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
-func IOURLWriteDataAndPropertiesToResource(url: CFURL!, _ dataToWrite: CFData!, _ propertiesToWrite: CFDictionary!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
+func IOCFSerialize(_ object: CFTypeRef!, _ options: CFOptionFlags) -> CFData!
+func IOURLCreatePropertyFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ property: CFString!, _ errorCode: UnsafeMutablePointer<Int32>) -> Unmanaged<CFTypeRef>!
+func IOURLCreateDataAndPropertiesFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ resourceData: UnsafeMutablePointer<Unmanaged<CFData>?>, _ properties: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ desiredProperties: CFArray!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
+func IOURLWriteDataAndPropertiesToResource(_ url: CFURL!, _ dataToWrite: CFData!, _ propertiesToWrite: CFDictionary!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
 var kIOURLFileExists: String { get }
 var kIOURLFileDirectoryContents: String { get }
 var kIOURLFileLength: String { get }
@@ -411,7 +411,7 @@ var kIOURLFilePOSIXMode: String { get }
 var kIOURLFileOwnerID: String { get }
 struct IOURLError : RawRepresentable, Equatable {
   init(_ rawValue: Int32)
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   var rawValue: Int32
 }
 var kIOURLUnknownError: IOURLError { get }
@@ -441,7 +441,7 @@ var kIOCatalogResetDefault: Int { get }
 var kIOCatalogModuleUnload: Int { get }
 var kIOCatalogModuleTerminate: Int { get }
 var kIOCatalogServiceTerminate: Int { get }
-func IOCFUnserialize(buffer: UnsafePointer<Int8>, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
-func IOCFUnserializeBinary(buffer: UnsafePointer<Int8>, _ bufferSize: Int, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
-func IOCFUnserializeWithSize(buffer: UnsafePointer<Int8>, _ bufferSize: Int, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
+func IOCFUnserialize(_ buffer: UnsafePointer<Int8>, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
+func IOCFUnserializeBinary(_ buffer: UnsafePointer<Int8>, _ bufferSize: Int, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
+func IOCFUnserializeWithSize(_ buffer: UnsafePointer<Int8>, _ bufferSize: Int, _ allocator: CFAllocator!, _ options: CFOptionFlags, _ errorString: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef!
 typealias IOMessage = UInt32

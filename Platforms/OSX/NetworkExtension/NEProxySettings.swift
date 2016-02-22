@@ -2,7 +2,7 @@
 @available(OSX 10.11, *)
 class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
-  init(address: String, port: Int)
+  init(address address: String, port port: Int)
   @available(OSX 10.11, *)
   var address: String { get }
   @available(OSX 10.11, *)

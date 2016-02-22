@@ -13,7 +13,7 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
   var orthographicScale: Double
   func projectionTransform() -> SCNMatrix4
   @available(iOS 8.0, *)
-  func setProjectionTransform(projectionTransform: SCNMatrix4)
+  func setProjectionTransform(_ projectionTransform: SCNMatrix4)
   @available(iOS 8.0, *)
   var focalDistance: CGFloat
   @available(iOS 8.0, *)
@@ -26,7 +26,7 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
   var categoryBitMask: Int
   init()
   @available(iOS 8.0, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(iOS 8.0, *)
   func removeAllAnimations()
   @available(iOS 8.0, *)

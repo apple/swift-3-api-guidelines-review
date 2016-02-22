@@ -1,6 +1,6 @@
 
 enum NSProgressIndicatorThickness : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case preferredThickness
   case preferredSmallThickness
@@ -8,7 +8,7 @@ enum NSProgressIndicatorThickness : UInt {
   case preferredAquaThickness
 }
 enum NSProgressIndicatorStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case barStyle
   case spinningStyle
@@ -23,13 +23,13 @@ class NSProgressIndicator : NSView, NSAccessibilityProgressIndicator {
   var minValue: Double
   var maxValue: Double
   var usesThreadedAnimation: Bool
-  func startAnimation(sender: AnyObject?)
-  func stopAnimation(sender: AnyObject?)
+  func startAnimation(_ sender: AnyObject?)
+  func stopAnimation(_ sender: AnyObject?)
   var style: NSProgressIndicatorStyle
   func sizeToFit()
   var isDisplayedWhenStopped: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   func accessibilityValue() -> NSNumber?
 }
@@ -51,7 +51,7 @@ struct __progressIndicatorFlags {
   var _isDetaching: UInt32
   var RESERVED: UInt32
   init()
-  init(isSpinning: UInt32, isVector: UInt32, isLocked: UInt32, controlTint: UInt32, controlSize: UInt32, style: UInt32, _delayedStartup: UInt32, hideWhenStopped: UInt32, revive: UInt32, _temporarilyBlockHeartBeating: UInt32, _isHidden: UInt32, _isHeartBeatInstalled: UInt32, _customRenderer: UInt32, _lastFrame: UInt32, _isDetaching: UInt32, RESERVED: UInt32)
+  init(isSpinning isSpinning: UInt32, isVector isVector: UInt32, isLocked isLocked: UInt32, controlTint controlTint: UInt32, controlSize controlSize: UInt32, style style: UInt32, _delayedStartup _delayedStartup: UInt32, hideWhenStopped hideWhenStopped: UInt32, revive revive: UInt32, _temporarilyBlockHeartBeating _temporarilyBlockHeartBeating: UInt32, _isHidden _isHidden: UInt32, _isHeartBeatInstalled _isHeartBeatInstalled: UInt32, _customRenderer _customRenderer: UInt32, _lastFrame _lastFrame: UInt32, _isDetaching _isDetaching: UInt32, RESERVED RESERVED: UInt32)
 }
 extension NSProgressIndicator {
 }

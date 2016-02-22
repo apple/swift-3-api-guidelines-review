@@ -1,7 +1,7 @@
 
 var __FOUNDATION_NSPOINTERFUNCTIONS__: Int32 { get }
 struct NSPointerFunctionsOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   @available(tvOS 6.0, *)
   static var strongMemory: NSPointerFunctionsOptions { get }
@@ -30,7 +30,7 @@ struct NSPointerFunctionsOptions : OptionSetType {
 }
 @available(tvOS 6.0, *)
 class NSPointerFunctions : NSObject, NSCopying {
-  init(options: NSPointerFunctionsOptions = [])
+  init(options options: NSPointerFunctionsOptions = [])
   var hashFunction: (@convention(c) (UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> Int)?
   var isEqualFunction: (@convention(c) (UnsafePointer<Void>, UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> ObjCBool)?
   var sizeFunction: (@convention(c) (UnsafePointer<Void>) -> Int)?

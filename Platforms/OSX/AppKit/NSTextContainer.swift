@@ -2,11 +2,11 @@
 @available(OSX 10.0, *)
 class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   @available(OSX 10.11, *)
-  init(size: NSSize)
-  init(coder: NSCoder)
+  init(size size: NSSize)
+  init(coder coder: NSCoder)
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
   @available(OSX 10.0, *)
-  func replaceLayoutManager(newLayoutManager: NSLayoutManager)
+  func replaceLayoutManager(_ newLayoutManager: NSLayoutManager)
   @available(OSX 10.11, *)
   var size: NSSize
   @available(OSX 10.11, *)
@@ -37,10 +37,10 @@ struct __tcFlags {
   var oldAPI: UInt16
   var _reserved: UInt16
   init()
-  init(widthTracksTextView: UInt16, heightTracksTextView: UInt16, observingFrameChanges: UInt16, lineBreakMode: UInt16, oldAPI: UInt16, _reserved: UInt16)
+  init(widthTracksTextView widthTracksTextView: UInt16, heightTracksTextView heightTracksTextView: UInt16, observingFrameChanges observingFrameChanges: UInt16, lineBreakMode lineBreakMode: UInt16, oldAPI oldAPI: UInt16, _reserved _reserved: UInt16)
 }
 enum NSLineSweepDirection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case left
   case right
@@ -48,7 +48,7 @@ enum NSLineSweepDirection : UInt {
   case up
 }
 enum NSLineMovementDirection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case doesntMove
   case movesLeft
@@ -59,7 +59,7 @@ enum NSLineMovementDirection : UInt {
 extension NSTextContainer {
   convenience init(containerSize aContainerSize: NSSize)
   var containerSize: NSSize
-  func lineFragmentRect(forProposedRect proposedRect: NSRect, sweepDirection: NSLineSweepDirection, movementDirection: NSLineMovementDirection, remaining remainingRect: NSRectPointer) -> NSRect
+  func lineFragmentRect(forProposedRect proposedRect: NSRect, sweepDirection sweepDirection: NSLineSweepDirection, movementDirection movementDirection: NSLineMovementDirection, remaining remainingRect: NSRectPointer) -> NSRect
   @available(OSX, introduced=10.0, deprecated=10.11)
-  func contains(point: NSPoint) -> Bool
+  func contains(_ point: NSPoint) -> Bool
 }

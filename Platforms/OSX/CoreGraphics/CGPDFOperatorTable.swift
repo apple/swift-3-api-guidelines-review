@@ -4,8 +4,8 @@ typealias CGPDFOperatorCallback = @convention(c) (CGPDFScannerRef, UnsafeMutable
 @available(OSX 10.4, *)
 func CGPDFOperatorTableCreate() -> CGPDFOperatorTableRef
 @available(OSX 10.4, *)
-func CGPDFOperatorTableRetain(table: CGPDFOperatorTableRef) -> CGPDFOperatorTableRef
+func CGPDFOperatorTableRetain(_ table: CGPDFOperatorTableRef) -> CGPDFOperatorTableRef
 @available(OSX 10.4, *)
-func CGPDFOperatorTableRelease(table: CGPDFOperatorTableRef)
+func CGPDFOperatorTableRelease(_ table: CGPDFOperatorTableRef)
 @available(OSX 10.4, *)
-func CGPDFOperatorTableSetCallback(table: CGPDFOperatorTableRef, _ name: UnsafePointer<Int8>, _ callback: CGPDFOperatorCallback?)
+func CGPDFOperatorTableSetCallback(_ table: CGPDFOperatorTableRef, _ name: UnsafePointer<Int8>, _ callback: CGPDFOperatorCallback?)

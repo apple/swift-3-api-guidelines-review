@@ -20,7 +20,7 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func playerViewControllerDidStartPicture(inPicture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
   @available(iOS 8.0, *)
   optional func playerViewControllerWillStopPicture(inPicture playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
@@ -28,5 +28,5 @@ protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
   optional func playerViewControllerShouldAutomaticallyDismissAtPicture(inPictureStart playerViewController: AVPlayerViewController) -> Bool
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
 }

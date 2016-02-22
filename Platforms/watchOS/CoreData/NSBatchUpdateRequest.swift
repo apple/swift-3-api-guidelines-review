@@ -1,8 +1,8 @@
 
 @available(watchOS 2.0, *)
 class NSBatchUpdateRequest : NSPersistentStoreRequest {
-  init(entityName: String)
-  init(entity: NSEntityDescription)
+  init(entityName entityName: String)
+  init(entity entity: NSEntityDescription)
   var entityName: String { get }
   var entity: NSEntityDescription { get }
   var predicate: NSPredicate?
@@ -17,5 +17,5 @@ struct _requestFlags {
   var entityIsName: UInt32
   var _RESERVED: UInt32
   init()
-  init(includesSubentities: UInt32, resultType: UInt32, entityIsName: UInt32, _RESERVED: UInt32)
+  init(includesSubentities includesSubentities: UInt32, resultType resultType: UInt32, entityIsName entityIsName: UInt32, _RESERVED _RESERVED: UInt32)
 }

@@ -4,9 +4,9 @@ class NSAppearance : NSObject, NSCoding {
   @available(OSX 10.9, *)
   var name: String { get }
   class func current() -> NSAppearance
-  class func setCurrentAppearance(appearance: NSAppearance?)
+  class func setCurrentAppearance(_ appearance: NSAppearance?)
   /*not inherited*/ init?(named name: String)
-  init?(appearanceNamed name: String, bundle: NSBundle?)
+  init?(appearanceNamed name: String, bundle bundle: NSBundle?)
   @available(OSX 10.10, *)
   var allowsVibrancy: Bool { get }
   init()

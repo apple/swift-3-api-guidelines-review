@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVImageType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case image
   case fullscreen

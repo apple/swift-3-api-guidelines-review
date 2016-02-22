@@ -1,6 +1,6 @@
 
 enum EAWiFiUnconfiguredAccessoryBrowserState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case wiFiUnavailable
   case stopped
@@ -8,7 +8,7 @@ enum EAWiFiUnconfiguredAccessoryBrowserState : Int {
   case configuring
 }
 enum EAWiFiUnconfiguredAccessoryConfigurationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case success
   case userCancelledConfiguration
@@ -19,7 +19,7 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
   weak var delegate: @sil_weak EAWiFiUnconfiguredAccessoryBrowserDelegate?
   var unconfiguredAccessories: Set<EAWiFiUnconfiguredAccessory> { get }
   @available(iOS 8.0, *)
-  init(delegate: EAWiFiUnconfiguredAccessoryBrowserDelegate?, queue: dispatch_queue_t?)
+  init(delegate delegate: EAWiFiUnconfiguredAccessoryBrowserDelegate?, queue queue: dispatch_queue_t?)
   @available(iOS 8.0, *)
   func startSearchingForUnconfiguredAccessories(matching predicate: NSPredicate?)
   @available(iOS 8.0, *)
@@ -28,11 +28,11 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
 }
 protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didUpdate state: EAWiFiUnconfiguredAccessoryBrowserState)
+  func accessoryBrowser(_ browser: EAWiFiUnconfiguredAccessoryBrowser, didUpdate state: EAWiFiUnconfiguredAccessoryBrowserState)
   @available(iOS 8.0, *)
-  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didFindUnconfiguredAccessories accessories: Set<EAWiFiUnconfiguredAccessory>)
+  func accessoryBrowser(_ browser: EAWiFiUnconfiguredAccessoryBrowser, didFindUnconfiguredAccessories accessories: Set<EAWiFiUnconfiguredAccessory>)
   @available(iOS 8.0, *)
-  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didRemoveUnconfiguredAccessories accessories: Set<EAWiFiUnconfiguredAccessory>)
+  func accessoryBrowser(_ browser: EAWiFiUnconfiguredAccessoryBrowser, didRemoveUnconfiguredAccessories accessories: Set<EAWiFiUnconfiguredAccessory>)
   @available(iOS 8.0, *)
-  func accessoryBrowser(browser: EAWiFiUnconfiguredAccessoryBrowser, didFinishConfiguringAccessory accessory: EAWiFiUnconfiguredAccessory, with status: EAWiFiUnconfiguredAccessoryConfigurationStatus)
+  func accessoryBrowser(_ browser: EAWiFiUnconfiguredAccessoryBrowser, didFinishConfiguringAccessory accessory: EAWiFiUnconfiguredAccessory, with status: EAWiFiUnconfiguredAccessoryConfigurationStatus)
 }

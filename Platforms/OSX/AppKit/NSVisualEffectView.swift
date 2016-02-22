@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NSVisualEffectMaterial : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case appearanceBased
   case titlebar
@@ -20,14 +20,14 @@ enum NSVisualEffectMaterial : Int {
 }
 @available(OSX 10.10, *)
 enum NSVisualEffectBlendingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case behindWindow
   case withinWindow
 }
 @available(OSX 10.10, *)
 enum NSVisualEffectState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case followsWindowActiveState
   case active
@@ -43,6 +43,6 @@ class NSVisualEffectView : NSView {
   func viewDidMoveToWindow()
   func viewWillMove(to newWindow: NSWindow?)
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

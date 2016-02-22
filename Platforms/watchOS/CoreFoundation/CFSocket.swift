@@ -2,7 +2,7 @@
 class CFSocket {
 }
 enum CFSocketError : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case success
   case error
@@ -14,10 +14,10 @@ struct CFSocketSignature {
   var `protocol`: Int32
   var address: Unmanaged<CFData>!
   init()
-  init(protocolFamily: Int32, socketType: Int32, protocol: Int32, address: Unmanaged<CFData>!)
+  init(protocolFamily protocolFamily: Int32, socketType socketType: Int32, protocol protocol: Int32, address address: Unmanaged<CFData>!)
 }
 struct CFSocketCallBackType : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var noCallBack: CFSocketCallBackType { get }
   static var readCallBack: CFSocketCallBackType { get }
@@ -41,34 +41,34 @@ struct CFSocketContext {
   var release: (@convention(c) (UnsafePointer<Void>) -> Void)!
   var copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>!)!
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)!, release: (@convention(c) (UnsafePointer<Void>) -> Void)!, copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>!)!)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)!, release release: (@convention(c) (UnsafePointer<Void>) -> Void)!, copyDescription copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>!)!)
 }
 typealias CFSocketNativeHandle = Int32
 func CFSocketGetTypeID() -> CFTypeID
-func CFSocketCreate(allocator: CFAllocator!, _ protocolFamily: Int32, _ socketType: Int32, _ protocol: Int32, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
-func CFSocketCreateWithNative(allocator: CFAllocator!, _ sock: CFSocketNativeHandle, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
-func CFSocketCreateWithSocketSignature(allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
-func CFSocketCreateConnectedToSocketSignature(allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>, _ timeout: CFTimeInterval) -> CFSocket!
-func CFSocketSetAddress(s: CFSocket!, _ address: CFData!) -> CFSocketError
-func CFSocketConnectToAddress(s: CFSocket!, _ address: CFData!, _ timeout: CFTimeInterval) -> CFSocketError
-func CFSocketInvalidate(s: CFSocket!)
-func CFSocketIsValid(s: CFSocket!) -> Bool
-func CFSocketCopyAddress(s: CFSocket!) -> CFData!
-func CFSocketCopyPeerAddress(s: CFSocket!) -> CFData!
-func CFSocketGetContext(s: CFSocket!, _ context: UnsafeMutablePointer<CFSocketContext>)
-func CFSocketGetNative(s: CFSocket!) -> CFSocketNativeHandle
-func CFSocketCreateRunLoopSource(allocator: CFAllocator!, _ s: CFSocket!, _ order: CFIndex) -> CFRunLoopSource!
-func CFSocketGetSocketFlags(s: CFSocket!) -> CFOptionFlags
-func CFSocketSetSocketFlags(s: CFSocket!, _ flags: CFOptionFlags)
-func CFSocketDisableCallBacks(s: CFSocket!, _ callBackTypes: CFOptionFlags)
-func CFSocketEnableCallBacks(s: CFSocket!, _ callBackTypes: CFOptionFlags)
-func CFSocketSendData(s: CFSocket!, _ address: CFData!, _ data: CFData!, _ timeout: CFTimeInterval) -> CFSocketError
-func CFSocketRegisterValue(nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ value: CFPropertyList!) -> CFSocketError
-func CFSocketCopyRegisteredValue(nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ value: UnsafeMutablePointer<Unmanaged<CFPropertyList>?>, _ nameServerAddress: UnsafeMutablePointer<Unmanaged<CFData>?>) -> CFSocketError
-func CFSocketRegisterSocketSignature(nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ signature: UnsafePointer<CFSocketSignature>) -> CFSocketError
-func CFSocketCopyRegisteredSocketSignature(nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ signature: UnsafeMutablePointer<CFSocketSignature>, _ nameServerAddress: UnsafeMutablePointer<Unmanaged<CFData>?>) -> CFSocketError
-func CFSocketUnregister(nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!) -> CFSocketError
-func CFSocketSetDefaultNameRegistryPortNumber(port: UInt16)
+func CFSocketCreate(_ allocator: CFAllocator!, _ protocolFamily: Int32, _ socketType: Int32, _ protocol: Int32, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
+func CFSocketCreateWithNative(_ allocator: CFAllocator!, _ sock: CFSocketNativeHandle, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
+func CFSocketCreateWithSocketSignature(_ allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>) -> CFSocket!
+func CFSocketCreateConnectedToSocketSignature(_ allocator: CFAllocator!, _ signature: UnsafePointer<CFSocketSignature>, _ callBackTypes: CFOptionFlags, _ callout: CFSocketCallBack!, _ context: UnsafePointer<CFSocketContext>, _ timeout: CFTimeInterval) -> CFSocket!
+func CFSocketSetAddress(_ s: CFSocket!, _ address: CFData!) -> CFSocketError
+func CFSocketConnectToAddress(_ s: CFSocket!, _ address: CFData!, _ timeout: CFTimeInterval) -> CFSocketError
+func CFSocketInvalidate(_ s: CFSocket!)
+func CFSocketIsValid(_ s: CFSocket!) -> Bool
+func CFSocketCopyAddress(_ s: CFSocket!) -> CFData!
+func CFSocketCopyPeerAddress(_ s: CFSocket!) -> CFData!
+func CFSocketGetContext(_ s: CFSocket!, _ context: UnsafeMutablePointer<CFSocketContext>)
+func CFSocketGetNative(_ s: CFSocket!) -> CFSocketNativeHandle
+func CFSocketCreateRunLoopSource(_ allocator: CFAllocator!, _ s: CFSocket!, _ order: CFIndex) -> CFRunLoopSource!
+func CFSocketGetSocketFlags(_ s: CFSocket!) -> CFOptionFlags
+func CFSocketSetSocketFlags(_ s: CFSocket!, _ flags: CFOptionFlags)
+func CFSocketDisableCallBacks(_ s: CFSocket!, _ callBackTypes: CFOptionFlags)
+func CFSocketEnableCallBacks(_ s: CFSocket!, _ callBackTypes: CFOptionFlags)
+func CFSocketSendData(_ s: CFSocket!, _ address: CFData!, _ data: CFData!, _ timeout: CFTimeInterval) -> CFSocketError
+func CFSocketRegisterValue(_ nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ value: CFPropertyList!) -> CFSocketError
+func CFSocketCopyRegisteredValue(_ nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ value: UnsafeMutablePointer<Unmanaged<CFPropertyList>?>, _ nameServerAddress: UnsafeMutablePointer<Unmanaged<CFData>?>) -> CFSocketError
+func CFSocketRegisterSocketSignature(_ nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ signature: UnsafePointer<CFSocketSignature>) -> CFSocketError
+func CFSocketCopyRegisteredSocketSignature(_ nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!, _ signature: UnsafeMutablePointer<CFSocketSignature>, _ nameServerAddress: UnsafeMutablePointer<Unmanaged<CFData>?>) -> CFSocketError
+func CFSocketUnregister(_ nameServerSignature: UnsafePointer<CFSocketSignature>, _ timeout: CFTimeInterval, _ name: CFString!) -> CFSocketError
+func CFSocketSetDefaultNameRegistryPortNumber(_ port: UInt16)
 func CFSocketGetDefaultNameRegistryPortNumber() -> UInt16
 let kCFSocketCommandKey: CFString!
 let kCFSocketNameKey: CFString!

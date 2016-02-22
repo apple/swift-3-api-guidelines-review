@@ -1,7 +1,7 @@
 
 typealias unichar = UInt16
 struct NSStringCompareOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var caseInsensitiveSearch: NSStringCompareOptions { get }
   static var literalSearch: NSStringCompareOptions { get }
@@ -41,7 +41,7 @@ var NSUTF32StringEncoding: UInt { get }
 var NSUTF32BigEndianStringEncoding: UInt { get }
 var NSUTF32LittleEndianStringEncoding: UInt { get }
 struct NSStringEncodingConversionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var allowLossy: NSStringEncodingConversionOptions { get }
   static var externalRepresentation: NSStringEncodingConversionOptions { get }
@@ -67,12 +67,12 @@ extension NSString : StringLiteralConvertible {
 }
 
 extension NSString {
-  convenience init(format: NSString, _ args: CVarArgType...)
-  convenience init(format: NSString, locale: NSLocale?, _ args: CVarArgType...)
+  convenience init(format format: NSString, _ args: CVarArgType...)
+  convenience init(format format: NSString, locale locale: NSLocale?, _ args: CVarArgType...)
   @warn_unused_result
-  class func localizedStringWithFormat(format: NSString, _ args: CVarArgType...) -> Self
+  class func localizedStringWithFormat(_ format: NSString, _ args: CVarArgType...) -> Self
   @warn_unused_result
-  func stringByAppendingFormat(format: NSString, _ args: CVarArgType...) -> NSString
+  func stringByAppendingFormat(_ format: NSString, _ args: CVarArgType...) -> NSString
 }
 
 extension NSString {
@@ -86,40 +86,40 @@ extension NSString {
   func substring(from from: Int) -> String
   func substring(to to: Int) -> String
   func substring(with range: NSRange) -> String
-  func getCharacters(buffer: UnsafeMutablePointer<unichar>, range: NSRange)
-  func compare(string: String) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = []) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange) -> NSComparisonResult
-  func compare(string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange, locale: AnyObject?) -> NSComparisonResult
-  func caseInsensitiveCompare(string: String) -> NSComparisonResult
-  func localizedCompare(string: String) -> NSComparisonResult
-  func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult
+  func getCharacters(_ buffer: UnsafeMutablePointer<unichar>, range range: NSRange)
+  func compare(_ string: String) -> NSComparisonResult
+  func compare(_ string: String, options mask: NSStringCompareOptions = []) -> NSComparisonResult
+  func compare(_ string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange) -> NSComparisonResult
+  func compare(_ string: String, options mask: NSStringCompareOptions = [], range compareRange: NSRange, locale locale: AnyObject?) -> NSComparisonResult
+  func caseInsensitiveCompare(_ string: String) -> NSComparisonResult
+  func localizedCompare(_ string: String) -> NSComparisonResult
+  func localizedCaseInsensitiveCompare(_ string: String) -> NSComparisonResult
   @available(OSX 10.6, *)
-  func localizedStandardCompare(string: String) -> NSComparisonResult
+  func localizedStandardCompare(_ string: String) -> NSComparisonResult
   func isEqual(to aString: String) -> Bool
-  func hasPrefix(str: String) -> Bool
-  func hasSuffix(str: String) -> Bool
+  func hasPrefix(_ str: String) -> Bool
+  func hasSuffix(_ str: String) -> Bool
   func commonPrefix(with str: String, options mask: NSStringCompareOptions = []) -> String
   @available(OSX 10.10, *)
-  func contains(str: String) -> Bool
+  func contains(_ str: String) -> Bool
   @available(OSX 10.10, *)
-  func localizedCaseInsensitiveContains(str: String) -> Bool
+  func localizedCaseInsensitiveContains(_ str: String) -> Bool
   @available(OSX 10.11, *)
-  func localizedStandardContains(str: String) -> Bool
+  func localizedStandardContains(_ str: String) -> Bool
   @available(OSX 10.11, *)
-  func localizedStandardRangeOf(str: String) -> NSRange
-  func rangeOf(searchString: String) -> NSRange
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func localizedStandardRangeOf(_ str: String) -> NSRange
+  func rangeOf(_ searchString: String) -> NSRange
+  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
+  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
   @available(OSX 10.5, *)
-  func rangeOf(searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale: NSLocale?) -> NSRange
+  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale locale: NSLocale?) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet, options mask: NSStringCompareOptions = []) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
   func rangeOfComposedCharacterSequence(at index: Int) -> NSRange
   @available(OSX 10.5, *)
   func rangeOfComposedCharacterSequences(for range: NSRange) -> NSRange
-  func appending(aString: String) -> String
+  func appending(_ aString: String) -> String
   var doubleValue: Double { get }
   var floatValue: Float { get }
   var intValue: Int32 { get }
@@ -144,14 +144,14 @@ extension NSString {
   func lowercaseString(with locale: NSLocale?) -> String
   @available(OSX 10.8, *)
   func capitalizedString(with locale: NSLocale?) -> String
-  func getLineStart(startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
+  func getLineStart(_ startPtr: UnsafeMutablePointer<Int>, end lineEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
   func lineRange(for range: NSRange) -> NSRange
-  func getParagraphStart(startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
+  func getParagraphStart(_ startPtr: UnsafeMutablePointer<Int>, end parEndPtr: UnsafeMutablePointer<Int>, contentsEnd contentsEndPtr: UnsafeMutablePointer<Int>, for range: NSRange)
   func paragraphRange(for range: NSRange) -> NSRange
   @available(OSX 10.6, *)
   func enumerateSubstrings(in range: NSRange, options opts: NSStringEnumerationOptions = [], using block: (String?, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.6, *)
-  func enumerateLines(block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLines(_ block: (String, UnsafeMutablePointer<ObjCBool>) -> Void)
   var utf8String: UnsafePointer<Int8> { get }
   var fastestEncoding: UInt { get }
   var smallestEncoding: UInt { get }
@@ -159,8 +159,8 @@ extension NSString {
   func data(usingEncoding encoding: UInt) -> NSData?
   func canBeConverted(toEncoding encoding: UInt) -> Bool
   func cString(usingEncoding encoding: UInt) -> UnsafePointer<Int8>
-  func getCString(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding: UInt) -> Bool
-  func getBytes(buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding: UInt, options: NSStringEncodingConversionOptions = [], range: NSRange, remaining leftover: NSRangePointer) -> Bool
+  func getCString(_ buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferCount: Int, encoding encoding: UInt) -> Bool
+  func getBytes(_ buffer: UnsafeMutablePointer<Void>, maxLength maxBufferCount: Int, usedLength usedBufferCount: UnsafeMutablePointer<Int>, encoding encoding: UInt, options options: NSStringEncodingConversionOptions = [], range range: NSRange, remaining leftover: NSRangePointer) -> Bool
   func maximumLengthOfBytes(usingEncoding enc: UInt) -> Int
   func lengthOfBytes(usingEncoding enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
@@ -176,36 +176,36 @@ extension NSString {
   func trimmingCharacters(in set: NSCharacterSet) -> String
   func padding(toLength newLength: Int, with padString: String, startingAt padIndex: Int) -> String
   @available(OSX 10.5, *)
-  func folding(options: NSStringCompareOptions = [], locale: NSLocale?) -> String
+  func folding(_ options: NSStringCompareOptions = [], locale locale: NSLocale?) -> String
   @available(OSX 10.5, *)
-  func replacingOccurrencesOf(target: String, with replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
+  func replacingOccurrencesOf(_ target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
   @available(OSX 10.5, *)
-  func replacingOccurrencesOf(target: String, with replacement: String) -> String
+  func replacingOccurrencesOf(_ target: String, with replacement: String) -> String
   @available(OSX 10.5, *)
   func replacingCharacters(in range: NSRange, with replacement: String) -> String
   @available(OSX 10.11, *)
-  func applyingTransform(transform: String, reverse: Bool) -> String?
+  func applyingTransform(_ transform: String, reverse reverse: Bool) -> String?
   func write(to url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   func write(toFile path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   var description: String { get }
   var hash: Int { get }
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
+  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
+  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(format format: String, arguments argList: CVaListPointer)
+  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
+  convenience init?(data data: NSData, encoding encoding: UInt)
+  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
+  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
   convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
   convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 struct NSStringEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var byLines: NSStringEnumerationOptions { get }
   static var byParagraphs: NSStringEnumerationOptions { get }
@@ -250,7 +250,7 @@ let NSStringTransformStripCombiningMarks: String
 let NSStringTransformStripDiacritics: String
 extension NSString {
   @available(OSX 10.10, *)
-  class func stringEncoding(for data: NSData, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
+  class func stringEncoding(for data: NSData, encodingOptions opts: [String : AnyObject]? = [:], convertedString string: AutoreleasingUnsafeMutablePointer<NSString?>, usedLossyConversion usedLossyConversion: UnsafeMutablePointer<ObjCBool>) -> UInt
 }
 @available(OSX 10.10, *)
 let NSStringEncodingDetectionSuggestedEncodingsKey: String
@@ -270,16 +270,16 @@ class NSMutableString : NSString {
   func replaceCharacters(in range: NSRange, with aString: String)
   init()
   init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
+  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
+  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(format format: String, arguments argList: CVaListPointer)
+  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
+  convenience init?(data data: NSData, encoding encoding: UInt)
+  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
+  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
   convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
@@ -287,17 +287,17 @@ class NSMutableString : NSString {
 }
 
 extension NSMutableString {
-  func appendFormat(format: NSString, _ args: CVarArgType...)
+  func appendFormat(_ format: NSString, _ args: CVarArgType...)
 }
 extension NSMutableString {
-  func insert(aString: String, at loc: Int)
+  func insert(_ aString: String, at loc: Int)
   func deleteCharacters(in range: NSRange)
-  func append(aString: String)
-  func setString(aString: String)
-  func replaceOccurrencesOf(target: String, with replacement: String, options: NSStringCompareOptions = [], range searchRange: NSRange) -> Int
+  func append(_ aString: String)
+  func setString(_ aString: String)
+  func replaceOccurrencesOf(_ target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> Int
   @available(OSX 10.11, *)
-  func applyTransform(transform: String, reverse: Bool, range: NSRange, updatedRange resultingRange: NSRangePointer) -> Bool
-  init(capacity: Int)
+  func applyTransform(_ transform: String, reverse reverse: Bool, range range: NSRange, updatedRange resultingRange: NSRangePointer) -> Bool
+  init(capacity capacity: Int)
 }
 let NSCharacterConversionException: String
 let NSParseErrorException: String
@@ -306,22 +306,22 @@ extension NSString {
   func propertyListFromStringsFileFormat() -> [NSObject : AnyObject]?
 }
 extension NSString {
-  func getCharacters(buffer: UnsafeMutablePointer<unichar>)
+  func getCharacters(_ buffer: UnsafeMutablePointer<unichar>)
 }
 var NSProprietaryStringEncoding: UInt { get }
 class NSSimpleCString : NSString {
   init()
   init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
+  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
+  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(format format: String, arguments argList: CVaListPointer)
+  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
+  convenience init?(data data: NSData, encoding encoding: UInt)
+  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
+  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
   convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
@@ -330,16 +330,16 @@ class NSSimpleCString : NSString {
 class NSConstantString : NSSimpleCString {
   init()
   init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
+  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
+  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(format format: String, arguments argList: CVaListPointer)
+  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
+  convenience init?(data data: NSData, encoding encoding: UInt)
+  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
+  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
   convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws

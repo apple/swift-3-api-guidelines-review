@@ -3,14 +3,14 @@
 class SKRegion : NSObject, NSCopying, NSCoding {
   var path: CGPath? { get }
   class func infinite() -> Self
-  init(radius: Float)
-  init(size: CGSize)
-  init(path: CGPath)
+  init(radius radius: Float)
+  init(size size: CGSize)
+  init(path path: CGPath)
   func inverse() -> Self
   func byUnion(with region: SKRegion) -> Self
   func byDifference(from region: SKRegion) -> Self
   func byIntersection(with region: SKRegion) -> Self
-  func contains(point: CGPoint) -> Bool
+  func contains(_ point: CGPoint) -> Bool
   init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject

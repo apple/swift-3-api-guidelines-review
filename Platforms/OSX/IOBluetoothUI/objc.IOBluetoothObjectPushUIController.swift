@@ -3,17 +3,17 @@ class IOBluetoothObjectPushUIController : NSWindowController {
   init!(objectPushWith inDevice: IOBluetoothDevice!, withFiles inFiles: [AnyObject]!, delegate inDelegate: AnyObject!)
   func runModal()
   func runPanel()
-  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
   func stop()
-  func setTitle(windowTitle: String!)
+  func setTitle(_ windowTitle: String!)
   func getTitle() -> String!
-  func setIconImage(image: NSImage!)
+  func setIconImage(_ image: NSImage!)
   func getDevice() -> IOBluetoothDevice!
   func isTransferInProgress() -> Bool
-  init(window: NSWindow?)
-  init?(coder: NSCoder)
-  convenience init(windowNibName: String)
-  convenience init(windowNibName: String, owner: AnyObject)
-  convenience init(windowNibPath: String, owner: AnyObject)
+  init(window window: NSWindow?)
+  init?(coder coder: NSCoder)
+  convenience init(windowNibName windowNibName: String)
+  convenience init(windowNibName windowNibName: String, owner owner: AnyObject)
+  convenience init(windowNibPath windowNibPath: String, owner owner: AnyObject)
   convenience init()
 }

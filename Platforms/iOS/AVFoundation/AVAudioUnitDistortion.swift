@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum AVAudioUnitDistortionPreset : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case drumsBitBrush
   case drumsBufferBeats
@@ -28,9 +28,9 @@ enum AVAudioUnitDistortionPreset : Int {
 }
 @available(iOS 8.0, *)
 class AVAudioUnitDistortion : AVAudioUnitEffect {
-  func loadFactoryPreset(preset: AVAudioUnitDistortionPreset)
+  func loadFactoryPreset(_ preset: AVAudioUnitDistortionPreset)
   var preGain: Float
   var wetDryMix: Float
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   init()
 }

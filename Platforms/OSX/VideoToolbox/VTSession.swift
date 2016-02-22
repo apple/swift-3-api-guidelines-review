@@ -1,7 +1,7 @@
 
 typealias VTSession = CFTypeRef
 @available(OSX 10.8, *)
-func VTSessionCopySupportedPropertyDictionary(session: VTSession, _ supportedPropertyDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
+func VTSessionCopySupportedPropertyDictionary(_ session: VTSession, _ supportedPropertyDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
 @available(OSX 10.8, *)
 let kVTPropertyTypeKey: CFString
 @available(OSX 10.8, *)
@@ -27,10 +27,10 @@ let kVTPropertySupportedValueListKey: CFString
 @available(OSX 10.8, *)
 let kVTPropertyDocumentationKey: CFString
 @available(OSX 10.8, *)
-func VTSessionSetProperty(session: VTSession, _ propertyKey: CFString, _ propertyValue: CFTypeRef) -> OSStatus
+func VTSessionSetProperty(_ session: VTSession, _ propertyKey: CFString, _ propertyValue: CFTypeRef) -> OSStatus
 @available(OSX 10.8, *)
-func VTSessionCopyProperty(session: VTSession, _ propertyKey: CFString, _ allocator: CFAllocator?, _ propertyValueOut: UnsafeMutablePointer<Void>) -> OSStatus
+func VTSessionCopyProperty(_ session: VTSession, _ propertyKey: CFString, _ allocator: CFAllocator?, _ propertyValueOut: UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.8, *)
-func VTSessionSetProperties(session: VTSession, _ propertyDictionary: CFDictionary) -> OSStatus
+func VTSessionSetProperties(_ session: VTSession, _ propertyDictionary: CFDictionary) -> OSStatus
 @available(OSX 10.8, *)
-func VTSessionCopySerializableProperties(session: VTSession, _ allocator: CFAllocator?, _ dictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus
+func VTSessionCopySerializableProperties(_ session: VTSession, _ allocator: CFAllocator?, _ dictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> OSStatus

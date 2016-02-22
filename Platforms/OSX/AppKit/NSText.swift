@@ -10,7 +10,7 @@ var NSDeleteCharacter: Int { get }
 var NSLineSeparatorCharacter: Int { get }
 var NSParagraphSeparatorCharacter: Int { get }
 enum NSTextAlignment : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case left
   case right
@@ -19,7 +19,7 @@ enum NSTextAlignment : UInt {
   case natural
 }
 enum NSWritingDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case natural
   case leftToRight
@@ -37,7 +37,7 @@ var NSCancelTextMovement: Int { get }
 var NSOtherTextMovement: Int { get }
 class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   var string: String?
   func replaceCharacters(in range: NSRange, with aString: String)
   func replaceCharacters(in range: NSRange, withRTF rtfData: NSData)
@@ -57,48 +57,48 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   @NSCopying var backgroundColor: NSColor?
   var isRulerVisible: Bool { get }
   var selectedRange: NSRange
-  func scrollRangeToVisible(range: NSRange)
+  func scrollRangeToVisible(_ range: NSRange)
   var font: NSFont?
   @NSCopying var textColor: NSColor?
   var alignment: NSTextAlignment
   var baseWritingDirection: NSWritingDirection
-  func setTextColor(color: NSColor?, range: NSRange)
-  func setFont(font: NSFont, range: NSRange)
+  func setTextColor(_ color: NSColor?, range range: NSRange)
+  func setFont(_ font: NSFont, range range: NSRange)
   var maxSize: NSSize
   var minSize: NSSize
   var isHorizontallyResizable: Bool
   var isVerticallyResizable: Bool
   func sizeToFit()
-  func copy(sender: AnyObject?)
-  func copyFont(sender: AnyObject?)
-  func copyRuler(sender: AnyObject?)
-  func cut(sender: AnyObject?)
-  func delete(sender: AnyObject?)
-  func paste(sender: AnyObject?)
-  func pasteFont(sender: AnyObject?)
-  func pasteRuler(sender: AnyObject?)
-  func selectAll(sender: AnyObject?)
-  func changeFont(sender: AnyObject?)
-  func alignLeft(sender: AnyObject?)
-  func alignRight(sender: AnyObject?)
-  func alignCenter(sender: AnyObject?)
-  func `subscript`(sender: AnyObject?)
-  func superscript(sender: AnyObject?)
-  func underline(sender: AnyObject?)
-  func unscript(sender: AnyObject?)
-  func showGuessPanel(sender: AnyObject?)
-  func checkSpelling(sender: AnyObject?)
-  func toggleRuler(sender: AnyObject?)
+  func copy(_ sender: AnyObject?)
+  func copyFont(_ sender: AnyObject?)
+  func copyRuler(_ sender: AnyObject?)
+  func cut(_ sender: AnyObject?)
+  func delete(_ sender: AnyObject?)
+  func paste(_ sender: AnyObject?)
+  func pasteFont(_ sender: AnyObject?)
+  func pasteRuler(_ sender: AnyObject?)
+  func selectAll(_ sender: AnyObject?)
+  func changeFont(_ sender: AnyObject?)
+  func alignLeft(_ sender: AnyObject?)
+  func alignRight(_ sender: AnyObject?)
+  func alignCenter(_ sender: AnyObject?)
+  func `subscript`(_ sender: AnyObject?)
+  func superscript(_ sender: AnyObject?)
+  func underline(_ sender: AnyObject?)
+  func unscript(_ sender: AnyObject?)
+  func showGuessPanel(_ sender: AnyObject?)
+  func checkSpelling(_ sender: AnyObject?)
+  func toggleRuler(_ sender: AnyObject?)
   convenience init()
-  func changeSpelling(sender: AnyObject?)
-  func ignoreSpelling(sender: AnyObject?)
+  func changeSpelling(_ sender: AnyObject?)
+  func ignoreSpelling(_ sender: AnyObject?)
 }
 protocol NSTextDelegate : NSObjectProtocol {
-  optional func textShouldBeginEditing(textObject: NSText) -> Bool
-  optional func textShouldEndEditing(textObject: NSText) -> Bool
-  optional func textDidBeginEditing(notification: NSNotification)
-  optional func textDidEndEditing(notification: NSNotification)
-  optional func textDidChange(notification: NSNotification)
+  optional func textShouldBeginEditing(_ textObject: NSText) -> Bool
+  optional func textShouldEndEditing(_ textObject: NSText) -> Bool
+  optional func textDidBeginEditing(_ notification: NSNotification)
+  optional func textDidEndEditing(_ notification: NSNotification)
+  optional func textDidChange(_ notification: NSNotification)
 }
 let NSTextDidBeginEditingNotification: String
 let NSTextDidEndEditingNotification: String

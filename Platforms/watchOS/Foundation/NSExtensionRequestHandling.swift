@@ -1,5 +1,5 @@
 
 protocol NSExtensionRequestHandling : NSObjectProtocol {
   @available(watchOS 2.0, *)
-  func beginRequest(context: NSExtensionContext)
+  func beginRequest(_ context: NSExtensionContext)
 }

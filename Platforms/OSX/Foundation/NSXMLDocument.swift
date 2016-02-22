@@ -1,6 +1,6 @@
 
 enum NSXMLDocumentContentKind : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case xmlKind
   case xhtmlKind
@@ -11,7 +11,7 @@ class NSXMLDocument : NSXMLNode {
   init()
   convenience init(xmlString string: String, options mask: Int) throws
   convenience init(contentsOf url: NSURL, options mask: Int) throws
-  init(data: NSData, options mask: Int) throws
+  init(data data: NSData, options mask: Int) throws
   init(rootElement element: NSXMLElement?)
   class func replacementClass(for cls: AnyClass) -> AnyClass
   var characterEncoding: String?
@@ -20,20 +20,20 @@ class NSXMLDocument : NSXMLNode {
   var documentContentKind: NSXMLDocumentContentKind
   var mimeType: String?
   @NSCopying var dtd: NSXMLDTD?
-  func setRootElement(root: NSXMLElement)
+  func setRootElement(_ root: NSXMLElement)
   func rootElement() -> NSXMLElement?
-  func insertChild(child: NSXMLNode, at index: Int)
-  func insertChildren(children: [NSXMLNode], at index: Int)
+  func insertChild(_ child: NSXMLNode, at index: Int)
+  func insertChildren(_ children: [NSXMLNode], at index: Int)
   func removeChild(at index: Int)
-  func setChildren(children: [NSXMLNode]?)
-  func addChild(child: NSXMLNode)
+  func setChildren(_ children: [NSXMLNode]?)
+  func addChild(_ child: NSXMLNode)
   func replaceChild(at index: Int, with node: NSXMLNode)
   @NSCopying var xmlData: NSData { get }
   func xmlData(withOptions options: Int) -> NSData
-  func object(byApplyingXSLT xslt: NSData, arguments: [String : String]?) throws -> AnyObject
-  func object(byApplyingXSLTString xslt: String, arguments: [String : String]?) throws -> AnyObject
+  func object(byApplyingXSLT xslt: NSData, arguments arguments: [String : String]?) throws -> AnyObject
+  func object(byApplyingXSLTString xslt: String, arguments arguments: [String : String]?) throws -> AnyObject
   func objectByApplyingXSLT(at xsltURL: NSURL, arguments argument: [String : String]?) throws -> AnyObject
   func validate() throws
-  convenience init(kind: NSXMLNodeKind)
-  convenience init(kind: NSXMLNodeKind, options: Int)
+  convenience init(kind kind: NSXMLNodeKind)
+  convenience init(kind kind: NSXMLNodeKind, options options: Int)
 }

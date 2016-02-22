@@ -1,6 +1,6 @@
 
 enum EKEventAvailability : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notSupported
   case busy
@@ -9,7 +9,7 @@ enum EKEventAvailability : Int {
   case unavailable
 }
 enum EKEventStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case confirmed
@@ -18,14 +18,14 @@ enum EKEventStatus : Int {
 }
 @available(iOS 4.0, *)
 class EKEvent : EKCalendarItem {
-  /*not inherited*/ init(eventStore: EKEventStore)
+  /*not inherited*/ init(eventStore eventStore: EKEventStore)
   var eventIdentifier: String { get }
   var isAllDay: Bool
   @NSCopying var startDate: NSDate
   @NSCopying var endDate: NSDate
   @available(iOS 9.0, *)
   @NSCopying var structuredLocation: EKStructuredLocation?
-  func compareStartDate(other: EKEvent) -> NSComparisonResult
+  func compareStartDate(_ other: EKEvent) -> NSComparisonResult
   var organizer: EKParticipant? { get }
   var availability: EKEventAvailability
   var status: EKEventStatus { get }

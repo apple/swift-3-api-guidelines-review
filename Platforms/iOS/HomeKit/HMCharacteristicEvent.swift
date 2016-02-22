@@ -1,8 +1,8 @@
 
 @available(iOS 9.0, *)
 class HMCharacteristicEvent : HMEvent {
-  init(characteristic: HMCharacteristic, triggerValue: NSCopying?)
+  init(characteristic characteristic: HMCharacteristic, triggerValue triggerValue: NSCopying?)
   var characteristic: HMCharacteristic { get }
   @NSCopying var triggerValue: NSCopying? { get }
-  func updateTriggerValue(triggerValue: NSCopying?, completionHandler completion: (NSError?) -> Void)
+  func updateTriggerValue(_ triggerValue: NSCopying?, completionHandler completion: (NSError?) -> Void)
 }

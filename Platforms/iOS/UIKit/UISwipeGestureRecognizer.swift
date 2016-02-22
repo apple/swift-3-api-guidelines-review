@@ -1,6 +1,6 @@
 
 struct UISwipeGestureRecognizerDirection : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var right: UISwipeGestureRecognizerDirection { get }
   static var left: UISwipeGestureRecognizerDirection { get }
@@ -11,6 +11,6 @@ struct UISwipeGestureRecognizerDirection : OptionSetType {
 class UISwipeGestureRecognizer : UIGestureRecognizer {
   var numberOfTouchesRequired: Int
   var direction: UISwipeGestureRecognizerDirection
-  init(target: AnyObject?, action: Selector)
+  init(target target: AnyObject?, action action: Selector)
   convenience init()
 }

@@ -2,7 +2,7 @@
 class CFXMLParser {
 }
 struct CFXMLParserOptions : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var validateDocument: CFXMLParserOptions { get }
   static var skipMetaData: CFXMLParserOptions { get }
@@ -14,7 +14,7 @@ struct CFXMLParserOptions : OptionSetType {
   static var noOptions: CFXMLParserOptions { get }
 }
 struct CFXMLParserStatusCode : OptionSetType {
-  init(rawValue: CFIndex)
+  init(rawValue rawValue: CFIndex)
   let rawValue: CFIndex
   static var statusParseNotBegun: CFXMLParserStatusCode { get }
   static var statusParseInProgress: CFXMLParserStatusCode { get }
@@ -48,7 +48,7 @@ struct CFXMLParserCallBacks {
   var resolveExternalEntity: CFXMLParserResolveExternalEntityCallBack!
   var handleError: CFXMLParserHandleErrorCallBack!
   init()
-  init(version: CFIndex, createXMLStructure: CFXMLParserCreateXMLStructureCallBack!, addChild: CFXMLParserAddChildCallBack!, endXMLStructure: CFXMLParserEndXMLStructureCallBack!, resolveExternalEntity: CFXMLParserResolveExternalEntityCallBack!, handleError: CFXMLParserHandleErrorCallBack!)
+  init(version version: CFIndex, createXMLStructure createXMLStructure: CFXMLParserCreateXMLStructureCallBack!, addChild addChild: CFXMLParserAddChildCallBack!, endXMLStructure endXMLStructure: CFXMLParserEndXMLStructureCallBack!, resolveExternalEntity resolveExternalEntity: CFXMLParserResolveExternalEntityCallBack!, handleError handleError: CFXMLParserHandleErrorCallBack!)
 }
 typealias CFXMLParserRetainCallBack = @convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>
 typealias CFXMLParserReleaseCallBack = @convention(c) (UnsafePointer<Void>) -> Void
@@ -60,10 +60,10 @@ struct CFXMLParserContext {
   var release: CFXMLParserReleaseCallBack!
   var copyDescription: CFXMLParserCopyDescriptionCallBack!
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: CFXMLParserRetainCallBack!, release: CFXMLParserReleaseCallBack!, copyDescription: CFXMLParserCopyDescriptionCallBack!)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: CFXMLParserRetainCallBack!, release release: CFXMLParserReleaseCallBack!, copyDescription copyDescription: CFXMLParserCopyDescriptionCallBack!)
 }
-func CFXMLCreateStringByEscapingEntities(allocator: CFAllocator!, _ string: CFString!, _ entitiesDictionary: CFDictionary!) -> CFString!
-func CFXMLCreateStringByUnescapingEntities(allocator: CFAllocator!, _ string: CFString!, _ entitiesDictionary: CFDictionary!) -> CFString!
+func CFXMLCreateStringByEscapingEntities(_ allocator: CFAllocator!, _ string: CFString!, _ entitiesDictionary: CFDictionary!) -> CFString!
+func CFXMLCreateStringByUnescapingEntities(_ allocator: CFAllocator!, _ string: CFString!, _ entitiesDictionary: CFDictionary!) -> CFString!
 let kCFXMLTreeErrorDescription: CFString!
 let kCFXMLTreeErrorLineNumber: CFString!
 let kCFXMLTreeErrorLocation: CFString!

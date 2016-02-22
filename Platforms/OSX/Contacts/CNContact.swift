@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum CNContactType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case person
   case organization
 }
 @available(OSX 10.11, *)
 enum CNContactSortOrder : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case userDefault
@@ -49,8 +49,8 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @NSCopying var birthday: NSDateComponents? { get }
   @NSCopying var nonGregorianBirthday: NSDateComponents? { get }
   var dates: [CNLabeledValue] { get }
-  func isKeyAvailable(key: String) -> Bool
-  func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
+  func isKeyAvailable(_ key: String) -> Bool
+  func areKeysAvailable(_ keyDescriptors: [CNKeyDescriptor]) -> Bool
   class func localizedString(forKey key: String) -> String
   class func comparator(forNameSortOrder sortOrder: CNContactSortOrder) -> NSComparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor

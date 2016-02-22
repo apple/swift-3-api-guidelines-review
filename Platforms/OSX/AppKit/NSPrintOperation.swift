@@ -1,6 +1,6 @@
 
 enum NSPrintingPageOrder : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case descendingPageOrder
   case specialPageOrder
@@ -9,23 +9,23 @@ enum NSPrintingPageOrder : Int {
 }
 @available(OSX 10.7, *)
 enum NSPrintRenderingQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case best
   case responsive
 }
 let NSPrintOperationExistsException: String
 class NSPrintOperation : NSObject {
-  /*not inherited*/ init(view: NSView, printInfo: NSPrintInfo)
-  class func pdfOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func pdfOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func epsOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo: NSPrintInfo) -> NSPrintOperation
-  class func epsOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo: NSPrintInfo) -> NSPrintOperation
-  /*not inherited*/ init(view: NSView)
+  /*not inherited*/ init(view view: NSView, printInfo printInfo: NSPrintInfo)
+  class func pdfOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo printInfo: NSPrintInfo) -> NSPrintOperation
+  class func pdfOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo printInfo: NSPrintInfo) -> NSPrintOperation
+  class func epsOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData, printInfo printInfo: NSPrintInfo) -> NSPrintOperation
+  class func epsOperation(with view: NSView, inside rect: NSRect, toPath path: String, printInfo printInfo: NSPrintInfo) -> NSPrintOperation
+  /*not inherited*/ init(view view: NSView)
   class func pdfOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData) -> NSPrintOperation
   class func epsOperation(with view: NSView, inside rect: NSRect, to data: NSMutableData?) -> NSPrintOperation
   class func current() -> NSPrintOperation?
-  class func setCurrentOperation(operation: NSPrintOperation?)
+  class func setCurrentOperation(_ operation: NSPrintOperation?)
   var isCopyingOperation: Bool { get }
   @available(OSX 10.7, *)
   var preferredRenderingQuality: NSPrintRenderingQuality { get }
@@ -38,7 +38,7 @@ class NSPrintOperation : NSObject {
   var pdfPanel: NSPDFPanel
   var canSpawnSeparateThread: Bool
   var pageOrder: NSPrintingPageOrder
-  func runModal(for docWindow: NSWindow, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModal(for docWindow: NSWindow, delegate delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func run() -> Bool
   var view: NSView? { get }
   @NSCopying var printInfo: NSPrintInfo

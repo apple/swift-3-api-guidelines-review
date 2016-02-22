@@ -10,7 +10,7 @@ class DOMMutationEvent : DOMEvent {
   var attrName: String! { get }
   var attrChange: UInt16 { get }
   @available(OSX 10.5, *)
-  func initMutationEvent(type: String!, canBubble: Bool, cancelable: Bool, relatedNode: DOMNode!, prevValue: String!, newValue: String!, attrName: String!, attrChange: UInt16)
+  func initMutationEvent(_ type: String!, canBubble canBubble: Bool, cancelable cancelable: Bool, relatedNode relatedNode: DOMNode!, prevValue prevValue: String!, newValue newValue: String!, attrName attrName: String!, attrChange attrChange: UInt16)
 }
 extension DOMMutationEvent {
 }

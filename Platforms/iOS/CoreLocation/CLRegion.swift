@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum CLRegionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case inside
@@ -9,7 +9,7 @@ enum CLRegionState : Int {
 }
 @available(iOS 7.0, *)
 enum CLProximity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case immediate

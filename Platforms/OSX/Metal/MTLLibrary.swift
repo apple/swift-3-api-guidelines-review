@@ -10,7 +10,7 @@ class MTLVertexAttribute : NSObject {
 }
 @available(OSX 10.11, *)
 enum MTLFunctionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case vertex
   case fragment
@@ -25,7 +25,7 @@ protocol MTLFunction : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
 enum MTLLanguageVersion : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case version1_1
 }
@@ -43,7 +43,7 @@ class MTLCompileOptions : NSObject, NSCopying {
 let MTLLibraryErrorDomain: String
 @available(OSX 10.11, *)
 enum MTLLibraryError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unsupported
   case `internal`
@@ -53,7 +53,7 @@ enum MTLLibraryError : UInt {
 let MTLRenderPipelineErrorDomain: String
 @available(OSX 10.11, *)
 enum MTLRenderPipelineError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `internal`
   case unsupported

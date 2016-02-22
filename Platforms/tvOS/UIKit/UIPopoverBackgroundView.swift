@@ -10,7 +10,7 @@ class UIPopoverBackgroundView : UIView, UIPopoverBackgroundViewMethods {
   var arrowDirection: UIPopoverArrowDirection
   @available(tvOS 6.0, *)
   class func wantsDefaultContentAppearance() -> Bool
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(tvOS 5.0, *)

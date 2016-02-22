@@ -1,7 +1,7 @@
 
 @available(iOS 6.0, *)
 class UITableViewHeaderFooterView : UIView {
-  init(reuseIdentifier: String?)
+  init(reuseIdentifier reuseIdentifier: String?)
   init?(coder aDecoder: NSCoder)
   var tintColor: UIColor!
   var textLabel: UILabel? { get }
@@ -10,6 +10,6 @@ class UITableViewHeaderFooterView : UIView {
   var backgroundView: UIView?
   var reuseIdentifier: String? { get }
   func prepareForReuse()
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
 }

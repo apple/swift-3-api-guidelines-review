@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 struct TKSmartCardProtocol : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: TKSmartCardProtocol { get }
   static var T0: TKSmartCardProtocol { get }
@@ -19,8 +19,8 @@ class TKSmartCardATRInterfaceGroup : NSObject {
 }
 @available(OSX 10.10, *)
 class TKSmartCardATR : NSObject {
-  init?(bytes: NSData)
-  init?(source: () -> Int32)
+  init?(bytes bytes: NSData)
+  init?(source source: () -> Int32)
   var bytes: NSData { get }
   var protocols: [NSNumber] { get }
   func interfaceGroup(at index: Int) -> TKSmartCardATRInterfaceGroup?

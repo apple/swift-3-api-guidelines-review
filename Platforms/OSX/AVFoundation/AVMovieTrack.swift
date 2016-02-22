@@ -43,10 +43,10 @@ extension AVMutableMovieTrack {
   var preferredMediaChunkAlignment: Int
 }
 extension AVMutableMovieTrack {
-  func insertTimeRange(timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime, copySampleData: Bool) throws
-  func insertEmptyTimeRange(timeRange: CMTimeRange)
-  func removeTimeRange(timeRange: CMTimeRange)
-  func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
+  func insertTimeRange(_ timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime, copySampleData copySampleData: Bool) throws
+  func insertEmptyTimeRange(_ timeRange: CMTimeRange)
+  func removeTimeRange(_ timeRange: CMTimeRange)
+  func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovieTrack {
   var metadata: [AVMetadataItem]

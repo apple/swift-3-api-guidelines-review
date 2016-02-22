@@ -12,10 +12,10 @@ class ODModuleEntry : NSObject {
   @available(OSX 10.9, *)
   var uuidString: String!
   @available(OSX 10.9, *)
-  convenience init!(name: String!, xpcServiceName: String!)
+  convenience init!(name name: String!, xpcServiceName xpcServiceName: String!)
   @available(OSX 10.9, *)
-  func setOption(optionName: String!, value: AnyObject!)
+  func setOption(_ optionName: String!, value value: AnyObject!)
   @available(OSX 10.9, *)
-  func option(optionName: String!) -> AnyObject!
+  func option(_ optionName: String!) -> AnyObject!
   init()
 }

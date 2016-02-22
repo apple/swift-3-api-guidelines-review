@@ -1,14 +1,14 @@
 
 enum NSURLCacheStoragePolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case allowed
   case allowedInMemoryOnly
   case notAllowed
 }
 class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
-  init(response: NSURLResponse, data: NSData)
-  init(response: NSURLResponse, data: NSData, userInfo: [NSObject : AnyObject]? = [:], storagePolicy: NSURLCacheStoragePolicy)
+  init(response response: NSURLResponse, data data: NSData)
+  init(response response: NSURLResponse, data data: NSData, userInfo userInfo: [NSObject : AnyObject]? = [:], storagePolicy storagePolicy: NSURLCacheStoragePolicy)
   @NSCopying var response: NSURLResponse { get }
   @NSCopying var data: NSData { get }
   var userInfo: [NSObject : AnyObject]? { get }
@@ -21,10 +21,10 @@ class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
 }
 class NSURLCache : NSObject {
   class func shared() -> NSURLCache
-  class func setSharedURLCache(cache: NSURLCache)
-  init(memoryCapacity: Int, diskCapacity: Int, diskPath path: String?)
+  class func setSharedURLCache(_ cache: NSURLCache)
+  init(memoryCapacity memoryCapacity: Int, diskCapacity diskCapacity: Int, diskPath path: String?)
   func cachedResponse(for request: NSURLRequest) -> NSCachedURLResponse?
-  func storeCachedResponse(cachedResponse: NSCachedURLResponse, for request: NSURLRequest)
+  func storeCachedResponse(_ cachedResponse: NSCachedURLResponse, for request: NSURLRequest)
   func removeCachedResponse(for request: NSURLRequest)
   func removeAllCachedResponses()
   @available(iOS 8.0, *)
@@ -37,9 +37,9 @@ class NSURLCache : NSObject {
 }
 extension NSURLCache {
   @available(iOS 8.0, *)
-  func storeCachedResponse(cachedResponse: NSCachedURLResponse, for dataTask: NSURLSessionDataTask)
+  func storeCachedResponse(_ cachedResponse: NSCachedURLResponse, for dataTask: NSURLSessionDataTask)
   @available(iOS 8.0, *)
-  func getCachedResponse(for dataTask: NSURLSessionDataTask, completionHandler: (NSCachedURLResponse?) -> Void)
+  func getCachedResponse(for dataTask: NSURLSessionDataTask, completionHandler completionHandler: (NSCachedURLResponse?) -> Void)
   @available(iOS 8.0, *)
   func removeCachedResponse(for dataTask: NSURLSessionDataTask)
 }

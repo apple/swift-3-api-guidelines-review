@@ -4,7 +4,7 @@ class CTParagraphStyle {
 @available(tvOS 3.2, *)
 func CTParagraphStyleGetTypeID() -> CFTypeID
 enum CTTextAlignment : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   @available(tvOS 6.0, *)
   case left
@@ -28,7 +28,7 @@ enum CTTextAlignment : UInt8 {
   static var kCTNaturalTextAlignment: CTTextAlignment { get }
 }
 enum CTLineBreakMode : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case byWordWrapping
   case byCharWrapping
@@ -38,14 +38,14 @@ enum CTLineBreakMode : UInt8 {
   case byTruncatingMiddle
 }
 enum CTWritingDirection : Int8 {
-  init?(rawValue: Int8)
+  init?(rawValue rawValue: Int8)
   var rawValue: Int8 { get }
   case natural
   case leftToRight
   case rightToLeft
 }
 enum CTParagraphStyleSpecifier : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case alignment
   case firstLineHeadIndent
@@ -73,8 +73,8 @@ struct CTParagraphStyleSetting {
   var value: UnsafePointer<Void>
 }
 @available(tvOS 3.2, *)
-func CTParagraphStyleCreate(settings: UnsafePointer<CTParagraphStyleSetting>, _ settingCount: Int) -> CTParagraphStyle
+func CTParagraphStyleCreate(_ settings: UnsafePointer<CTParagraphStyleSetting>, _ settingCount: Int) -> CTParagraphStyle
 @available(tvOS 3.2, *)
-func CTParagraphStyleCreateCopy(paragraphStyle: CTParagraphStyle) -> CTParagraphStyle
+func CTParagraphStyleCreateCopy(_ paragraphStyle: CTParagraphStyle) -> CTParagraphStyle
 @available(tvOS 3.2, *)
-func CTParagraphStyleGetValueForSpecifier(paragraphStyle: CTParagraphStyle, _ spec: CTParagraphStyleSpecifier, _ valueBufferSize: Int, _ valueBuffer: UnsafeMutablePointer<Void>) -> Bool
+func CTParagraphStyleGetValueForSpecifier(_ paragraphStyle: CTParagraphStyle, _ spec: CTParagraphStyleSpecifier, _ valueBufferSize: Int, _ valueBuffer: UnsafeMutablePointer<Void>) -> Bool

@@ -2,9 +2,9 @@
 class CANetworkBrowserWindowController : NSWindowController {
   class func isAVBSupported() -> Bool
   init()
-  convenience init(window: NSWindow?)
-  init?(coder: NSCoder)
-  convenience init(windowNibName: String)
-  convenience init(windowNibName: String, owner: AnyObject)
-  convenience init(windowNibPath: String, owner: AnyObject)
+  convenience init(window window: NSWindow?)
+  init?(coder coder: NSCoder)
+  convenience init(windowNibName windowNibName: String)
+  convenience init(windowNibName windowNibName: String, owner owner: AnyObject)
+  convenience init(windowNibPath windowNibPath: String, owner owner: AnyObject)
 }

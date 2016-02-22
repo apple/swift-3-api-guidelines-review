@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 struct UIUserNotificationType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: UIUserNotificationType { get }
   static var badge: UIUserNotificationType { get }
@@ -10,21 +10,21 @@ struct UIUserNotificationType : OptionSetType {
 }
 @available(iOS 9.0, *)
 enum UIUserNotificationActionBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case textInput
 }
 @available(iOS 8.0, *)
 enum UIUserNotificationActivationMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case foreground
   case background
 }
 @available(iOS 8.0, *)
 enum UIUserNotificationActionContext : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case minimal
@@ -35,7 +35,7 @@ let UIUserNotificationTextInputActionButtonTitleKey: String
 let UIUserNotificationActionResponseTypedTextKey: String
 @available(iOS 8.0, *)
 class UIUserNotificationSettings : NSObject {
-  convenience init(forTypes types: UIUserNotificationType, categories: Set<UIUserNotificationCategory>?)
+  convenience init(forTypes types: UIUserNotificationType, categories categories: Set<UIUserNotificationCategory>?)
   var types: UIUserNotificationType { get }
   var categories: Set<UIUserNotificationCategory>? { get }
   init()
@@ -58,7 +58,7 @@ class UIUserNotificationCategory : NSObject, NSCopying, NSMutableCopying, NSSecu
 @available(iOS 8.0, *)
 class UIMutableUserNotificationCategory : UIUserNotificationCategory {
   var identifier: String?
-  func setActions(actions: [UIUserNotificationAction]?, for context: UIUserNotificationActionContext)
+  func setActions(_ actions: [UIUserNotificationAction]?, for context: UIUserNotificationActionContext)
   init()
   init?(coder aDecoder: NSCoder)
 }

@@ -1,3 +1,3 @@
 
 @available(OSX 10.7, *)
-func SecTransformCreateReadTransformWithReadStream(inputStream: CFReadStream) -> SecTransform
+func SecTransformCreateReadTransformWithReadStream(_ inputStream: CFReadStream) -> SecTransform

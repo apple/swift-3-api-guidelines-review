@@ -7,7 +7,7 @@ class AVAudioNode : NSObject {
   func outputFormat(forBus bus: AVAudioNodeBus) -> AVAudioFormat
   func name(forInputBus bus: AVAudioNodeBus) -> String
   func name(forOutputBus bus: AVAudioNodeBus) -> String
-  func installTap(onBus bus: AVAudioNodeBus, bufferSize: AVAudioFrameCount, format: AVAudioFormat?, block tapBlock: AVAudioNodeTapBlock)
+  func installTap(onBus bus: AVAudioNodeBus, bufferSize bufferSize: AVAudioFrameCount, format format: AVAudioFormat?, block tapBlock: AVAudioNodeTapBlock)
   func removeTap(onBus bus: AVAudioNodeBus)
   var engine: AVAudioEngine? { get }
   var numberOfInputs: Int { get }

@@ -1,8 +1,8 @@
 
 let WebArchivePboardType: String
 class WebArchive : NSObject, NSCoding, NSCopying {
-  init!(mainResource: WebResource!, subresources: [AnyObject]!, subframeArchives: [AnyObject]!)
-  init!(data: NSData!)
+  init!(mainResource mainResource: WebResource!, subresources subresources: [AnyObject]!, subframeArchives subframeArchives: [AnyObject]!)
+  init!(data data: NSData!)
   var mainResource: WebResource! { get }
   var subresources: [AnyObject]! { get }
   var subframeArchives: [AnyObject]! { get }

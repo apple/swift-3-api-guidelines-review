@@ -3,9 +3,9 @@ typealias CLBeaconMajorValue = UInt16
 typealias CLBeaconMinorValue = UInt16
 @available(iOS 7.0, *)
 class CLBeaconRegion : CLRegion {
-  init(proximityUUID: NSUUID, identifier: String)
-  init(proximityUUID: NSUUID, major: CLBeaconMajorValue, identifier: String)
-  init(proximityUUID: NSUUID, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, identifier: String)
+  init(proximityUUID proximityUUID: NSUUID, identifier identifier: String)
+  init(proximityUUID proximityUUID: NSUUID, major major: CLBeaconMajorValue, identifier identifier: String)
+  init(proximityUUID proximityUUID: NSUUID, major major: CLBeaconMajorValue, minor minor: CLBeaconMinorValue, identifier identifier: String)
   func peripheralData(withMeasuredPower measuredPower: NSNumber?) -> NSMutableDictionary
   var proximityUUID: NSUUID { get }
   var major: NSNumber? { get }

@@ -6,12 +6,12 @@ class NSProgress : NSObject {
   @available(watchOS 2.0, *)
   class func discreteProgress(withTotalUnitCount unitCount: Int64) -> NSProgress
   @available(watchOS 2.0, *)
-  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
+  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]? = [:])
   func becomeCurrent(pendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(watchOS 2.0, *)
-  func addChild(child: NSProgress, withPendingUnitCount inUnitCount: Int64)
+  func addChild(_ child: NSProgress, withPendingUnitCount inUnitCount: Int64)
   var totalUnitCount: Int64
   var completedUnitCount: Int64
   var localizedDescription: String!
@@ -24,7 +24,7 @@ class NSProgress : NSObject {
   var pausingHandler: (() -> Void)?
   @available(watchOS 2.0, *)
   var resumingHandler: (() -> Void)?
-  func setUserInfoObject(objectOrNil: AnyObject?, forKey key: String)
+  func setUserInfoObject(_ objectOrNil: AnyObject?, forKey key: String)
   var isIndeterminate: Bool { get }
   var fractionCompleted: Double { get }
   func cancel()

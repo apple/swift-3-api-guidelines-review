@@ -1,13 +1,13 @@
 
 enum NSLayoutRelation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case lessThanOrEqual
   case equal
   case greaterThanOrEqual
 }
 enum NSLayoutAttribute : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case left
   case right
@@ -26,7 +26,7 @@ enum NSLayoutAttribute : Int {
   case notAnAttribute
 }
 struct NSLayoutFormatOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var alignAllLeft: NSLayoutFormatOptions { get }
   static var alignAllRight: NSLayoutFormatOptions { get }
@@ -47,7 +47,7 @@ struct NSLayoutFormatOptions : OptionSetType {
   static var directionMask: NSLayoutFormatOptions { get }
 }
 enum NSLayoutConstraintOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case horizontal
   case vertical
@@ -70,8 +70,8 @@ let NSLayoutPriorityDefaultLow: NSLayoutPriority
 let NSLayoutPriorityFittingSizeCompression: NSLayoutPriority
 @available(OSX 10.7, *)
 class NSLayoutConstraint : NSObject, NSAnimatablePropertyContainer {
-  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics: [String : NSNumber]?, views: [String : AnyObject]) -> [NSLayoutConstraint]
-  convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier: CGFloat, constant c: CGFloat)
+  class func constraints(withVisualFormat format: String, options opts: NSLayoutFormatOptions = [], metrics metrics: [String : NSNumber]?, views views: [String : AnyObject]) -> [NSLayoutConstraint]
+  convenience init(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute, multiplier multiplier: CGFloat, constant c: CGFloat)
   var priority: NSLayoutPriority
   var shouldBeArchived: Bool
   unowned(unsafe) var firstItem: @sil_unmanaged AnyObject { get }
@@ -84,9 +84,9 @@ class NSLayoutConstraint : NSObject, NSAnimatablePropertyContainer {
   @available(OSX 10.10, *)
   var isActive: Bool
   @available(OSX 10.10, *)
-  class func activate(constraints: [NSLayoutConstraint])
+  class func activate(_ constraints: [NSLayoutConstraint])
   @available(OSX 10.10, *)
-  class func deactivate(constraints: [NSLayoutConstraint])
+  class func deactivate(_ constraints: [NSLayoutConstraint])
   init()
   @available(OSX 10.5, *)
   func animator() -> Self
@@ -128,13 +128,13 @@ extension NSView {
   @available(OSX 10.7, *)
   var constraints: [NSLayoutConstraint] { get }
   @available(OSX 10.7, *)
-  func addConstraint(constraint: NSLayoutConstraint)
+  func addConstraint(_ constraint: NSLayoutConstraint)
   @available(OSX 10.7, *)
-  func addConstraints(constraints: [NSLayoutConstraint])
+  func addConstraints(_ constraints: [NSLayoutConstraint])
   @available(OSX 10.7, *)
-  func removeConstraint(constraint: NSLayoutConstraint)
+  func removeConstraint(_ constraint: NSLayoutConstraint)
   @available(OSX 10.7, *)
-  func removeConstraints(constraints: [NSLayoutConstraint])
+  func removeConstraints(_ constraints: [NSLayoutConstraint])
 }
 extension NSWindow {
   @available(OSX 10.7, *)
@@ -182,11 +182,11 @@ extension NSView {
   @available(OSX 10.7, *)
   func contentHuggingPriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   @available(OSX 10.7, *)
-  func setContentHuggingPriority(priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
+  func setContentHuggingPriority(_ priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
   @available(OSX 10.7, *)
   func contentCompressionResistancePriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   @available(OSX 10.7, *)
-  func setContentCompressionResistancePriority(priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
+  func setContentCompressionResistancePriority(_ priority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
 }
 let NSViewNoInstrinsicMetric: CGFloat
 @available(OSX 10.11, *)
@@ -197,7 +197,7 @@ extension NSControl {
 }
 extension NSWindow {
   func anchorAttribute(for orientation: NSLayoutConstraintOrientation) -> NSLayoutAttribute
-  func setAnchorAttribute(attr: NSLayoutAttribute, for orientation: NSLayoutConstraintOrientation)
+  func setAnchorAttribute(_ attr: NSLayoutAttribute, for orientation: NSLayoutConstraintOrientation)
 }
 extension NSView {
   @available(OSX 10.7, *)
@@ -213,5 +213,5 @@ extension NSView {
 }
 extension NSWindow {
   @available(OSX 10.7, *)
-  func visualizeConstraints(constraints: [NSLayoutConstraint])
+  func visualizeConstraints(_ constraints: [NSLayoutConstraint])
 }

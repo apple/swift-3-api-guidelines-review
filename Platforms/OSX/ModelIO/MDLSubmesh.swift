@@ -15,10 +15,10 @@ class MDLSubmeshTopology : NSObject {
 }
 @available(OSX 10.11, *)
 class MDLSubmesh : NSObject, MDLNamed {
-  init(name: String, indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?)
-  init(indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?)
-  init(name: String, indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?, topology: MDLSubmeshTopology?)
-  init?(mdlSubmesh submesh: MDLSubmesh, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType)
+  init(name name: String, indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?)
+  init(indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?)
+  init(name name: String, indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?, topology topology: MDLSubmeshTopology?)
+  init?(mdlSubmesh submesh: MDLSubmesh, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType)
   var indexBuffer: MDLMeshBuffer { get }
   var indexCount: Int { get }
   var indexType: MDLIndexBitDepth { get }

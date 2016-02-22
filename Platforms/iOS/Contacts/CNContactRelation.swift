@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 class CNContactRelation : NSObject, NSCopying, NSSecureCoding {
-  init(name: String)
+  init(name name: String)
   var name: String { get }
   init()
   @available(iOS 9.0, *)

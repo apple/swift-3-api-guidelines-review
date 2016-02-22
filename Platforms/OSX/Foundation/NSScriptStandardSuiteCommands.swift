@@ -1,13 +1,13 @@
 
 enum NSSaveOptions : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case yes
   case no
   case ask
 }
 class NSCloneCommand : NSScriptCommand {
-  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  func setReceiversSpecifier(_ receiversRef: NSScriptObjectSpecifier?)
   var keySpecifier: NSScriptObjectSpecifier { get }
   init(commandDescription commandDef: NSScriptCommandDescription)
   init?(coder inCoder: NSCoder)
@@ -32,7 +32,7 @@ class NSCreateCommand : NSScriptCommand {
   convenience init()
 }
 class NSDeleteCommand : NSScriptCommand {
-  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  func setReceiversSpecifier(_ receiversRef: NSScriptObjectSpecifier?)
   var keySpecifier: NSScriptObjectSpecifier { get }
   init(commandDescription commandDef: NSScriptCommandDescription)
   init?(coder inCoder: NSCoder)
@@ -49,7 +49,7 @@ class NSGetCommand : NSScriptCommand {
   convenience init()
 }
 class NSMoveCommand : NSScriptCommand {
-  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  func setReceiversSpecifier(_ receiversRef: NSScriptObjectSpecifier?)
   var keySpecifier: NSScriptObjectSpecifier { get }
   init(commandDescription commandDef: NSScriptCommandDescription)
   init?(coder inCoder: NSCoder)
@@ -62,7 +62,7 @@ class NSQuitCommand : NSScriptCommand {
   convenience init()
 }
 class NSSetCommand : NSScriptCommand {
-  func setReceiversSpecifier(receiversRef: NSScriptObjectSpecifier?)
+  func setReceiversSpecifier(_ receiversRef: NSScriptObjectSpecifier?)
   var keySpecifier: NSScriptObjectSpecifier { get }
   init(commandDescription commandDef: NSScriptCommandDescription)
   init?(coder inCoder: NSCoder)

@@ -2,17 +2,17 @@
 class NSDateFormatter : NSFormatter {
   @available(tvOS 8.0, *)
   var formattingContext: NSFormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
   func string(from date: NSDate) -> String
   func date(from string: String) -> NSDate?
   @available(tvOS 4.0, *)
   class func localizedString(from date: NSDate, dateStyle dstyle: NSDateFormatterStyle, time tstyle: NSDateFormatterStyle) -> String
   @available(tvOS 4.0, *)
-  class func dateFormat(fromTemplate tmplate: String, options opts: Int, locale: NSLocale?) -> String?
+  class func dateFormat(fromTemplate tmplate: String, options opts: Int, locale locale: NSLocale?) -> String?
   class func defaultFormatterBehavior() -> NSDateFormatterBehavior
-  class func setDefaultFormatterBehavior(behavior: NSDateFormatterBehavior)
+  class func setDefaultFormatterBehavior(_ behavior: NSDateFormatterBehavior)
   @available(tvOS 8.0, *)
-  func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
+  func setLocalizedDateFormatFromTemplate(_ dateFormatTemplate: String)
   var dateFormat: String!
   var dateStyle: NSDateFormatterStyle
   var timeStyle: NSDateFormatterStyle
@@ -65,7 +65,7 @@ class NSDateFormatter : NSFormatter {
   init?(coder aDecoder: NSCoder)
 }
 enum NSDateFormatterStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
   case shortStyle
@@ -74,7 +74,7 @@ enum NSDateFormatterStyle : UInt {
   case fullStyle
 }
 enum NSDateFormatterBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case behaviorDefault
   case behavior10_4

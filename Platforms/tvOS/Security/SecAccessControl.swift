@@ -3,7 +3,7 @@
 func SecAccessControlGetTypeID() -> CFTypeID
 @available(tvOS 8.0, *)
 struct SecAccessControlCreateFlags : OptionSetType {
-  init(rawValue: CFIndex)
+  init(rawValue rawValue: CFIndex)
   let rawValue: CFIndex
   static var userPresence: SecAccessControlCreateFlags { get }
   @available(tvOS 9.0, *)
@@ -22,4 +22,4 @@ struct SecAccessControlCreateFlags : OptionSetType {
   static var applicationPassword: SecAccessControlCreateFlags { get }
 }
 @available(tvOS 8.0, *)
-func SecAccessControlCreateWithFlags(allocator: CFAllocator?, _ protection: CFTypeRef, _ flags: SecAccessControlCreateFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccessControl?
+func SecAccessControlCreateWithFlags(_ allocator: CFAllocator?, _ protection: CFTypeRef, _ flags: SecAccessControlCreateFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccessControl?

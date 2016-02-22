@@ -3,6 +3,6 @@
 class NSPredicateEditor : NSRuleEditor {
   var rowTemplates: [NSPredicateEditorRowTemplate]
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

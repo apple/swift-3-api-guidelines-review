@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum UISplitViewControllerDisplayMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case primaryHidden
@@ -33,35 +33,35 @@ class UISplitViewController : UIViewController {
   @available(tvOS 8.0, *)
   var primaryColumnWidth: CGFloat { get }
   @available(tvOS 8.0, *)
-  func show(vc: UIViewController, sender: AnyObject?)
+  func show(_ vc: UIViewController, sender sender: AnyObject?)
   @available(tvOS 8.0, *)
-  func showDetailViewController(vc: UIViewController, sender: AnyObject?)
+  func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UISplitViewControllerDelegate {
   @available(tvOS 8.0, *)
-  optional func splitViewController(svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
+  optional func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
   @available(tvOS 8.0, *)
   optional func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode
   @available(tvOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, show vc: UIViewController, sender: AnyObject?) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, show vc: UIViewController, sender sender: AnyObject?) -> Bool
   @available(tvOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender sender: AnyObject?) -> Bool
   @available(tvOS 8.0, *)
   optional func primaryViewController(forCollapsing splitViewController: UISplitViewController) -> UIViewController?
   @available(tvOS 8.0, *)
   optional func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController?
   @available(tvOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
   @available(tvOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController?
+  optional func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController?
 }
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
   @available(tvOS 8.0, *)
-  func collapseSecondaryViewController(secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
+  func collapseSecondaryViewController(_ secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
   @available(tvOS 8.0, *)
   func separateSecondaryViewController(for splitViewController: UISplitViewController) -> UIViewController?
 }

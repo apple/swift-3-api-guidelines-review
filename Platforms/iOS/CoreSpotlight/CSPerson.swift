@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 class CSPerson : NSObject, NSSecureCoding, NSCopying {
-  init(displayName: String?, handles: [String], handleIdentifier: String)
+  init(displayName displayName: String?, handles handles: [String], handleIdentifier handleIdentifier: String)
   var displayName: String? { get }
   var handles: [String] { get }
   var handleIdentifier: String { get }

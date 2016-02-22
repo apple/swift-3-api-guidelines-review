@@ -22,11 +22,11 @@ class NSCharacterSet : NSObject, NSCopying, NSMutableCopying, NSCoding {
   /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
   init(coder aDecoder: NSCoder)
-  func characterIsMember(aCharacter: unichar) -> Bool
+  func characterIsMember(_ aCharacter: unichar) -> Bool
   @NSCopying var bitmapRepresentation: NSData { get }
   @NSCopying var inverted: NSCharacterSet { get }
-  func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSupersetOf(theOtherSet: NSCharacterSet) -> Bool
+  func longCharacterIsMember(_ theLongChar: UTF32Char) -> Bool
+  func isSupersetOf(_ theOtherSet: NSCharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
   convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -38,8 +38,8 @@ class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(otherSet: NSCharacterSet)
-  func formIntersection(otherSet: NSCharacterSet)
+  func formUnion(_ otherSet: NSCharacterSet)
+  func formIntersection(_ otherSet: NSCharacterSet)
   func invert()
   class func control() -> NSMutableCharacterSet
   class func whitespace() -> NSMutableCharacterSet

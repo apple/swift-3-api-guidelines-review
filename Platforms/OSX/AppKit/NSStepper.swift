@@ -6,7 +6,7 @@ class NSStepper : NSControl, NSAccessibilityStepper {
   var valueWraps: Bool
   var autorepeat: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   func accessibilityLabel() -> String?
   func accessibilityPerformIncrement() -> Bool

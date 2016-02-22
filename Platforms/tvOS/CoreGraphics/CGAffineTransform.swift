@@ -7,38 +7,38 @@ struct CGAffineTransform {
   var tx: CGFloat
   var ty: CGFloat
   init()
-  init(a: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat, tx: CGFloat, ty: CGFloat)
+  init(a a: CGFloat, b b: CGFloat, c c: CGFloat, d d: CGFloat, tx tx: CGFloat, ty ty: CGFloat)
 }
 @available(tvOS 2.0, *)
 let CGAffineTransformIdentity: CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformMake(a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
+func CGAffineTransformMake(_ a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformMakeTranslation(tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
+func CGAffineTransformMakeTranslation(_ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformMakeScale(sx: CGFloat, _ sy: CGFloat) -> CGAffineTransform
+func CGAffineTransformMakeScale(_ sx: CGFloat, _ sy: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformMakeRotation(angle: CGFloat) -> CGAffineTransform
+func CGAffineTransformMakeRotation(_ angle: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformIsIdentity(t: CGAffineTransform) -> Bool
+func CGAffineTransformIsIdentity(_ t: CGAffineTransform) -> Bool
 @available(tvOS 2.0, *)
-func CGAffineTransformTranslate(t: CGAffineTransform, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
+func CGAffineTransformTranslate(_ t: CGAffineTransform, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformScale(t: CGAffineTransform, _ sx: CGFloat, _ sy: CGFloat) -> CGAffineTransform
+func CGAffineTransformScale(_ t: CGAffineTransform, _ sx: CGFloat, _ sy: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformRotate(t: CGAffineTransform, _ angle: CGFloat) -> CGAffineTransform
+func CGAffineTransformRotate(_ t: CGAffineTransform, _ angle: CGFloat) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformInvert(t: CGAffineTransform) -> CGAffineTransform
+func CGAffineTransformInvert(_ t: CGAffineTransform) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformConcat(t1: CGAffineTransform, _ t2: CGAffineTransform) -> CGAffineTransform
+func CGAffineTransformConcat(_ t1: CGAffineTransform, _ t2: CGAffineTransform) -> CGAffineTransform
 @available(tvOS 2.0, *)
-func CGAffineTransformEqualToTransform(t1: CGAffineTransform, _ t2: CGAffineTransform) -> Bool
+func CGAffineTransformEqualToTransform(_ t1: CGAffineTransform, _ t2: CGAffineTransform) -> Bool
 @available(tvOS 2.0, *)
-func CGPointApplyAffineTransform(point: CGPoint, _ t: CGAffineTransform) -> CGPoint
+func CGPointApplyAffineTransform(_ point: CGPoint, _ t: CGAffineTransform) -> CGPoint
 @available(tvOS 2.0, *)
-func CGSizeApplyAffineTransform(size: CGSize, _ t: CGAffineTransform) -> CGSize
+func CGSizeApplyAffineTransform(_ size: CGSize, _ t: CGAffineTransform) -> CGSize
 @available(tvOS 2.0, *)
-func CGRectApplyAffineTransform(rect: CGRect, _ t: CGAffineTransform) -> CGRect
-func __CGAffineTransformMake(a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
-func __CGPointApplyAffineTransform(point: CGPoint, _ t: CGAffineTransform) -> CGPoint
-func __CGSizeApplyAffineTransform(size: CGSize, _ t: CGAffineTransform) -> CGSize
+func CGRectApplyAffineTransform(_ rect: CGRect, _ t: CGAffineTransform) -> CGRect
+func __CGAffineTransformMake(_ a: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat, _ tx: CGFloat, _ ty: CGFloat) -> CGAffineTransform
+func __CGPointApplyAffineTransform(_ point: CGPoint, _ t: CGAffineTransform) -> CGPoint
+func __CGSizeApplyAffineTransform(_ size: CGSize, _ t: CGAffineTransform) -> CGSize

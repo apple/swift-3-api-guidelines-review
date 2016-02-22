@@ -14,12 +14,12 @@ protocol NSSecureCoding : NSCoding {
 }
 extension NSObject {
   class func version() -> Int
-  class func setVersion(aVersion: Int)
+  class func setVersion(_ aVersion: Int)
   var classForCoder: AnyClass { get }
   class func replacementObject(for aCoder: NSCoder) -> AnyObject?
   func replacementObject(for aCoder: NSCoder) -> AnyObject?
-  class func awakeAfter(aDecoder: NSCoder) -> AnyObject?
-  func awakeAfter(aDecoder: NSCoder) -> AnyObject?
+  class func awakeAfter(_ aDecoder: NSCoder) -> AnyObject?
+  func awakeAfter(_ aDecoder: NSCoder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
 protocol NSDiscardableContent {
@@ -33,4 +33,4 @@ extension NSObject {
   var autoContentAccessingProxy: AnyObject { get }
   class func autoContentAccessingProxy() -> AnyObject
 }
-func CFBridgingRetain(X: AnyObject?) -> CFTypeRef?
+func CFBridgingRetain(_ X: AnyObject?) -> CFTypeRef?

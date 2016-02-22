@@ -5,6 +5,6 @@ class NSAtomicStoreCacheNode : NSObject {
   var objectID: NSManagedObjectID { get }
   var propertyCache: NSMutableDictionary?
   func value(forKey key: String) -> AnyObject?
-  func setValue(value: AnyObject?, forKey key: String)
+  func setValue(_ value: AnyObject?, forKey key: String)
   init()
 }

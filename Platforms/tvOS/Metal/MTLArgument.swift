@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum MTLDataType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case `struct`
@@ -63,7 +63,7 @@ enum MTLDataType : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLArgumentType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case buffer
   case threadgroupMemory
@@ -72,7 +72,7 @@ enum MTLArgumentType : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLArgumentAccess : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case readOnly
   case readWrite

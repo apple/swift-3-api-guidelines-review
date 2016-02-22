@@ -2,8 +2,8 @@
 @available(OSX 10.5, *)
 class SBObject : NSObject, NSCoding {
   init()
-  init(properties: [NSObject : AnyObject])
-  init(data: AnyObject)
+  init(properties properties: [NSObject : AnyObject])
+  init(data data: AnyObject)
   func get() -> AnyObject?
   @available(OSX 10.6, *)
   func lastError() -> NSError?
@@ -12,9 +12,9 @@ class SBObject : NSObject, NSCoding {
   init?(coder aDecoder: NSCoder)
 }
 extension SBObject {
-  init(elementCode code: DescType, properties: [String : AnyObject]?, data: AnyObject?)
+  init(elementCode code: DescType, properties properties: [String : AnyObject]?, data data: AnyObject?)
   func property(withCode code: AEKeyword) -> SBObject
-  func property(with cls: AnyClass, code: AEKeyword) -> SBObject
+  func property(with cls: AnyClass, code code: AEKeyword) -> SBObject
   func elementArray(withCode code: DescType) -> SBElementArray
-  func setTo(value: AnyObject?)
+  func setTo(_ value: AnyObject?)
 }

@@ -5,7 +5,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(OSX 10.11, *)
   class func columnTerminators(for aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -18,7 +18,7 @@ class NSTextTab : NSObject, NSCopying, NSCoding {
 }
 @available(OSX 10.0, *)
 enum NSLineBreakMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case byWordWrapping
   case byCharWrapping
@@ -87,11 +87,11 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   @available(OSX 10.11, *)
   var allowsDefaultTighteningForTruncation: Bool
   @available(OSX 10.0, *)
-  func addTabStop(anObject: NSTextTab)
+  func addTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
-  func removeTabStop(anObject: NSTextTab)
+  func removeTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
-  func setParagraphStyle(obj: NSParagraphStyle)
+  func setParagraphStyle(_ obj: NSParagraphStyle)
   var tighteningFactorForTruncation: Float
   var textBlocks: [NSTextBlock]
   var textLists: [NSTextList]
@@ -100,7 +100,7 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   init?(coder aDecoder: NSCoder)
 }
 enum NSTextTabType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case leftTabStopType
   case rightTabStopType
@@ -108,6 +108,6 @@ enum NSTextTabType : UInt {
   case decimalTabStopType
 }
 extension NSTextTab {
-  convenience init(type: NSTextTabType, location loc: CGFloat)
+  convenience init(type type: NSTextTabType, location loc: CGFloat)
   var tabStopType: NSTextTabType { get }
 }

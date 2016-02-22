@@ -13,13 +13,13 @@ class AVAssetDownloadTask : NSURLSessionTask {
 }
 protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
   @available(iOS 9.0, *)
-  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad: CMTimeRange)
+  optional func urlSession(_ session: NSURLSession, assetDownloadTask assetDownloadTask: AVAssetDownloadTask, didLoad timeRange: CMTimeRange, totalTimeRangesLoaded loadedTimeRanges: [NSValue], timeRangeExpectedToLoad timeRangeExpectedToLoad: CMTimeRange)
   @available(iOS 9.0, *)
-  optional func urlSession(session: NSURLSession, assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
+  optional func urlSession(_ session: NSURLSession, assetDownloadTask assetDownloadTask: AVAssetDownloadTask, didResolve resolvedMediaSelection: AVMediaSelection)
 }
 @available(iOS 9.0, *)
 class AVAssetDownloadURLSession : NSURLSession {
-  /*not inherited*/ init(configuration: NSURLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue: NSOperationQueue?)
-  func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL: NSURL, options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
+  /*not inherited*/ init(configuration configuration: NSURLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue delegateQueue: NSOperationQueue?)
+  func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL destinationURL: NSURL, options options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
   init()
 }

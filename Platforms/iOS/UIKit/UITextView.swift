@@ -1,23 +1,23 @@
 
 protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
-  optional func textViewShouldBeginEditing(textView: UITextView) -> Bool
+  optional func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
   @available(iOS 2.0, *)
-  optional func textViewShouldEndEditing(textView: UITextView) -> Bool
+  optional func textViewShouldEndEditing(_ textView: UITextView) -> Bool
   @available(iOS 2.0, *)
-  optional func textViewDidBeginEditing(textView: UITextView)
+  optional func textViewDidBeginEditing(_ textView: UITextView)
   @available(iOS 2.0, *)
-  optional func textViewDidEndEditing(textView: UITextView)
+  optional func textViewDidEndEditing(_ textView: UITextView)
   @available(iOS 2.0, *)
-  optional func textView(textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+  optional func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
   @available(iOS 2.0, *)
-  optional func textViewDidChange(textView: UITextView)
+  optional func textViewDidChange(_ textView: UITextView)
   @available(iOS 2.0, *)
-  optional func textViewDidChangeSelection(textView: UITextView)
+  optional func textViewDidChangeSelection(_ textView: UITextView)
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
+  optional func textView(_ textView: UITextView, shouldInteractWith URL: NSURL, in characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
+  optional func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange) -> Bool
 }
 @available(iOS 2.0, *)
 class UITextView : UIScrollView, UITextInput {
@@ -38,13 +38,13 @@ class UITextView : UIScrollView, UITextInput {
   @NSCopying var attributedText: NSAttributedString!
   @available(iOS 6.0, *)
   var typingAttributes: [String : AnyObject]
-  func scrollRangeToVisible(range: NSRange)
+  func scrollRangeToVisible(_ range: NSRange)
   var inputView: UIView?
   var inputAccessoryView: UIView?
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
   @available(iOS 7.0, *)
-  init(frame: CGRect, textContainer: NSTextContainer?)
+  init(frame frame: CGRect, textContainer textContainer: NSTextContainer?)
   init?(coder aDecoder: NSCoder)
   @available(iOS 7.0, *)
   var textContainer: NSTextContainer { get }
@@ -56,12 +56,12 @@ class UITextView : UIScrollView, UITextInput {
   var textStorage: NSTextStorage { get }
   @available(iOS 7.0, *)
   var linkTextAttributes: [String : AnyObject]!
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replace(range: UITextRange, withText text: String)
+  func replace(_ range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(iOS 3.2, *)
@@ -69,7 +69,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   var markedTextStyle: [NSObject : AnyObject]?
   @available(iOS 2.0, *)
-  func setMarkedText(markedText: String?, selectedRange: NSRange)
+  func setMarkedText(_ markedText: String?, selectedRange selectedRange: NSRange)
   @available(iOS 2.0, *)
   func unmarkText()
   @available(iOS 3.2, *)
@@ -79,11 +79,11 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func textRange(from fromPosition: UITextPosition, to toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func position(from position: UITextPosition, in direction: UITextLayoutDirection, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func compare(position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
+  func compare(_ position: UITextPosition, to other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
   func offset(from from: UITextPosition, to toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
@@ -97,7 +97,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func baseWritingDirection(for position: UITextPosition, in direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, for range: UITextRange)
+  func setBaseWritingDirection(_ writingDirection: UITextWritingDirection, for range: UITextRange)
   @available(iOS 3.2, *)
   func firstRect(for range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
@@ -117,13 +117,13 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 3.2, *)
   func position(within range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOf(position: UITextPosition, within range: UITextRange) -> Int
+  func characterOffsetOf(_ position: UITextPosition, within range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
   var selectionAffinity: UITextStorageDirection
   @available(iOS 5.1, *)
-  func insertDictationResult(dictationResult: [UIDictationPhrase])
+  func insertDictationResult(_ dictationResult: [UIDictationPhrase])
   @available(iOS 2.0, *)
   func dictationRecordingDidEnd()
   @available(iOS 2.0, *)
@@ -133,7 +133,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   func frame(forDictationResultPlaceholder placeholder: AnyObject) -> CGRect
   @available(iOS 2.0, *)
-  func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
+  func removeDictationResultPlaceholder(_ placeholder: AnyObject, willInsertResult willInsertResult: Bool)
   @available(iOS 9.0, *)
   func beginFloatingCursor(at point: CGPoint)
   @available(iOS 9.0, *)
@@ -143,7 +143,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 2.0, *)
   func hasText() -> Bool
   @available(iOS 2.0, *)
-  func insertText(text: String)
+  func insertText(_ text: String)
   @available(iOS 2.0, *)
   func deleteBackward()
   @available(iOS 2.0, *)

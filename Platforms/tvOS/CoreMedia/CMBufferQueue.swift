@@ -32,43 +32,43 @@ func CMBufferQueueGetCallbacksForUnsortedSampleBuffers() -> UnsafePointer<CMBuff
 @available(tvOS 4.3, *)
 func CMBufferQueueGetCallbacksForSampleBuffersSortedByOutputPTS() -> UnsafePointer<CMBufferCallbacks>
 @available(tvOS 4.0, *)
-func CMBufferQueueCreate(allocator: CFAllocator?, _ capacity: CMItemCount, _ callbacks: UnsafePointer<CMBufferCallbacks>, _ queueOut: UnsafeMutablePointer<CMBufferQueue?>) -> OSStatus
+func CMBufferQueueCreate(_ allocator: CFAllocator?, _ capacity: CMItemCount, _ callbacks: UnsafePointer<CMBufferCallbacks>, _ queueOut: UnsafeMutablePointer<CMBufferQueue?>) -> OSStatus
 @available(tvOS 4.0, *)
 func CMBufferQueueGetTypeID() -> CFTypeID
 @available(tvOS 4.0, *)
-func CMBufferQueueEnqueue(queue: CMBufferQueue, _ buf: CMBuffer) -> OSStatus
+func CMBufferQueueEnqueue(_ queue: CMBufferQueue, _ buf: CMBuffer) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueGetHead(queue: CMBufferQueue) -> CMBuffer?
+func CMBufferQueueGetHead(_ queue: CMBufferQueue) -> CMBuffer?
 @available(tvOS 4.0, *)
-func CMBufferQueueIsEmpty(queue: CMBufferQueue) -> Bool
+func CMBufferQueueIsEmpty(_ queue: CMBufferQueue) -> Bool
 @available(tvOS 4.0, *)
-func CMBufferQueueMarkEndOfData(queue: CMBufferQueue) -> OSStatus
+func CMBufferQueueMarkEndOfData(_ queue: CMBufferQueue) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueContainsEndOfData(queue: CMBufferQueue) -> Bool
+func CMBufferQueueContainsEndOfData(_ queue: CMBufferQueue) -> Bool
 @available(tvOS 4.0, *)
-func CMBufferQueueIsAtEndOfData(queue: CMBufferQueue) -> Bool
+func CMBufferQueueIsAtEndOfData(_ queue: CMBufferQueue) -> Bool
 @available(tvOS 4.0, *)
-func CMBufferQueueReset(queue: CMBufferQueue) -> OSStatus
+func CMBufferQueueReset(_ queue: CMBufferQueue) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueResetWithCallback(queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> Void, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueResetWithCallback(_ queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> Void, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueGetBufferCount(queue: CMBufferQueue) -> CMItemCount
+func CMBufferQueueGetBufferCount(_ queue: CMBufferQueue) -> CMItemCount
 @available(tvOS 4.0, *)
-func CMBufferQueueGetDuration(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetDuration(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetMinDecodeTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMinDecodeTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetFirstDecodeTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetFirstDecodeTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetMinPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMinPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetFirstPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetFirstPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetMaxPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetMaxPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 4.0, *)
-func CMBufferQueueGetEndPresentationTimeStamp(queue: CMBufferQueue) -> CMTime
+func CMBufferQueueGetEndPresentationTimeStamp(_ queue: CMBufferQueue) -> CMTime
 @available(tvOS 7.1, *)
-func CMBufferQueueGetTotalSize(queue: CMBufferQueue) -> Int
+func CMBufferQueueGetTotalSize(_ queue: CMBufferQueue) -> Int
 typealias CMBufferQueueTriggerToken = COpaquePointer
 typealias CMBufferQueueTriggerCallback = @convention(c) (UnsafeMutablePointer<Void>, CMBufferQueueTriggerToken) -> Void
 typealias CMBufferQueueTriggerCondition = Int32
@@ -84,15 +84,15 @@ var kCMBufferQueueTrigger_WhenReset: CMBufferQueueTriggerCondition { get }
 var kCMBufferQueueTrigger_WhenBufferCountBecomesLessThan: CMBufferQueueTriggerCondition { get }
 var kCMBufferQueueTrigger_WhenBufferCountBecomesGreaterThan: CMBufferQueueTriggerCondition { get }
 @available(tvOS 4.0, *)
-func CMBufferQueueInstallTrigger(queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerTime: CMTime, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
+func CMBufferQueueInstallTrigger(_ queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerTime: CMTime, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueInstallTriggerWithIntegerThreshold(queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerThreshold: CMItemCount, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
+func CMBufferQueueInstallTriggerWithIntegerThreshold(_ queue: CMBufferQueue, _ triggerCallback: CMBufferQueueTriggerCallback?, _ triggerRefcon: UnsafeMutablePointer<Void>, _ triggerCondition: CMBufferQueueTriggerCondition, _ triggerThreshold: CMItemCount, _ triggerTokenOut: UnsafeMutablePointer<CMBufferQueueTriggerToken>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueRemoveTrigger(queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> OSStatus
+func CMBufferQueueRemoveTrigger(_ queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueTestTrigger(queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> Bool
+func CMBufferQueueTestTrigger(_ queue: CMBufferQueue, _ triggerToken: CMBufferQueueTriggerToken) -> Bool
 @available(tvOS 4.0, *)
-func CMBufferQueueCallForEachBuffer(queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueCallForEachBuffer(_ queue: CMBufferQueue, _ callback: @convention(c) (CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus, _ refcon: UnsafeMutablePointer<Void>) -> OSStatus
 typealias CMBufferValidationCallback = @convention(c) (CMBufferQueue, CMBuffer, UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMBufferQueueSetValidationCallback(queue: CMBufferQueue, _ validationCallback: CMBufferValidationCallback, _ validationRefCon: UnsafeMutablePointer<Void>) -> OSStatus
+func CMBufferQueueSetValidationCallback(_ queue: CMBufferQueue, _ validationCallback: CMBufferValidationCallback, _ validationRefCon: UnsafeMutablePointer<Void>) -> OSStatus

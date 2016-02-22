@@ -14,7 +14,7 @@ let NSStringEncodingErrorKey: String
 let NSURLErrorKey: String
 let NSFilePathErrorKey: String
 class NSError : NSObject, NSCopying, NSSecureCoding {
-  init(domain: String, code: Int, userInfo dict: [NSObject : AnyObject]? = [:])
+  init(domain domain: String, code code: Int, userInfo dict: [NSObject : AnyObject]? = [:])
   var domain: String { get }
   var code: Int { get }
   var userInfo: [NSObject : AnyObject] { get }
@@ -25,7 +25,7 @@ class NSError : NSObject, NSCopying, NSSecureCoding {
   var recoveryAttempter: AnyObject? { get }
   var helpAnchor: String? { get }
   @available(OSX 10.11, *)
-  class func setUserInfoValueProviderForDomain(errorDomain: String, provider: ((NSError, String) -> AnyObject?)? = nil)
+  class func setUserInfoValueProviderForDomain(_ errorDomain: String, provider provider: ((NSError, String) -> AnyObject?)? = nil)
   @available(OSX 10.11, *)
   class func userInfoValueProvider(forDomain errorDomain: String) -> ((NSError, String) -> AnyObject?)?
   convenience init()
@@ -40,8 +40,8 @@ extension NSError : ErrorType {
   var _code: Int { get }
 }
 extension NSObject {
-  class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
   func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int) -> Bool
 }

@@ -3,8 +3,8 @@ let IMKModeDictionary: String
 let IMKControllerClass: String
 let IMKDelegateClass: String
 class IMKServer : NSObject {
-  init!(name: String!, bundleIdentifier: String!)
-  init!(name: String!, controllerClass controllerClassID: AnyClass!, delegateClass delegateClassID: AnyClass!)
+  init!(name name: String!, bundleIdentifier bundleIdentifier: String!)
+  init!(name name: String!, controllerClass controllerClassID: AnyClass!, delegateClass delegateClassID: AnyClass!)
   func bundle() -> NSBundle!
   @available(OSX 10.7, *)
   func paletteWillTerminate() -> Bool

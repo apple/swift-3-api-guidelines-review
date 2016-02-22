@@ -5,7 +5,7 @@ struct cssm_kr_name {
   var Length: uint8
   var Name: UnsafeMutablePointer<Int8>
   init()
-  init(Type: uint8, Length: uint8, Name: UnsafeMutablePointer<Int8>)
+  init(Type Type: uint8, Length Length: uint8, Name Name: UnsafeMutablePointer<Int8>)
 }
 struct cssm_kr_profile {
   var UserName: CSSM_KR_NAME
@@ -21,7 +21,7 @@ struct cssm_kr_profile {
   var KRSPFlags: uint32
   var KRSPExtensions: CSSM_DATA_PTR
   init()
-  init(UserName: CSSM_KR_NAME, UserCertificate: CSSM_CERTGROUP_PTR, KRSCertChain: CSSM_CERTGROUP_PTR, LE_KRANum: uint8, LE_KRACertChainList: CSSM_CERTGROUP_PTR, ENT_KRANum: uint8, ENT_KRACertChainList: CSSM_CERTGROUP_PTR, INDIV_KRANum: uint8, INDIV_KRACertChainList: CSSM_CERTGROUP_PTR, INDIV_AuthenticationInfo: CSSM_DATA_PTR, KRSPFlags: uint32, KRSPExtensions: CSSM_DATA_PTR)
+  init(UserName UserName: CSSM_KR_NAME, UserCertificate UserCertificate: CSSM_CERTGROUP_PTR, KRSCertChain KRSCertChain: CSSM_CERTGROUP_PTR, LE_KRANum LE_KRANum: uint8, LE_KRACertChainList LE_KRACertChainList: CSSM_CERTGROUP_PTR, ENT_KRANum ENT_KRANum: uint8, ENT_KRACertChainList ENT_KRACertChainList: CSSM_CERTGROUP_PTR, INDIV_KRANum INDIV_KRANum: uint8, INDIV_KRACertChainList INDIV_KRACertChainList: CSSM_CERTGROUP_PTR, INDIV_AuthenticationInfo INDIV_AuthenticationInfo: CSSM_DATA_PTR, KRSPFlags KRSPFlags: uint32, KRSPExtensions KRSPExtensions: CSSM_DATA_PTR)
 }
 struct cssm_kr_wrappedproductinfo {
   var StandardVersion: CSSM_VERSION
@@ -31,14 +31,14 @@ struct cssm_kr_wrappedproductinfo {
   var ProductVendor: CSSM_STRING
   var ProductFlags: uint32
   init()
-  init(StandardVersion: CSSM_VERSION, StandardDescription: CSSM_STRING, ProductVersion: CSSM_VERSION, ProductDescription: CSSM_STRING, ProductVendor: CSSM_STRING, ProductFlags: uint32)
+  init(StandardVersion StandardVersion: CSSM_VERSION, StandardDescription StandardDescription: CSSM_STRING, ProductVersion ProductVersion: CSSM_VERSION, ProductDescription ProductDescription: CSSM_STRING, ProductVendor ProductVendor: CSSM_STRING, ProductFlags ProductFlags: uint32)
 }
 struct cssm_krsubservice {
   var SubServiceId: uint32
   var Description: UnsafeMutablePointer<Int8>
   var WrappedProduct: CSSM_KR_WRAPPEDPRODUCT_INFO
   init()
-  init(SubServiceId: uint32, Description: UnsafeMutablePointer<Int8>, WrappedProduct: CSSM_KR_WRAPPEDPRODUCT_INFO)
+  init(SubServiceId SubServiceId: uint32, Description Description: UnsafeMutablePointer<Int8>, WrappedProduct WrappedProduct: CSSM_KR_WRAPPEDPRODUCT_INFO)
 }
 typealias CSSM_KRSUBSERVICE = cssm_krsubservice
 typealias CSSM_KRSUBSERVICE_PTR = UnsafeMutablePointer<cssm_krsubservice>
@@ -70,5 +70,5 @@ struct cssm_kr_policy_info {
   var numberOfEntries: uint32
   var policyEntry: UnsafeMutablePointer<CSSM_KR_POLICY_LIST_ITEM>
   init()
-  init(krbNotAllowed: CSSM_BOOL, numberOfEntries: uint32, policyEntry: UnsafeMutablePointer<CSSM_KR_POLICY_LIST_ITEM>)
+  init(krbNotAllowed krbNotAllowed: CSSM_BOOL, numberOfEntries numberOfEntries: uint32, policyEntry policyEntry: UnsafeMutablePointer<CSSM_KR_POLICY_LIST_ITEM>)
 }

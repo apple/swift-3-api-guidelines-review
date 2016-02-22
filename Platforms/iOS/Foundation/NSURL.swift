@@ -1,7 +1,7 @@
 
 class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
-  convenience init?(scheme: String, host: String?, path: String)
+  convenience init?(scheme scheme: String, host host: String?, path path: String)
   @available(iOS 9.0, *)
   init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeTo baseURL: NSURL?)
   @available(iOS 9.0, *)
@@ -48,13 +48,13 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   var hasDirectoryPath: Bool { get }
   @available(iOS 7.0, *)
-  func getFileSystemRepresentation(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
+  func getFileSystemRepresentation(_ buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
   @available(iOS 7.0, *)
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   var isFileURL: Bool { get }
   @NSCopying var standardized: NSURL? { get }
   @available(iOS 4.0, *)
-  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturnError(_ error: NSErrorPointer) -> Bool
   @available(iOS 4.0, *)
   func isFileReferenceURL() -> Bool
   @available(iOS 4.0, *)
@@ -62,31 +62,31 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 4.0, *)
   @NSCopying var filePath: NSURL? { get }
   @available(iOS 4.0, *)
-  func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
+  func getResourceValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(iOS 4.0, *)
   func resourceValues(forKeys keys: [String]) throws -> [String : AnyObject]
   @available(iOS 4.0, *)
-  func setResourceValue(value: AnyObject?, forKey key: String) throws
+  func setResourceValue(_ value: AnyObject?, forKey key: String) throws
   @available(iOS 4.0, *)
-  func setResourceValues(keyedValues: [String : AnyObject]) throws
+  func setResourceValues(_ keyedValues: [String : AnyObject]) throws
   @available(iOS 7.0, *)
   func removeCachedResourceValue(forKey key: String)
   @available(iOS 7.0, *)
   func removeAllCachedResourceValues()
   @available(iOS 7.0, *)
-  func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
+  func setTemporaryResourceValue(_ value: AnyObject?, forKey key: String)
   @available(iOS 4.0, *)
-  func bookmarkData(options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
+  func bookmarkData(_ options: NSURLBookmarkCreationOptions = [], includingResourceValuesForKeys keys: [String]?, relativeTo relativeURL: NSURL?) throws -> NSData
   @available(iOS 4.0, *)
-  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
+  convenience init(byResolvingBookmarkData bookmarkData: NSData, options options: NSURLBookmarkResolutionOptions = [], relativeTo relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(iOS 4.0, *)
   class func resourceValues(forKeys keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
   @available(iOS 4.0, *)
-  class func writeBookmarkData(bookmarkData: NSData, to bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
+  class func writeBookmarkData(_ bookmarkData: NSData, to bookmarkFileURL: NSURL, options options: NSURLBookmarkFileCreationOptions) throws
   @available(iOS 4.0, *)
   class func bookmarkData(withContentsOf bookmarkFileURL: NSURL) throws -> NSData
   @available(iOS 8.0, *)
-  convenience init(byResolvingAliasFileAt url: NSURL, options: NSURLBookmarkResolutionOptions = []) throws
+  convenience init(byResolvingAliasFileAt url: NSURL, options options: NSURLBookmarkResolutionOptions = []) throws
   @available(iOS 8.0, *)
   func startAccessingSecurityScopedResource() -> Bool
   @available(iOS 8.0, *)
@@ -319,14 +319,14 @@ let NSURLUbiquitousItemDownloadingStatusDownloaded: String
 let NSURLUbiquitousItemDownloadingStatusCurrent: String
 @available(iOS 4.0, *)
 struct NSURLBookmarkCreationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var minimalBookmark: NSURLBookmarkCreationOptions { get }
   static var suitableForBookmarkFile: NSURLBookmarkCreationOptions { get }
 }
 @available(iOS 4.0, *)
 struct NSURLBookmarkResolutionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var withoutUI: NSURLBookmarkResolutionOptions { get }
   static var withoutMounting: NSURLBookmarkResolutionOptions { get }
@@ -334,15 +334,15 @@ struct NSURLBookmarkResolutionOptions : OptionSetType {
 typealias NSURLBookmarkFileCreationOptions = Int
 extension NSURL {
   @available(iOS 8.0, *)
-  func getPromisedItemResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
+  func getPromisedItemResourceValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(iOS 8.0, *)
   func promisedItemResourceValues(forKeys keys: [String]) throws -> [String : AnyObject]
   @available(iOS 8.0, *)
-  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturnError(_ error: NSErrorPointer) -> Bool
 }
 @available(iOS 8.0, *)
 class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
-  init(name: String, value: String?)
+  init(name name: String, value value: String?)
   var name: String { get }
   var value: String? { get }
   convenience init()
@@ -357,7 +357,7 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
 @available(iOS 7.0, *)
 class NSURLComponents : NSObject, NSCopying {
   init()
-  init?(url: NSURL, resolvingAgainstBaseURL resolve: Bool)
+  init?(url url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
   @NSCopying var url: NSURL? { get }
   func urlRelative(to baseURL: NSURL?) -> NSURL?
@@ -432,13 +432,13 @@ extension NSURL {
   @available(iOS 4.0, *)
   var pathExtension: String? { get }
   @available(iOS 4.0, *)
-  func appendingPathComponent(pathComponent: String) -> NSURL
+  func appendingPathComponent(_ pathComponent: String) -> NSURL
   @available(iOS 5.0, *)
-  func appendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
+  func appendingPathComponent(_ pathComponent: String, isDirectory isDirectory: Bool) -> NSURL
   @available(iOS 4.0, *)
   @NSCopying var deletingLastPathComponent: NSURL? { get }
   @available(iOS 4.0, *)
-  func appendingPathExtension(pathExtension: String) -> NSURL
+  func appendingPathExtension(_ pathExtension: String) -> NSURL
   @available(iOS 4.0, *)
   @NSCopying var deletingPathExtension: NSURL? { get }
   @available(iOS 4.0, *)

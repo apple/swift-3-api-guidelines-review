@@ -1,6 +1,6 @@
 
 enum NSXMLNodeKind : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case invalidKind
   case documentKind
@@ -18,18 +18,18 @@ enum NSXMLNodeKind : UInt {
 }
 class NSXMLNode : NSObject, NSCopying {
   init()
-  convenience init(kind: NSXMLNodeKind)
-  init(kind: NSXMLNodeKind, options: Int)
+  convenience init(kind kind: NSXMLNodeKind)
+  init(kind kind: NSXMLNodeKind, options options: Int)
   class func document() -> AnyObject
   class func document(withRootElement element: NSXMLElement) -> AnyObject
   class func element(withName name: String) -> AnyObject
   class func element(withName name: String, uri URI: String) -> AnyObject
   class func element(withName name: String, stringValue string: String) -> AnyObject
-  class func element(withName name: String, children: [NSXMLNode]?, attributes: [NSXMLNode]?) -> AnyObject
-  class func attribute(withName name: String, stringValue: String) -> AnyObject
-  class func attribute(withName name: String, uri URI: String, stringValue: String) -> AnyObject
-  class func namespace(withName name: String, stringValue: String) -> AnyObject
-  class func processingInstruction(withName name: String, stringValue: String) -> AnyObject
+  class func element(withName name: String, children children: [NSXMLNode]?, attributes attributes: [NSXMLNode]?) -> AnyObject
+  class func attribute(withName name: String, stringValue stringValue: String) -> AnyObject
+  class func attribute(withName name: String, uri URI: String, stringValue stringValue: String) -> AnyObject
+  class func namespace(withName name: String, stringValue stringValue: String) -> AnyObject
+  class func processingInstruction(withName name: String, stringValue stringValue: String) -> AnyObject
   class func comment(withStringValue stringValue: String) -> AnyObject
   class func text(withStringValue stringValue: String) -> AnyObject
   class func dtdNode(withXMLString string: String) -> AnyObject?
@@ -37,7 +37,7 @@ class NSXMLNode : NSObject, NSCopying {
   var name: String?
   var objectValue: AnyObject?
   var stringValue: String?
-  func setStringValue(string: String, resolvingEntities resolve: Bool)
+  func setStringValue(_ string: String, resolvingEntities resolve: Bool)
   var index: Int { get }
   var level: Int { get }
   var rootDocument: NSXMLDocument? { get }
@@ -60,9 +60,9 @@ class NSXMLNode : NSObject, NSCopying {
   var description: String { get }
   var xmlString: String { get }
   func xmlString(withOptions options: Int) -> String
-  func canonicalXMLStringPreservingComments(comments: Bool) -> String
+  func canonicalXMLStringPreservingComments(_ comments: Bool) -> String
   func nodes(forXPath xpath: String) throws -> [NSXMLNode]
-  func objects(forXQuery xquery: String, constants: [String : AnyObject]?) throws -> [AnyObject]
+  func objects(forXQuery xquery: String, constants constants: [String : AnyObject]?) throws -> [AnyObject]
   func objects(forXQuery xquery: String) throws -> [AnyObject]
   func copy(with zone: NSZone = nil) -> AnyObject
 }

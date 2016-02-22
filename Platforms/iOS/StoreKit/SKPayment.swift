@@ -2,7 +2,7 @@
 @available(iOS 3.0, *)
 class SKPayment : NSObject, NSCopying, NSMutableCopying {
   @available(iOS 3.0, *)
-  convenience init(product: SKProduct)
+  convenience init(product product: SKProduct)
   @available(iOS 3.0, *)
   var productIdentifier: String { get }
   @available(iOS 3.0, *)
@@ -32,6 +32,6 @@ class SKMutablePayment : SKPayment {
   @available(iOS 8.3, *)
   var simulatesAskToBuyInSandbox: Bool
   @available(iOS 3.0, *)
-  convenience init(product: SKProduct)
+  convenience init(product product: SKProduct)
   init()
 }

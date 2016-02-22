@@ -5,18 +5,18 @@ extension NSString {
   var isAbsolutePath: Bool { get }
   var lastPathComponent: String { get }
   var deletingLastPathComponent: String { get }
-  func appendingPathComponent(str: String) -> String
+  func appendingPathComponent(_ str: String) -> String
   var pathExtension: String { get }
   var deletingPathExtension: String { get }
-  func appendingPathExtension(str: String) -> String?
+  func appendingPathExtension(_ str: String) -> String?
   var abbreviatingWithTildeInPath: String { get }
   var expandingTildeInPath: String { get }
   var standardizingPath: String { get }
   var resolvingSymlinksInPath: String { get }
   func strings(byAppendingPaths paths: [String]) -> [String]
-  func completePath(into outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
+  func completePath(into outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesInto outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
+  func getFileSystemRepresentation(_ cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
 extension NSArray {
   func paths(matchingExtensions filterTypes: [String]) -> [String]
@@ -24,11 +24,11 @@ extension NSArray {
 func NSUserName() -> String
 func NSFullUserName() -> String
 func NSHomeDirectory() -> String
-func NSHomeDirectoryForUser(userName: String?) -> String?
+func NSHomeDirectoryForUser(_ userName: String?) -> String?
 func NSTemporaryDirectory() -> String
 func NSOpenStepRootDirectory() -> String
 enum NSSearchPathDirectory : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case applicationDirectory
   case demoApplicationDirectory
@@ -71,7 +71,7 @@ enum NSSearchPathDirectory : UInt {
   case trashDirectory
 }
 struct NSSearchPathDomainMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var userDomainMask: NSSearchPathDomainMask { get }
   static var localDomainMask: NSSearchPathDomainMask { get }
@@ -79,4 +79,4 @@ struct NSSearchPathDomainMask : OptionSetType {
   static var systemDomainMask: NSSearchPathDomainMask { get }
   static var allDomainsMask: NSSearchPathDomainMask { get }
 }
-func NSSearchPathForDirectoriesInDomains(directory: NSSearchPathDirectory, _ domainMask: NSSearchPathDomainMask, _ expandTilde: Bool) -> [String]
+func NSSearchPathForDirectoriesInDomains(_ directory: NSSearchPathDirectory, _ domainMask: NSSearchPathDomainMask, _ expandTilde: Bool) -> [String]

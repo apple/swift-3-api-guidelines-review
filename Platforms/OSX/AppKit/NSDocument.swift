@@ -1,6 +1,6 @@
 
 enum NSDocumentChangeType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case changeDone
   case changeUndone
@@ -13,7 +13,7 @@ enum NSDocumentChangeType : UInt {
   case changeDiscardable
 }
 enum NSSaveOperationType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case saveOperation
   case saveAsOperation
@@ -40,14 +40,14 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func performActivity(synchronousWaiting waitSynchronously: Bool, using block: (() -> Void) -> Void)
   @available(OSX 10.7, *)
-  func continueActivity(block: () -> Void)
+  func continueActivity(_ block: () -> Void)
   @available(OSX 10.7, *)
-  func continueAsynchronousWorkOnMainThread(block: () -> Void)
+  func continueAsynchronousWorkOnMainThread(_ block: () -> Void)
   @available(OSX 10.7, *)
-  func performSynchronousFileAccess(block: () -> Void)
+  func performSynchronousFileAccess(_ block: () -> Void)
   @available(OSX 10.7, *)
-  func performAsynchronousFileAccess(block: (() -> Void) -> Void)
-  @IBAction func revertDocumentToSaved(sender: AnyObject?)
+  func performAsynchronousFileAccess(_ block: (() -> Void) -> Void)
+  @IBAction func revertDocumentToSaved(_ sender: AnyObject?)
   func revert(toContentsOf url: NSURL, ofType typeName: String) throws
   func read(from url: NSURL, ofType typeName: String) throws
   func read(from fileWrapper: NSFileWrapper, ofType typeName: String) throws
@@ -67,18 +67,18 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   var keepBackupFile: Bool { get }
   @available(OSX 10.8, *)
   @NSCopying var backupFileURL: NSURL? { get }
-  @IBAction func save(sender: AnyObject?)
-  @IBAction func saveAs(sender: AnyObject?)
-  @IBAction func saveTo(sender: AnyObject?)
-  func save(delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func runModalSavePanel(for saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @IBAction func save(_ sender: AnyObject?)
+  @IBAction func saveAs(_ sender: AnyObject?)
+  @IBAction func saveTo(_ sender: AnyObject?)
+  func save(delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func runModalSavePanel(for saveOperation: NSSaveOperationType, delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   var shouldRunSavePanelWithAccessoryView: Bool { get }
-  func prepare(savePanel: NSSavePanel) -> Bool
+  func prepare(_ savePanel: NSSavePanel) -> Bool
   var fileNameExtensionWasHiddenInLastRunSavePanel: Bool { get }
   var fileTypeFromLastRunSavePanel: String? { get }
-  func save(to url: NSURL, ofType typeName: String, for saveOperation: NSSaveOperationType, delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func save(to url: NSURL, ofType typeName: String, for saveOperation: NSSaveOperationType, delegate delegate: AnyObject?, didSave didSaveSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func save(to url: NSURL, ofType typeName: String, for saveOperation: NSSaveOperationType, completionHandler: (NSError?) -> Void)
+  func save(to url: NSURL, ofType typeName: String, for saveOperation: NSSaveOperationType, completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.7, *)
   func canAsynchronouslyWrite(to url: NSURL, ofType typeName: String, for saveOperation: NSSaveOperationType) -> Bool
   @available(OSX 10.7, *)
@@ -86,41 +86,41 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   @available(OSX 10.7, *)
   func scheduleAutosaving()
   var hasUnautosavedChanges: Bool { get }
-  func autosave(delegate delegate: AnyObject?, didAutosave didAutosaveSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func autosave(delegate delegate: AnyObject?, didAutosave didAutosaveSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func autosave(implicitCancellability autosavingIsImplicitlyCancellable: Bool, completionHandler: (NSError?) -> Void)
+  func autosave(implicitCancellability autosavingIsImplicitlyCancellable: Bool, completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.7, *)
   class func autosavesInPlace() -> Bool
   @available(OSX 10.7, *)
   class func preservesVersions() -> Bool
   @available(OSX 10.8, *)
-  @IBAction func browseDocumentVersions(sender: AnyObject?)
+  @IBAction func browseDocumentVersions(_ sender: AnyObject?)
   @available(OSX 10.8, *)
   class func autosavesDrafts() -> Bool
   var autosavingFileType: String? { get }
   @NSCopying var autosavedContentsFileURL: NSURL?
-  func canClose(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func canClose(delegate delegate: AnyObject, shouldClose shouldCloseSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func close()
   @available(OSX 10.7, *)
-  @IBAction func duplicate(sender: AnyObject?)
+  @IBAction func duplicate(_ sender: AnyObject?)
   @available(OSX 10.7, *)
-  func duplicate(delegate delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func duplicate(delegate delegate: AnyObject?, didDuplicate didDuplicateSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   func duplicate() throws -> NSDocument
   @available(OSX 10.8, *)
-  @IBAction func renameDocument(sender: AnyObject?)
+  @IBAction func renameDocument(_ sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func moveToUbiquityContainer(sender: AnyObject?)
+  @IBAction func moveToUbiquityContainer(_ sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func move(sender: AnyObject?)
+  @IBAction func move(_ sender: AnyObject?)
   @available(OSX 10.8, *)
   func move(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
-  func move(to url: NSURL, completionHandler: ((NSError?) -> Void)? = nil)
+  func move(to url: NSURL, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
-  @IBAction func lock(sender: AnyObject?)
+  @IBAction func lock(_ sender: AnyObject?)
   @available(OSX 10.8, *)
-  @IBAction func unlock(sender: AnyObject?)
+  @IBAction func unlock(_ sender: AnyObject?)
   @available(OSX 10.8, *)
   func lock(completionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.8, *)
@@ -131,58 +131,58 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   func unlock(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.8, *)
   var isLocked: Bool { get }
-  @IBAction func runPageLayout(sender: AnyObject?)
-  func runModalPageLayout(printInfo: NSPrintInfo, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func prepare(pageLayout: NSPageLayout) -> Bool
-  func shouldChangePrintInfo(newPrintInfo: NSPrintInfo) -> Bool
+  @IBAction func runPageLayout(_ sender: AnyObject?)
+  func runModalPageLayout(_ printInfo: NSPrintInfo, delegate delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func prepare(_ pageLayout: NSPageLayout) -> Bool
+  func shouldChangePrintInfo(_ newPrintInfo: NSPrintInfo) -> Bool
   @NSCopying var printInfo: NSPrintInfo
   @warn_unqualified_access
-  @IBAction func print(sender: AnyObject?)
-  func print(settings printSettings: [String : AnyObject], showPrintPanel: Bool, delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  @IBAction func print(_ sender: AnyObject?)
+  func print(settings printSettings: [String : AnyObject], showPrintPanel showPrintPanel: Bool, delegate delegate: AnyObject?, didPrint didPrintSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func printOperation(settings printSettings: [String : AnyObject]) throws -> NSPrintOperation
-  func runModalPrintOperation(printOperation: NSPrintOperation, delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func runModalPrintOperation(_ printOperation: NSPrintOperation, delegate delegate: AnyObject?, didRun didRunSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.9, *)
-  @IBAction func saveToPDF(sender: AnyObject?)
+  @IBAction func saveToPDF(_ sender: AnyObject?)
   @available(OSX 10.9, *)
   var pdfPrintOperation: NSPrintOperation { get }
   var isDocumentEdited: Bool { get }
   @available(OSX 10.7, *)
   var isInViewingMode: Bool { get }
-  func updateChangeCount(change: NSDocumentChangeType)
+  func updateChangeCount(_ change: NSDocumentChangeType)
   @available(OSX 10.7, *)
   func changeCountToken(for saveOperation: NSSaveOperationType) -> AnyObject
   @available(OSX 10.7, *)
   func updateChangeCount(token changeCountToken: AnyObject, for saveOperation: NSSaveOperationType)
   var undoManager: NSUndoManager?
   var hasUndoManager: Bool
-  func presentError(error: NSError, modalFor window: NSWindow, delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func presentError(error: NSError) -> Bool
-  func willPresentError(error: NSError) -> NSError
+  func presentError(_ error: NSError, modalFor window: NSWindow, delegate delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(_ error: NSError) -> Bool
+  func willPresentError(_ error: NSError) -> NSError
   @available(OSX 10.7, *)
-  func willNotPresentError(error: NSError)
+  func willNotPresentError(_ error: NSError)
   func makeWindowControllers()
   var windowNibName: String? { get }
-  func windowControllerWillLoadNib(windowController: NSWindowController)
-  func windowControllerDidLoadNib(windowController: NSWindowController)
-  func setWindow(window: NSWindow?)
-  func addWindowController(windowController: NSWindowController)
-  func removeWindowController(windowController: NSWindowController)
+  func windowControllerWillLoadNib(_ windowController: NSWindowController)
+  func windowControllerDidLoadNib(_ windowController: NSWindowController)
+  func setWindow(_ window: NSWindow?)
+  func addWindowController(_ windowController: NSWindowController)
+  func removeWindowController(_ windowController: NSWindowController)
   func showWindows()
   var windowControllers: [NSWindowController] { get }
-  func shouldCloseWindowController(windowController: NSWindowController, delegate: AnyObject?, shouldClose shouldCloseSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func shouldCloseWindowController(_ windowController: NSWindowController, delegate delegate: AnyObject?, shouldClose shouldCloseSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func setDisplayName(displayNameOrNil: String?)
+  func setDisplayName(_ displayNameOrNil: String?)
   var displayName: String { get }
   @available(OSX 10.8, *)
   func defaultDraftName() -> String
   var windowForSheet: NSWindow? { get }
   class func readableTypes() -> [String]
   class func writableTypes() -> [String]
-  class func isNativeType(type: String) -> Bool
+  class func isNativeType(_ type: String) -> Bool
   func writableTypes(for saveOperation: NSSaveOperationType) -> [String]
   @available(OSX 10.5, *)
-  func fileNameExtension(forType typeName: String, saveOperation: NSSaveOperationType) -> String?
-  func validate(anItem: NSValidatedUserInterfaceItem) -> Bool
+  func fileNameExtension(forType typeName: String, saveOperation saveOperation: NSSaveOperationType) -> String?
+  func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   @available(OSX 10.8, *)
   class func usesUbiquitousStorage() -> Bool
   @NSCopying var presentedItemURL: NSURL? { get }
@@ -197,12 +197,12 @@ class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
   func presentedItemDidMove(to newURL: NSURL)
   func presentedItemDidChange()
   @available(OSX 10.7, *)
-  func presentedItemDidGainVersion(version: NSFileVersion)
+  func presentedItemDidGainVersion(_ version: NSFileVersion)
   @available(OSX 10.7, *)
-  func presentedItemDidLose(version: NSFileVersion)
+  func presentedItemDidLose(_ version: NSFileVersion)
   @available(OSX 10.7, *)
-  func presentedItemDidResolveConflictVersion(version: NSFileVersion)
-  func accommodatePresentedSubitemDeletion(at url: NSURL, completionHandler: (NSError?) -> Void)
+  func presentedItemDidResolveConflictVersion(_ version: NSFileVersion)
+  func accommodatePresentedSubitemDeletion(at url: NSURL, completionHandler completionHandler: (NSError?) -> Void)
   func presentedSubitemDidAppear(at url: NSURL)
   func presentedSubitem(at oldURL: NSURL, didMoveTo newURL: NSURL)
   func presentedSubitemDidChange(at url: NSURL)
@@ -223,7 +223,7 @@ struct __docFlags {
   var hasEverHadInvalidRestorableState: UInt32
   var RESERVED: UInt32
   init()
-  init(inClose: UInt32, hasUndoManager: UInt32, unused: UInt32, reconciledToFileName: UInt32, checkingDisplayName: UInt32, hasInvalidRestorableState: UInt32, hasEverHadInvalidRestorableState: UInt32, RESERVED: UInt32)
+  init(inClose inClose: UInt32, hasUndoManager hasUndoManager: UInt32, unused unused: UInt32, reconciledToFileName reconciledToFileName: UInt32, checkingDisplayName checkingDisplayName: UInt32, hasInvalidRestorableState hasInvalidRestorableState: UInt32, hasEverHadInvalidRestorableState hasEverHadInvalidRestorableState: UInt32, RESERVED RESERVED: UInt32)
 }
 extension NSDocument {
 }

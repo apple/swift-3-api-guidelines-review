@@ -10,10 +10,10 @@ class SBElementArray : NSMutableArray {
   init()
   init(capacity numItems: Int)
   init?(coder aDecoder: NSCoder)
-  convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
+  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   convenience init(object anObject: AnyObject)
-  convenience init(array: [AnyObject])
-  convenience init(array: [AnyObject], copyItems flag: Bool)
+  convenience init(array array: [AnyObject])
+  convenience init(array array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
   convenience init?(contentsOf url: NSURL)
 }

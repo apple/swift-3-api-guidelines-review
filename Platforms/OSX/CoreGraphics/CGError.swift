@@ -1,6 +1,6 @@
 
 enum CGError : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case success
   case failure

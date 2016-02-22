@@ -31,5 +31,5 @@ struct __micFlags {
   var uniqueAgainstMain: UInt32
   var RESERVED: UInt32
   init()
-  init(needsSizing: UInt32, reserved: UInt32, needsDisplay: UInt32, keyEquivGlyphWidth: UInt32, uniqueAgainstMain: UInt32, RESERVED: UInt32)
+  init(needsSizing needsSizing: UInt32, reserved reserved: UInt32, needsDisplay needsDisplay: UInt32, keyEquivGlyphWidth keyEquivGlyphWidth: UInt32, uniqueAgainstMain uniqueAgainstMain: UInt32, RESERVED RESERVED: UInt32)
 }

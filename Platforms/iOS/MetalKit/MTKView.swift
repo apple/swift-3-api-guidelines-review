@@ -1,8 +1,8 @@
 
 @available(iOS 9.0, *)
 class MTKView : UIView, NSCoding {
-  init(frame frameRect: CGRect, device: MTLDevice?)
-  init(coder: NSCoder)
+  init(frame frameRect: CGRect, device device: MTLDevice?)
+  init(coder coder: NSCoder)
   weak var delegate: @sil_weak MTKViewDelegate?
   var device: MTLDevice?
   var currentDrawable: CAMetalDrawable? { get }
@@ -24,11 +24,11 @@ class MTKView : UIView, NSCoding {
   var drawableSize: CGSize
   var isPaused: Bool
   func draw()
-  convenience init(frame: CGRect)
+  convenience init(frame frame: CGRect)
   convenience init()
 }
 @available(iOS 9.0, *)
 protocol MTKViewDelegate : NSObjectProtocol {
-  func mtkView(view: MTKView, drawableSizeWillChange size: CGSize)
+  func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize)
   func draw(in view: MTKView)
 }

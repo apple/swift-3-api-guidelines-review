@@ -21,9 +21,9 @@ let kSecOAEPEncodingParametersAttributeName: CFString
 @available(OSX 10.8, *)
 let kSecOAEPMGF1DigestAlgorithmAttributeName: CFString
 @available(OSX 10.7, *)
-func SecEncryptTransformCreate(keyRef: SecKey, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
+func SecEncryptTransformCreate(_ keyRef: SecKey, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
 @available(OSX 10.7, *)
-func SecDecryptTransformCreate(keyRef: SecKey, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
+func SecDecryptTransformCreate(_ keyRef: SecKey, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
 @available(OSX 10.7, *)
 func SecDecryptTransformGetTypeID() -> CFTypeID
 @available(OSX 10.7, *)

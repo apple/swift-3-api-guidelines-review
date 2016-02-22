@@ -4,9 +4,9 @@ class CFBoolean {
 let kCFBooleanTrue: CFBoolean!
 let kCFBooleanFalse: CFBoolean!
 func CFBooleanGetTypeID() -> CFTypeID
-func CFBooleanGetValue(boolean: CFBoolean!) -> Bool
+func CFBooleanGetValue(_ boolean: CFBoolean!) -> Bool
 enum CFNumberType : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case sInt8Type
   case sInt16Type
@@ -34,9 +34,9 @@ let kCFNumberPositiveInfinity: CFNumber!
 let kCFNumberNegativeInfinity: CFNumber!
 let kCFNumberNaN: CFNumber!
 func CFNumberGetTypeID() -> CFTypeID
-func CFNumberCreate(allocator: CFAllocator!, _ theType: CFNumberType, _ valuePtr: UnsafePointer<Void>) -> CFNumber!
-func CFNumberGetType(number: CFNumber!) -> CFNumberType
-func CFNumberGetByteSize(number: CFNumber!) -> CFIndex
-func CFNumberIsFloatType(number: CFNumber!) -> Bool
-func CFNumberGetValue(number: CFNumber!, _ theType: CFNumberType, _ valuePtr: UnsafeMutablePointer<Void>) -> Bool
-func CFNumberCompare(number: CFNumber!, _ otherNumber: CFNumber!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
+func CFNumberCreate(_ allocator: CFAllocator!, _ theType: CFNumberType, _ valuePtr: UnsafePointer<Void>) -> CFNumber!
+func CFNumberGetType(_ number: CFNumber!) -> CFNumberType
+func CFNumberGetByteSize(_ number: CFNumber!) -> CFIndex
+func CFNumberIsFloatType(_ number: CFNumber!) -> Bool
+func CFNumberGetValue(_ number: CFNumber!, _ theType: CFNumberType, _ valuePtr: UnsafeMutablePointer<Void>) -> Bool
+func CFNumberCompare(_ number: CFNumber!, _ otherNumber: CFNumber!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult

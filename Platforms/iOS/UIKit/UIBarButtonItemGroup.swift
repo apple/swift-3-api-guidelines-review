@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 class UIBarButtonItemGroup : NSObject, NSCoding {
-  init(barButtonItems: [UIBarButtonItem], representativeItem: UIBarButtonItem?)
+  init(barButtonItems barButtonItems: [UIBarButtonItem], representativeItem representativeItem: UIBarButtonItem?)
   init?(coder aDecoder: NSCoder)
   var barButtonItems: [UIBarButtonItem]
   var representativeItem: UIBarButtonItem?

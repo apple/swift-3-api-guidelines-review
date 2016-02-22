@@ -15,8 +15,8 @@ class NSDictionaryController : NSArrayController {
   var excludedKeys: [String]
   var localizedKeyDictionary: [String : String]
   var localizedKeyTable: String?
-  init(content: AnyObject?)
-  init?(coder: NSCoder)
+  init(content content: AnyObject?)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __dictionaryControllerFlags {
@@ -24,5 +24,5 @@ struct __dictionaryControllerFlags {
   var _suppressBuildingDictionary: UInt32
   var _reservedDictionaryController: UInt32
   init()
-  init(_deepCopiesValues: UInt32, _suppressBuildingDictionary: UInt32, _reservedDictionaryController: UInt32)
+  init(_deepCopiesValues _deepCopiesValues: UInt32, _suppressBuildingDictionary _suppressBuildingDictionary: UInt32, _reservedDictionaryController _reservedDictionaryController: UInt32)
 }

@@ -6,5 +6,5 @@ class CBDescriptor : CBAttribute {
 }
 @available(iOS 6.0, *)
 class CBMutableDescriptor : CBDescriptor {
-  init(type UUID: CBUUID, value: AnyObject?)
+  init(type UUID: CBUUID, value value: AnyObject?)
 }

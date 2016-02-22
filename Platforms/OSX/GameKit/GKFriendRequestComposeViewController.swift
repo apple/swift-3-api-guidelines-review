@@ -2,14 +2,14 @@
 @available(OSX 10.8, *)
 class GKFriendRequestComposeViewController : NSViewController, GKViewController {
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 extension GKFriendRequestComposeViewController {
   class func maxNumberOfRecipients() -> Int
-  func setMessage(message: String?)
+  func setMessage(_ message: String?)
   @available(OSX 10.10, *)
-  func addRecipientPlayers(players: [GKPlayer])
+  func addRecipientPlayers(_ players: [GKPlayer])
   @available(OSX, introduced=10.8, deprecated=10.10, message="use addRecipientPlayers:")
   func addRecipients(playerIDs playerIDs: [String])
   func addRecipients(emailAddresses emailAddresses: [String])
@@ -17,5 +17,5 @@ extension GKFriendRequestComposeViewController {
 }
 protocol GKFriendRequestComposeViewControllerDelegate {
   @available(OSX 10.8, *)
-  func friendRequestComposeViewControllerDidFinish(viewController: GKFriendRequestComposeViewController)
+  func friendRequestComposeViewControllerDidFinish(_ viewController: GKFriendRequestComposeViewController)
 }

@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum SCNAntialiasingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case multisampling2X
@@ -14,34 +14,34 @@ let SCNPreferredDeviceKey: String
 @available(iOS 9.0, *)
 let SCNPreferLowPowerDeviceKey: String
 class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
-  init(frame: CGRect, options: [String : AnyObject]? = [:])
+  init(frame frame: CGRect, options options: [String : AnyObject]? = [:])
   var scene: SCNScene?
   var allowsCameraControl: Bool
   @available(iOS 8.0, *)
   func snapshot() -> UIImage
-  @IBAction func play(sender: AnyObject?)
-  @IBAction func pause(sender: AnyObject?)
-  @IBAction func stop(sender: AnyObject?)
+  @IBAction func play(_ sender: AnyObject?)
+  @IBAction func pause(_ sender: AnyObject?)
+  @IBAction func stop(_ sender: AnyObject?)
   var preferredFramesPerSecond: Int
   var eaglContext: EAGLContext?
   @available(iOS 8.0, *)
   var antialiasingMode: SCNAntialiasingMode
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 8.0, *)
   var sceneTime: NSTimeInterval
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(iOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(iOS 8.0, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(iOS 9.0, *)
   func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(iOS 8.0, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(iOS 8.0, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   var isPlaying: Bool
   var loops: Bool
   @available(iOS 8.0, *)
@@ -49,9 +49,9 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
   var autoenablesDefaultLighting: Bool
   var isJitteringEnabled: Bool
   @available(iOS 8.0, *)
-  func prepare(object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
+  func prepare(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(iOS 8.0, *)
-  func prepare(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(iOS 8.0, *)
   var showsStatistics: Bool
   @available(iOS 9.0, *)

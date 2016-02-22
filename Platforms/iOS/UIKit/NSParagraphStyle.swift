@@ -5,7 +5,7 @@ let NSTabColumnTerminatorsAttributeName: String
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(iOS 7.0, *)
   class func columnTerminators(for aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject] = [:])
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options options: [String : AnyObject] = [:])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
@@ -18,7 +18,7 @@ class NSTextTab : NSObject, NSCopying, NSCoding {
 }
 @available(iOS 6.0, *)
 enum NSLineBreakMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case byWordWrapping
   case byCharWrapping
@@ -83,11 +83,11 @@ class NSMutableParagraphStyle : NSParagraphStyle {
   @available(iOS 9.0, *)
   var allowsDefaultTighteningForTruncation: Bool
   @available(iOS 9.0, *)
-  func addTabStop(anObject: NSTextTab)
+  func addTabStop(_ anObject: NSTextTab)
   @available(iOS 9.0, *)
-  func removeTabStop(anObject: NSTextTab)
+  func removeTabStop(_ anObject: NSTextTab)
   @available(iOS 9.0, *)
-  func setParagraphStyle(obj: NSParagraphStyle)
+  func setParagraphStyle(_ obj: NSParagraphStyle)
   init()
   init?(coder aDecoder: NSCoder)
 }

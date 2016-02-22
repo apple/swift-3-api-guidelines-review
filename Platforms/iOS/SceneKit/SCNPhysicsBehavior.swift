@@ -10,8 +10,8 @@ class SCNPhysicsBehavior : NSObject, NSSecureCoding {
 }
 @available(iOS 8.0, *)
 class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, axisA: SCNVector3, anchorA: SCNVector3, bodyB: SCNPhysicsBody, axisB: SCNVector3, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, axis: SCNVector3, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, axisA axisA: SCNVector3, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, axisB axisB: SCNVector3, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, axis axis: SCNVector3, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var axisA: SCNVector3
   var anchorA: SCNVector3
@@ -23,8 +23,8 @@ class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
 }
 @available(iOS 8.0, *)
 class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, anchorA: SCNVector3, bodyB: SCNPhysicsBody, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var anchorA: SCNVector3
   var bodyB: SCNPhysicsBody? { get }
@@ -34,8 +34,8 @@ class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
 }
 @available(iOS 8.0, *)
 class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, axisA: SCNVector3, anchorA: SCNVector3, bodyB: SCNPhysicsBody, axisB: SCNVector3, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, axis: SCNVector3, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, axisA axisA: SCNVector3, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, axisB axisB: SCNVector3, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, axis axis: SCNVector3, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var axisA: SCNVector3
   var anchorA: SCNVector3
@@ -55,7 +55,7 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
 }
 @available(iOS 8.0, *)
 class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
-  convenience init(node: SCNNode)
+  convenience init(node node: SCNNode)
   var node: SCNNode { get }
   var suspensionStiffness: CGFloat
   var suspensionCompression: CGFloat
@@ -79,13 +79,13 @@ class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
 }
 @available(iOS 8.0, *)
 class SCNPhysicsVehicle : SCNPhysicsBehavior {
-  convenience init(chassisBody: SCNPhysicsBody, wheels: [SCNPhysicsVehicleWheel])
+  convenience init(chassisBody chassisBody: SCNPhysicsBody, wheels wheels: [SCNPhysicsVehicleWheel])
   var speedInKilometersPerHour: CGFloat { get }
   var wheels: [SCNPhysicsVehicleWheel] { get }
   var chassisBody: SCNPhysicsBody { get }
-  func applyEngineForce(value: CGFloat, forWheelAt index: Int)
-  func setSteeringAngle(value: CGFloat, forWheelAt index: Int)
-  func applyBrakingForce(value: CGFloat, forWheelAt index: Int)
+  func applyEngineForce(_ value: CGFloat, forWheelAt index: Int)
+  func setSteeringAngle(_ value: CGFloat, forWheelAt index: Int)
+  func applyBrakingForce(_ value: CGFloat, forWheelAt index: Int)
   init()
   init?(coder aDecoder: NSCoder)
 }

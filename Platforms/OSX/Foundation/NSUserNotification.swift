@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum NSUserNotificationActivationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case contentsClicked
@@ -46,7 +46,7 @@ class NSUserNotification : NSObject, NSCopying {
 }
 @available(OSX 10.10, *)
 class NSUserNotificationAction : NSObject, NSCopying {
-  convenience init(identifier: String?, title: String?)
+  convenience init(identifier identifier: String?, title title: String?)
   var identifier: String? { get }
   var title: String? { get }
   init()
@@ -60,19 +60,19 @@ class NSUserNotificationCenter : NSObject {
   class func defaultUserNotificationCenter() -> NSUserNotificationCenter
   unowned(unsafe) var delegate: @sil_unmanaged NSUserNotificationCenterDelegate?
   var scheduledNotifications: [NSUserNotification]
-  func scheduleNotification(notification: NSUserNotification)
-  func removeScheduledNotification(notification: NSUserNotification)
+  func scheduleNotification(_ notification: NSUserNotification)
+  func removeScheduledNotification(_ notification: NSUserNotification)
   var deliveredNotifications: [NSUserNotification] { get }
-  func deliver(notification: NSUserNotification)
-  func removeDeliveredNotification(notification: NSUserNotification)
+  func deliver(_ notification: NSUserNotification)
+  func removeDeliveredNotification(_ notification: NSUserNotification)
   func removeAllDeliveredNotifications()
   init()
 }
 protocol NSUserNotificationCenterDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: NSUserNotificationCenter, didDeliver notification: NSUserNotification)
+  optional func userNotificationCenter(_ center: NSUserNotificationCenter, didDeliver notification: NSUserNotification)
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: NSUserNotificationCenter, didActivate notification: NSUserNotification)
+  optional func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification)
   @available(OSX 10.8, *)
-  optional func userNotificationCenter(center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool
+  optional func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool
 }

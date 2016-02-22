@@ -8,8 +8,8 @@ class HMHomeManager : NSObject {
 }
 @available(watchOS 20000, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {
-  optional func homeManagerDidUpdateHomes(manager: HMHomeManager)
-  optional func homeManagerDidUpdatePrimaryHome(manager: HMHomeManager)
-  optional func homeManager(manager: HMHomeManager, didAdd home: HMHome)
-  optional func homeManager(manager: HMHomeManager, didRemove home: HMHome)
+  optional func homeManagerDidUpdateHomes(_ manager: HMHomeManager)
+  optional func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager)
+  optional func homeManager(_ manager: HMHomeManager, didAdd home: HMHome)
+  optional func homeManager(_ manager: HMHomeManager, didRemove home: HMHome)
 }

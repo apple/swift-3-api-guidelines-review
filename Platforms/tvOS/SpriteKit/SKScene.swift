@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 enum SKSceneScaleMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case fill
   case aspectFill
@@ -10,14 +10,14 @@ enum SKSceneScaleMode : Int {
 }
 @available(tvOS 8.0, *)
 protocol SKSceneDelegate : NSObjectProtocol {
-  optional func update(currentTime: NSTimeInterval, for scene: SKScene)
+  optional func update(_ currentTime: NSTimeInterval, for scene: SKScene)
   optional func didEvaluateActions(for scene: SKScene)
   optional func didSimulatePhysics(for scene: SKScene)
   optional func didApplyConstraints(for scene: SKScene)
   optional func didFinishUpdate(for scene: SKScene)
 }
 class SKScene : SKEffectNode {
-  init(size: CGSize)
+  init(size size: CGSize)
   var size: CGSize
   var scaleMode: SKSceneScaleMode
   @available(tvOS 9.0, *)
@@ -32,7 +32,7 @@ class SKScene : SKEffectNode {
   func convertPoint(fromView point: CGPoint) -> CGPoint
   func convertPoint(toView point: CGPoint) -> CGPoint
   weak var view: @sil_weak SKView? { get }
-  func update(currentTime: NSTimeInterval)
+  func update(_ currentTime: NSTimeInterval)
   func didEvaluateActions()
   func didSimulatePhysics()
   @available(tvOS 8.0, *)
@@ -41,7 +41,7 @@ class SKScene : SKEffectNode {
   func didFinishUpdate()
   func didMove(to view: SKView)
   func willMove(from view: SKView)
-  func didChangeSize(oldSize: CGSize)
+  func didChangeSize(_ oldSize: CGSize)
   init()
   init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)

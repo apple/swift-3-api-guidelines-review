@@ -2,7 +2,7 @@
 @available(iOS 3.0, *)
 let UINibExternalObjects: String
 extension NSBundle {
-  func loadNibNamed(name: String!, owner: AnyObject!, options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
+  func loadNibNamed(_ name: String!, owner owner: AnyObject!, options options: [NSObject : AnyObject]! = [:]) -> [AnyObject]!
 }
 extension NSObject {
   class func awakeFromNib()

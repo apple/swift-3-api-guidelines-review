@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NCUpdateResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case newData
   case noData

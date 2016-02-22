@@ -1,6 +1,6 @@
 
 enum UIPrintInfoOutputType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case general
   case photo
@@ -9,13 +9,13 @@ enum UIPrintInfoOutputType : Int {
   case photoGrayscale
 }
 enum UIPrintInfoOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case portrait
   case landscape
 }
 enum UIPrintInfoDuplex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case longEdge
@@ -25,7 +25,7 @@ enum UIPrintInfoDuplex : Int {
 class UIPrintInfo : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
   class func printInfo() -> UIPrintInfo
-  /*not inherited*/ init(dictionary: [NSObject : AnyObject]?)
+  /*not inherited*/ init(dictionary dictionary: [NSObject : AnyObject]?)
   func dictionaryRepresentation() -> [NSObject : AnyObject]
   var printerID: String?
   var jobName: String

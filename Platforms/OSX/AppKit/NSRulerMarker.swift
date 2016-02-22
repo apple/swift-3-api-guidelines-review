@@ -1,6 +1,6 @@
 
 class NSRulerMarker : NSObject, NSCopying, NSCoding {
-  init(rulerView ruler: NSRulerView, markerLocation location: CGFloat, image: NSImage, imageOrigin: NSPoint)
+  init(rulerView ruler: NSRulerView, markerLocation location: CGFloat, image image: NSImage, imageOrigin imageOrigin: NSPoint)
   unowned(unsafe) var ruler: @sil_unmanaged NSRulerView { get }
   var markerLocation: CGFloat
   var image: NSImage
@@ -11,8 +11,8 @@ class NSRulerMarker : NSObject, NSCopying, NSCoding {
   var representedObject: NSCopying?
   var imageRectInRuler: NSRect { get }
   var thicknessRequiredInRuler: CGFloat { get }
-  func draw(rect: NSRect)
-  func trackMouse(mouseDownEvent: NSEvent, adding isAdding: Bool) -> Bool
+  func draw(_ rect: NSRect)
+  func trackMouse(_ mouseDownEvent: NSEvent, adding isAdding: Bool) -> Bool
   convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
@@ -25,5 +25,5 @@ struct __rFlags {
   var pinned: UInt32
   var _reserved: UInt32
   init()
-  init(movable: UInt32, removable: UInt32, dragging: UInt32, pinned: UInt32, _reserved: UInt32)
+  init(movable movable: UInt32, removable removable: UInt32, dragging dragging: UInt32, pinned pinned: UInt32, _reserved _reserved: UInt32)
 }

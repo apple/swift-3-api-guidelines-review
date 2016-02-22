@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum UISplitViewControllerDisplayMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case primaryHidden
@@ -33,47 +33,47 @@ class UISplitViewController : UIViewController {
   @available(iOS 8.0, *)
   var primaryColumnWidth: CGFloat { get }
   @available(iOS 8.0, *)
-  func show(vc: UIViewController, sender: AnyObject?)
+  func show(_ vc: UIViewController, sender sender: AnyObject?)
   @available(iOS 8.0, *)
-  func showDetailViewController(vc: UIViewController, sender: AnyObject?)
+  func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UISplitViewControllerDelegate {
   @available(iOS 8.0, *)
-  optional func splitViewController(svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
+  optional func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode)
   @available(iOS 8.0, *)
   optional func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode
   @available(iOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, show vc: UIViewController, sender: AnyObject?) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, show vc: UIViewController, sender sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender sender: AnyObject?) -> Bool
   @available(iOS 8.0, *)
   optional func primaryViewController(forCollapsing splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
   optional func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController?
   @available(iOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
+  optional func splitViewController(_ splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool
   @available(iOS 8.0, *)
-  optional func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController?
+  optional func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController?
   @available(iOS 7.0, *)
-  optional func splitViewControllerSupportedInterfaceOrientations(splitViewController: UISplitViewController) -> UIInterfaceOrientationMask
+  optional func splitViewControllerSupportedInterfaceOrientations(_ splitViewController: UISplitViewController) -> UIInterfaceOrientationMask
   @available(iOS 7.0, *)
   optional func splitViewControllerPreferredInterfaceOrientation(forPresentation splitViewController: UISplitViewController) -> UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
-  optional func splitViewController(svc: UISplitViewController, willHide aViewController: UIViewController, with barButtonItem: UIBarButtonItem, for pc: UIPopoverController)
+  optional func splitViewController(_ svc: UISplitViewController, willHide aViewController: UIViewController, with barButtonItem: UIBarButtonItem, for pc: UIPopoverController)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: and displayModeButtonItem instead")
-  optional func splitViewController(svc: UISplitViewController, willShow aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
+  optional func splitViewController(_ svc: UISplitViewController, willShow aViewController: UIViewController, invalidatingBarButtonItem barButtonItem: UIBarButtonItem)
   @available(iOS, introduced=2.0, deprecated=8.0, message="Use splitViewController:willChangeToDisplayMode: instead")
-  optional func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresent aViewController: UIViewController)
+  optional func splitViewController(_ svc: UISplitViewController, popoverController pc: UIPopoverController, willPresent aViewController: UIViewController)
   @available(iOS, introduced=5.0, deprecated=8.0, message="Use preferredDisplayMode instead")
-  optional func splitViewController(svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool
+  optional func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool
 }
 extension UIViewController {
   var splitViewController: UISplitViewController? { get }
   @available(iOS 8.0, *)
-  func collapseSecondaryViewController(secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
+  func collapseSecondaryViewController(_ secondaryViewController: UIViewController, for splitViewController: UISplitViewController)
   @available(iOS 8.0, *)
   func separateSecondaryViewController(for splitViewController: UISplitViewController) -> UIViewController?
 }

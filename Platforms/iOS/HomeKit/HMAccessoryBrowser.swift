@@ -9,6 +9,6 @@ class HMAccessoryBrowser : NSObject {
 }
 @available(iOS 8.0, *)
 protocol HMAccessoryBrowserDelegate : NSObjectProtocol {
-  optional func accessoryBrowser(browser: HMAccessoryBrowser, didFindNewAccessory accessory: HMAccessory)
-  optional func accessoryBrowser(browser: HMAccessoryBrowser, didRemoveNewAccessory accessory: HMAccessory)
+  optional func accessoryBrowser(_ browser: HMAccessoryBrowser, didFindNewAccessory accessory: HMAccessory)
+  optional func accessoryBrowser(_ browser: HMAccessoryBrowser, didRemoveNewAccessory accessory: HMAccessory)
 }

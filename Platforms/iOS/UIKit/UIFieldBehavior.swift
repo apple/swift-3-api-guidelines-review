@@ -1,8 +1,8 @@
 
 @available(iOS 9.0, *)
 class UIFieldBehavior : UIDynamicBehavior {
-  func addItem(item: UIDynamicItem)
-  func removeItem(item: UIDynamicItem)
+  func addItem(_ item: UIDynamicItem)
+  func removeItem(_ item: UIDynamicItem)
   var items: [UIDynamicItem] { get }
   var position: CGPoint
   var region: UIRegion

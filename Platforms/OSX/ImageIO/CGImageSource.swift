@@ -2,7 +2,7 @@
 class CGImageSource {
 }
 enum CGImageSourceStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case statusUnexpectedEOF
   case statusInvalidData
@@ -34,34 +34,34 @@ func CGImageSourceGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
 func CGImageSourceCopyTypeIdentifiers() -> CFArray
 @available(OSX 10.4, *)
-func CGImageSourceCreateWithDataProvider(provider: CGDataProvider, _ options: CFDictionary?) -> CGImageSource?
+func CGImageSourceCreateWithDataProvider(_ provider: CGDataProvider, _ options: CFDictionary?) -> CGImageSource?
 @available(OSX 10.4, *)
-func CGImageSourceCreateWithData(data: CFData, _ options: CFDictionary?) -> CGImageSource?
+func CGImageSourceCreateWithData(_ data: CFData, _ options: CFDictionary?) -> CGImageSource?
 @available(OSX 10.4, *)
-func CGImageSourceCreateWithURL(url: CFURL, _ options: CFDictionary?) -> CGImageSource?
+func CGImageSourceCreateWithURL(_ url: CFURL, _ options: CFDictionary?) -> CGImageSource?
 @available(OSX 10.4, *)
-func CGImageSourceGetType(isrc: CGImageSource) -> CFString?
+func CGImageSourceGetType(_ isrc: CGImageSource) -> CFString?
 @available(OSX 10.4, *)
-func CGImageSourceGetCount(isrc: CGImageSource) -> Int
+func CGImageSourceGetCount(_ isrc: CGImageSource) -> Int
 @available(OSX 10.4, *)
-func CGImageSourceCopyProperties(isrc: CGImageSource, _ options: CFDictionary?) -> CFDictionary?
+func CGImageSourceCopyProperties(_ isrc: CGImageSource, _ options: CFDictionary?) -> CFDictionary?
 @available(OSX 10.4, *)
-func CGImageSourceCopyPropertiesAtIndex(isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CFDictionary?
+func CGImageSourceCopyPropertiesAtIndex(_ isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CFDictionary?
 @available(OSX 10.8, *)
-func CGImageSourceCopyMetadataAtIndex(isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImageMetadata?
+func CGImageSourceCopyMetadataAtIndex(_ isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImageMetadata?
 @available(OSX 10.4, *)
-func CGImageSourceCreateImageAtIndex(isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImage?
+func CGImageSourceCreateImageAtIndex(_ isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImage?
 @available(OSX 10.9, *)
-func CGImageSourceRemoveCacheAtIndex(isrc: CGImageSource, _ index: Int)
+func CGImageSourceRemoveCacheAtIndex(_ isrc: CGImageSource, _ index: Int)
 @available(OSX 10.4, *)
-func CGImageSourceCreateThumbnailAtIndex(isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImage?
+func CGImageSourceCreateThumbnailAtIndex(_ isrc: CGImageSource, _ index: Int, _ options: CFDictionary?) -> CGImage?
 @available(OSX 10.4, *)
-func CGImageSourceCreateIncremental(options: CFDictionary?) -> CGImageSource
+func CGImageSourceCreateIncremental(_ options: CFDictionary?) -> CGImageSource
 @available(OSX 10.4, *)
-func CGImageSourceUpdateData(isrc: CGImageSource, _ data: CFData, _ final: Bool)
+func CGImageSourceUpdateData(_ isrc: CGImageSource, _ data: CFData, _ final: Bool)
 @available(OSX 10.4, *)
-func CGImageSourceUpdateDataProvider(isrc: CGImageSource, _ provider: CGDataProvider, _ final: Bool)
+func CGImageSourceUpdateDataProvider(_ isrc: CGImageSource, _ provider: CGDataProvider, _ final: Bool)
 @available(OSX 10.4, *)
-func CGImageSourceGetStatus(isrc: CGImageSource) -> CGImageSourceStatus
+func CGImageSourceGetStatus(_ isrc: CGImageSource) -> CGImageSourceStatus
 @available(OSX 10.4, *)
-func CGImageSourceGetStatusAtIndex(isrc: CGImageSource, _ index: Int) -> CGImageSourceStatus
+func CGImageSourceGetStatusAtIndex(_ isrc: CGImageSource, _ index: Int) -> CGImageSourceStatus

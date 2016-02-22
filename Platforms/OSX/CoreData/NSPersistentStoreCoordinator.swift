@@ -9,7 +9,7 @@ let NSBinaryStoreType: String
 let NSInMemoryStoreType: String
 @available(OSX 10.9, *)
 enum NSPersistentStoreUbiquitousTransitionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case accountAdded
   case accountRemoved
@@ -104,41 +104,41 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   func persistentStore(for URL: NSURL) -> NSPersistentStore?
   func url(for store: NSPersistentStore) -> NSURL
   @available(OSX 10.5, *)
-  func setURL(url: NSURL, for store: NSPersistentStore) -> Bool
-  func addPersistentStore(type storeType: String, configuration: String?, url storeURL: NSURL?, options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
-  func removePersistentStore(store: NSPersistentStore) throws
-  func setMetadata(metadata: [String : AnyObject]?, for store: NSPersistentStore)
+  func setURL(_ url: NSURL, for store: NSPersistentStore) -> Bool
+  func addPersistentStore(type storeType: String, configuration configuration: String?, url storeURL: NSURL?, options options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
+  func removePersistentStore(_ store: NSPersistentStore) throws
+  func setMetadata(_ metadata: [String : AnyObject]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : AnyObject]
   func managedObjectID(forURIRepresentation url: NSURL) -> NSManagedObjectID?
   @available(OSX 10.7, *)
-  func execute(request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
+  func execute(_ request: NSPersistentStoreRequest, with context: NSManagedObjectContext) throws -> AnyObject
   @available(OSX 10.5, *)
   class func registeredStoreTypes() -> [String : NSValue]
   @available(OSX 10.5, *)
-  class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
+  class func registerStoreClass(_ storeClass: AnyClass, forStoreType storeType: String)
   @available(OSX 10.9, *)
-  class func metadataForPersistentStore(ofType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String, url url: NSURL, options options: [NSObject : AnyObject]? = [:]) throws -> [String : AnyObject]
   @available(OSX 10.9, *)
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url: NSURL, options: [NSObject : AnyObject]? = [:]) throws
+  class func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, url url: NSURL, options options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStore(ofType storeType: String?, url: NSURL) throws -> [String : AnyObject]
+  class func metadataForPersistentStore(ofType storeType: String?, url url: NSURL) throws -> [String : AnyObject]
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url: NSURL) throws
+  class func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, url url: NSURL) throws
   @available(OSX 10.6, *)
   class func elementsDerived(fromExternalRecord fileURL: NSURL) -> [NSObject : AnyObject]
   @available(OSX 10.9, *)
-  class func removeUbiquitousContentAndPersistentStore(at storeURL: NSURL, options: [NSObject : AnyObject]? = [:]) throws
+  class func removeUbiquitousContentAndPersistentStore(at storeURL: NSURL, options options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)
-  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: NSURL, to destinationURL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
-  func migratePersistentStore(store: NSPersistentStore, to URL: NSURL, options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: NSURL, to destinationURL: NSURL, options options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func migratePersistentStore(_ store: NSPersistentStore, to URL: NSURL, options options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(OSX 10.11, *)
-  func destroyPersistentStore(at url: NSURL, withType storeType: String, options: [NSObject : AnyObject]? = [:]) throws
+  func destroyPersistentStore(at url: NSURL, withType storeType: String, options options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.11, *)
-  func replacePersistentStore(at destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]? = [:], withPersistentStoreFrom sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]? = [:], storeType: String) throws
+  func replacePersistentStore(at destinationURL: NSURL, destinationOptions destinationOptions: [NSObject : AnyObject]? = [:], withPersistentStoreFrom sourceURL: NSURL, sourceOptions sourceOptions: [NSObject : AnyObject]? = [:], storeType storeType: String) throws
   @available(OSX 10.10, *)
-  func perform(block: () -> Void)
+  func perform(_ block: () -> Void)
   @available(OSX 10.10, *)
-  func performBlockAndWait(block: () -> Void)
+  func performBlockAndWait(_ block: () -> Void)
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use -performBlockAndWait: instead")
   func lock()
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use -performBlockAndWait: instead")
@@ -151,5 +151,5 @@ struct _persistentStoreCoordinatorFlags {
   var _isRegistered: UInt32
   var _reservedFlags: UInt32
   init()
-  init(_isRegistered: UInt32, _reservedFlags: UInt32)
+  init(_isRegistered _isRegistered: UInt32, _reservedFlags _reservedFlags: UInt32)
 }

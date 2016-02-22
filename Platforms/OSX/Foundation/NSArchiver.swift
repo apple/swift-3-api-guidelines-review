@@ -2,13 +2,13 @@
 class NSArchiver : NSCoder {
   init(forWritingWith mdata: NSMutableData)
   var archiverData: NSMutableData { get }
-  func encodeRootObject(rootObject: AnyObject)
-  func encodeConditionalObject(object: AnyObject?)
+  func encodeRootObject(_ rootObject: AnyObject)
+  func encodeConditionalObject(_ object: AnyObject?)
   class func archivedData(withRootObject rootObject: AnyObject) -> NSData
-  class func archiveRootObject(rootObject: AnyObject, toFile path: String) -> Bool
-  func encodeClassName(trueName: String, intoClassName inArchiveName: String)
+  class func archiveRootObject(_ rootObject: AnyObject, toFile path: String) -> Bool
+  func encodeClassName(_ trueName: String, intoClassName inArchiveName: String)
   func classNameEncoded(forTrueClassName trueName: String) -> String?
-  func replace(object: AnyObject, with newObject: AnyObject)
+  func replace(_ object: AnyObject, with newObject: AnyObject)
   convenience init()
 }
 class NSUnarchiver : NSCoder {
@@ -17,11 +17,11 @@ class NSUnarchiver : NSCoder {
   var systemVersion: UInt32 { get }
   class func unarchiveObject(with data: NSData) -> AnyObject?
   class func unarchiveObject(withFile path: String) -> AnyObject?
-  class func decodeClassName(inArchiveName: String, asClassName trueName: String)
-  func decodeClassName(inArchiveName: String, asClassName trueName: String)
+  class func decodeClassName(_ inArchiveName: String, asClassName trueName: String)
+  func decodeClassName(_ inArchiveName: String, asClassName trueName: String)
   class func classNameDecoded(forArchiveClassName inArchiveName: String) -> String
   func classNameDecoded(forArchiveClassName inArchiveName: String) -> String
-  func replace(object: AnyObject, with newObject: AnyObject)
+  func replace(_ object: AnyObject, with newObject: AnyObject)
   convenience init()
 }
 let NSInconsistentArchiveException: String

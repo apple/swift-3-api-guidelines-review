@@ -3,13 +3,13 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
   init?(pickerMask mask: Int, colorPanel owningColorPanel: NSColorPanel)
   var colorPanel: NSColorPanel { get }
   var provideNewButtonImage: NSImage { get }
-  func insertNewButtonImage(newButtonImage: NSImage, in buttonCell: NSButtonCell)
-  func viewSizeChanged(sender: AnyObject?)
-  func attach(colorList: NSColorList)
-  func detach(colorList: NSColorList)
-  func setMode(mode: NSColorPanelMode)
+  func insertNewButtonImage(_ newButtonImage: NSImage, in buttonCell: NSButtonCell)
+  func viewSizeChanged(_ sender: AnyObject?)
+  func attach(_ colorList: NSColorList)
+  func detach(_ colorList: NSColorList)
+  func setMode(_ mode: NSColorPanelMode)
   var buttonToolTip: String { get }
   var minContentSize: NSSize { get }
   init()
-  func alphaControlAddedOrRemoved(sender: AnyObject?)
+  func alphaControlAddedOrRemoved(_ sender: AnyObject?)
 }

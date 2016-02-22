@@ -17,5 +17,5 @@ var DOM_SHOW_DOCUMENT_FRAGMENT: UInt32 { get }
 var DOM_SHOW_NOTATION: UInt32 { get }
 @available(OSX 10.4, *)
 protocol DOMNodeFilter : NSObjectProtocol {
-  func accept(n: DOMNode!) -> Int16
+  func accept(_ n: DOMNode!) -> Int16
 }

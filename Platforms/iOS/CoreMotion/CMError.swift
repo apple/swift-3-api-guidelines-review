@@ -1,7 +1,7 @@
 
 struct CMError : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var CMErrorNULL: CMError { get }

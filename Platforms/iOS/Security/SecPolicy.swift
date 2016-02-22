@@ -32,11 +32,11 @@ let kSecPolicyRevocationFlags: CFString
 @available(iOS 2.0, *)
 func SecPolicyGetTypeID() -> CFTypeID
 @available(iOS 7.0, *)
-func SecPolicyCopyProperties(policyRef: SecPolicy) -> CFDictionary
+func SecPolicyCopyProperties(_ policyRef: SecPolicy) -> CFDictionary
 @available(iOS 2.0, *)
 func SecPolicyCreateBasicX509() -> SecPolicy
 @available(iOS 2.0, *)
-func SecPolicyCreateSSL(server: Bool, _ hostname: CFString?) -> SecPolicy
+func SecPolicyCreateSSL(_ server: Bool, _ hostname: CFString?) -> SecPolicy
 var kSecRevocationOCSPMethod: CFOptionFlags { get }
 var kSecRevocationCRLMethod: CFOptionFlags { get }
 var kSecRevocationPreferCRL: CFOptionFlags { get }
@@ -44,6 +44,6 @@ var kSecRevocationRequirePositiveResponse: CFOptionFlags { get }
 var kSecRevocationNetworkAccessDisabled: CFOptionFlags { get }
 var kSecRevocationUseAnyAvailableMethod: CFOptionFlags { get }
 @available(iOS 7.0, *)
-func SecPolicyCreateRevocation(revocationFlags: CFOptionFlags) -> SecPolicy
+func SecPolicyCreateRevocation(_ revocationFlags: CFOptionFlags) -> SecPolicy
 @available(iOS 7.0, *)
-func SecPolicyCreateWithProperties(policyIdentifier: CFTypeRef, _ properties: CFDictionary?) -> SecPolicy
+func SecPolicyCreateWithProperties(_ policyIdentifier: CFTypeRef, _ properties: CFDictionary?) -> SecPolicy

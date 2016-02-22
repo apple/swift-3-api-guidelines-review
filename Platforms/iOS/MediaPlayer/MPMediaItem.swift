@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 struct MPMediaType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var music: MPMediaType { get }
   static var podcast: MPMediaType { get }
@@ -153,7 +153,7 @@ let MPMediaItemPropertyBookmarkTime: String
 @available(iOS 3.0, *)
 class MPMediaItemArtwork : NSObject {
   @available(iOS 5.0, *)
-  init(image: UIImage)
+  init(image image: UIImage)
   func image(with size: CGSize) -> UIImage?
   var bounds: CGRect { get }
   var imageCropRect: CGRect { get }

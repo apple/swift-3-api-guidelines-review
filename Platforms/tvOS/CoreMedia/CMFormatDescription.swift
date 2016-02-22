@@ -14,19 +14,19 @@ var kCMMediaType_Subtitle: CMMediaType { get }
 var kCMMediaType_TimeCode: CMMediaType { get }
 var kCMMediaType_Metadata: CMMediaType { get }
 @available(tvOS 4.0, *)
-func CMFormatDescriptionCreate(allocator: CFAllocator?, _ mediaType: CMMediaType, _ mediaSubtype: FourCharCode, _ extensions: CFDictionary?, _ descOut: UnsafeMutablePointer<CMFormatDescription?>) -> OSStatus
+func CMFormatDescriptionCreate(_ allocator: CFAllocator?, _ mediaType: CMMediaType, _ mediaSubtype: FourCharCode, _ extensions: CFDictionary?, _ descOut: UnsafeMutablePointer<CMFormatDescription?>) -> OSStatus
 @available(tvOS 4.0, *)
 func CMFormatDescriptionGetTypeID() -> CFTypeID
 @available(tvOS 4.0, *)
-func CMFormatDescriptionEqual(desc1: CMFormatDescription?, _ desc2: CMFormatDescription?) -> Bool
+func CMFormatDescriptionEqual(_ desc1: CMFormatDescription?, _ desc2: CMFormatDescription?) -> Bool
 @available(tvOS 4.3, *)
-func CMFormatDescriptionEqualIgnoringExtensionKeys(desc1: CMFormatDescription?, _ desc2: CMFormatDescription?, _ formatDescriptionExtensionKeysToIgnore: CFTypeRef?, _ sampleDescriptionExtensionAtomKeysToIgnore: CFTypeRef?) -> Bool
+func CMFormatDescriptionEqualIgnoringExtensionKeys(_ desc1: CMFormatDescription?, _ desc2: CMFormatDescription?, _ formatDescriptionExtensionKeysToIgnore: CFTypeRef?, _ sampleDescriptionExtensionAtomKeysToIgnore: CFTypeRef?) -> Bool
 @available(tvOS 4.0, *)
-func CMFormatDescriptionGetMediaType(desc: CMFormatDescription) -> CMMediaType
+func CMFormatDescriptionGetMediaType(_ desc: CMFormatDescription) -> CMMediaType
 @available(tvOS 4.0, *)
-func CMFormatDescriptionGetMediaSubType(desc: CMFormatDescription) -> FourCharCode
+func CMFormatDescriptionGetMediaSubType(_ desc: CMFormatDescription) -> FourCharCode
 @available(tvOS 4.0, *)
-func CMFormatDescriptionGetExtensions(desc: CMFormatDescription) -> CFDictionary?
+func CMFormatDescriptionGetExtensions(_ desc: CMFormatDescription) -> CFDictionary?
 @available(tvOS 4.0, *)
 let kCMFormatDescriptionExtension_OriginalCompressionSettings: CFString
 @available(tvOS 4.0, *)
@@ -36,27 +36,27 @@ let kCMFormatDescriptionExtension_VerbatimSampleDescription: CFString
 @available(tvOS 4.0, *)
 let kCMFormatDescriptionExtension_VerbatimISOSampleEntry: CFString
 @available(tvOS 4.0, *)
-func CMFormatDescriptionGetExtension(desc: CMFormatDescription, _ extensionKey: CFString) -> CFPropertyList?
+func CMFormatDescriptionGetExtension(_ desc: CMFormatDescription, _ extensionKey: CFString) -> CFPropertyList?
 typealias CMAudioCodecType = FourCharCode
 var kCMAudioCodecType_AAC_LCProtected: CMAudioCodecType { get }
 var kCMAudioCodecType_AAC_AudibleProtected: CMAudioCodecType { get }
 typealias CMAudioFormatDescription = CMFormatDescription
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionCreate(allocator: CFAllocator?, _ asbd: UnsafePointer<AudioStreamBasicDescription>, _ layoutSize: Int, _ layout: UnsafePointer<AudioChannelLayout>, _ magicCookieSize: Int, _ magicCookie: UnsafePointer<Void>, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMAudioFormatDescription?>) -> OSStatus
+func CMAudioFormatDescriptionCreate(_ allocator: CFAllocator?, _ asbd: UnsafePointer<AudioStreamBasicDescription>, _ layoutSize: Int, _ layout: UnsafePointer<AudioChannelLayout>, _ magicCookieSize: Int, _ magicCookie: UnsafePointer<Void>, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMAudioFormatDescription?>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetStreamBasicDescription(desc: CMAudioFormatDescription) -> UnsafePointer<AudioStreamBasicDescription>
+func CMAudioFormatDescriptionGetStreamBasicDescription(_ desc: CMAudioFormatDescription) -> UnsafePointer<AudioStreamBasicDescription>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetMagicCookie(desc: CMAudioFormatDescription, _ cookieSizeOut: UnsafeMutablePointer<Int>) -> UnsafePointer<Void>
+func CMAudioFormatDescriptionGetMagicCookie(_ desc: CMAudioFormatDescription, _ cookieSizeOut: UnsafeMutablePointer<Int>) -> UnsafePointer<Void>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetChannelLayout(desc: CMAudioFormatDescription, _ layoutSize: UnsafeMutablePointer<Int>) -> UnsafePointer<AudioChannelLayout>
+func CMAudioFormatDescriptionGetChannelLayout(_ desc: CMAudioFormatDescription, _ layoutSize: UnsafeMutablePointer<Int>) -> UnsafePointer<AudioChannelLayout>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetFormatList(desc: CMAudioFormatDescription, _ formatListSize: UnsafeMutablePointer<Int>) -> UnsafePointer<AudioFormatListItem>
+func CMAudioFormatDescriptionGetFormatList(_ desc: CMAudioFormatDescription, _ formatListSize: UnsafeMutablePointer<Int>) -> UnsafePointer<AudioFormatListItem>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetRichestDecodableFormat(desc: CMAudioFormatDescription) -> UnsafePointer<AudioFormatListItem>
+func CMAudioFormatDescriptionGetRichestDecodableFormat(_ desc: CMAudioFormatDescription) -> UnsafePointer<AudioFormatListItem>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionGetMostCompatibleFormat(desc: CMAudioFormatDescription) -> UnsafePointer<AudioFormatListItem>
+func CMAudioFormatDescriptionGetMostCompatibleFormat(_ desc: CMAudioFormatDescription) -> UnsafePointer<AudioFormatListItem>
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionCreateSummary(allocator: CFAllocator?, _ formatDescriptionArray: CFArray, _ flags: UInt32, _ summaryFormatDescriptionOut: UnsafeMutablePointer<CMAudioFormatDescription?>) -> OSStatus
+func CMAudioFormatDescriptionCreateSummary(_ allocator: CFAllocator?, _ formatDescriptionArray: CFArray, _ flags: UInt32, _ summaryFormatDescriptionOut: UnsafeMutablePointer<CMAudioFormatDescription?>) -> OSStatus
 typealias CMAudioFormatDescriptionMask = UInt32
 var kCMAudioFormatDescriptionMask_StreamBasicDescription: CMAudioFormatDescriptionMask { get }
 var kCMAudioFormatDescriptionMask_MagicCookie: CMAudioFormatDescriptionMask { get }
@@ -64,7 +64,7 @@ var kCMAudioFormatDescriptionMask_ChannelLayout: CMAudioFormatDescriptionMask { 
 var kCMAudioFormatDescriptionMask_Extensions: CMAudioFormatDescriptionMask { get }
 var kCMAudioFormatDescriptionMask_All: CMAudioFormatDescriptionMask { get }
 @available(tvOS 4.0, *)
-func CMAudioFormatDescriptionEqual(desc1: CMAudioFormatDescription, _ desc2: CMAudioFormatDescription, _ equalityMask: CMAudioFormatDescriptionMask, _ equalityMaskOut: UnsafeMutablePointer<CMAudioFormatDescriptionMask>) -> Bool
+func CMAudioFormatDescriptionEqual(_ desc1: CMAudioFormatDescription, _ desc2: CMAudioFormatDescription, _ equalityMask: CMAudioFormatDescriptionMask, _ equalityMaskOut: UnsafeMutablePointer<CMAudioFormatDescriptionMask>) -> Bool
 typealias CMVideoFormatDescription = CMFormatDescription
 typealias CMPixelFormatType = FourCharCode
 var kCMPixelFormat_32ARGB: CMPixelFormatType { get }
@@ -117,7 +117,7 @@ struct CMVideoDimensions {
   var width: Int32
   var height: Int32
   init()
-  init(width: Int32, height: Int32)
+  init(width width: Int32, height height: Int32)
 }
 @available(tvOS 4.0, *)
 let kCMFormatDescriptionExtension_FormatName: CFString
@@ -280,23 +280,23 @@ let kCMFormatDescriptionExtension_Vendor: CFString
 @available(tvOS 4.0, *)
 let kCMFormatDescriptionVendor_Apple: CFString
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionCreate(allocator: CFAllocator?, _ codecType: CMVideoCodecType, _ width: Int32, _ height: Int32, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMVideoFormatDescription?>) -> OSStatus
+func CMVideoFormatDescriptionCreate(_ allocator: CFAllocator?, _ codecType: CMVideoCodecType, _ width: Int32, _ height: Int32, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMVideoFormatDescription?>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionCreateForImageBuffer(allocator: CFAllocator?, _ imageBuffer: CVImageBuffer, _ outDesc: UnsafeMutablePointer<CMVideoFormatDescription?>) -> OSStatus
+func CMVideoFormatDescriptionCreateForImageBuffer(_ allocator: CFAllocator?, _ imageBuffer: CVImageBuffer, _ outDesc: UnsafeMutablePointer<CMVideoFormatDescription?>) -> OSStatus
 @available(tvOS 7.0, *)
-func CMVideoFormatDescriptionCreateFromH264ParameterSets(allocator: CFAllocator?, _ parameterSetCount: Int, _ parameterSetPointers: UnsafePointer<UnsafePointer<UInt8>>, _ parameterSetSizes: UnsafePointer<Int>, _ NALUnitHeaderLength: Int32, _ formatDescriptionOut: UnsafeMutablePointer<CMFormatDescription?>) -> OSStatus
+func CMVideoFormatDescriptionCreateFromH264ParameterSets(_ allocator: CFAllocator?, _ parameterSetCount: Int, _ parameterSetPointers: UnsafePointer<UnsafePointer<UInt8>>, _ parameterSetSizes: UnsafePointer<Int>, _ NALUnitHeaderLength: Int32, _ formatDescriptionOut: UnsafeMutablePointer<CMFormatDescription?>) -> OSStatus
 @available(tvOS 7.0, *)
-func CMVideoFormatDescriptionGetH264ParameterSetAtIndex(videoDesc: CMFormatDescription, _ parameterSetIndex: Int, _ parameterSetPointerOut: UnsafeMutablePointer<UnsafePointer<UInt8>>, _ parameterSetSizeOut: UnsafeMutablePointer<Int>, _ parameterSetCountOut: UnsafeMutablePointer<Int>, _ NALUnitHeaderLengthOut: UnsafeMutablePointer<Int32>) -> OSStatus
+func CMVideoFormatDescriptionGetH264ParameterSetAtIndex(_ videoDesc: CMFormatDescription, _ parameterSetIndex: Int, _ parameterSetPointerOut: UnsafeMutablePointer<UnsafePointer<UInt8>>, _ parameterSetSizeOut: UnsafeMutablePointer<Int>, _ parameterSetCountOut: UnsafeMutablePointer<Int>, _ NALUnitHeaderLengthOut: UnsafeMutablePointer<Int32>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionGetDimensions(videoDesc: CMVideoFormatDescription) -> CMVideoDimensions
+func CMVideoFormatDescriptionGetDimensions(_ videoDesc: CMVideoFormatDescription) -> CMVideoDimensions
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionGetPresentationDimensions(videoDesc: CMVideoFormatDescription, _ usePixelAspectRatio: Bool, _ useCleanAperture: Bool) -> CGSize
+func CMVideoFormatDescriptionGetPresentationDimensions(_ videoDesc: CMVideoFormatDescription, _ usePixelAspectRatio: Bool, _ useCleanAperture: Bool) -> CGSize
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionGetCleanAperture(videoDesc: CMVideoFormatDescription, _ originIsAtTopLeft: Bool) -> CGRect
+func CMVideoFormatDescriptionGetCleanAperture(_ videoDesc: CMVideoFormatDescription, _ originIsAtTopLeft: Bool) -> CGRect
 @available(tvOS 4.0, *)
 func CMVideoFormatDescriptionGetExtensionKeysCommonWithImageBuffers() -> CFArray
 @available(tvOS 4.0, *)
-func CMVideoFormatDescriptionMatchesImageBuffer(desc: CMVideoFormatDescription, _ imageBuffer: CVImageBuffer) -> Bool
+func CMVideoFormatDescriptionMatchesImageBuffer(_ desc: CMVideoFormatDescription, _ imageBuffer: CVImageBuffer) -> Bool
 typealias CMMuxedFormatDescription = CMFormatDescription
 typealias CMMuxedStreamType = FourCharCode
 var kCMMuxedStreamType_MPEG1System: CMMuxedStreamType { get }
@@ -304,7 +304,7 @@ var kCMMuxedStreamType_MPEG2Transport: CMMuxedStreamType { get }
 var kCMMuxedStreamType_MPEG2Program: CMMuxedStreamType { get }
 var kCMMuxedStreamType_DV: CMMuxedStreamType { get }
 @available(tvOS 4.0, *)
-func CMMuxedFormatDescriptionCreate(allocator: CFAllocator?, _ muxType: CMMuxedStreamType, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMMuxedFormatDescription?>) -> OSStatus
+func CMMuxedFormatDescriptionCreate(_ allocator: CFAllocator?, _ muxType: CMMuxedStreamType, _ extensions: CFDictionary?, _ outDesc: UnsafeMutablePointer<CMMuxedFormatDescription?>) -> OSStatus
 typealias CMClosedCaptionFormatDescription = CMFormatDescription
 typealias CMClosedCaptionFormatType = FourCharCode
 var kCMClosedCaptionFormatType_CEA608: CMClosedCaptionFormatType { get }
@@ -383,15 +383,15 @@ let kCMTextFormatDescriptionStyle_Ascent: CFString
 @available(tvOS 4.0, *)
 let kCMTextFormatDescriptionExtension_DefaultFontName: CFString
 @available(tvOS 4.0, *)
-func CMTextFormatDescriptionGetDisplayFlags(desc: CMFormatDescription, _ outDisplayFlags: UnsafeMutablePointer<CMTextDisplayFlags>) -> OSStatus
+func CMTextFormatDescriptionGetDisplayFlags(_ desc: CMFormatDescription, _ outDisplayFlags: UnsafeMutablePointer<CMTextDisplayFlags>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMTextFormatDescriptionGetJustification(desc: CMFormatDescription, _ outHorizontalJust: UnsafeMutablePointer<CMTextJustificationValue>, _ outVerticalJust: UnsafeMutablePointer<CMTextJustificationValue>) -> OSStatus
+func CMTextFormatDescriptionGetJustification(_ desc: CMFormatDescription, _ outHorizontalJust: UnsafeMutablePointer<CMTextJustificationValue>, _ outVerticalJust: UnsafeMutablePointer<CMTextJustificationValue>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMTextFormatDescriptionGetDefaultTextBox(desc: CMFormatDescription, _ originIsAtTopLeft: Bool, _ heightOfTextTrack: CGFloat, _ outDefaultTextBox: UnsafeMutablePointer<CGRect>) -> OSStatus
+func CMTextFormatDescriptionGetDefaultTextBox(_ desc: CMFormatDescription, _ originIsAtTopLeft: Bool, _ heightOfTextTrack: CGFloat, _ outDefaultTextBox: UnsafeMutablePointer<CGRect>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMTextFormatDescriptionGetDefaultStyle(desc: CMFormatDescription, _ outLocalFontID: UnsafeMutablePointer<UInt16>, _ outBold: UnsafeMutablePointer<DarwinBoolean>, _ outItalic: UnsafeMutablePointer<DarwinBoolean>, _ outUnderline: UnsafeMutablePointer<DarwinBoolean>, _ outFontSize: UnsafeMutablePointer<CGFloat>, _ outColorComponents: UnsafeMutablePointer<CGFloat>) -> OSStatus
+func CMTextFormatDescriptionGetDefaultStyle(_ desc: CMFormatDescription, _ outLocalFontID: UnsafeMutablePointer<UInt16>, _ outBold: UnsafeMutablePointer<DarwinBoolean>, _ outItalic: UnsafeMutablePointer<DarwinBoolean>, _ outUnderline: UnsafeMutablePointer<DarwinBoolean>, _ outFontSize: UnsafeMutablePointer<CGFloat>, _ outColorComponents: UnsafeMutablePointer<CGFloat>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMTextFormatDescriptionGetFontName(desc: CMFormatDescription, _ localFontID: UInt16, _ outFontName: AutoreleasingUnsafeMutablePointer<CFString?>) -> OSStatus
+func CMTextFormatDescriptionGetFontName(_ desc: CMFormatDescription, _ localFontID: UInt16, _ outFontName: AutoreleasingUnsafeMutablePointer<CFString?>) -> OSStatus
 typealias CMSubtitleFormatType = FourCharCode
 var kCMSubtitleFormatType_3GText: CMSubtitleFormatType { get }
 var kCMSubtitleFormatType_WebVTT: CMSubtitleFormatType { get }
@@ -405,13 +405,13 @@ var kCMTimeCodeFlag_DropFrame: UInt32 { get }
 var kCMTimeCodeFlag_24HourMax: UInt32 { get }
 var kCMTimeCodeFlag_NegTimesOK: UInt32 { get }
 @available(tvOS 4.0, *)
-func CMTimeCodeFormatDescriptionCreate(allocator: CFAllocator?, _ timeCodeFormatType: CMTimeCodeFormatType, _ frameDuration: CMTime, _ frameQuanta: UInt32, _ tcFlags: UInt32, _ extensions: CFDictionary?, _ descOut: UnsafeMutablePointer<CMTimeCodeFormatDescription?>) -> OSStatus
+func CMTimeCodeFormatDescriptionCreate(_ allocator: CFAllocator?, _ timeCodeFormatType: CMTimeCodeFormatType, _ frameDuration: CMTime, _ frameQuanta: UInt32, _ tcFlags: UInt32, _ extensions: CFDictionary?, _ descOut: UnsafeMutablePointer<CMTimeCodeFormatDescription?>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMTimeCodeFormatDescriptionGetFrameDuration(timeCodeFormatDescription: CMTimeCodeFormatDescription) -> CMTime
+func CMTimeCodeFormatDescriptionGetFrameDuration(_ timeCodeFormatDescription: CMTimeCodeFormatDescription) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeCodeFormatDescriptionGetFrameQuanta(timeCodeFormatDescription: CMTimeCodeFormatDescription) -> UInt32
+func CMTimeCodeFormatDescriptionGetFrameQuanta(_ timeCodeFormatDescription: CMTimeCodeFormatDescription) -> UInt32
 @available(tvOS 4.0, *)
-func CMTimeCodeFormatDescriptionGetTimeCodeFlags(desc: CMTimeCodeFormatDescription) -> UInt32
+func CMTimeCodeFormatDescriptionGetTimeCodeFlags(_ desc: CMTimeCodeFormatDescription) -> UInt32
 @available(tvOS 4.0, *)
 let kCMTimeCodeFormatDescriptionExtension_SourceReferenceName: CFString
 @available(tvOS 4.0, *)
@@ -452,14 +452,14 @@ let kCMMetadataFormatDescriptionMetadataSpecificationKey_ExtendedLanguageTag: CF
 @available(tvOS 9.0, *)
 let kCMMetadataFormatDescriptionMetadataSpecificationKey_StructuralDependency: CFString
 @available(tvOS 4.0, *)
-func CMMetadataFormatDescriptionCreateWithKeys(allocator: CFAllocator?, _ metadataType: CMMetadataFormatType, _ keys: CFArray?, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
+func CMMetadataFormatDescriptionCreateWithKeys(_ allocator: CFAllocator?, _ metadataType: CMMetadataFormatType, _ keys: CFArray?, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
 @available(tvOS 8.0, *)
-func CMMetadataFormatDescriptionCreateWithMetadataSpecifications(allocator: CFAllocator?, _ metadataType: CMMetadataFormatType, _ metadataSpecifications: CFArray, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
+func CMMetadataFormatDescriptionCreateWithMetadataSpecifications(_ allocator: CFAllocator?, _ metadataType: CMMetadataFormatType, _ metadataSpecifications: CFArray, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
 @available(tvOS 8.0, *)
-func CMMetadataFormatDescriptionCreateWithMetadataFormatDescriptionAndMetadataSpecifications(allocator: CFAllocator?, _ srcDesc: CMMetadataFormatDescription, _ metadataSpecifications: CFArray, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
+func CMMetadataFormatDescriptionCreateWithMetadataFormatDescriptionAndMetadataSpecifications(_ allocator: CFAllocator?, _ srcDesc: CMMetadataFormatDescription, _ metadataSpecifications: CFArray, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
 @available(tvOS 8.0, *)
-func CMMetadataFormatDescriptionCreateByMergingMetadataFormatDescriptions(allocator: CFAllocator?, _ srcDesc1: CMMetadataFormatDescription, _ srcDesc2: CMMetadataFormatDescription, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
+func CMMetadataFormatDescriptionCreateByMergingMetadataFormatDescriptions(_ allocator: CFAllocator?, _ srcDesc1: CMMetadataFormatDescription, _ srcDesc2: CMMetadataFormatDescription, _ outDesc: UnsafeMutablePointer<CMMetadataFormatDescription?>) -> OSStatus
 @available(tvOS 4.0, *)
-func CMMetadataFormatDescriptionGetKeyWithLocalID(desc: CMMetadataFormatDescription, _ localKeyID: OSType) -> CFDictionary?
+func CMMetadataFormatDescriptionGetKeyWithLocalID(_ desc: CMMetadataFormatDescription, _ localKeyID: OSType) -> CFDictionary?
 @available(tvOS 8.0, *)
-func CMMetadataFormatDescriptionGetIdentifiers(desc: CMMetadataFormatDescription) -> CFArray?
+func CMMetadataFormatDescriptionGetIdentifiers(_ desc: CMMetadataFormatDescription) -> CFArray?

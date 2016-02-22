@@ -1,6 +1,6 @@
 
 enum UIBarButtonItemStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case plain
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use UIBarButtonItemStylePlain when minimum deployment target is iOS7 or later")
@@ -8,7 +8,7 @@ enum UIBarButtonItemStyle : Int {
   case done
 }
 enum UIBarButtonSystemItem : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case done
   case cancel
@@ -42,12 +42,12 @@ enum UIBarButtonSystemItem : Int {
 class UIBarButtonItem : UIBarItem, NSCoding {
   init()
   init?(coder aDecoder: NSCoder)
-  convenience init(image: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
+  convenience init(image image: UIImage?, style style: UIBarButtonItemStyle, target target: AnyObject?, action action: Selector)
   @available(tvOS 5.0, *)
-  convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
-  convenience init(title: String?, style: UIBarButtonItemStyle, target: AnyObject?, action: Selector)
-  convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, target: AnyObject?, action: Selector)
-  convenience init(customView: UIView)
+  convenience init(image image: UIImage?, landscapeImagePhone landscapeImagePhone: UIImage?, style style: UIBarButtonItemStyle, target target: AnyObject?, action action: Selector)
+  convenience init(title title: String?, style style: UIBarButtonItemStyle, target target: AnyObject?, action action: Selector)
+  convenience init(barButtonSystemItem systemItem: UIBarButtonSystemItem, target target: AnyObject?, action action: Selector)
+  convenience init(customView customView: UIView)
   var style: UIBarButtonItemStyle
   var width: CGFloat
   var possibleTitles: Set<String>?
@@ -55,21 +55,21 @@ class UIBarButtonItem : UIBarItem, NSCoding {
   var action: Selector
   weak var target: @sil_weak AnyObject?
   @available(tvOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for state: UIControlState, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
-  func backgroundImage(for state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for state: UIControlState, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 6.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, style style: UIBarButtonItemStyle, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 6.0, *)
-  func backgroundImage(for state: UIControlState, style: UIBarButtonItemStyle, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for state: UIControlState, style style: UIBarButtonItemStyle, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(tvOS 5.0, *)
   var tintColor: UIColor?
   @available(tvOS 5.0, *)
-  func setBackgroundVerticalPositionAdjustment(adjustment: CGFloat, for barMetrics: UIBarMetrics)
+  func setBackgroundVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func backgroundVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
   @available(tvOS 5.0, *)
-  func setTitlePositionAdjustment(adjustment: UIOffset, for barMetrics: UIBarMetrics)
+  func setTitlePositionAdjustment(_ adjustment: UIOffset, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func titlePositionAdjustment(for barMetrics: UIBarMetrics) -> UIOffset
 }

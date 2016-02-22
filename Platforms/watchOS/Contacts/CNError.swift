@@ -3,7 +3,7 @@
 let CNErrorDomain: String
 @available(watchOS 2.0, *)
 enum CNErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case communicationError
   case dataAccessError

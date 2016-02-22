@@ -24,9 +24,9 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.6, *)
   func isEqual(to network: CWNetwork) -> Bool
   @available(OSX 10.7, *)
-  func supportsSecurity(security: CWSecurity) -> Bool
+  func supportsSecurity(_ security: CWSecurity) -> Bool
   @available(OSX 10.8, *)
-  func supportsPHYMode(phyMode: CWPHYMode) -> Bool
+  func supportsPHYMode(_ phyMode: CWPHYMode) -> Bool
   init()
   @available(OSX 10.6, *)
   func copy(with zone: NSZone = nil) -> AnyObject

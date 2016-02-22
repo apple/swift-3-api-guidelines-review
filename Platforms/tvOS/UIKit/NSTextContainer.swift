@@ -2,11 +2,11 @@
 @available(tvOS 7.0, *)
 class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   @available(tvOS 7.0, *)
-  init(size: CGSize)
-  init?(coder: NSCoder)
+  init(size size: CGSize)
+  init?(coder coder: NSCoder)
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager?
   @available(tvOS 9.0, *)
-  func replaceLayoutManager(newLayoutManager: NSLayoutManager)
+  func replaceLayoutManager(_ newLayoutManager: NSLayoutManager)
   @available(tvOS 7.0, *)
   var size: CGSize
   @available(tvOS 7.0, *)

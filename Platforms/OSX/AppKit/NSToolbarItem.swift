@@ -1,6 +1,6 @@
 
 class NSToolbarItem : NSObject, NSCopying, NSValidatedUserInterfaceItem {
-  init(itemIdentifier: String)
+  init(itemIdentifier itemIdentifier: String)
   var itemIdentifier: String { get }
   unowned(unsafe) var toolbar: @sil_unmanaged NSToolbar? { get }
   var label: String
@@ -50,15 +50,15 @@ struct __tbiFlags {
   var wantsToBeCentered: UInt32
   var RESERVED: UInt32
   init()
-  init(viewRespondsToIsEnabled: UInt32, viewRespondsToSetEnabled: UInt32, viewRespondsToTag: UInt32, viewRespondsToSetTag: UInt32, viewRespondsToAction: UInt32, viewRespondsToSetAction: UInt32, viewRespondsToTarget: UInt32, viewRespondsToSetTarget: UInt32, viewRespondsToImage: UInt32, viewRespondsToSetImage: UInt32, isEnabled: UInt32, isUserRemovable: UInt32, menuHasBeenSet: UInt32, menuRepIsDefault: UInt32, viewHasBeenLoaded: UInt32, drawingForDragImage: UInt32, isCustomItemType: UInt32, hasValidatedAutoModeConfiguration: UInt32, useAutoModeConfiguration: UInt32, fromBaseLocalizedNib: UInt32, autovalidationDisabled: UInt32, tagHasBeenSet: UInt32, sizeHasBeenSet: UInt32, stateWasDisabledBeforeSheet: UInt32, wantsToBeCentered: UInt32, RESERVED: UInt32)
+  init(viewRespondsToIsEnabled viewRespondsToIsEnabled: UInt32, viewRespondsToSetEnabled viewRespondsToSetEnabled: UInt32, viewRespondsToTag viewRespondsToTag: UInt32, viewRespondsToSetTag viewRespondsToSetTag: UInt32, viewRespondsToAction viewRespondsToAction: UInt32, viewRespondsToSetAction viewRespondsToSetAction: UInt32, viewRespondsToTarget viewRespondsToTarget: UInt32, viewRespondsToSetTarget viewRespondsToSetTarget: UInt32, viewRespondsToImage viewRespondsToImage: UInt32, viewRespondsToSetImage viewRespondsToSetImage: UInt32, isEnabled isEnabled: UInt32, isUserRemovable isUserRemovable: UInt32, menuHasBeenSet menuHasBeenSet: UInt32, menuRepIsDefault menuRepIsDefault: UInt32, viewHasBeenLoaded viewHasBeenLoaded: UInt32, drawingForDragImage drawingForDragImage: UInt32, isCustomItemType isCustomItemType: UInt32, hasValidatedAutoModeConfiguration hasValidatedAutoModeConfiguration: UInt32, useAutoModeConfiguration useAutoModeConfiguration: UInt32, fromBaseLocalizedNib fromBaseLocalizedNib: UInt32, autovalidationDisabled autovalidationDisabled: UInt32, tagHasBeenSet tagHasBeenSet: UInt32, sizeHasBeenSet sizeHasBeenSet: UInt32, stateWasDisabledBeforeSheet stateWasDisabledBeforeSheet: UInt32, wantsToBeCentered wantsToBeCentered: UInt32, RESERVED RESERVED: UInt32)
 }
 var NSToolbarItemVisibilityPriorityStandard: Int { get }
 var NSToolbarItemVisibilityPriorityLow: Int { get }
 var NSToolbarItemVisibilityPriorityHigh: Int { get }
 var NSToolbarItemVisibilityPriorityUser: Int { get }
 extension NSObject {
-  class func validate(theItem: NSToolbarItem) -> Bool
-  func validate(theItem: NSToolbarItem) -> Bool
+  class func validate(_ theItem: NSToolbarItem) -> Bool
+  func validate(_ theItem: NSToolbarItem) -> Bool
 }
 let NSToolbarSeparatorItemIdentifier: String
 let NSToolbarSpaceItemIdentifier: String

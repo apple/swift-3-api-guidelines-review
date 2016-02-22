@@ -1,11 +1,11 @@
 
 class NSBundle : NSObject {
   class func main() -> NSBundle
-  init?(path: String)
+  init?(path path: String)
   @available(watchOS 2.0, *)
-  convenience init?(url: NSURL)
+  convenience init?(url url: NSURL)
   /*not inherited*/ init(for aClass: AnyClass)
-  /*not inherited*/ init?(identifier: String)
+  /*not inherited*/ init?(identifier identifier: String)
   class func allBundles() -> [NSBundle]
   class func allFrameworks() -> [NSBundle]
   func load() -> Bool
@@ -62,12 +62,12 @@ class NSBundle : NSObject {
   func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
   func pathsForResources(ofType ext: String?, inDirectory subpath: String?) -> [String]
   func pathsForResources(ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
-  func localizedString(forKey key: String, value: String?, table tableName: String?) -> String
+  func localizedString(forKey key: String, value value: String?, table tableName: String?) -> String
   var bundleIdentifier: String? { get }
   var infoDictionary: [String : AnyObject]? { get }
   var localizedInfoDictionary: [String : AnyObject]? { get }
   func object(forInfoDictionaryKey key: String) -> AnyObject?
-  func classNamed(className: String) -> AnyClass?
+  func classNamed(_ className: String) -> AnyClass?
   var principalClass: AnyClass? { get }
   var preferredLocalizations: [String] { get }
   var localizations: [String] { get }
@@ -84,14 +84,14 @@ var NSBundleExecutableArchitectureX86_64: Int { get }
 var NSBundleExecutableArchitecturePPC64: Int { get }
 extension NSString {
   @available(watchOS 2.0, *)
-  func variantFittingPresentationWidth(width: Int) -> String
+  func variantFittingPresentationWidth(_ width: Int) -> String
 }
 let NSBundleDidLoadNotification: String
 let NSLoadedClasses: String
 @available(watchOS 2.0, *)
 class NSBundleResourceRequest : NSObject, NSProgressReporting {
-  convenience init(tags: Set<String>)
-  init(tags: Set<String>, bundle: NSBundle)
+  convenience init(tags tags: Set<String>)
+  init(tags tags: Set<String>, bundle bundle: NSBundle)
   var loadingPriority: Double
   var tags: Set<String> { get }
   var bundle: NSBundle { get }
@@ -102,7 +102,7 @@ class NSBundleResourceRequest : NSObject, NSProgressReporting {
 }
 extension NSBundle {
   @available(watchOS 2.0, *)
-  func setPreservationPriority(priority: Double, forTags tags: Set<String>)
+  func setPreservationPriority(_ priority: Double, forTags tags: Set<String>)
   @available(watchOS 2.0, *)
   func preservationPriority(forTag tag: String) -> Double
 }

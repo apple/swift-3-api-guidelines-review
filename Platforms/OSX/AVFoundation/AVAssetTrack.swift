@@ -18,7 +18,7 @@ extension AVAssetTrack {
   var isEnabled: Bool { get }
   var isSelfContained: Bool { get }
   var totalSampleDataLength: Int64 { get }
-  func hasMediaCharacteristic(mediaCharacteristic: String) -> Bool
+  func hasMediaCharacteristic(_ mediaCharacteristic: String) -> Bool
 }
 extension AVAssetTrack {
   var timeRange: CMTimeRange { get }

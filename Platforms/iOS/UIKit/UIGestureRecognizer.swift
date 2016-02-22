@@ -1,6 +1,6 @@
 
 enum UIGestureRecognizerState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case possible
   case began
@@ -12,9 +12,9 @@ enum UIGestureRecognizerState : Int {
 }
 @available(iOS 3.2, *)
 class UIGestureRecognizer : NSObject {
-  init(target: AnyObject?, action: Selector)
-  func addTarget(target: AnyObject, action: Selector)
-  func removeTarget(target: AnyObject?, action: Selector)
+  init(target target: AnyObject?, action action: Selector)
+  func addTarget(_ target: AnyObject, action action: Selector)
+  func removeTarget(_ target: AnyObject?, action action: Selector)
   weak var delegate: @sil_weak UIGestureRecognizerDelegate?
   var isEnabled: Bool
   var view: UIView? { get }
@@ -33,15 +33,15 @@ class UIGestureRecognizer : NSObject {
 }
 protocol UIGestureRecognizerDelegate : NSObjectProtocol {
   @available(iOS 3.2, *)
-  optional func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  optional func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
+  optional func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool
   @available(iOS 9.0, *)
-  optional func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
+  optional func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive press: UIPress) -> Bool
 }

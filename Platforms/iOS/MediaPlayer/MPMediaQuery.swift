@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 enum MPMediaGrouping : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case title
   case album
@@ -14,10 +14,10 @@ enum MPMediaGrouping : Int {
 }
 @available(iOS 3.0, *)
 class MPMediaQuery : NSObject, NSSecureCoding, NSCopying {
-  init(filterPredicates: Set<MPMediaPredicate>?)
+  init(filterPredicates filterPredicates: Set<MPMediaPredicate>?)
   var filterPredicates: Set<MPMediaPredicate>?
-  func addFilterPredicate(predicate: MPMediaPredicate)
-  func removeFilterPredicate(predicate: MPMediaPredicate)
+  func addFilterPredicate(_ predicate: MPMediaPredicate)
+  func removeFilterPredicate(_ predicate: MPMediaPredicate)
   var items: [MPMediaItem]? { get }
   var collections: [MPMediaItemCollection]? { get }
   var groupingType: MPMediaGrouping
@@ -54,15 +54,15 @@ class MPMediaPredicate : NSObject, NSSecureCoding {
 }
 @available(iOS 3.0, *)
 enum MPMediaPredicateComparison : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case equalTo
   case contains
 }
 @available(iOS 3.0, *)
 class MPMediaPropertyPredicate : MPMediaPredicate {
-  /*not inherited*/ init(value: AnyObject?, forProperty property: String)
-  /*not inherited*/ init(value: AnyObject?, forProperty property: String, comparisonType: MPMediaPredicateComparison)
+  /*not inherited*/ init(value value: AnyObject?, forProperty property: String)
+  /*not inherited*/ init(value value: AnyObject?, forProperty property: String, comparisonType comparisonType: MPMediaPredicateComparison)
   var property: String { get }
   @NSCopying var value: AnyObject? { get }
   var comparisonType: MPMediaPredicateComparison { get }

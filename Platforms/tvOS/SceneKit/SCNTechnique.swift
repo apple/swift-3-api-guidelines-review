@@ -1,17 +1,17 @@
 
 @available(tvOS 8.0, *)
 class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
-  /*not inherited*/ init?(dictionary: [String : AnyObject])
+  /*not inherited*/ init?(dictionary dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
   func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(tvOS 9.0, *)
-  subscript(key: AnyObject) -> AnyObject? { get }
+  subscript(_ key: AnyObject) -> AnyObject? { get }
   @available(tvOS 9.0, *)
-  func setObject(obj: AnyObject?, forKeyedSubscript key: NSCopying)
+  func setObject(_ obj: AnyObject?, forKeyedSubscript key: NSCopying)
   init()
   @available(tvOS 8.0, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)

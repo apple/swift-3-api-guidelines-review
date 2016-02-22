@@ -3,6 +3,6 @@
 class NSStatusBarButton : NSButton {
   var appearsDisabled: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

@@ -52,7 +52,7 @@ var kAudioUnitSubType_AU3DMixerEmbedded: UInt32 { get }
 var kAudioUnitSubType_ScheduledSoundPlayer: UInt32 { get }
 var kAudioUnitSubType_AudioFilePlayer: UInt32 { get }
 struct AudioUnitRenderActionFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var unitRenderAction_PreRender: AudioUnitRenderActionFlags { get }
   static var unitRenderAction_PostRender: AudioUnitRenderActionFlags { get }
@@ -95,7 +95,7 @@ typealias AudioUnitElement = UInt32
 typealias AudioUnitParameterID = UInt32
 typealias AudioUnitParameterValue = Float32
 enum AUParameterEventType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case parameterEvent_Immediate
   case parameterEvent_Ramped
@@ -108,18 +108,18 @@ struct AudioUnitParameterEvent {
       var startValue: AudioUnitParameterValue
       var endValue: AudioUnitParameterValue
       init()
-      init(startBufferOffset: Int32, durationInFrames: UInt32, startValue: AudioUnitParameterValue, endValue: AudioUnitParameterValue)
+      init(startBufferOffset startBufferOffset: Int32, durationInFrames durationInFrames: UInt32, startValue startValue: AudioUnitParameterValue, endValue endValue: AudioUnitParameterValue)
     }
     struct __Unnamed_struct_immediate {
       var bufferOffset: UInt32
       var value: AudioUnitParameterValue
       init()
-      init(bufferOffset: UInt32, value: AudioUnitParameterValue)
+      init(bufferOffset bufferOffset: UInt32, value value: AudioUnitParameterValue)
     }
     var ramp: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_ramp
     var immediate: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_immediate
-    init(ramp: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_ramp)
-    init(immediate: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_immediate)
+    init(ramp ramp: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_ramp)
+    init(immediate immediate: AudioUnitParameterEvent.__Unnamed_union_eventValues.__Unnamed_struct_immediate)
     init()
   }
   var scope: AudioUnitScope
@@ -128,7 +128,7 @@ struct AudioUnitParameterEvent {
   var eventType: AUParameterEventType
   var eventValues: AudioUnitParameterEvent.__Unnamed_union_eventValues
   init()
-  init(scope: AudioUnitScope, element: AudioUnitElement, parameter: AudioUnitParameterID, eventType: AUParameterEventType, eventValues: AudioUnitParameterEvent.__Unnamed_union_eventValues)
+  init(scope scope: AudioUnitScope, element element: AudioUnitElement, parameter parameter: AudioUnitParameterID, eventType eventType: AUParameterEventType, eventValues eventValues: AudioUnitParameterEvent.__Unnamed_union_eventValues)
 }
 struct AudioUnitParameter {
   var mAudioUnit: AudioUnit
@@ -150,41 +150,41 @@ let kAudioComponentRegistrationsChangedNotification: CFString
 @available(tvOS 9.0, *)
 let kAudioComponentInstanceInvalidationNotification: CFString
 @available(tvOS 2.0, *)
-func AudioUnitInitialize(inUnit: AudioUnit) -> OSStatus
+func AudioUnitInitialize(_ inUnit: AudioUnit) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitUninitialize(inUnit: AudioUnit) -> OSStatus
+func AudioUnitUninitialize(_ inUnit: AudioUnit) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitGetPropertyInfo(inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outDataSize: UnsafeMutablePointer<UInt32>, _ outWritable: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AudioUnitGetPropertyInfo(_ inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outDataSize: UnsafeMutablePointer<UInt32>, _ outWritable: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitGetProperty(inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outData: UnsafeMutablePointer<Void>, _ ioDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioUnitGetProperty(_ inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outData: UnsafeMutablePointer<Void>, _ ioDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitSetProperty(inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ inData: UnsafePointer<Void>, _ inDataSize: UInt32) -> OSStatus
+func AudioUnitSetProperty(_ inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ inData: UnsafePointer<Void>, _ inDataSize: UInt32) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitAddPropertyListener(inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inProc: AudioUnitPropertyListenerProc, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioUnitAddPropertyListener(_ inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inProc: AudioUnitPropertyListenerProc, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitRemovePropertyListenerWithUserData(inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inProc: AudioUnitPropertyListenerProc, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioUnitRemovePropertyListenerWithUserData(_ inUnit: AudioUnit, _ inID: AudioUnitPropertyID, _ inProc: AudioUnitPropertyListenerProc, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitAddRenderNotify(inUnit: AudioUnit, _ inProc: AURenderCallback, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioUnitAddRenderNotify(_ inUnit: AudioUnit, _ inProc: AURenderCallback, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitRemoveRenderNotify(inUnit: AudioUnit, _ inProc: AURenderCallback, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioUnitRemoveRenderNotify(_ inUnit: AudioUnit, _ inProc: AURenderCallback, _ inProcUserData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitGetParameter(inUnit: AudioUnit, _ inID: AudioUnitParameterID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outValue: UnsafeMutablePointer<AudioUnitParameterValue>) -> OSStatus
+func AudioUnitGetParameter(_ inUnit: AudioUnit, _ inID: AudioUnitParameterID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ outValue: UnsafeMutablePointer<AudioUnitParameterValue>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitSetParameter(inUnit: AudioUnit, _ inID: AudioUnitParameterID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ inValue: AudioUnitParameterValue, _ inBufferOffsetInFrames: UInt32) -> OSStatus
+func AudioUnitSetParameter(_ inUnit: AudioUnit, _ inID: AudioUnitParameterID, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement, _ inValue: AudioUnitParameterValue, _ inBufferOffsetInFrames: UInt32) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitScheduleParameters(inUnit: AudioUnit, _ inParameterEvent: UnsafePointer<AudioUnitParameterEvent>, _ inNumParamEvents: UInt32) -> OSStatus
+func AudioUnitScheduleParameters(_ inUnit: AudioUnit, _ inParameterEvent: UnsafePointer<AudioUnitParameterEvent>, _ inNumParamEvents: UInt32) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitRender(inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inOutputBusNumber: UInt32, _ inNumberFrames: UInt32, _ ioData: UnsafeMutablePointer<AudioBufferList>) -> OSStatus
+func AudioUnitRender(_ inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inOutputBusNumber: UInt32, _ inNumberFrames: UInt32, _ ioData: UnsafeMutablePointer<AudioBufferList>) -> OSStatus
 @available(tvOS 6.0, *)
-func AudioUnitProcess(inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inNumberFrames: UInt32, _ ioData: UnsafeMutablePointer<AudioBufferList>) -> OSStatus
+func AudioUnitProcess(_ inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inNumberFrames: UInt32, _ ioData: UnsafeMutablePointer<AudioBufferList>) -> OSStatus
 @available(tvOS 6.0, *)
-func AudioUnitProcessMultiple(inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inNumberFrames: UInt32, _ inNumberInputBufferLists: UInt32, _ inInputBufferLists: UnsafeMutablePointer<UnsafePointer<AudioBufferList>>, _ inNumberOutputBufferLists: UInt32, _ ioOutputBufferLists: UnsafeMutablePointer<UnsafeMutablePointer<AudioBufferList>>) -> OSStatus
+func AudioUnitProcessMultiple(_ inUnit: AudioUnit, _ ioActionFlags: UnsafeMutablePointer<AudioUnitRenderActionFlags>, _ inTimeStamp: UnsafePointer<AudioTimeStamp>, _ inNumberFrames: UInt32, _ inNumberInputBufferLists: UInt32, _ inInputBufferLists: UnsafeMutablePointer<UnsafePointer<AudioBufferList>>, _ inNumberOutputBufferLists: UInt32, _ ioOutputBufferLists: UnsafeMutablePointer<UnsafeMutablePointer<AudioBufferList>>) -> OSStatus
 @available(tvOS 2.0, *)
-func AudioUnitReset(inUnit: AudioUnit, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement) -> OSStatus
+func AudioUnitReset(_ inUnit: AudioUnit, _ inScope: AudioUnitScope, _ inElement: AudioUnitElement) -> OSStatus
 @available(tvOS 7.0, *)
-func AudioOutputUnitPublish(inDesc: UnsafePointer<AudioComponentDescription>, _ inName: CFString, _ inVersion: UInt32, _ inOutputUnit: AudioUnit) -> OSStatus
+func AudioOutputUnitPublish(_ inDesc: UnsafePointer<AudioComponentDescription>, _ inName: CFString, _ inVersion: UInt32, _ inOutputUnit: AudioUnit) -> OSStatus
 @available(tvOS 7.0, *)
-func AudioComponentGetLastActiveTime(comp: AudioComponent) -> CFAbsoluteTime
+func AudioComponentGetLastActiveTime(_ comp: AudioComponent) -> CFAbsoluteTime
 var kAudioUnitRange: Int { get }
 var kAudioUnitInitializeSelect: Int { get }
 var kAudioUnitUninitializeSelect: Int { get }

@@ -30,7 +30,7 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
 class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: NSData
   convenience init()
-  init(seed: NSData)
+  init(seed seed: NSData)
   func dropValues(count count: Int)
   init(coder aDecoder: NSCoder)
 }
@@ -38,13 +38,13 @@ class GKARC4RandomSource : GKRandomSource {
 class GKLinearCongruentialRandomSource : GKRandomSource {
   var seed: UInt64
   convenience init()
-  init(seed: UInt64)
+  init(seed seed: UInt64)
   init(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 class GKMersenneTwisterRandomSource : GKRandomSource {
   var seed: UInt64
   convenience init()
-  init(seed: UInt64)
+  init(seed seed: UInt64)
   init(coder aDecoder: NSCoder)
 }

@@ -1,6 +1,6 @@
 
 enum EKSpan : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case thisEvent
   case futureEvents
@@ -13,9 +13,9 @@ class EKEventStore : NSObject {
   @available(OSX 10.9, *)
   init()
   @available(OSX 10.11, *)
-  init(sources: [EKSource])
+  init(sources sources: [EKSource])
   @available(OSX 10.9, *)
-  func requestAccess(to entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
+  func requestAccess(to entityType: EKEntityType, completion completion: EKEventStoreRequestAccessCompletionHandler)
   var eventStoreIdentifier: String { get }
   @available(OSX 10.11, *)
   var delegateSources: [EKSource] { get }
@@ -31,35 +31,35 @@ class EKEventStore : NSObject {
   @available(OSX 10.8, *)
   func calendar(withIdentifier identifier: String) -> EKCalendar?
   @available(OSX 10.8, *)
-  func saveCalendar(calendar: EKCalendar, commit: Bool) throws
+  func saveCalendar(_ calendar: EKCalendar, commit commit: Bool) throws
   @available(OSX 10.8, *)
-  func removeCalendar(calendar: EKCalendar, commit: Bool) throws
+  func removeCalendar(_ calendar: EKCalendar, commit commit: Bool) throws
   @available(OSX 10.8, *)
   func calendarItem(withIdentifier identifier: String) -> EKCalendarItem
   @available(OSX 10.8, *)
   func calendarItems(withExternalIdentifier externalIdentifier: String) -> [EKCalendarItem]
   @available(OSX 10.8, *)
-  func save(event: EKEvent, span: EKSpan, commit: Bool) throws
+  func save(_ event: EKEvent, span span: EKSpan, commit commit: Bool) throws
   @available(OSX 10.8, *)
-  func remove(event: EKEvent, span: EKSpan, commit: Bool) throws
+  func remove(_ event: EKEvent, span span: EKSpan, commit commit: Bool) throws
   func event(withIdentifier identifier: String) -> EKEvent?
   func events(matching predicate: NSPredicate) -> [EKEvent]
   func enumerateEvents(matching predicate: NSPredicate, using block: EKEventSearchCallback)
-  func predicateForEvents(withStart startDate: NSDate, end endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForEvents(withStart startDate: NSDate, end endDate: NSDate, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(OSX 10.8, *)
-  func save(reminder: EKReminder, commit: Bool) throws
+  func save(_ reminder: EKReminder, commit commit: Bool) throws
   @available(OSX 10.8, *)
-  func remove(reminder: EKReminder, commit: Bool) throws
+  func remove(_ reminder: EKReminder, commit commit: Bool) throws
   @available(OSX 10.8, *)
-  func fetchReminders(matching predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchReminders(matching predicate: NSPredicate, completion completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(OSX 10.8, *)
-  func cancelFetchRequest(fetchIdentifier: AnyObject)
+  func cancelFetchRequest(_ fetchIdentifier: AnyObject)
   @available(OSX 10.8, *)
   func predicateForReminders(in calendars: [EKCalendar]?) -> NSPredicate
   @available(OSX 10.8, *)
-  func predicateForIncompleteReminders(withDueDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForIncompleteReminders(withDueDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(OSX 10.8, *)
-  func predicateForCompletedReminders(withCompletionDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForCompletedReminders(withCompletionDateStarting startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(OSX 10.8, *)
   func commit() throws
   @available(OSX 10.8, *)

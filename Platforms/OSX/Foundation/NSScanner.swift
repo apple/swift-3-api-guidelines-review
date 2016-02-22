@@ -5,27 +5,27 @@ class NSScanner : NSObject, NSCopying {
   @NSCopying var charactersToBeSkipped: NSCharacterSet?
   var caseSensitive: Bool
   var locale: AnyObject?
-  init(string: String)
+  init(string string: String)
   convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension NSScanner {
-  func scanInt(result: UnsafeMutablePointer<Int32>) -> Bool
+  func scanInt(_ result: UnsafeMutablePointer<Int32>) -> Bool
   @available(OSX 10.5, *)
-  func scanInteger(result: UnsafeMutablePointer<Int>) -> Bool
-  func scanLongLong(result: UnsafeMutablePointer<Int64>) -> Bool
+  func scanInteger(_ result: UnsafeMutablePointer<Int>) -> Bool
+  func scanLongLong(_ result: UnsafeMutablePointer<Int64>) -> Bool
   @available(OSX 10.9, *)
-  func scanUnsignedLongLong(result: UnsafeMutablePointer<UInt64>) -> Bool
-  func scanFloat(result: UnsafeMutablePointer<Float>) -> Bool
-  func scanDouble(result: UnsafeMutablePointer<Double>) -> Bool
-  func scanHexInt(result: UnsafeMutablePointer<UInt32>) -> Bool
+  func scanUnsignedLongLong(_ result: UnsafeMutablePointer<UInt64>) -> Bool
+  func scanFloat(_ result: UnsafeMutablePointer<Float>) -> Bool
+  func scanDouble(_ result: UnsafeMutablePointer<Double>) -> Bool
+  func scanHexInt(_ result: UnsafeMutablePointer<UInt32>) -> Bool
   @available(OSX 10.5, *)
-  func scanHexLongLong(result: UnsafeMutablePointer<UInt64>) -> Bool
+  func scanHexLongLong(_ result: UnsafeMutablePointer<UInt64>) -> Bool
   @available(OSX 10.5, *)
-  func scanHexFloat(result: UnsafeMutablePointer<Float>) -> Bool
+  func scanHexFloat(_ result: UnsafeMutablePointer<Float>) -> Bool
   @available(OSX 10.5, *)
-  func scanHexDouble(result: UnsafeMutablePointer<Double>) -> Bool
-  func scanString(string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
+  func scanHexDouble(_ result: UnsafeMutablePointer<Double>) -> Bool
+  func scanString(_ string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanCharacters(from set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanUp(to string: String, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
   func scanUpToCharacters(from set: NSCharacterSet, into result: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool

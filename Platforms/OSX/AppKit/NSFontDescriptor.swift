@@ -27,18 +27,18 @@ class NSFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   var symbolicTraits: NSFontSymbolicTraits { get }
   func object(forKey anAttribute: String) -> AnyObject?
   var fontAttributes: [String : AnyObject] { get }
-  /*not inherited*/ init(name fontName: String, size: CGFloat)
-  /*not inherited*/ init(name fontName: String, matrix: NSAffineTransform)
+  /*not inherited*/ init(name fontName: String, size size: CGFloat)
+  /*not inherited*/ init(name fontName: String, matrix matrix: NSAffineTransform)
   init(fontAttributes attributes: [String : AnyObject]? = [:])
   func matchingFontDescriptors(withMandatoryKeys mandatoryKeys: Set<String>?) -> [NSFontDescriptor]
   @available(OSX 10.5, *)
   func matchingFontDescriptor(withMandatoryKeys mandatoryKeys: Set<String>?) -> NSFontDescriptor?
-  func addingAttributes(attributes: [String : AnyObject] = [:]) -> NSFontDescriptor
-  func withSymbolicTraits(symbolicTraits: NSFontSymbolicTraits) -> NSFontDescriptor
-  func withSize(newPointSize: CGFloat) -> NSFontDescriptor
-  func withMatrix(matrix: NSAffineTransform) -> NSFontDescriptor
-  func withFace(newFace: String) -> NSFontDescriptor
-  func withFamily(newFamily: String) -> NSFontDescriptor
+  func addingAttributes(_ attributes: [String : AnyObject] = [:]) -> NSFontDescriptor
+  func withSymbolicTraits(_ symbolicTraits: NSFontSymbolicTraits) -> NSFontDescriptor
+  func withSize(_ newPointSize: CGFloat) -> NSFontDescriptor
+  func withMatrix(_ matrix: NSAffineTransform) -> NSFontDescriptor
+  func withFace(_ newFace: String) -> NSFontDescriptor
+  func withFamily(_ newFamily: String) -> NSFontDescriptor
   init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool

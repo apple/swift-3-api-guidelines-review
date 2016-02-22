@@ -11,7 +11,7 @@ extension DOMElement {
 }
 extension DOMHTMLDocument {
   @available(OSX 10.5, *)
-  func createDocumentFragment(withMarkupString markupString: String!, baseURL: NSURL!) -> DOMDocumentFragment!
+  func createDocumentFragment(withMarkupString markupString: String!, baseURL baseURL: NSURL!) -> DOMDocumentFragment!
   @available(OSX 10.5, *)
   func createDocumentFragment(withText text: String!) -> DOMDocumentFragment!
 }

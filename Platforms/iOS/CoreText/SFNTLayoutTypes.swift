@@ -305,61 +305,61 @@ struct SFNTLookupBinarySearchHeader {
   var entrySelector: UInt16
   var rangeShift: UInt16
   init()
-  init(unitSize: UInt16, nUnits: UInt16, searchRange: UInt16, entrySelector: UInt16, rangeShift: UInt16)
+  init(unitSize unitSize: UInt16, nUnits nUnits: UInt16, searchRange searchRange: UInt16, entrySelector entrySelector: UInt16, rangeShift rangeShift: UInt16)
 }
 struct SFNTLookupArrayHeader {
   var lookupValues: (SFNTLookupValue)
   init()
-  init(lookupValues: (SFNTLookupValue))
+  init(lookupValues lookupValues: (SFNTLookupValue))
 }
 struct SFNTLookupTrimmedArrayHeader {
   var firstGlyph: UInt16
   var count: UInt16
   var valueArray: (SFNTLookupValue)
   init()
-  init(firstGlyph: UInt16, count: UInt16, valueArray: (SFNTLookupValue))
+  init(firstGlyph firstGlyph: UInt16, count count: UInt16, valueArray valueArray: (SFNTLookupValue))
 }
 struct SFNTLookupSegment {
   var lastGlyph: UInt16
   var firstGlyph: UInt16
   var value: (UInt16)
   init()
-  init(lastGlyph: UInt16, firstGlyph: UInt16, value: (UInt16))
+  init(lastGlyph lastGlyph: UInt16, firstGlyph firstGlyph: UInt16, value value: (UInt16))
 }
 struct SFNTLookupSegmentHeader {
   var binSearch: SFNTLookupBinarySearchHeader
   var segments: (SFNTLookupSegment)
   init()
-  init(binSearch: SFNTLookupBinarySearchHeader, segments: (SFNTLookupSegment))
+  init(binSearch binSearch: SFNTLookupBinarySearchHeader, segments segments: (SFNTLookupSegment))
 }
 struct SFNTLookupSingle {
   var glyph: UInt16
   var value: (UInt16)
   init()
-  init(glyph: UInt16, value: (UInt16))
+  init(glyph glyph: UInt16, value value: (UInt16))
 }
 struct SFNTLookupSingleHeader {
   var binSearch: SFNTLookupBinarySearchHeader
   var entries: (SFNTLookupSingle)
   init()
-  init(binSearch: SFNTLookupBinarySearchHeader, entries: (SFNTLookupSingle))
+  init(binSearch binSearch: SFNTLookupBinarySearchHeader, entries entries: (SFNTLookupSingle))
 }
 struct SFNTLookupFormatSpecificHeader {
   var theArray: SFNTLookupArrayHeader
   var segment: SFNTLookupSegmentHeader
   var single: SFNTLookupSingleHeader
   var trimmedArray: SFNTLookupTrimmedArrayHeader
-  init(theArray: SFNTLookupArrayHeader)
-  init(segment: SFNTLookupSegmentHeader)
-  init(single: SFNTLookupSingleHeader)
-  init(trimmedArray: SFNTLookupTrimmedArrayHeader)
+  init(theArray theArray: SFNTLookupArrayHeader)
+  init(segment segment: SFNTLookupSegmentHeader)
+  init(single single: SFNTLookupSingleHeader)
+  init(trimmedArray trimmedArray: SFNTLookupTrimmedArrayHeader)
   init()
 }
 struct SFNTLookupTable {
   var format: SFNTLookupTableFormat
   var fsHeader: SFNTLookupFormatSpecificHeader
   init()
-  init(format: SFNTLookupTableFormat, fsHeader: SFNTLookupFormatSpecificHeader)
+  init(format format: SFNTLookupTableFormat, fsHeader fsHeader: SFNTLookupFormatSpecificHeader)
 }
 typealias SFNTLookupTablePtr = UnsafeMutablePointer<SFNTLookupTable>
 typealias SFNTLookupTableHandle = UnsafeMutablePointer<SFNTLookupTablePtr>
@@ -381,27 +381,27 @@ struct STHeader {
   var stateArrayOffset: UInt16
   var entryTableOffset: UInt16
   init()
-  init(filler: UInt8, nClasses: STClass, classTableOffset: UInt16, stateArrayOffset: UInt16, entryTableOffset: UInt16)
+  init(filler filler: UInt8, nClasses nClasses: STClass, classTableOffset classTableOffset: UInt16, stateArrayOffset stateArrayOffset: UInt16, entryTableOffset entryTableOffset: UInt16)
 }
 struct STClassTable {
   var firstGlyph: UInt16
   var nGlyphs: UInt16
   var classes: (STClass)
   init()
-  init(firstGlyph: UInt16, nGlyphs: UInt16, classes: (STClass))
+  init(firstGlyph firstGlyph: UInt16, nGlyphs nGlyphs: UInt16, classes classes: (STClass))
 }
 struct STEntryZero {
   var newState: UInt16
   var flags: UInt16
   init()
-  init(newState: UInt16, flags: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16)
 }
 struct STEntryOne {
   var newState: UInt16
   var flags: UInt16
   var offset1: UInt16
   init()
-  init(newState: UInt16, flags: UInt16, offset1: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16, offset1 offset1: UInt16)
 }
 struct STEntryTwo {
   var newState: UInt16
@@ -409,7 +409,7 @@ struct STEntryTwo {
   var offset1: UInt16
   var offset2: UInt16
   init()
-  init(newState: UInt16, flags: UInt16, offset1: UInt16, offset2: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16, offset1 offset1: UInt16, offset2 offset2: UInt16)
 }
 var kSTXHasLigAction: Int { get }
 typealias STXClass = UInt16
@@ -421,21 +421,21 @@ struct STXHeader {
   var stateArrayOffset: UInt32
   var entryTableOffset: UInt32
   init()
-  init(nClasses: UInt32, classTableOffset: UInt32, stateArrayOffset: UInt32, entryTableOffset: UInt32)
+  init(nClasses nClasses: UInt32, classTableOffset classTableOffset: UInt32, stateArrayOffset stateArrayOffset: UInt32, entryTableOffset entryTableOffset: UInt32)
 }
 typealias STXClassTable = SFNTLookupTable
 struct STXEntryZero {
   var newState: STXStateIndex
   var flags: UInt16
   init()
-  init(newState: STXStateIndex, flags: UInt16)
+  init(newState newState: STXStateIndex, flags flags: UInt16)
 }
 struct STXEntryOne {
   var newState: STXStateIndex
   var flags: UInt16
   var index1: UInt16
   init()
-  init(newState: STXStateIndex, flags: UInt16, index1: UInt16)
+  init(newState newState: STXStateIndex, flags flags: UInt16, index1 index1: UInt16)
 }
 struct STXEntryTwo {
   var newState: STXStateIndex
@@ -443,7 +443,7 @@ struct STXEntryTwo {
   var index1: UInt16
   var index2: UInt16
   init()
-  init(newState: STXStateIndex, flags: UInt16, index1: UInt16, index2: UInt16)
+  init(newState newState: STXStateIndex, flags flags: UInt16, index1 index1: UInt16, index2 index2: UInt16)
 }
 var kSTKCrossStreamReset: Int { get }
 var kLCARTag: Int { get }
@@ -454,14 +454,14 @@ struct LcarCaretClassEntry {
   var count: UInt16
   var partials: (UInt16)
   init()
-  init(count: UInt16, partials: (UInt16))
+  init(count count: UInt16, partials partials: (UInt16))
 }
 struct LcarCaretTable {
   var version: Fixed
   var format: UInt16
   var lookup: SFNTLookupTable
   init()
-  init(version: Fixed, format: UInt16, lookup: SFNTLookupTable)
+  init(version version: Fixed, format format: UInt16, lookup lookup: SFNTLookupTable)
 }
 typealias LcarCaretTablePtr = UnsafeMutablePointer<LcarCaretTable>
 var kJUSTTag: Int { get }
@@ -493,7 +493,7 @@ struct JustPCDecompositionAction {
   var count: UInt16
   var glyphs: (UInt16)
   init()
-  init(lowerLimit: Fixed, upperLimit: Fixed, order: UInt16, count: UInt16, glyphs: (UInt16))
+  init(lowerLimit lowerLimit: Fixed, upperLimit upperLimit: Fixed, order order: UInt16, count count: UInt16, glyphs glyphs: (UInt16))
 }
 typealias JustPCUnconditionalAddAction = UInt16
 struct JustPCConditionalAddAction {
@@ -501,7 +501,7 @@ struct JustPCConditionalAddAction {
   var addGlyph: UInt16
   var substGlyph: UInt16
   init()
-  init(substThreshold: Fixed, addGlyph: UInt16, substGlyph: UInt16)
+  init(substThreshold substThreshold: Fixed, addGlyph addGlyph: UInt16, substGlyph substGlyph: UInt16)
 }
 struct JustPCDuctilityAction {
   var ductilityAxis: UInt32
@@ -509,13 +509,13 @@ struct JustPCDuctilityAction {
   var noStretchValue: Fixed
   var maximumLimit: Fixed
   init()
-  init(ductilityAxis: UInt32, minimumLimit: Fixed, noStretchValue: Fixed, maximumLimit: Fixed)
+  init(ductilityAxis ductilityAxis: UInt32, minimumLimit minimumLimit: Fixed, noStretchValue noStretchValue: Fixed, maximumLimit maximumLimit: Fixed)
 }
 struct JustPCGlyphRepeatAddAction {
   var flags: UInt16
   var glyph: UInt16
   init()
-  init(flags: UInt16, glyph: UInt16)
+  init(flags flags: UInt16, glyph glyph: UInt16)
 }
 struct JustPCActionSubrecord {
   var theClass: UInt16
@@ -523,13 +523,13 @@ struct JustPCActionSubrecord {
   var length: UInt32
   var data: UInt32
   init()
-  init(theClass: UInt16, theType: JustPCActionType, length: UInt32, data: UInt32)
+  init(theClass theClass: UInt16, theType theType: JustPCActionType, length length: UInt32, data data: UInt32)
 }
 struct JustPCAction {
   var actionCount: UInt32
   var actions: (JustPCActionSubrecord)
   init()
-  init(actionCount: UInt32, actions: (JustPCActionSubrecord))
+  init(actionCount actionCount: UInt32, actions actions: (JustPCActionSubrecord))
 }
 struct JustWidthDeltaEntry {
   var justClass: UInt32
@@ -540,18 +540,18 @@ struct JustWidthDeltaEntry {
   var growFlags: JustificationFlags
   var shrinkFlags: JustificationFlags
   init()
-  init(justClass: UInt32, beforeGrowLimit: Fixed, beforeShrinkLimit: Fixed, afterGrowLimit: Fixed, afterShrinkLimit: Fixed, growFlags: JustificationFlags, shrinkFlags: JustificationFlags)
+  init(justClass justClass: UInt32, beforeGrowLimit beforeGrowLimit: Fixed, beforeShrinkLimit beforeShrinkLimit: Fixed, afterGrowLimit afterGrowLimit: Fixed, afterShrinkLimit afterShrinkLimit: Fixed, growFlags growFlags: JustificationFlags, shrinkFlags shrinkFlags: JustificationFlags)
 }
 struct JustWidthDeltaGroup {
   var count: UInt32
   var entries: (JustWidthDeltaEntry)
   init()
-  init(count: UInt32, entries: (JustWidthDeltaEntry))
+  init(count count: UInt32, entries entries: (JustWidthDeltaEntry))
 }
 struct JustPostcompTable {
   var lookupTable: SFNTLookupTable
   init()
-  init(lookupTable: SFNTLookupTable)
+  init(lookupTable lookupTable: SFNTLookupTable)
 }
 struct JustDirectionTable {
   var justClass: UInt16
@@ -559,7 +559,7 @@ struct JustDirectionTable {
   var postcomp: UInt16
   var lookup: SFNTLookupTable
   init()
-  init(justClass: UInt16, widthDeltaClusters: UInt16, postcomp: UInt16, lookup: SFNTLookupTable)
+  init(justClass justClass: UInt16, widthDeltaClusters widthDeltaClusters: UInt16, postcomp postcomp: UInt16, lookup lookup: SFNTLookupTable)
 }
 struct JustTable {
   var version: Fixed
@@ -567,7 +567,7 @@ struct JustTable {
   var horizHeaderOffset: UInt16
   var vertHeaderOffset: UInt16
   init()
-  init(version: Fixed, format: UInt16, horizHeaderOffset: UInt16, vertHeaderOffset: UInt16)
+  init(version version: Fixed, format format: UInt16, horizHeaderOffset horizHeaderOffset: UInt16, vertHeaderOffset vertHeaderOffset: UInt16)
 }
 var kOPBDTag: Int { get }
 var kOPBDCurrentVersion: Int { get }
@@ -580,14 +580,14 @@ struct OpbdSideValues {
   var rightSideShift: Int16
   var bottomSideShift: Int16
   init()
-  init(leftSideShift: Int16, topSideShift: Int16, rightSideShift: Int16, bottomSideShift: Int16)
+  init(leftSideShift leftSideShift: Int16, topSideShift topSideShift: Int16, rightSideShift rightSideShift: Int16, bottomSideShift bottomSideShift: Int16)
 }
 struct OpbdTable {
   var version: Fixed
   var format: OpbdTableFormat
   var lookupTable: SFNTLookupTable
   init()
-  init(version: Fixed, format: OpbdTableFormat, lookupTable: SFNTLookupTable)
+  init(version version: Fixed, format format: OpbdTableFormat, lookupTable lookupTable: SFNTLookupTable)
 }
 var kMORTTag: Int { get }
 var kMORTCurrentVersion: Int { get }
@@ -640,13 +640,13 @@ typealias MortLigatureActionEntry = UInt32
 struct MortRearrangementSubtable {
   var header: STHeader
   init()
-  init(header: STHeader)
+  init(header header: STHeader)
 }
 struct MortContextualSubtable {
   var header: STHeader
   var substitutionTableOffset: UInt16
   init()
-  init(header: STHeader, substitutionTableOffset: UInt16)
+  init(header header: STHeader, substitutionTableOffset substitutionTableOffset: UInt16)
 }
 struct MortLigatureSubtable {
   var header: STHeader
@@ -654,17 +654,17 @@ struct MortLigatureSubtable {
   var componentTableOffset: UInt16
   var ligatureTableOffset: UInt16
   init()
-  init(header: STHeader, ligatureActionTableOffset: UInt16, componentTableOffset: UInt16, ligatureTableOffset: UInt16)
+  init(header header: STHeader, ligatureActionTableOffset ligatureActionTableOffset: UInt16, componentTableOffset componentTableOffset: UInt16, ligatureTableOffset ligatureTableOffset: UInt16)
 }
 struct MortSwashSubtable {
   var lookup: SFNTLookupTable
   init()
-  init(lookup: SFNTLookupTable)
+  init(lookup lookup: SFNTLookupTable)
 }
 struct MortInsertionSubtable {
   var header: STHeader
   init()
-  init(header: STHeader)
+  init(header header: STHeader)
 }
 struct MortSpecificSubtable {
   var rearrangement: MortRearrangementSubtable
@@ -672,11 +672,11 @@ struct MortSpecificSubtable {
   var ligature: MortLigatureSubtable
   var swash: MortSwashSubtable
   var insertion: MortInsertionSubtable
-  init(rearrangement: MortRearrangementSubtable)
-  init(contextual: MortContextualSubtable)
-  init(ligature: MortLigatureSubtable)
-  init(swash: MortSwashSubtable)
-  init(insertion: MortInsertionSubtable)
+  init(rearrangement rearrangement: MortRearrangementSubtable)
+  init(contextual contextual: MortContextualSubtable)
+  init(ligature ligature: MortLigatureSubtable)
+  init(swash swash: MortSwashSubtable)
+  init(insertion insertion: MortInsertionSubtable)
   init()
 }
 struct MortSubtable {
@@ -685,7 +685,7 @@ struct MortSubtable {
   var flags: MortSubtableMaskFlags
   var u: MortSpecificSubtable
   init()
-  init(length: UInt16, coverage: UInt16, flags: MortSubtableMaskFlags, u: MortSpecificSubtable)
+  init(length length: UInt16, coverage coverage: UInt16, flags flags: MortSubtableMaskFlags, u u: MortSpecificSubtable)
 }
 struct MortFeatureEntry {
   var featureType: UInt16
@@ -693,7 +693,7 @@ struct MortFeatureEntry {
   var enableFlags: MortSubtableMaskFlags
   var disableFlags: MortSubtableMaskFlags
   init()
-  init(featureType: UInt16, featureSelector: UInt16, enableFlags: MortSubtableMaskFlags, disableFlags: MortSubtableMaskFlags)
+  init(featureType featureType: UInt16, featureSelector featureSelector: UInt16, enableFlags enableFlags: MortSubtableMaskFlags, disableFlags disableFlags: MortSubtableMaskFlags)
 }
 struct MortChain {
   var defaultFlags: MortSubtableMaskFlags
@@ -702,14 +702,14 @@ struct MortChain {
   var nSubtables: UInt16
   var featureEntries: (MortFeatureEntry)
   init()
-  init(defaultFlags: MortSubtableMaskFlags, length: UInt32, nFeatures: UInt16, nSubtables: UInt16, featureEntries: (MortFeatureEntry))
+  init(defaultFlags defaultFlags: MortSubtableMaskFlags, length length: UInt32, nFeatures nFeatures: UInt16, nSubtables nSubtables: UInt16, featureEntries featureEntries: (MortFeatureEntry))
 }
 struct MortTable {
   var version: Fixed
   var nChains: UInt32
   var chains: (MortChain)
   init()
-  init(version: Fixed, nChains: UInt32, chains: (MortChain))
+  init(version version: Fixed, nChains nChains: UInt32, chains chains: (MortChain))
 }
 var kMORXTag: Int { get }
 var kMORXCurrentVersion: Int { get }
@@ -721,13 +721,13 @@ var kMORXCoverTypeMask: Int { get }
 struct MorxRearrangementSubtable {
   var header: STXHeader
   init()
-  init(header: STXHeader)
+  init(header header: STXHeader)
 }
 struct MorxContextualSubtable {
   var header: STXHeader
   var substitutionTableOffset: UInt32
   init()
-  init(header: STXHeader, substitutionTableOffset: UInt32)
+  init(header header: STXHeader, substitutionTableOffset substitutionTableOffset: UInt32)
 }
 struct MorxLigatureSubtable {
   var header: STXHeader
@@ -735,13 +735,13 @@ struct MorxLigatureSubtable {
   var componentTableOffset: UInt32
   var ligatureTableOffset: UInt32
   init()
-  init(header: STXHeader, ligatureActionTableOffset: UInt32, componentTableOffset: UInt32, ligatureTableOffset: UInt32)
+  init(header header: STXHeader, ligatureActionTableOffset ligatureActionTableOffset: UInt32, componentTableOffset componentTableOffset: UInt32, ligatureTableOffset ligatureTableOffset: UInt32)
 }
 struct MorxInsertionSubtable {
   var header: STXHeader
   var insertionGlyphTableOffset: UInt32
   init()
-  init(header: STXHeader, insertionGlyphTableOffset: UInt32)
+  init(header header: STXHeader, insertionGlyphTableOffset insertionGlyphTableOffset: UInt32)
 }
 struct MorxSpecificSubtable {
   var rearrangement: MorxRearrangementSubtable
@@ -749,11 +749,11 @@ struct MorxSpecificSubtable {
   var ligature: MorxLigatureSubtable
   var swash: MortSwashSubtable
   var insertion: MorxInsertionSubtable
-  init(rearrangement: MorxRearrangementSubtable)
-  init(contextual: MorxContextualSubtable)
-  init(ligature: MorxLigatureSubtable)
-  init(swash: MortSwashSubtable)
-  init(insertion: MorxInsertionSubtable)
+  init(rearrangement rearrangement: MorxRearrangementSubtable)
+  init(contextual contextual: MorxContextualSubtable)
+  init(ligature ligature: MorxLigatureSubtable)
+  init(swash swash: MortSwashSubtable)
+  init(insertion insertion: MorxInsertionSubtable)
   init()
 }
 struct MorxSubtable {
@@ -762,7 +762,7 @@ struct MorxSubtable {
   var flags: MortSubtableMaskFlags
   var u: MorxSpecificSubtable
   init()
-  init(length: UInt32, coverage: UInt32, flags: MortSubtableMaskFlags, u: MorxSpecificSubtable)
+  init(length length: UInt32, coverage coverage: UInt32, flags flags: MortSubtableMaskFlags, u u: MorxSpecificSubtable)
 }
 struct MorxChain {
   var defaultFlags: MortSubtableMaskFlags
@@ -771,14 +771,14 @@ struct MorxChain {
   var nSubtables: UInt32
   var featureEntries: (MortFeatureEntry)
   init()
-  init(defaultFlags: MortSubtableMaskFlags, length: UInt32, nFeatures: UInt32, nSubtables: UInt32, featureEntries: (MortFeatureEntry))
+  init(defaultFlags defaultFlags: MortSubtableMaskFlags, length length: UInt32, nFeatures nFeatures: UInt32, nSubtables nSubtables: UInt32, featureEntries featureEntries: (MortFeatureEntry))
 }
 struct MorxTable {
   var version: Fixed
   var nChains: UInt32
   var chains: (MorxChain)
   init()
-  init(version: Fixed, nChains: UInt32, chains: (MorxChain))
+  init(version version: Fixed, nChains nChains: UInt32, chains chains: (MorxChain))
 }
 var kPROPTag: Int { get }
 var kPROPCurrentVersion: Int { get }
@@ -820,20 +820,20 @@ struct PropTable {
   var defaultProps: PropCharProperties
   var lookup: SFNTLookupTable
   init()
-  init(version: Fixed, format: UInt16, defaultProps: PropCharProperties, lookup: SFNTLookupTable)
+  init(version version: Fixed, format format: UInt16, defaultProps defaultProps: PropCharProperties, lookup lookup: SFNTLookupTable)
 }
 struct PropLookupSegment {
   var lastGlyph: UInt16
   var firstGlyph: UInt16
   var value: UInt16
   init()
-  init(lastGlyph: UInt16, firstGlyph: UInt16, value: UInt16)
+  init(lastGlyph lastGlyph: UInt16, firstGlyph firstGlyph: UInt16, value value: UInt16)
 }
 struct PropLookupSingle {
   var glyph: UInt16
   var props: PropCharProperties
   init()
-  init(glyph: UInt16, props: PropCharProperties)
+  init(glyph glyph: UInt16, props props: PropCharProperties)
 }
 var kTRAKTag: Int { get }
 var kTRAKCurrentVersion: Int { get }
@@ -844,7 +844,7 @@ struct TrakTableEntry {
   var nameTableIndex: UInt16
   var sizesOffset: UInt16
   init()
-  init(track: Fixed, nameTableIndex: UInt16, sizesOffset: UInt16)
+  init(track track: Fixed, nameTableIndex nameTableIndex: UInt16, sizesOffset sizesOffset: UInt16)
 }
 struct TrakTableData {
   var nTracks: UInt16
@@ -852,7 +852,7 @@ struct TrakTableData {
   var sizeTableOffset: UInt32
   var trakTable: (TrakTableEntry)
   init()
-  init(nTracks: UInt16, nSizes: UInt16, sizeTableOffset: UInt32, trakTable: (TrakTableEntry))
+  init(nTracks nTracks: UInt16, nSizes nSizes: UInt16, sizeTableOffset sizeTableOffset: UInt32, trakTable trakTable: (TrakTableEntry))
 }
 struct TrakTable {
   var version: Fixed
@@ -860,7 +860,7 @@ struct TrakTable {
   var horizOffset: UInt16
   var vertOffset: UInt16
   init()
-  init(version: Fixed, format: UInt16, horizOffset: UInt16, vertOffset: UInt16)
+  init(version version: Fixed, format format: UInt16, horizOffset horizOffset: UInt16, vertOffset vertOffset: UInt16)
 }
 var kKERNTag: Int { get }
 var kKERNCurrentVersion: Int { get }
@@ -890,14 +890,14 @@ struct KernVersion0Header {
   var nTables: UInt16
   var firstSubtable: (UInt16)
   init()
-  init(version: UInt16, nTables: UInt16, firstSubtable: (UInt16))
+  init(version version: UInt16, nTables nTables: UInt16, firstSubtable firstSubtable: (UInt16))
 }
 struct KernTableHeader {
   var version: Fixed
   var nTables: Int32
   var firstSubtable: (UInt16)
   init()
-  init(version: Fixed, nTables: Int32, firstSubtable: (UInt16))
+  init(version version: Fixed, nTables nTables: Int32, firstSubtable firstSubtable: (UInt16))
 }
 typealias KernTableHeaderPtr = UnsafeMutablePointer<KernTableHeader>
 typealias KernTableHeaderHandle = UnsafeMutablePointer<KernTableHeaderPtr>
@@ -905,13 +905,13 @@ struct KernKerningPair {
   var left: UInt16
   var right: UInt16
   init()
-  init(left: UInt16, right: UInt16)
+  init(left left: UInt16, right right: UInt16)
 }
 struct KernOrderedListEntry {
   var pair: KernKerningPair
   var value: KernKerningValue
   init()
-  init(pair: KernKerningPair, value: KernKerningValue)
+  init(pair pair: KernKerningPair, value value: KernKerningValue)
 }
 typealias KernOrderedListEntryPtr = UnsafeMutablePointer<KernOrderedListEntry>
 struct KernOrderedListHeader {
@@ -921,27 +921,27 @@ struct KernOrderedListHeader {
   var rangeShift: UInt16
   var table: (UInt16)
   init()
-  init(nPairs: UInt16, searchRange: UInt16, entrySelector: UInt16, rangeShift: UInt16, table: (UInt16))
+  init(nPairs nPairs: UInt16, searchRange searchRange: UInt16, entrySelector entrySelector: UInt16, rangeShift rangeShift: UInt16, table table: (UInt16))
 }
 struct KernStateHeader {
   var header: STHeader
   var valueTable: UInt16
   var firstTable: (UInt8)
   init()
-  init(header: STHeader, valueTable: UInt16, firstTable: (UInt8))
+  init(header header: STHeader, valueTable valueTable: UInt16, firstTable firstTable: (UInt8))
 }
 struct KernStateEntry {
   var newState: UInt16
   var flags: UInt16
   init()
-  init(newState: UInt16, flags: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16)
 }
 struct KernOffsetTable {
   var firstGlyph: UInt16
   var nGlyphs: UInt16
   var offsetTable: (KernArrayOffset)
   init()
-  init(firstGlyph: UInt16, nGlyphs: UInt16, offsetTable: (KernArrayOffset))
+  init(firstGlyph firstGlyph: UInt16, nGlyphs nGlyphs: UInt16, offsetTable offsetTable: (KernArrayOffset))
 }
 typealias KernOffsetTablePtr = UnsafeMutablePointer<KernOffsetTable>
 struct KernSimpleArrayHeader {
@@ -951,7 +951,7 @@ struct KernSimpleArrayHeader {
   var theArray: KernArrayOffset
   var firstTable: (UInt16)
   init()
-  init(rowWidth: UInt16, leftOffsetTable: UInt16, rightOffsetTable: UInt16, theArray: KernArrayOffset, firstTable: (UInt16))
+  init(rowWidth rowWidth: UInt16, leftOffsetTable leftOffsetTable: UInt16, rightOffsetTable rightOffsetTable: UInt16, theArray theArray: KernArrayOffset, firstTable firstTable: (UInt16))
 }
 struct KernIndexArrayHeader {
   var glyphCount: UInt16
@@ -964,17 +964,17 @@ struct KernIndexArrayHeader {
   var rightClass: (UInt8)
   var kernIndex: (UInt8)
   init()
-  init(glyphCount: UInt16, kernValueCount: UInt8, leftClassCount: UInt8, rightClassCount: UInt8, flags: UInt8, kernValue: (Int16), leftClass: (UInt8), rightClass: (UInt8), kernIndex: (UInt8))
+  init(glyphCount glyphCount: UInt16, kernValueCount kernValueCount: UInt8, leftClassCount leftClassCount: UInt8, rightClassCount rightClassCount: UInt8, flags flags: UInt8, kernValue kernValue: (Int16), leftClass leftClass: (UInt8), rightClass rightClass: (UInt8), kernIndex kernIndex: (UInt8))
 }
 struct KernFormatSpecificHeader {
   var orderedList: KernOrderedListHeader
   var stateTable: KernStateHeader
   var simpleArray: KernSimpleArrayHeader
   var indexArray: KernIndexArrayHeader
-  init(orderedList: KernOrderedListHeader)
-  init(stateTable: KernStateHeader)
-  init(simpleArray: KernSimpleArrayHeader)
-  init(indexArray: KernIndexArrayHeader)
+  init(orderedList orderedList: KernOrderedListHeader)
+  init(stateTable stateTable: KernStateHeader)
+  init(simpleArray simpleArray: KernSimpleArrayHeader)
+  init(indexArray indexArray: KernIndexArrayHeader)
   init()
 }
 struct KernVersion0SubtableHeader {
@@ -983,7 +983,7 @@ struct KernVersion0SubtableHeader {
   var stInfo: KernSubtableInfo
   var fsHeader: KernFormatSpecificHeader
   init()
-  init(version: UInt16, length: UInt16, stInfo: KernSubtableInfo, fsHeader: KernFormatSpecificHeader)
+  init(version version: UInt16, length length: UInt16, stInfo stInfo: KernSubtableInfo, fsHeader fsHeader: KernFormatSpecificHeader)
 }
 struct KernSubtableHeader {
   var length: Int32
@@ -991,7 +991,7 @@ struct KernSubtableHeader {
   var tupleIndex: Int16
   var fsHeader: KernFormatSpecificHeader
   init()
-  init(length: Int32, stInfo: KernSubtableInfo, tupleIndex: Int16, fsHeader: KernFormatSpecificHeader)
+  init(length length: Int32, stInfo stInfo: KernSubtableInfo, tupleIndex tupleIndex: Int16, fsHeader fsHeader: KernFormatSpecificHeader)
 }
 typealias KernSubtableHeaderPtr = UnsafeMutablePointer<KernSubtableHeader>
 var kKERXTag: Int { get }
@@ -1028,7 +1028,7 @@ struct KerxTableHeader {
   var nTables: UInt32
   var firstSubtable: (UInt32)
   init()
-  init(version: Fixed, nTables: UInt32, firstSubtable: (UInt32))
+  init(version version: Fixed, nTables nTables: UInt32, firstSubtable firstSubtable: (UInt32))
 }
 typealias KerxTableHeaderPtr = UnsafeMutablePointer<KerxTableHeader>
 typealias KerxTableHeaderHandle = UnsafeMutablePointer<KerxTableHeaderPtr>
@@ -1036,13 +1036,13 @@ struct KerxKerningPair {
   var left: UInt16
   var right: UInt16
   init()
-  init(left: UInt16, right: UInt16)
+  init(left left: UInt16, right right: UInt16)
 }
 struct KerxOrderedListEntry {
   var pair: KerxKerningPair
   var value: KernKerningValue
   init()
-  init(pair: KerxKerningPair, value: KernKerningValue)
+  init(pair pair: KerxKerningPair, value value: KernKerningValue)
 }
 typealias KerxOrderedListEntryPtr = UnsafeMutablePointer<KerxOrderedListEntry>
 struct KerxOrderedListHeader {
@@ -1052,47 +1052,47 @@ struct KerxOrderedListHeader {
   var rangeShift: UInt32
   var table: (UInt32)
   init()
-  init(nPairs: UInt32, searchRange: UInt32, entrySelector: UInt32, rangeShift: UInt32, table: (UInt32))
+  init(nPairs nPairs: UInt32, searchRange searchRange: UInt32, entrySelector entrySelector: UInt32, rangeShift rangeShift: UInt32, table table: (UInt32))
 }
 struct KerxStateHeader {
   var header: STXHeader
   var valueTable: UInt32
   var firstTable: (UInt8)
   init()
-  init(header: STXHeader, valueTable: UInt32, firstTable: (UInt8))
+  init(header header: STXHeader, valueTable valueTable: UInt32, firstTable firstTable: (UInt8))
 }
 struct KerxStateEntry {
   var newState: UInt16
   var flags: UInt16
   var valueIndex: UInt16
   init()
-  init(newState: UInt16, flags: UInt16, valueIndex: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16, valueIndex valueIndex: UInt16)
 }
 struct KerxControlPointHeader {
   var header: STXHeader
   var flags: UInt32
   var firstTable: (UInt8)
   init()
-  init(header: STXHeader, flags: UInt32, firstTable: (UInt8))
+  init(header header: STXHeader, flags flags: UInt32, firstTable firstTable: (UInt8))
 }
 struct KerxControlPointEntry {
   var newState: UInt16
   var flags: UInt16
   var actionIndex: UInt16
   init()
-  init(newState: UInt16, flags: UInt16, actionIndex: UInt16)
+  init(newState newState: UInt16, flags flags: UInt16, actionIndex actionIndex: UInt16)
 }
 struct KerxControlPointAction {
   var markControlPoint: UInt16
   var currControlPoint: UInt16
   init()
-  init(markControlPoint: UInt16, currControlPoint: UInt16)
+  init(markControlPoint markControlPoint: UInt16, currControlPoint currControlPoint: UInt16)
 }
 struct KerxAnchorPointAction {
   var markAnchorPoint: UInt16
   var currAnchorPoint: UInt16
   init()
-  init(markAnchorPoint: UInt16, currAnchorPoint: UInt16)
+  init(markAnchorPoint markAnchorPoint: UInt16, currAnchorPoint currAnchorPoint: UInt16)
 }
 struct KerxCoordinateAction {
   var markX: UInt16
@@ -1100,7 +1100,7 @@ struct KerxCoordinateAction {
   var currX: UInt16
   var currY: UInt16
   init()
-  init(markX: UInt16, markY: UInt16, currX: UInt16, currY: UInt16)
+  init(markX markX: UInt16, markY markY: UInt16, currX currX: UInt16, currY currY: UInt16)
 }
 struct KerxSimpleArrayHeader {
   var rowWidth: UInt32
@@ -1109,7 +1109,7 @@ struct KerxSimpleArrayHeader {
   var theArray: KerxArrayOffset
   var firstTable: (UInt32)
   init()
-  init(rowWidth: UInt32, leftOffsetTable: UInt32, rightOffsetTable: UInt32, theArray: KerxArrayOffset, firstTable: (UInt32))
+  init(rowWidth rowWidth: UInt32, leftOffsetTable leftOffsetTable: UInt32, rightOffsetTable rightOffsetTable: UInt32, theArray theArray: KerxArrayOffset, firstTable firstTable: (UInt32))
 }
 struct KerxIndexArrayHeader {
   var glyphCount: UInt16
@@ -1122,7 +1122,7 @@ struct KerxIndexArrayHeader {
   var rightClass: (UInt16)
   var kernIndex: (UInt16)
   init()
-  init(glyphCount: UInt16, kernValueCount: UInt16, leftClassCount: UInt16, rightClassCount: UInt16, flags: UInt16, kernValue: (Int16), leftClass: (UInt16), rightClass: (UInt16), kernIndex: (UInt16))
+  init(glyphCount glyphCount: UInt16, kernValueCount kernValueCount: UInt16, leftClassCount leftClassCount: UInt16, rightClassCount rightClassCount: UInt16, flags flags: UInt16, kernValue kernValue: (Int16), leftClass leftClass: (UInt16), rightClass rightClass: (UInt16), kernIndex kernIndex: (UInt16))
 }
 struct KerxFormatSpecificHeader {
   var orderedList: KerxOrderedListHeader
@@ -1130,11 +1130,11 @@ struct KerxFormatSpecificHeader {
   var simpleArray: KerxSimpleArrayHeader
   var indexArray: KerxIndexArrayHeader
   var controlPoint: KerxControlPointHeader
-  init(orderedList: KerxOrderedListHeader)
-  init(stateTable: KerxStateHeader)
-  init(simpleArray: KerxSimpleArrayHeader)
-  init(indexArray: KerxIndexArrayHeader)
-  init(controlPoint: KerxControlPointHeader)
+  init(orderedList orderedList: KerxOrderedListHeader)
+  init(stateTable stateTable: KerxStateHeader)
+  init(simpleArray simpleArray: KerxSimpleArrayHeader)
+  init(indexArray indexArray: KerxIndexArrayHeader)
+  init(controlPoint controlPoint: KerxControlPointHeader)
   init()
 }
 struct KerxSubtableHeader {
@@ -1143,7 +1143,7 @@ struct KerxSubtableHeader {
   var tupleIndex: UInt32
   var fsHeader: KerxFormatSpecificHeader
   init()
-  init(length: UInt32, stInfo: KerxSubtableCoverage, tupleIndex: UInt32, fsHeader: KerxFormatSpecificHeader)
+  init(length length: UInt32, stInfo stInfo: KerxSubtableCoverage, tupleIndex tupleIndex: UInt32, fsHeader fsHeader: KerxFormatSpecificHeader)
 }
 typealias KerxSubtableHeaderPtr = UnsafeMutablePointer<KerxSubtableHeader>
 var kBSLNTag: Int { get }
@@ -1167,36 +1167,36 @@ typealias BslnBaselineRecord = (Fixed, Fixed, Fixed, Fixed, Fixed, Fixed, Fixed,
 struct BslnFormat0Part {
   var deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16)
   init()
-  init(deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16))
+  init(deltas deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16))
 }
 struct BslnFormat1Part {
   var deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16)
   var mappingData: SFNTLookupTable
   init()
-  init(deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16), mappingData: SFNTLookupTable)
+  init(deltas deltas: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16), mappingData mappingData: SFNTLookupTable)
 }
 struct BslnFormat2Part {
   var stdGlyph: UInt16
   var ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16)
   init()
-  init(stdGlyph: UInt16, ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16))
+  init(stdGlyph stdGlyph: UInt16, ctlPoints ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16))
 }
 struct BslnFormat3Part {
   var stdGlyph: UInt16
   var ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16)
   var mappingData: SFNTLookupTable
   init()
-  init(stdGlyph: UInt16, ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16), mappingData: SFNTLookupTable)
+  init(stdGlyph stdGlyph: UInt16, ctlPoints ctlPoints: (Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16, Int16), mappingData mappingData: SFNTLookupTable)
 }
 struct BslnFormatUnion {
   var fmt0Part: BslnFormat0Part
   var fmt1Part: BslnFormat1Part
   var fmt2Part: BslnFormat2Part
   var fmt3Part: BslnFormat3Part
-  init(fmt0Part: BslnFormat0Part)
-  init(fmt1Part: BslnFormat1Part)
-  init(fmt2Part: BslnFormat2Part)
-  init(fmt3Part: BslnFormat3Part)
+  init(fmt0Part fmt0Part: BslnFormat0Part)
+  init(fmt1Part fmt1Part: BslnFormat1Part)
+  init(fmt2Part fmt2Part: BslnFormat2Part)
+  init(fmt3Part fmt3Part: BslnFormat3Part)
   init()
 }
 typealias BslnTableFormat = UInt16
@@ -1206,7 +1206,7 @@ struct BslnTable {
   var defaultBaseline: UInt16
   var parts: BslnFormatUnion
   init()
-  init(version: Fixed, format: BslnTableFormat, defaultBaseline: UInt16, parts: BslnFormatUnion)
+  init(version version: Fixed, format format: BslnTableFormat, defaultBaseline defaultBaseline: UInt16, parts parts: BslnFormatUnion)
 }
 typealias BslnTablePtr = UnsafeMutablePointer<BslnTable>
 struct ALMXHeader {
@@ -1217,7 +1217,7 @@ struct ALMXHeader {
   var LastGlyph: UInt16
   var lookup: SFNTLookupTable
   init()
-  init(Version: Fixed, Flags: UInt16, NMasters: UInt16, FirstGlyph: UInt16, LastGlyph: UInt16, lookup: SFNTLookupTable)
+  init(Version Version: Fixed, Flags Flags: UInt16, NMasters NMasters: UInt16, FirstGlyph FirstGlyph: UInt16, LastGlyph LastGlyph: UInt16, lookup lookup: SFNTLookupTable)
 }
 struct ALMXGlyphEntry {
   var GlyphIndexOffset: Int16
@@ -1226,7 +1226,7 @@ struct ALMXGlyphEntry {
   var VerticalAdvance: Int16
   var YOffsetToVOrigin: Int16
   init()
-  init(GlyphIndexOffset: Int16, HorizontalAdvance: Int16, XOffsetToHOrigin: Int16, VerticalAdvance: Int16, YOffsetToVOrigin: Int16)
+  init(GlyphIndexOffset GlyphIndexOffset: Int16, HorizontalAdvance HorizontalAdvance: Int16, XOffsetToHOrigin XOffsetToHOrigin: Int16, VerticalAdvance VerticalAdvance: Int16, YOffsetToVOrigin YOffsetToVOrigin: Int16)
 }
 struct ROTAHeader {
   var Version: Fixed
@@ -1236,27 +1236,27 @@ struct ROTAHeader {
   var LastGlyph: UInt16
   var lookup: SFNTLookupTable
   init()
-  init(Version: Fixed, Flags: UInt16, NMasters: UInt16, FirstGlyph: UInt16, LastGlyph: UInt16, lookup: SFNTLookupTable)
+  init(Version Version: Fixed, Flags Flags: UInt16, NMasters NMasters: UInt16, FirstGlyph FirstGlyph: UInt16, LastGlyph LastGlyph: UInt16, lookup lookup: SFNTLookupTable)
 }
 struct ROTAGlyphEntry {
   var GlyphIndexOffset: Int16
   var HBaselineOffset: Int16
   var VBaselineOffset: Int16
   init()
-  init(GlyphIndexOffset: Int16, HBaselineOffset: Int16, VBaselineOffset: Int16)
+  init(GlyphIndexOffset GlyphIndexOffset: Int16, HBaselineOffset HBaselineOffset: Int16, VBaselineOffset VBaselineOffset: Int16)
 }
 var kANKRCurrentVersion: Int { get }
 struct AnchorPoint {
   var x: Int16
   var y: Int16
   init()
-  init(x: Int16, y: Int16)
+  init(x x: Int16, y y: Int16)
 }
 struct AnchorPointTable {
   var nPoints: UInt32
   var points: (AnchorPoint)
   init()
-  init(nPoints: UInt32, points: (AnchorPoint))
+  init(nPoints nPoints: UInt32, points points: (AnchorPoint))
 }
 struct AnkrTable {
   var version: UInt16
@@ -1264,14 +1264,14 @@ struct AnkrTable {
   var lookupTableOffset: UInt32
   var anchorPointTableOffset: UInt32
   init()
-  init(version: UInt16, flags: UInt16, lookupTableOffset: UInt32, anchorPointTableOffset: UInt32)
+  init(version version: UInt16, flags flags: UInt16, lookupTableOffset lookupTableOffset: UInt32, anchorPointTableOffset anchorPointTableOffset: UInt32)
 }
 var kLTAGCurrentVersion: Int { get }
 struct LtagStringRange {
   var offset: UInt16
   var length: UInt16
   init()
-  init(offset: UInt16, length: UInt16)
+  init(offset offset: UInt16, length length: UInt16)
 }
 struct LtagTable {
   var version: UInt32
@@ -1279,5 +1279,5 @@ struct LtagTable {
   var numTags: UInt32
   var tagRange: (LtagStringRange)
   init()
-  init(version: UInt32, flags: UInt32, numTags: UInt32, tagRange: (LtagStringRange))
+  init(version version: UInt32, flags flags: UInt32, numTags numTags: UInt32, tagRange tagRange: (LtagStringRange))
 }

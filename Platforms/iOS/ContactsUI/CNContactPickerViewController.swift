@@ -12,9 +12,9 @@ class CNContactPickerViewController : UIViewController {
 }
 @available(iOS 9.0, *)
 protocol CNContactPickerDelegate : NSObjectProtocol {
-  optional func contactPickerDidCancel(picker: CNContactPickerViewController)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelect contact: CNContact)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelect contacts: [CNContact])
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty])
+  optional func contactPickerDidCancel(_ picker: CNContactPickerViewController)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact])
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty])
 }

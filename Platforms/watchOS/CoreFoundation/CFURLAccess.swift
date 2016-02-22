@@ -1,15 +1,15 @@
 
 @available(watchOS, introduced=2.0, deprecated=2.0, message="For resource data, use the CFReadStream API. For file resource properties, use CFURLCopyResourcePropertiesForKeys.")
-func CFURLCreateDataAndPropertiesFromResource(alloc: CFAllocator!, _ url: CFURL!, _ resourceData: UnsafeMutablePointer<Unmanaged<CFData>?>, _ properties: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ desiredProperties: CFArray!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
+func CFURLCreateDataAndPropertiesFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ resourceData: UnsafeMutablePointer<Unmanaged<CFData>?>, _ properties: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ desiredProperties: CFArray!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
 @available(watchOS, introduced=2.0, deprecated=2.0, message="For resource data, use the CFWriteStream API. For file resource properties, use CFURLSetResourcePropertiesForKeys.")
-func CFURLWriteDataAndPropertiesToResource(url: CFURL!, _ dataToWrite: CFData!, _ propertiesToWrite: CFDictionary!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
+func CFURLWriteDataAndPropertiesToResource(_ url: CFURL!, _ dataToWrite: CFData!, _ propertiesToWrite: CFDictionary!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
 @available(watchOS, introduced=2.0, deprecated=2.0, message="Use CFURLGetFileSystemRepresentation and removefile(3) instead.")
-func CFURLDestroyResource(url: CFURL!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
+func CFURLDestroyResource(_ url: CFURL!, _ errorCode: UnsafeMutablePointer<Int32>) -> Bool
 @available(watchOS, introduced=2.0, deprecated=2.0, message="For file resource properties, use CFURLCopyResourcePropertyForKey.")
-func CFURLCreatePropertyFromResource(alloc: CFAllocator!, _ url: CFURL!, _ property: CFString!, _ errorCode: UnsafeMutablePointer<Int32>) -> CFTypeRef!
+func CFURLCreatePropertyFromResource(_ alloc: CFAllocator!, _ url: CFURL!, _ property: CFString!, _ errorCode: UnsafeMutablePointer<Int32>) -> CFTypeRef!
 @available(watchOS, introduced=2.0, deprecated=2.0)
 enum CFURLError : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case unknownError
   case unknownSchemeError

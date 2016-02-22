@@ -1,10 +1,10 @@
 
 @available(OSX 10.8, *)
 class NSTextAlternatives : NSObject {
-  init(primaryString: String, alternativeStrings: [String])
+  init(primaryString primaryString: String, alternativeStrings alternativeStrings: [String])
   var primaryString: String { get }
   var alternativeStrings: [String] { get }
-  func noteSelectedAlternativeString(alternativeString: String)
+  func noteSelectedAlternativeString(_ alternativeString: String)
   init()
 }
 @available(OSX 10.8, *)

@@ -4,9 +4,9 @@ let AVMovieReferenceRestrictionsKey: String
 @available(OSX 10.10, *)
 class AVMovie : AVAsset, NSCopying, NSMutableCopying {
   class func movieTypes() -> [String]
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(data: NSData, options: [String : AnyObject]? = [:])
+  init(data data: NSData, options options: [String : AnyObject]? = [:])
   var url: NSURL? { get }
   @available(OSX 10.11, *)
   var data: NSData? { get }
@@ -23,7 +23,7 @@ class AVMovie : AVAsset, NSCopying, NSMutableCopying {
 }
 @available(OSX 10.11, *)
 struct AVMovieWritingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var addMovieHeaderToDestination: AVMovieWritingOptions { get }
   static var truncateDestinationToMovieHeaderOnly: AVMovieWritingOptions { get }
@@ -32,9 +32,9 @@ extension AVMovie {
   @available(OSX 10.11, *)
   func movieHeader(withFileType fileType: String) throws -> NSData
   @available(OSX 10.11, *)
-  func writeHeader(to URL: NSURL, fileType: String, options: AVMovieWritingOptions = []) throws
+  func writeHeader(to URL: NSURL, fileType fileType: String, options options: AVMovieWritingOptions = []) throws
   @available(OSX 10.11, *)
-  func isCompatibleWithFileType(fileType: String) -> Bool
+  func isCompatibleWithFileType(_ fileType: String) -> Bool
 }
 extension AVMovie {
   func track(withTrackID trackID: CMPersistentTrackID) -> AVMovieTrack?
@@ -43,17 +43,17 @@ extension AVMovie {
 }
 @available(OSX 10.11, *)
 class AVMutableMovie : AVMovie {
-  init(url URL: NSURL, options: [String : AnyObject]? = [:], error: ()) throws
-  init(data: NSData, options: [String : AnyObject]? = [:], error: ()) throws
-  init(settingsFrom movie: AVMovie?, options: [String : AnyObject]? = [:]) throws
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:], error error: ()) throws
+  init(data data: NSData, options options: [String : AnyObject]? = [:], error error: ()) throws
+  init(settingsFrom movie: AVMovie?, options options: [String : AnyObject]? = [:]) throws
   var preferredRate: Float
   var preferredVolume: Float
   var preferredTransform: CGAffineTransform
   var timescale: CMTimeScale
   var tracks: [AVMutableMovieTrack] { get }
-  convenience init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  convenience init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  convenience init(data: NSData, options: [String : AnyObject]? = [:])
+  convenience init(data data: NSData, options options: [String : AnyObject]? = [:])
   convenience init(url URL: NSURL)
   convenience init()
 }
@@ -61,16 +61,16 @@ extension AVMutableMovie {
   var isModified: Bool
   @NSCopying var defaultMediaDataStorage: AVMediaDataStorage
   var interleavingPeriod: CMTime
-  func insert(timeRange: CMTimeRange, of asset: AVAsset, at startTime: CMTime, copySampleData: Bool) throws
-  func insertEmpty(timeRange: CMTimeRange)
-  func remove(timeRange: CMTimeRange)
-  func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
+  func insert(_ timeRange: CMTimeRange, of asset: AVAsset, at startTime: CMTime, copySampleData copySampleData: Bool) throws
+  func insertEmpty(_ timeRange: CMTimeRange)
+  func remove(_ timeRange: CMTimeRange)
+  func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovie {
   func mutableTrack(compatibleWith track: AVAssetTrack) -> AVMutableMovieTrack?
-  func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
-  func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
-  func removeTrack(track: AVMovieTrack)
+  func addMutableTrack(mediaType mediaType: String, copySettingsFrom track: AVAssetTrack?, options options: [String : AnyObject]? = [:]) -> AVMutableMovieTrack
+  func addMutableTracksCopyingSettings(from existingTracks: [AVAssetTrack], options options: [String : AnyObject]? = [:]) -> [AVMutableMovieTrack]
+  func removeTrack(_ track: AVMovieTrack)
 }
 extension AVMutableMovie {
   var metadata: [AVMetadataItem]
@@ -82,7 +82,7 @@ extension AVMutableMovie {
 }
 @available(OSX 10.11, *)
 class AVMediaDataStorage : NSObject {
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   func url() -> NSURL?
 }
 @available(OSX 10.10, *)
@@ -94,9 +94,9 @@ let AVFragmentedMovieWasDefragmentedNotification: String
 @available(OSX 10.10, *)
 class AVFragmentedMovie : AVMovie, AVFragmentMinding {
   var tracks: [AVFragmentedMovieTrack] { get }
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @available(OSX 10.11, *)
-  init(data: NSData, options: [String : AnyObject]? = [:])
+  init(data data: NSData, options options: [String : AnyObject]? = [:])
   convenience init(url URL: NSURL)
   convenience init()
   @available(OSX 10.11, *)
@@ -109,11 +109,11 @@ extension AVFragmentedMovie {
 }
 @available(OSX 10.10, *)
 class AVFragmentedMovieMinder : AVFragmentedAssetMinder {
-  init(movie: AVFragmentedMovie, mindingInterval: NSTimeInterval)
+  init(movie movie: AVFragmentedMovie, mindingInterval mindingInterval: NSTimeInterval)
   var mindingInterval: NSTimeInterval
   var movies: [AVFragmentedMovie] { get }
-  func add(movie: AVFragmentedMovie)
-  func remove(movie: AVFragmentedMovie)
-  convenience init(asset: AVAsset, mindingInterval: NSTimeInterval)
+  func add(_ movie: AVFragmentedMovie)
+  func remove(_ movie: AVFragmentedMovie)
+  convenience init(asset asset: AVAsset, mindingInterval mindingInterval: NSTimeInterval)
   convenience init()
 }

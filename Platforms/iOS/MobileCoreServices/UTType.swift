@@ -22,24 +22,24 @@ let kUTTagClassFilenameExtension: CFString
 @available(iOS 3.0, *)
 let kUTTagClassMIMEType: CFString
 @available(iOS 3.0, *)
-func UTTypeCreatePreferredIdentifierForTag(inTagClass: CFString, _ inTag: CFString, _ inConformingToUTI: CFString?) -> Unmanaged<CFString>?
+func UTTypeCreatePreferredIdentifierForTag(_ inTagClass: CFString, _ inTag: CFString, _ inConformingToUTI: CFString?) -> Unmanaged<CFString>?
 @available(iOS 3.0, *)
-func UTTypeCreateAllIdentifiersForTag(inTagClass: CFString, _ inTag: CFString, _ inConformingToUTI: CFString?) -> Unmanaged<CFArray>?
+func UTTypeCreateAllIdentifiersForTag(_ inTagClass: CFString, _ inTag: CFString, _ inConformingToUTI: CFString?) -> Unmanaged<CFArray>?
 @available(iOS 3.0, *)
-func UTTypeCopyPreferredTagWithClass(inUTI: CFString, _ inTagClass: CFString) -> Unmanaged<CFString>?
+func UTTypeCopyPreferredTagWithClass(_ inUTI: CFString, _ inTagClass: CFString) -> Unmanaged<CFString>?
 @available(iOS 8.0, *)
-func UTTypeCopyAllTagsWithClass(inUTI: CFString, _ inTagClass: CFString) -> Unmanaged<CFArray>?
+func UTTypeCopyAllTagsWithClass(_ inUTI: CFString, _ inTagClass: CFString) -> Unmanaged<CFArray>?
 @available(iOS 3.0, *)
-func UTTypeEqual(inUTI1: CFString, _ inUTI2: CFString) -> Bool
+func UTTypeEqual(_ inUTI1: CFString, _ inUTI2: CFString) -> Bool
 @available(iOS 3.0, *)
-func UTTypeConformsTo(inUTI: CFString, _ inConformsToUTI: CFString) -> Bool
+func UTTypeConformsTo(_ inUTI: CFString, _ inConformsToUTI: CFString) -> Bool
 @available(iOS 3.0, *)
-func UTTypeCopyDescription(inUTI: CFString) -> Unmanaged<CFString>?
+func UTTypeCopyDescription(_ inUTI: CFString) -> Unmanaged<CFString>?
 @available(iOS 8.0, *)
-func UTTypeIsDeclared(inUTI: CFString) -> Bool
+func UTTypeIsDeclared(_ inUTI: CFString) -> Bool
 @available(iOS 8.0, *)
-func UTTypeIsDynamic(inUTI: CFString) -> Bool
+func UTTypeIsDynamic(_ inUTI: CFString) -> Bool
 @available(iOS 3.0, *)
-func UTTypeCopyDeclaration(inUTI: CFString) -> Unmanaged<CFDictionary>?
+func UTTypeCopyDeclaration(_ inUTI: CFString) -> Unmanaged<CFDictionary>?
 @available(iOS 3.0, *)
-func UTTypeCopyDeclaringBundleURL(inUTI: CFString) -> Unmanaged<CFURL>?
+func UTTypeCopyDeclaringBundleURL(_ inUTI: CFString) -> Unmanaged<CFURL>?

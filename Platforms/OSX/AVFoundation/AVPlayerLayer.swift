@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 class AVPlayerLayer : CALayer {
-  /*not inherited*/ init(player: AVPlayer?)
+  /*not inherited*/ init(player player: AVPlayer?)
   var player: AVPlayer?
   var videoGravity: String
   var isReadyForDisplay: Bool { get }
@@ -10,6 +10,6 @@ class AVPlayerLayer : CALayer {
   @available(OSX 10.11, *)
   var pixelBufferAttributes: [String : AnyObject]?
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }

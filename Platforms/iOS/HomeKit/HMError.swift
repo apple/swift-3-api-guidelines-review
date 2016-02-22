@@ -3,7 +3,7 @@
 let HMErrorDomain: String
 @available(iOS 8.0, *)
 enum HMErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case alreadyExists
   case notFound

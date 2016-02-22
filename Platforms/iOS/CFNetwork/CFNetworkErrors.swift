@@ -4,7 +4,7 @@ let kCFErrorDomainCFNetwork: CFString
 @available(iOS 2.0, *)
 let kCFErrorDomainWinSock: CFString
 enum CFNetworkErrors : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case cfHostErrorHostNotFound
   case cfHostErrorUnknown

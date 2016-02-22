@@ -1,6 +1,6 @@
 
 enum CLDeviceOrientation : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case unknown
   case portrait
@@ -11,7 +11,7 @@ enum CLDeviceOrientation : Int32 {
   case faceDown
 }
 enum CLAuthorizationStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case notDetermined
   case restricted
@@ -24,7 +24,7 @@ enum CLAuthorizationStatus : Int32 {
   static var authorized: CLAuthorizationStatus { get }
 }
 enum CLActivityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case other
   case automotiveNavigation
@@ -96,7 +96,7 @@ class CLLocationManager : NSObject {
   @available(iOS 7.0, *)
   func stopRangingBeacons(in region: CLBeaconRegion)
   @available(iOS 6.0, *)
-  func allowDeferredLocationUpdates(untilTraveled distance: CLLocationDistance, timeout: NSTimeInterval)
+  func allowDeferredLocationUpdates(untilTraveled distance: CLLocationDistance, timeout timeout: NSTimeInterval)
   @available(iOS 6.0, *)
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)

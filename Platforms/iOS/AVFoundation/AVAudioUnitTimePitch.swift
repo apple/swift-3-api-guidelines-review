@@ -4,6 +4,6 @@ class AVAudioUnitTimePitch : AVAudioUnitTimeEffect {
   var rate: Float
   var pitch: Float
   var overlap: Float
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   init()
 }

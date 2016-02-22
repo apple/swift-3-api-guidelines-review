@@ -1,7 +1,7 @@
 
 class NSLocale : NSObject, NSCopying, NSSecureCoding {
   func object(forKey key: AnyObject) -> AnyObject?
-  func displayName(forKey key: AnyObject, value: AnyObject) -> String?
+  func displayName(forKey key: AnyObject, value value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -40,7 +40,7 @@ extension NSLocale {
   class func lineDirection(forLanguage isoLangCode: String) -> NSLocaleLanguageDirection
 }
 enum NSLocaleLanguageDirection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unknown
   case leftToRight

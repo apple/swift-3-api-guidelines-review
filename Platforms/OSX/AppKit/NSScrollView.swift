@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 enum NSScrollElasticity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case none
@@ -35,16 +35,16 @@ struct __SFlags {
   var hScrollerRequired: UInt32
   var vScrollerRequired: UInt32
   init()
-  init(RESERVED: UInt32, unarchiving: UInt32, registeredForWindowWillClose: UInt32, findBarPosition: UInt32, predominantAxisScrolling: UInt32, hContentElasticity: UInt32, vContentElasticity: UInt32, unused: UInt32, findBarVisible: UInt32, autoforwardsScrollWheelEvents: UInt32, autohidesScrollers: UInt32, hasCustomLineBorderColor: UInt32, focusRingNeedsRedisplay: UInt32, skipRemoveSuperviewCheck: UInt32, doesNotDrawBackground: UInt32, needsTile: UInt32, hasVerticalRuler: UInt32, hasHorizontalRuler: UInt32, showRulers: UInt32, oldRulerInstalled: UInt32, borderType: NSBorderType, noDynamicScrolling: UInt32, hScrollerStatus: UInt32, vScrollerStatus: UInt32, hScrollerRequired: UInt32, vScrollerRequired: UInt32)
+  init(RESERVED RESERVED: UInt32, unarchiving unarchiving: UInt32, registeredForWindowWillClose registeredForWindowWillClose: UInt32, findBarPosition findBarPosition: UInt32, predominantAxisScrolling predominantAxisScrolling: UInt32, hContentElasticity hContentElasticity: UInt32, vContentElasticity vContentElasticity: UInt32, unused unused: UInt32, findBarVisible findBarVisible: UInt32, autoforwardsScrollWheelEvents autoforwardsScrollWheelEvents: UInt32, autohidesScrollers autohidesScrollers: UInt32, hasCustomLineBorderColor hasCustomLineBorderColor: UInt32, focusRingNeedsRedisplay focusRingNeedsRedisplay: UInt32, skipRemoveSuperviewCheck skipRemoveSuperviewCheck: UInt32, doesNotDrawBackground doesNotDrawBackground: UInt32, needsTile needsTile: UInt32, hasVerticalRuler hasVerticalRuler: UInt32, hasHorizontalRuler hasHorizontalRuler: UInt32, showRulers showRulers: UInt32, oldRulerInstalled oldRulerInstalled: UInt32, borderType borderType: NSBorderType, noDynamicScrolling noDynamicScrolling: UInt32, hScrollerStatus hScrollerStatus: UInt32, vScrollerStatus vScrollerStatus: UInt32, hScrollerRequired hScrollerRequired: UInt32, vScrollerRequired vScrollerRequired: UInt32)
 }
 typealias _SFlags = __SFlags
 class NSScrollView : NSView, NSTextFinderBarContainer {
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   @available(OSX 10.7, *)
-  class func frameSize(forContentSize cSize: NSSize, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> NSSize
+  class func frameSize(forContentSize cSize: NSSize, horizontalScrollerClass horizontalScrollerClass: AnyClass?, verticalScrollerClass verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize controlSize: NSControlSize, scrollerStyle scrollerStyle: NSScrollerStyle) -> NSSize
   @available(OSX 10.7, *)
-  class func contentSize(forFrameSize fSize: NSSize, horizontalScrollerClass: AnyClass?, verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> NSSize
+  class func contentSize(forFrameSize fSize: NSSize, horizontalScrollerClass horizontalScrollerClass: AnyClass?, verticalScrollerClass verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize controlSize: NSControlSize, scrollerStyle scrollerStyle: NSScrollerStyle) -> NSSize
   var documentVisibleRect: NSRect { get }
   var contentSize: NSSize { get }
   unowned(unsafe) var documentView: @sil_unmanaged AnyObject?
@@ -66,8 +66,8 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var pageScroll: CGFloat
   var scrollsDynamically: Bool
   func tile()
-  func reflectScrolledClipView(cView: NSClipView)
-  func scrollWheel(theEvent: NSEvent)
+  func reflectScrolledClipView(_ cView: NSClipView)
+  func scrollWheel(_ theEvent: NSEvent)
   @available(OSX 10.7, *)
   var scrollerStyle: NSScrollerStyle
   @available(OSX 10.7, *)
@@ -91,9 +91,9 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   @available(OSX 10.8, *)
   func magnify(toFit rect: NSRect)
   @available(OSX 10.8, *)
-  func setMagnification(magnification: CGFloat, centeredAt point: NSPoint)
+  func setMagnification(_ magnification: CGFloat, centeredAt point: NSPoint)
   @available(OSX 10.9, *)
-  func addFloatingSubview(view: NSView, for axis: NSEventGestureAxis)
+  func addFloatingSubview(_ view: NSView, for axis: NSEventGestureAxis)
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
   @available(OSX 10.10, *)
@@ -116,7 +116,7 @@ let NSScrollViewDidLiveScrollNotification: String
 @available(OSX 10.9, *)
 let NSScrollViewDidEndLiveScrollNotification: String
 extension NSScrollView {
-  class func setRulerViewClass(rulerViewClass: AnyClass?)
+  class func setRulerViewClass(_ rulerViewClass: AnyClass?)
   class func rulerViewClass() -> AnyClass
   var rulersVisible: Bool
   var hasHorizontalRuler: Bool
@@ -126,7 +126,7 @@ extension NSScrollView {
 }
 @available(OSX 10.7, *)
 enum NSScrollViewFindBarPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case aboveHorizontalRuler
   case aboveContent

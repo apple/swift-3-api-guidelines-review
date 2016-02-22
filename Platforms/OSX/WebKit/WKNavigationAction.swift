@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum WKNavigationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case linkActivated
   case formSubmitted

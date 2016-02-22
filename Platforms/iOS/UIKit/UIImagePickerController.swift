@@ -1,13 +1,13 @@
 
 enum UIImagePickerControllerSourceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case photoLibrary
   case camera
   case savedPhotosAlbum
 }
 enum UIImagePickerControllerQualityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case typeHigh
   case typeMedium
@@ -20,19 +20,19 @@ enum UIImagePickerControllerQualityType : Int {
   case typeIFrame960x540
 }
 enum UIImagePickerControllerCameraCaptureMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case photo
   case video
 }
 enum UIImagePickerControllerCameraDevice : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case rear
   case front
 }
 enum UIImagePickerControllerCameraFlashMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case auto
@@ -51,10 +51,10 @@ let UIImagePickerControllerMediaMetadata: String
 let UIImagePickerControllerLivePhoto: String
 @available(iOS 2.0, *)
 class UIImagePickerController : UINavigationController, NSCoding {
-  class func isSourceTypeAvailable(sourceType: UIImagePickerControllerSourceType) -> Bool
+  class func isSourceTypeAvailable(_ sourceType: UIImagePickerControllerSourceType) -> Bool
   class func availableMediaTypes(for sourceType: UIImagePickerControllerSourceType) -> [String]?
   @available(iOS 4.0, *)
-  class func isCameraDeviceAvailable(cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
+  class func isCameraDeviceAvailable(_ cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
   class func isFlashAvailable(for cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
@@ -87,20 +87,20 @@ class UIImagePickerController : UINavigationController, NSCoding {
   @available(iOS 4.0, *)
   var cameraFlashMode: UIImagePickerControllerCameraFlashMode
   @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
+  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
+  init(rootViewController rootViewController: UIViewController)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UIImagePickerControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+  optional func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
   @available(iOS 2.0, *)
-  optional func imagePickerControllerDidCancel(picker: UIImagePickerController)
+  optional func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
 }
-func UIImageWriteToSavedPhotosAlbum(image: UIImage, _ completionTarget: AnyObject?, _ completionSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
+func UIImageWriteToSavedPhotosAlbum(_ image: UIImage, _ completionTarget: AnyObject?, _ completionSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
 @available(iOS 3.1, *)
-func UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(videoPath: String) -> Bool
+func UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(_ videoPath: String) -> Bool
 @available(iOS 3.1, *)
-func UISaveVideoAtPathToSavedPhotosAlbum(videoPath: String, _ completionTarget: AnyObject?, _ completionSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)
+func UISaveVideoAtPathToSavedPhotosAlbum(_ videoPath: String, _ completionTarget: AnyObject?, _ completionSelector: Selector, _ contextInfo: UnsafeMutablePointer<Void>)

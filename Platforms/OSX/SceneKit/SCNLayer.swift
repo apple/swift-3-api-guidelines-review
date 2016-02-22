@@ -3,22 +3,22 @@
 class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   var scene: SCNScene?
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
   var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
   func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.8, *)
   var isPlaying: Bool
   @available(OSX 10.8, *)
@@ -30,9 +30,9 @@ class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.8, *)
   var isJitteringEnabled: Bool
   @available(OSX 10.9, *)
-  func prepare(object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
+  func prepare(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(OSX 10.10, *)
-  func prepare(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(OSX 10.9, *)
   var showsStatistics: Bool
   @available(OSX 10.11, *)

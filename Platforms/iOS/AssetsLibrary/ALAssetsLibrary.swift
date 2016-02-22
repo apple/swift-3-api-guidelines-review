@@ -1,7 +1,7 @@
 
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use UIImageOrientation in the Photos framework instead")
 enum ALAssetOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS, introduced=4.0, deprecated=9.0)
   case up
@@ -38,7 +38,7 @@ var ALAssetsGroupAll: UInt32 { get }
 typealias ALAssetsGroupType = Int
 @available(iOS, introduced=6.0, deprecated=9.0, message="Use PHAuthorizationStatus in the Photos framework instead")
 enum ALAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS, introduced=6.0, deprecated=9.0)
   case notDetermined
@@ -64,21 +64,21 @@ typealias ALAssetsLibraryWriteVideoCompletionBlock = (NSURL!, NSError!) -> Void
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use PHPhotoLibrary from the Photos framework instead")
 class ALAssetsLibrary : NSObject {
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use the PHFetchResult returned by one of the fetch... methods on PHAssetCollection from the Photos framework to enumerate asset collections instead")
-  func enumerateGroups(types types: ALAssetsGroupType, using enumerationBlock: ALAssetsLibraryGroupsEnumerationResultsBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func enumerateGroups(types types: ALAssetsGroupType, using enumerationBlock: ALAssetsLibraryGroupsEnumerationResultsBlock!, failureBlock failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use fetchAssetsWithLocalIdentifiers:options: on PHAsset to fetch assets by local identifier (or to lookup PHAssets by a previously known ALAssetPropertyAssetURL use fetchAssetsWithALAssetURLs:options:) from the Photos framework instead")
-  func asset(for assetURL: NSURL!, resultBlock: ALAssetsLibraryAssetForURLResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func asset(for assetURL: NSURL!, resultBlock resultBlock: ALAssetsLibraryAssetForURLResultBlock!, failureBlock failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use fetchAssetCollectionsWithLocalIdentifiers:options: on PHAssetCollection to fetch the asset collections by local identifier (or to lookup PHAssetCollections by a previously known ALAssetsGroupPropertyURL use fetchAssetCollectionsWithALAssetGroupURLs:options:) from the Photos framework instead")
-  func group(for groupURL: NSURL!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func group(for groupURL: NSURL!, resultBlock resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use creationRequestForAssetCollectionWithTitle: on PHAssetCollectionChangeRequest from the Photos framework to create a new asset collection instead")
-  func addAssetsGroupAlbum(name name: String!, resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  func addAssetsGroupAlbum(name name: String!, resultBlock resultBlock: ALAssetsLibraryGroupResultBlock!, failureBlock failureBlock: ALAssetsLibraryAccessFailureBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
-  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, orientation: ALAssetOrientation, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, orientation orientation: ALAssetOrientation, completionBlock completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced=4.1, deprecated=9.0, message="Use creationRequestForAssetFromImage: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
-  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, metadata: [NSObject : AnyObject]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  func writeImage(toSavedPhotosAlbum imageRef: CGImage!, metadata metadata: [NSObject : AnyObject]!, completionBlock completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced=4.1, deprecated=9.0, message="Use creationRequestForAssetFromImageData: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
-  func writeImageData(toSavedPhotosAlbum imageData: NSData!, metadata: [NSObject : AnyObject]!, completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
+  func writeImageData(toSavedPhotosAlbum imageData: NSData!, metadata metadata: [NSObject : AnyObject]!, completionBlock completionBlock: ALAssetsLibraryWriteImageCompletionBlock!)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Use creationRequestForAssetFromVideoAtFilePath: on PHAssetChangeRequest from the Photos framework to create a new asset instead")
-  func writeVideoAtPath(toSavedPhotosAlbum videoPathURL: NSURL!, completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
+  func writeVideoAtPath(toSavedPhotosAlbum videoPathURL: NSURL!, completionBlock completionBlock: ALAssetsLibraryWriteVideoCompletionBlock!)
   @available(iOS, introduced=5.0, deprecated=9.0)
   func videoAtPathIs(compatibleWithSavedPhotosAlbum videoPathURL: NSURL!) -> Bool
   @available(iOS, introduced=6.0, deprecated=9.0, message="Use authorizationStatus on the shared PHPhotoLibrary from the Photos framework instead")
@@ -89,7 +89,7 @@ class ALAssetsLibrary : NSObject {
 }
 
 extension ALAssetsLibrary {
-  @nonobjc func enumerateGroupsWithTypes(types: UInt32, usingBlock enumerationBlock: ALAssetsLibraryGroupsEnumerationResultsBlock!, failureBlock: ALAssetsLibraryAccessFailureBlock!)
+  @nonobjc func enumerateGroupsWithTypes(_ types: UInt32, usingBlock enumerationBlock: ALAssetsLibraryGroupsEnumerationResultsBlock!, failureBlock failureBlock: ALAssetsLibraryAccessFailureBlock!)
 }
 @available(iOS, introduced=4.0, deprecated=9.0, message="Use photoLibraryDidChange: notification from the Photos framework instead")
 let ALAssetsLibraryChangedNotification: String

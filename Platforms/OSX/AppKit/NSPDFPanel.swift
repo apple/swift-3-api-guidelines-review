@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 struct NSPDFPanelOptions : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var showsPaperSize: NSPDFPanelOptions { get }
   static var showsOrientation: NSPDFPanelOptions { get }
@@ -12,6 +12,6 @@ class NSPDFPanel : NSObject {
   var accessoryController: NSViewController?
   var options: NSPDFPanelOptions
   var defaultFileName: String
-  func beginSheet(pdfInfo: NSPDFInfo, modalFor docWindow: NSWindow?, completionHandler: (Int) -> Void)
+  func beginSheet(_ pdfInfo: NSPDFInfo, modalFor docWindow: NSWindow?, completionHandler completionHandler: (Int) -> Void)
   init()
 }

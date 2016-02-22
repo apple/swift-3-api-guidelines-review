@@ -1,14 +1,14 @@
 
 @available(watchOS 2.0, *)
 enum PKPassType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case barcode
   case payment
   case any
 }
 class PKPass : PKObject {
-  init(data: NSData, error: NSErrorPointer)
+  init(data data: NSData, error error: NSErrorPointer)
   @available(watchOS 2.0, *)
   var passType: PKPassType { get }
   @available(watchOS 2.0, *)

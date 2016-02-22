@@ -11,11 +11,11 @@ class AVMutableCompositionTrack : AVCompositionTrack {
   var preferredTransform: CGAffineTransform
   var preferredVolume: Float
   var segments: [AVCompositionTrackSegment]!
-  func insertTimeRange(timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime) throws
+  func insertTimeRange(_ timeRange: CMTimeRange, of track: AVAssetTrack, at startTime: CMTime) throws
   @available(tvOS 5.0, *)
-  func insertTimeRanges(timeRanges: [NSValue], of tracks: [AVAssetTrack], at startTime: CMTime) throws
-  func insertEmptyTimeRange(timeRange: CMTimeRange)
-  func removeTimeRange(timeRange: CMTimeRange)
-  func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
-  func validateSegments(trackSegments: [AVCompositionTrackSegment]) throws
+  func insertTimeRanges(_ timeRanges: [NSValue], of tracks: [AVAssetTrack], at startTime: CMTime) throws
+  func insertEmptyTimeRange(_ timeRange: CMTimeRange)
+  func removeTimeRange(_ timeRange: CMTimeRange)
+  func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
+  func validateSegments(_ trackSegments: [AVCompositionTrackSegment]) throws
 }

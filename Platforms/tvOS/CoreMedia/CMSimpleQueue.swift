@@ -8,16 +8,16 @@ class CMSimpleQueue {
 @available(tvOS 5.0, *)
 func CMSimpleQueueGetTypeID() -> CFTypeID
 @available(tvOS 5.0, *)
-func CMSimpleQueueCreate(allocator: CFAllocator?, _ capacity: Int32, _ queueOut: UnsafeMutablePointer<CMSimpleQueue?>) -> OSStatus
+func CMSimpleQueueCreate(_ allocator: CFAllocator?, _ capacity: Int32, _ queueOut: UnsafeMutablePointer<CMSimpleQueue?>) -> OSStatus
 @available(tvOS 5.0, *)
-func CMSimpleQueueEnqueue(queue: CMSimpleQueue, _ element: UnsafePointer<Void>) -> OSStatus
+func CMSimpleQueueEnqueue(_ queue: CMSimpleQueue, _ element: UnsafePointer<Void>) -> OSStatus
 @available(tvOS 5.0, *)
-func CMSimpleQueueDequeue(queue: CMSimpleQueue) -> UnsafePointer<Void>
+func CMSimpleQueueDequeue(_ queue: CMSimpleQueue) -> UnsafePointer<Void>
 @available(tvOS 5.0, *)
-func CMSimpleQueueGetHead(queue: CMSimpleQueue) -> UnsafePointer<Void>
+func CMSimpleQueueGetHead(_ queue: CMSimpleQueue) -> UnsafePointer<Void>
 @available(tvOS 5.0, *)
-func CMSimpleQueueReset(queue: CMSimpleQueue) -> OSStatus
+func CMSimpleQueueReset(_ queue: CMSimpleQueue) -> OSStatus
 @available(tvOS 5.0, *)
-func CMSimpleQueueGetCapacity(queue: CMSimpleQueue) -> Int32
+func CMSimpleQueueGetCapacity(_ queue: CMSimpleQueue) -> Int32
 @available(tvOS 5.0, *)
-func CMSimpleQueueGetCount(queue: CMSimpleQueue) -> Int32
+func CMSimpleQueueGetCount(_ queue: CMSimpleQueue) -> Int32

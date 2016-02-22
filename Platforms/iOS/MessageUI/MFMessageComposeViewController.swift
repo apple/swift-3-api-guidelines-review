@@ -1,7 +1,7 @@
 
 struct MessageComposeResult : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var MessageComposeResultCancelled: MessageComposeResult { get }
@@ -22,7 +22,7 @@ class MFMessageComposeViewController : UINavigationController {
   @available(iOS 7.0, *)
   class func canSendAttachments() -> Bool
   @available(iOS 7.0, *)
-  class func isSupportedAttachmentUTI(uti: String) -> Bool
+  class func isSupportedAttachmentUTI(_ uti: String) -> Bool
   unowned(unsafe) var messageComposeDelegate: @sil_unmanaged MFMessageComposeViewControllerDelegate?
   @available(iOS 7.0, *)
   func disableUserAttachments()
@@ -31,17 +31,17 @@ class MFMessageComposeViewController : UINavigationController {
   var subject: String?
   var attachments: [[NSObject : AnyObject]]? { get }
   @available(iOS 7.0, *)
-  func addAttachmentURL(attachmentURL: NSURL, withAlternateFilename alternateFilename: String?) -> Bool
+  func addAttachmentURL(_ attachmentURL: NSURL, withAlternateFilename alternateFilename: String?) -> Bool
   @available(iOS 7.0, *)
-  func addAttachmentData(attachmentData: NSData, typeIdentifier uti: String, filename: String) -> Bool
+  func addAttachmentData(_ attachmentData: NSData, typeIdentifier uti: String, filename filename: String) -> Bool
   @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
+  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
+  init(rootViewController rootViewController: UIViewController)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)
-  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
+  func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult)
 }

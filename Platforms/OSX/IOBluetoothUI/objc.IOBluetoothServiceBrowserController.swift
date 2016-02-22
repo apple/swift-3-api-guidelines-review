@@ -1,28 +1,28 @@
 
 class IOBluetoothServiceBrowserController : NSWindowController {
   /*not inherited*/ init!(_ inOptions: IOBluetoothServiceBrowserControllerOptions)
-  class func withServiceBrowserControllerRef(serviceBrowserControllerRef: IOBluetoothServiceBrowserControllerRef!) -> IOBluetoothServiceBrowserController!
+  class func withServiceBrowserControllerRef(_ serviceBrowserControllerRef: IOBluetoothServiceBrowserControllerRef!) -> IOBluetoothServiceBrowserController!
   func getRef() -> Unmanaged<IOBluetoothServiceBrowserControllerRef>!
-  func setOptions(inOptions: IOBluetoothServiceBrowserControllerOptions)
+  func setOptions(_ inOptions: IOBluetoothServiceBrowserControllerOptions)
   func runModal() -> Int32
-  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModal(for sheetWindow: NSWindow!, modalDelegate modalDelegate: AnyObject!, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
   func getResults() -> [AnyObject]!
   func getOptions() -> IOBluetoothServiceBrowserControllerOptions
-  func setSearchAttributes(searchAttributes: UnsafePointer<IOBluetoothDeviceSearchAttributes>)
+  func setSearchAttributes(_ searchAttributes: UnsafePointer<IOBluetoothDeviceSearchAttributes>)
   func getSearchAttributes() -> UnsafePointer<IOBluetoothDeviceSearchAttributes>
-  func addAllowedUUID(allowedUUID: IOBluetoothSDPUUID!)
-  func addAllowedUUIDArray(allowedUUIDArray: [AnyObject]!)
+  func addAllowedUUID(_ allowedUUID: IOBluetoothSDPUUID!)
+  func addAllowedUUIDArray(_ allowedUUIDArray: [AnyObject]!)
   func clearAllowedUUIDs()
-  func setTitle(windowTitle: String!)
+  func setTitle(_ windowTitle: String!)
   func getTitle() -> String!
-  func setDescriptionText(descriptionText: String!)
+  func setDescriptionText(_ descriptionText: String!)
   func getDescriptionText() -> String!
-  func setPrompt(prompt: String!)
+  func setPrompt(_ prompt: String!)
   func getPrompt() -> String!
-  init(window: NSWindow?)
-  init?(coder: NSCoder)
-  convenience init(windowNibName: String)
-  convenience init(windowNibName: String, owner: AnyObject)
-  convenience init(windowNibPath: String, owner: AnyObject)
+  init(window window: NSWindow?)
+  init?(coder coder: NSCoder)
+  convenience init(windowNibName windowNibName: String)
+  convenience init(windowNibName windowNibName: String, owner owner: AnyObject)
+  convenience init(windowNibPath windowNibPath: String, owner owner: AnyObject)
   convenience init()
 }

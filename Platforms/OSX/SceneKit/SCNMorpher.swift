@@ -1,6 +1,6 @@
 
 enum SCNMorpherCalculationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case normalized
   case additive
@@ -8,12 +8,12 @@ enum SCNMorpherCalculationMode : Int {
 @available(OSX 10.9, *)
 class SCNMorpher : NSObject, SCNAnimatable, NSSecureCoding {
   var targets: [SCNGeometry]
-  func setWeight(weight: CGFloat, forTargetAt targetIndex: Int)
+  func setWeight(_ weight: CGFloat, forTargetAt targetIndex: Int)
   func weightForTarget(at targetIndex: Int) -> CGFloat
   var calculationMode: SCNMorpherCalculationMode
   init()
   @available(OSX 10.9, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.9, *)
   func removeAllAnimations()
   @available(OSX 10.9, *)

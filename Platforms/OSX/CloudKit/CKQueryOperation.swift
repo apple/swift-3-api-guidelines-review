@@ -14,8 +14,8 @@ let CKQueryOperationMaximumResults: Int
 @available(OSX 10.10, *)
 class CKQueryOperation : CKDatabaseOperation {
   init()
-  convenience init(query: CKQuery)
-  convenience init(cursor: CKQueryCursor)
+  convenience init(query query: CKQuery)
+  convenience init(cursor cursor: CKQueryCursor)
   @NSCopying var query: CKQuery?
   @NSCopying var cursor: CKQueryCursor?
   @NSCopying var zoneID: CKRecordZoneID?

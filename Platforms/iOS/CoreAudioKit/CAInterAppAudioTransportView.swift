@@ -11,8 +11,8 @@ class CAInterAppAudioTransportView : UIView {
   var playButtonColor: UIColor
   var pauseButtonColor: UIColor
   var recordButtonColor: UIColor
-  func setOutputAudioUnit(au: AudioUnit)
-  init(frame: CGRect)
+  func setOutputAudioUnit(_ au: AudioUnit)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

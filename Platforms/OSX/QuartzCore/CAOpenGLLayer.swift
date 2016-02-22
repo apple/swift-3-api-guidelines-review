@@ -4,12 +4,12 @@ class CAOpenGLLayer : CALayer {
   func canDraw(incglContext ctx: CGLContextObj, pixelFormat pf: CGLPixelFormatObj, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>) -> Bool
   func draw(incglContext ctx: CGLContextObj, pixelFormat pf: CGLPixelFormatObj, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>)
   func copyCGLPixelFormat(forDisplayMask mask: UInt32) -> CGLPixelFormatObj
-  func releaseCGLPixelFormat(pf: CGLPixelFormatObj)
+  func releaseCGLPixelFormat(_ pf: CGLPixelFormatObj)
   func copyCGLContext(forPixelFormat pf: CGLPixelFormatObj) -> CGLContextObj
-  func releaseCGLContext(ctx: CGLContextObj)
+  func releaseCGLContext(_ ctx: CGLContextObj)
   var colorspace: CGColorSpace
   var wantsExtendedDynamicRangeContent: Bool
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }

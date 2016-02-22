@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NSTabViewControllerTabStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case segmentedControlOnTop
   case segmentedControlOnBottom
@@ -16,25 +16,25 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   var canPropagateSelectedChildViewControllerTitle: Bool
   var tabViewItems: [NSTabViewItem]
   var selectedTabViewItemIndex: Int
-  func addTabViewItem(tabViewItem: NSTabViewItem)
-  func insertTabViewItem(tabViewItem: NSTabViewItem, at index: Int)
-  func removeTabViewItem(tabViewItem: NSTabViewItem)
+  func addTabViewItem(_ tabViewItem: NSTabViewItem)
+  func insertTabViewItem(_ tabViewItem: NSTabViewItem, at index: Int)
+  func removeTabViewItem(_ tabViewItem: NSTabViewItem)
   func tabViewItem(for viewController: NSViewController) -> NSTabViewItem?
   func viewDidLoad()
-  func tabView(tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
-  func tabView(tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
-  func tabView(tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
-  func toolbar(toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem?
-  func toolbarDefaultItemIdentifiers(toolbar: NSToolbar) -> [String]
-  func toolbarAllowedItemIdentifiers(toolbar: NSToolbar) -> [String]
-  func toolbarSelectableItemIdentifiers(toolbar: NSToolbar) -> [String]
+  func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
+  func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
+  func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
+  func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem?
+  func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String]
+  func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [String]
+  func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [String]
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
   @available(OSX 10.10, *)
   func tabViewDidChangeNumberOf(tabViewItems tabView: NSTabView)
   @available(OSX 10.10, *)
-  func toolbarWillAddItem(notification: NSNotification)
+  func toolbarWillAddItem(_ notification: NSNotification)
   @available(OSX 10.10, *)
-  func toolbarDidRemoveItem(notification: NSNotification)
+  func toolbarDidRemoveItem(_ notification: NSNotification)
 }

@@ -1,6 +1,6 @@
 
 enum CLError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case locationUnknown
   case denied

@@ -23,16 +23,16 @@ extension NSObject {
 }
 @available(OSX 10.4, *)
 class WebScriptObject : NSObject {
-  class func throwException(exceptionMessage: String!) -> Bool
+  class func throwException(_ exceptionMessage: String!) -> Bool
   @available(OSX 10.5, *)
   func jsObject() -> JSObjectRef
-  func callWebScriptMethod(name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
-  func evaluateWebScript(script: String!) -> AnyObject!
-  func removeWebScriptKey(name: String!)
+  func callWebScriptMethod(_ name: String!, withArguments arguments: [AnyObject]!) -> AnyObject!
+  func evaluateWebScript(_ script: String!) -> AnyObject!
+  func removeWebScriptKey(_ name: String!)
   func stringRepresentation() -> String!
   func webScriptValue(at index: UInt32) -> AnyObject!
-  func setWebScriptValueAt(index: UInt32, value: AnyObject!)
-  func setException(description: String!)
+  func setWebScriptValueAt(_ index: UInt32, value value: AnyObject!)
+  func setException(_ description: String!)
   func jsValue() -> JSValue!
   init()
 }

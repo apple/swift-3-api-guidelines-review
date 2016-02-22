@@ -1,6 +1,6 @@
 
 struct CAEdgeAntialiasingMask : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var layerLeftEdge: CAEdgeAntialiasingMask { get }
   static var layerRightEdge: CAEdgeAntialiasingMask { get }
@@ -9,7 +9,7 @@ struct CAEdgeAntialiasingMask : OptionSetType {
 }
 class CALayer : NSObject, NSCoding, CAMediaTiming {
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   func presentationLayer() -> AnyObject?
   func modelLayer() -> AnyObject
   class func defaultValue(forKey key: String) -> AnyObject?
@@ -22,7 +22,7 @@ class CALayer : NSObject, NSCoding, CAMediaTiming {
   var anchorPointZ: CGFloat
   var transform: CATransform3D
   func affineTransform() -> CGAffineTransform
-  func setAffineTransform(m: CGAffineTransform)
+  func setAffineTransform(_ m: CGAffineTransform)
   var frame: CGRect
   var isHidden: Bool
   var isDoubleSided: Bool
@@ -31,22 +31,22 @@ class CALayer : NSObject, NSCoding, CAMediaTiming {
   var superlayer: CALayer? { get }
   func removeFromSuperlayer()
   var sublayers: [CALayer]?
-  func addSublayer(layer: CALayer)
-  func insertSublayer(layer: CALayer, at idx: UInt32)
-  func insertSublayer(layer: CALayer, below sibling: CALayer?)
-  func insertSublayer(layer: CALayer, above sibling: CALayer?)
-  func replaceSublayer(layer: CALayer, with layer2: CALayer)
+  func addSublayer(_ layer: CALayer)
+  func insertSublayer(_ layer: CALayer, at idx: UInt32)
+  func insertSublayer(_ layer: CALayer, below sibling: CALayer?)
+  func insertSublayer(_ layer: CALayer, above sibling: CALayer?)
+  func replaceSublayer(_ layer: CALayer, with layer2: CALayer)
   var sublayerTransform: CATransform3D
   var mask: CALayer?
   var masksToBounds: Bool
-  func convert(p: CGPoint, from l: CALayer?) -> CGPoint
-  func convert(p: CGPoint, to l: CALayer?) -> CGPoint
-  func convert(r: CGRect, from l: CALayer?) -> CGRect
-  func convert(r: CGRect, to l: CALayer?) -> CGRect
-  func convertTime(t: CFTimeInterval, from l: CALayer?) -> CFTimeInterval
-  func convertTime(t: CFTimeInterval, to l: CALayer?) -> CFTimeInterval
-  func hitTest(p: CGPoint) -> CALayer?
-  func contains(p: CGPoint) -> Bool
+  func convert(_ p: CGPoint, from l: CALayer?) -> CGPoint
+  func convert(_ p: CGPoint, to l: CALayer?) -> CGPoint
+  func convert(_ r: CGRect, from l: CALayer?) -> CGRect
+  func convert(_ r: CGRect, to l: CALayer?) -> CGRect
+  func convertTime(_ t: CFTimeInterval, from l: CALayer?) -> CFTimeInterval
+  func convertTime(_ t: CFTimeInterval, to l: CALayer?) -> CFTimeInterval
+  func hitTest(_ p: CGPoint) -> CALayer?
+  func contains(_ p: CGPoint) -> Bool
   var contents: AnyObject?
   var contentsRect: CGRect
   var contentsGravity: String
@@ -59,7 +59,7 @@ class CALayer : NSObject, NSCoding, CAMediaTiming {
   var isOpaque: Bool
   func display()
   func setNeedsDisplay()
-  func setNeedsDisplayIn(r: CGRect)
+  func setNeedsDisplayIn(_ r: CGRect)
   func needsDisplay() -> Bool
   func displayIfNeeded()
   var needsDisplayOnBoundsChange: Bool
@@ -93,7 +93,7 @@ class CALayer : NSObject, NSCoding, CAMediaTiming {
   class func defaultAction(forKey event: String) -> CAAction?
   func action(forKey event: String) -> CAAction?
   var actions: [String : CAAction]?
-  func add(anim: CAAnimation, forKey key: String?)
+  func add(_ anim: CAAnimation, forKey key: String?)
   func removeAllAnimations()
   func removeAnimation(forKey key: String)
   func animationKeys() -> [String]?
@@ -126,12 +126,12 @@ extension NSNull : CAAction {
   func run(forKey event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
 extension NSObject {
-  class func display(layer: CALayer)
-  func display(layer: CALayer)
-  class func draw(layer: CALayer, in ctx: CGContext)
-  func draw(layer: CALayer, in ctx: CGContext)
-  class func layoutSublayersOf(layer: CALayer)
-  func layoutSublayersOf(layer: CALayer)
+  class func display(_ layer: CALayer)
+  func display(_ layer: CALayer)
+  class func draw(_ layer: CALayer, in ctx: CGContext)
+  func draw(_ layer: CALayer, in ctx: CGContext)
+  class func layoutSublayersOf(_ layer: CALayer)
+  func layoutSublayersOf(_ layer: CALayer)
   class func action(for layer: CALayer, forKey event: String) -> CAAction?
   func action(for layer: CALayer, forKey event: String) -> CAAction?
 }

@@ -4,20 +4,20 @@ let SCNLightingModelBlinn: String
 let SCNLightingModelLambert: String
 let SCNLightingModelConstant: String
 enum SCNCullMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case back
   case front
 }
 enum SCNTransparencyMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case aOne
   case rgbZero
 }
 @available(OSX 10.11, *)
 enum SCNBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case alpha
   case add
@@ -58,7 +58,7 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   var blendMode: SCNBlendMode
   init()
   @available(OSX 10.8, *)
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)

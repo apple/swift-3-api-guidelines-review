@@ -21,14 +21,14 @@ let MPLanguageOptionCharacteristicDubbedTranslation: String
 let MPLanguageOptionCharacteristicVoiceOverTranslation: String
 @available(tvOS 9.0, *)
 enum MPNowPlayingInfoLanguageOptionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case audible
   case legible
 }
 @available(tvOS 9.0, *)
 class MPNowPlayingInfoLanguageOption : NSObject {
-  init(type languageOptionType: MPNowPlayingInfoLanguageOptionType, languageTag: String, characteristics languageOptionCharacteristics: [String]?, displayName: String, identifier: String)
+  init(type languageOptionType: MPNowPlayingInfoLanguageOptionType, languageTag languageTag: String, characteristics languageOptionCharacteristics: [String]?, displayName displayName: String, identifier identifier: String)
   func isAutomaticLegibleLanguageOption() -> Bool
   func isAutomaticAudibleLanguageOption() -> Bool
   var languageOptionType: MPNowPlayingInfoLanguageOptionType { get }
@@ -40,7 +40,7 @@ class MPNowPlayingInfoLanguageOption : NSObject {
 }
 @available(tvOS 9.0, *)
 class MPNowPlayingInfoLanguageOptionGroup : NSObject {
-  init(languageOptions: [MPNowPlayingInfoLanguageOption], defaultLanguageOption: MPNowPlayingInfoLanguageOption?, allowEmptySelection: Bool)
+  init(languageOptions languageOptions: [MPNowPlayingInfoLanguageOption], defaultLanguageOption defaultLanguageOption: MPNowPlayingInfoLanguageOption?, allowEmptySelection allowEmptySelection: Bool)
   var languageOptions: [MPNowPlayingInfoLanguageOption] { get }
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }
   var allowEmptySelection: Bool { get }

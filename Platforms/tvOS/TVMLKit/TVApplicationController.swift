@@ -10,21 +10,21 @@ class TVApplicationControllerContext : NSObject, NSCopying {
 }
 protocol TVApplicationControllerDelegate : NSObjectProtocol {
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, evaluateAppJavaScriptIn jsContext: JSContext)
+  optional func appController(_ appController: TVApplicationController, evaluateAppJavaScriptIn jsContext: JSContext)
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFinishLaunchingWithOptions options: [String : AnyObject]? = [:])
+  optional func appController(_ appController: TVApplicationController, didFinishLaunchingWithOptions options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didFailWithError error: NSError)
+  optional func appController(_ appController: TVApplicationController, didFailWithError error: NSError)
   @available(tvOS 9.0, *)
-  optional func appController(appController: TVApplicationController, didStopWithOptions options: [String : AnyObject]? = [:])
+  optional func appController(_ appController: TVApplicationController, didStopWithOptions options: [String : AnyObject]? = [:])
 }
 @available(tvOS 9.0, *)
 class TVApplicationController : NSObject {
-  init(context: TVApplicationControllerContext, window: UIWindow?, delegate: TVApplicationControllerDelegate?)
+  init(context context: TVApplicationControllerContext, window window: UIWindow?, delegate delegate: TVApplicationControllerDelegate?)
   var window: UIWindow? { get }
   var context: TVApplicationControllerContext { get }
   weak var delegate: @sil_weak TVApplicationControllerDelegate? { get }
   var navigationController: UINavigationController { get }
-  func evaluate(inJavaScriptContext evaluation: (JSContext) -> Void, completion: ((Bool) -> Void)? = nil)
+  func evaluate(inJavaScriptContext evaluation: (JSContext) -> Void, completion completion: ((Bool) -> Void)? = nil)
   func stop()
 }

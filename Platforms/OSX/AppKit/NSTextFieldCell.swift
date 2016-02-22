@@ -1,6 +1,6 @@
 
 enum NSTextFieldBezelStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case squareBezel
   case roundedBezel
@@ -9,12 +9,12 @@ class NSTextFieldCell : NSActionCell {
   @NSCopying var backgroundColor: NSColor?
   var drawsBackground: Bool
   @NSCopying var textColor: NSColor?
-  func setUpFieldEditorAttributes(textObj: NSText) -> NSText
+  func setUpFieldEditorAttributes(_ textObj: NSText) -> NSText
   var bezelStyle: NSTextFieldBezelStyle
   var placeholderString: String?
   @NSCopying var placeholderAttributedString: NSAttributedString?
   @available(OSX 10.5, *)
-  func setWantsNotificationForMarkedText(flag: Bool)
+  func setWantsNotificationForMarkedText(_ flag: Bool)
   @available(OSX 10.5, *)
   var allowedInputSourceLocales: [String]?
   init(textCell aString: String)
@@ -42,5 +42,5 @@ struct __tfFlags {
   var allowsDefaultTightening: UInt32
   var reservedTextFieldCell: UInt32
   init()
-  init(drawsBackground: UInt32, bezelStyle: UInt32, thcSortDirection: UInt32, thcSortPriority: UInt32, mini: UInt32, textColorIgnoresNormalDisableFlag: UInt32, textColorDisableFlag: UInt32, thcForceHighlightForSort: UInt32, invalidTextColor: UInt32, notificationForMarkedText: UInt32, inToolbar: UInt32, hasTextLayer: UInt32, isButtonTitle: UInt32, allowTightening: UInt32, thcHighlighted: UInt32, shouldNotClipToBounds: UInt32, allowsDefaultTightening: UInt32, reservedTextFieldCell: UInt32)
+  init(drawsBackground drawsBackground: UInt32, bezelStyle bezelStyle: UInt32, thcSortDirection thcSortDirection: UInt32, thcSortPriority thcSortPriority: UInt32, mini mini: UInt32, textColorIgnoresNormalDisableFlag textColorIgnoresNormalDisableFlag: UInt32, textColorDisableFlag textColorDisableFlag: UInt32, thcForceHighlightForSort thcForceHighlightForSort: UInt32, invalidTextColor invalidTextColor: UInt32, notificationForMarkedText notificationForMarkedText: UInt32, inToolbar inToolbar: UInt32, hasTextLayer hasTextLayer: UInt32, isButtonTitle isButtonTitle: UInt32, allowTightening allowTightening: UInt32, thcHighlighted thcHighlighted: UInt32, shouldNotClipToBounds shouldNotClipToBounds: UInt32, allowsDefaultTightening allowsDefaultTightening: UInt32, reservedTextFieldCell reservedTextFieldCell: UInt32)
 }

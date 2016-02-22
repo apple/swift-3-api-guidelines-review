@@ -1,6 +1,6 @@
 
 enum NSTestComparisonOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case equalToComparison
   case lessThanOrEqualToComparison
@@ -33,36 +33,36 @@ extension NSObject {
   func isEqual(to object: AnyObject?) -> Bool
   class func isLessThanOrEqual(to object: AnyObject?) -> Bool
   func isLessThanOrEqual(to object: AnyObject?) -> Bool
-  class func isLessThan(object: AnyObject?) -> Bool
-  func isLessThan(object: AnyObject?) -> Bool
+  class func isLessThan(_ object: AnyObject?) -> Bool
+  func isLessThan(_ object: AnyObject?) -> Bool
   class func isGreaterThanOrEqual(to object: AnyObject?) -> Bool
   func isGreaterThanOrEqual(to object: AnyObject?) -> Bool
-  class func isGreaterThan(object: AnyObject?) -> Bool
-  func isGreaterThan(object: AnyObject?) -> Bool
+  class func isGreaterThan(_ object: AnyObject?) -> Bool
+  func isGreaterThan(_ object: AnyObject?) -> Bool
   class func isNotEqual(to object: AnyObject?) -> Bool
   func isNotEqual(to object: AnyObject?) -> Bool
-  class func doesContain(object: AnyObject) -> Bool
-  func doesContain(object: AnyObject) -> Bool
-  class func isLike(object: String) -> Bool
-  func isLike(object: String) -> Bool
-  class func isCaseInsensitiveLike(object: String) -> Bool
-  func isCaseInsensitiveLike(object: String) -> Bool
+  class func doesContain(_ object: AnyObject) -> Bool
+  func doesContain(_ object: AnyObject) -> Bool
+  class func isLike(_ object: String) -> Bool
+  func isLike(_ object: String) -> Bool
+  class func isCaseInsensitiveLike(_ object: String) -> Bool
+  func isCaseInsensitiveLike(_ object: String) -> Bool
 }
 extension NSObject {
   class func scriptingIsEqual(to object: AnyObject) -> Bool
   func scriptingIsEqual(to object: AnyObject) -> Bool
   class func scriptingIsLessThanOrEqual(to object: AnyObject) -> Bool
   func scriptingIsLessThanOrEqual(to object: AnyObject) -> Bool
-  class func scriptingIsLessThan(object: AnyObject) -> Bool
-  func scriptingIsLessThan(object: AnyObject) -> Bool
+  class func scriptingIsLessThan(_ object: AnyObject) -> Bool
+  func scriptingIsLessThan(_ object: AnyObject) -> Bool
   class func scriptingIsGreaterThanOrEqual(to object: AnyObject) -> Bool
   func scriptingIsGreaterThanOrEqual(to object: AnyObject) -> Bool
-  class func scriptingIsGreaterThan(object: AnyObject) -> Bool
-  func scriptingIsGreaterThan(object: AnyObject) -> Bool
+  class func scriptingIsGreaterThan(_ object: AnyObject) -> Bool
+  func scriptingIsGreaterThan(_ object: AnyObject) -> Bool
   class func scriptingBegins(with object: AnyObject) -> Bool
   func scriptingBegins(with object: AnyObject) -> Bool
   class func scriptingEnds(with object: AnyObject) -> Bool
   func scriptingEnds(with object: AnyObject) -> Bool
-  class func scriptingContains(object: AnyObject) -> Bool
-  func scriptingContains(object: AnyObject) -> Bool
+  class func scriptingContains(_ object: AnyObject) -> Bool
+  func scriptingContains(_ object: AnyObject) -> Bool
 }

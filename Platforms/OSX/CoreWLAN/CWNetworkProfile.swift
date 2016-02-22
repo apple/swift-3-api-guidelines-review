@@ -10,7 +10,7 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   init()
   @available(OSX 10.7, *)
-  init(networkProfile: CWNetworkProfile)
+  init(networkProfile networkProfile: CWNetworkProfile)
   @available(OSX 10.7, *)
   func isEqual(to networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
@@ -32,6 +32,6 @@ class CWMutableNetworkProfile : CWNetworkProfile {
   @available(OSX 10.7, *)
   init()
   @available(OSX 10.7, *)
-  init(networkProfile: CWNetworkProfile)
+  init(networkProfile networkProfile: CWNetworkProfile)
   init?(coder aDecoder: NSCoder)
 }

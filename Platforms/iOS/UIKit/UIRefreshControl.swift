@@ -9,6 +9,6 @@ class UIRefreshControl : UIControl {
   func beginRefreshing()
   @available(iOS 6.0, *)
   func endRefreshing()
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
 }

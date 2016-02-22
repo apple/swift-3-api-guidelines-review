@@ -7,12 +7,12 @@ struct DRRefConCallbacks {
   var retain: DRRefConRetainCallback!
   var release: DRRefConReleaseCallback!
   init()
-  init(version: UInt, retain: DRRefConRetainCallback!, release: DRRefConReleaseCallback!)
+  init(version version: UInt, retain retain: DRRefConRetainCallback!, release release: DRRefConReleaseCallback!)
 }
 let kDRRefConCFTypeCallbacks: DRRefConCallbacks
 @available(OSX 10.2, *)
-func DRSetRefCon(ref: DRType!, _ refCon: UnsafeMutablePointer<Void>, _ callbacks: UnsafePointer<DRRefConCallbacks>)
+func DRSetRefCon(_ ref: DRType!, _ refCon: UnsafeMutablePointer<Void>, _ callbacks: UnsafePointer<DRRefConCallbacks>)
 @available(OSX 10.2, *)
-func DRGetRefCon(ref: DRType!) -> UnsafeMutablePointer<Void>
+func DRGetRefCon(_ ref: DRType!) -> UnsafeMutablePointer<Void>
 @available(OSX 10.5, *)
-func DRCopyLocalizedStringForValue(value: CFString!) -> Unmanaged<CFString>!
+func DRCopyLocalizedStringForValue(_ value: CFString!) -> Unmanaged<CFString>!

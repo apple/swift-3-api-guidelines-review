@@ -151,7 +151,7 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   func setDefaults()
   var attributes: [String : AnyObject] { get }
   @available(OSX 10.4, *)
-  func apply(k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]? = [:]) -> CIImage?
+  func apply(_ k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]? = [:]) -> CIImage?
   init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
@@ -163,18 +163,18 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
 }
 
 extension CIFilter {
-  func apply(k: CIKernel, args: [AnyObject], options: (String, AnyObject)...) -> CIImage?
+  func apply(_ k: CIKernel, args args: [AnyObject], options options: (String, AnyObject)...) -> CIImage?
   @available(iOS 8.0, OSX 10.10, *)
-  convenience init?(name: String!, elements: (String, AnyObject)...)
+  convenience init?(name name: String!, elements elements: (String, AnyObject)...)
 }
 extension CIFilter {
-  /*not inherited*/ init?(name: String)
+  /*not inherited*/ init?(name name: String)
   @available(OSX 10.10, *)
-  /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
+  /*not inherited*/ init?(name name: String, withInputParameters params: [String : AnyObject]?)
   class func filterNames(inCategory category: String?) -> [String]
   class func filterNames(inCategories categories: [String]?) -> [String]
   @available(OSX 10.4, *)
-  class func registerName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
+  class func registerName(_ name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject] = [:])
   @available(OSX 10.4, *)
   class func localizedName(forFilterName filterName: String) -> String?
   @available(OSX 10.4, *)

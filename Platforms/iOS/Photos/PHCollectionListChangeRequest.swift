@@ -3,13 +3,13 @@
 class PHCollectionListChangeRequest : NSObject {
   class func creationRequestForCollectionList(withTitle title: String) -> Self
   var placeholderForCreatedCollectionList: PHObjectPlaceholder { get }
-  class func deleteCollectionLists(collectionLists: NSFastEnumeration)
+  class func deleteCollectionLists(_ collectionLists: NSFastEnumeration)
   convenience init?(for collectionList: PHCollectionList)
-  convenience init?(for collectionList: PHCollectionList, childCollections: PHFetchResult)
+  convenience init?(for collectionList: PHCollectionList, childCollections childCollections: PHFetchResult)
   var title: String
-  func addChildCollections(collections: NSFastEnumeration)
-  func insertChildCollections(collections: NSFastEnumeration, at indexes: NSIndexSet)
-  func removeChildCollections(collections: NSFastEnumeration)
+  func addChildCollections(_ collections: NSFastEnumeration)
+  func insertChildCollections(_ collections: NSFastEnumeration, at indexes: NSIndexSet)
+  func removeChildCollections(_ collections: NSFastEnumeration)
   func removeChildCollections(at indexes: NSIndexSet)
   func replaceChildCollections(at indexes: NSIndexSet, withChildCollections collections: NSFastEnumeration)
   func moveChildCollections(at indexes: NSIndexSet, to toIndex: Int)

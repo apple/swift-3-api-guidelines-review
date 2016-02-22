@@ -3,37 +3,37 @@
 class CIImage : NSObject, NSSecureCoding, NSCopying {
   class func empty() -> CIImage
   init(cgImage image: CGImage)
-  init(cgImage image: CGImage, options: [String : AnyObject]? = [:])
-  init?(data: NSData)
-  init?(data: NSData, options: [String : AnyObject]? = [:])
-  init(bitmapData data: NSData, bytesPerRow: Int, size: CGSize, format: CIFormat, colorSpace: CGColorSpace?)
+  init(cgImage image: CGImage, options options: [String : AnyObject]? = [:])
+  init?(data data: NSData)
+  init?(data data: NSData, options options: [String : AnyObject]? = [:])
+  init(bitmapData data: NSData, bytesPerRow bytesPerRow: Int, size size: CGSize, format format: CIFormat, colorSpace colorSpace: CGColorSpace?)
   @available(tvOS 6.0, *)
-  init(texture name: UInt32, size: CGSize, flipped: Bool, colorSpace: CGColorSpace?)
+  init(texture name: UInt32, size size: CGSize, flipped flipped: Bool, colorSpace colorSpace: CGColorSpace?)
   @available(tvOS 9.0, *)
-  init(mtlTexture texture: MTLTexture, options: [String : AnyObject]? = [:])
+  init(mtlTexture texture: MTLTexture, options options: [String : AnyObject]? = [:])
   init?(contentsOf url: NSURL)
-  init?(contentsOf url: NSURL, options: [String : AnyObject]? = [:])
+  init?(contentsOf url: NSURL, options options: [String : AnyObject]? = [:])
   @available(tvOS 9.0, *)
   init(cvImageBuffer imageBuffer: CVImageBuffer)
   @available(tvOS 9.0, *)
-  init(cvImageBuffer imageBuffer: CVImageBuffer, options: [String : AnyObject]? = [:])
+  init(cvImageBuffer imageBuffer: CVImageBuffer, options options: [String : AnyObject]? = [:])
   @available(tvOS 5.0, *)
   init(cvPixelBuffer pixelBuffer: CVPixelBuffer)
   @available(tvOS 5.0, *)
-  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options: [String : AnyObject]? = [:])
-  init(color: CIColor)
-  func applying(matrix: CGAffineTransform) -> CIImage
+  init(cvPixelBuffer pixelBuffer: CVPixelBuffer, options options: [String : AnyObject]? = [:])
+  init(color color: CIColor)
+  func applying(_ matrix: CGAffineTransform) -> CIImage
   @available(tvOS 8.0, *)
-  func applyingOrientation(orientation: Int32) -> CIImage
+  func applyingOrientation(_ orientation: Int32) -> CIImage
   @available(tvOS 8.0, *)
   func imageTransform(forOrientation orientation: Int32) -> CGAffineTransform
   @available(tvOS 8.0, *)
-  func compositingOverImage(dest: CIImage) -> CIImage
+  func compositingOverImage(_ dest: CIImage) -> CIImage
   func cropping(to rect: CGRect) -> CIImage
   @available(tvOS 8.0, *)
   func clampingToExtent() -> CIImage
   @available(tvOS 8.0, *)
-  func applyingFilter(filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
+  func applyingFilter(_ filterName: String, withInputParameters params: [String : AnyObject]?) -> CIImage
   var extent: CGRect { get }
   @available(tvOS 5.0, *)
   var properties: [String : AnyObject] { get }

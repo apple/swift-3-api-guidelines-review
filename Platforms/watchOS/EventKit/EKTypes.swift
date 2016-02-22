@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum EKAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notDetermined
   case restricted
@@ -9,7 +9,7 @@ enum EKAuthorizationStatus : Int {
   case authorized
 }
 enum EKWeekday : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case sunday
   case monday
@@ -34,7 +34,7 @@ enum EKWeekday : Int {
   static var EKSaturday: EKWeekday { get }
 }
 enum EKRecurrenceFrequency : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case daily
   case weekly
@@ -42,7 +42,7 @@ enum EKRecurrenceFrequency : Int {
   case yearly
 }
 enum EKParticipantType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case person
@@ -51,7 +51,7 @@ enum EKParticipantType : Int {
   case group
 }
 enum EKParticipantRole : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case required
@@ -60,7 +60,7 @@ enum EKParticipantRole : Int {
   case nonParticipant
 }
 enum EKParticipantScheduleStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case pending
@@ -73,7 +73,7 @@ enum EKParticipantScheduleStatus : Int {
   case recipientNotAllowed
 }
 enum EKParticipantStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case pending
@@ -85,7 +85,7 @@ enum EKParticipantStatus : Int {
   case inProcess
 }
 enum EKCalendarType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case local
   case calDAV
@@ -94,7 +94,7 @@ enum EKCalendarType : Int {
   case birthday
 }
 struct EKCalendarEventAvailabilityMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: EKCalendarEventAvailabilityMask { get }
   static var busy: EKCalendarEventAvailabilityMask { get }
@@ -103,7 +103,7 @@ struct EKCalendarEventAvailabilityMask : OptionSetType {
   static var unavailable: EKCalendarEventAvailabilityMask { get }
 }
 enum EKSourceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case local
   case exchange
@@ -113,26 +113,26 @@ enum EKSourceType : Int {
   case birthdays
 }
 enum EKEntityType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case event
   case reminder
 }
 struct EKEntityMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var event: EKEntityMask { get }
   static var reminder: EKEntityMask { get }
 }
 enum EKAlarmProximity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case enter
   case leave
 }
 enum EKAlarmType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case display
   case audio
@@ -140,7 +140,7 @@ enum EKAlarmType : Int {
   case email
 }
 enum EKReminderPriority : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case high

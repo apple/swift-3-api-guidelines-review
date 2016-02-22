@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var traitItalic: UIFontDescriptorSymbolicTraits { get }
   static var traitBold: UIFontDescriptorSymbolicTraits { get }
@@ -37,16 +37,16 @@ class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   func object(forKey anAttribute: String) -> AnyObject?
   func fontAttributes() -> [String : AnyObject]
   func matchingFontDescriptors(withMandatoryKeys mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
-  /*not inherited*/ init(name fontName: String, size: CGFloat)
-  /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
+  /*not inherited*/ init(name fontName: String, size size: CGFloat)
+  /*not inherited*/ init(name fontName: String, matrix matrix: CGAffineTransform)
   class func preferredFontDescriptor(withTextStyle style: String) -> UIFontDescriptor
   init(fontAttributes attributes: [String : AnyObject] = [:])
-  func addingAttributes(attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
-  func withSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
-  func withSize(newPointSize: CGFloat) -> UIFontDescriptor
-  func withMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
-  func withFace(newFace: String) -> UIFontDescriptor
-  func withFamily(newFamily: String) -> UIFontDescriptor
+  func addingAttributes(_ attributes: [String : AnyObject] = [:]) -> UIFontDescriptor
+  func withSymbolicTraits(_ symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
+  func withSize(_ newPointSize: CGFloat) -> UIFontDescriptor
+  func withMatrix(_ matrix: CGAffineTransform) -> UIFontDescriptor
+  func withFace(_ newFace: String) -> UIFontDescriptor
+  func withFamily(_ newFamily: String) -> UIFontDescriptor
   @available(tvOS 7.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)

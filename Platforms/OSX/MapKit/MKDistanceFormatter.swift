@@ -11,7 +11,7 @@ class MKDistanceFormatter : NSFormatter {
 }
 @available(OSX 10.9, *)
 enum MKDistanceFormatterUnits : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case metric
@@ -20,7 +20,7 @@ enum MKDistanceFormatterUnits : UInt {
 }
 @available(OSX 10.9, *)
 enum MKDistanceFormatterUnitStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case `default`
   case abbreviated

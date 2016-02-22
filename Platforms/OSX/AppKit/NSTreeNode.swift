@@ -9,12 +9,12 @@ class NSTreeNode : NSObject {
   var mutableChildNodes: NSMutableArray { get }
   func descendantNode(at indexPath: NSIndexPath) -> NSTreeNode?
   unowned(unsafe) var parent: @sil_unmanaged NSTreeNode? { get }
-  func sort(with sortDescriptors: [NSSortDescriptor], recursively: Bool)
+  func sort(with sortDescriptors: [NSSortDescriptor], recursively recursively: Bool)
   init()
 }
 struct __NSTreeNodeFlags {
   var ignoreObserving: UInt32
   var reserved: UInt32
   init()
-  init(ignoreObserving: UInt32, reserved: UInt32)
+  init(ignoreObserving ignoreObserving: UInt32, reserved reserved: UInt32)
 }

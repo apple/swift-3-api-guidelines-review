@@ -51,7 +51,7 @@ let NSSuperscriptAttributeName: String
 let NSGlyphInfoAttributeName: String
 @available(OSX 10.0, *)
 enum NSUnderlineStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case styleNone
   case styleSingle
@@ -74,7 +74,7 @@ enum NSUnderlineStyle : Int {
 }
 @available(OSX 10.11, *)
 enum NSWritingDirectionFormatType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case embedding
   case override
@@ -174,9 +174,9 @@ let NSTextSizeMultiplierDocumentOption: String
 let NSFileTypeDocumentOption: String
 extension NSAttributedString {
   @available(OSX 10.11, *)
-  init(url: NSURL, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(url url: NSURL, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
-  init(data: NSData, options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data data: NSData, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(OSX 10.0, *)
   func data(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) throws -> NSData
   @available(OSX 10.0, *)
@@ -186,7 +186,7 @@ extension NSAttributedString {
   init?(html data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(html data: NSData, baseURL base: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(html data: NSData, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   func rtf(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
   func rtfd(from range: NSRange, documentAttributes dict: [String : AnyObject] = [:]) -> NSData?
@@ -195,9 +195,9 @@ extension NSAttributedString {
 }
 extension NSMutableAttributedString {
   @available(OSX 10.11, *)
-  func read(from url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func read(from url: NSURL, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error error: ()) throws
   @available(OSX 10.0, *)
-  func read(from data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error: ()) throws
+  func read(from data: NSData, options opts: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>, error error: ()) throws
 }
 extension NSAttributedString {
   func fontAttributes(in range: NSRange) -> [String : AnyObject]
@@ -208,9 +208,9 @@ extension NSAttributedString {
   func lineBreakByHyphenating(before location: Int, within aRange: NSRange) -> Int
   func doubleClick(at location: Int) -> NSRange
   func nextWord(from location: Int, forward isForward: Bool) -> Int
-  func rangeOf(block: NSTextBlock, at location: Int) -> NSRange
-  func rangeOf(table: NSTextTable, at location: Int) -> NSRange
-  func rangeOf(list: NSTextList, at location: Int) -> NSRange
+  func rangeOf(_ block: NSTextBlock, at location: Int) -> NSRange
+  func rangeOf(_ table: NSTextTable, at location: Int) -> NSRange
+  func rangeOf(_ list: NSTextList, at location: Int) -> NSRange
   func itemNumber(in list: NSTextList, at location: Int) -> Int
 }
 extension NSAttributedString : NSPasteboardReading, NSPasteboardWriting {
@@ -221,22 +221,22 @@ extension NSAttributedString : NSPasteboardReading, NSPasteboardWriting {
   @available(OSX 10.0, *)
   class func readableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptions(forType type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
   @available(OSX 10.0, *)
   func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptions(forType type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func writingOptions(forType type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.0, *)
   func pasteboardPropertyList(forType type: String) -> AnyObject?
 }
 extension NSMutableAttributedString {
-  func superscriptRange(range: NSRange)
-  func subscriptRange(range: NSRange)
-  func unscriptRange(range: NSRange)
-  func applyFontTraits(traitMask: NSFontTraitMask, range: NSRange)
-  func setAlignment(alignment: NSTextAlignment, range: NSRange)
-  func setBaseWritingDirection(writingDirection: NSWritingDirection, range: NSRange)
+  func superscriptRange(_ range: NSRange)
+  func subscriptRange(_ range: NSRange)
+  func unscriptRange(_ range: NSRange)
+  func applyFontTraits(_ traitMask: NSFontTraitMask, range range: NSRange)
+  func setAlignment(_ alignment: NSTextAlignment, range range: NSRange)
+  func setBaseWritingDirection(_ writingDirection: NSWritingDirection, range range: NSRange)
 }
 @available(OSX, introduced=10.0, deprecated=10.11, message="This attribute is bound to a specific implementation of ATS feature and not generically supported by wide range of fonts. The majority of characters accessed through this API are now encoded in the Unicode standard. Use the CTFont feature API for fine control over character shape choices.")
 let NSCharacterShapeAttributeName: String
@@ -247,15 +247,15 @@ var NSUnderlineByWordMask: Int
 extension NSAttributedString {
   var containsAttachments: Bool { get }
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(url url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
+  init?(path path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
   @available(OSX, introduced=10.5, deprecated=10.11, message="Use NSDataDetector instead")
-  func url(at location: Int, effectiveRange: NSRangePointer) -> NSURL?
+  func url(at location: Int, effectiveRange effectiveRange: NSRangePointer) -> NSURL?
 }
 extension NSMutableAttributedString {
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromURL:options:documentAttributes:error: instead")
-  func read(from url: NSURL, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func read(from url: NSURL, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.11, message="Use -readFromData:options:documentAttributes:error: instead")
-  func read(from data: NSData, options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func read(from data: NSData, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
 }

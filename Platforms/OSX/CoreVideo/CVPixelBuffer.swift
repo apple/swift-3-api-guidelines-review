@@ -53,25 +53,25 @@ struct CVPlanarComponentInfo {
   var offset: Int32
   var rowBytes: UInt32
   init()
-  init(offset: Int32, rowBytes: UInt32)
+  init(offset offset: Int32, rowBytes rowBytes: UInt32)
 }
 struct CVPlanarPixelBufferInfo {
   var componentInfo: (CVPlanarComponentInfo)
   init()
-  init(componentInfo: (CVPlanarComponentInfo))
+  init(componentInfo componentInfo: (CVPlanarComponentInfo))
 }
 struct CVPlanarPixelBufferInfo_YCbCrPlanar {
   var componentInfoY: CVPlanarComponentInfo
   var componentInfoCb: CVPlanarComponentInfo
   var componentInfoCr: CVPlanarComponentInfo
   init()
-  init(componentInfoY: CVPlanarComponentInfo, componentInfoCb: CVPlanarComponentInfo, componentInfoCr: CVPlanarComponentInfo)
+  init(componentInfoY componentInfoY: CVPlanarComponentInfo, componentInfoCb componentInfoCb: CVPlanarComponentInfo, componentInfoCr componentInfoCr: CVPlanarComponentInfo)
 }
 struct CVPlanarPixelBufferInfo_YCbCrBiPlanar {
   var componentInfoY: CVPlanarComponentInfo
   var componentInfoCbCr: CVPlanarComponentInfo
   init()
-  init(componentInfoY: CVPlanarComponentInfo, componentInfoCbCr: CVPlanarComponentInfo)
+  init(componentInfoY componentInfoY: CVPlanarComponentInfo, componentInfoCbCr componentInfoCbCr: CVPlanarComponentInfo)
 }
 @available(OSX 10.4, *)
 let kCVPixelBufferPixelFormatTypeKey: CFString
@@ -109,44 +109,44 @@ typealias CVPixelBuffer = CVImageBuffer
 @available(OSX 10.4, *)
 func CVPixelBufferGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func CVPixelBufferCreateResolvedAttributesDictionary(allocator: CFAllocator?, _ attributes: CFArray?, _ resolvedDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> CVReturn
+func CVPixelBufferCreateResolvedAttributesDictionary(_ allocator: CFAllocator?, _ attributes: CFArray?, _ resolvedDictionaryOut: UnsafeMutablePointer<CFDictionary?>) -> CVReturn
 @available(OSX 10.4, *)
-func CVPixelBufferCreate(allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
+func CVPixelBufferCreate(_ allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
 typealias CVPixelBufferReleaseBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<Void>) -> Void
 @available(OSX 10.4, *)
-func CVPixelBufferCreateWithBytes(allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ baseAddress: UnsafeMutablePointer<Void>, _ bytesPerRow: Int, _ releaseCallback: CVPixelBufferReleaseBytesCallback?, _ releaseRefCon: UnsafeMutablePointer<Void>, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
+func CVPixelBufferCreateWithBytes(_ allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ baseAddress: UnsafeMutablePointer<Void>, _ bytesPerRow: Int, _ releaseCallback: CVPixelBufferReleaseBytesCallback?, _ releaseRefCon: UnsafeMutablePointer<Void>, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
 typealias CVPixelBufferReleasePlanarBytesCallback = @convention(c) (UnsafeMutablePointer<Void>, UnsafePointer<Void>, Int, Int, UnsafeMutablePointer<UnsafePointer<Void>>) -> Void
 @available(OSX 10.4, *)
-func CVPixelBufferCreateWithPlanarBytes(allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ dataPtr: UnsafeMutablePointer<Void>, _ dataSize: Int, _ numberOfPlanes: Int, _ planeBaseAddress: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ planeWidth: UnsafeMutablePointer<Int>, _ planeHeight: UnsafeMutablePointer<Int>, _ planeBytesPerRow: UnsafeMutablePointer<Int>, _ releaseCallback: CVPixelBufferReleasePlanarBytesCallback?, _ releaseRefCon: UnsafeMutablePointer<Void>, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
+func CVPixelBufferCreateWithPlanarBytes(_ allocator: CFAllocator?, _ width: Int, _ height: Int, _ pixelFormatType: OSType, _ dataPtr: UnsafeMutablePointer<Void>, _ dataSize: Int, _ numberOfPlanes: Int, _ planeBaseAddress: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ planeWidth: UnsafeMutablePointer<Int>, _ planeHeight: UnsafeMutablePointer<Int>, _ planeBytesPerRow: UnsafeMutablePointer<Int>, _ releaseCallback: CVPixelBufferReleasePlanarBytesCallback?, _ releaseRefCon: UnsafeMutablePointer<Void>, _ pixelBufferAttributes: CFDictionary?, _ pixelBufferOut: UnsafeMutablePointer<CVPixelBuffer?>) -> CVReturn
 @available(OSX 10.4, *)
-func CVPixelBufferLockBaseAddress(pixelBuffer: CVPixelBuffer, _ lockFlags: CVPixelBufferLockFlags) -> CVReturn
+func CVPixelBufferLockBaseAddress(_ pixelBuffer: CVPixelBuffer, _ lockFlags: CVPixelBufferLockFlags) -> CVReturn
 @available(OSX 10.4, *)
-func CVPixelBufferUnlockBaseAddress(pixelBuffer: CVPixelBuffer, _ unlockFlags: CVPixelBufferLockFlags) -> CVReturn
+func CVPixelBufferUnlockBaseAddress(_ pixelBuffer: CVPixelBuffer, _ unlockFlags: CVPixelBufferLockFlags) -> CVReturn
 @available(OSX 10.4, *)
-func CVPixelBufferGetWidth(pixelBuffer: CVPixelBuffer) -> Int
+func CVPixelBufferGetWidth(_ pixelBuffer: CVPixelBuffer) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetHeight(pixelBuffer: CVPixelBuffer) -> Int
+func CVPixelBufferGetHeight(_ pixelBuffer: CVPixelBuffer) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetPixelFormatType(pixelBuffer: CVPixelBuffer) -> OSType
+func CVPixelBufferGetPixelFormatType(_ pixelBuffer: CVPixelBuffer) -> OSType
 @available(OSX 10.4, *)
-func CVPixelBufferGetBaseAddress(pixelBuffer: CVPixelBuffer) -> UnsafeMutablePointer<Void>
+func CVPixelBufferGetBaseAddress(_ pixelBuffer: CVPixelBuffer) -> UnsafeMutablePointer<Void>
 @available(OSX 10.4, *)
-func CVPixelBufferGetBytesPerRow(pixelBuffer: CVPixelBuffer) -> Int
+func CVPixelBufferGetBytesPerRow(_ pixelBuffer: CVPixelBuffer) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetDataSize(pixelBuffer: CVPixelBuffer) -> Int
+func CVPixelBufferGetDataSize(_ pixelBuffer: CVPixelBuffer) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferIsPlanar(pixelBuffer: CVPixelBuffer) -> Bool
+func CVPixelBufferIsPlanar(_ pixelBuffer: CVPixelBuffer) -> Bool
 @available(OSX 10.4, *)
-func CVPixelBufferGetPlaneCount(pixelBuffer: CVPixelBuffer) -> Int
+func CVPixelBufferGetPlaneCount(_ pixelBuffer: CVPixelBuffer) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetWidthOfPlane(pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
+func CVPixelBufferGetWidthOfPlane(_ pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetHeightOfPlane(pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
+func CVPixelBufferGetHeightOfPlane(_ pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetBaseAddressOfPlane(pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> UnsafeMutablePointer<Void>
+func CVPixelBufferGetBaseAddressOfPlane(_ pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> UnsafeMutablePointer<Void>
 @available(OSX 10.4, *)
-func CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
+func CVPixelBufferGetBytesPerRowOfPlane(_ pixelBuffer: CVPixelBuffer, _ planeIndex: Int) -> Int
 @available(OSX 10.4, *)
-func CVPixelBufferGetExtendedPixels(pixelBuffer: CVPixelBuffer, _ extraColumnsOnLeft: UnsafeMutablePointer<Int>, _ extraColumnsOnRight: UnsafeMutablePointer<Int>, _ extraRowsOnTop: UnsafeMutablePointer<Int>, _ extraRowsOnBottom: UnsafeMutablePointer<Int>)
+func CVPixelBufferGetExtendedPixels(_ pixelBuffer: CVPixelBuffer, _ extraColumnsOnLeft: UnsafeMutablePointer<Int>, _ extraColumnsOnRight: UnsafeMutablePointer<Int>, _ extraRowsOnTop: UnsafeMutablePointer<Int>, _ extraRowsOnBottom: UnsafeMutablePointer<Int>)
 @available(OSX 10.4, *)
-func CVPixelBufferFillExtendedPixels(pixelBuffer: CVPixelBuffer) -> CVReturn
+func CVPixelBufferFillExtendedPixels(_ pixelBuffer: CVPixelBuffer) -> CVReturn

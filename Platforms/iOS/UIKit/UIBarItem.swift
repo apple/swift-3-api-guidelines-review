@@ -13,7 +13,7 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   var landscapeImagePhoneInsets: UIEdgeInsets
   var tag: Int
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]?, for state: UIControlState)
+  func setTitleTextAttributes(_ attributes: [String : AnyObject]?, for state: UIControlState)
   @available(iOS 5.0, *)
   func titleTextAttributes(for state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
@@ -23,7 +23,7 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   @available(iOS 9.0, *)
   class func whenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func forTraitCollection(trait: UITraitCollection) -> Self
+  class func forTraitCollection(_ trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func forTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func forTraitCollection(_ trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

@@ -1,7 +1,7 @@
 
 @available(watchOS 20000, *)
 enum HMCharacteristicValueDoorState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case open
   case closed
@@ -11,7 +11,7 @@ enum HMCharacteristicValueDoorState : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueHeatingCooling : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case off
   case heat
@@ -20,21 +20,21 @@ enum HMCharacteristicValueHeatingCooling : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueRotationDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case clockwise
   case counterClockwise
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueTemperatureUnit : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case celsius
   case fahrenheit
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueLockMechanismState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unsecured
   case secured
@@ -43,7 +43,7 @@ enum HMCharacteristicValueLockMechanismState : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueLockMechanismLastKnownAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case securedUsingPhysicalMovementInterior
   case unsecuredUsingPhysicalMovementInterior
@@ -59,14 +59,14 @@ enum HMCharacteristicValueLockMechanismLastKnownAction : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueAirParticulateSize : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case size2_5
   case size10
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueAirQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case excellent
@@ -77,7 +77,7 @@ enum HMCharacteristicValueAirQuality : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValuePositionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case closing
   case opening
@@ -85,7 +85,7 @@ enum HMCharacteristicValuePositionState : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueCurrentSecuritySystemState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case stayArm
   case awayArm
@@ -95,7 +95,7 @@ enum HMCharacteristicValueCurrentSecuritySystemState : Int {
 }
 @available(watchOS 20000, *)
 enum HMCharacteristicValueTargetSecuritySystemState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case stayArm
   case awayArm

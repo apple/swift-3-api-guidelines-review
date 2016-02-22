@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum MTLCommandBufferStatus : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case notEnqueued
   case enqueued
@@ -14,7 +14,7 @@ enum MTLCommandBufferStatus : UInt {
 let MTLCommandBufferErrorDomain: String
 @available(tvOS 8.0, *)
 enum MTLCommandBufferError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case `internal`
@@ -34,11 +34,11 @@ protocol MTLCommandBuffer : NSObjectProtocol {
   var label: String? { get set }
   func enqueue()
   func commit()
-  func addScheduledHandler(block: MTLCommandBufferHandler)
-  func present(drawable: MTLDrawable)
-  func present(drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
+  func addScheduledHandler(_ block: MTLCommandBufferHandler)
+  func present(_ drawable: MTLDrawable)
+  func present(_ drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
   func waitUntilScheduled()
-  func addCompletedHandler(block: MTLCommandBufferHandler)
+  func addCompletedHandler(_ block: MTLCommandBufferHandler)
   func waitUntilCompleted()
   var status: MTLCommandBufferStatus { get }
   var error: NSError? { get }

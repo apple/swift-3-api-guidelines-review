@@ -1,6 +1,6 @@
 
 enum UIGuidedAccessRestrictionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case allow
   case deny
@@ -13,4 +13,4 @@ protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   optional func detailTextForGuidedAccessRestriction(withIdentifier restrictionIdentifier: String) -> String?
 }
 @available(tvOS 7.0, *)
-func UIGuidedAccessRestrictionStateForIdentifier(restrictionIdentifier: String) -> UIGuidedAccessRestrictionState
+func UIGuidedAccessRestrictionStateForIdentifier(_ restrictionIdentifier: String) -> UIGuidedAccessRestrictionState

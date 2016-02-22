@@ -13,11 +13,11 @@ class NSLock : NSObject, NSLocking {
   func unlock()
 }
 class NSConditionLock : NSObject, NSLocking {
-  init(condition: Int)
+  init(condition condition: Int)
   var condition: Int { get }
   func lock(whenCondition condition: Int)
   func tryLock() -> Bool
-  func tryWhenCondition(condition: Int) -> Bool
+  func tryWhenCondition(_ condition: Int) -> Bool
   func unlock(condition condition: Int)
   func lock(before limit: NSDate) -> Bool
   func lock(whenCondition condition: Int, before limit: NSDate) -> Bool

@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NCUpdateResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case newData
   case noData

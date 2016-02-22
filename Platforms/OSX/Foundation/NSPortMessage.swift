@@ -1,6 +1,6 @@
 
 class NSPortMessage : NSObject {
-  init(send sendPort: NSPort?, receive replyPort: NSPort?, components: [AnyObject]?)
+  init(send sendPort: NSPort?, receive replyPort: NSPort?, components components: [AnyObject]?)
   var components: [AnyObject]? { get }
   var receivePort: NSPort? { get }
   var sendPort: NSPort? { get }

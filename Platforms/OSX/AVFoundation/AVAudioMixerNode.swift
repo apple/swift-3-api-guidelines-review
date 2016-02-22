@@ -5,7 +5,7 @@ class AVAudioMixerNode : AVAudioNode, AVAudioMixing {
   var nextAvailableInputBus: AVAudioNodeBus { get }
   init()
   @available(OSX 10.11, *)
-  func destination(forMixer mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

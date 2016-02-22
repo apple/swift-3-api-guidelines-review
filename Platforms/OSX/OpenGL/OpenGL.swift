@@ -3,48 +3,48 @@ var CGL_VERSION_1_0: Int32 { get }
 var CGL_VERSION_1_1: Int32 { get }
 var CGL_VERSION_1_2: Int32 { get }
 var CGL_VERSION_1_3: Int32 { get }
-func CGLChoosePixelFormat(attribs: UnsafePointer<CGLPixelFormatAttribute>, _ pix: UnsafeMutablePointer<CGLPixelFormatObj>, _ npix: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLDestroyPixelFormat(pix: CGLPixelFormatObj) -> CGLError
-func CGLDescribePixelFormat(pix: CGLPixelFormatObj, _ pix_num: GLint, _ attrib: CGLPixelFormatAttribute, _ value: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLChoosePixelFormat(_ attribs: UnsafePointer<CGLPixelFormatAttribute>, _ pix: UnsafeMutablePointer<CGLPixelFormatObj>, _ npix: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLDestroyPixelFormat(_ pix: CGLPixelFormatObj) -> CGLError
+func CGLDescribePixelFormat(_ pix: CGLPixelFormatObj, _ pix_num: GLint, _ attrib: CGLPixelFormatAttribute, _ value: UnsafeMutablePointer<GLint>) -> CGLError
 @available(OSX 10.5, *)
-func CGLReleasePixelFormat(pix: CGLPixelFormatObj)
+func CGLReleasePixelFormat(_ pix: CGLPixelFormatObj)
 @available(OSX 10.5, *)
-func CGLRetainPixelFormat(pix: CGLPixelFormatObj) -> CGLPixelFormatObj
+func CGLRetainPixelFormat(_ pix: CGLPixelFormatObj) -> CGLPixelFormatObj
 @available(OSX 10.5, *)
-func CGLGetPixelFormatRetainCount(pix: CGLPixelFormatObj) -> GLuint
-func CGLQueryRendererInfo(display_mask: GLuint, _ rend: UnsafeMutablePointer<CGLRendererInfoObj>, _ nrend: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLDestroyRendererInfo(rend: CGLRendererInfoObj) -> CGLError
-func CGLDescribeRenderer(rend: CGLRendererInfoObj, _ rend_num: GLint, _ prop: CGLRendererProperty, _ value: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLCreateContext(pix: CGLPixelFormatObj, _ share: CGLContextObj, _ ctx: UnsafeMutablePointer<CGLContextObj>) -> CGLError
-func CGLDestroyContext(ctx: CGLContextObj) -> CGLError
+func CGLGetPixelFormatRetainCount(_ pix: CGLPixelFormatObj) -> GLuint
+func CGLQueryRendererInfo(_ display_mask: GLuint, _ rend: UnsafeMutablePointer<CGLRendererInfoObj>, _ nrend: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLDestroyRendererInfo(_ rend: CGLRendererInfoObj) -> CGLError
+func CGLDescribeRenderer(_ rend: CGLRendererInfoObj, _ rend_num: GLint, _ prop: CGLRendererProperty, _ value: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLCreateContext(_ pix: CGLPixelFormatObj, _ share: CGLContextObj, _ ctx: UnsafeMutablePointer<CGLContextObj>) -> CGLError
+func CGLDestroyContext(_ ctx: CGLContextObj) -> CGLError
 @available(OSX 10.5, *)
-func CGLRetainContext(ctx: CGLContextObj) -> CGLContextObj
+func CGLRetainContext(_ ctx: CGLContextObj) -> CGLContextObj
 @available(OSX 10.5, *)
-func CGLReleaseContext(ctx: CGLContextObj)
+func CGLReleaseContext(_ ctx: CGLContextObj)
 @available(OSX 10.5, *)
-func CGLGetContextRetainCount(ctx: CGLContextObj) -> GLuint
+func CGLGetContextRetainCount(_ ctx: CGLContextObj) -> GLuint
 @available(OSX 10.5, *)
-func CGLGetPixelFormat(ctx: CGLContextObj) -> CGLPixelFormatObj
-func CGLClearDrawable(ctx: CGLContextObj) -> CGLError
-func CGLFlushDrawable(ctx: CGLContextObj) -> CGLError
-func CGLEnable(ctx: CGLContextObj, _ pname: CGLContextEnable) -> CGLError
-func CGLDisable(ctx: CGLContextObj, _ pname: CGLContextEnable) -> CGLError
-func CGLIsEnabled(ctx: CGLContextObj, _ pname: CGLContextEnable, _ enable: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLSetParameter(ctx: CGLContextObj, _ pname: CGLContextParameter, _ params: UnsafePointer<GLint>) -> CGLError
-func CGLGetParameter(ctx: CGLContextObj, _ pname: CGLContextParameter, _ params: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLSetVirtualScreen(ctx: CGLContextObj, _ screen: GLint) -> CGLError
-func CGLGetVirtualScreen(ctx: CGLContextObj, _ screen: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLGetPixelFormat(_ ctx: CGLContextObj) -> CGLPixelFormatObj
+func CGLClearDrawable(_ ctx: CGLContextObj) -> CGLError
+func CGLFlushDrawable(_ ctx: CGLContextObj) -> CGLError
+func CGLEnable(_ ctx: CGLContextObj, _ pname: CGLContextEnable) -> CGLError
+func CGLDisable(_ ctx: CGLContextObj, _ pname: CGLContextEnable) -> CGLError
+func CGLIsEnabled(_ ctx: CGLContextObj, _ pname: CGLContextEnable, _ enable: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLSetParameter(_ ctx: CGLContextObj, _ pname: CGLContextParameter, _ params: UnsafePointer<GLint>) -> CGLError
+func CGLGetParameter(_ ctx: CGLContextObj, _ pname: CGLContextParameter, _ params: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLSetVirtualScreen(_ ctx: CGLContextObj, _ screen: GLint) -> CGLError
+func CGLGetVirtualScreen(_ ctx: CGLContextObj, _ screen: UnsafeMutablePointer<GLint>) -> CGLError
 @available(OSX 10.7, *)
-func CGLUpdateContext(ctx: CGLContextObj) -> CGLError
+func CGLUpdateContext(_ ctx: CGLContextObj) -> CGLError
 @available(OSX 10.6, *)
-func CGLSetGlobalOption(pname: CGLGlobalOption, _ params: UnsafePointer<GLint>) -> CGLError
+func CGLSetGlobalOption(_ pname: CGLGlobalOption, _ params: UnsafePointer<GLint>) -> CGLError
 @available(OSX 10.6, *)
-func CGLGetGlobalOption(pname: CGLGlobalOption, _ params: UnsafeMutablePointer<GLint>) -> CGLError
-func CGLSetOption(pname: CGLGlobalOption, _ param: GLint) -> CGLError
-func CGLGetOption(pname: CGLGlobalOption, _ param: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLGetGlobalOption(_ pname: CGLGlobalOption, _ params: UnsafeMutablePointer<GLint>) -> CGLError
+func CGLSetOption(_ pname: CGLGlobalOption, _ param: GLint) -> CGLError
+func CGLGetOption(_ pname: CGLGlobalOption, _ param: UnsafeMutablePointer<GLint>) -> CGLError
 @available(OSX 10.4, *)
-func CGLLockContext(ctx: CGLContextObj) -> CGLError
+func CGLLockContext(_ ctx: CGLContextObj) -> CGLError
 @available(OSX 10.4, *)
-func CGLUnlockContext(ctx: CGLContextObj) -> CGLError
-func CGLGetVersion(majorvers: UnsafeMutablePointer<GLint>, _ minorvers: UnsafeMutablePointer<GLint>)
-func CGLErrorString(error: CGLError) -> UnsafePointer<Int8>
+func CGLUnlockContext(_ ctx: CGLContextObj) -> CGLError
+func CGLGetVersion(_ majorvers: UnsafeMutablePointer<GLint>, _ minorvers: UnsafeMutablePointer<GLint>)
+func CGLErrorString(_ error: CGLError) -> UnsafePointer<Int8>

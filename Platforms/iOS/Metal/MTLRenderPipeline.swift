@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum MTLBlendFactor : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case zero
   case one
@@ -21,7 +21,7 @@ enum MTLBlendFactor : UInt {
 }
 @available(iOS 8.0, *)
 enum MTLBlendOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case add
   case subtract
@@ -31,7 +31,7 @@ enum MTLBlendOperation : UInt {
 }
 @available(iOS 8.0, *)
 struct MTLColorWriteMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: MTLColorWriteMask { get }
   static var red: MTLColorWriteMask { get }
@@ -86,6 +86,6 @@ protocol MTLRenderPipelineState : NSObjectProtocol {
 }
 @available(iOS 8.0, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
-  subscript(attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
+  subscript(_ attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
   init()
 }

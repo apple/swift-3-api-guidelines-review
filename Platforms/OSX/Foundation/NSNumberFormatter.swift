@@ -1,6 +1,6 @@
 
 enum NSNumberFormatterBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case behaviorDefault
   case behavior10_0
@@ -9,13 +9,13 @@ enum NSNumberFormatterBehavior : UInt {
 class NSNumberFormatter : NSFormatter {
   @available(OSX 10.10, *)
   var formattingContext: NSFormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
   func string(from number: NSNumber) -> String?
   func number(from string: String) -> NSNumber?
   @available(OSX 10.6, *)
   class func localizedString(from num: NSNumber, number nstyle: NSNumberFormatterStyle) -> String
   class func defaultFormatterBehavior() -> NSNumberFormatterBehavior
-  class func setDefaultFormatterBehavior(behavior: NSNumberFormatterBehavior)
+  class func setDefaultFormatterBehavior(_ behavior: NSNumberFormatterBehavior)
   var numberStyle: NSNumberFormatterStyle
   @NSCopying var locale: NSLocale!
   var generatesDecimalNumbers: Bool
@@ -82,7 +82,7 @@ class NSNumberFormatter : NSFormatter {
   init?(coder aDecoder: NSCoder)
 }
 enum NSNumberFormatterStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noStyle
   case decimalStyle
@@ -100,7 +100,7 @@ enum NSNumberFormatterStyle : UInt {
   case currencyAccountingStyle
 }
 enum NSNumberFormatterPadPosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case beforePrefix
   case afterPrefix
@@ -108,7 +108,7 @@ enum NSNumberFormatterPadPosition : UInt {
   case afterSuffix
 }
 enum NSNumberFormatterRoundingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case roundCeiling
   case roundFloor

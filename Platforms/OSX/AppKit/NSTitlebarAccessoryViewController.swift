@@ -7,6 +7,6 @@ class NSTitlebarAccessoryViewController : NSViewController {
   func viewDidAppear()
   func viewDidDisappear()
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }

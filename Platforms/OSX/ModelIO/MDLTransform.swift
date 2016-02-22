@@ -4,25 +4,25 @@ protocol MDLTransformComponent : MDLComponent {
   var matrix: matrix_float4x4 { get set }
   var minimumTime: NSTimeInterval { get }
   var maximumTime: NSTimeInterval { get }
-  optional func setLocalTransform(transform: matrix_float4x4, forTime time: NSTimeInterval)
-  optional func setLocalTransform(transform: matrix_float4x4)
+  optional func setLocalTransform(_ transform: matrix_float4x4, forTime time: NSTimeInterval)
+  optional func setLocalTransform(_ transform: matrix_float4x4)
   optional func localTransform(atTime time: NSTimeInterval) -> matrix_float4x4
   optional static func globalTransform(with object: MDLObject, atTime time: NSTimeInterval) -> matrix_float4x4
 }
 @available(OSX 10.11, *)
 class MDLTransform : NSObject, MDLTransformComponent {
-  init(identity: ())
+  init(identity identity: ())
   convenience init(transformComponent component: MDLTransformComponent)
-  convenience init(matrix: matrix_float4x4)
+  convenience init(matrix matrix: matrix_float4x4)
   func setIdentity()
   func translation(atTime time: NSTimeInterval) -> vector_float3
   func rotation(atTime time: NSTimeInterval) -> vector_float3
   func shear(atTime time: NSTimeInterval) -> vector_float3
   func scale(atTime time: NSTimeInterval) -> vector_float3
-  func setTranslation(translation: vector_float3, forTime time: NSTimeInterval)
-  func setRotation(rotation: vector_float3, forTime time: NSTimeInterval)
-  func setShear(shear: vector_float3, forTime time: NSTimeInterval)
-  func setScale(scale: vector_float3, forTime time: NSTimeInterval)
+  func setTranslation(_ translation: vector_float3, forTime time: NSTimeInterval)
+  func setRotation(_ rotation: vector_float3, forTime time: NSTimeInterval)
+  func setShear(_ shear: vector_float3, forTime time: NSTimeInterval)
+  func setScale(_ scale: vector_float3, forTime time: NSTimeInterval)
   func rotationMatrix(atTime time: NSTimeInterval) -> matrix_float4x4
   var translation: vector_float3
   var rotation: vector_float3
@@ -36,9 +36,9 @@ class MDLTransform : NSObject, MDLTransformComponent {
   @available(OSX 10.11, *)
   var maximumTime: NSTimeInterval { get }
   @available(OSX 10.11, *)
-  func setLocalTransform(transform: matrix_float4x4, forTime time: NSTimeInterval)
+  func setLocalTransform(_ transform: matrix_float4x4, forTime time: NSTimeInterval)
   @available(OSX 10.11, *)
-  func setLocalTransform(transform: matrix_float4x4)
+  func setLocalTransform(_ transform: matrix_float4x4)
   @available(OSX 10.11, *)
   func localTransform(atTime time: NSTimeInterval) -> matrix_float4x4
   @available(OSX 10.11, *)

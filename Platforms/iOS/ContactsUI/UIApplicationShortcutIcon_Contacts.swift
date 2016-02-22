@@ -1,4 +1,4 @@
 
 extension UIApplicationShortcutIcon {
-  convenience init(contact: CNContact)
+  convenience init(contact contact: CNContact)
 }

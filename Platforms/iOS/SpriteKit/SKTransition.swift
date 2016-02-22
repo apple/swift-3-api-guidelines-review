@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum SKTransitionDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case up
   case down
@@ -11,12 +11,12 @@ enum SKTransitionDirection : Int {
 class SKTransition : NSObject, NSCopying {
   class func crossFade(duration sec: NSTimeInterval) -> SKTransition
   class func fade(duration sec: NSTimeInterval) -> SKTransition
-  class func fade(color: UIColor, duration sec: NSTimeInterval) -> SKTransition
+  class func fade(_ color: UIColor, duration sec: NSTimeInterval) -> SKTransition
   class func flipHorizontal(duration sec: NSTimeInterval) -> SKTransition
   class func flipVertical(duration sec: NSTimeInterval) -> SKTransition
   class func reveal(with direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func moveIn(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
-  class func push(direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
+  class func moveIn(_ direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
+  class func push(_ direction: SKTransitionDirection, duration sec: NSTimeInterval) -> SKTransition
   class func doorsOpenHorizontal(withDuration sec: NSTimeInterval) -> SKTransition
   class func doorsOpenVertical(withDuration sec: NSTimeInterval) -> SKTransition
   class func doorsCloseHorizontal(withDuration sec: NSTimeInterval) -> SKTransition

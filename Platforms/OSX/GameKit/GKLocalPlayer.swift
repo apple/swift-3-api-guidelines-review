@@ -9,7 +9,7 @@ class GKLocalPlayer : GKPlayer {
   @available(OSX 10.10, *)
   func loadFriendPlayers(completionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)? = nil)
+  func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func loadDefaultLeaderboardIdentifier(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
@@ -20,9 +20,9 @@ protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKT
 }
 extension GKLocalPlayer {
   @available(OSX 10.10, *)
-  func register(listener: GKLocalPlayerListener)
+  func register(_ listener: GKLocalPlayerListener)
   @available(OSX 10.10, *)
-  func unregisterListener(listener: GKLocalPlayerListener)
+  func unregisterListener(_ listener: GKLocalPlayerListener)
   @available(OSX 10.10, *)
   func unregisterAllListeners()
 }
@@ -30,7 +30,7 @@ extension GKLocalPlayer {
 let GKPlayerAuthenticationDidChangeNotificationName: String
 extension GKLocalPlayer {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use setDefaultLeaderboardIdentifier:completionHandler: instead")
-  func setDefaultLeaderboardCategoryID(categoryID: String?, completionHandler: ((NSError?) -> Void)? = nil)
+  func setDefaultLeaderboardCategoryID(_ categoryID: String?, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use loadDefaultLeaderboardIdentifierWithCompletionHandler: instead")
   func loadDefaultLeaderboardCategoryID(completionHandler completionHandler: ((String?, NSError?) -> Void)? = nil)
   @available(OSX, introduced=10.8, deprecated=10.10, message="use loadFriendPlayersWithCompletionHandler: instead")

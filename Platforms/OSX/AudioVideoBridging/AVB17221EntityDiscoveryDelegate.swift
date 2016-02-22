@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 struct AVB17221EntityPropertyChanged : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var timeToLive: AVB17221EntityPropertyChanged { get }
   @available(OSX 10.9, *)
@@ -29,19 +29,19 @@ struct AVB17221EntityPropertyChanged : OptionSetType {
 }
 protocol AVB17221EntityDiscoveryDelegate {
   @available(OSX 10.8, *)
-  func didAddRemoteEntity(newEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didAddRemoteEntity(_ newEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didRemoveRemoteEntity(oldEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didRemoveRemoteEntity(_ oldEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didRediscoverRemoteEntity(entity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didRediscoverRemoteEntity(_ entity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didUpdateRemoteEntity(entity: AVB17221Entity, changedProperties: AVB17221EntityPropertyChanged, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didUpdateRemoteEntity(_ entity: AVB17221Entity, changedProperties changedProperties: AVB17221EntityPropertyChanged, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didAddLocalEntity(newEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didAddLocalEntity(_ newEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didRemoveLocalEntity(oldEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didRemoveLocalEntity(_ oldEntity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didRediscoverLocalEntity(entity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didRediscoverLocalEntity(_ entity: AVB17221Entity, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
   @available(OSX 10.8, *)
-  func didUpdateLocalEntity(entity: AVB17221Entity, changedProperties: AVB17221EntityPropertyChanged, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
+  func didUpdateLocalEntity(_ entity: AVB17221Entity, changedProperties changedProperties: AVB17221EntityPropertyChanged, on17221EntityDiscovery entityDiscovery: AVB17221EntityDiscovery)
 }

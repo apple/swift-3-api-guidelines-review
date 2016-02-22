@@ -6,14 +6,14 @@ var kFFAPINonRelRev: Int { get }
 struct FFCONSTANTFORCE {
   var lMagnitude: LONG
   init()
-  init(lMagnitude: LONG)
+  init(lMagnitude lMagnitude: LONG)
 }
 typealias PFFCONSTANTFORCE = UnsafeMutablePointer<FFCONSTANTFORCE>
 struct FFRAMPFORCE {
   var lStart: LONG
   var lEnd: LONG
   init()
-  init(lStart: LONG, lEnd: LONG)
+  init(lStart lStart: LONG, lEnd lEnd: LONG)
 }
 typealias PFFRAMPFORCE = UnsafeMutablePointer<FFRAMPFORCE>
 struct FFPERIODIC {
@@ -22,7 +22,7 @@ struct FFPERIODIC {
   var dwPhase: DWORD
   var dwPeriod: DWORD
   init()
-  init(dwMagnitude: DWORD, lOffset: LONG, dwPhase: DWORD, dwPeriod: DWORD)
+  init(dwMagnitude dwMagnitude: DWORD, lOffset lOffset: LONG, dwPhase dwPhase: DWORD, dwPeriod dwPeriod: DWORD)
 }
 typealias PFFPERIODIC = UnsafeMutablePointer<FFPERIODIC>
 struct FFCONDITION {
@@ -33,7 +33,7 @@ struct FFCONDITION {
   var dwNegativeSaturation: DWORD
   var lDeadBand: LONG
   init()
-  init(lOffset: LONG, lPositiveCoefficient: LONG, lNegativeCoefficient: LONG, dwPositiveSaturation: DWORD, dwNegativeSaturation: DWORD, lDeadBand: LONG)
+  init(lOffset lOffset: LONG, lPositiveCoefficient lPositiveCoefficient: LONG, lNegativeCoefficient lNegativeCoefficient: LONG, dwPositiveSaturation dwPositiveSaturation: DWORD, dwNegativeSaturation dwNegativeSaturation: DWORD, lDeadBand lDeadBand: LONG)
 }
 typealias PFFCONDITION = UnsafeMutablePointer<FFCONDITION>
 struct FFCUSTOMFORCE {
@@ -42,7 +42,7 @@ struct FFCUSTOMFORCE {
   var cSamples: DWORD
   var rglForceData: LPLONG
   init()
-  init(cChannels: DWORD, dwSamplePeriod: DWORD, cSamples: DWORD, rglForceData: LPLONG)
+  init(cChannels cChannels: DWORD, dwSamplePeriod dwSamplePeriod: DWORD, cSamples cSamples: DWORD, rglForceData rglForceData: LPLONG)
 }
 typealias PFFCUSTOMFORCE = UnsafeMutablePointer<FFCUSTOMFORCE>
 struct FFENVELOPE {
@@ -52,7 +52,7 @@ struct FFENVELOPE {
   var dwFadeLevel: DWORD
   var dwFadeTime: DWORD
   init()
-  init(dwSize: DWORD, dwAttackLevel: DWORD, dwAttackTime: DWORD, dwFadeLevel: DWORD, dwFadeTime: DWORD)
+  init(dwSize dwSize: DWORD, dwAttackLevel dwAttackLevel: DWORD, dwAttackTime dwAttackTime: DWORD, dwFadeLevel dwFadeLevel: DWORD, dwFadeTime dwFadeTime: DWORD)
 }
 typealias PFFENVELOPE = UnsafeMutablePointer<FFENVELOPE>
 struct FFEFFECT {
@@ -71,7 +71,7 @@ struct FFEFFECT {
   var lpvTypeSpecificParams: UnsafeMutablePointer<Void>
   var dwStartDelay: DWORD
   init()
-  init(dwSize: DWORD, dwFlags: DWORD, dwDuration: DWORD, dwSamplePeriod: DWORD, dwGain: DWORD, dwTriggerButton: DWORD, dwTriggerRepeatInterval: DWORD, cAxes: DWORD, rgdwAxes: LPDWORD, rglDirection: LPLONG, lpEnvelope: PFFENVELOPE, cbTypeSpecificParams: DWORD, lpvTypeSpecificParams: UnsafeMutablePointer<Void>, dwStartDelay: DWORD)
+  init(dwSize dwSize: DWORD, dwFlags dwFlags: DWORD, dwDuration dwDuration: DWORD, dwSamplePeriod dwSamplePeriod: DWORD, dwGain dwGain: DWORD, dwTriggerButton dwTriggerButton: DWORD, dwTriggerRepeatInterval dwTriggerRepeatInterval: DWORD, cAxes cAxes: DWORD, rgdwAxes rgdwAxes: LPDWORD, rglDirection rglDirection: LPLONG, lpEnvelope lpEnvelope: PFFENVELOPE, cbTypeSpecificParams cbTypeSpecificParams: DWORD, lpvTypeSpecificParams lpvTypeSpecificParams: UnsafeMutablePointer<Void>, dwStartDelay dwStartDelay: DWORD)
 }
 typealias PFFEFFECT = UnsafeMutablePointer<FFEFFECT>
 struct FFEFFESCAPE {
@@ -82,7 +82,7 @@ struct FFEFFESCAPE {
   var lpvOutBuffer: UnsafeMutablePointer<Void>
   var cbOutBuffer: DWORD
   init()
-  init(dwSize: DWORD, dwCommand: DWORD, lpvInBuffer: UnsafeMutablePointer<Void>, cbInBuffer: DWORD, lpvOutBuffer: UnsafeMutablePointer<Void>, cbOutBuffer: DWORD)
+  init(dwSize dwSize: DWORD, dwCommand dwCommand: DWORD, lpvInBuffer lpvInBuffer: UnsafeMutablePointer<Void>, cbInBuffer cbInBuffer: DWORD, lpvOutBuffer lpvOutBuffer: UnsafeMutablePointer<Void>, cbOutBuffer cbOutBuffer: DWORD)
 }
 typealias PFFEFFESCAPE = UnsafeMutablePointer<FFEFFESCAPE>
 struct FFCAPABILITIES {
@@ -98,7 +98,7 @@ struct FFCAPABILITIES {
   var hardwareVer: NumVersion
   var driverVer: NumVersion
   init()
-  init(ffSpecVer: NumVersion, supportedEffects: UInt32, emulatedEffects: UInt32, subType: UInt32, numFfAxes: UInt32, ffAxes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), storageCapacity: UInt32, playbackCapacity: UInt32, firmwareVer: NumVersion, hardwareVer: NumVersion, driverVer: NumVersion)
+  init(ffSpecVer ffSpecVer: NumVersion, supportedEffects supportedEffects: UInt32, emulatedEffects emulatedEffects: UInt32, subType subType: UInt32, numFfAxes numFfAxes: UInt32, ffAxes ffAxes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), storageCapacity storageCapacity: UInt32, playbackCapacity playbackCapacity: UInt32, firmwareVer firmwareVer: NumVersion, hardwareVer hardwareVer: NumVersion, driverVer driverVer: NumVersion)
 }
 typealias PFFCAPABILITIES = UnsafeMutablePointer<FFCAPABILITIES>
 struct __FFDHIDDEN {
@@ -109,23 +109,23 @@ struct __FFEHIDDEN {
   init()
 }
 typealias FFEffectObjectReference = UnsafeMutablePointer<__FFEHIDDEN>
-func FFCreateDevice(hidDevice: io_service_t, _ pDeviceReference: UnsafeMutablePointer<FFDeviceObjectReference>) -> HRESULT
-func FFReleaseDevice(deviceReference: FFDeviceObjectReference) -> HRESULT
-func FFIsForceFeedback(hidDevice: io_service_t) -> HRESULT
-func FFDeviceCreateEffect(deviceReference: FFDeviceObjectReference, _ uuidRef: CFUUID!, _ pEffectDefinition: UnsafeMutablePointer<FFEFFECT>, _ pEffectReference: UnsafeMutablePointer<FFEffectObjectReference>) -> HRESULT
-func FFDeviceReleaseEffect(deviceReference: FFDeviceObjectReference, _ effectReference: FFEffectObjectReference) -> HRESULT
-func FFDeviceEscape(deviceReference: FFDeviceObjectReference, _ pFFEffectEscape: UnsafeMutablePointer<FFEFFESCAPE>) -> HRESULT
-func FFDeviceGetForceFeedbackState(deviceReference: FFDeviceObjectReference, _ pFFState: UnsafeMutablePointer<FFState>) -> HRESULT
-func FFDeviceSendForceFeedbackCommand(deviceReference: FFDeviceObjectReference, _ flags: FFCommandFlag) -> HRESULT
-func FFDeviceSetForceFeedbackProperty(deviceReference: FFDeviceObjectReference, _ property: FFProperty, _ pValue: UnsafeMutablePointer<Void>) -> HRESULT
-func FFDeviceGetForceFeedbackProperty(deviceReference: FFDeviceObjectReference, _ property: FFProperty, _ pValue: UnsafeMutablePointer<Void>, _ valueSize: IOByteCount) -> HRESULT
-func FFDeviceSetCooperativeLevel(deviceReference: FFDeviceObjectReference, _ taskIdentifier: UnsafeMutablePointer<Void>, _ flags: FFCooperativeLevelFlag) -> HRESULT
-func FFDeviceGetForceFeedbackCapabilities(deviceReference: FFDeviceObjectReference, _ pFFCapabilities: UnsafeMutablePointer<FFCAPABILITIES>) -> HRESULT
-func FFEffectDownload(effectReference: FFEffectObjectReference) -> HRESULT
-func FFEffectEscape(effectReference: FFEffectObjectReference, _ pFFEffectEscape: UnsafeMutablePointer<FFEFFESCAPE>) -> HRESULT
-func FFEffectGetEffectStatus(effectReference: FFEffectObjectReference, _ pFlags: UnsafeMutablePointer<FFEffectStatusFlag>) -> HRESULT
-func FFEffectGetParameters(effectReference: FFEffectObjectReference, _ pFFEffect: UnsafeMutablePointer<FFEFFECT>, _ flags: FFEffectParameterFlag) -> HRESULT
-func FFEffectSetParameters(effectReference: FFEffectObjectReference, _ pFFEffect: UnsafeMutablePointer<FFEFFECT>, _ flags: FFEffectParameterFlag) -> HRESULT
-func FFEffectStart(effectReference: FFEffectObjectReference, _ iterations: UInt32, _ flags: FFEffectStartFlag) -> HRESULT
-func FFEffectStop(effectReference: FFEffectObjectReference) -> HRESULT
-func FFEffectUnload(effectReference: FFEffectObjectReference) -> HRESULT
+func FFCreateDevice(_ hidDevice: io_service_t, _ pDeviceReference: UnsafeMutablePointer<FFDeviceObjectReference>) -> HRESULT
+func FFReleaseDevice(_ deviceReference: FFDeviceObjectReference) -> HRESULT
+func FFIsForceFeedback(_ hidDevice: io_service_t) -> HRESULT
+func FFDeviceCreateEffect(_ deviceReference: FFDeviceObjectReference, _ uuidRef: CFUUID!, _ pEffectDefinition: UnsafeMutablePointer<FFEFFECT>, _ pEffectReference: UnsafeMutablePointer<FFEffectObjectReference>) -> HRESULT
+func FFDeviceReleaseEffect(_ deviceReference: FFDeviceObjectReference, _ effectReference: FFEffectObjectReference) -> HRESULT
+func FFDeviceEscape(_ deviceReference: FFDeviceObjectReference, _ pFFEffectEscape: UnsafeMutablePointer<FFEFFESCAPE>) -> HRESULT
+func FFDeviceGetForceFeedbackState(_ deviceReference: FFDeviceObjectReference, _ pFFState: UnsafeMutablePointer<FFState>) -> HRESULT
+func FFDeviceSendForceFeedbackCommand(_ deviceReference: FFDeviceObjectReference, _ flags: FFCommandFlag) -> HRESULT
+func FFDeviceSetForceFeedbackProperty(_ deviceReference: FFDeviceObjectReference, _ property: FFProperty, _ pValue: UnsafeMutablePointer<Void>) -> HRESULT
+func FFDeviceGetForceFeedbackProperty(_ deviceReference: FFDeviceObjectReference, _ property: FFProperty, _ pValue: UnsafeMutablePointer<Void>, _ valueSize: IOByteCount) -> HRESULT
+func FFDeviceSetCooperativeLevel(_ deviceReference: FFDeviceObjectReference, _ taskIdentifier: UnsafeMutablePointer<Void>, _ flags: FFCooperativeLevelFlag) -> HRESULT
+func FFDeviceGetForceFeedbackCapabilities(_ deviceReference: FFDeviceObjectReference, _ pFFCapabilities: UnsafeMutablePointer<FFCAPABILITIES>) -> HRESULT
+func FFEffectDownload(_ effectReference: FFEffectObjectReference) -> HRESULT
+func FFEffectEscape(_ effectReference: FFEffectObjectReference, _ pFFEffectEscape: UnsafeMutablePointer<FFEFFESCAPE>) -> HRESULT
+func FFEffectGetEffectStatus(_ effectReference: FFEffectObjectReference, _ pFlags: UnsafeMutablePointer<FFEffectStatusFlag>) -> HRESULT
+func FFEffectGetParameters(_ effectReference: FFEffectObjectReference, _ pFFEffect: UnsafeMutablePointer<FFEFFECT>, _ flags: FFEffectParameterFlag) -> HRESULT
+func FFEffectSetParameters(_ effectReference: FFEffectObjectReference, _ pFFEffect: UnsafeMutablePointer<FFEFFECT>, _ flags: FFEffectParameterFlag) -> HRESULT
+func FFEffectStart(_ effectReference: FFEffectObjectReference, _ iterations: UInt32, _ flags: FFEffectStartFlag) -> HRESULT
+func FFEffectStop(_ effectReference: FFEffectObjectReference) -> HRESULT
+func FFEffectUnload(_ effectReference: FFEffectObjectReference) -> HRESULT

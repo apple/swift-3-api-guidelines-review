@@ -3,7 +3,7 @@
 let TVMLKitErrorDomain: String
 @available(tvOS 9.0, *)
 enum TVMLKitError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case internetUnavailable

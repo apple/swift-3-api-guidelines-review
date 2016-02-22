@@ -1,14 +1,14 @@
 
 class DRFolder : DRFSObject {
-  init!(path: String!)
+  init!(path path: String!)
   init()
 }
 extension DRFolder {
   class func virtualFolder(withName name: String!) -> DRFolder!
-  init!(name: String!)
+  init!(name name: String!)
   func makeVirtual()
-  func addChild(child: DRFSObject!)
-  func removeChild(child: DRFSObject!)
+  func addChild(_ child: DRFSObject!)
+  func removeChild(_ child: DRFSObject!)
   func count() -> Int
   func children() -> [AnyObject]!
 }

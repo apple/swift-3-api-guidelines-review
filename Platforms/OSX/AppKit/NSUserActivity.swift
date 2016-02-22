@@ -4,17 +4,17 @@ extension NSResponder {
   @available(OSX 10.10, *)
   var userActivity: NSUserActivity?
   @available(OSX 10.10, *)
-  func updateUserActivityState(userActivity: NSUserActivity)
+  func updateUserActivityState(_ userActivity: NSUserActivity)
   @available(OSX 10.10, *)
-  func restoreUserActivityState(userActivity: NSUserActivity)
+  func restoreUserActivityState(_ userActivity: NSUserActivity)
 }
 extension NSDocument {
   @available(OSX 10.10, *)
   var userActivity: NSUserActivity?
   @available(OSX 10.10, *)
-  func updateUserActivityState(activity: NSUserActivity)
+  func updateUserActivityState(_ activity: NSUserActivity)
   @available(OSX 10.10, *)
-  func restoreUserActivityState(activity: NSUserActivity)
+  func restoreUserActivityState(_ activity: NSUserActivity)
 }
 @available(OSX 10.10, *)
 let NSUserActivityDocumentURLKey: String

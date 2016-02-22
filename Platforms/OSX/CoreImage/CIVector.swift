@@ -1,11 +1,11 @@
 
 @available(OSX 10.4, *)
 class CIVector : NSObject, NSCopying, NSSecureCoding {
-  init(values: UnsafePointer<CGFloat>, count: Int)
-  convenience init(x: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat, z: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat, z: CGFloat, w: CGFloat)
+  init(values values: UnsafePointer<CGFloat>, count count: Int)
+  convenience init(x x: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat, z z: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat, z z: CGFloat, w w: CGFloat)
   @available(OSX 10.9, *)
   convenience init(cgPoint p: CGPoint)
   @available(OSX 10.9, *)

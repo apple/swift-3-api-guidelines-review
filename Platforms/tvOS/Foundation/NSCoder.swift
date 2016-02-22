@@ -1,7 +1,7 @@
 
 class NSCoder : NSObject {
   func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
-  func encodeDataObject(data: NSData)
+  func encodeDataObject(_ data: NSData)
   func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> NSData?
   func version(forClassName className: String) -> Int
@@ -10,40 +10,40 @@ class NSCoder : NSObject {
 
 extension NSCoder {
   @warn_unused_result
-  func decodeObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) -> DecodedObjectType?
+  func decodeObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(_ cls: DecodedObjectType.Type, forKey key: String) -> DecodedObjectType?
   @warn_unused_result
-  @nonobjc func decodeObjectOfClasses(classes: NSSet?, forKey key: String) -> AnyObject?
+  @nonobjc func decodeObjectOfClasses(_ classes: NSSet?, forKey key: String) -> AnyObject?
   @warn_unused_result
   func decodeTopLevelObject() throws -> AnyObject?
   @warn_unused_result
-  func decodeTopLevelObjectForKey(key: String) throws -> AnyObject?
+  func decodeTopLevelObjectForKey(_ key: String) throws -> AnyObject?
   @warn_unused_result
-  func decodeTopLevelObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(cls: DecodedObjectType.Type, forKey key: String) throws -> DecodedObjectType?
+  func decodeTopLevelObjectOfClass<DecodedObjectType : NSCoding where DecodedObjectType : NSObject>(_ cls: DecodedObjectType.Type, forKey key: String) throws -> DecodedObjectType?
   @warn_unused_result
-  func decodeTopLevelObjectOfClasses(classes: NSSet?, forKey key: String) throws -> AnyObject?
+  func decodeTopLevelObjectOfClasses(_ classes: NSSet?, forKey key: String) throws -> AnyObject?
 }
 extension NSCoder {
-  func encode(object: AnyObject?)
-  func encodeRootObject(rootObject: AnyObject)
-  func encodeBycopyObject(anObject: AnyObject?)
-  func encodeByrefObject(anObject: AnyObject?)
-  func encodeConditionalObject(object: AnyObject?)
-  func encodeArrayOf(objCType type: UnsafePointer<Int8>, count: Int, at array: UnsafePointer<Void>)
-  func encodeBytes(byteaddr: UnsafePointer<Void>, length: Int)
+  func encode(_ object: AnyObject?)
+  func encodeRootObject(_ rootObject: AnyObject)
+  func encodeBycopyObject(_ anObject: AnyObject?)
+  func encodeByrefObject(_ anObject: AnyObject?)
+  func encodeConditionalObject(_ object: AnyObject?)
+  func encodeArrayOf(objCType type: UnsafePointer<Int8>, count count: Int, at array: UnsafePointer<Void>)
+  func encodeBytes(_ byteaddr: UnsafePointer<Void>, length length: Int)
   func decodeObject() -> AnyObject?
-  func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count: Int, at array: UnsafeMutablePointer<Void>)
+  func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count count: Int, at array: UnsafeMutablePointer<Void>)
   func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   var systemVersion: UInt32 { get }
   var allowsKeyedCoding: Bool { get }
-  func encode(objv: AnyObject?, forKey key: String)
-  func encodeConditionalObject(objv: AnyObject?, forKey key: String)
-  func encode(boolv: Bool, forKey key: String)
-  func encode(intv: Int32, forKey key: String)
-  func encode(intv: Int32, forKey key: String)
-  func encode(intv: Int64, forKey key: String)
-  func encode(realv: Float, forKey key: String)
-  func encode(realv: Double, forKey key: String)
-  func encodeBytes(bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
+  func encode(_ objv: AnyObject?, forKey key: String)
+  func encodeConditionalObject(_ objv: AnyObject?, forKey key: String)
+  func encode(_ boolv: Bool, forKey key: String)
+  func encode(_ intv: Int32, forKey key: String)
+  func encode(_ intv: Int32, forKey key: String)
+  func encode(_ intv: Int64, forKey key: String)
+  func encode(_ realv: Float, forKey key: String)
+  func encode(_ realv: Double, forKey key: String)
+  func encodeBytes(_ bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
   func containsValue(forKey key: String) -> Bool
   func decodeObject(forKey key: String) -> AnyObject?
   func decodeBool(forKey key: String) -> Bool
@@ -54,7 +54,7 @@ extension NSCoder {
   func decodeDouble(forKey key: String) -> Double
   func decodeBytes(forKey key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
   @available(tvOS 2.0, *)
-  func encode(intv: Int, forKey key: String)
+  func encode(_ intv: Int, forKey key: String)
   @available(tvOS 2.0, *)
   func decodeInteger(forKey key: String) -> Int
   @available(tvOS 6.0, *)
@@ -66,5 +66,5 @@ extension NSCoder {
   @available(tvOS 6.0, *)
   var allowedClasses: Set<NSObject>? { get }
   @available(tvOS 9.0, *)
-  func failWithError(error: NSError)
+  func failWithError(_ error: NSError)
 }

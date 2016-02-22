@@ -6,7 +6,7 @@ struct AURecordedParameterEvent {
   var address: AUParameterAddress
   var value: AUValue
   init()
-  init(hostTime: UInt64, address: AUParameterAddress, value: AUValue)
+  init(hostTime hostTime: UInt64, address address: AUParameterAddress, value value: AUValue)
 }
 typealias AUParameterObserver = (AUParameterAddress, AUValue) -> Void
 typealias AUParameterRecordingObserver = (Int, UnsafePointer<AURecordedParameterEvent>) -> Void
@@ -19,7 +19,7 @@ class AUParameterNode : NSObject {
   func displayName(length maximumLength: Int) -> String
   func token(byAddingParameterObserver observer: AUParameterObserver) -> AUParameterObserverToken
   func token(byAddingParameterRecordingObserver observer: AUParameterRecordingObserver) -> AUParameterObserverToken
-  func removeParameterObserver(token: AUParameterObserverToken)
+  func removeParameterObserver(_ token: AUParameterObserverToken)
   init()
 }
 @available(OSX 10.11, *)
@@ -36,7 +36,7 @@ class AUParameterGroup : AUParameterNode, NSSecureCoding {
 @available(OSX 10.11, *)
 class AUParameterTree : AUParameterGroup, NSSecureCoding {
   func parameter(withAddress address: AUParameterAddress) -> AUParameter?
-  func parameter(withID paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
+  func parameter(withID paramID: AudioUnitParameterID, scope scope: AudioUnitScope, element element: AudioUnitElement) -> AUParameter?
   init()
   init?(coder aDecoder: NSCoder)
 }
@@ -51,8 +51,8 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   var valueStrings: [String]? { get }
   var dependentParameters: [NSNumber]? { get }
   var value: AUValue
-  func setValue(value: AUValue, originator: AUParameterObserverToken)
-  func setValue(value: AUValue, originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
+  func setValue(_ value: AUValue, originator originator: AUParameterObserverToken)
+  func setValue(_ value: AUValue, originator originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
   func string(fromValue value: UnsafePointer<AUValue>) -> String
   func value(from string: String) -> AUValue
   init()

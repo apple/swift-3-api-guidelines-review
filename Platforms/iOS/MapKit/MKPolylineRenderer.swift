@@ -1,8 +1,8 @@
 
 @available(iOS 7.0, *)
 class MKPolylineRenderer : MKOverlayPathRenderer {
-  init(polyline: MKPolyline)
+  init(polyline polyline: MKPolyline)
   var polyline: MKPolyline { get }
-  init(overlay: MKOverlay)
+  init(overlay overlay: MKOverlay)
   convenience init()
 }

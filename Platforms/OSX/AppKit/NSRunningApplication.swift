@@ -1,12 +1,12 @@
 
 struct NSApplicationActivationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var activateAllWindows: NSApplicationActivationOptions { get }
   static var activateIgnoringOtherApps: NSApplicationActivationOptions { get }
 }
 enum NSApplicationActivationPolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case regular
   case accessory
@@ -31,7 +31,7 @@ class NSRunningApplication : NSObject {
   var executableArchitecture: Int { get }
   func hide() -> Bool
   func unhide() -> Bool
-  func activate(options: NSApplicationActivationOptions = []) -> Bool
+  func activate(_ options: NSApplicationActivationOptions = []) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
   class func runningApplications(withBundleIdentifier bundleIdentifier: String) -> [NSRunningApplication]

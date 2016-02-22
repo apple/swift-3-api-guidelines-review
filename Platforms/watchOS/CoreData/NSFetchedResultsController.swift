@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class NSFetchedResultsController : NSObject {
-  init(fetchRequest: NSFetchRequest, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath: String?, cacheName name: String?)
+  init(fetchRequest fetchRequest: NSFetchRequest, managedObjectContext context: NSManagedObjectContext, sectionNameKeyPath sectionNameKeyPath: String?, cacheName name: String?)
   func performFetch() throws
   var fetchRequest: NSFetchRequest { get }
   var managedObjectContext: NSManagedObjectContext { get }
@@ -32,7 +32,7 @@ struct _fetchResultsControllerFlags {
   var _includesSubentities: UInt32
   var _reservedFlags: UInt32
   init()
-  init(_sendObjectChangeNotifications: UInt32, _sendSectionChangeNotifications: UInt32, _sendDidChangeContentNotifications: UInt32, _sendWillChangeContentNotifications: UInt32, _sendSectionIndexTitleForSectionName: UInt32, _changedResultsSinceLastSave: UInt32, _hasMutableFetchedResults: UInt32, _hasBatchedArrayResults: UInt32, _hasSections: UInt32, _usesNonpersistedProperties: UInt32, _includesSubentities: UInt32, _reservedFlags: UInt32)
+  init(_sendObjectChangeNotifications _sendObjectChangeNotifications: UInt32, _sendSectionChangeNotifications _sendSectionChangeNotifications: UInt32, _sendDidChangeContentNotifications _sendDidChangeContentNotifications: UInt32, _sendWillChangeContentNotifications _sendWillChangeContentNotifications: UInt32, _sendSectionIndexTitleForSectionName _sendSectionIndexTitleForSectionName: UInt32, _changedResultsSinceLastSave _changedResultsSinceLastSave: UInt32, _hasMutableFetchedResults _hasMutableFetchedResults: UInt32, _hasBatchedArrayResults _hasBatchedArrayResults: UInt32, _hasSections _hasSections: UInt32, _usesNonpersistedProperties _usesNonpersistedProperties: UInt32, _includesSubentities _includesSubentities: UInt32, _reservedFlags _reservedFlags: UInt32)
 }
 protocol NSFetchedResultsSectionInfo {
   var name: String { get }
@@ -42,19 +42,19 @@ protocol NSFetchedResultsSectionInfo {
 }
 protocol NSFetchedResultsControllerDelegate : NSObjectProtocol {
   @available(watchOS 2.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: NSIndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+  optional func controller(_ controller: NSFetchedResultsController, didChange anObject: AnyObject, at indexPath: NSIndexPath?, for type: NSFetchedResultsChangeType, newIndexPath newIndexPath: NSIndexPath?)
   @available(watchOS 2.0, *)
-  optional func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, for type: NSFetchedResultsChangeType)
+  optional func controller(_ controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, at sectionIndex: Int, for type: NSFetchedResultsChangeType)
   @available(watchOS 2.0, *)
-  optional func controllerWillChangeContent(controller: NSFetchedResultsController)
+  optional func controllerWillChangeContent(_ controller: NSFetchedResultsController)
   @available(watchOS 2.0, *)
-  optional func controllerDidChangeContent(controller: NSFetchedResultsController)
+  optional func controllerDidChangeContent(_ controller: NSFetchedResultsController)
   @available(watchOS 2.0, *)
-  optional func controller(controller: NSFetchedResultsController, sectionIndexTitleForSectionName sectionName: String) -> String?
+  optional func controller(_ controller: NSFetchedResultsController, sectionIndexTitleForSectionName sectionName: String) -> String?
 }
 @available(watchOS 2.0, *)
 enum NSFetchedResultsChangeType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case insert
   case delete

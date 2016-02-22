@@ -76,7 +76,7 @@ var kBluetoothPageScanModeOptional3: Int { get }
 typealias BluetoothHCIPageScanType = UInt8
 struct BluetoothHCIPageScanTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIPageScanTypeStandard: BluetoothHCIPageScanTypes { get }
@@ -91,22 +91,22 @@ var kBluetoothHCIErroneousDataReportingReservedEnd: Int { get }
 struct BluetoothDeviceAddress {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothKey {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothIRK {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothPINCode {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothClassOfDevice = UInt32
 typealias BluetoothServiceClassMajor = UInt32
@@ -124,7 +124,7 @@ var kBluetoothRoleRemainSlave: Int { get }
 struct BluetoothSetEventMask {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothPINType = UInt8
 var kBluetoothL2CAPMaxPacketSize: Int { get }
@@ -152,7 +152,7 @@ typealias BluetoothL2CAPGroupID = BluetoothL2CAPChannelID
 typealias BluetoothL2CAPPSM = UInt16
 struct BluetoothL2CAPCommandCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPCommandCodeReserved: BluetoothL2CAPCommandCode { get }
@@ -180,7 +180,7 @@ var kBluetoothL2CAPCommandCodeLECreditBasedConnectionResponse: BluetoothL2CAPCom
 var kBluetoothL2CAPCommandCodeLEFlowControlCredit: BluetoothL2CAPCommandCode { get }
 struct BluetoothL2CAPCommandRejectReason : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPCommandRejectReasonCommandNotUnderstood: BluetoothL2CAPCommandRejectReason { get }
@@ -202,7 +202,7 @@ struct BluetoothL2CAPQualityOfServiceOptions {
   var latency: UInt32
   var delayVariation: UInt32
   init()
-  init(flags: UInt8, serviceType: UInt8, tokenRate: UInt32, tokenBucketSize: UInt32, peakBandwidth: UInt32, latency: UInt32, delayVariation: UInt32)
+  init(flags flags: UInt8, serviceType serviceType: UInt8, tokenRate tokenRate: UInt32, tokenBucketSize tokenBucketSize: UInt32, peakBandwidth peakBandwidth: UInt32, latency latency: UInt32, delayVariation delayVariation: UInt32)
 }
 struct BluetoothL2CAPRetransmissionAndFlowControlOptions {
   var flags: UInt8
@@ -212,7 +212,7 @@ struct BluetoothL2CAPRetransmissionAndFlowControlOptions {
   var monitorTimeout: UInt16
   var maxPDUPayloadSize: UInt16
   init()
-  init(flags: UInt8, txWindowSize: UInt8, maxTransmit: UInt8, retransmissionTimeout: UInt16, monitorTimeout: UInt16, maxPDUPayloadSize: UInt16)
+  init(flags flags: UInt8, txWindowSize txWindowSize: UInt8, maxTransmit maxTransmit: UInt8, retransmissionTimeout retransmissionTimeout: UInt16, monitorTimeout monitorTimeout: UInt16, maxPDUPayloadSize maxPDUPayloadSize: UInt16)
 }
 var kBluetoothL2CAPInfoTypeMaxConnectionlessMTUSize: Int { get }
 var kBluetoothL2CAPPacketHeaderSize: Int { get }
@@ -221,7 +221,7 @@ typealias BluetoothL2CAPCommandID = UInt8
 typealias BluetoothL2CAPCommandByteCount = UInt16
 struct BluetoothL2CAPConnectionResult : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPConnectionResultSuccessful: BluetoothL2CAPConnectionResult { get }
@@ -231,7 +231,7 @@ var kBluetoothL2CAPConnectionResultRefusedSecurityBlock: BluetoothL2CAPConnectio
 var kBluetoothL2CAPConnectionResultRefusedNoResources: BluetoothL2CAPConnectionResult { get }
 struct BluetoothL2CAPConnectionStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPConnectionStatusNoInfoAvailable: BluetoothL2CAPConnectionStatus { get }
@@ -239,7 +239,7 @@ var kBluetoothL2CAPConnectionStatusAuthenticationPending: BluetoothL2CAPConnecti
 var kBluetoothL2CAPConnectionStatusAuthorizationPending: BluetoothL2CAPConnectionStatus { get }
 struct BluetoothL2CAPConfigurationResult : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPConfigurationResultSuccess: BluetoothL2CAPConfigurationResult { get }
@@ -248,7 +248,7 @@ var kBluetoothL2CAPConfigurationResultRejected: BluetoothL2CAPConfigurationResul
 var kBluetoothL2CAPConfigurationResultUnknownOptions: BluetoothL2CAPConfigurationResult { get }
 struct BluetoothL2CAPConfigurationOption : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPConfigurationOptionMTU: BluetoothL2CAPConfigurationOption { get }
@@ -264,7 +264,7 @@ var kBluetoothL2CAPConfigurationOptionQoSLength: Int { get }
 var kBluetoothL2CAPConfigurationOptionRetransmissionAndFlowControlLength: Int { get }
 struct BluetoothL2CAPConfigurationRetransmissionAndFlowControlFlags : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPConfigurationBasicL2CAPModeFlag: BluetoothL2CAPConfigurationRetransmissionAndFlowControlFlags { get }
@@ -274,7 +274,7 @@ var kBluetoothL2CAPConfigurationEnhancedRetransmissionMode: BluetoothL2CAPConfig
 var kBluetoothL2CAPConfigurationStreamingMode: BluetoothL2CAPConfigurationRetransmissionAndFlowControlFlags { get }
 struct BluetoothL2CAPInformationType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPInformationTypeConnectionlessMTU: BluetoothL2CAPInformationType { get }
@@ -282,14 +282,14 @@ var kBluetoothL2CAPInformationTypeExtendedFeatures: BluetoothL2CAPInformationTyp
 var kBluetoothL2CAPInformationTypeFixedChannelsSupported: BluetoothL2CAPInformationType { get }
 struct BluetoothL2CAPInformationResult : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPInformationResultSuccess: BluetoothL2CAPInformationResult { get }
 var kBluetoothL2CAPInformationResultNotSupported: BluetoothL2CAPInformationResult { get }
 struct BluetoothL2CAPInformationExtendedFeaturesMask : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPInformationNoExtendedFeatures: BluetoothL2CAPInformationExtendedFeaturesMask { get }
@@ -305,7 +305,7 @@ var kBluetoothL2CAPInformationExtendedWindowSize: BluetoothL2CAPInformationExten
 var kBluetoothL2CAPUnicastConnectionlessDataReception: BluetoothL2CAPInformationExtendedFeaturesMask { get }
 struct BluetoothL2CAPQoSType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothL2CAPQoSTypeNoTraffic: BluetoothL2CAPQoSType { get }
@@ -330,7 +330,7 @@ var kBluetoothLESMPMinEncryptionKeySize: Int32 { get }
 var kBluetoothLESMPMaxEncryptionKeySize: Int32 { get }
 struct BluetoothLESecurityManagerKeyDistributionFormat : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerEncryptionKey: BluetoothLESecurityManagerKeyDistributionFormat { get }
@@ -339,7 +339,7 @@ var kBluetoothLESecurityManagerSignKey: BluetoothLESecurityManagerKeyDistributio
 var kBluetoothLESecurityManagerLinkKey: BluetoothLESecurityManagerKeyDistributionFormat { get }
 struct BluetoothLESecurityManagerCommandCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerCommandCodeReserved: BluetoothLESecurityManagerCommandCode { get }
@@ -361,7 +361,7 @@ var kBluetoothLESecurityManagerCommandCodeReservedStart: BluetoothLESecurityMana
 var kBluetoothLESecurityManagerCommandCodeReservedEnd: BluetoothLESecurityManagerCommandCode { get }
 struct BluetoothLESecurityManagerUserInputCapability : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerUserInputCapabilityNoInput: BluetoothLESecurityManagerUserInputCapability { get }
@@ -369,14 +369,14 @@ var kBluetoothLESecurityManagerUserInputCapabilityYesNo: BluetoothLESecurityMana
 var kBluetoothLESecurityManagerUserInputCapabilityKeyboard: BluetoothLESecurityManagerUserInputCapability { get }
 struct BluetoothLESecurityManagerUserOutputCapability : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerUserOutputCapabilityNoOutput: BluetoothLESecurityManagerUserOutputCapability { get }
 var kBluetoothLESecurityManagerUserOutputCapabilityNumericOutput: BluetoothLESecurityManagerUserOutputCapability { get }
 struct BluetoothLESecurityManagerIOCapability : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerIOCapabilityDisplayOnly: BluetoothLESecurityManagerIOCapability { get }
@@ -388,7 +388,7 @@ var kBluetoothLESecurityManagerIOCapabilityReservedStart: BluetoothLESecurityMan
 var kBluetoothLESecurityManagerIOCapabilityReservedEnd: BluetoothLESecurityManagerIOCapability { get }
 struct BluetoothLESecurityManagerOOBData : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerOOBAuthenticationDataNotPresent: BluetoothLESecurityManagerOOBData { get }
@@ -401,7 +401,7 @@ var kBluetoothLESecurityManagerReservedStart: Int { get }
 var kBluetoothLESecurityManagerReservedEnd: Int { get }
 struct BluetoothLESecurityManagerPairingFailedReasonCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerReasonCodeReserved: BluetoothLESecurityManagerPairingFailedReasonCode { get }
@@ -423,7 +423,7 @@ var kBluetoothLESecurityManagerReasonCodeReservedStart: BluetoothLESecurityManag
 var kBluetoothLESecurityManagerReasonCodeReservedEnd: BluetoothLESecurityManagerPairingFailedReasonCode { get }
 struct BluetoothLESecurityManagerKeypressNotificationType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLESecurityManagerNotificationTypePasskeyEntryStarted: BluetoothLESecurityManagerKeypressNotificationType { get }
@@ -435,7 +435,7 @@ var kBluetoothLESecurityManagerNotificationTypeReservedStart: BluetoothLESecurit
 var kBluetoothLESecurityManagerNotificationTypeReservedEnd: BluetoothLESecurityManagerKeypressNotificationType { get }
 struct BluetoothAMPManagerCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerCodeReserved: BluetoothAMPManagerCode { get }
@@ -454,13 +454,13 @@ var kBluetoothAMPManagerCodeAMPDisconnectPhysicalLinkRequest: BluetoothAMPManage
 var kBluetoothAMPManagerCodeAMPDisconnectPhysicalLinkResponse: BluetoothAMPManagerCode { get }
 struct BluetoothAMPCommandRejectReason : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerCommandRejectReasonCommandNotRecognized: BluetoothAMPCommandRejectReason { get }
 struct BluetoothAMPDiscoverResponseControllerStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerDiscoverResponseControllerStatusPoweredDown: BluetoothAMPDiscoverResponseControllerStatus { get }
@@ -472,21 +472,21 @@ var kBluetoothAMPManagerDiscoverResponseControllerStatusHighCapacity: BluetoothA
 var kBluetoothAMPManagerDiscoverResponseControllerStatusFullCapacity: BluetoothAMPDiscoverResponseControllerStatus { get }
 struct BluetoothAMPGetInfoResponseStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerGetInfoResponseSuccess: BluetoothAMPGetInfoResponseStatus { get }
 var kBluetoothAMPManagerGetInfoResponseInvalidControllerID: BluetoothAMPGetInfoResponseStatus { get }
 struct BluetoothAMPGetAssocResponseStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerGetAssocResponseSuccess: BluetoothAMPGetAssocResponseStatus { get }
 var kBluetoothAMPManagerGetAssocResponseInvalidControllerID: BluetoothAMPGetAssocResponseStatus { get }
 struct BluetoothAMPCreatePhysicalLinkResponseStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerCreatePhysicalLinkResponseSuccess: BluetoothAMPCreatePhysicalLinkResponseStatus { get }
@@ -498,7 +498,7 @@ var kBluetoothAMPManagerCreatePhysicalLinkResponsePhysicalLinkAlreadyExists: Blu
 var kBluetoothAMPManagerCreatePhysicalLinkResponseSecurityViolation: BluetoothAMPCreatePhysicalLinkResponseStatus { get }
 struct BluetoothAMPDisconnectPhysicalLinkResponseStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAMPManagerDisconnectPhysicalLinkResponseSuccess: BluetoothAMPDisconnectPhysicalLinkResponseStatus { get }
@@ -781,7 +781,7 @@ typealias BluetoothLMPSubversion = UInt16
 typealias BluetoothHCIConnectionMode = UInt8
 struct BluetoothHCIConnectionModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kConnectionActiveMode: BluetoothHCIConnectionModes { get }
@@ -792,12 +792,12 @@ var kConnectionModeReservedForFutureUse: BluetoothHCIConnectionModes { get }
 struct BluetoothHCISupportedCommands {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCISupportedFeatures {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothHCIPageNumber = UInt8
 struct BluetoothHCIExtendedFeaturesInfo {
@@ -805,11 +805,11 @@ struct BluetoothHCIExtendedFeaturesInfo {
   var maxPage: BluetoothHCIPageNumber
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(page: BluetoothHCIPageNumber, maxPage: BluetoothHCIPageNumber, data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(page page: BluetoothHCIPageNumber, maxPage maxPage: BluetoothHCIPageNumber, data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothFeatureBits : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothFeatureThreeSlotPackets: BluetoothFeatureBits { get }
@@ -873,39 +873,39 @@ var kBluetoothFeatureSimpleSecurePairingHostMode: BluetoothFeatureBits { get }
 struct BluetoothEventFilterCondition {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothHCIFailedContactCount = UInt16
 struct BluetoothHCIFailedContactInfo {
   var count: BluetoothHCIFailedContactCount
   var handle: BluetoothConnectionHandle
   init()
-  init(count: BluetoothHCIFailedContactCount, handle: BluetoothConnectionHandle)
+  init(count count: BluetoothHCIFailedContactCount, handle handle: BluetoothConnectionHandle)
 }
 typealias BluetoothHCIRSSIValue = Int8
 struct BluetoothHCIRSSIInfo {
   var handle: BluetoothConnectionHandle
   var RSSIValue: BluetoothHCIRSSIValue
   init()
-  init(handle: BluetoothConnectionHandle, RSSIValue: BluetoothHCIRSSIValue)
+  init(handle handle: BluetoothConnectionHandle, RSSIValue RSSIValue: BluetoothHCIRSSIValue)
 }
 typealias BluetoothHCILinkQuality = UInt8
 struct BluetoothHCILinkQualityInfo {
   var handle: BluetoothConnectionHandle
   var qualityValue: BluetoothHCILinkQuality
   init()
-  init(handle: BluetoothConnectionHandle, qualityValue: BluetoothHCILinkQuality)
+  init(handle handle: BluetoothConnectionHandle, qualityValue qualityValue: BluetoothHCILinkQuality)
 }
 typealias BluetoothHCIRole = UInt8
 struct BluetoothHCIRoleInfo {
   var role: UInt8
   var handle: BluetoothConnectionHandle
   init()
-  init(role: UInt8, handle: BluetoothConnectionHandle)
+  init(role role: UInt8, handle handle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIRoles : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIMasterRole: BluetoothHCIRoles { get }
@@ -913,7 +913,7 @@ var kBluetoothHCISlaveRole: BluetoothHCIRoles { get }
 typealias BluetoothHCILinkPolicySettings = UInt16
 struct BluetoothHCILinkPolicySettingsValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kDisableAllLMModes: BluetoothHCILinkPolicySettingsValues { get }
@@ -926,7 +926,7 @@ struct BluetoothHCILinkPolicySettingsInfo {
   var settings: BluetoothHCILinkPolicySettings
   var handle: BluetoothConnectionHandle
   init()
-  init(settings: BluetoothHCILinkPolicySettings, handle: BluetoothConnectionHandle)
+  init(settings settings: BluetoothHCILinkPolicySettings, handle handle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIQualityOfServiceSetupParams {
   var flags: UInt8
@@ -936,7 +936,7 @@ struct BluetoothHCIQualityOfServiceSetupParams {
   var latency: UInt32
   var delayVariation: UInt32
   init()
-  init(flags: UInt8, serviceType: UInt8, tokenRate: UInt32, peakBandwidth: UInt32, latency: UInt32, delayVariation: UInt32)
+  init(flags flags: UInt8, serviceType serviceType: UInt8, tokenRate tokenRate: UInt32, peakBandwidth peakBandwidth: UInt32, latency latency: UInt32, delayVariation delayVariation: UInt32)
 }
 struct BluetoothHCISetupSynchronousConnectionParams {
   var transmitBandwidth: UInt32
@@ -946,7 +946,7 @@ struct BluetoothHCISetupSynchronousConnectionParams {
   var retransmissionEffort: UInt8
   var packetType: UInt16
   init()
-  init(transmitBandwidth: UInt32, receiveBandwidth: UInt32, maxLatency: UInt16, voiceSetting: UInt16, retransmissionEffort: UInt8, packetType: UInt16)
+  init(transmitBandwidth transmitBandwidth: UInt32, receiveBandwidth receiveBandwidth: UInt32, maxLatency maxLatency: UInt16, voiceSetting voiceSetting: UInt16, retransmissionEffort retransmissionEffort: UInt8, packetType packetType: UInt16)
 }
 struct BluetoothHCIAcceptSynchronousConnectionRequestParams {
   var transmitBandwidth: UInt32
@@ -956,7 +956,7 @@ struct BluetoothHCIAcceptSynchronousConnectionRequestParams {
   var retransmissionEffort: UInt8
   var packetType: UInt16
   init()
-  init(transmitBandwidth: UInt32, receiveBandwidth: UInt32, maxLatency: UInt16, contentFormat: UInt16, retransmissionEffort: UInt8, packetType: UInt16)
+  init(transmitBandwidth transmitBandwidth: UInt32, receiveBandwidth receiveBandwidth: UInt32, maxLatency maxLatency: UInt16, contentFormat contentFormat: UInt16, retransmissionEffort retransmissionEffort: UInt8, packetType packetType: UInt16)
 }
 typealias BluetoothHCILoopbackMode = UInt8
 var kBluetoothHCILoopbackModeOff: Int { get }
@@ -967,7 +967,7 @@ struct BluetoothReadClockInfo {
   var clock: UInt32
   var accuracy: UInt16
   init()
-  init(handle: BluetoothConnectionHandle, clock: UInt32, accuracy: UInt16)
+  init(handle handle: BluetoothConnectionHandle, clock clock: UInt32, accuracy accuracy: UInt16)
 }
 struct BluetoothHCIEventFlowSpecificationData {
   var connectionHandle: BluetoothConnectionHandle
@@ -979,7 +979,7 @@ struct BluetoothHCIEventFlowSpecificationData {
   var peakBandwidth: UInt32
   var accessLatency: UInt32
   init()
-  init(connectionHandle: BluetoothConnectionHandle, flags: UInt8, flowDirection: UInt8, serviceType: UInt8, tokenRate: UInt32, tokenBucketSize: UInt32, peakBandwidth: UInt32, accessLatency: UInt32)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, flags flags: UInt8, flowDirection flowDirection: UInt8, serviceType serviceType: UInt8, tokenRate tokenRate: UInt32, tokenBucketSize tokenBucketSize: UInt32, peakBandwidth peakBandwidth: UInt32, accessLatency accessLatency: UInt32)
 }
 typealias BluetoothHCIOperationID = UInt32
 typealias BluetoothHCIEventID = UInt32
@@ -995,7 +995,7 @@ struct BluetoothHCIVersionInfo {
   var hciVersion: UInt8
   var hciRevision: UInt16
   init()
-  init(manufacturerName: BluetoothManufacturerName, lmpVersion: BluetoothLMPVersion, lmpSubVersion: BluetoothLMPSubversion, hciVersion: UInt8, hciRevision: UInt16)
+  init(manufacturerName manufacturerName: BluetoothManufacturerName, lmpVersion lmpVersion: BluetoothLMPVersion, lmpSubVersion lmpSubVersion: BluetoothLMPSubversion, hciVersion hciVersion: UInt8, hciRevision hciRevision: UInt16)
 }
 struct BluetoothHCIBufferSize {
   var ACLDataPacketLength: UInt16
@@ -1003,19 +1003,19 @@ struct BluetoothHCIBufferSize {
   var totalNumACLDataPackets: UInt16
   var totalNumSCODataPackets: UInt16
   init()
-  init(ACLDataPacketLength: UInt16, SCODataPacketLength: UInt8, totalNumACLDataPackets: UInt16, totalNumSCODataPackets: UInt16)
+  init(ACLDataPacketLength ACLDataPacketLength: UInt16, SCODataPacketLength SCODataPacketLength: UInt8, totalNumACLDataPackets totalNumACLDataPackets: UInt16, totalNumSCODataPackets totalNumSCODataPackets: UInt16)
 }
 struct BluetoothHCILEBufferSize {
   var ACLDataPacketLength: UInt16
   var totalNumACLDataPackets: UInt8
   init()
-  init(ACLDataPacketLength: UInt16, totalNumACLDataPackets: UInt8)
+  init(ACLDataPacketLength ACLDataPacketLength: UInt16, totalNumACLDataPackets totalNumACLDataPackets: UInt8)
 }
 typealias BluetoothHCIConnectionAcceptTimeout = UInt16
 typealias BluetoothHCIPageTimeout = UInt16
 struct BluetoothHCITimeoutValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kDefaultPageTimeout: BluetoothHCITimeoutValues { get }
@@ -1024,7 +1024,7 @@ typealias BluetoothHCINumLinkKeysToWrite = UInt8
 typealias BluetoothHCIDeleteStoredLinkKeyFlag = UInt8
 struct BluetoothHCIDeleteStoredLinkKeyFlags : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kDeleteKeyForSpecifiedDeviceOnly: BluetoothHCIDeleteStoredLinkKeyFlags { get }
@@ -1032,7 +1032,7 @@ var kDeleteAllStoredLinkKeys: BluetoothHCIDeleteStoredLinkKeyFlags { get }
 typealias BluetoothHCIReadStoredLinkKeysFlag = UInt8
 struct BluetoothHCIReadStoredLinkKeysFlags : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kReturnLinkKeyForSpecifiedDeviceOnly: BluetoothHCIReadStoredLinkKeysFlags { get }
@@ -1041,12 +1041,12 @@ struct BluetoothHCIStoredLinkKeysInfo {
   var numLinkKeysRead: UInt16
   var maxNumLinkKeysAllowedInDevice: UInt16
   init()
-  init(numLinkKeysRead: UInt16, maxNumLinkKeysAllowedInDevice: UInt16)
+  init(numLinkKeysRead numLinkKeysRead: UInt16, maxNumLinkKeysAllowedInDevice maxNumLinkKeysAllowedInDevice: UInt16)
 }
 typealias BluetoothHCIPageScanMode = UInt8
 struct BluetoothHCIPageScanModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kMandatoryPageScanMode: BluetoothHCIPageScanModes { get }
@@ -1056,7 +1056,7 @@ var kOptionalPageScanMode3: BluetoothHCIPageScanModes { get }
 typealias BluetoothHCIPageScanPeriodMode = UInt8
 struct BluetoothHCIPageScanPeriodModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kP0Mode: BluetoothHCIPageScanPeriodModes { get }
@@ -1065,7 +1065,7 @@ var kP2Mode: BluetoothHCIPageScanPeriodModes { get }
 typealias BluetoothHCIPageScanEnableState = UInt8
 struct BluetoothHCIPageScanEnableStates : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kNoScansEnabled: BluetoothHCIPageScanEnableStates { get }
@@ -1076,44 +1076,44 @@ struct BluetoothHCIScanActivity {
   var scanInterval: UInt16
   var scanWindow: UInt16
   init()
-  init(scanInterval: UInt16, scanWindow: UInt16)
+  init(scanInterval scanInterval: UInt16, scanWindow scanWindow: UInt16)
 }
 struct BluetoothHCIInquiryAccessCode {
   var data: (UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8))
 }
 typealias BluetoothHCIInquiryAccessCodeCount = UInt8
 struct BluetoothHCICurrentInquiryAccessCodes {
   var count: BluetoothHCIInquiryAccessCodeCount
   var codes: UnsafeMutablePointer<BluetoothHCIInquiryAccessCode>
   init()
-  init(count: BluetoothHCIInquiryAccessCodeCount, codes: UnsafeMutablePointer<BluetoothHCIInquiryAccessCode>)
+  init(count count: BluetoothHCIInquiryAccessCodeCount, codes codes: UnsafeMutablePointer<BluetoothHCIInquiryAccessCode>)
 }
 var kMaximumNumberOfInquiryAccessCodes: Int { get }
 struct BluetoothHCICurrentInquiryAccessCodesForWrite {
   var count: BluetoothHCIInquiryAccessCodeCount
   var codes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(count: BluetoothHCIInquiryAccessCodeCount, codes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(count count: BluetoothHCIInquiryAccessCodeCount, codes codes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCILinkSupervisionTimeout {
   var handle: BluetoothConnectionHandle
   var timeout: UInt16
   init()
-  init(handle: BluetoothConnectionHandle, timeout: UInt16)
+  init(handle handle: BluetoothConnectionHandle, timeout timeout: UInt16)
 }
 typealias BluetoothHCIFlowControlState = UInt8
 struct BluetoothHCISCOFlowControlStates : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kSCOFlowControlDisabled: BluetoothHCISCOFlowControlStates { get }
 var kSCOFlowControlEnabled: BluetoothHCISCOFlowControlStates { get }
 struct BluetoothHCIGeneralFlowControlStates : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kHostControllerToHostFlowControlOff: BluetoothHCIGeneralFlowControlStates { get }
@@ -1124,7 +1124,7 @@ typealias BluetoothHCITransmitPowerLevel = Int8
 typealias BluetoothHCITransmitPowerLevelType = UInt8
 struct BluetoothHCITransmitReadPowerLevelTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kReadCurrentTransmitPowerLevel: BluetoothHCITransmitReadPowerLevelTypes { get }
@@ -1132,7 +1132,7 @@ var kReadMaximumTransmitPowerLevel: BluetoothHCITransmitReadPowerLevelTypes { ge
 typealias BluetoothHCIAFHChannelAssessmentMode = UInt8
 struct BluetoothHCIAFHChannelAssessmentModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kAFHChannelAssessmentModeDisabled: BluetoothHCIAFHChannelAssessmentModes { get }
@@ -1141,13 +1141,13 @@ struct BluetoothHCITransmitPowerLevelInfo {
   var handle: BluetoothConnectionHandle
   var level: BluetoothHCITransmitPowerLevel
   init()
-  init(handle: BluetoothConnectionHandle, level: BluetoothHCITransmitPowerLevel)
+  init(handle handle: BluetoothConnectionHandle, level level: BluetoothHCITransmitPowerLevel)
 }
 typealias BluetoothHCINumBroadcastRetransmissions = UInt8
 typealias BluetoothHCIHoldModeActivity = UInt8
 struct BluetoothHCIHoldModeActivityStates : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kMaintainCurrentPowerState: BluetoothHCIHoldModeActivityStates { get }
@@ -1157,7 +1157,7 @@ var kSuspendPeriodicInquiries: BluetoothHCIHoldModeActivityStates { get }
 typealias BluetoothHCIAuthenticationEnable = UInt8
 struct BluetoothHCIAuthentionEnableModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kAuthenticationDisabled: BluetoothHCIAuthentionEnableModes { get }
@@ -1165,7 +1165,7 @@ var kAuthenticationEnabled: BluetoothHCIAuthentionEnableModes { get }
 typealias BluetoothHCIEncryptionMode = UInt8
 struct BluetoothHCIEncryptionModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kEncryptionDisabled: BluetoothHCIEncryptionModes { get }
@@ -1176,7 +1176,7 @@ struct BluetoothHCIAutomaticFlushTimeoutInfo {
   var handle: BluetoothConnectionHandle
   var timeout: BluetoothHCIAutomaticFlushTimeout
   init()
-  init(handle: BluetoothConnectionHandle, timeout: BluetoothHCIAutomaticFlushTimeout)
+  init(handle handle: BluetoothConnectionHandle, timeout timeout: BluetoothHCIAutomaticFlushTimeout)
 }
 var kInfoStringMaxLength: Int32 { get }
 typealias BluetoothTransportInfoPtr = UnsafeMutablePointer<BluetoothTransportInfo>
@@ -1191,11 +1191,11 @@ struct BluetoothTransportInfo {
   var totalDataBytesReceived: UInt64
   var totalSCOBytesReceived: UInt64
   init()
-  init(productID: UInt32, vendorID: UInt32, type: UInt32, productName: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), vendorName: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), totalDataBytesSent: UInt64, totalSCOBytesSent: UInt64, totalDataBytesReceived: UInt64, totalSCOBytesReceived: UInt64)
+  init(productID productID: UInt32, vendorID vendorID: UInt32, type type: UInt32, productName productName: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), vendorName vendorName: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), totalDataBytesSent totalDataBytesSent: UInt64, totalSCOBytesSent totalSCOBytesSent: UInt64, totalDataBytesReceived totalDataBytesReceived: UInt64, totalSCOBytesReceived totalSCOBytesReceived: UInt64)
 }
 struct BluetoothTransportTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothTransportTypeUSB: BluetoothTransportTypes { get }
@@ -1210,14 +1210,14 @@ struct BluetoothHCIInquiryResult {
   var classOfDevice: BluetoothClassOfDevice
   var clockOffset: BluetoothClockOffset
   init()
-  init(deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode: BluetoothPageScanRepetitionMode, pageScanPeriodMode: BluetoothHCIPageScanPeriodMode, pageScanMode: BluetoothHCIPageScanMode, classOfDevice: BluetoothClassOfDevice, clockOffset: BluetoothClockOffset)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode pageScanRepetitionMode: BluetoothPageScanRepetitionMode, pageScanPeriodMode pageScanPeriodMode: BluetoothHCIPageScanPeriodMode, pageScanMode pageScanMode: BluetoothHCIPageScanMode, classOfDevice classOfDevice: BluetoothClassOfDevice, clockOffset clockOffset: BluetoothClockOffset)
 }
 var kBluetoothHCIInquiryResultsMaxResults: Int32 { get }
 struct BluetoothHCIInquiryResults {
   var results: (BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult)
   var count: IOItemCount
   init()
-  init(results: (BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult), count: IOItemCount)
+  init(results results: (BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult, BluetoothHCIInquiryResult), count count: IOItemCount)
 }
 struct BluetoothHCIInquiryWithRSSIResult {
   var deviceAddress: BluetoothDeviceAddress
@@ -1227,18 +1227,18 @@ struct BluetoothHCIInquiryWithRSSIResult {
   var clockOffset: BluetoothClockOffset
   var RSSIValue: BluetoothHCIRSSIValue
   init()
-  init(deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode: BluetoothPageScanRepetitionMode, reserved: UInt8, classOfDevice: BluetoothClassOfDevice, clockOffset: BluetoothClockOffset, RSSIValue: BluetoothHCIRSSIValue)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode pageScanRepetitionMode: BluetoothPageScanRepetitionMode, reserved reserved: UInt8, classOfDevice classOfDevice: BluetoothClassOfDevice, clockOffset clockOffset: BluetoothClockOffset, RSSIValue RSSIValue: BluetoothHCIRSSIValue)
 }
 struct BluetoothHCIInquiryWithRSSIResults {
   var results: (BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult)
   var count: IOItemCount
   init()
-  init(results: (BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult), count: IOItemCount)
+  init(results results: (BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult, BluetoothHCIInquiryWithRSSIResult), count count: IOItemCount)
 }
 typealias BluetoothHCIFECRequired = UInt8
 struct BluetoothHCIFECRequiredValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIFECRequired: BluetoothHCIFECRequiredValues { get }
@@ -1246,7 +1246,7 @@ var kBluetoothHCIFECNotRequired: BluetoothHCIFECRequiredValues { get }
 typealias BluetoothHCIInquiryMode = UInt8
 struct BluetoothHCIInquiryModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIInquiryModeResultFormatStandard: BluetoothHCIInquiryModes { get }
@@ -1255,7 +1255,7 @@ var kBluetoothHCIInquiryModeResultFormatWithRSSIOrExtendedInquiryResultFormat: B
 typealias BluetoothHCIInquiryScanType = UInt8
 struct BluetoothHCIInquiryScanTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIInquiryScanTypeStandard: BluetoothHCIInquiryScanTypes { get }
@@ -1266,13 +1266,13 @@ typealias BluetoothHCIExtendedInquiryResponseDataType = UInt8
 struct BluetoothHCIExtendedInquiryResponse {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCIReadExtendedInquiryResponseResults {
   var outFECRequired: BluetoothHCIFECRequired
   var extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse
   init()
-  init(outFECRequired: BluetoothHCIFECRequired, extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse)
+  init(outFECRequired outFECRequired: BluetoothHCIFECRequired, extendedInquiryResponse extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse)
 }
 struct BluetoothHCIExtendedInquiryResult {
   var numberOfReponses: UInt8
@@ -1284,19 +1284,19 @@ struct BluetoothHCIExtendedInquiryResult {
   var RSSIValue: BluetoothHCIRSSIValue
   var extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse
   init()
-  init(numberOfReponses: UInt8, deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode: BluetoothPageScanRepetitionMode, reserved: UInt8, classOfDevice: BluetoothClassOfDevice, clockOffset: BluetoothClockOffset, RSSIValue: BluetoothHCIRSSIValue, extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse)
+  init(numberOfReponses numberOfReponses: UInt8, deviceAddress deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode pageScanRepetitionMode: BluetoothPageScanRepetitionMode, reserved reserved: UInt8, classOfDevice classOfDevice: BluetoothClassOfDevice, clockOffset clockOffset: BluetoothClockOffset, RSSIValue RSSIValue: BluetoothHCIRSSIValue, extendedInquiryResponse extendedInquiryResponse: BluetoothHCIExtendedInquiryResponse)
 }
 struct BluetoothHCIReadLMPHandleResults {
   var handle: BluetoothConnectionHandle
   var lmp_handle: BluetoothLMPHandle
   var reserved: UInt32
   init()
-  init(handle: BluetoothConnectionHandle, lmp_handle: BluetoothLMPHandle, reserved: UInt32)
+  init(handle handle: BluetoothConnectionHandle, lmp_handle lmp_handle: BluetoothLMPHandle, reserved reserved: UInt32)
 }
 typealias BluetoothHCISimplePairingMode = UInt8
 struct BluetoothHCISimplePairingModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCISimplePairingModeNotSet: BluetoothHCISimplePairingModes { get }
@@ -1304,7 +1304,7 @@ var kBluetoothHCISimplePairingModeEnabled: BluetoothHCISimplePairingModes { get 
 typealias BluetoothSimplePairingDebugMode = UInt8
 struct BluetoothSimplePairingDebugModes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCISimplePairingDebugModeDisabled: BluetoothSimplePairingDebugModes { get }
@@ -1312,18 +1312,18 @@ var kBluetoothHCISimplePairingDebugModeEnabled: BluetoothSimplePairingDebugModes
 struct BluetoothHCISimplePairingOOBData {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCIReadLocalOOBDataResults {
   var hash: BluetoothHCISimplePairingOOBData
   var randomizer: BluetoothHCISimplePairingOOBData
   init()
-  init(hash: BluetoothHCISimplePairingOOBData, randomizer: BluetoothHCISimplePairingOOBData)
+  init(hash hash: BluetoothHCISimplePairingOOBData, randomizer randomizer: BluetoothHCISimplePairingOOBData)
 }
 typealias BluetoothIOCapability = UInt8
 struct BluetoothIOCapabilities : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothCapabilityTypeDisplayOnly: BluetoothIOCapabilities { get }
@@ -1333,7 +1333,7 @@ var kBluetoothCapabilityTypeNoInputNoOutput: BluetoothIOCapabilities { get }
 typealias BluetoothOOBDataPresence = UInt8
 struct BluetoothOOBDataPresenceValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothOOBAuthenticationDataNotPresent: BluetoothOOBDataPresenceValues { get }
@@ -1341,7 +1341,7 @@ var kBluetoothOOBAuthenticationDataFromRemoteDevicePresent: BluetoothOOBDataPres
 typealias BluetoothAuthenticationRequirements = UInt8
 struct BluetoothAuthenticationRequirementsValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothAuthenticationRequirementsMITMProtectionNotRequired: BluetoothAuthenticationRequirementsValues { get }
@@ -1358,19 +1358,19 @@ struct BluetoothIOCapabilityResponse {
   var OOBDataPresence: BluetoothOOBDataPresence
   var authenticationRequirements: BluetoothAuthenticationRequirements
   init()
-  init(deviceAddress: BluetoothDeviceAddress, ioCapability: BluetoothIOCapability, OOBDataPresence: BluetoothOOBDataPresence, authenticationRequirements: BluetoothAuthenticationRequirements)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, ioCapability ioCapability: BluetoothIOCapability, OOBDataPresence OOBDataPresence: BluetoothOOBDataPresence, authenticationRequirements authenticationRequirements: BluetoothAuthenticationRequirements)
 }
 typealias BluetoothPasskey = UInt32
 struct BluetoothUserPasskeyNotification {
   var deviceAddress: BluetoothDeviceAddress
   var passkey: BluetoothPasskey
   init()
-  init(deviceAddress: BluetoothDeviceAddress, passkey: BluetoothPasskey)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, passkey passkey: BluetoothPasskey)
 }
 typealias BluetoothKeypressNotificationType = UInt8
 struct BluetoothKeypressNotificationTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothKeypressNotificationTypePasskeyEntryStarted: BluetoothKeypressNotificationTypes { get }
@@ -1382,19 +1382,19 @@ struct BluetoothKeypressNotification {
   var deviceAddress: BluetoothDeviceAddress
   var notificationType: BluetoothKeypressNotificationType
   init()
-  init(deviceAddress: BluetoothDeviceAddress, notificationType: BluetoothKeypressNotificationType)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, notificationType notificationType: BluetoothKeypressNotificationType)
 }
 struct BluetoothRemoteHostSupportedFeaturesNotification {
   var deviceAddress: BluetoothDeviceAddress
   var hostSupportedFeatures: BluetoothHCISupportedFeatures
   init()
-  init(deviceAddress: BluetoothDeviceAddress, hostSupportedFeatures: BluetoothHCISupportedFeatures)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, hostSupportedFeatures hostSupportedFeatures: BluetoothHCISupportedFeatures)
 }
 typealias TransmissionPower = Int8
 struct BluetoothAFHHostChannelClassification {
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothAFHMode = UInt8
 struct BluetoothAFHResults {
@@ -1402,19 +1402,19 @@ struct BluetoothAFHResults {
   var mode: BluetoothAFHMode
   var afhMap: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(handle: BluetoothConnectionHandle, mode: BluetoothAFHMode, afhMap: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(handle handle: BluetoothConnectionHandle, mode mode: BluetoothAFHMode, afhMap afhMap: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 typealias BluetoothNumericValue = UInt32
 struct BluetoothUserConfirmationRequest {
   var deviceAddress: BluetoothDeviceAddress
   var numericValue: BluetoothNumericValue
   init()
-  init(deviceAddress: BluetoothDeviceAddress, numericValue: BluetoothNumericValue)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, numericValue numericValue: BluetoothNumericValue)
 }
 struct BluetoothHCIEventSimplePairingCompleteResults {
   var deviceAddress: BluetoothDeviceAddress
   init()
-  init(deviceAddress: BluetoothDeviceAddress)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress)
 }
 var kBluetoothHCICommandPacketHeaderSize: Int { get }
 var kBluetoothHCICommandPacketMaxDataSize: Int { get }
@@ -1429,7 +1429,7 @@ typealias BluetoothHCIEventCode = UInt8
 typealias BluetoothLinkType = UInt8
 struct BluetoothLinkTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothSCOConnection: BluetoothLinkTypes { get }
@@ -1463,7 +1463,7 @@ typealias BluetoothHCIMaxLatency = UInt16
 typealias BluetoothHCIRetransmissionEffort = UInt8
 struct BluetoothHCIRetransmissionEffortTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kHCIRetransmissionEffortTypeNone: BluetoothHCIRetransmissionEffortTypes { get }
@@ -1483,7 +1483,7 @@ struct BluetoothSynchronousConnectionInfo {
   var retransmissionEffort: BluetoothHCIRetransmissionEffort
   var packetType: BluetoothPacketType
   init()
-  init(transmitBandWidth: BluetoothHCITransmitBandwidth, receiveBandWidth: BluetoothHCIReceiveBandwidth, maxLatency: BluetoothHCIMaxLatency, voiceSetting: BluetoothHCIVoiceSetting, retransmissionEffort: BluetoothHCIRetransmissionEffort, packetType: BluetoothPacketType)
+  init(transmitBandWidth transmitBandWidth: BluetoothHCITransmitBandwidth, receiveBandWidth receiveBandWidth: BluetoothHCIReceiveBandwidth, maxLatency maxLatency: BluetoothHCIMaxLatency, voiceSetting voiceSetting: BluetoothHCIVoiceSetting, retransmissionEffort retransmissionEffort: BluetoothHCIRetransmissionEffort, packetType packetType: BluetoothPacketType)
 }
 struct BluetoothHCIEventSynchronousConnectionCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1495,7 +1495,7 @@ struct BluetoothHCIEventSynchronousConnectionCompleteResults {
   var transmitPacketLength: UInt16
   var airMode: BluetoothAirMode
   init()
-  init(connectionHandle: BluetoothConnectionHandle, deviceAddress: BluetoothDeviceAddress, linkType: BluetoothLinkType, transmissionInterval: UInt8, retransmissionWindow: UInt8, receivePacketLength: UInt16, transmitPacketLength: UInt16, airMode: BluetoothAirMode)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, deviceAddress deviceAddress: BluetoothDeviceAddress, linkType linkType: BluetoothLinkType, transmissionInterval transmissionInterval: UInt8, retransmissionWindow retransmissionWindow: UInt8, receivePacketLength receivePacketLength: UInt16, transmitPacketLength transmitPacketLength: UInt16, airMode airMode: BluetoothAirMode)
 }
 struct BluetoothHCIEventSynchronousConnectionChangedResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1504,7 +1504,7 @@ struct BluetoothHCIEventSynchronousConnectionChangedResults {
   var receivePacketLength: UInt16
   var transmitPacketLength: UInt16
   init()
-  init(connectionHandle: BluetoothConnectionHandle, transmissionInterval: UInt8, retransmissionWindow: UInt8, receivePacketLength: UInt16, transmitPacketLength: UInt16)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, transmissionInterval transmissionInterval: UInt8, retransmissionWindow retransmissionWindow: UInt8, receivePacketLength receivePacketLength: UInt16, transmitPacketLength transmitPacketLength: UInt16)
 }
 typealias BluetoothHCIStatus = UInt8
 typealias BluetoothHCIEventStatus = UInt8
@@ -1649,7 +1649,7 @@ struct BluetoothHCIEventConnectionCompleteResults {
   var linkType: BluetoothLinkType
   var encryptionMode: BluetoothHCIEncryptionMode
   init()
-  init(connectionHandle: BluetoothConnectionHandle, deviceAddress: BluetoothDeviceAddress, linkType: BluetoothLinkType, encryptionMode: BluetoothHCIEncryptionMode)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, deviceAddress deviceAddress: BluetoothDeviceAddress, linkType linkType: BluetoothLinkType, encryptionMode encryptionMode: BluetoothHCIEncryptionMode)
 }
 struct BluetoothHCIEventLEConnectionCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1661,7 +1661,7 @@ struct BluetoothHCIEventLEConnectionCompleteResults {
   var supervisionTimeout: UInt16
   var masterClockAccuracy: UInt8
   init()
-  init(connectionHandle: BluetoothConnectionHandle, role: UInt8, peerAddressType: UInt8, peerAddress: BluetoothDeviceAddress, connInterval: UInt16, connLatency: UInt16, supervisionTimeout: UInt16, masterClockAccuracy: UInt8)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, role role: UInt8, peerAddressType peerAddressType: UInt8, peerAddress peerAddress: BluetoothDeviceAddress, connInterval connInterval: UInt16, connLatency connLatency: UInt16, supervisionTimeout supervisionTimeout: UInt16, masterClockAccuracy masterClockAccuracy: UInt8)
 }
 struct BluetoothHCIEventLEConnectionUpdateCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1669,25 +1669,25 @@ struct BluetoothHCIEventLEConnectionUpdateCompleteResults {
   var connLatency: UInt16
   var supervisionTimeout: UInt16
   init()
-  init(connectionHandle: BluetoothConnectionHandle, connInterval: UInt16, connLatency: UInt16, supervisionTimeout: UInt16)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, connInterval connInterval: UInt16, connLatency connLatency: UInt16, supervisionTimeout supervisionTimeout: UInt16)
 }
 struct BluetoothHCIEventDisconnectionCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   var reason: BluetoothReasonCode
   init()
-  init(connectionHandle: BluetoothConnectionHandle, reason: BluetoothReasonCode)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, reason reason: BluetoothReasonCode)
 }
 struct BluetoothHCIEventReadSupportedFeaturesResults {
   var connectionHandle: BluetoothConnectionHandle
   var supportedFeatures: BluetoothHCISupportedFeatures
   init()
-  init(connectionHandle: BluetoothConnectionHandle, supportedFeatures: BluetoothHCISupportedFeatures)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, supportedFeatures supportedFeatures: BluetoothHCISupportedFeatures)
 }
 struct BluetoothHCIEventReadExtendedFeaturesResults {
   var connectionHandle: BluetoothConnectionHandle
   var supportedFeaturesInfo: BluetoothHCIExtendedFeaturesInfo
   init()
-  init(connectionHandle: BluetoothConnectionHandle, supportedFeaturesInfo: BluetoothHCIExtendedFeaturesInfo)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, supportedFeaturesInfo supportedFeaturesInfo: BluetoothHCIExtendedFeaturesInfo)
 }
 struct BluetoothHCIEventReadRemoteVersionInfoResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1695,46 +1695,46 @@ struct BluetoothHCIEventReadRemoteVersionInfoResults {
   var manufacturerName: BluetoothManufacturerName
   var lmpSubversion: BluetoothLMPSubversion
   init()
-  init(connectionHandle: BluetoothConnectionHandle, lmpVersion: BluetoothLMPVersion, manufacturerName: BluetoothManufacturerName, lmpSubversion: BluetoothLMPSubversion)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, lmpVersion lmpVersion: BluetoothLMPVersion, manufacturerName manufacturerName: BluetoothManufacturerName, lmpSubversion lmpSubversion: BluetoothLMPSubversion)
 }
 struct BluetoothHCIEventRemoteNameRequestResults {
   var deviceAddress: BluetoothDeviceAddress
   var deviceName: BluetoothDeviceName
   init()
-  init(deviceAddress: BluetoothDeviceAddress, deviceName: BluetoothDeviceName)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, deviceName deviceName: BluetoothDeviceName)
 }
 struct BluetoothHCIEventReadClockOffsetResults {
   var connectionHandle: BluetoothConnectionHandle
   var clockOffset: BluetoothClockOffset
   init()
-  init(connectionHandle: BluetoothConnectionHandle, clockOffset: BluetoothClockOffset)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, clockOffset clockOffset: BluetoothClockOffset)
 }
 struct BluetoothHCIEventConnectionRequestResults {
   var deviceAddress: BluetoothDeviceAddress
   var classOfDevice: BluetoothClassOfDevice
   var linkType: BluetoothLinkType
   init()
-  init(deviceAddress: BluetoothDeviceAddress, classOfDevice: BluetoothClassOfDevice, linkType: BluetoothLinkType)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, classOfDevice classOfDevice: BluetoothClassOfDevice, linkType linkType: BluetoothLinkType)
 }
 struct BluetoothHCIEventLinkKeyNotificationResults {
   var deviceAddress: BluetoothDeviceAddress
   var linkKey: BluetoothKey
   var keyType: BluetoothKeyType
   init()
-  init(deviceAddress: BluetoothDeviceAddress, linkKey: BluetoothKey, keyType: BluetoothKeyType)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, linkKey linkKey: BluetoothKey, keyType keyType: BluetoothKeyType)
 }
 struct BluetoothHCIEventMaxSlotsChangeResults {
   var connectionHandle: BluetoothConnectionHandle
   var maxSlots: BluetoothMaxSlots
   init()
-  init(connectionHandle: BluetoothConnectionHandle, maxSlots: BluetoothMaxSlots)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, maxSlots maxSlots: BluetoothMaxSlots)
 }
 struct BluetoothHCIEventModeChangeResults {
   var connectionHandle: BluetoothConnectionHandle
   var mode: BluetoothHCIConnectionMode
   var modeInterval: BluetoothHCIModeInterval
   init()
-  init(connectionHandle: BluetoothConnectionHandle, mode: BluetoothHCIConnectionMode, modeInterval: BluetoothHCIModeInterval)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, mode mode: BluetoothHCIConnectionMode, modeInterval modeInterval: BluetoothHCIModeInterval)
 }
 struct BluetoothHCIEventReturnLinkKeysResults {
   var numLinkKeys: UInt8
@@ -1743,65 +1743,65 @@ struct BluetoothHCIEventReturnLinkKeysResults {
 struct BluetoothHCIEventAuthenticationCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   init()
-  init(connectionHandle: BluetoothConnectionHandle)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIEventEncryptionChangeResults {
   var connectionHandle: BluetoothConnectionHandle
   var enable: BluetoothEncryptionEnable
   init()
-  init(connectionHandle: BluetoothConnectionHandle, enable: BluetoothEncryptionEnable)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, enable enable: BluetoothEncryptionEnable)
 }
 struct BluetoothHCIEventChangeConnectionLinkKeyCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   init()
-  init(connectionHandle: BluetoothConnectionHandle)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIEventMasterLinkKeyCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   var keyFlag: BluetoothKeyFlag
   init()
-  init(connectionHandle: BluetoothConnectionHandle, keyFlag: BluetoothKeyFlag)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, keyFlag keyFlag: BluetoothKeyFlag)
 }
 struct BluetoothHCIEventQoSSetupCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   var setupParams: BluetoothHCIQualityOfServiceSetupParams
   init()
-  init(connectionHandle: BluetoothConnectionHandle, setupParams: BluetoothHCIQualityOfServiceSetupParams)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, setupParams setupParams: BluetoothHCIQualityOfServiceSetupParams)
 }
 struct BluetoothHCIEventHardwareErrorResults {
   var error: BluetoothHCIStatus
   init()
-  init(error: BluetoothHCIStatus)
+  init(error error: BluetoothHCIStatus)
 }
 struct BluetoothHCIEventFlushOccurredResults {
   var connectionHandle: BluetoothConnectionHandle
   init()
-  init(connectionHandle: BluetoothConnectionHandle)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIEventRoleChangeResults {
   var connectionHandle: BluetoothConnectionHandle
   var deviceAddress: BluetoothDeviceAddress
   var role: BluetoothRole
   init()
-  init(connectionHandle: BluetoothConnectionHandle, deviceAddress: BluetoothDeviceAddress, role: BluetoothRole)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, deviceAddress deviceAddress: BluetoothDeviceAddress, role role: BluetoothRole)
 }
 struct BluetoothHCIEventDataBufferOverflowResults {
   var linkType: BluetoothLinkType
   init()
-  init(linkType: BluetoothLinkType)
+  init(linkType linkType: BluetoothLinkType)
 }
 struct BluetoothHCIEventConnectionPacketTypeResults {
   var connectionHandle: BluetoothConnectionHandle
   var packetType: BluetoothPacketType
   init()
-  init(connectionHandle: BluetoothConnectionHandle, packetType: BluetoothPacketType)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, packetType packetType: BluetoothPacketType)
 }
 struct BluetoothHCIEventReadRemoteSupportedFeaturesResults {
   var error: BluetoothHCIStatus
   var connectionHandle: BluetoothConnectionHandle
   var lmpFeatures: BluetoothHCISupportedFeatures
   init()
-  init(error: BluetoothHCIStatus, connectionHandle: BluetoothConnectionHandle, lmpFeatures: BluetoothHCISupportedFeatures)
+  init(error error: BluetoothHCIStatus, connectionHandle connectionHandle: BluetoothConnectionHandle, lmpFeatures lmpFeatures: BluetoothHCISupportedFeatures)
 }
 struct BluetoothHCIEventReadRemoteExtendedFeaturesResults {
   var error: BluetoothHCIStatus
@@ -1810,35 +1810,35 @@ struct BluetoothHCIEventReadRemoteExtendedFeaturesResults {
   var maxPage: BluetoothHCIPageNumber
   var lmpFeatures: BluetoothHCISupportedFeatures
   init()
-  init(error: BluetoothHCIStatus, connectionHandle: BluetoothConnectionHandle, page: BluetoothHCIPageNumber, maxPage: BluetoothHCIPageNumber, lmpFeatures: BluetoothHCISupportedFeatures)
+  init(error error: BluetoothHCIStatus, connectionHandle connectionHandle: BluetoothConnectionHandle, page page: BluetoothHCIPageNumber, maxPage maxPage: BluetoothHCIPageNumber, lmpFeatures lmpFeatures: BluetoothHCISupportedFeatures)
 }
 struct BluetoothHCIEventQoSViolationResults {
   var connectionHandle: BluetoothConnectionHandle
   init()
-  init(connectionHandle: BluetoothConnectionHandle)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIEventPageScanModeChangeResults {
   var deviceAddress: BluetoothDeviceAddress
   var pageScanMode: BluetoothPageScanMode
   init()
-  init(deviceAddress: BluetoothDeviceAddress, pageScanMode: BluetoothPageScanMode)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, pageScanMode pageScanMode: BluetoothPageScanMode)
 }
 struct BluetoothHCIEventPageScanRepetitionModeChangeResults {
   var deviceAddress: BluetoothDeviceAddress
   var pageScanRepetitionMode: BluetoothPageScanRepetitionMode
   init()
-  init(deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode: BluetoothPageScanRepetitionMode)
+  init(deviceAddress deviceAddress: BluetoothDeviceAddress, pageScanRepetitionMode pageScanRepetitionMode: BluetoothPageScanRepetitionMode)
 }
 struct BluetoothHCIEventVendorSpecificResults {
   var length: UInt8
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(length: UInt8, data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(length length: UInt8, data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCIEventEncryptionKeyRefreshCompleteResults {
   var connectionHandle: BluetoothConnectionHandle
   init()
-  init(connectionHandle: BluetoothConnectionHandle)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle)
 }
 struct BluetoothHCIEventSniffSubratingResults {
   var connectionHandle: BluetoothConnectionHandle
@@ -1847,20 +1847,20 @@ struct BluetoothHCIEventSniffSubratingResults {
   var minRemoteTimeout: UInt16
   var minLocalTimeout: UInt16
   init()
-  init(connectionHandle: BluetoothConnectionHandle, maxTransmitLatency: UInt16, maxReceiveLatency: UInt16, minRemoteTimeout: UInt16, minLocalTimeout: UInt16)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, maxTransmitLatency maxTransmitLatency: UInt16, maxReceiveLatency maxReceiveLatency: UInt16, minRemoteTimeout minRemoteTimeout: UInt16, minLocalTimeout minLocalTimeout: UInt16)
 }
 struct BluetoothHCIEventLEMetaResults {
   var length: UInt8
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(length: UInt8, data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(length length: UInt8, data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct BluetoothHCIEventLELongTermKeyRequestResults {
   var connectionHandle: BluetoothConnectionHandle
   var randomNumber: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   var ediv: UInt16
   init()
-  init(connectionHandle: BluetoothConnectionHandle, randomNumber: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), ediv: UInt16)
+  init(connectionHandle connectionHandle: BluetoothConnectionHandle, randomNumber randomNumber: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), ediv ediv: UInt16)
 }
 struct BluetoothHCIRequestCallbackInfo {
   var userCallback: mach_vm_address_t
@@ -1869,7 +1869,7 @@ struct BluetoothHCIRequestCallbackInfo {
   var asyncIDRefCon: mach_vm_address_t
   var reserved: mach_vm_address_t
   init()
-  init(userCallback: mach_vm_address_t, userRefCon: mach_vm_address_t, internalRefCon: mach_vm_address_t, asyncIDRefCon: mach_vm_address_t, reserved: mach_vm_address_t)
+  init(userCallback userCallback: mach_vm_address_t, userRefCon userRefCon: mach_vm_address_t, internalRefCon internalRefCon: mach_vm_address_t, asyncIDRefCon asyncIDRefCon: mach_vm_address_t, reserved reserved: mach_vm_address_t)
 }
 var kBluetoothHCIErrorSuccess: Int { get }
 var kBluetoothHCIErrorUnknownHCICommand: Int { get }
@@ -1936,7 +1936,7 @@ var kBluetoothHCIErrorMACConnectionFailed: Int { get }
 var kBluetoothHCIErrorMax: Int { get }
 struct BluetoothHCIPowerState : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIPowerStateON: BluetoothHCIPowerState { get }
@@ -1977,7 +1977,7 @@ typealias BluetoothRFCOMMChannelID = UInt8
 typealias BluetoothRFCOMMMTU = UInt16
 struct BluetoothRFCOMMParityType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothRFCOMMParityTypeNoParity: BluetoothRFCOMMParityType { get }
@@ -1986,7 +1986,7 @@ var kBluetoothRFCOMMParityTypeEvenParity: BluetoothRFCOMMParityType { get }
 var kBluetoothRFCOMMParityTypeMaxParity: BluetoothRFCOMMParityType { get }
 struct BluetoothRFCOMMLineStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothRFCOMMLineStatusNoError: BluetoothRFCOMMLineStatus { get }
@@ -2033,49 +2033,49 @@ typealias BluetoothSDPDataElementSizeDescriptor = UInt8
 typealias BluetoothSDPServiceAttributeID = UInt16
 struct BluetoothLEScanType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEScanTypePassive: BluetoothLEScanType { get }
 var BluetoothLEScanTypeActive: BluetoothLEScanType { get }
 struct BluetoothLEAddressType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEAddressTypePublic: BluetoothLEAddressType { get }
 var BluetoothLEAddressTypeRandom: BluetoothLEAddressType { get }
 struct BluetoothLEScanFilter : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEScanFilterNone: BluetoothLEScanFilter { get }
 var BluetoothLEScanFilterWhitelist: BluetoothLEScanFilter { get }
 struct BluetoothLEScan : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEScanDisable: BluetoothLEScan { get }
 var BluetoothLEScanEnable: BluetoothLEScan { get }
 struct BluetoothLEConnectionInterval : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEConnectionIntervalMin: BluetoothLEConnectionInterval { get }
 var BluetoothLEConnectionIntervalMax: BluetoothLEConnectionInterval { get }
 struct BluetoothLEScanDuplicateFilter : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEScanDuplicateFilterDisable: BluetoothLEScanDuplicateFilter { get }
 var BluetoothLEScanDuplicateFilterEnable: BluetoothLEScanDuplicateFilter { get }
 struct BluetoothLEAdvertisingType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var BluetoothLEAdvertisingTypeConnectableUndirected: BluetoothLEAdvertisingType { get }

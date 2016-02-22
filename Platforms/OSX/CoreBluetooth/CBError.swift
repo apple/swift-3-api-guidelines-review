@@ -1,7 +1,7 @@
 
 let CBErrorDomain: String
 enum CBError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   @available(OSX 10.9, *)
@@ -32,7 +32,7 @@ extension CBError : _BridgedNSError {
 }
 let CBATTErrorDomain: String
 enum CBATTError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.9, *)
   case success

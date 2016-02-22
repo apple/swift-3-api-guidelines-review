@@ -6,19 +6,19 @@ class NSClipView : NSView {
   var documentRect: NSRect { get }
   var documentCursor: NSCursor?
   var documentVisibleRect: NSRect { get }
-  func viewFrameChanged(notification: NSNotification)
-  func viewBoundsChanged(notification: NSNotification)
+  func viewFrameChanged(_ notification: NSNotification)
+  func viewBoundsChanged(_ notification: NSNotification)
   var copiesOnScroll: Bool
-  func autoscroll(theEvent: NSEvent) -> Bool
+  func autoscroll(_ theEvent: NSEvent) -> Bool
   func scroll(to newOrigin: NSPoint)
   @available(OSX 10.9, *)
-  func constrainBoundsRect(proposedBounds: NSRect) -> NSRect
+  func constrainBoundsRect(_ proposedBounds: NSRect) -> NSRect
   @available(OSX 10.10, *)
   var contentInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __cvFlags {
@@ -47,13 +47,13 @@ struct __cvFlags {
   var hasOverlappingViews: UInt32
   var automaticallyCalculateContentSize: UInt32
   init()
-  init(onlyUncovered: UInt32, reflectScroll: UInt32, usedByCell: UInt32, scrollClipTo: UInt32, noCopyOnScroll: UInt32, drawsBackground: UInt32, scrollInProgress: UInt32, skipRemoveSuperviewCheck: UInt32, animateCurrentScroll: UInt32, canAnimateScrolls: UInt32, nextScrollRelativeToCurrentPosition: UInt32, viewBoundsChangedOverridden: UInt32, viewFrameChangedOverridden: UInt32, documentViewAlignment: UInt32, redrawnWhileScrolling: UInt32, dontConstrainScroll: UInt32, lastAtEdgesState: UInt32, showOverlayScrollersForScrollStep: UInt32, scrollerKnobFlashSpecifier: UInt32, drawsContentShadow: UInt32, dontConstrainBoundsChange: UInt32, isScrollDueToUserAction: UInt32, hasOverlappingViews: UInt32, automaticallyCalculateContentSize: UInt32)
+  init(onlyUncovered onlyUncovered: UInt32, reflectScroll reflectScroll: UInt32, usedByCell usedByCell: UInt32, scrollClipTo scrollClipTo: UInt32, noCopyOnScroll noCopyOnScroll: UInt32, drawsBackground drawsBackground: UInt32, scrollInProgress scrollInProgress: UInt32, skipRemoveSuperviewCheck skipRemoveSuperviewCheck: UInt32, animateCurrentScroll animateCurrentScroll: UInt32, canAnimateScrolls canAnimateScrolls: UInt32, nextScrollRelativeToCurrentPosition nextScrollRelativeToCurrentPosition: UInt32, viewBoundsChangedOverridden viewBoundsChangedOverridden: UInt32, viewFrameChangedOverridden viewFrameChangedOverridden: UInt32, documentViewAlignment documentViewAlignment: UInt32, redrawnWhileScrolling redrawnWhileScrolling: UInt32, dontConstrainScroll dontConstrainScroll: UInt32, lastAtEdgesState lastAtEdgesState: UInt32, showOverlayScrollersForScrollStep showOverlayScrollersForScrollStep: UInt32, scrollerKnobFlashSpecifier scrollerKnobFlashSpecifier: UInt32, drawsContentShadow drawsContentShadow: UInt32, dontConstrainBoundsChange dontConstrainBoundsChange: UInt32, isScrollDueToUserAction isScrollDueToUserAction: UInt32, hasOverlappingViews hasOverlappingViews: UInt32, automaticallyCalculateContentSize automaticallyCalculateContentSize: UInt32)
 }
 extension NSClipView {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -constrainBoundsRect: instead")
-  func constrainScroll(newOrigin: NSPoint) -> NSPoint
+  func constrainScroll(_ newOrigin: NSPoint) -> NSPoint
 }
 extension NSView {
-  func reflectScrolledClipView(aClipView: NSClipView)
-  func scroll(aClipView: NSClipView, to aPoint: NSPoint)
+  func reflectScrolledClipView(_ aClipView: NSClipView)
+  func scroll(_ aClipView: NSClipView, to aPoint: NSPoint)
 }

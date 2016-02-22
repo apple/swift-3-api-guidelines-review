@@ -10,5 +10,5 @@ struct __propertyMappingFlags {
   var _isInUse: UInt32
   var _reservedPropertyMapping: UInt32
   init()
-  init(_isInUse: UInt32, _reservedPropertyMapping: UInt32)
+  init(_isInUse _isInUse: UInt32, _reservedPropertyMapping _reservedPropertyMapping: UInt32)
 }

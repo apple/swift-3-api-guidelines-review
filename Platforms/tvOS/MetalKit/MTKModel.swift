@@ -5,20 +5,20 @@ let MTKModelErrorDomain: String
 let MTKModelErrorKey: String
 @available(tvOS 9.0, *)
 class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
-  init(device: MTLDevice)
+  init(device device: MTLDevice)
   var device: MTLDevice { get }
   @available(tvOS 9.0, *)
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
   func newZoneForBuffers(withSize sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(with data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(with data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(tvOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(tvOS 9.0, *)
-  func newBuffer(from zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBuffer(from zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(tvOS 9.0, *)
 class MTKMeshBuffer : NSObject, MDLMeshBuffer {
@@ -29,7 +29,7 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   var type: MDLMeshBufferType { get }
   func zone() -> MDLMeshBufferZone?
   @available(tvOS 9.0, *)
-  func fill(data: NSData, offset: Int)
+  func fill(_ data: NSData, offset offset: Int)
   @available(tvOS 9.0, *)
   func map() -> MDLMeshBufferMap
   @available(tvOS 9.0, *)
@@ -46,15 +46,15 @@ class MTKSubmesh : NSObject {
 }
 @available(tvOS 9.0, *)
 class MTKMesh : NSObject {
-  init(mesh: MDLMesh, device: MTLDevice) throws
-  class func newMeshes(from asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
+  init(mesh mesh: MDLMesh, device device: MTLDevice) throws
+  class func newMeshes(from asset: MDLAsset, device device: MTLDevice, sourceMeshes sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
   var vertexBuffers: [MTKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }
   var submeshes: [MTKSubmesh] { get }
   var vertexCount: Int { get }
   var name: String
 }
-func MTKModelIOVertexDescriptorFromMetal(metalDescriptor: MTLVertexDescriptor) -> MDLVertexDescriptor
-func MTKMetalVertexDescriptorFromModelIO(modelIODescriptor: MDLVertexDescriptor) -> MTLVertexDescriptor
-func MTKModelIOVertexFormatFromMetal(vertexFormat: MTLVertexFormat) -> MDLVertexFormat
-func MTKMetalVertexFormatFromModelIO(vertexFormat: MDLVertexFormat) -> MTLVertexFormat
+func MTKModelIOVertexDescriptorFromMetal(_ metalDescriptor: MTLVertexDescriptor) -> MDLVertexDescriptor
+func MTKMetalVertexDescriptorFromModelIO(_ modelIODescriptor: MDLVertexDescriptor) -> MTLVertexDescriptor
+func MTKModelIOVertexFormatFromMetal(_ vertexFormat: MTLVertexFormat) -> MDLVertexFormat
+func MTKMetalVertexFormatFromModelIO(_ vertexFormat: MDLVertexFormat) -> MTLVertexFormat

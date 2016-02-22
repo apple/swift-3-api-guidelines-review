@@ -11,7 +11,7 @@ let PHLivePhotoInfoCancelledKey: String
 @available(iOS 9.1, *)
 class PHLivePhoto : NSObject, NSCopying, NSSecureCoding {
   var size: CGSize { get }
-  class func request(resourceFileURLs fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
+  class func request(resourceFileURLs fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize targetSize: CGSize, contentMode contentMode: PHImageContentMode, resultHandler resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
   class func cancelRequest(requestID requestID: PHLivePhotoRequestID)
   init()
   @available(iOS 9.1, *)

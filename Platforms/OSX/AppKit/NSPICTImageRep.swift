@@ -4,5 +4,5 @@ class NSPICTImageRep : NSImageRep {
   @NSCopying var pictRepresentation: NSData { get }
   var boundingBox: NSRect { get }
   init()
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
 }

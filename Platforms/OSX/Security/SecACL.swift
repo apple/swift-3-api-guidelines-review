@@ -1,6 +1,6 @@
 
 struct SecKeychainPromptSelector : OptionSetType {
-  init(rawValue: uint16)
+  init(rawValue rawValue: uint16)
   let rawValue: uint16
   static var requirePassphase: SecKeychainPromptSelector { get }
   static var unsigned: SecKeychainPromptSelector { get }
@@ -11,14 +11,14 @@ struct SecKeychainPromptSelector : OptionSetType {
 @available(OSX 10.3, *)
 func SecACLGetTypeID() -> CFTypeID
 @available(OSX 10.7, *)
-func SecACLCreateWithSimpleContents(access: SecAccess, _ applicationList: CFArray?, _ description: CFString, _ promptSelector: SecKeychainPromptSelector, _ newAcl: UnsafeMutablePointer<SecACL?>) -> OSStatus
+func SecACLCreateWithSimpleContents(_ access: SecAccess, _ applicationList: CFArray?, _ description: CFString, _ promptSelector: SecKeychainPromptSelector, _ newAcl: UnsafeMutablePointer<SecACL?>) -> OSStatus
 @available(OSX 10.3, *)
-func SecACLRemove(aclRef: SecACL) -> OSStatus
+func SecACLRemove(_ aclRef: SecACL) -> OSStatus
 @available(OSX 10.7, *)
-func SecACLCopyContents(acl: SecACL, _ applicationList: UnsafeMutablePointer<CFArray?>, _ description: UnsafeMutablePointer<CFString?>, _ promptSelector: UnsafeMutablePointer<SecKeychainPromptSelector>) -> OSStatus
+func SecACLCopyContents(_ acl: SecACL, _ applicationList: UnsafeMutablePointer<CFArray?>, _ description: UnsafeMutablePointer<CFString?>, _ promptSelector: UnsafeMutablePointer<SecKeychainPromptSelector>) -> OSStatus
 @available(OSX 10.7, *)
-func SecACLSetContents(acl: SecACL, _ applicationList: CFArray?, _ description: CFString, _ promptSelector: SecKeychainPromptSelector) -> OSStatus
+func SecACLSetContents(_ acl: SecACL, _ applicationList: CFArray?, _ description: CFString, _ promptSelector: SecKeychainPromptSelector) -> OSStatus
 @available(OSX 10.7, *)
-func SecACLCopyAuthorizations(acl: SecACL) -> CFArray
+func SecACLCopyAuthorizations(_ acl: SecACL) -> CFArray
 @available(OSX 10.7, *)
-func SecACLUpdateAuthorizations(acl: SecACL, _ authorizations: CFArray) -> OSStatus
+func SecACLUpdateAuthorizations(_ acl: SecACL, _ authorizations: CFArray) -> OSStatus

@@ -11,7 +11,7 @@ class CISampler : NSObject, NSCopying {
 }
 
 extension CISampler {
-  convenience init(im: CIImage!, elements: (NSCopying, AnyObject)...)
+  convenience init(im im: CIImage!, elements elements: (NSCopying, AnyObject)...)
 }
 @available(OSX 10.4, *)
 let kCISamplerAffineMatrix: String

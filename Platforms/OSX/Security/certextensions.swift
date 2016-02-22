@@ -1,7 +1,7 @@
 
 struct __CE_GeneralNameType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var GNT_OtherName: __CE_GeneralNameType { get }
@@ -18,20 +18,20 @@ struct __CE_OtherName {
   var typeId: CSSM_OID
   var value: CSSM_DATA
   init()
-  init(typeId: CSSM_OID, value: CSSM_DATA)
+  init(typeId typeId: CSSM_OID, value value: CSSM_DATA)
 }
 struct __CE_GeneralName {
   var nameType: CE_GeneralNameType
   var berEncoded: CSSM_BOOL
   var name: CSSM_DATA
   init()
-  init(nameType: CE_GeneralNameType, berEncoded: CSSM_BOOL, name: CSSM_DATA)
+  init(nameType nameType: CE_GeneralNameType, berEncoded berEncoded: CSSM_BOOL, name name: CSSM_DATA)
 }
 struct __CE_GeneralNames {
   var numNames: uint32
   var generalName: UnsafeMutablePointer<CE_GeneralName>
   init()
-  init(numNames: uint32, generalName: UnsafeMutablePointer<CE_GeneralName>)
+  init(numNames numNames: uint32, generalName generalName: UnsafeMutablePointer<CE_GeneralName>)
 }
 struct __CE_AuthorityKeyID {
   var keyIdentifierPresent: CSSM_BOOL
@@ -41,7 +41,7 @@ struct __CE_AuthorityKeyID {
   var serialNumberPresent: CSSM_BOOL
   var serialNumber: CSSM_DATA
   init()
-  init(keyIdentifierPresent: CSSM_BOOL, keyIdentifier: CSSM_DATA, generalNamesPresent: CSSM_BOOL, generalNames: UnsafeMutablePointer<CE_GeneralNames>, serialNumberPresent: CSSM_BOOL, serialNumber: CSSM_DATA)
+  init(keyIdentifierPresent keyIdentifierPresent: CSSM_BOOL, keyIdentifier keyIdentifier: CSSM_DATA, generalNamesPresent generalNamesPresent: CSSM_BOOL, generalNames generalNames: UnsafeMutablePointer<CE_GeneralNames>, serialNumberPresent serialNumberPresent: CSSM_BOOL, serialNumber serialNumber: CSSM_DATA)
 }
 var CE_KU_DigitalSignature: Int32 { get }
 var CE_KU_NonRepudiation: Int32 { get }
@@ -64,7 +64,7 @@ struct __CE_ExtendedKeyUsage {
   var numPurposes: uint32
   var purposes: CSSM_OID_PTR
   init()
-  init(numPurposes: uint32, purposes: CSSM_OID_PTR)
+  init(numPurposes numPurposes: uint32, purposes purposes: CSSM_OID_PTR)
 }
 typealias CE_ExtendedKeyUsage = __CE_ExtendedKeyUsage
 struct __CE_BasicConstraints {
@@ -72,26 +72,26 @@ struct __CE_BasicConstraints {
   var pathLenConstraintPresent: CSSM_BOOL
   var pathLenConstraint: uint32
   init()
-  init(cA: CSSM_BOOL, pathLenConstraintPresent: CSSM_BOOL, pathLenConstraint: uint32)
+  init(cA cA: CSSM_BOOL, pathLenConstraintPresent pathLenConstraintPresent: CSSM_BOOL, pathLenConstraint pathLenConstraint: uint32)
 }
 struct __CE_PolicyQualifierInfo {
   var policyQualifierId: CSSM_OID
   var qualifier: CSSM_DATA
   init()
-  init(policyQualifierId: CSSM_OID, qualifier: CSSM_DATA)
+  init(policyQualifierId policyQualifierId: CSSM_OID, qualifier qualifier: CSSM_DATA)
 }
 struct __CE_PolicyInformation {
   var certPolicyId: CSSM_OID
   var numPolicyQualifiers: uint32
   var policyQualifiers: UnsafeMutablePointer<CE_PolicyQualifierInfo>
   init()
-  init(certPolicyId: CSSM_OID, numPolicyQualifiers: uint32, policyQualifiers: UnsafeMutablePointer<CE_PolicyQualifierInfo>)
+  init(certPolicyId certPolicyId: CSSM_OID, numPolicyQualifiers numPolicyQualifiers: uint32, policyQualifiers policyQualifiers: UnsafeMutablePointer<CE_PolicyQualifierInfo>)
 }
 struct __CE_CertPolicies {
   var numPolicies: uint32
   var policies: UnsafeMutablePointer<CE_PolicyInformation>
   init()
-  init(numPolicies: uint32, policies: UnsafeMutablePointer<CE_PolicyInformation>)
+  init(numPolicies numPolicies: uint32, policies policies: UnsafeMutablePointer<CE_PolicyInformation>)
 }
 var CE_CD_Unspecified: Int32 { get }
 var CE_CD_KeyCompromise: Int32 { get }
@@ -102,7 +102,7 @@ var CE_CD_CessationOfOperation: Int32 { get }
 var CE_CD_CertificateHold: Int32 { get }
 struct __CE_CrlDistributionPointNameType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var CE_CDNT_FullName: __CE_CrlDistributionPointNameType { get }
@@ -111,14 +111,14 @@ struct __CE_DistributionPointName {
   struct __Unnamed_union_dpn {
     var fullName: UnsafeMutablePointer<CE_GeneralNames>
     var rdn: CSSM_X509_RDN_PTR
-    init(fullName: UnsafeMutablePointer<CE_GeneralNames>)
-    init(rdn: CSSM_X509_RDN_PTR)
+    init(fullName fullName: UnsafeMutablePointer<CE_GeneralNames>)
+    init(rdn rdn: CSSM_X509_RDN_PTR)
     init()
   }
   var nameType: CE_CrlDistributionPointNameType
   var dpn: __CE_DistributionPointName.__Unnamed_union_dpn
   init()
-  init(nameType: CE_CrlDistributionPointNameType, dpn: __CE_DistributionPointName.__Unnamed_union_dpn)
+  init(nameType nameType: CE_CrlDistributionPointNameType, dpn dpn: __CE_DistributionPointName.__Unnamed_union_dpn)
 }
 struct __CE_CRLDistributionPoint {
   var distPointName: UnsafeMutablePointer<CE_DistributionPointName>
@@ -126,44 +126,44 @@ struct __CE_CRLDistributionPoint {
   var reasons: CE_CrlDistReasonFlags
   var crlIssuer: UnsafeMutablePointer<CE_GeneralNames>
   init()
-  init(distPointName: UnsafeMutablePointer<CE_DistributionPointName>, reasonsPresent: CSSM_BOOL, reasons: CE_CrlDistReasonFlags, crlIssuer: UnsafeMutablePointer<CE_GeneralNames>)
+  init(distPointName distPointName: UnsafeMutablePointer<CE_DistributionPointName>, reasonsPresent reasonsPresent: CSSM_BOOL, reasons reasons: CE_CrlDistReasonFlags, crlIssuer crlIssuer: UnsafeMutablePointer<CE_GeneralNames>)
 }
 struct __CE_CRLDistPointsSyntax {
   var numDistPoints: uint32
   var distPoints: UnsafeMutablePointer<CE_CRLDistributionPoint>
   init()
-  init(numDistPoints: uint32, distPoints: UnsafeMutablePointer<CE_CRLDistributionPoint>)
+  init(numDistPoints numDistPoints: uint32, distPoints distPoints: UnsafeMutablePointer<CE_CRLDistributionPoint>)
 }
 struct __CE_AccessDescription {
   var accessMethod: CSSM_OID
   var accessLocation: CE_GeneralName
   init()
-  init(accessMethod: CSSM_OID, accessLocation: CE_GeneralName)
+  init(accessMethod accessMethod: CSSM_OID, accessLocation accessLocation: CE_GeneralName)
 }
 struct __CE_AuthorityInfoAccess {
   var numAccessDescriptions: uint32
   var accessDescriptions: UnsafeMutablePointer<CE_AccessDescription>
   init()
-  init(numAccessDescriptions: uint32, accessDescriptions: UnsafeMutablePointer<CE_AccessDescription>)
+  init(numAccessDescriptions numAccessDescriptions: uint32, accessDescriptions accessDescriptions: UnsafeMutablePointer<CE_AccessDescription>)
 }
 struct __CE_SemanticsInformation {
   var semanticsIdentifier: UnsafeMutablePointer<CSSM_OID>
   var nameRegistrationAuthorities: UnsafeMutablePointer<CE_NameRegistrationAuthorities>
   init()
-  init(semanticsIdentifier: UnsafeMutablePointer<CSSM_OID>, nameRegistrationAuthorities: UnsafeMutablePointer<CE_NameRegistrationAuthorities>)
+  init(semanticsIdentifier semanticsIdentifier: UnsafeMutablePointer<CSSM_OID>, nameRegistrationAuthorities nameRegistrationAuthorities: UnsafeMutablePointer<CE_NameRegistrationAuthorities>)
 }
 struct __CE_QC_Statement {
   var statementId: CSSM_OID
   var semanticsInfo: UnsafeMutablePointer<CE_SemanticsInformation>
   var otherInfo: UnsafeMutablePointer<CSSM_DATA>
   init()
-  init(statementId: CSSM_OID, semanticsInfo: UnsafeMutablePointer<CE_SemanticsInformation>, otherInfo: UnsafeMutablePointer<CSSM_DATA>)
+  init(statementId statementId: CSSM_OID, semanticsInfo semanticsInfo: UnsafeMutablePointer<CE_SemanticsInformation>, otherInfo otherInfo: UnsafeMutablePointer<CSSM_DATA>)
 }
 struct __CE_QC_Statements {
   var numQCStatements: uint32
   var qcStatements: UnsafeMutablePointer<CE_QC_Statement>
   init()
-  init(numQCStatements: uint32, qcStatements: UnsafeMutablePointer<CE_QC_Statement>)
+  init(numQCStatements numQCStatements: uint32, qcStatements qcStatements: UnsafeMutablePointer<CE_QC_Statement>)
 }
 typealias CE_CrlNumber = uint32
 typealias CE_DeltaCrl = uint32
@@ -178,7 +178,7 @@ struct __CE_IssuingDistributionPoint {
   var indirectCrlPresent: CSSM_BOOL
   var indirectCrl: CSSM_BOOL
   init()
-  init(distPointName: UnsafeMutablePointer<CE_DistributionPointName>, onlyUserCertsPresent: CSSM_BOOL, onlyUserCerts: CSSM_BOOL, onlyCACertsPresent: CSSM_BOOL, onlyCACerts: CSSM_BOOL, onlySomeReasonsPresent: CSSM_BOOL, onlySomeReasons: CE_CrlDistReasonFlags, indirectCrlPresent: CSSM_BOOL, indirectCrl: CSSM_BOOL)
+  init(distPointName distPointName: UnsafeMutablePointer<CE_DistributionPointName>, onlyUserCertsPresent onlyUserCertsPresent: CSSM_BOOL, onlyUserCerts onlyUserCerts: CSSM_BOOL, onlyCACertsPresent onlyCACertsPresent: CSSM_BOOL, onlyCACerts onlyCACerts: CSSM_BOOL, onlySomeReasonsPresent onlySomeReasonsPresent: CSSM_BOOL, onlySomeReasons onlySomeReasons: CE_CrlDistReasonFlags, indirectCrlPresent indirectCrlPresent: CSSM_BOOL, indirectCrl indirectCrl: CSSM_BOOL)
 }
 struct __CE_GeneralSubtree {
   var base: UnsafeMutablePointer<CE_GeneralNames>
@@ -186,31 +186,31 @@ struct __CE_GeneralSubtree {
   var maximumPresent: CSSM_BOOL
   var maximum: uint32
   init()
-  init(base: UnsafeMutablePointer<CE_GeneralNames>, minimum: uint32, maximumPresent: CSSM_BOOL, maximum: uint32)
+  init(base base: UnsafeMutablePointer<CE_GeneralNames>, minimum minimum: uint32, maximumPresent maximumPresent: CSSM_BOOL, maximum maximum: uint32)
 }
 struct __CE_GeneralSubtrees {
   var numSubtrees: uint32
   var subtrees: UnsafeMutablePointer<CE_GeneralSubtree>
   init()
-  init(numSubtrees: uint32, subtrees: UnsafeMutablePointer<CE_GeneralSubtree>)
+  init(numSubtrees numSubtrees: uint32, subtrees subtrees: UnsafeMutablePointer<CE_GeneralSubtree>)
 }
 struct __CE_NameConstraints {
   var permitted: UnsafeMutablePointer<CE_GeneralSubtrees>
   var excluded: UnsafeMutablePointer<CE_GeneralSubtrees>
   init()
-  init(permitted: UnsafeMutablePointer<CE_GeneralSubtrees>, excluded: UnsafeMutablePointer<CE_GeneralSubtrees>)
+  init(permitted permitted: UnsafeMutablePointer<CE_GeneralSubtrees>, excluded excluded: UnsafeMutablePointer<CE_GeneralSubtrees>)
 }
 struct __CE_PolicyMapping {
   var issuerDomainPolicy: CSSM_OID
   var subjectDomainPolicy: CSSM_OID
   init()
-  init(issuerDomainPolicy: CSSM_OID, subjectDomainPolicy: CSSM_OID)
+  init(issuerDomainPolicy issuerDomainPolicy: CSSM_OID, subjectDomainPolicy subjectDomainPolicy: CSSM_OID)
 }
 struct __CE_PolicyMappings {
   var numPolicyMappings: uint32
   var policyMappings: UnsafeMutablePointer<CE_PolicyMapping>
   init()
-  init(numPolicyMappings: uint32, policyMappings: UnsafeMutablePointer<CE_PolicyMapping>)
+  init(numPolicyMappings numPolicyMappings: uint32, policyMappings policyMappings: UnsafeMutablePointer<CE_PolicyMapping>)
 }
 struct __CE_PolicyConstraints {
   var requireExplicitPolicyPresent: CSSM_BOOL
@@ -218,11 +218,11 @@ struct __CE_PolicyConstraints {
   var inhibitPolicyMappingPresent: CSSM_BOOL
   var inhibitPolicyMapping: uint32
   init()
-  init(requireExplicitPolicyPresent: CSSM_BOOL, requireExplicitPolicy: uint32, inhibitPolicyMappingPresent: CSSM_BOOL, inhibitPolicyMapping: uint32)
+  init(requireExplicitPolicyPresent requireExplicitPolicyPresent: CSSM_BOOL, requireExplicitPolicy requireExplicitPolicy: uint32, inhibitPolicyMappingPresent inhibitPolicyMappingPresent: CSSM_BOOL, inhibitPolicyMapping inhibitPolicyMapping: uint32)
 }
 struct __CE_DataType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var DT_AuthorityKeyID: __CE_DataType { get }
@@ -252,5 +252,5 @@ struct __CE_DataAndType {
   var `extension`: CE_Data
   var critical: CSSM_BOOL
   init()
-  init(type: CE_DataType, extension: CE_Data, critical: CSSM_BOOL)
+  init(type type: CE_DataType, extension extension: CE_Data, critical critical: CSSM_BOOL)
 }

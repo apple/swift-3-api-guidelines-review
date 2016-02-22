@@ -1,7 +1,7 @@
 
 @available(tvOS 5.0, *)
 enum GLKFogMode : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case exp
   case exp2

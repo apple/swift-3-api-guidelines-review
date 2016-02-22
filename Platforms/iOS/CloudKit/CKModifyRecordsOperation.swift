@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum CKRecordSavePolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ifServerRecordUnchanged
   case changedKeys

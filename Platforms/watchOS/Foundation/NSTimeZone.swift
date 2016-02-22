@@ -19,12 +19,12 @@ extension NSTimeZone {
   class func system() -> NSTimeZone
   class func resetSystemTimeZone()
   class func defaultTimeZone() -> NSTimeZone
-  class func setDefaultTimeZone(aTimeZone: NSTimeZone)
+  class func setDefaultTimeZone(_ aTimeZone: NSTimeZone)
   class func local() -> NSTimeZone
   class func knownTimeZoneNames() -> [String]
   class func abbreviationDictionary() -> [String : String]
   @available(watchOS 2.0, *)
-  class func setAbbreviationDictionary(dict: [String : String])
+  class func setAbbreviationDictionary(_ dict: [String : String])
   @available(watchOS 2.0, *)
   class func timeZoneDataVersion() -> String
   var secondsFromGMT: Int { get }
@@ -37,10 +37,10 @@ extension NSTimeZone {
   var description: String { get }
   func isEqual(to aTimeZone: NSTimeZone) -> Bool
   @available(watchOS 2.0, *)
-  func localizedName(style: NSTimeZoneNameStyle, locale: NSLocale?) -> String?
+  func localizedName(_ style: NSTimeZoneNameStyle, locale locale: NSLocale?) -> String?
 }
 enum NSTimeZoneNameStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case standard
   case shortStandard
@@ -53,7 +53,7 @@ extension NSTimeZone {
   init?(name tzName: String)
   init?(name tzName: String, data aData: NSData?)
   convenience init(forSecondsFromGMT seconds: Int)
-  convenience init?(abbreviation: String)
+  convenience init?(abbreviation abbreviation: String)
 }
 @available(watchOS 2.0, *)
 let NSSystemTimeZoneDidChangeNotification: String

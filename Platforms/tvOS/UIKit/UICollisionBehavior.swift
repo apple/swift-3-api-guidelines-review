@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 struct UICollisionBehaviorMode : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var items: UICollisionBehaviorMode { get }
   static var boundaries: UICollisionBehaviorMode { get }
@@ -9,23 +9,23 @@ struct UICollisionBehaviorMode : OptionSetType {
 }
 protocol UICollisionBehaviorDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint)
+  optional func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint)
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, with item2: UIDynamicItem)
+  optional func collisionBehavior(_ behavior: UICollisionBehavior, endedContactFor item1: UIDynamicItem, with item2: UIDynamicItem)
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint)
+  optional func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint)
   @available(tvOS 7.0, *)
-  optional func collisionBehavior(behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
+  optional func collisionBehavior(_ behavior: UICollisionBehavior, endedContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?)
 }
 @available(tvOS 7.0, *)
 class UICollisionBehavior : UIDynamicBehavior {
-  init(items: [UIDynamicItem])
-  func addItem(item: UIDynamicItem)
-  func removeItem(item: UIDynamicItem)
+  init(items items: [UIDynamicItem])
+  func addItem(_ item: UIDynamicItem)
+  func removeItem(_ item: UIDynamicItem)
   var items: [UIDynamicItem] { get }
   var collisionMode: UICollisionBehaviorMode
   var translatesReferenceBoundsIntoBoundary: Bool
-  func setTranslatesReferenceBoundsIntoBoundaryWith(insets: UIEdgeInsets)
+  func setTranslatesReferenceBoundsIntoBoundaryWith(_ insets: UIEdgeInsets)
   func addBoundary(identifier identifier: NSCopying, for bezierPath: UIBezierPath)
   func addBoundary(identifier identifier: NSCopying, from p1: CGPoint, to p2: CGPoint)
   func boundary(withIdentifier identifier: NSCopying) -> UIBezierPath?

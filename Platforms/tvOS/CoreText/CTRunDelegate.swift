@@ -17,6 +17,6 @@ struct CTRunDelegateCallbacks {
 var kCTRunDelegateVersion1: Int { get }
 var kCTRunDelegateCurrentVersion: Int { get }
 @available(tvOS 3.2, *)
-func CTRunDelegateCreate(callbacks: UnsafePointer<CTRunDelegateCallbacks>, _ refCon: UnsafeMutablePointer<Void>) -> CTRunDelegate?
+func CTRunDelegateCreate(_ callbacks: UnsafePointer<CTRunDelegateCallbacks>, _ refCon: UnsafeMutablePointer<Void>) -> CTRunDelegate?
 @available(tvOS 3.2, *)
-func CTRunDelegateGetRefCon(runDelegate: CTRunDelegate) -> UnsafeMutablePointer<Void>
+func CTRunDelegateGetRefCon(_ runDelegate: CTRunDelegate) -> UnsafeMutablePointer<Void>

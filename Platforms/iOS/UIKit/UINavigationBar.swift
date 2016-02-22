@@ -5,21 +5,21 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   weak var delegate: @sil_weak UINavigationBarDelegate?
   @available(iOS 3.0, *)
   var isTranslucent: Bool
-  func push(item: UINavigationItem, animated: Bool)
+  func push(_ item: UINavigationItem, animated animated: Bool)
   func popNavigationItem(animated animated: Bool) -> UINavigationItem?
   var topItem: UINavigationItem? { get }
   var backItem: UINavigationItem? { get }
   var items: [UINavigationItem]?
-  func setItems(items: [UINavigationItem]?, animated: Bool)
+  func setItems(_ items: [UINavigationItem]?, animated animated: Bool)
   var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 7.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 7.0, *)
-  func backgroundImage(for barPosition: UIBarPosition, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImage(for barPosition: UIBarPosition, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, for barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
   func backgroundImage(for barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 6.0, *)
@@ -27,14 +27,14 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   @available(iOS 5.0, *)
   var titleTextAttributes: [String : AnyObject]?
   @available(iOS 5.0, *)
-  func setTitleVerticalPositionAdjustment(adjustment: CGFloat, for barMetrics: UIBarMetrics)
+  func setTitleVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
   func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
   @available(iOS 7.0, *)
   var backIndicatorImage: UIImage?
   @available(iOS 7.0, *)
   var backIndicatorTransitionMaskImage: UIImage?
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
   @available(iOS 7.0, *)
@@ -42,38 +42,38 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
 }
 protocol UINavigationBarDelegate : UIBarPositioningDelegate {
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
+  optional func navigationBar(_ navigationBar: UINavigationBar, shouldPush item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPush item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPush item: UINavigationItem)
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
+  optional func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
   @available(iOS 2.0, *)
-  optional func navigationBar(navigationBar: UINavigationBar, didPop item: UINavigationItem)
+  optional func navigationBar(_ navigationBar: UINavigationBar, didPop item: UINavigationItem)
 }
 @available(iOS 2.0, *)
 class UINavigationItem : NSObject, NSCoding {
-  init(title: String)
-  init?(coder: NSCoder)
+  init(title title: String)
+  init?(coder coder: NSCoder)
   var title: String?
   var titleView: UIView?
   var prompt: String?
   var backBarButtonItem: UIBarButtonItem?
   var hidesBackButton: Bool
-  func setHidesBackButton(hidesBackButton: Bool, animated: Bool)
+  func setHidesBackButton(_ hidesBackButton: Bool, animated animated: Bool)
   @available(iOS 5.0, *)
   var leftBarButtonItems: [UIBarButtonItem]?
   @available(iOS 5.0, *)
   var rightBarButtonItems: [UIBarButtonItem]?
   @available(iOS 5.0, *)
-  func setLeftBarButtonItems(items: [UIBarButtonItem]?, animated: Bool)
+  func setLeftBarButtonItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
   @available(iOS 5.0, *)
-  func setRightBarButtonItems(items: [UIBarButtonItem]?, animated: Bool)
+  func setRightBarButtonItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
   @available(iOS 5.0, *)
   var leftItemsSupplementBackButton: Bool
   var leftBarButtonItem: UIBarButtonItem?
   var rightBarButtonItem: UIBarButtonItem?
-  func setLeftBarButtonItem(item: UIBarButtonItem?, animated: Bool)
-  func setRightBarButtonItem(item: UIBarButtonItem?, animated: Bool)
+  func setLeftBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
+  func setRightBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
   convenience init()
   @available(iOS 2.0, *)
   func encode(with aCoder: NSCoder)

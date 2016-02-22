@@ -3,5 +3,5 @@
 class HKCorrelationQuery : HKQuery {
   @NSCopying var correlationType: HKCorrelationType { get }
   var samplePredicates: [HKSampleType : NSPredicate]? { get }
-  init(type correlationType: HKCorrelationType, predicate: NSPredicate?, samplePredicates: [HKSampleType : NSPredicate]?, completion: (HKCorrelationQuery, [HKCorrelation]?, NSError?) -> Void)
+  init(type correlationType: HKCorrelationType, predicate predicate: NSPredicate?, samplePredicates samplePredicates: [HKSampleType : NSPredicate]?, completion completion: (HKCorrelationQuery, [HKCorrelation]?, NSError?) -> Void)
 }

@@ -71,162 +71,162 @@ func SCNetworkInterfaceGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
 func SCNetworkInterfaceCopyAll() -> CFArray
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetSupportedInterfaceTypes(interface: SCNetworkInterface) -> CFArray?
+func SCNetworkInterfaceGetSupportedInterfaceTypes(_ interface: SCNetworkInterface) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetSupportedProtocolTypes(interface: SCNetworkInterface) -> CFArray?
+func SCNetworkInterfaceGetSupportedProtocolTypes(_ interface: SCNetworkInterface) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceCreateWithInterface(interface: SCNetworkInterface, _ interfaceType: CFString) -> SCNetworkInterface?
+func SCNetworkInterfaceCreateWithInterface(_ interface: SCNetworkInterface, _ interfaceType: CFString) -> SCNetworkInterface?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetBSDName(interface: SCNetworkInterface) -> CFString?
+func SCNetworkInterfaceGetBSDName(_ interface: SCNetworkInterface) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetConfiguration(interface: SCNetworkInterface) -> CFDictionary?
+func SCNetworkInterfaceGetConfiguration(_ interface: SCNetworkInterface) -> CFDictionary?
 @available(OSX 10.5, *)
-func SCNetworkInterfaceGetExtendedConfiguration(interface: SCNetworkInterface, _ extendedType: CFString) -> CFDictionary?
+func SCNetworkInterfaceGetExtendedConfiguration(_ interface: SCNetworkInterface, _ extendedType: CFString) -> CFDictionary?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetHardwareAddressString(interface: SCNetworkInterface) -> CFString?
+func SCNetworkInterfaceGetHardwareAddressString(_ interface: SCNetworkInterface) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetInterface(interface: SCNetworkInterface) -> SCNetworkInterface?
+func SCNetworkInterfaceGetInterface(_ interface: SCNetworkInterface) -> SCNetworkInterface?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetInterfaceType(interface: SCNetworkInterface) -> CFString?
+func SCNetworkInterfaceGetInterfaceType(_ interface: SCNetworkInterface) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceGetLocalizedDisplayName(interface: SCNetworkInterface) -> CFString?
+func SCNetworkInterfaceGetLocalizedDisplayName(_ interface: SCNetworkInterface) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkInterfaceSetConfiguration(interface: SCNetworkInterface, _ config: CFDictionary) -> Bool
+func SCNetworkInterfaceSetConfiguration(_ interface: SCNetworkInterface, _ config: CFDictionary) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceSetExtendedConfiguration(interface: SCNetworkInterface, _ extendedType: CFString, _ config: CFDictionary) -> Bool
+func SCNetworkInterfaceSetExtendedConfiguration(_ interface: SCNetworkInterface, _ extendedType: CFString, _ config: CFDictionary) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceCopyMediaOptions(interface: SCNetworkInterface, _ current: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ active: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ available: UnsafeMutablePointer<Unmanaged<CFArray>?>, _ filter: Bool) -> Bool
+func SCNetworkInterfaceCopyMediaOptions(_ interface: SCNetworkInterface, _ current: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ active: UnsafeMutablePointer<Unmanaged<CFDictionary>?>, _ available: UnsafeMutablePointer<Unmanaged<CFArray>?>, _ filter: Bool) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceCopyMediaSubTypes(available: CFArray) -> CFArray?
+func SCNetworkInterfaceCopyMediaSubTypes(_ available: CFArray) -> CFArray?
 @available(OSX 10.5, *)
-func SCNetworkInterfaceCopyMediaSubTypeOptions(available: CFArray, _ subType: CFString) -> CFArray?
+func SCNetworkInterfaceCopyMediaSubTypeOptions(_ available: CFArray, _ subType: CFString) -> CFArray?
 @available(OSX 10.5, *)
-func SCNetworkInterfaceCopyMTU(interface: SCNetworkInterface, _ mtu_cur: UnsafeMutablePointer<Int32>, _ mtu_min: UnsafeMutablePointer<Int32>, _ mtu_max: UnsafeMutablePointer<Int32>) -> Bool
+func SCNetworkInterfaceCopyMTU(_ interface: SCNetworkInterface, _ mtu_cur: UnsafeMutablePointer<Int32>, _ mtu_min: UnsafeMutablePointer<Int32>, _ mtu_max: UnsafeMutablePointer<Int32>) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceSetMediaOptions(interface: SCNetworkInterface, _ subtype: CFString, _ options: CFArray) -> Bool
+func SCNetworkInterfaceSetMediaOptions(_ interface: SCNetworkInterface, _ subtype: CFString, _ options: CFArray) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceSetMTU(interface: SCNetworkInterface, _ mtu: Int32) -> Bool
+func SCNetworkInterfaceSetMTU(_ interface: SCNetworkInterface, _ mtu: Int32) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkInterfaceForceConfigurationRefresh(interface: SCNetworkInterface) -> Bool
+func SCNetworkInterfaceForceConfigurationRefresh(_ interface: SCNetworkInterface) -> Bool
 @available(OSX 10.5, *)
-func SCBondInterfaceCopyAll(prefs: SCPreferences) -> CFArray
+func SCBondInterfaceCopyAll(_ prefs: SCPreferences) -> CFArray
 @available(OSX 10.5, *)
-func SCBondInterfaceCopyAvailableMemberInterfaces(prefs: SCPreferences) -> CFArray
+func SCBondInterfaceCopyAvailableMemberInterfaces(_ prefs: SCPreferences) -> CFArray
 @available(OSX 10.5, *)
-func SCBondInterfaceCreate(prefs: SCPreferences) -> SCBondInterface?
+func SCBondInterfaceCreate(_ prefs: SCPreferences) -> SCBondInterface?
 @available(OSX 10.5, *)
-func SCBondInterfaceRemove(bond: SCBondInterface) -> Bool
+func SCBondInterfaceRemove(_ bond: SCBondInterface) -> Bool
 @available(OSX 10.5, *)
-func SCBondInterfaceGetMemberInterfaces(bond: SCBondInterface) -> CFArray?
+func SCBondInterfaceGetMemberInterfaces(_ bond: SCBondInterface) -> CFArray?
 @available(OSX 10.5, *)
-func SCBondInterfaceGetOptions(bond: SCBondInterface) -> CFDictionary?
+func SCBondInterfaceGetOptions(_ bond: SCBondInterface) -> CFDictionary?
 @available(OSX 10.5, *)
-func SCBondInterfaceSetMemberInterfaces(bond: SCBondInterface, _ members: CFArray) -> Bool
+func SCBondInterfaceSetMemberInterfaces(_ bond: SCBondInterface, _ members: CFArray) -> Bool
 @available(OSX 10.5, *)
-func SCBondInterfaceSetLocalizedDisplayName(bond: SCBondInterface, _ newName: CFString) -> Bool
+func SCBondInterfaceSetLocalizedDisplayName(_ bond: SCBondInterface, _ newName: CFString) -> Bool
 @available(OSX 10.5, *)
-func SCBondInterfaceSetOptions(bond: SCBondInterface, _ newOptions: CFDictionary) -> Bool
+func SCBondInterfaceSetOptions(_ bond: SCBondInterface, _ newOptions: CFDictionary) -> Bool
 @available(OSX 10.5, *)
-func SCBondInterfaceCopyStatus(bond: SCBondInterface) -> SCBondStatus?
+func SCBondInterfaceCopyStatus(_ bond: SCBondInterface) -> SCBondStatus?
 @available(OSX 10.5, *)
 func SCBondStatusGetTypeID() -> CFTypeID
 @available(OSX 10.5, *)
-func SCBondStatusGetMemberInterfaces(bondStatus: SCBondStatus) -> CFArray?
+func SCBondStatusGetMemberInterfaces(_ bondStatus: SCBondStatus) -> CFArray?
 @available(OSX 10.5, *)
-func SCBondStatusGetInterfaceStatus(bondStatus: SCBondStatus, _ interface: SCNetworkInterface?) -> CFDictionary?
+func SCBondStatusGetInterfaceStatus(_ bondStatus: SCBondStatus, _ interface: SCNetworkInterface?) -> CFDictionary?
 @available(OSX 10.5, *)
-func SCVLANInterfaceCopyAll(prefs: SCPreferences) -> CFArray
+func SCVLANInterfaceCopyAll(_ prefs: SCPreferences) -> CFArray
 @available(OSX 10.5, *)
 func SCVLANInterfaceCopyAvailablePhysicalInterfaces() -> CFArray
 @available(OSX 10.5, *)
-func SCVLANInterfaceCreate(prefs: SCPreferences, _ physical: SCNetworkInterface, _ tag: CFNumber) -> SCVLANInterface?
+func SCVLANInterfaceCreate(_ prefs: SCPreferences, _ physical: SCNetworkInterface, _ tag: CFNumber) -> SCVLANInterface?
 @available(OSX 10.5, *)
-func SCVLANInterfaceRemove(vlan: SCVLANInterface) -> Bool
+func SCVLANInterfaceRemove(_ vlan: SCVLANInterface) -> Bool
 @available(OSX 10.5, *)
-func SCVLANInterfaceGetPhysicalInterface(vlan: SCVLANInterface) -> SCNetworkInterface?
+func SCVLANInterfaceGetPhysicalInterface(_ vlan: SCVLANInterface) -> SCNetworkInterface?
 @available(OSX 10.5, *)
-func SCVLANInterfaceGetTag(vlan: SCVLANInterface) -> CFNumber?
+func SCVLANInterfaceGetTag(_ vlan: SCVLANInterface) -> CFNumber?
 @available(OSX 10.5, *)
-func SCVLANInterfaceGetOptions(vlan: SCVLANInterface) -> CFDictionary?
+func SCVLANInterfaceGetOptions(_ vlan: SCVLANInterface) -> CFDictionary?
 @available(OSX 10.5, *)
-func SCVLANInterfaceSetPhysicalInterfaceAndTag(vlan: SCVLANInterface, _ physical: SCNetworkInterface, _ tag: CFNumber) -> Bool
+func SCVLANInterfaceSetPhysicalInterfaceAndTag(_ vlan: SCVLANInterface, _ physical: SCNetworkInterface, _ tag: CFNumber) -> Bool
 @available(OSX 10.5, *)
-func SCVLANInterfaceSetLocalizedDisplayName(vlan: SCVLANInterface, _ newName: CFString) -> Bool
+func SCVLANInterfaceSetLocalizedDisplayName(_ vlan: SCVLANInterface, _ newName: CFString) -> Bool
 @available(OSX 10.5, *)
-func SCVLANInterfaceSetOptions(vlan: SCVLANInterface, _ newOptions: CFDictionary) -> Bool
+func SCVLANInterfaceSetOptions(_ vlan: SCVLANInterface, _ newOptions: CFDictionary) -> Bool
 @available(OSX 10.4, *)
 func SCNetworkProtocolGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetConfiguration(protocol: SCNetworkProtocol) -> CFDictionary?
+func SCNetworkProtocolGetConfiguration(_ protocol: SCNetworkProtocol) -> CFDictionary?
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetEnabled(protocol: SCNetworkProtocol) -> Bool
+func SCNetworkProtocolGetEnabled(_ protocol: SCNetworkProtocol) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkProtocolGetProtocolType(protocol: SCNetworkProtocol) -> CFString?
+func SCNetworkProtocolGetProtocolType(_ protocol: SCNetworkProtocol) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkProtocolSetConfiguration(protocol: SCNetworkProtocol, _ config: CFDictionary) -> Bool
+func SCNetworkProtocolSetConfiguration(_ protocol: SCNetworkProtocol, _ config: CFDictionary) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkProtocolSetEnabled(protocol: SCNetworkProtocol, _ enabled: Bool) -> Bool
+func SCNetworkProtocolSetEnabled(_ protocol: SCNetworkProtocol, _ enabled: Bool) -> Bool
 @available(OSX 10.4, *)
 func SCNetworkServiceGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func SCNetworkServiceAddProtocolType(service: SCNetworkService, _ protocolType: CFString) -> Bool
+func SCNetworkServiceAddProtocolType(_ service: SCNetworkService, _ protocolType: CFString) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceCopyAll(prefs: SCPreferences) -> CFArray?
+func SCNetworkServiceCopyAll(_ prefs: SCPreferences) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkServiceCopyProtocols(service: SCNetworkService) -> CFArray?
+func SCNetworkServiceCopyProtocols(_ service: SCNetworkService) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkServiceCreate(prefs: SCPreferences, _ interface: SCNetworkInterface) -> SCNetworkService?
+func SCNetworkServiceCreate(_ prefs: SCPreferences, _ interface: SCNetworkInterface) -> SCNetworkService?
 @available(OSX 10.4, *)
-func SCNetworkServiceCopy(prefs: SCPreferences, _ serviceID: CFString) -> SCNetworkService?
+func SCNetworkServiceCopy(_ prefs: SCPreferences, _ serviceID: CFString) -> SCNetworkService?
 @available(OSX 10.5, *)
-func SCNetworkServiceEstablishDefaultConfiguration(service: SCNetworkService) -> Bool
+func SCNetworkServiceEstablishDefaultConfiguration(_ service: SCNetworkService) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceGetEnabled(service: SCNetworkService) -> Bool
+func SCNetworkServiceGetEnabled(_ service: SCNetworkService) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceGetInterface(service: SCNetworkService) -> SCNetworkInterface?
+func SCNetworkServiceGetInterface(_ service: SCNetworkService) -> SCNetworkInterface?
 @available(OSX 10.4, *)
-func SCNetworkServiceGetName(service: SCNetworkService) -> CFString?
+func SCNetworkServiceGetName(_ service: SCNetworkService) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkServiceCopyProtocol(service: SCNetworkService, _ protocolType: CFString) -> SCNetworkProtocol?
+func SCNetworkServiceCopyProtocol(_ service: SCNetworkService, _ protocolType: CFString) -> SCNetworkProtocol?
 @available(OSX 10.4, *)
-func SCNetworkServiceGetServiceID(service: SCNetworkService) -> CFString?
+func SCNetworkServiceGetServiceID(_ service: SCNetworkService) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkServiceRemove(service: SCNetworkService) -> Bool
+func SCNetworkServiceRemove(_ service: SCNetworkService) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceRemoveProtocolType(service: SCNetworkService, _ protocolType: CFString) -> Bool
+func SCNetworkServiceRemoveProtocolType(_ service: SCNetworkService, _ protocolType: CFString) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceSetEnabled(service: SCNetworkService, _ enabled: Bool) -> Bool
+func SCNetworkServiceSetEnabled(_ service: SCNetworkService, _ enabled: Bool) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkServiceSetName(service: SCNetworkService, _ name: CFString) -> Bool
+func SCNetworkServiceSetName(_ service: SCNetworkService, _ name: CFString) -> Bool
 @available(OSX 10.4, *)
 func SCNetworkSetGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func SCNetworkSetAddService(set: SCNetworkSet, _ service: SCNetworkService) -> Bool
+func SCNetworkSetAddService(_ set: SCNetworkSet, _ service: SCNetworkService) -> Bool
 @available(OSX 10.5, *)
-func SCNetworkSetContainsInterface(set: SCNetworkSet, _ interface: SCNetworkInterface) -> Bool
+func SCNetworkSetContainsInterface(_ set: SCNetworkSet, _ interface: SCNetworkInterface) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkSetCopyAll(prefs: SCPreferences) -> CFArray?
+func SCNetworkSetCopyAll(_ prefs: SCPreferences) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkSetCopyCurrent(prefs: SCPreferences) -> SCNetworkSet?
+func SCNetworkSetCopyCurrent(_ prefs: SCPreferences) -> SCNetworkSet?
 @available(OSX 10.4, *)
-func SCNetworkSetCopyServices(set: SCNetworkSet) -> CFArray?
+func SCNetworkSetCopyServices(_ set: SCNetworkSet) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkSetCreate(prefs: SCPreferences) -> SCNetworkSet?
+func SCNetworkSetCreate(_ prefs: SCPreferences) -> SCNetworkSet?
 @available(OSX 10.4, *)
-func SCNetworkSetCopy(prefs: SCPreferences, _ setID: CFString) -> SCNetworkSet?
+func SCNetworkSetCopy(_ prefs: SCPreferences, _ setID: CFString) -> SCNetworkSet?
 @available(OSX 10.4, *)
-func SCNetworkSetGetName(set: SCNetworkSet) -> CFString?
+func SCNetworkSetGetName(_ set: SCNetworkSet) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkSetGetSetID(set: SCNetworkSet) -> CFString?
+func SCNetworkSetGetSetID(_ set: SCNetworkSet) -> CFString?
 @available(OSX 10.4, *)
-func SCNetworkSetGetServiceOrder(set: SCNetworkSet) -> CFArray?
+func SCNetworkSetGetServiceOrder(_ set: SCNetworkSet) -> CFArray?
 @available(OSX 10.4, *)
-func SCNetworkSetRemove(set: SCNetworkSet) -> Bool
+func SCNetworkSetRemove(_ set: SCNetworkSet) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkSetRemoveService(set: SCNetworkSet, _ service: SCNetworkService) -> Bool
+func SCNetworkSetRemoveService(_ set: SCNetworkSet, _ service: SCNetworkService) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkSetSetCurrent(set: SCNetworkSet) -> Bool
+func SCNetworkSetSetCurrent(_ set: SCNetworkSet) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkSetSetName(set: SCNetworkSet, _ name: CFString) -> Bool
+func SCNetworkSetSetName(_ set: SCNetworkSet, _ name: CFString) -> Bool
 @available(OSX 10.4, *)
-func SCNetworkSetSetServiceOrder(set: SCNetworkSet, _ newOrder: CFArray) -> Bool
+func SCNetworkSetSetServiceOrder(_ set: SCNetworkSet, _ newOrder: CFArray) -> Bool

@@ -1,9 +1,9 @@
 
 @available(tvOS 2.0, *)
 class UIImageView : UIView {
-  init(image: UIImage?)
+  init(image image: UIImage?)
   @available(tvOS 3.0, *)
-  init(image: UIImage?, highlightedImage: UIImage?)
+  init(image image: UIImage?, highlightedImage highlightedImage: UIImage?)
   var image: UIImage?
   @available(tvOS 3.0, *)
   var highlightedImage: UIImage?
@@ -24,7 +24,7 @@ class UIImageView : UIView {
   var adjustsImageWhenAncestorFocused: Bool
   @available(tvOS 9.0, *)
   var focusedFrameGuide: UILayoutGuide { get }
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

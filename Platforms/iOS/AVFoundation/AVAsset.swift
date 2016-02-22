@@ -23,7 +23,7 @@ extension AVAsset {
   var referenceRestrictions: AVAssetReferenceRestrictions { get }
 }
 struct AVAssetReferenceRestrictions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var forbidNone: AVAssetReferenceRestrictions { get }
   static var forbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
@@ -103,8 +103,8 @@ class AVURLAsset : AVAsset {
   @available(iOS 5.0, *)
   class func audiovisualMIMETypes() -> [String]
   @available(iOS 5.0, *)
-  class func isPlayableExtendedMIMEType(extendedMIMEType: String) -> Bool
-  init(url URL: NSURL, options: [String : AnyObject]? = [:])
+  class func isPlayableExtendedMIMEType(_ extendedMIMEType: String) -> Bool
+  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
   convenience init(url URL: NSURL)
 }

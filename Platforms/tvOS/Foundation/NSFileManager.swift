@@ -2,14 +2,14 @@
 var NSFoundationVersionWithFileManagerResourceForkSupport: Int32 { get }
 @available(tvOS 4.0, *)
 struct NSVolumeEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var skipHiddenVolumes: NSVolumeEnumerationOptions { get }
   static var produceFileReferenceURLs: NSVolumeEnumerationOptions { get }
 }
 @available(tvOS 4.0, *)
 struct NSDirectoryEnumerationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var skipsSubdirectoryDescendants: NSDirectoryEnumerationOptions { get }
   static var skipsPackageDescendants: NSDirectoryEnumerationOptions { get }
@@ -17,14 +17,14 @@ struct NSDirectoryEnumerationOptions : OptionSetType {
 }
 @available(tvOS 4.0, *)
 struct NSFileManagerItemReplacementOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var usingNewMetadataOnly: NSFileManagerItemReplacementOptions { get }
   static var withoutDeletingBackupItem: NSFileManagerItemReplacementOptions { get }
 }
 @available(tvOS 8.0, *)
 enum NSURLRelationship : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case contains
   case same
@@ -35,7 +35,7 @@ let NSUbiquityIdentityDidChangeNotification: String
 class NSFileManager : NSObject {
   class func defaultManager() -> NSFileManager
   @available(tvOS 4.0, *)
-  func mountedVolumeURLsIncludingResourceValues(forKeys propertyKeys: [String]?, options: NSVolumeEnumerationOptions = []) -> [NSURL]?
+  func mountedVolumeURLsIncludingResourceValues(forKeys propertyKeys: [String]?, options options: NSVolumeEnumerationOptions = []) -> [NSURL]?
   @available(tvOS 4.0, *)
   func contentsOfDirectory(at url: NSURL, includingPropertiesForKeys keys: [String]?, options mask: NSDirectoryEnumerationOptions = []) throws -> [NSURL]
   @available(tvOS 4.0, *)
@@ -43,19 +43,19 @@ class NSFileManager : NSObject {
   @available(tvOS 4.0, *)
   func url(for directory: NSSearchPathDirectory, in domain: NSSearchPathDomainMask, appropriateFor url: NSURL?, create shouldCreate: Bool) throws -> NSURL
   @available(tvOS 8.0, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAt directoryURL: NSURL, toItemAt otherURL: NSURL) throws
+  func getRelationship(_ outRelationship: UnsafeMutablePointer<NSURLRelationship>, ofDirectoryAt directoryURL: NSURL, toItemAt otherURL: NSURL) throws
   @available(tvOS 8.0, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, in domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
+  func getRelationship(_ outRelationship: UnsafeMutablePointer<NSURLRelationship>, of directory: NSSearchPathDirectory, in domainMask: NSSearchPathDomainMask, toItemAt url: NSURL) throws
   @available(tvOS 5.0, *)
-  func createDirectory(at url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(at url: NSURL, withIntermediateDirectories createIntermediates: Bool, attributes attributes: [String : AnyObject]? = [:]) throws
   @available(tvOS 5.0, *)
   func createSymbolicLink(at url: NSURL, withDestinationURL destURL: NSURL) throws
   @available(tvOS 2.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged NSFileManagerDelegate?
   @available(tvOS 2.0, *)
-  func setAttributes(attributes: [String : AnyObject], ofItemAtPath path: String) throws
+  func setAttributes(_ attributes: [String : AnyObject], ofItemAtPath path: String) throws
   @available(tvOS 2.0, *)
-  func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
+  func createDirectory(atPath path: String, withIntermediateDirectories createIntermediates: Bool, attributes attributes: [String : AnyObject]? = [:]) throws
   @available(tvOS 2.0, *)
   func contentsOfDirectory(atPath path: String) throws -> [String]
   @available(tvOS 2.0, *)
@@ -85,9 +85,9 @@ class NSFileManager : NSObject {
   @available(tvOS 4.0, *)
   func removeItem(at URL: NSURL) throws
   var currentDirectoryPath: String { get }
-  func changeCurrentDirectoryPath(path: String) -> Bool
+  func changeCurrentDirectoryPath(_ path: String) -> Bool
   func fileExists(atPath path: String) -> Bool
-  func fileExists(atPath path: String, isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
+  func fileExists(atPath path: String, isDirectory isDirectory: UnsafeMutablePointer<ObjCBool>) -> Bool
   func isReadableFile(atPath path: String) -> Bool
   func isWritableFile(atPath path: String) -> Bool
   func isExecutableFile(atPath path: String) -> Bool
@@ -104,9 +104,9 @@ class NSFileManager : NSObject {
   func fileSystemRepresentation(withPath path: String) -> UnsafePointer<Int8>
   func string(withFileSystemRepresentation str: UnsafePointer<Int8>, length len: Int) -> String
   @available(tvOS 4.0, *)
-  func replaceItem(at originalItemURL: NSURL, withItemAt newItemURL: NSURL, backupItemName: String?, options: NSFileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
+  func replaceItem(at originalItemURL: NSURL, withItemAt newItemURL: NSURL, backupItemName backupItemName: String?, options options: NSFileManagerItemReplacementOptions = [], resultingItemURL resultingURL: AutoreleasingUnsafeMutablePointer<NSURL?>) throws
   @available(tvOS 5.0, *)
-  func setUbiquitous(flag: Bool, itemAt url: NSURL, destinationURL: NSURL) throws
+  func setUbiquitous(_ flag: Bool, itemAt url: NSURL, destinationURL destinationURL: NSURL) throws
   @available(tvOS 5.0, *)
   func isUbiquitousItem(at url: NSURL) -> Bool
   @available(tvOS 5.0, *)
@@ -126,30 +126,30 @@ class NSFileManager : NSObject {
 extension NSObject {
 }
 protocol NSFileManagerDelegate : NSObjectProtocol {
-  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldCopyItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldCopyItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, copyingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldMoveItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldMoveItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, movingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldLinkItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldLinkItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAtPath srcPath: String, toPath dstPath: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, linkingItemAt srcURL: NSURL, to dstURL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldRemoveItemAtPath path: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldRemoveItemAt URL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAtPath path: String) -> Bool
   @available(tvOS 4.0, *)
-  optional func fileManager(fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAt URL: NSURL) -> Bool
+  optional func fileManager(_ fileManager: NSFileManager, shouldProceedAfterError error: NSError, removingItemAt URL: NSURL) -> Bool
 }
 class NSDirectoryEnumerator : NSEnumerator {
   var fileAttributes: [String : AnyObject]? { get }

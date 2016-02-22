@@ -2,11 +2,11 @@
 @available(OSX 10.7, *)
 class AVAudioPlayer : NSObject {
   init(contentsOf url: NSURL) throws
-  init(data: NSData) throws
+  init(data data: NSData) throws
   @available(OSX 10.9, *)
   init(contentsOf url: NSURL, fileTypeHint utiString: String?) throws
   @available(OSX 10.9, *)
-  init(data: NSData, fileTypeHint utiString: String?) throws
+  init(data data: NSData, fileTypeHint utiString: String?) throws
   func prepareToPlay() -> Bool
   func play() -> Bool
   @available(OSX 10.7, *)
@@ -40,7 +40,7 @@ class AVAudioPlayer : NSObject {
 }
 protocol AVAudioPlayerDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool)
+  optional func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
   @available(OSX 10.7, *)
-  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?)
+  optional func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error error: NSError?)
 }

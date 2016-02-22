@@ -5,7 +5,7 @@ class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
   var username: String { get }
   var userIdentifier: String { get }
   var service: String { get }
-  init(urlString: String?, username: String?, userIdentifier: String?, service: String?)
+  init(urlString urlString: String?, username username: String?, userIdentifier userIdentifier: String?, service service: String?)
   class func localizedString(forKey key: String) -> String
   class func localizedString(forService service: String) -> String
   init()

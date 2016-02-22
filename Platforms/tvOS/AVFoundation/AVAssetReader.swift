@@ -1,6 +1,6 @@
 
 enum AVAssetReaderStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case reading
@@ -10,14 +10,14 @@ enum AVAssetReaderStatus : Int {
 }
 @available(tvOS 4.1, *)
 class AVAssetReader : NSObject {
-  init(asset: AVAsset) throws
+  init(asset asset: AVAsset) throws
   var asset: AVAsset { get }
   var status: AVAssetReaderStatus { get }
   var error: NSError? { get }
   var timeRange: CMTimeRange
   var outputs: [AVAssetReaderOutput] { get }
-  func canAddOutput(output: AVAssetReaderOutput) -> Bool
-  func addOutput(output: AVAssetReaderOutput)
+  func canAddOutput(_ output: AVAssetReaderOutput) -> Bool
+  func addOutput(_ output: AVAssetReaderOutput)
   func startReading() -> Bool
   func cancelReading()
 }

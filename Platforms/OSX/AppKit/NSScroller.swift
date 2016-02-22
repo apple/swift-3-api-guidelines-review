@@ -1,6 +1,6 @@
 
 enum NSScrollArrowPosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case scrollerArrowsMaxEnd
   case scrollerArrowsMinEnd
@@ -8,14 +8,14 @@ enum NSScrollArrowPosition : UInt {
   case scrollerArrowsNone
 }
 enum NSUsableScrollerParts : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noScrollerParts
   case onlyScrollerArrows
   case allScrollerParts
 }
 enum NSScrollerPart : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noPart
   case decrementPage
@@ -26,21 +26,21 @@ enum NSScrollerPart : UInt {
   case knobSlot
 }
 enum NSScrollerArrow : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case incrementArrow
   case decrementArrow
 }
 @available(OSX 10.7, *)
 enum NSScrollerStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case legacy
   case overlay
 }
 @available(OSX 10.7, *)
 enum NSScrollerKnobStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case `default`
   case dark
@@ -50,7 +50,7 @@ class NSScroller : NSControl {
   @available(OSX 10.7, *)
   class func isCompatibleWithOverlayScrollers() -> Bool
   @available(OSX 10.7, *)
-  class func scrollerWidth(for controlSize: NSControlSize, scrollerStyle: NSScrollerStyle) -> CGFloat
+  class func scrollerWidth(for controlSize: NSControlSize, scrollerStyle scrollerStyle: NSScrollerStyle) -> CGFloat
   @available(OSX 10.7, *)
   class func preferredScrollerStyle() -> NSScrollerStyle
   @available(OSX 10.7, *)
@@ -63,17 +63,17 @@ class NSScroller : NSControl {
   var arrowsPosition: NSScrollArrowPosition
   var controlTint: NSControlTint
   var controlSize: NSControlSize
-  func draw(whichArrow: NSScrollerArrow, highlight flag: Bool)
+  func draw(_ whichArrow: NSScrollerArrow, highlight flag: Bool)
   func drawKnob()
   func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool)
-  func highlight(flag: Bool)
-  func testPart(thePoint: NSPoint) -> NSScrollerPart
-  func trackKnob(theEvent: NSEvent)
-  func trackScrollButtons(theEvent: NSEvent)
+  func highlight(_ flag: Bool)
+  func testPart(_ thePoint: NSPoint) -> NSScrollerPart
+  func trackKnob(_ theEvent: NSEvent)
+  func trackScrollButtons(_ theEvent: NSEvent)
   var hitPart: NSScrollerPart { get }
   var knobProportion: CGFloat
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __sFlags2 {
@@ -91,7 +91,7 @@ struct __sFlags2 {
   var isTrackingMouse: UInt32
   var reserved: UInt32
   init()
-  init(hitPart: UInt32, controlSize: UInt32, inMaxEnd: UInt32, setFloatValueOverridden: UInt32, setFloatValueKnobProportionOverridden: UInt32, style: UInt32, styleCompatibility: UInt32, overlayScrollerState: UInt32, knobStyle: UInt32, sbPaused: UInt32, isAnimatingKnob: UInt32, isTrackingMouse: UInt32, reserved: UInt32)
+  init(hitPart hitPart: UInt32, controlSize controlSize: UInt32, inMaxEnd inMaxEnd: UInt32, setFloatValueOverridden setFloatValueOverridden: UInt32, setFloatValueKnobProportionOverridden setFloatValueKnobProportionOverridden: UInt32, style style: UInt32, styleCompatibility styleCompatibility: UInt32, overlayScrollerState overlayScrollerState: UInt32, knobStyle knobStyle: UInt32, sbPaused sbPaused: UInt32, isAnimatingKnob isAnimatingKnob: UInt32, isTrackingMouse isTrackingMouse: UInt32, reserved reserved: UInt32)
 }
 struct _sFlags {
   var isHoriz: UInt32
@@ -108,7 +108,7 @@ struct _sFlags {
   var controlTint: UInt32
   var repeatCount: UInt32
   init()
-  init(isHoriz: UInt32, arrowsLoc: NSScrollArrowPosition, partsUsable: NSUsableScrollerParts, fine: UInt32, needsEnableFlush: UInt32, thumbing: UInt32, slotDrawn: UInt32, knobDrawn: UInt32, lit: UInt32, knobLit: UInt32, reserved: UInt32, controlTint: UInt32, repeatCount: UInt32)
+  init(isHoriz isHoriz: UInt32, arrowsLoc arrowsLoc: NSScrollArrowPosition, partsUsable partsUsable: NSUsableScrollerParts, fine fine: UInt32, needsEnableFlush needsEnableFlush: UInt32, thumbing thumbing: UInt32, slotDrawn slotDrawn: UInt32, knobDrawn knobDrawn: UInt32, lit lit: UInt32, knobLit knobLit: UInt32, reserved reserved: UInt32, controlTint controlTint: UInt32, repeatCount repeatCount: UInt32)
 }
 extension NSScroller {
 }

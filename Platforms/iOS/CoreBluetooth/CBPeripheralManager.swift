@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum CBPeripheralManagerAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notDetermined
   case restricted
@@ -10,7 +10,7 @@ enum CBPeripheralManagerAuthorizationStatus : Int {
 }
 @available(iOS 6.0, *)
 enum CBPeripheralManagerState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case resetting
@@ -21,7 +21,7 @@ enum CBPeripheralManagerState : Int {
 }
 @available(iOS 6.0, *)
 enum CBPeripheralManagerConnectionLatency : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case low
   case medium
@@ -34,36 +34,36 @@ class CBPeripheralManager : NSObject {
   var isAdvertising: Bool { get }
   @available(iOS 7.0, *)
   class func authorizationStatus() -> CBPeripheralManagerAuthorizationStatus
-  convenience init(delegate: CBPeripheralManagerDelegate?, queue: dispatch_queue_t?)
+  convenience init(delegate delegate: CBPeripheralManagerDelegate?, queue queue: dispatch_queue_t?)
   @available(iOS 7.0, *)
-  init(delegate: CBPeripheralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]? = [:])
-  func startAdvertising(advertisementData: [String : AnyObject]?)
+  init(delegate delegate: CBPeripheralManagerDelegate?, queue queue: dispatch_queue_t?, options options: [String : AnyObject]? = [:])
+  func startAdvertising(_ advertisementData: [String : AnyObject]?)
   func stopAdvertising()
-  func setDesiredConnectionLatency(latency: CBPeripheralManagerConnectionLatency, for central: CBCentral)
-  func add(service: CBMutableService)
-  func remove(service: CBMutableService)
+  func setDesiredConnectionLatency(_ latency: CBPeripheralManagerConnectionLatency, for central: CBCentral)
+  func add(_ service: CBMutableService)
+  func remove(_ service: CBMutableService)
   func removeAllServices()
   func respond(to request: CBATTRequest, withResult result: CBATTError)
-  func updateValue(value: NSData, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
+  func updateValue(_ value: NSData, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
   convenience init()
 }
 protocol CBPeripheralManagerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager)
+  func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, willRestoreState dict: [String : AnyObject])
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, willRestoreState dict: [String : AnyObject])
   @available(iOS 6.0, *)
-  optional func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?)
+  optional func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error error: NSError?)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didAdd service: CBService, error: NSError?)
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error error: NSError?)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic)
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, central central: CBCentral, didSubscribeTo characteristic: CBCharacteristic)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic)
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, central central: CBCentral, didUnsubscribeFrom characteristic: CBCharacteristic)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest)
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest)
   @available(iOS 6.0, *)
-  optional func peripheralManager(peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
+  optional func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest])
   @available(iOS 6.0, *)
   optional func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager)
 }

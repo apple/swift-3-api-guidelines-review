@@ -1,9 +1,9 @@
 
 class WebDownload : NSURLDownload {
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(request: NSURLRequest, delegate: NSURLDownloadDelegate?)
+  init(request request: NSURLRequest, delegate delegate: NSURLDownloadDelegate?)
   @available(OSX, introduced=10.3, deprecated=10.11, message="Use NSURLSession downloadTask (see NSURLSession.h)")
-  init(resumeData: NSData, delegate: NSURLDownloadDelegate?, path: String)
+  init(resumeData resumeData: NSData, delegate delegate: NSURLDownloadDelegate?, path path: String)
   init()
 }
 protocol WebDownloadDelegate : NSURLDownloadDelegate {

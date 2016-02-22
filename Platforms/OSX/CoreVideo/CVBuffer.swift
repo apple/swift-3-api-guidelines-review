@@ -15,16 +15,16 @@ var kCVAttachmentMode_ShouldPropagate: CVAttachmentMode { get }
 class CVBuffer {
 }
 @available(OSX 10.4, *)
-func CVBufferSetAttachment(buffer: CVBuffer, _ key: CFString, _ value: CFTypeRef, _ attachmentMode: CVAttachmentMode)
+func CVBufferSetAttachment(_ buffer: CVBuffer, _ key: CFString, _ value: CFTypeRef, _ attachmentMode: CVAttachmentMode)
 @available(OSX 10.4, *)
-func CVBufferGetAttachment(buffer: CVBuffer, _ key: CFString, _ attachmentMode: UnsafeMutablePointer<CVAttachmentMode>) -> Unmanaged<CFTypeRef>?
+func CVBufferGetAttachment(_ buffer: CVBuffer, _ key: CFString, _ attachmentMode: UnsafeMutablePointer<CVAttachmentMode>) -> Unmanaged<CFTypeRef>?
 @available(OSX 10.4, *)
-func CVBufferRemoveAttachment(buffer: CVBuffer, _ key: CFString)
+func CVBufferRemoveAttachment(_ buffer: CVBuffer, _ key: CFString)
 @available(OSX 10.4, *)
-func CVBufferRemoveAllAttachments(buffer: CVBuffer)
+func CVBufferRemoveAllAttachments(_ buffer: CVBuffer)
 @available(OSX 10.4, *)
-func CVBufferGetAttachments(buffer: CVBuffer, _ attachmentMode: CVAttachmentMode) -> Unmanaged<CFDictionary>?
+func CVBufferGetAttachments(_ buffer: CVBuffer, _ attachmentMode: CVAttachmentMode) -> Unmanaged<CFDictionary>?
 @available(OSX 10.4, *)
-func CVBufferSetAttachments(buffer: CVBuffer, _ theAttachments: CFDictionary, _ attachmentMode: CVAttachmentMode)
+func CVBufferSetAttachments(_ buffer: CVBuffer, _ theAttachments: CFDictionary, _ attachmentMode: CVAttachmentMode)
 @available(OSX 10.4, *)
-func CVBufferPropagateAttachments(sourceBuffer: CVBuffer, _ destinationBuffer: CVBuffer)
+func CVBufferPropagateAttachments(_ sourceBuffer: CVBuffer, _ destinationBuffer: CVBuffer)

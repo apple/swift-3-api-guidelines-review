@@ -15,23 +15,23 @@ let ICOverwrite: String
 let ICDeleteAfterSuccessfulDownload: String
 let ICDownloadSidecarFiles: String
 protocol ICCameraDeviceDelegate : ICDeviceDelegate {
-  optional func cameraDevice(camera: ICCameraDevice, didAdd item: ICCameraItem)
-  optional func cameraDevice(camera: ICCameraDevice, didAdd items: [ICCameraItem])
-  optional func cameraDevice(camera: ICCameraDevice, didRemove item: ICCameraItem)
-  optional func cameraDevice(camera: ICCameraDevice, didRemove items: [ICCameraItem])
-  optional func cameraDevice(camera: ICCameraDevice, didRenameItems items: [ICCameraItem])
-  optional func cameraDevice(scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
-  optional func cameraDeviceDidChangeCapability(camera: ICCameraDevice)
-  optional func cameraDevice(camera: ICCameraDevice, didReceiveThumbnailFor item: ICCameraItem)
-  optional func cameraDevice(camera: ICCameraDevice, didReceiveMetadataFor item: ICCameraItem)
-  optional func cameraDevice(camera: ICCameraDevice, didReceivePTPEvent eventData: NSData)
+  optional func cameraDevice(_ camera: ICCameraDevice, didAdd item: ICCameraItem)
+  optional func cameraDevice(_ camera: ICCameraDevice, didAdd items: [ICCameraItem])
+  optional func cameraDevice(_ camera: ICCameraDevice, didRemove item: ICCameraItem)
+  optional func cameraDevice(_ camera: ICCameraDevice, didRemove items: [ICCameraItem])
+  optional func cameraDevice(_ camera: ICCameraDevice, didRenameItems items: [ICCameraItem])
+  optional func cameraDevice(_ scanner: ICCameraDevice, didCompleteDeleteFilesWithError error: NSError?)
+  optional func cameraDeviceDidChangeCapability(_ camera: ICCameraDevice)
+  optional func cameraDevice(_ camera: ICCameraDevice, didReceiveThumbnailFor item: ICCameraItem)
+  optional func cameraDevice(_ camera: ICCameraDevice, didReceiveMetadataFor item: ICCameraItem)
+  optional func cameraDevice(_ camera: ICCameraDevice, didReceivePTPEvent eventData: NSData)
   optional func deviceDidBecomeReady(withCompleteContentCatalog device: ICDevice)
-  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetThumbnailOf item: ICCameraItem) -> Bool
-  optional func cameraDevice(cameraDevice: ICCameraDevice, shouldGetMetadataOf item: ICCameraItem) -> Bool
+  optional func cameraDevice(_ cameraDevice: ICCameraDevice, shouldGetThumbnailOf item: ICCameraItem) -> Bool
+  optional func cameraDevice(_ cameraDevice: ICCameraDevice, shouldGetMetadataOf item: ICCameraItem) -> Bool
 }
 protocol ICCameraDeviceDownloadDelegate : NSObjectProtocol {
-  optional func didDownloadFile(file: ICCameraFile, error: NSError?, options: [String : AnyObject]? = [:], contextInfo: UnsafeMutablePointer<Void>)
-  optional func didReceiveDownloadProgress(for file: ICCameraFile, downloadedBytes: off_t, maxBytes: off_t)
+  optional func didDownloadFile(_ file: ICCameraFile, error error: NSError?, options options: [String : AnyObject]? = [:], contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  optional func didReceiveDownloadProgress(for file: ICCameraFile, downloadedBytes downloadedBytes: off_t, maxBytes maxBytes: off_t)
 }
 class ICCameraDevice : ICDevice {
   var batteryLevelAvailable: Bool { get }
@@ -48,12 +48,12 @@ class ICCameraDevice : ICDevice {
   func requestEnableTethering()
   func requestDisableTethering()
   func requestTakePicture()
-  func requestDeleteFiles(files: [ICCameraItem])
+  func requestDeleteFiles(_ files: [ICCameraItem])
   func cancelDelete()
-  func requestDownloadFile(file: ICCameraFile, options: [String : AnyObject]? = [:], downloadDelegate: ICCameraDeviceDownloadDelegate, didDownloadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestDownloadFile(_ file: ICCameraFile, options options: [String : AnyObject]? = [:], downloadDelegate downloadDelegate: ICCameraDeviceDownloadDelegate, didDownloadSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func cancelDownload()
-  func requestUploadFile(fileURL: NSURL, options: [String : AnyObject]? = [:], uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func requestReadData(from file: ICCameraFile, atOffset offset: off_t, length: off_t, readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func requestSendPTPCommand(command: NSData, outData data: NSData, sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestUploadFile(_ fileURL: NSURL, options options: [String : AnyObject]? = [:], uploadDelegate uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func requestReadData(from file: ICCameraFile, atOffset offset: off_t, length length: off_t, readDelegate readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendPTPCommand(_ command: NSData, outData data: NSData, sendCommandDelegate sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   init()
 }

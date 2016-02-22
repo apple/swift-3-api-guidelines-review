@@ -16,12 +16,12 @@ class DOMHTMLSelectElement : DOMHTMLElement {
   @available(OSX 10.6, *)
   var willValidate: Bool { get }
   @available(OSX 10.6, *)
-  func item(index: UInt32) -> DOMNode!
+  func item(_ index: UInt32) -> DOMNode!
   @available(OSX 10.6, *)
-  func namedItem(name: String!) -> DOMNode!
+  func namedItem(_ name: String!) -> DOMNode!
   @available(OSX 10.5, *)
-  func add(element: DOMHTMLElement!, before: DOMHTMLElement!)
-  func remove(index: Int32)
+  func add(_ element: DOMHTMLElement!, before before: DOMHTMLElement!)
+  func remove(_ index: Int32)
 }
 extension DOMHTMLSelectElement {
 }

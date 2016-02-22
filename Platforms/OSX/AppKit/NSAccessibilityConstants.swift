@@ -130,7 +130,7 @@ let NSAccessibilityFocusedUIElementAttribute: String
 let NSAccessibilityExtrasMenuBarAttribute: String
 @available(OSX 10.10, *)
 enum NSAccessibilityOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case vertical
@@ -188,7 +188,7 @@ let NSAccessibilityDescendingSortDirectionValue: String
 let NSAccessibilityUnknownSortDirectionValue: String
 @available(OSX 10.10, *)
 enum NSAccessibilitySortDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case ascending
@@ -224,7 +224,7 @@ let NSAccessibilityFirstLineIndentMarkerTypeValue: String
 let NSAccessibilityUnknownMarkerTypeValue: String
 @available(OSX 10.10, *)
 enum NSAccessibilityRulerMarkerType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case tabStopLeft
@@ -242,7 +242,7 @@ let NSAccessibilityPicasUnitValue: String
 let NSAccessibilityUnknownUnitValue: String
 @available(OSX 10.10, *)
 enum NSAccessibilityUnits : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unknown
   case inches
@@ -404,7 +404,7 @@ let NSAccessibilitySwitchSubrole: String
 @available(OSX 10.9, *)
 let NSAccessibilityDescriptionListSubrole: String
 @available(OSX 10.7, *)
-func NSAccessibilityPostNotificationWithUserInfo(element: AnyObject, _ notification: String, _ userInfo: [NSObject : AnyObject])
+func NSAccessibilityPostNotificationWithUserInfo(_ element: AnyObject, _ notification: String, _ userInfo: [NSObject : AnyObject])
 @available(OSX 10.9, *)
 let NSAccessibilityUIElementsKey: String
 @available(OSX 10.9, *)
@@ -413,7 +413,7 @@ let NSAccessibilityPriorityKey: String
 let NSAccessibilityAnnouncementKey: String
 @available(OSX 10.9, *)
 enum NSAccessibilityPriorityLevel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case low
   case medium

@@ -1,13 +1,13 @@
 
 protocol PKAddPassesViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  optional func addPassesViewControllerDidFinish(controller: PKAddPassesViewController)
+  optional func addPassesViewControllerDidFinish(_ controller: PKAddPassesViewController)
 }
 @available(iOS 6.0, *)
 class PKAddPassesViewController : UIViewController {
-  init(pass: PKPass)
+  init(pass pass: PKPass)
   @available(iOS 7.0, *)
-  init(passes: [PKPass])
+  init(passes passes: [PKPass])
   @available(iOS 8.0, *)
   class func canAddPasses() -> Bool
   unowned(unsafe) var delegate: @sil_unmanaged PKAddPassesViewControllerDelegate?

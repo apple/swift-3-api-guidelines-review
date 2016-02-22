@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class CNContactFetchRequest : NSObject {
-  init(keysToFetch: [CNKeyDescriptor])
+  init(keysToFetch keysToFetch: [CNKeyDescriptor])
   @NSCopying var predicate: NSPredicate?
   var keysToFetch: [CNKeyDescriptor]
   var mutableObjects: Bool

@@ -78,7 +78,7 @@ struct AUChannelInfo {
   var inChannels: Int16
   var outChannels: Int16
   init()
-  init(inChannels: Int16, outChannels: Int16)
+  init(inChannels inChannels: Int16, outChannels outChannels: Int16)
 }
 struct AudioUnitExternalBuffer {
   var buffer: UnsafeMutablePointer<UInt8>
@@ -102,7 +102,7 @@ struct AudioUnitFrequencyResponseBin {
   var mFrequency: Float64
   var mMagnitude: Float64
   init()
-  init(mFrequency: Float64, mMagnitude: Float64)
+  init(mFrequency mFrequency: Float64, mMagnitude mMagnitude: Float64)
 }
 typealias HostCallback_GetBeatAndTempo = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<Float64>, UnsafeMutablePointer<Float64>) -> OSStatus
 typealias HostCallback_GetMusicalTimeLocation = @convention(c) (UnsafeMutablePointer<Void>, UnsafeMutablePointer<UInt32>, UnsafeMutablePointer<Float32>, UnsafeMutablePointer<UInt32>, UnsafeMutablePointer<Float64>) -> OSStatus
@@ -115,13 +115,13 @@ struct HostCallbackInfo {
   var transportStateProc: HostCallback_GetTransportState?
   var transportStateProc2: HostCallback_GetTransportState2?
   init()
-  init(hostUserData: UnsafeMutablePointer<Void>, beatAndTempoProc: HostCallback_GetBeatAndTempo?, musicalTimeLocationProc: HostCallback_GetMusicalTimeLocation?, transportStateProc: HostCallback_GetTransportState?, transportStateProc2: HostCallback_GetTransportState2?)
+  init(hostUserData hostUserData: UnsafeMutablePointer<Void>, beatAndTempoProc beatAndTempoProc: HostCallback_GetBeatAndTempo?, musicalTimeLocationProc musicalTimeLocationProc: HostCallback_GetMusicalTimeLocation?, transportStateProc transportStateProc: HostCallback_GetTransportState?, transportStateProc2 transportStateProc2: HostCallback_GetTransportState2?)
 }
 struct AUDependentParameter {
   var mScope: AudioUnitScope
   var mParameterID: AudioUnitParameterID
   init()
-  init(mScope: AudioUnitScope, mParameterID: AudioUnitParameterID)
+  init(mScope mScope: AudioUnitScope, mParameterID mParameterID: AudioUnitParameterID)
 }
 struct AudioUnitCocoaViewInfo {
   var mCocoaAUViewBundleLocation: Unmanaged<CFURL>
@@ -144,10 +144,10 @@ struct AudioUnitParameterHistoryInfo {
   var updatesPerSecond: Float32
   var historyDurationInSeconds: Float32
   init()
-  init(updatesPerSecond: Float32, historyDurationInSeconds: Float32)
+  init(updatesPerSecond updatesPerSecond: Float32, historyDurationInSeconds historyDurationInSeconds: Float32)
 }
 enum AudioUnitParameterUnit : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case generic
   case indexed
@@ -178,7 +178,7 @@ enum AudioUnitParameterUnit : UInt32 {
   case customUnit
 }
 struct AudioUnitParameterOptions : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var flag_CFNameRelease: AudioUnitParameterOptions { get }
   static var flag_OmitFromPresets: AudioUnitParameterOptions { get }
@@ -214,18 +214,18 @@ struct AudioUnitParameterInfo {
   var defaultValue: AudioUnitParameterValue
   var flags: AudioUnitParameterOptions
   init()
-  init(name: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), unitName: Unmanaged<CFString>?, clumpID: UInt32, cfNameString: Unmanaged<CFString>?, unit: AudioUnitParameterUnit, minValue: AudioUnitParameterValue, maxValue: AudioUnitParameterValue, defaultValue: AudioUnitParameterValue, flags: AudioUnitParameterOptions)
+  init(name name: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8), unitName unitName: Unmanaged<CFString>?, clumpID clumpID: UInt32, cfNameString cfNameString: Unmanaged<CFString>?, unit unit: AudioUnitParameterUnit, minValue minValue: AudioUnitParameterValue, maxValue maxValue: AudioUnitParameterValue, defaultValue defaultValue: AudioUnitParameterValue, flags flags: AudioUnitParameterOptions)
 }
 var kAudioUnitClumpID_System: Int { get }
-func GetAudioUnitParameterDisplayType(flags: AudioUnitParameterOptions) -> AudioUnitParameterOptions
-func SetAudioUnitParameterDisplayType(flags: AudioUnitParameterOptions, _ displayType: AudioUnitParameterOptions) -> AudioUnitParameterOptions
+func GetAudioUnitParameterDisplayType(_ flags: AudioUnitParameterOptions) -> AudioUnitParameterOptions
+func SetAudioUnitParameterDisplayType(_ flags: AudioUnitParameterOptions, _ displayType: AudioUnitParameterOptions) -> AudioUnitParameterOptions
 var kAudioUnitParameterName_Full: Int { get }
 struct AudioUnitParameterNameInfo {
   var inID: AudioUnitParameterID
   var inDesiredLength: Int32
   var outName: Unmanaged<CFString>?
   init()
-  init(inID: AudioUnitParameterID, inDesiredLength: Int32, outName: Unmanaged<CFString>?)
+  init(inID inID: AudioUnitParameterID, inDesiredLength inDesiredLength: Int32, outName outName: Unmanaged<CFString>?)
 }
 typealias AudioUnitParameterIDName = AudioUnitParameterNameInfo
 struct AudioUnitParameterStringFromValue {
@@ -251,7 +251,7 @@ var kAudioUnitProperty_AddParameterMIDIMapping: AudioUnitPropertyID { get }
 var kAudioUnitProperty_RemoveParameterMIDIMapping: AudioUnitPropertyID { get }
 var kAudioUnitProperty_HotMapParameterMIDIMapping: AudioUnitPropertyID { get }
 struct AUParameterMIDIMappingFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var anyChannelFlag: AUParameterMIDIMappingFlags { get }
   static var anyNoteFlag: AUParameterMIDIMappingFlags { get }
@@ -273,7 +273,7 @@ struct AUParameterMIDIMapping {
   var reserved2: UInt8
   var reserved3: UInt32
   init()
-  init(mScope: AudioUnitScope, mElement: AudioUnitElement, mParameterID: AudioUnitParameterID, mFlags: AUParameterMIDIMappingFlags, mSubRangeMin: AudioUnitParameterValue, mSubRangeMax: AudioUnitParameterValue, mStatus: UInt8, mData1: UInt8, reserved1: UInt8, reserved2: UInt8, reserved3: UInt32)
+  init(mScope mScope: AudioUnitScope, mElement mElement: AudioUnitElement, mParameterID mParameterID: AudioUnitParameterID, mFlags mFlags: AUParameterMIDIMappingFlags, mSubRangeMin mSubRangeMin: AudioUnitParameterValue, mSubRangeMax mSubRangeMax: AudioUnitParameterValue, mStatus mStatus: UInt8, mData1 mData1: UInt8, reserved1 reserved1: UInt8, reserved2 reserved2: UInt8, reserved3 reserved3: UInt32)
 }
 var kMusicDeviceProperty_MIDIXMLNames: AudioUnitPropertyID { get }
 var kMusicDeviceProperty_PartGroup: AudioUnitPropertyID { get }
@@ -305,7 +305,7 @@ struct AudioUnitOtherPluginDesc {
   var format: UInt32
   var plugin: AudioClassDescription
   init()
-  init(format: UInt32, plugin: AudioClassDescription)
+  init(format format: UInt32, plugin plugin: AudioClassDescription)
 }
 struct AudioUnitParameterValueTranslation {
   var otherDesc: AudioUnitOtherPluginDesc
@@ -314,7 +314,7 @@ struct AudioUnitParameterValueTranslation {
   var auParamID: AudioUnitParameterID
   var auValue: AudioUnitParameterValue
   init()
-  init(otherDesc: AudioUnitOtherPluginDesc, otherParamID: UInt32, otherValue: Float32, auParamID: AudioUnitParameterID, auValue: AudioUnitParameterValue)
+  init(otherDesc otherDesc: AudioUnitOtherPluginDesc, otherParamID otherParamID: UInt32, otherValue otherValue: Float32, auParamID auParamID: AudioUnitParameterID, auValue auValue: AudioUnitParameterValue)
 }
 struct AudioUnitPresetMAS_SettingData {
   var isStockSetting: UInt32
@@ -322,7 +322,7 @@ struct AudioUnitPresetMAS_SettingData {
   var dataLen: UInt32
   var data: (UInt8)
   init()
-  init(isStockSetting: UInt32, settingID: UInt32, dataLen: UInt32, data: (UInt8))
+  init(isStockSetting isStockSetting: UInt32, settingID settingID: UInt32, dataLen dataLen: UInt32, data data: (UInt8))
 }
 struct AudioUnitPresetMAS_Settings {
   var manufacturerID: UInt32
@@ -332,7 +332,7 @@ struct AudioUnitPresetMAS_Settings {
   var numberOfSettings: UInt32
   var settings: (AudioUnitPresetMAS_SettingData)
   init()
-  init(manufacturerID: UInt32, effectID: UInt32, variantID: UInt32, settingsVersion: UInt32, numberOfSettings: UInt32, settings: (AudioUnitPresetMAS_SettingData))
+  init(manufacturerID manufacturerID: UInt32, effectID effectID: UInt32, variantID variantID: UInt32, settingsVersion settingsVersion: UInt32, numberOfSettings numberOfSettings: UInt32, settings settings: (AudioUnitPresetMAS_SettingData))
 }
 var kAudioUnitProperty_SampleRateConverterComplexity: AudioUnitPropertyID { get }
 var kAudioUnitSampleRateConverterComplexity_Linear: UInt32 { get }
@@ -349,7 +349,7 @@ struct AudioOutputUnitStartAtTimeParams {
   var mTimestamp: AudioTimeStamp
   var mFlags: UInt32
   init()
-  init(mTimestamp: AudioTimeStamp, mFlags: UInt32)
+  init(mTimestamp mTimestamp: AudioTimeStamp, mFlags mFlags: UInt32)
 }
 var kAUVoiceIOProperty_BypassVoiceProcessing: AudioUnitPropertyID { get }
 var kAUVoiceIOProperty_VoiceProcessingEnableAGC: AudioUnitPropertyID { get }
@@ -368,7 +368,7 @@ struct AudioUnitMeterClipping {
   var sawInfinity: DarwinBoolean
   var sawNotANumber: DarwinBoolean
   init()
-  init(peakValueSinceLastCall: Float32, sawInfinity: DarwinBoolean, sawNotANumber: DarwinBoolean)
+  init(peakValueSinceLastCall peakValueSinceLastCall: Float32, sawInfinity sawInfinity: DarwinBoolean, sawNotANumber sawNotANumber: DarwinBoolean)
 }
 var kAudioUnitProperty_ReverbRoomType: AudioUnitPropertyID { get }
 var kAudioUnitProperty_UsesInternalReverb: AudioUnitPropertyID { get }
@@ -377,7 +377,7 @@ var kAudioUnitProperty_SpatialMixerDistanceParams: AudioUnitPropertyID { get }
 var kAudioUnitProperty_SpatialMixerAttenuationCurve: AudioUnitPropertyID { get }
 var kAudioUnitProperty_SpatialMixerRenderingFlags: AudioUnitPropertyID { get }
 enum AUSpatializationAlgorithm : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case spatializationAlgorithm_EqualPowerPanning
   case spatializationAlgorithm_SphericalHead
@@ -387,7 +387,7 @@ enum AUSpatializationAlgorithm : UInt32 {
   case spatializationAlgorithm_StereoPassThrough
 }
 enum AUReverbRoomType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case reverbRoomType_SmallRoom
   case reverbRoomType_MediumRoom
@@ -404,7 +404,7 @@ enum AUReverbRoomType : UInt32 {
   case reverbRoomType_LargeHall2
 }
 enum AUSpatialMixerAttenuationCurve : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case spatialMixerAttenuationCurve_Power
   case spatialMixerAttenuationCurve_Exponential
@@ -416,10 +416,10 @@ struct MixerDistanceParams {
   var mMaxDistance: Float32
   var mMaxAttenuation: Float32
   init()
-  init(mReferenceDistance: Float32, mMaxDistance: Float32, mMaxAttenuation: Float32)
+  init(mReferenceDistance mReferenceDistance: Float32, mMaxDistance mMaxDistance: Float32, mMaxAttenuation mMaxAttenuation: Float32)
 }
 struct AUSpatialMixerRenderingFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var spatialMixerRenderingFlags_InterAuralDelay: AUSpatialMixerRenderingFlags { get }
   static var spatialMixerRenderingFlags_DistanceAttenuation: AUSpatialMixerRenderingFlags { get }
@@ -431,7 +431,7 @@ var kAudioUnitProperty_3DMixerRenderingFlags: AudioUnitPropertyID { get }
 var kAudioUnitProperty_3DMixerDistanceAtten: AudioUnitPropertyID { get }
 var kAudioUnitProperty_ReverbPreset: AudioUnitPropertyID { get }
 struct AU3DMixerRenderingFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var k3DMixerRenderingFlags_InterAuralDelay: AU3DMixerRenderingFlags { get }
   static var k3DMixerRenderingFlags_DopplerShift: AU3DMixerRenderingFlags { get }
@@ -442,7 +442,7 @@ struct AU3DMixerRenderingFlags : OptionSetType {
   static var k3DMixerRenderingFlags_ConstantReverbBlend: AU3DMixerRenderingFlags { get }
 }
 enum AU3DMixerAttenuationCurve : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case k3DMixerAttenuationCurve_Power
   case k3DMixerAttenuationCurve_Exponential
@@ -453,7 +453,7 @@ var kAudioUnitProperty_ScheduleAudioSlice: AudioUnitPropertyID { get }
 var kAudioUnitProperty_ScheduleStartTimeStamp: AudioUnitPropertyID { get }
 var kAudioUnitProperty_CurrentPlayTime: AudioUnitPropertyID { get }
 struct AUScheduledAudioSliceFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var scheduledAudioSliceFlag_Complete: AUScheduledAudioSliceFlags { get }
   static var scheduledAudioSliceFlag_BeganToRender: AUScheduledAudioSliceFlags { get }
@@ -551,7 +551,7 @@ struct AUNumVersion {
   var minorAndBugRev: UInt8
   var majorRev: UInt8
   init()
-  init(nonRelRev: UInt8, stage: UInt8, minorAndBugRev: UInt8, majorRev: UInt8)
+  init(nonRelRev nonRelRev: UInt8, stage stage: UInt8, minorAndBugRev minorAndBugRev: UInt8, majorRev majorRev: UInt8)
 }
 struct AUHostIdentifier {
   var hostName: Unmanaged<CFString>
@@ -578,7 +578,7 @@ struct AudioUnitMIDIControlMapping {
   var element: AudioUnitElement
   var parameter: AudioUnitParameterID
   init()
-  init(midiNRPN: UInt16, midiControl: UInt8, scope: UInt8, element: AudioUnitElement, parameter: AudioUnitParameterID)
+  init(midiNRPN midiNRPN: UInt16, midiControl midiControl: UInt8, scope scope: UInt8, element element: AudioUnitElement, parameter parameter: AudioUnitParameterID)
 }
 struct AudioUnitParameterValueName {
   var inParamID: AudioUnitParameterID

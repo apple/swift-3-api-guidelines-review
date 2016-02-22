@@ -47,11 +47,11 @@ let kSecACLAuthorizationChangeACL: CFString
 @available(OSX 10.7, *)
 let kSecACLAuthorizationChangeOwner: CFString
 func SecAccessGetTypeID() -> CFTypeID
-func SecAccessCreate(descriptor: CFString, _ trustedlist: CFArray?, _ accessRef: UnsafeMutablePointer<SecAccess?>) -> OSStatus
+func SecAccessCreate(_ descriptor: CFString, _ trustedlist: CFArray?, _ accessRef: UnsafeMutablePointer<SecAccess?>) -> OSStatus
 @available(OSX 10.7, *)
-func SecAccessCreateWithOwnerAndACL(userId: uid_t, _ groupId: gid_t, _ ownerType: SecAccessOwnerType, _ acls: CFArray?, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccess?
+func SecAccessCreateWithOwnerAndACL(_ userId: uid_t, _ groupId: gid_t, _ ownerType: SecAccessOwnerType, _ acls: CFArray?, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccess?
 @available(OSX 10.7, *)
-func SecAccessCopyOwnerAndACL(accessRef: SecAccess, _ userId: UnsafeMutablePointer<uid_t>, _ groupId: UnsafeMutablePointer<gid_t>, _ ownerType: UnsafeMutablePointer<SecAccessOwnerType>, _ aclList: UnsafeMutablePointer<CFArray?>) -> OSStatus
-func SecAccessCopyACLList(accessRef: SecAccess, _ aclList: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecAccessCopyOwnerAndACL(_ accessRef: SecAccess, _ userId: UnsafeMutablePointer<uid_t>, _ groupId: UnsafeMutablePointer<gid_t>, _ ownerType: UnsafeMutablePointer<SecAccessOwnerType>, _ aclList: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecAccessCopyACLList(_ accessRef: SecAccess, _ aclList: UnsafeMutablePointer<CFArray?>) -> OSStatus
 @available(OSX 10.7, *)
-func SecAccessCopyMatchingACLList(accessRef: SecAccess, _ authorizationTag: CFTypeRef) -> CFArray?
+func SecAccessCopyMatchingACLList(_ accessRef: SecAccess, _ authorizationTag: CFTypeRef) -> CFArray?

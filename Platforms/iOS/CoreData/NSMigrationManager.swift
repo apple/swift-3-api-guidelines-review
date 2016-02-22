@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 class NSMigrationManager : NSObject {
-  init(sourceModel: NSManagedObjectModel, destinationModel: NSManagedObjectModel)
+  init(sourceModel sourceModel: NSManagedObjectModel, destinationModel destinationModel: NSManagedObjectModel)
   func migrateStore(from sourceURL: NSURL, type sStoreType: String, options sOptions: [NSObject : AnyObject]? = [:], with mappings: NSMappingModel?, toDestinationURL dURL: NSURL, destinationType dStoreType: String, destinationOptions dOptions: [NSObject : AnyObject]? = [:]) throws
   @available(iOS 5.0, *)
   var usesStoreSpecificMigrationManager: Bool
@@ -13,13 +13,13 @@ class NSMigrationManager : NSObject {
   var destinationContext: NSManagedObjectContext { get }
   func sourceEntity(for mEntity: NSEntityMapping) -> NSEntityDescription?
   func destinationEntity(for mEntity: NSEntityMapping) -> NSEntityDescription?
-  func associateSourceInstance(sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, for entityMapping: NSEntityMapping)
-  func destinationInstances(forEntityMappingNamed mappingName: String, sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
-  func sourceInstances(forEntityMappingNamed mappingName: String, destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func associateSourceInstance(_ sourceInstance: NSManagedObject, withDestinationInstance destinationInstance: NSManagedObject, for entityMapping: NSEntityMapping)
+  func destinationInstances(forEntityMappingNamed mappingName: String, sourceInstances sourceInstances: [NSManagedObject]?) -> [NSManagedObject]
+  func sourceInstances(forEntityMappingNamed mappingName: String, destinationInstances destinationInstances: [NSManagedObject]?) -> [NSManagedObject]
   var currentEntityMapping: NSEntityMapping { get }
   var migrationProgress: Float { get }
   var userInfo: [NSObject : AnyObject]?
-  func cancelMigrationWithError(error: NSError)
+  func cancelMigrationWithError(_ error: NSError)
   init()
 }
 struct _migrationManagerFlags {
@@ -27,5 +27,5 @@ struct _migrationManagerFlags {
   var _usesStoreSpecificMigrationManager: UInt32
   var _reservedMigrationManager: UInt32
   init()
-  init(_migrationWasCancelled: UInt32, _usesStoreSpecificMigrationManager: UInt32, _reservedMigrationManager: UInt32)
+  init(_migrationWasCancelled _migrationWasCancelled: UInt32, _usesStoreSpecificMigrationManager _usesStoreSpecificMigrationManager: UInt32, _reservedMigrationManager _reservedMigrationManager: UInt32)
 }

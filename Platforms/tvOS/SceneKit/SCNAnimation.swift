@@ -6,7 +6,7 @@ class SCNAnimationEvent : NSObject {
   init()
 }
 protocol SCNAnimatable : NSObjectProtocol {
-  func add(animation: CAAnimation, forKey key: String?)
+  func add(_ animation: CAAnimation, forKey key: String?)
   func removeAllAnimations()
   func removeAnimation(forKey key: String)
   var animationKeys: [String] { get }

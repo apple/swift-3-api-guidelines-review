@@ -8,7 +8,7 @@ class OSAScriptView : NSTextView {
   var indentsWrappedLines: Bool
   var indentWidth: Int
   init(frame frameRect: NSRect, textContainer container: NSTextContainer?)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   init(frame frameRect: NSRect)
   convenience init()
 }

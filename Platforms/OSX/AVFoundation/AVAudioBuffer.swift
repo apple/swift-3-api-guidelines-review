@@ -12,7 +12,7 @@ class AVAudioBuffer : NSObject, NSCopying, NSMutableCopying {
 }
 @available(OSX 10.10, *)
 class AVAudioPCMBuffer : AVAudioBuffer {
-  init(pcmFormat format: AVAudioFormat, frameCapacity: AVAudioFrameCount)
+  init(pcmFormat format: AVAudioFormat, frameCapacity frameCapacity: AVAudioFrameCount)
   var frameCapacity: AVAudioFrameCount { get }
   var frameLength: AVAudioFrameCount
   var stride: Int { get }
@@ -23,8 +23,8 @@ class AVAudioPCMBuffer : AVAudioBuffer {
 }
 @available(OSX 10.11, *)
 class AVAudioCompressedBuffer : AVAudioBuffer {
-  init(format: AVAudioFormat, packetCapacity: AVAudioPacketCount, maximumPacketSize: Int)
-  init(format: AVAudioFormat, packetCapacity: AVAudioPacketCount)
+  init(format format: AVAudioFormat, packetCapacity packetCapacity: AVAudioPacketCount, maximumPacketSize maximumPacketSize: Int)
+  init(format format: AVAudioFormat, packetCapacity packetCapacity: AVAudioPacketCount)
   var packetCapacity: AVAudioPacketCount { get }
   var packetCount: AVAudioPacketCount
   var maximumPacketSize: Int { get }

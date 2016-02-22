@@ -1,10 +1,10 @@
 
 @available(OSX 10.10, *)
 class AVAudioTime : NSObject {
-  init(audioTimeStamp ts: UnsafePointer<AudioTimeStamp>, sampleRate: Double)
-  init(hostTime: UInt64)
-  init(sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
-  init(hostTime: UInt64, sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
+  init(audioTimeStamp ts: UnsafePointer<AudioTimeStamp>, sampleRate sampleRate: Double)
+  init(hostTime hostTime: UInt64)
+  init(sampleTime sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
+  init(hostTime hostTime: UInt64, sampleTime sampleTime: AVAudioFramePosition, atRate sampleRate: Double)
   class func hostTime(forSeconds seconds: NSTimeInterval) -> UInt64
   class func seconds(forHostTime hostTime: UInt64) -> NSTimeInterval
   func extrapolateTime(fromAnchor anchorTime: AVAudioTime) -> AVAudioTime

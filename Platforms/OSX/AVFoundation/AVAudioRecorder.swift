@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 class AVAudioRecorder : NSObject {
-  init(url: NSURL, settings: [String : AnyObject]) throws
+  init(url url: NSURL, settings settings: [String : AnyObject]) throws
   func prepareToRecord() -> Bool
   func record() -> Bool
   func record(forDuration duration: NSTimeInterval) -> Bool
@@ -21,7 +21,7 @@ class AVAudioRecorder : NSObject {
 }
 protocol AVAudioRecorderDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool)
+  optional func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool)
   @available(OSX 10.7, *)
-  optional func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?)
+  optional func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error error: NSError?)
 }

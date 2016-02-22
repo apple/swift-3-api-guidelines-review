@@ -1,6 +1,6 @@
 
 enum UIEventType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case touches
   case motion
@@ -9,7 +9,7 @@ enum UIEventType : Int {
   case presses
 }
 enum UIEventSubtype : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case motionShake

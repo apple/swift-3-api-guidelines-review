@@ -33,11 +33,11 @@ class DRCDTextBlock : NSObject {
   class func arrayOfCDTextBlocks(fromPacks packs: NSData!) -> [AnyObject]!
   init!(language lang: String!, encoding enc: UInt)
   func properties() -> [NSObject : AnyObject]!
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(_ properties: [NSObject : AnyObject]!)
   func trackDictionaries() -> [AnyObject]!
-  func setTrackDictionaries(tracks: [AnyObject]!)
+  func setTrackDictionaries(_ tracks: [AnyObject]!)
   func object(forKey key: String!, ofTrack trackIndex: Int) -> AnyObject!
-  func setObject(value: AnyObject!, forKey key: String!, ofTrack trackIndex: Int)
+  func setObject(_ value: AnyObject!, forKey key: String!, ofTrack trackIndex: Int)
   func flatten() -> Int
   init()
 }

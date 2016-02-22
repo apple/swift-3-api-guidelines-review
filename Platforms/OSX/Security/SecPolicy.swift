@@ -40,11 +40,11 @@ let kSecPolicyTeamIdentifier: CFString
 @available(OSX 10.3, *)
 func SecPolicyGetTypeID() -> CFTypeID
 @available(OSX 10.7, *)
-func SecPolicyCopyProperties(policyRef: SecPolicy) -> CFDictionary
+func SecPolicyCopyProperties(_ policyRef: SecPolicy) -> CFDictionary
 @available(OSX 10.6, *)
 func SecPolicyCreateBasicX509() -> SecPolicy
 @available(OSX 10.6, *)
-func SecPolicyCreateSSL(server: Bool, _ hostname: CFString?) -> SecPolicy
+func SecPolicyCreateSSL(_ server: Bool, _ hostname: CFString?) -> SecPolicy
 var kSecRevocationOCSPMethod: Int { get }
 var kSecRevocationCRLMethod: Int { get }
 var kSecRevocationPreferCRL: Int { get }
@@ -52,9 +52,9 @@ var kSecRevocationRequirePositiveResponse: Int { get }
 var kSecRevocationNetworkAccessDisabled: Int { get }
 var kSecRevocationUseAnyAvailableMethod: Int { get }
 @available(OSX 10.9, *)
-func SecPolicyCreateRevocation(revocationFlags: CFOptionFlags) -> SecPolicy
+func SecPolicyCreateRevocation(_ revocationFlags: CFOptionFlags) -> SecPolicy
 @available(OSX 10.9, *)
-func SecPolicyCreateWithProperties(policyIdentifier: CFTypeRef, _ properties: CFDictionary?) -> SecPolicy?
+func SecPolicyCreateWithProperties(_ policyIdentifier: CFTypeRef, _ properties: CFDictionary?) -> SecPolicy?
 @available(OSX 10.7, *)
 let kSecPolicyKU_DigitalSignature: CFString
 @available(OSX 10.7, *)

@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum AVAudioUnitEQFilterType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case parametric
   case lowPass
@@ -26,9 +26,9 @@ class AVAudioUnitEQFilterParameters : NSObject {
 }
 @available(iOS 8.0, *)
 class AVAudioUnitEQ : AVAudioUnitEffect {
-  init(numberOfBands: Int)
+  init(numberOfBands numberOfBands: Int)
   var bands: [AVAudioUnitEQFilterParameters] { get }
   var globalGain: Float
-  init(audioComponentDescription: AudioComponentDescription)
+  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   init()
 }

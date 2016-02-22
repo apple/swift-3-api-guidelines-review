@@ -1,6 +1,6 @@
 
 enum UIActivityIndicatorViewStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case whiteLarge
   case white
@@ -9,8 +9,8 @@ enum UIActivityIndicatorViewStyle : Int {
 @available(iOS 2.0, *)
 class UIActivityIndicatorView : UIView, NSCoding {
   init(activityIndicatorStyle style: UIActivityIndicatorViewStyle)
-  init(frame: CGRect)
-  init(coder: NSCoder)
+  init(frame frame: CGRect)
+  init(coder coder: NSCoder)
   var activityIndicatorViewStyle: UIActivityIndicatorViewStyle
   var hidesWhenStopped: Bool
   @available(iOS 5.0, *)

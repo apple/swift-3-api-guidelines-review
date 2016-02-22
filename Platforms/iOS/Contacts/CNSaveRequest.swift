@@ -1,13 +1,13 @@
 
 @available(iOS 9.0, *)
 class CNSaveRequest : NSObject {
-  func add(contact: CNMutableContact, toContainerWithIdentifier identifier: String?)
-  func update(contact: CNMutableContact)
-  func delete(contact: CNMutableContact)
-  func add(group: CNMutableGroup, toContainerWithIdentifier identifier: String?)
-  func update(group: CNMutableGroup)
-  func delete(group: CNMutableGroup)
-  func addMember(contact: CNContact, to group: CNGroup)
-  func removeMember(contact: CNContact, from group: CNGroup)
+  func add(_ contact: CNMutableContact, toContainerWithIdentifier identifier: String?)
+  func update(_ contact: CNMutableContact)
+  func delete(_ contact: CNMutableContact)
+  func add(_ group: CNMutableGroup, toContainerWithIdentifier identifier: String?)
+  func update(_ group: CNMutableGroup)
+  func delete(_ group: CNMutableGroup)
+  func addMember(_ contact: CNContact, to group: CNGroup)
+  func removeMember(_ contact: CNContact, from group: CNGroup)
   init()
 }

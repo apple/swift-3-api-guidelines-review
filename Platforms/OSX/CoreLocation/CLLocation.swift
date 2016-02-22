@@ -7,7 +7,7 @@ struct CLLocationCoordinate2D {
   var latitude: CLLocationDegrees
   var longitude: CLLocationDegrees
   init()
-  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
+  init(latitude latitude: CLLocationDegrees, longitude longitude: CLLocationDegrees)
 }
 typealias CLLocationDistance = Double
 let kCLDistanceFilterNone: CLLocationDistance
@@ -21,15 +21,15 @@ let kCLLocationAccuracyThreeKilometers: CLLocationAccuracy
 @available(OSX 10.7, *)
 let kCLLocationCoordinate2DInvalid: CLLocationCoordinate2D
 @available(OSX 10.7, *)
-func CLLocationCoordinate2DIsValid(coord: CLLocationCoordinate2D) -> Bool
+func CLLocationCoordinate2DIsValid(_ coord: CLLocationCoordinate2D) -> Bool
 @available(OSX 10.7, *)
-func CLLocationCoordinate2DMake(latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
+func CLLocationCoordinate2DMake(_ latitude: CLLocationDegrees, _ longitude: CLLocationDegrees) -> CLLocationCoordinate2D
 @available(OSX 10.6, *)
 class CLLocation : NSObject, NSCopying, NSSecureCoding {
-  init(latitude: CLLocationDegrees, longitude: CLLocationDegrees)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp: NSDate)
+  init(latitude latitude: CLLocationDegrees, longitude longitude: CLLocationDegrees)
+  init(coordinate coordinate: CLLocationCoordinate2D, altitude altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, timestamp timestamp: NSDate)
   @available(OSX 10.7, *)
-  init(coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course: CLLocationDirection, speed: CLLocationSpeed, timestamp: NSDate)
+  init(coordinate coordinate: CLLocationCoordinate2D, altitude altitude: CLLocationDistance, horizontalAccuracy hAccuracy: CLLocationAccuracy, verticalAccuracy vAccuracy: CLLocationAccuracy, course course: CLLocationDirection, speed speed: CLLocationSpeed, timestamp timestamp: NSDate)
   var coordinate: CLLocationCoordinate2D { get }
   var altitude: CLLocationDistance { get }
   var horizontalAccuracy: CLLocationAccuracy { get }

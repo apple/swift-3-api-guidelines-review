@@ -40,7 +40,7 @@ let kCTFontFixedAdvanceAttribute: CFString
 @available(tvOS 3.2, *)
 let kCTFontOrientationAttribute: CFString
 enum CTFontOrientation : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(tvOS 6.0, *)
   case `default`
@@ -58,7 +58,7 @@ enum CTFontOrientation : UInt32 {
 @available(tvOS 3.2, *)
 let kCTFontFormatAttribute: CFString
 enum CTFontFormat : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case unrecognized
   case openTypePostScript
@@ -85,25 +85,25 @@ let kCTFontDownloadableAttribute: CFString
 @available(tvOS 7.0, *)
 let kCTFontDownloadedAttribute: CFString
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateWithNameAndSize(name: CFString, _ size: CGFloat) -> CTFontDescriptor
+func CTFontDescriptorCreateWithNameAndSize(_ name: CFString, _ size: CGFloat) -> CTFontDescriptor
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateWithAttributes(attributes: CFDictionary) -> CTFontDescriptor
+func CTFontDescriptorCreateWithAttributes(_ attributes: CFDictionary) -> CTFontDescriptor
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateCopyWithAttributes(original: CTFontDescriptor, _ attributes: CFDictionary) -> CTFontDescriptor
+func CTFontDescriptorCreateCopyWithAttributes(_ original: CTFontDescriptor, _ attributes: CFDictionary) -> CTFontDescriptor
 @available(tvOS 7.0, *)
-func CTFontDescriptorCreateCopyWithFamily(original: CTFontDescriptor, _ family: CFString) -> CTFontDescriptor?
+func CTFontDescriptorCreateCopyWithFamily(_ original: CTFontDescriptor, _ family: CFString) -> CTFontDescriptor?
 @available(tvOS 7.0, *)
-func CTFontDescriptorCreateCopyWithSymbolicTraits(original: CTFontDescriptor, _ symTraitValue: CTFontSymbolicTraits, _ symTraitMask: CTFontSymbolicTraits) -> CTFontDescriptor?
+func CTFontDescriptorCreateCopyWithSymbolicTraits(_ original: CTFontDescriptor, _ symTraitValue: CTFontSymbolicTraits, _ symTraitMask: CTFontSymbolicTraits) -> CTFontDescriptor?
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateCopyWithVariation(original: CTFontDescriptor, _ variationIdentifier: CFNumber, _ variationValue: CGFloat) -> CTFontDescriptor
+func CTFontDescriptorCreateCopyWithVariation(_ original: CTFontDescriptor, _ variationIdentifier: CFNumber, _ variationValue: CGFloat) -> CTFontDescriptor
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateCopyWithFeature(original: CTFontDescriptor, _ featureTypeIdentifier: CFNumber, _ featureSelectorIdentifier: CFNumber) -> CTFontDescriptor
+func CTFontDescriptorCreateCopyWithFeature(_ original: CTFontDescriptor, _ featureTypeIdentifier: CFNumber, _ featureSelectorIdentifier: CFNumber) -> CTFontDescriptor
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateMatchingFontDescriptors(descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CFArray?
+func CTFontDescriptorCreateMatchingFontDescriptors(_ descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CFArray?
 @available(tvOS 3.2, *)
-func CTFontDescriptorCreateMatchingFontDescriptor(descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CTFontDescriptor?
+func CTFontDescriptorCreateMatchingFontDescriptor(_ descriptor: CTFontDescriptor, _ mandatoryAttributes: CFSet?) -> CTFontDescriptor?
 enum CTFontDescriptorMatchingState : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case didBegin
   case didFinish
@@ -133,10 +133,10 @@ let kCTFontDescriptorMatchingTotalAssetSize: CFString
 let kCTFontDescriptorMatchingError: CFString
 typealias CTFontDescriptorProgressHandler = (CTFontDescriptorMatchingState, CFDictionary) -> Bool
 @available(tvOS 6.0, *)
-func CTFontDescriptorMatchFontDescriptorsWithProgressHandler(descriptors: CFArray, _ mandatoryAttributes: CFSet?, _ progressBlock: CTFontDescriptorProgressHandler) -> Bool
+func CTFontDescriptorMatchFontDescriptorsWithProgressHandler(_ descriptors: CFArray, _ mandatoryAttributes: CFSet?, _ progressBlock: CTFontDescriptorProgressHandler) -> Bool
 @available(tvOS 3.2, *)
-func CTFontDescriptorCopyAttributes(descriptor: CTFontDescriptor) -> CFDictionary
+func CTFontDescriptorCopyAttributes(_ descriptor: CTFontDescriptor) -> CFDictionary
 @available(tvOS 3.2, *)
-func CTFontDescriptorCopyAttribute(descriptor: CTFontDescriptor, _ attribute: CFString) -> CFTypeRef?
+func CTFontDescriptorCopyAttribute(_ descriptor: CTFontDescriptor, _ attribute: CFString) -> CFTypeRef?
 @available(tvOS 3.2, *)
-func CTFontDescriptorCopyLocalizedAttribute(descriptor: CTFontDescriptor, _ attribute: CFString, _ language: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef?
+func CTFontDescriptorCopyLocalizedAttribute(_ descriptor: CTFontDescriptor, _ attribute: CFString, _ language: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFTypeRef?

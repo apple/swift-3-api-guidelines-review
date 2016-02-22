@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum SCNPhysicsFieldScope : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case insideExtent
   case outsideExtent

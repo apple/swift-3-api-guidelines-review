@@ -21,5 +21,5 @@ extension NSStatusItem {
   func sendAction(on mask: Int) -> Int
   var view: NSView?
   func drawStatusBarBackground(in rect: NSRect, withHighlight highlight: Bool)
-  func popUpMenu(menu: NSMenu)
+  func popUpMenu(_ menu: NSMenu)
 }

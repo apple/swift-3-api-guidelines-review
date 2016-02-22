@@ -5,11 +5,11 @@ class CIKernel : NSObject {
   @available(tvOS 8.0, *)
   class func kernels(with string: String) -> [CIKernel]?
   @available(tvOS 8.0, *)
-  convenience init?(string: String)
+  convenience init?(string string: String)
   @available(tvOS 8.0, *)
   var name: String { get }
   @available(tvOS 9.0, *)
-  func setROISelector(method: Selector)
+  func setROISelector(_ method: Selector)
   @available(tvOS 8.0, *)
   func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
   init()
@@ -17,7 +17,7 @@ class CIKernel : NSObject {
 @available(tvOS 8.0, *)
 class CIColorKernel : CIKernel {
   @available(tvOS 8.0, *)
-  convenience init?(string: String)
+  convenience init?(string string: String)
   @available(tvOS 8.0, *)
   func apply(extent extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
   init()
@@ -25,7 +25,7 @@ class CIColorKernel : CIKernel {
 @available(tvOS 8.0, *)
 class CIWarpKernel : CIKernel {
   @available(tvOS 8.0, *)
-  convenience init?(string: String)
+  convenience init?(string string: String)
   @available(tvOS 8.0, *)
   func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
   init()

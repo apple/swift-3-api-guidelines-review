@@ -15,6 +15,6 @@ var kDAReturnUnsupported: Int { get }
 typealias DAReturn = mach_error_t
 class DADissenter {
 }
-func DADissenterCreate(allocator: CFAllocator?, _ status: DAReturn, _ string: CFString?) -> DADissenter
-func DADissenterGetStatus(dissenter: DADissenter) -> DAReturn
-func DADissenterGetStatusString(dissenter: DADissenter) -> CFString?
+func DADissenterCreate(_ allocator: CFAllocator?, _ status: DAReturn, _ string: CFString?) -> DADissenter
+func DADissenterGetStatus(_ dissenter: DADissenter) -> DAReturn
+func DADissenterGetStatusString(_ dissenter: DADissenter) -> CFString?

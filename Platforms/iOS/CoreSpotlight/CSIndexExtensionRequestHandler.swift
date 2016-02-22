@@ -3,13 +3,13 @@
 class CSIndexExtensionRequestHandler : NSObject, NSExtensionRequestHandling, CSSearchableIndexDelegate {
   init()
   @available(iOS 9.0, *)
-  func beginRequest(context: NSExtensionContext)
+  func beginRequest(_ context: NSExtensionContext)
   @available(iOS 9.0, *)
-  func searchableIndex(searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: () -> Void)
+  func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexAllSearchableItemsWithAcknowledgementHandler acknowledgementHandler: () -> Void)
   @available(iOS 9.0, *)
-  func searchableIndex(searchableIndex: CSSearchableIndex, reindexSearchableItemsWithIdentifiers identifiers: [String], acknowledgementHandler: () -> Void)
+  func searchableIndex(_ searchableIndex: CSSearchableIndex, reindexSearchableItemsWithIdentifiers identifiers: [String], acknowledgementHandler acknowledgementHandler: () -> Void)
   @available(iOS 9.0, *)
-  func searchableIndexDidThrottle(searchableIndex: CSSearchableIndex)
+  func searchableIndexDidThrottle(_ searchableIndex: CSSearchableIndex)
   @available(iOS 9.0, *)
-  func searchableIndexDidFinishThrottle(searchableIndex: CSSearchableIndex)
+  func searchableIndexDidFinishThrottle(_ searchableIndex: CSSearchableIndex)
 }

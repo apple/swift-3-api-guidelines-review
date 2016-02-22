@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLDataType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case none
   case `struct`
@@ -63,7 +63,7 @@ enum MTLDataType : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLArgumentType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case buffer
   case threadgroupMemory
@@ -72,7 +72,7 @@ enum MTLArgumentType : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLArgumentAccess : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case readOnly
   case readWrite

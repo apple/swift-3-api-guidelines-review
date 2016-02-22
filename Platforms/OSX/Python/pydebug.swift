@@ -17,4 +17,4 @@ var Py_NoUserSiteDirectory: Int32
 var _Py_QnewFlag: Int32
 var Py_Py3kWarningFlag: Int32
 var Py_HashRandomizationFlag: Int32
-func Py_FatalError(message: UnsafePointer<Int8>)
+func Py_FatalError(_ message: UnsafePointer<Int8>)

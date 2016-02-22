@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NSCollectionElementCategory : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case item
   case supplementaryView
@@ -30,7 +30,7 @@ class NSCollectionViewLayoutAttributes : NSObject, NSCopying {
 }
 @available(OSX 10.11, *)
 enum NSCollectionUpdateAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case insert
   case delete
@@ -64,8 +64,8 @@ class NSCollectionViewLayout : NSObject, NSCoding {
   weak var collectionView: @sil_weak NSCollectionView? { get }
   func invalidateLayout()
   func invalidateLayout(with context: NSCollectionViewLayoutInvalidationContext)
-  func register(viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
-  func register(nib: NSNib?, forDecorationViewOfKind elementKind: String)
+  func register(_ viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
+  func register(_ nib: NSNib?, forDecorationViewOfKind elementKind: String)
   init()
   @available(OSX 10.11, *)
   func encode(with aCoder: NSCoder)

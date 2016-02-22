@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum ADInterstitialPresentationPolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case automatic

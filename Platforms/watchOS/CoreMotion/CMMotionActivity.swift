@@ -1,6 +1,6 @@
 
 enum CMMotionActivityConfidence : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case low
   case medium

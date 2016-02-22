@@ -1,6 +1,6 @@
 
 enum UIViewAnimationCurve : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case easeInOut
   case easeIn
@@ -8,7 +8,7 @@ enum UIViewAnimationCurve : Int {
   case linear
 }
 enum UIViewContentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case scaleToFill
   case scaleAspectFit
@@ -25,7 +25,7 @@ enum UIViewContentMode : Int {
   case bottomRight
 }
 enum UIViewAnimationTransition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case flipFromLeft
@@ -34,7 +34,7 @@ enum UIViewAnimationTransition : Int {
   case curlDown
 }
 struct UIViewAutoresizing : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var none: UIViewAutoresizing { get }
   static var flexibleLeftMargin: UIViewAutoresizing { get }
@@ -46,7 +46,7 @@ struct UIViewAutoresizing : OptionSetType {
 }
 @available(iOS 4.0, *)
 struct UIViewAnimationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var layoutSubviews: UIViewAnimationOptions { get }
   static var allowUserInteraction: UIViewAnimationOptions { get }
@@ -73,7 +73,7 @@ struct UIViewAnimationOptions : OptionSetType {
 }
 @available(iOS 7.0, *)
 struct UIViewKeyframeAnimationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var layoutSubviews: UIViewKeyframeAnimationOptions { get }
   static var allowUserInteraction: UIViewKeyframeAnimationOptions { get }
@@ -90,13 +90,13 @@ struct UIViewKeyframeAnimationOptions : OptionSetType {
 }
 @available(iOS 7.0, *)
 enum UISystemAnimation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case delete
 }
 @available(iOS 7.0, *)
 enum UIViewTintAdjustmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case automatic
   case normal
@@ -104,7 +104,7 @@ enum UIViewTintAdjustmentMode : Int {
 }
 @available(iOS 9.0, *)
 enum UISemanticContentAttribute : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case unspecified
   case playback
@@ -114,27 +114,27 @@ enum UISemanticContentAttribute : Int {
 }
 @available(iOS 5.0, *)
 enum UIUserInterfaceLayoutDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case leftToRight
   case rightToLeft
 }
 protocol UICoordinateSpace : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convert(point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(_ point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convert(rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
-  func convert(rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(_ rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
   var bounds: CGRect { get }
 }
 @available(iOS 2.0, *)
 class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
   class func layerClass() -> AnyClass
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   var isUserInteractionEnabled: Bool
   var tag: Int
@@ -155,9 +155,9 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(iOS 9.0, *)
   class func whenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func forTraitCollection(trait: UITraitCollection) -> Self
+  class func forTraitCollection(_ trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func forTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func forTraitCollection(_ trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(iOS 9.0, *)
@@ -165,15 +165,15 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
-  func convert(point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convert(point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convert(_ point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(iOS 8.0, *)
-  func convert(rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 8.0, *)
-  func convert(rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
+  func convert(_ rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect
   @available(iOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
@@ -198,15 +198,15 @@ extension UIView {
   var contentScaleFactor: CGFloat
   var isMultipleTouchEnabled: Bool
   var isExclusiveTouch: Bool
-  func hitTest(point: CGPoint, with event: UIEvent?) -> UIView?
+  func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView?
   func point(inside point: CGPoint, with event: UIEvent?) -> Bool
-  func convert(point: CGPoint, to view: UIView?) -> CGPoint
-  func convert(point: CGPoint, from view: UIView?) -> CGPoint
-  func convert(rect: CGRect, to view: UIView?) -> CGRect
-  func convert(rect: CGRect, from view: UIView?) -> CGRect
+  func convert(_ point: CGPoint, to view: UIView?) -> CGPoint
+  func convert(_ point: CGPoint, from view: UIView?) -> CGPoint
+  func convert(_ rect: CGRect, to view: UIView?) -> CGRect
+  func convert(_ rect: CGRect, from view: UIView?) -> CGRect
   var autoresizesSubviews: Bool
   var autoresizingMask: UIViewAutoresizing
-  func sizeThatFits(size: CGSize) -> CGSize
+  func sizeThatFits(_ size: CGSize) -> CGSize
   func sizeToFit()
 }
 extension UIView {
@@ -214,21 +214,21 @@ extension UIView {
   var subviews: [UIView] { get }
   var window: UIWindow? { get }
   func removeFromSuperview()
-  func insertSubview(view: UIView, at index: Int)
+  func insertSubview(_ view: UIView, at index: Int)
   func exchangeSubview(at index1: Int, withSubviewAt index2: Int)
-  func addSubview(view: UIView)
-  func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
-  func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
+  func addSubview(_ view: UIView)
+  func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView)
+  func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView)
   func bringSubview(toFront view: UIView)
   func sendSubview(toBack view: UIView)
-  func didAddSubview(subview: UIView)
-  func willRemoveSubview(subview: UIView)
+  func didAddSubview(_ subview: UIView)
+  func willRemoveSubview(_ subview: UIView)
   func willMove(toSuperview newSuperview: UIView?)
   func didMoveToSuperview()
   func willMove(to newWindow: UIWindow?)
   func didMoveToWindow()
-  func isDescendantOf(view: UIView) -> Bool
-  func withTag(tag: Int) -> UIView?
+  func isDescendantOf(_ view: UIView) -> Bool
+  func withTag(_ tag: Int) -> UIView?
   func setNeedsLayout()
   func layoutIfNeeded()
   func layoutSubviews()
@@ -244,9 +244,9 @@ extension UIView {
   var readableContentGuide: UILayoutGuide { get }
 }
 extension UIView {
-  func draw(rect: CGRect)
+  func draw(_ rect: CGRect)
   func setNeedsDisplay()
-  func setNeedsDisplayIn(rect: CGRect)
+  func setNeedsDisplayIn(_ rect: CGRect)
   var clipsToBounds: Bool
   @NSCopying var backgroundColor: UIColor?
   var alpha: CGFloat
@@ -264,68 +264,68 @@ extension UIView {
   func tintColorDidChange()
 }
 extension UIView {
-  class func beginAnimations(animationID: String?, context: UnsafeMutablePointer<Void>)
+  class func beginAnimations(_ animationID: String?, context context: UnsafeMutablePointer<Void>)
   class func commitAnimations()
-  class func setAnimationDelegate(delegate: AnyObject?)
-  class func setAnimationWillStart(selector: Selector)
-  class func setAnimationDidStop(selector: Selector)
-  class func setAnimationDuration(duration: NSTimeInterval)
-  class func setAnimationDelay(delay: NSTimeInterval)
-  class func setAnimationStart(startDate: NSDate)
-  class func setAnimationCurve(curve: UIViewAnimationCurve)
-  class func setAnimationRepeatCount(repeatCount: Float)
-  class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
-  class func setAnimationBeginsFromCurrentState(fromCurrentState: Bool)
-  class func setAnimationTransition(transition: UIViewAnimationTransition, for view: UIView, cache: Bool)
-  class func setAnimationsEnabled(enabled: Bool)
+  class func setAnimationDelegate(_ delegate: AnyObject?)
+  class func setAnimationWillStart(_ selector: Selector)
+  class func setAnimationDidStop(_ selector: Selector)
+  class func setAnimationDuration(_ duration: NSTimeInterval)
+  class func setAnimationDelay(_ delay: NSTimeInterval)
+  class func setAnimationStart(_ startDate: NSDate)
+  class func setAnimationCurve(_ curve: UIViewAnimationCurve)
+  class func setAnimationRepeatCount(_ repeatCount: Float)
+  class func setAnimationRepeatAutoreverses(_ repeatAutoreverses: Bool)
+  class func setAnimationBeginsFromCurrentState(_ fromCurrentState: Bool)
+  class func setAnimationTransition(_ transition: UIViewAnimationTransition, for view: UIView, cache cache: Bool)
+  class func setAnimationsEnabled(_ enabled: Bool)
   class func areAnimationsEnabled() -> Bool
   @available(iOS 7.0, *)
-  class func performWithoutAnimation(actionsWithoutAnimation: () -> Void)
+  class func performWithoutAnimation(_ actionsWithoutAnimation: () -> Void)
   @available(iOS 9.0, *)
   class func inheritedAnimationDuration() -> NSTimeInterval
 }
 extension UIView {
   @available(iOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, animations: () -> Void)
+  class func animate(duration duration: NSTimeInterval, animations animations: () -> Void)
   @available(iOS 7.0, *)
-  class func animate(duration duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animate(duration duration: NSTimeInterval, delay delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(with view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func transition(with view: UIView, duration duration: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: (() -> Void)?, completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 4.0, *)
-  class func transition(from fromView: UIView, to toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions = [], completion: ((Bool) -> Void)? = nil)
+  class func transition(from fromView: UIView, to toView: UIView, duration duration: NSTimeInterval, options options: UIViewAnimationOptions = [], completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  class func perform(animation: UISystemAnimation, on views: [UIView], options: UIViewAnimationOptions = [], animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)? = nil)
+  class func perform(_ animation: UISystemAnimation, on views: [UIView], options options: UIViewAnimationOptions = [], animations parallelAnimations: (() -> Void)?, completion completion: ((Bool) -> Void)? = nil)
 }
 extension UIView {
   @available(iOS 7.0, *)
-  class func animateKeyframes(duration duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions = [], animations: () -> Void, completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(duration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewKeyframeAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(iOS 7.0, *)
-  class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
+  class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations animations: () -> Void)
 }
 extension UIView {
   @available(iOS 3.2, *)
   var gestureRecognizers: [UIGestureRecognizer]?
   @available(iOS 3.2, *)
-  func addGestureRecognizer(gestureRecognizer: UIGestureRecognizer)
+  func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
   @available(iOS 3.2, *)
-  func removeGestureRecognizer(gestureRecognizer: UIGestureRecognizer)
+  func removeGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
   @available(iOS 6.0, *)
-  func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
 }
 extension UIView {
   @available(iOS 7.0, *)
-  func addMotionEffect(effect: UIMotionEffect)
+  func addMotionEffect(_ effect: UIMotionEffect)
   @available(iOS 7.0, *)
-  func removeMotionEffect(effect: UIMotionEffect)
+  func removeMotionEffect(_ effect: UIMotionEffect)
   @available(iOS 7.0, *)
   var motionEffects: [UIMotionEffect]
 }
 enum UILayoutConstraintAxis : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case horizontal
   case vertical
@@ -334,13 +334,13 @@ extension UIView {
   @available(iOS 6.0, *)
   var constraints: [NSLayoutConstraint] { get }
   @available(iOS 6.0, *)
-  func addConstraint(constraint: NSLayoutConstraint)
+  func addConstraint(_ constraint: NSLayoutConstraint)
   @available(iOS 6.0, *)
-  func addConstraints(constraints: [NSLayoutConstraint])
+  func addConstraints(_ constraints: [NSLayoutConstraint])
   @available(iOS 6.0, *)
-  func removeConstraint(constraint: NSLayoutConstraint)
+  func removeConstraint(_ constraint: NSLayoutConstraint)
   @available(iOS 6.0, *)
-  func removeConstraints(constraints: [NSLayoutConstraint])
+  func removeConstraints(_ constraints: [NSLayoutConstraint])
 }
 extension UIView {
   @available(iOS 6.0, *)
@@ -378,11 +378,11 @@ extension UIView {
   @available(iOS 6.0, *)
   func contentHuggingPriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(iOS 6.0, *)
-  func setContentHuggingPriority(priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
+  func setContentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
   @available(iOS 6.0, *)
   func contentCompressionResistancePriority(for axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(iOS 6.0, *)
-  func setContentCompressionResistancePriority(priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
+  func setContentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis)
 }
 @available(iOS 6.0, *)
 let UIViewNoIntrinsicMetric: CGFloat
@@ -392,17 +392,17 @@ let UILayoutFittingCompressedSize: CGSize
 let UILayoutFittingExpandedSize: CGSize
 extension UIView {
   @available(iOS 6.0, *)
-  func systemLayoutSizeFitting(targetSize: CGSize) -> CGSize
+  func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func systemLayoutSizeFitting(targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize
+  func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority verticalFittingPriority: UILayoutPriority) -> CGSize
 }
 extension UIView {
   @available(iOS 9.0, *)
   var layoutGuides: [UILayoutGuide] { get }
   @available(iOS 9.0, *)
-  func addLayoutGuide(layoutGuide: UILayoutGuide)
+  func addLayoutGuide(_ layoutGuide: UILayoutGuide)
   @available(iOS 9.0, *)
-  func removeLayoutGuide(layoutGuide: UILayoutGuide)
+  func removeLayoutGuide(_ layoutGuide: UILayoutGuide)
 }
 extension UIView {
   @available(iOS 9.0, *)

@@ -8,6 +8,6 @@ class CBDescriptor : NSObject {
 }
 @available(OSX 10.9, *)
 class CBMutableDescriptor : CBDescriptor {
-  init(type UUID: CBUUID, value: AnyObject?)
+  init(type UUID: CBUUID, value value: AnyObject?)
   init()
 }

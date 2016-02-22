@@ -16,7 +16,7 @@ class CAEmitterLayer : CALayer {
   var spin: Float
   var seed: UInt32
   init()
-  init(layer: AnyObject)
+  init(layer layer: AnyObject)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 5.0, *)

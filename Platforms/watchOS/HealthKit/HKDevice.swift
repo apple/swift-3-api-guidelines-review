@@ -25,7 +25,7 @@ class HKDevice : NSObject, NSSecureCoding, NSCopying {
   var softwareVersion: String? { get }
   var localIdentifier: String? { get }
   var udiDeviceIdentifier: String? { get }
-  init(name: String?, manufacturer: String?, model: String?, hardwareVersion: String?, firmwareVersion: String?, softwareVersion: String?, localIdentifier: String?, udiDeviceIdentifier UDIDeviceIdentifier: String?)
+  init(name name: String?, manufacturer manufacturer: String?, model model: String?, hardwareVersion hardwareVersion: String?, firmwareVersion firmwareVersion: String?, softwareVersion softwareVersion: String?, localIdentifier localIdentifier: String?, udiDeviceIdentifier UDIDeviceIdentifier: String?)
   class func local() -> HKDevice
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool

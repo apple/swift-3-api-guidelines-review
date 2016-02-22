@@ -1,14 +1,14 @@
 
 @available(iOS 9.0, *)
 enum SCNBufferFrequency : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case perFrame
   case perNode
   case perShadable
 }
 protocol SCNBufferStream : NSObjectProtocol {
-  func writeBytes(bytes: UnsafeMutablePointer<Void>, length: Int)
+  func writeBytes(_ bytes: UnsafeMutablePointer<Void>, length length: Int)
 }
 typealias SCNBufferBindingBlock = (SCNBufferStream, SCNNode, SCNShadable, SCNRenderer) -> Void
 typealias SCNBindingBlock = (UInt32, UInt32, SCNNode, SCNRenderer) -> Void
@@ -32,10 +32,10 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   @available(iOS 9.0, *)
   var fragmentFunctionName: String?
   @available(iOS 9.0, *)
-  func handleBindingOf(bufferNamed name: String, frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
+  func handleBindingOf(bufferNamed name: String, frequency frequency: SCNBufferFrequency, using block: SCNBufferBindingBlock)
   @available(iOS 8.0, *)
   var isOpaque: Bool
-  func setSemantic(semantic: String?, forSymbol symbol: String, options: [String : AnyObject]? = [:])
+  func setSemantic(_ semantic: String?, forSymbol symbol: String, options options: [String : AnyObject]? = [:])
   func semantic(forSymbol symbol: String) -> String?
   unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
   @available(iOS 9.0, *)
@@ -51,7 +51,7 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
 }
 protocol SCNProgramDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func program(program: SCNProgram, handleError error: NSError)
+  optional func program(_ program: SCNProgram, handleError error: NSError)
 }
 @available(iOS 8.0, *)
 let SCNShaderModifierEntryPointGeometry: String

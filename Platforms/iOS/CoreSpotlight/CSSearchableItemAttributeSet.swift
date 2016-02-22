@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 class CSSearchableItemAttributeSet : NSObject, NSCopying, NSSecureCoding {
-  init(itemContentType: String)
+  init(itemContentType itemContentType: String)
   init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -12,20 +12,20 @@ class CSSearchableItemAttributeSet : NSObject, NSCopying, NSSecureCoding {
   init?(coder aDecoder: NSCoder)
 }
 class CSLocalizedString : NSString {
-  init(localizedStrings: [NSObject : AnyObject])
+  init(localizedStrings localizedStrings: [NSObject : AnyObject])
   func localizedString() -> String
   init()
   init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters: UnsafePointer<unichar>, length: Int)
+  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
+  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
   convenience init(string aString: String)
-  convenience init(format: String, arguments argList: CVaListPointer)
-  convenience init(format: String, locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data: NSData, encoding: UInt)
-  convenience init?(bytes: UnsafePointer<Void>, length len: Int, encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding: UInt)
+  convenience init(format format: String, arguments argList: CVaListPointer)
+  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
+  convenience init?(data data: NSData, encoding encoding: UInt)
+  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
+  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
+  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
   convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
   convenience init(contentsOfFile path: String, encoding enc: UInt) throws
   convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
@@ -33,8 +33,8 @@ class CSLocalizedString : NSString {
 }
 @available(iOS 9.0, *)
 class CSCustomAttributeKey : NSObject, NSCopying, NSSecureCoding {
-  convenience init?(keyName: String)
-  init?(keyName: String, searchable: Bool, searchableByDefault: Bool, unique: Bool, multiValued: Bool)
+  convenience init?(keyName keyName: String)
+  init?(keyName keyName: String, searchable searchable: Bool, searchableByDefault searchableByDefault: Bool, unique unique: Bool, multiValued multiValued: Bool)
   var keyName: String { get }
   var isSearchable: Bool { get }
   var isSearchableByDefault: Bool { get }
@@ -50,7 +50,7 @@ class CSCustomAttributeKey : NSObject, NSCopying, NSSecureCoding {
   init?(coder aDecoder: NSCoder)
 }
 extension CSSearchableItemAttributeSet {
-  func setValue(value: NSSecureCoding?, forCustomKey key: CSCustomAttributeKey)
+  func setValue(_ value: NSSecureCoding?, forCustomKey key: CSCustomAttributeKey)
   func value(forCustomKey key: CSCustomAttributeKey) -> NSSecureCoding?
 }
 extension NSUserActivity {

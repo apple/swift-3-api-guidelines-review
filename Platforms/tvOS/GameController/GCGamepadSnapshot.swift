@@ -3,7 +3,7 @@
 class GCGamepadSnapshot : GCGamepad {
   @NSCopying var snapshotData: NSData
   init(snapshotData data: NSData)
-  init(controller: GCController, snapshotData data: NSData)
+  init(controller controller: GCController, snapshotData data: NSData)
   init()
 }
 struct GCGamepadSnapShotDataV100 {
@@ -18,9 +18,9 @@ struct GCGamepadSnapShotDataV100 {
   var leftShoulder: Float
   var rightShoulder: Float
   init()
-  init(version: UInt16, size: UInt16, dpadX: Float, dpadY: Float, buttonA: Float, buttonB: Float, buttonX: Float, buttonY: Float, leftShoulder: Float, rightShoulder: Float)
+  init(version version: UInt16, size size: UInt16, dpadX dpadX: Float, dpadY dpadY: Float, buttonA buttonA: Float, buttonB buttonB: Float, buttonX buttonX: Float, buttonY buttonY: Float, leftShoulder leftShoulder: Float, rightShoulder rightShoulder: Float)
 }
 @available(tvOS 7.0, *)
-func GCGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
+func GCGamepadSnapShotDataV100FromNSData(_ snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
 @available(tvOS 7.0, *)
-func NSDataFromGCGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>) -> NSData?
+func NSDataFromGCGamepadSnapShotDataV100(_ snapshotData: UnsafeMutablePointer<GCGamepadSnapShotDataV100>) -> NSData?

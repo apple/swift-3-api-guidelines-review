@@ -28,22 +28,22 @@ class NSCursor : NSObject, NSCoding {
   @available(OSX 10.7, *)
   class func iBeamCursorForVerticalLayout() -> NSCursor
   init(image newImage: NSImage, hotSpot aPoint: NSPoint)
-  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot: NSPoint)
+  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot hotSpot: NSPoint)
   class func hide()
   class func unhide()
-  class func setHiddenUntilMouseMoves(flag: Bool)
+  class func setHiddenUntilMouseMoves(_ flag: Bool)
   class func pop()
   var image: NSImage { get }
   var hotSpot: NSPoint { get }
   func push()
   func pop()
   func set()
-  func setOnMouseExited(flag: Bool)
-  func setOnMouseEntered(flag: Bool)
+  func setOnMouseExited(_ flag: Bool)
+  func setOnMouseEntered(_ flag: Bool)
   var isSetOnMouseExited: Bool { get }
   var isSetOnMouseEntered: Bool { get }
-  func mouseEntered(theEvent: NSEvent)
-  func mouseExited(theEvent: NSEvent)
+  func mouseEntered(_ theEvent: NSEvent)
+  func mouseExited(_ theEvent: NSEvent)
   convenience init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -57,5 +57,5 @@ struct _cursorFlags {
   var onMouseEntered: UInt32
   var cursorType: UInt32
   init()
-  init(onMouseExited: UInt32, onMouseEntered: UInt32, cursorType: UInt32)
+  init(onMouseExited onMouseExited: UInt32, onMouseEntered onMouseEntered: UInt32, cursorType cursorType: UInt32)
 }

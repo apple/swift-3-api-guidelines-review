@@ -1,16 +1,16 @@
 
 protocol NSTextInputClient {
-  func insertText(aString: AnyObject, replacementRange: NSRange)
+  func insertText(_ aString: AnyObject, replacementRange replacementRange: NSRange)
   func doCommand(by aSelector: Selector)
-  func setMarkedText(aString: AnyObject, selectedRange: NSRange, replacementRange: NSRange)
+  func setMarkedText(_ aString: AnyObject, selectedRange selectedRange: NSRange, replacementRange replacementRange: NSRange)
   func unmarkText()
   func selectedRange() -> NSRange
   func markedRange() -> NSRange
   func hasMarkedText() -> Bool
   @available(OSX 10.0, *)
-  func attributedSubstring(forProposedRange aRange: NSRange, actualRange: NSRangePointer) -> NSAttributedString?
+  func attributedSubstring(forProposedRange aRange: NSRange, actualRange actualRange: NSRangePointer) -> NSAttributedString?
   func validAttributesForMarkedText() -> [String]
-  func firstRect(forCharacterRange aRange: NSRange, actualRange: NSRangePointer) -> NSRect
+  func firstRect(forCharacterRange aRange: NSRange, actualRange actualRange: NSRangePointer) -> NSRect
   func characterIndex(for aPoint: NSPoint) -> Int
   @available(OSX 10.0, *)
   optional func attributedString() -> NSAttributedString

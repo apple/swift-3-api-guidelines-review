@@ -1,11 +1,11 @@
 
 class NSBundle : NSObject {
   class func main() -> NSBundle
-  init?(path: String)
+  init?(path path: String)
   @available(OSX 10.6, *)
-  convenience init?(url: NSURL)
+  convenience init?(url url: NSURL)
   /*not inherited*/ init(for aClass: AnyClass)
-  /*not inherited*/ init?(identifier: String)
+  /*not inherited*/ init?(identifier identifier: String)
   class func allBundles() -> [NSBundle]
   class func allFrameworks() -> [NSBundle]
   func load() -> Bool
@@ -62,12 +62,12 @@ class NSBundle : NSObject {
   func path(forResource name: String?, ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> String?
   func pathsForResources(ofType ext: String?, inDirectory subpath: String?) -> [String]
   func pathsForResources(ofType ext: String?, inDirectory subpath: String?, forLocalization localizationName: String?) -> [String]
-  func localizedString(forKey key: String, value: String?, table tableName: String?) -> String
+  func localizedString(forKey key: String, value value: String?, table tableName: String?) -> String
   var bundleIdentifier: String? { get }
   var infoDictionary: [String : AnyObject]? { get }
   var localizedInfoDictionary: [String : AnyObject]? { get }
   func object(forInfoDictionaryKey key: String) -> AnyObject?
-  func classNamed(className: String) -> AnyClass?
+  func classNamed(_ className: String) -> AnyClass?
   var principalClass: AnyClass? { get }
   var preferredLocalizations: [String] { get }
   var localizations: [String] { get }
@@ -84,7 +84,7 @@ var NSBundleExecutableArchitectureX86_64: Int { get }
 var NSBundleExecutableArchitecturePPC64: Int { get }
 extension NSString {
   @available(OSX 10.11, *)
-  func variantFittingPresentationWidth(width: Int) -> String
+  func variantFittingPresentationWidth(_ width: Int) -> String
 }
 let NSBundleDidLoadNotification: String
 let NSLoadedClasses: String

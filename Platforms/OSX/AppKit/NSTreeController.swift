@@ -7,16 +7,16 @@ class NSTreeController : NSObjectController {
   var leafKeyPath: String?
   var sortDescriptors: [NSSortDescriptor]
   var content: AnyObject?
-  func add(sender: AnyObject?)
-  func remove(sender: AnyObject?)
-  func addChild(sender: AnyObject?)
-  func insert(sender: AnyObject?)
-  func insertChild(sender: AnyObject?)
+  func add(_ sender: AnyObject?)
+  func remove(_ sender: AnyObject?)
+  func addChild(_ sender: AnyObject?)
+  func insert(_ sender: AnyObject?)
+  func insertChild(_ sender: AnyObject?)
   var canInsert: Bool { get }
   var canInsertChild: Bool { get }
   var canAddChild: Bool { get }
-  func insert(object: AnyObject?, atArrangedObjectIndexPath indexPath: NSIndexPath)
-  func insert(objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [NSIndexPath])
+  func insert(_ object: AnyObject?, atArrangedObjectIndexPath indexPath: NSIndexPath)
+  func insert(_ objects: [AnyObject], atArrangedObjectIndexPaths indexPaths: [NSIndexPath])
   func removeObject(atArrangedObjectIndexPath indexPath: NSIndexPath)
   func removeObjects(atArrangedObjectIndexPaths indexPaths: [NSIndexPath])
   var avoidsEmptySelection: Bool
@@ -24,26 +24,26 @@ class NSTreeController : NSObjectController {
   var selectsInsertedObjects: Bool
   var alwaysUsesMultipleValuesMarker: Bool
   var selectedObjects: [AnyObject] { get }
-  func setSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
+  func setSelectionIndexPaths(_ indexPaths: [NSIndexPath]) -> Bool
   var selectionIndexPaths: [NSIndexPath] { get }
-  func setSelectionIndexPath(indexPath: NSIndexPath?) -> Bool
+  func setSelectionIndexPath(_ indexPath: NSIndexPath?) -> Bool
   @NSCopying var selectionIndexPath: NSIndexPath? { get }
-  func addSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
-  func removeSelectionIndexPaths(indexPaths: [NSIndexPath]) -> Bool
+  func addSelectionIndexPaths(_ indexPaths: [NSIndexPath]) -> Bool
+  func removeSelectionIndexPaths(_ indexPaths: [NSIndexPath]) -> Bool
   @available(OSX 10.5, *)
   var selectedNodes: [NSTreeNode] { get }
   @available(OSX 10.5, *)
-  func move(node: NSTreeNode, to indexPath: NSIndexPath)
+  func move(_ node: NSTreeNode, to indexPath: NSIndexPath)
   @available(OSX 10.5, *)
-  func move(nodes: [NSTreeNode], to startingIndexPath: NSIndexPath)
+  func move(_ nodes: [NSTreeNode], to startingIndexPath: NSIndexPath)
   @available(OSX 10.5, *)
   func childrenKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
   func countKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
   func leafKeyPath(for node: NSTreeNode) -> String?
-  init(content: AnyObject?)
-  init?(coder: NSCoder)
+  init(content content: AnyObject?)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __treeControllerFlags {
@@ -61,5 +61,5 @@ struct __treeControllerFlags {
   var _usesIdenticalComparisonOfModelObjects: UInt32
   var _reservedTreeController: UInt32
   init()
-  init(_avoidsEmptySelection: UInt32, _preservesSelection: UInt32, _selectsInsertedObjects: UInt32, _explicitlyCannotInsert: UInt32, _explicitlyCannotInsertChild: UInt32, _explicitlyCannotAddChild: UInt32, _alwaysUsesMultipleValuesMarker: UInt32, _observingThroughArrangedObjects: UInt32, _mutatingNodes: UInt32, _performingFetch: UInt32, _skipSortingAfterFetch: UInt32, _usesIdenticalComparisonOfModelObjects: UInt32, _reservedTreeController: UInt32)
+  init(_avoidsEmptySelection _avoidsEmptySelection: UInt32, _preservesSelection _preservesSelection: UInt32, _selectsInsertedObjects _selectsInsertedObjects: UInt32, _explicitlyCannotInsert _explicitlyCannotInsert: UInt32, _explicitlyCannotInsertChild _explicitlyCannotInsertChild: UInt32, _explicitlyCannotAddChild _explicitlyCannotAddChild: UInt32, _alwaysUsesMultipleValuesMarker _alwaysUsesMultipleValuesMarker: UInt32, _observingThroughArrangedObjects _observingThroughArrangedObjects: UInt32, _mutatingNodes _mutatingNodes: UInt32, _performingFetch _performingFetch: UInt32, _skipSortingAfterFetch _skipSortingAfterFetch: UInt32, _usesIdenticalComparisonOfModelObjects _usesIdenticalComparisonOfModelObjects: UInt32, _reservedTreeController _reservedTreeController: UInt32)
 }

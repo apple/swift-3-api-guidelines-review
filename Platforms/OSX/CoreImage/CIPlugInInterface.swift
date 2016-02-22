@@ -1,4 +1,4 @@
 
 protocol CIPlugInRegistration {
-  func load(host: UnsafeMutablePointer<Void>) -> Bool
+  func load(_ host: UnsafeMutablePointer<Void>) -> Bool
 }

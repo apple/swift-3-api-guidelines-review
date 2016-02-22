@@ -1,6 +1,6 @@
 
 enum CLDeviceOrientation : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case unknown
   case portrait
@@ -11,7 +11,7 @@ enum CLDeviceOrientation : Int32 {
   case faceDown
 }
 enum CLAuthorizationStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case notDetermined
   case restricted
@@ -22,7 +22,7 @@ enum CLAuthorizationStatus : Int32 {
   case authorizedWhenInUse
 }
 enum CLActivityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case other
   case automotiveNavigation

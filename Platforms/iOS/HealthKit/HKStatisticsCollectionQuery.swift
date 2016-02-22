@@ -13,5 +13,5 @@ class HKStatisticsCollectionQuery : HKQuery {
   @NSCopying var intervalComponents: NSDateComponents { get }
   var initialResultsHandler: ((HKStatisticsCollectionQuery, HKStatisticsCollection?, NSError?) -> Void)?
   var statisticsUpdateHandler: ((HKStatisticsCollectionQuery, HKStatistics?, HKStatisticsCollection?, NSError?) -> Void)?
-  init(quantityType: HKQuantityType, quantitySamplePredicate: NSPredicate?, options: HKStatisticsOptions = [], anchorDate: NSDate, intervalComponents: NSDateComponents)
+  init(quantityType quantityType: HKQuantityType, quantitySamplePredicate quantitySamplePredicate: NSPredicate?, options options: HKStatisticsOptions = [], anchorDate anchorDate: NSDate, intervalComponents intervalComponents: NSDateComponents)
 }

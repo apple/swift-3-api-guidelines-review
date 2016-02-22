@@ -1,6 +1,6 @@
 
 enum NSTitlePosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case noTitle
   case aboveTop
@@ -11,7 +11,7 @@ enum NSTitlePosition : UInt {
   case belowBottom
 }
 enum NSBoxType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case primary
   case secondary
@@ -31,7 +31,7 @@ class NSBox : NSView {
   var titleCell: AnyObject { get }
   func sizeToFit()
   var contentViewMargins: NSSize
-  func setFrameFromContentFrame(contentFrame: NSRect)
+  func setFrameFromContentFrame(_ contentFrame: NSRect)
   unowned(unsafe) var contentView: @sil_unmanaged NSView?
   @available(OSX 10.5, *)
   var isTransparent: Bool
@@ -44,7 +44,7 @@ class NSBox : NSView {
   @available(OSX 10.5, *)
   @NSCopying var fillColor: NSColor
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 struct __bFlags {
@@ -59,7 +59,7 @@ struct __bFlags {
   var useSuperAddSubview: UInt32
   var _RESERVED: UInt32
   init()
-  init(borderType: NSBorderType, titlePosition: NSTitlePosition, backgroundTransparent: UInt32, orientation: UInt32, needsTile: UInt32, transparent: UInt32, colorAltInterpretation: UInt32, boxType: UInt32, useSuperAddSubview: UInt32, _RESERVED: UInt32)
+  init(borderType borderType: NSBorderType, titlePosition titlePosition: NSTitlePosition, backgroundTransparent backgroundTransparent: UInt32, orientation orientation: UInt32, needsTile needsTile: UInt32, transparent transparent: UInt32, colorAltInterpretation colorAltInterpretation: UInt32, boxType boxType: UInt32, useSuperAddSubview useSuperAddSubview: UInt32, _RESERVED _RESERVED: UInt32)
 }
 extension NSBox {
 }

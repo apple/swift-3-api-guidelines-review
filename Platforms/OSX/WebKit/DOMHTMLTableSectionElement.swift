@@ -6,6 +6,6 @@ class DOMHTMLTableSectionElement : DOMHTMLElement {
   var chOff: String!
   var vAlign: String!
   var rows: DOMHTMLCollection! { get }
-  func insertRow(index: Int32) -> DOMHTMLElement!
-  func deleteRow(index: Int32)
+  func insertRow(_ index: Int32) -> DOMHTMLElement!
+  func deleteRow(_ index: Int32)
 }

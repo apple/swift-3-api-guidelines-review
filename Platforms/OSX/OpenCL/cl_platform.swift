@@ -92,217 +92,217 @@ var CL_HAS_NAMED_VECTOR_FIELDS: Int32 { get }
 var CL_HAS_HI_LO_VECTOR_FIELDS: Int32 { get }
 struct cl_char2 {
   var s: (cl_char, cl_char)
-  init(s: (cl_char, cl_char))
+  init(s s: (cl_char, cl_char))
   init()
 }
 struct cl_char4 {
   var s: (cl_char, cl_char, cl_char, cl_char)
-  init(s: (cl_char, cl_char, cl_char, cl_char))
+  init(s s: (cl_char, cl_char, cl_char, cl_char))
   init()
 }
 typealias cl_char3 = cl_char4
 struct cl_char8 {
   var s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char)
-  init(s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char))
+  init(s s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char))
   init()
 }
 struct cl_char16 {
   var s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char)
-  init(s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char))
+  init(s s: (cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char, cl_char))
   init()
 }
 struct cl_uchar2 {
   var s: (cl_uchar, cl_uchar)
-  init(s: (cl_uchar, cl_uchar))
+  init(s s: (cl_uchar, cl_uchar))
   init()
 }
 struct cl_uchar4 {
   var s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar)
-  init(s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar))
+  init(s s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar))
   init()
 }
 typealias cl_uchar3 = cl_uchar4
 struct cl_uchar8 {
   var s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar)
-  init(s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar))
+  init(s s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar))
   init()
 }
 struct cl_uchar16 {
   var s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar)
-  init(s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar))
+  init(s s: (cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar, cl_uchar))
   init()
 }
 struct cl_short2 {
   var s: (cl_short, cl_short)
-  init(s: (cl_short, cl_short))
+  init(s s: (cl_short, cl_short))
   init()
 }
 struct cl_short4 {
   var s: (cl_short, cl_short, cl_short, cl_short)
-  init(s: (cl_short, cl_short, cl_short, cl_short))
+  init(s s: (cl_short, cl_short, cl_short, cl_short))
   init()
 }
 typealias cl_short3 = cl_short4
 struct cl_short8 {
   var s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short)
-  init(s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short))
+  init(s s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short))
   init()
 }
 struct cl_short16 {
   var s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short)
-  init(s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short))
+  init(s s: (cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short, cl_short))
   init()
 }
 struct cl_ushort2 {
   var s: (cl_ushort, cl_ushort)
-  init(s: (cl_ushort, cl_ushort))
+  init(s s: (cl_ushort, cl_ushort))
   init()
 }
 struct cl_ushort4 {
   var s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort)
-  init(s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort))
+  init(s s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort))
   init()
 }
 typealias cl_ushort3 = cl_ushort4
 struct cl_ushort8 {
   var s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort)
-  init(s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort))
+  init(s s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort))
   init()
 }
 struct cl_ushort16 {
   var s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort)
-  init(s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort))
+  init(s s: (cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort, cl_ushort))
   init()
 }
 struct cl_int2 {
   var s: (cl_int, cl_int)
-  init(s: (cl_int, cl_int))
+  init(s s: (cl_int, cl_int))
   init()
 }
 struct cl_int4 {
   var s: (cl_int, cl_int, cl_int, cl_int)
-  init(s: (cl_int, cl_int, cl_int, cl_int))
+  init(s s: (cl_int, cl_int, cl_int, cl_int))
   init()
 }
 typealias cl_int3 = cl_int4
 struct cl_int8 {
   var s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int)
-  init(s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int))
+  init(s s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int))
   init()
 }
 struct cl_int16 {
   var s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int)
-  init(s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int))
+  init(s s: (cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int, cl_int))
   init()
 }
 struct cl_uint2 {
   var s: (cl_uint, cl_uint)
-  init(s: (cl_uint, cl_uint))
+  init(s s: (cl_uint, cl_uint))
   init()
 }
 struct cl_uint4 {
   var s: (cl_uint, cl_uint, cl_uint, cl_uint)
-  init(s: (cl_uint, cl_uint, cl_uint, cl_uint))
+  init(s s: (cl_uint, cl_uint, cl_uint, cl_uint))
   init()
 }
 typealias cl_uint3 = cl_uint4
 struct cl_uint8 {
   var s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint)
-  init(s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint))
+  init(s s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint))
   init()
 }
 struct cl_uint16 {
   var s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint)
-  init(s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint))
+  init(s s: (cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint, cl_uint))
   init()
 }
 struct cl_long2 {
   var s: (cl_long, cl_long)
-  init(s: (cl_long, cl_long))
+  init(s s: (cl_long, cl_long))
   init()
 }
 struct cl_long4 {
   var s: (cl_long, cl_long, cl_long, cl_long)
-  init(s: (cl_long, cl_long, cl_long, cl_long))
+  init(s s: (cl_long, cl_long, cl_long, cl_long))
   init()
 }
 typealias cl_long3 = cl_long4
 struct cl_long8 {
   var s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long)
-  init(s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long))
+  init(s s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long))
   init()
 }
 struct cl_long16 {
   var s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long)
-  init(s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long))
+  init(s s: (cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long, cl_long))
   init()
 }
 struct cl_ulong2 {
   var s: (cl_ulong, cl_ulong)
-  init(s: (cl_ulong, cl_ulong))
+  init(s s: (cl_ulong, cl_ulong))
   init()
 }
 struct cl_ulong4 {
   var s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong)
-  init(s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong))
+  init(s s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong))
   init()
 }
 typealias cl_ulong3 = cl_ulong4
 struct cl_ulong8 {
   var s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong)
-  init(s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong))
+  init(s s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong))
   init()
 }
 struct cl_ulong16 {
   var s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong)
-  init(s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong))
+  init(s s: (cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong, cl_ulong))
   init()
 }
 struct cl_float2 {
   var s: (cl_float, cl_float)
-  init(s: (cl_float, cl_float))
+  init(s s: (cl_float, cl_float))
   init()
 }
 struct cl_float4 {
   var s: (cl_float, cl_float, cl_float, cl_float)
   var v4: __cl_float4
-  init(s: (cl_float, cl_float, cl_float, cl_float))
-  init(v4: __cl_float4)
+  init(s s: (cl_float, cl_float, cl_float, cl_float))
+  init(v4 v4: __cl_float4)
   init()
 }
 typealias cl_float3 = cl_float4
 struct cl_float8 {
   var s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float)
   var v4: (__cl_float4, __cl_float4)
-  init(s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float))
-  init(v4: (__cl_float4, __cl_float4))
+  init(s s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float))
+  init(v4 v4: (__cl_float4, __cl_float4))
   init()
 }
 struct cl_float16 {
   var s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float)
   var v4: (__cl_float4, __cl_float4, __cl_float4, __cl_float4)
-  init(s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float))
-  init(v4: (__cl_float4, __cl_float4, __cl_float4, __cl_float4))
+  init(s s: (cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float, cl_float))
+  init(v4 v4: (__cl_float4, __cl_float4, __cl_float4, __cl_float4))
   init()
 }
 struct cl_double2 {
   var s: (cl_double, cl_double)
-  init(s: (cl_double, cl_double))
+  init(s s: (cl_double, cl_double))
   init()
 }
 struct cl_double4 {
   var s: (cl_double, cl_double, cl_double, cl_double)
-  init(s: (cl_double, cl_double, cl_double, cl_double))
+  init(s s: (cl_double, cl_double, cl_double, cl_double))
   init()
 }
 typealias cl_double3 = cl_double4
 struct cl_double8 {
   var s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double)
-  init(s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double))
+  init(s s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double))
   init()
 }
 struct cl_double16 {
   var s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double)
-  init(s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double))
+  init(s s: (cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double, cl_double))
   init()
 }

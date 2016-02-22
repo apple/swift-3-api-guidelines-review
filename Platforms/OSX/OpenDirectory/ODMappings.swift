@@ -16,6 +16,6 @@ class ODMappings : NSObject {
   @available(OSX 10.9, *)
   func recordMap(forStandardRecordType stdType: String!) -> ODRecordMap!
   @available(OSX 10.9, *)
-  func setRecordMap(map: ODRecordMap!, forStandardRecordType stdType: String!)
+  func setRecordMap(_ map: ODRecordMap!, forStandardRecordType stdType: String!)
   init()
 }

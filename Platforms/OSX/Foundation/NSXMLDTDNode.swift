@@ -1,6 +1,6 @@
 
 enum NSXMLDTDNodeKind : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NSXMLEntityGeneralKind
   case NSXMLEntityParsedKind
@@ -25,12 +25,12 @@ enum NSXMLDTDNodeKind : UInt {
 }
 class NSXMLDTDNode : NSXMLNode {
   init?(xmlString string: String)
-  init(kind: NSXMLNodeKind, options: Int)
+  init(kind kind: NSXMLNodeKind, options options: Int)
   init()
   var dtdKind: NSXMLDTDNodeKind
   var isExternal: Bool { get }
   var publicID: String?
   var systemID: String?
   var notationName: String?
-  convenience init(kind: NSXMLNodeKind)
+  convenience init(kind kind: NSXMLNodeKind)
 }

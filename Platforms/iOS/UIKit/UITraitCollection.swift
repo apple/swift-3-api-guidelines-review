@@ -9,9 +9,9 @@ class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   /*not inherited*/ init(displayScale scale: CGFloat)
   var displayScale: CGFloat { get }
-  /*not inherited*/ init(horizontalSizeClass: UIUserInterfaceSizeClass)
+  /*not inherited*/ init(horizontalSizeClass horizontalSizeClass: UIUserInterfaceSizeClass)
   var horizontalSizeClass: UIUserInterfaceSizeClass { get }
-  /*not inherited*/ init(verticalSizeClass: UIUserInterfaceSizeClass)
+  /*not inherited*/ init(verticalSizeClass verticalSizeClass: UIUserInterfaceSizeClass)
   var verticalSizeClass: UIUserInterfaceSizeClass { get }
   @available(iOS 9.0, *)
   /*not inherited*/ init(forceTouchCapability capability: UIForceTouchCapability)
@@ -28,5 +28,5 @@ protocol UITraitEnvironment : NSObjectProtocol {
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }

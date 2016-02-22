@@ -20,7 +20,7 @@ class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
   var audioTimePitchAlgorithm: String? { get }
   @available(OSX 10.9, *)
   var audioTapProcessor: MTAudioProcessingTap? { get }
-  func getVolumeRamp(for time: CMTime, startVolume: UnsafeMutablePointer<Float>, endVolume: UnsafeMutablePointer<Float>, timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
+  func getVolumeRamp(for time: CMTime, startVolume startVolume: UnsafeMutablePointer<Float>, endVolume endVolume: UnsafeMutablePointer<Float>, timeRange timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -29,13 +29,13 @@ class AVAudioMixInputParameters : NSObject, NSCopying, NSMutableCopying {
 }
 @available(OSX 10.7, *)
 class AVMutableAudioMixInputParameters : AVAudioMixInputParameters {
-  convenience init(track: AVAssetTrack?)
+  convenience init(track track: AVAssetTrack?)
   var trackID: CMPersistentTrackID
   @available(OSX 10.10, *)
   var audioTimePitchAlgorithm: String?
   @available(OSX 10.9, *)
   var audioTapProcessor: MTAudioProcessingTap?
-  func setVolumeRampFromStartVolume(startVolume: Float, toEndVolume endVolume: Float, timeRange: CMTimeRange)
-  func setVolume(volume: Float, at time: CMTime)
+  func setVolumeRampFromStartVolume(_ startVolume: Float, toEndVolume endVolume: Float, timeRange timeRange: CMTimeRange)
+  func setVolume(_ volume: Float, at time: CMTime)
   init()
 }

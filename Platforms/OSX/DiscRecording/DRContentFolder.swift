@@ -2,18 +2,18 @@
 @available(OSX 10.2, *)
 func DRFolderGetTypeID() -> CFTypeID
 @available(OSX 10.2, *)
-func DRFolderCreateReal(fsRef: UnsafePointer<FSRef>) -> Unmanaged<DRFolderRef>!
+func DRFolderCreateReal(_ fsRef: UnsafePointer<FSRef>) -> Unmanaged<DRFolderRef>!
 @available(OSX 10.2, *)
-func DRFolderCreateRealWithURL(urlRef: CFURL!) -> Unmanaged<DRFolderRef>!
+func DRFolderCreateRealWithURL(_ urlRef: CFURL!) -> Unmanaged<DRFolderRef>!
 @available(OSX 10.2, *)
-func DRFolderCreateVirtual(baseName: CFString!) -> Unmanaged<DRFolderRef>!
+func DRFolderCreateVirtual(_ baseName: CFString!) -> Unmanaged<DRFolderRef>!
 @available(OSX 10.2, *)
-func DRFolderConvertRealToVirtual(realFolder: DRFolderRef!)
+func DRFolderConvertRealToVirtual(_ realFolder: DRFolderRef!)
 @available(OSX 10.2, *)
-func DRFolderAddChild(parent: DRFolderRef!, _ newChild: DRFSObjectRef!)
+func DRFolderAddChild(_ parent: DRFolderRef!, _ newChild: DRFSObjectRef!)
 @available(OSX 10.2, *)
-func DRFolderRemoveChild(parent: DRFolderRef!, _ child: DRFSObjectRef!)
+func DRFolderRemoveChild(_ parent: DRFolderRef!, _ child: DRFSObjectRef!)
 @available(OSX 10.2, *)
-func DRFolderCountChildren(folder: DRFolderRef!) -> UInt32
+func DRFolderCountChildren(_ folder: DRFolderRef!) -> UInt32
 @available(OSX 10.2, *)
-func DRFolderCopyChildren(folder: DRFolderRef!) -> Unmanaged<CFArray>!
+func DRFolderCopyChildren(_ folder: DRFolderRef!) -> Unmanaged<CFArray>!

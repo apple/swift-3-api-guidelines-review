@@ -2,10 +2,10 @@
 @available(OSX 10.11, *)
 class GKGraph : NSObject {
   var nodes: [GKGraphNode]? { get }
-  init(nodes: [GKGraphNode])
-  func connectNode(toLowestCost node: GKGraphNode, bidirectional: Bool)
-  func removeNodes(nodes: [GKGraphNode])
-  func addNodes(nodes: [GKGraphNode])
+  init(nodes nodes: [GKGraphNode])
+  func connectNode(toLowestCost node: GKGraphNode, bidirectional bidirectional: Bool)
+  func removeNodes(_ nodes: [GKGraphNode])
+  func addNodes(_ nodes: [GKGraphNode])
   func findPath(from startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]
   init()
 }
@@ -13,18 +13,18 @@ class GKGraph : NSObject {
 class GKObstacleGraph : GKGraph {
   var obstacles: [GKPolygonObstacle] { get }
   var bufferRadius: Float { get }
-  init(obstacles: [GKPolygonObstacle], bufferRadius: Float)
+  init(obstacles obstacles: [GKPolygonObstacle], bufferRadius bufferRadius: Float)
   func connectNode(obstacles node: GKGraphNode2D)
   func connectNode(obstacles node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
   func connectNode(obstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
-  func addObstacles(obstacles: [GKPolygonObstacle])
-  func removeObstacles(obstacles: [GKPolygonObstacle])
+  func addObstacles(_ obstacles: [GKPolygonObstacle])
+  func removeObstacles(_ obstacles: [GKPolygonObstacle])
   func removeAllObstacles()
   func nodes(for obstacle: GKPolygonObstacle) -> [GKGraphNode2D]
   func lockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func unlockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func isConnectionLocked(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool
-  init(nodes: [GKGraphNode])
+  init(nodes nodes: [GKGraphNode])
   init()
 }
 @available(OSX 10.11, *)
@@ -33,9 +33,9 @@ class GKGridGraph : GKGraph {
   var gridWidth: Int { get }
   var gridHeight: Int { get }
   var diagonalsAllowed: Bool { get }
-  init(fromGridStartingAt position: vector_int2, width: Int32, height: Int32, diagonalsAllowed: Bool)
+  init(fromGridStartingAt position: vector_int2, width width: Int32, height height: Int32, diagonalsAllowed diagonalsAllowed: Bool)
   func node(atGridPosition position: vector_int2) -> GKGridGraphNode?
   func connectNode(toAdjacentNodes node: GKGridGraphNode)
-  init(nodes: [GKGraphNode])
+  init(nodes nodes: [GKGraphNode])
   init()
 }

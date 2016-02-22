@@ -11,8 +11,8 @@ class NSOperation : NSObject {
   @available(OSX 10.8, *)
   var isAsynchronous: Bool { get }
   var isReady: Bool { get }
-  func addDependency(op: NSOperation)
-  func removeDependency(op: NSOperation)
+  func addDependency(_ op: NSOperation)
+  func removeDependency(_ op: NSOperation)
   var dependencies: [NSOperation] { get }
   var queuePriority: NSOperationQueuePriority
   @available(OSX 10.6, *)
@@ -28,7 +28,7 @@ class NSOperation : NSObject {
   init()
 }
 enum NSOperationQueuePriority : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case veryLow
   case low
@@ -38,8 +38,8 @@ enum NSOperationQueuePriority : Int {
 }
 @available(OSX 10.6, *)
 class NSBlockOperation : NSOperation {
-  convenience init(block: () -> Void)
-  func addExecutionBlock(block: () -> Void)
+  convenience init(block block: () -> Void)
+  func addExecutionBlock(_ block: () -> Void)
   var executionBlocks: [() -> Void] { get }
   init()
 }
@@ -50,11 +50,11 @@ let NSInvocationOperationCancelledException: String
 let NSOperationQueueDefaultMaxConcurrentOperationCount: Int
 @available(OSX 10.5, *)
 class NSOperationQueue : NSObject {
-  func addOperation(op: NSOperation)
+  func addOperation(_ op: NSOperation)
   @available(OSX 10.6, *)
-  func addOperations(ops: [NSOperation], waitUntilFinished wait: Bool)
+  func addOperations(_ ops: [NSOperation], waitUntilFinished wait: Bool)
   @available(OSX 10.6, *)
-  func addOperation(block: () -> Void)
+  func addOperation(_ block: () -> Void)
   var operations: [NSOperation] { get }
   @available(OSX 10.6, *)
   var operationCount: Int { get }

@@ -11,9 +11,9 @@ class HMCharacteristic : NSObject {
   var isNotificationEnabled: Bool { get }
   @available(iOS 9.0, *)
   @NSCopying var uniqueIdentifier: NSUUID { get }
-  func writeValue(value: AnyObject?, completionHandler completion: (NSError?) -> Void)
+  func writeValue(_ value: AnyObject?, completionHandler completion: (NSError?) -> Void)
   func readValue(completionHandler completion: (NSError?) -> Void)
-  func enableNotification(enable: Bool, completionHandler completion: (NSError?) -> Void)
-  func updateAuthorizationData(data: NSData?, completionHandler completion: (NSError?) -> Void)
+  func enableNotification(_ enable: Bool, completionHandler completion: (NSError?) -> Void)
+  func updateAuthorizationData(_ data: NSData?, completionHandler completion: (NSError?) -> Void)
   init()
 }

@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum NEAppProxyFlowError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case notConnected
   case peerReset
@@ -17,11 +17,11 @@ let NEAppProxyErrorDomain: String
 @available(iOS 9.0, *)
 class NEAppProxyFlow : NSObject {
   @available(iOS 9.0, *)
-  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler: (NSError?) -> Void)
+  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
-  func closeReadWithError(error: NSError?)
+  func closeReadWithError(_ error: NSError?)
   @available(iOS 9.0, *)
-  func closeWriteWithError(error: NSError?)
+  func closeWriteWithError(_ error: NSError?)
   @available(iOS 9.0, *)
   var metaData: NEFlowMetaData { get }
   init()

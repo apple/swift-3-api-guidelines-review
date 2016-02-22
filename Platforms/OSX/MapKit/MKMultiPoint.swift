@@ -3,6 +3,6 @@
 class MKMultiPoint : MKShape {
   func points() -> UnsafeMutablePointer<MKMapPoint>
   var pointCount: Int { get }
-  func getCoordinates(coords: UnsafeMutablePointer<CLLocationCoordinate2D>, range: NSRange)
+  func getCoordinates(_ coords: UnsafeMutablePointer<CLLocationCoordinate2D>, range range: NSRange)
   init()
 }

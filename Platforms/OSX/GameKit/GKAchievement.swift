@@ -3,11 +3,11 @@
 class GKAchievement : NSObject, NSCoding, NSSecureCoding {
   class func loadAchievements(completionHandler completionHandler: (([GKAchievement]?, NSError?) -> Void)? = nil)
   class func resetAchievements(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init(identifier: String?)
+  init(identifier identifier: String?)
   @available(OSX 10.10, *)
-  init(identifier: String?, player: GKPlayer)
+  init(identifier identifier: String?, player player: GKPlayer)
   @available(OSX 10.8, *)
-  class func report(achievements: [GKAchievement], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  class func report(_ achievements: [GKAchievement], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
   var identifier: String?
   var percentComplete: Double
   var isCompleted: Bool { get }

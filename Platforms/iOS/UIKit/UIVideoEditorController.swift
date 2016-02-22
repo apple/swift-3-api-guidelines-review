@@ -8,17 +8,17 @@ class UIVideoEditorController : UINavigationController {
   var videoMaximumDuration: NSTimeInterval
   var videoQuality: UIImagePickerControllerQualityType
   @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
+  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
+  init(rootViewController rootViewController: UIViewController)
   init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }
 protocol UIVideoEditorControllerDelegate : NSObjectProtocol {
   @available(iOS 3.1, *)
-  optional func videoEditorController(editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
+  optional func videoEditorController(_ editor: UIVideoEditorController, didSaveEditedVideoToPath editedVideoPath: String)
   @available(iOS 3.1, *)
-  optional func videoEditorController(editor: UIVideoEditorController, didFailWithError error: NSError)
+  optional func videoEditorController(_ editor: UIVideoEditorController, didFailWithError error: NSError)
   @available(iOS 3.1, *)
-  optional func videoEditorControllerDidCancel(editor: UIVideoEditorController)
+  optional func videoEditorControllerDidCancel(_ editor: UIVideoEditorController)
 }

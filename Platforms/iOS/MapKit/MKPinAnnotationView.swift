@@ -1,7 +1,7 @@
 
 @available(iOS, introduced=3.0, deprecated=9.0, message="Use MKPinAnnotationView's pinTintColor instead")
 enum MKPinAnnotationColor : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case red
   case green
@@ -20,8 +20,8 @@ class MKPinAnnotationView : MKAnnotationView {
   var animatesDrop: Bool
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use pinTintColor instead")
   var pinColor: MKPinAnnotationColor
-  init(annotation: MKAnnotation?, reuseIdentifier: String?)
-  init(frame: CGRect)
+  init(annotation annotation: MKAnnotation?, reuseIdentifier reuseIdentifier: String?)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   convenience init()
 }

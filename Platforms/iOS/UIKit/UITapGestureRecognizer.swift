@@ -3,6 +3,6 @@
 class UITapGestureRecognizer : UIGestureRecognizer {
   var numberOfTapsRequired: Int
   var numberOfTouchesRequired: Int
-  init(target: AnyObject?, action: Selector)
+  init(target target: AnyObject?, action action: Selector)
   convenience init()
 }

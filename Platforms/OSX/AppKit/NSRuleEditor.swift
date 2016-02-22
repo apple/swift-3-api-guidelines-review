@@ -1,6 +1,6 @@
 
 enum NSRuleEditorNestingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case single
   case list
@@ -8,7 +8,7 @@ enum NSRuleEditorNestingMode : UInt {
   case simple
 }
 enum NSRuleEditorRowType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case simple
   case compound
@@ -32,28 +32,28 @@ class NSRuleEditor : NSControl {
   func row(forDisplayValue displayValue: AnyObject) -> Int
   func rowType(forRow rowIndex: Int) -> NSRuleEditorRowType
   func parentRow(forRow rowIndex: Int) -> Int
-  func addRow(sender: AnyObject?)
+  func addRow(_ sender: AnyObject?)
   func insertRow(at rowIndex: Int, with rowType: NSRuleEditorRowType, asSubrowOfRow parentRow: Int, animate shouldAnimate: Bool)
-  func setCriteria(criteria: [AnyObject], andDisplayValues values: [AnyObject], forRowAt rowIndex: Int)
+  func setCriteria(_ criteria: [AnyObject], andDisplayValues values: [AnyObject], forRowAt rowIndex: Int)
   func removeRow(at rowIndex: Int)
-  func removeRows(at rowIndexes: NSIndexSet, includeSubrows: Bool)
+  func removeRows(at rowIndexes: NSIndexSet, includeSubrows includeSubrows: Bool)
   @NSCopying var selectedRowIndexes: NSIndexSet { get }
-  func selectRowIndexes(indexes: NSIndexSet, byExtendingSelection extend: Bool)
+  func selectRowIndexes(_ indexes: NSIndexSet, byExtendingSelection extend: Bool)
   var rowClass: AnyClass
   var rowTypeKeyPath: String
   var subrowsKeyPath: String
   var criteriaKeyPath: String
   var displayValuesKeyPath: String
   init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   convenience init()
 }
 protocol NSRuleEditorDelegate : NSObjectProtocol {
-  func ruleEditor(editor: NSRuleEditor, numberOfChildrenForCriterion criterion: AnyObject?, with rowType: NSRuleEditorRowType) -> Int
-  func ruleEditor(editor: NSRuleEditor, child index: Int, forCriterion criterion: AnyObject?, with rowType: NSRuleEditorRowType) -> AnyObject
-  func ruleEditor(editor: NSRuleEditor, displayValueForCriterion criterion: AnyObject, inRow row: Int) -> AnyObject
-  optional func ruleEditor(editor: NSRuleEditor, predicatePartsForCriterion criterion: AnyObject, withDisplayValue value: AnyObject, inRow row: Int) -> [String : AnyObject]?
-  optional func ruleEditorRowsDidChange(notification: NSNotification)
+  func ruleEditor(_ editor: NSRuleEditor, numberOfChildrenForCriterion criterion: AnyObject?, with rowType: NSRuleEditorRowType) -> Int
+  func ruleEditor(_ editor: NSRuleEditor, child index: Int, forCriterion criterion: AnyObject?, with rowType: NSRuleEditorRowType) -> AnyObject
+  func ruleEditor(_ editor: NSRuleEditor, displayValueForCriterion criterion: AnyObject, inRow row: Int) -> AnyObject
+  optional func ruleEditor(_ editor: NSRuleEditor, predicatePartsForCriterion criterion: AnyObject, withDisplayValue value: AnyObject, inRow row: Int) -> [String : AnyObject]?
+  optional func ruleEditorRowsDidChange(_ notification: NSNotification)
 }
 let NSRuleEditorPredicateLeftExpression: String
 let NSRuleEditorPredicateRightExpression: String

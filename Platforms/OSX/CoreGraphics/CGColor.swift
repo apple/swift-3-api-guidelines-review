@@ -2,35 +2,35 @@
 class CGColor {
 }
 @available(OSX 10.3, *)
-func CGColorCreate(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
+func CGColorCreate(_ space: CGColorSpace?, _ components: UnsafePointer<CGFloat>) -> CGColor?
 @available(OSX 10.5, *)
-func CGColorCreateGenericGray(gray: CGFloat, _ alpha: CGFloat) -> CGColor
+func CGColorCreateGenericGray(_ gray: CGFloat, _ alpha: CGFloat) -> CGColor
 @available(OSX 10.5, *)
-func CGColorCreateGenericRGB(red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) -> CGColor
+func CGColorCreateGenericRGB(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) -> CGColor
 @available(OSX 10.5, *)
-func CGColorCreateGenericCMYK(cyan: CGFloat, _ magenta: CGFloat, _ yellow: CGFloat, _ black: CGFloat, _ alpha: CGFloat) -> CGColor
+func CGColorCreateGenericCMYK(_ cyan: CGFloat, _ magenta: CGFloat, _ yellow: CGFloat, _ black: CGFloat, _ alpha: CGFloat) -> CGColor
 @available(OSX 10.5, *)
-func CGColorGetConstantColor(colorName: CFString?) -> CGColor?
+func CGColorGetConstantColor(_ colorName: CFString?) -> CGColor?
 @available(OSX 10.3, *)
-func CGColorCreateWithPattern(space: CGColorSpace?, _ pattern: CGPattern?, _ components: UnsafePointer<CGFloat>) -> CGColor?
+func CGColorCreateWithPattern(_ space: CGColorSpace?, _ pattern: CGPattern?, _ components: UnsafePointer<CGFloat>) -> CGColor?
 @available(OSX 10.3, *)
-func CGColorCreateCopy(color: CGColor?) -> CGColor?
+func CGColorCreateCopy(_ color: CGColor?) -> CGColor?
 @available(OSX 10.3, *)
-func CGColorCreateCopyWithAlpha(color: CGColor?, _ alpha: CGFloat) -> CGColor?
+func CGColorCreateCopyWithAlpha(_ color: CGColor?, _ alpha: CGFloat) -> CGColor?
 @available(OSX 10.11, *)
-func CGColorCreateCopyByMatchingToColorSpace(_: CGColorSpace?, _ intent: CGColorRenderingIntent, _ color: CGColor?, _ options: CFDictionary?) -> CGColor?
+func CGColorCreateCopyByMatchingToColorSpace(_ _: CGColorSpace?, _ intent: CGColorRenderingIntent, _ color: CGColor?, _ options: CFDictionary?) -> CGColor?
 @available(OSX 10.3, *)
-func CGColorEqualToColor(color1: CGColor?, _ color2: CGColor?) -> Bool
+func CGColorEqualToColor(_ color1: CGColor?, _ color2: CGColor?) -> Bool
 @available(OSX 10.3, *)
-func CGColorGetNumberOfComponents(color: CGColor?) -> Int
+func CGColorGetNumberOfComponents(_ color: CGColor?) -> Int
 @available(OSX 10.3, *)
-func CGColorGetComponents(color: CGColor?) -> UnsafePointer<CGFloat>
+func CGColorGetComponents(_ color: CGColor?) -> UnsafePointer<CGFloat>
 @available(OSX 10.3, *)
-func CGColorGetAlpha(color: CGColor?) -> CGFloat
+func CGColorGetAlpha(_ color: CGColor?) -> CGFloat
 @available(OSX 10.3, *)
-func CGColorGetColorSpace(color: CGColor?) -> CGColorSpace?
+func CGColorGetColorSpace(_ color: CGColor?) -> CGColorSpace?
 @available(OSX 10.3, *)
-func CGColorGetPattern(color: CGColor?) -> CGPattern?
+func CGColorGetPattern(_ color: CGColor?) -> CGPattern?
 @available(OSX 10.3, *)
 func CGColorGetTypeID() -> CFTypeID
 @available(OSX 10.5, *)

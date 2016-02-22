@@ -1,6 +1,6 @@
 
 enum NSAttributeType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case undefinedAttributeType
   case integer16AttributeType
@@ -38,5 +38,5 @@ struct __attributeDescriptionFlags {
   var _storeBinaryDataExternally: UInt32
   var _reservedAttributeDescription: UInt32
   init()
-  init(_hasMaxValueInExtraIvars: UInt32, _hasMinValueInExtraIvars: UInt32, _storeBinaryDataExternally: UInt32, _reservedAttributeDescription: UInt32)
+  init(_hasMaxValueInExtraIvars _hasMaxValueInExtraIvars: UInt32, _hasMinValueInExtraIvars _hasMinValueInExtraIvars: UInt32, _storeBinaryDataExternally _storeBinaryDataExternally: UInt32, _reservedAttributeDescription _reservedAttributeDescription: UInt32)
 }

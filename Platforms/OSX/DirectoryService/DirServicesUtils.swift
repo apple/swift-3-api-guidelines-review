@@ -1,2 +1,2 @@
 
-func dsGetDataLength(inDataList: UnsafePointer<tDataList>) -> UInt32
+func dsGetDataLength(_ inDataList: UnsafePointer<tDataList>) -> UInt32

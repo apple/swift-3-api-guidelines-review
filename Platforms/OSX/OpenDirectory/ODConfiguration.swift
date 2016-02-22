@@ -65,12 +65,12 @@ class ODConfiguration : NSObject {
   @available(OSX 10.9, *)
   var generalModuleEntries: [AnyObject]!
   @available(OSX 10.9, *)
-  class func suggestedTrustAccount(hostname: String!) -> String!
+  class func suggestedTrustAccount(_ hostname: String!) -> String!
   @available(OSX 10.9, *)
-  class func suggestedTrustPassword(length: Int) -> String!
+  class func suggestedTrustPassword(_ length: Int) -> String!
   @available(OSX 10.9, *)
-  func addTrustType(trustType: String!, trustAccount account: String!, trustPassword accountPassword: String!, username: String!, password: String!, joinExisting join: Bool) throws
+  func addTrustType(_ trustType: String!, trustAccount account: String!, trustPassword accountPassword: String!, username username: String!, password password: String!, joinExisting join: Bool) throws
   @available(OSX 10.9, *)
-  func removeTrust(username username: String!, password: String!, deleteTrustAccount deleteAccount: Bool) throws
+  func removeTrust(username username: String!, password password: String!, deleteTrustAccount deleteAccount: Bool) throws
   init()
 }

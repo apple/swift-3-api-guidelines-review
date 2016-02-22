@@ -1,6 +1,6 @@
 
 struct NSRegularExpressionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var caseInsensitive: NSRegularExpressionOptions { get }
   static var allowCommentsAndWhitespace: NSRegularExpressionOptions { get }
@@ -12,7 +12,7 @@ struct NSRegularExpressionOptions : OptionSetType {
 }
 @available(tvOS 4.0, *)
 class NSRegularExpression : NSObject, NSCopying, NSCoding {
-  init(pattern: String, options: NSRegularExpressionOptions = []) throws
+  init(pattern pattern: String, options options: NSRegularExpressionOptions = []) throws
   var pattern: String { get }
   var options: NSRegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
@@ -25,7 +25,7 @@ class NSRegularExpression : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
 }
 struct NSMatchingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var reportProgress: NSMatchingOptions { get }
   static var reportCompletion: NSMatchingOptions { get }
@@ -34,7 +34,7 @@ struct NSMatchingOptions : OptionSetType {
   static var withoutAnchoringBounds: NSMatchingOptions { get }
 }
 struct NSMatchingFlags : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var progress: NSMatchingFlags { get }
   static var completed: NSMatchingFlags { get }
@@ -43,23 +43,23 @@ struct NSMatchingFlags : OptionSetType {
   static var internalError: NSMatchingFlags { get }
 }
 extension NSRegularExpression {
-  func enumerateMatches(in string: String, options: NSMatchingOptions = [], range: NSRange, using block: (NSTextCheckingResult?, NSMatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func matches(in string: String, options: NSMatchingOptions = [], range: NSRange) -> [NSTextCheckingResult]
-  func numberOfMatches(in string: String, options: NSMatchingOptions = [], range: NSRange) -> Int
-  func firstMatch(in string: String, options: NSMatchingOptions = [], range: NSRange) -> NSTextCheckingResult?
-  func rangeOfFirstMatch(in string: String, options: NSMatchingOptions = [], range: NSRange) -> NSRange
+  func enumerateMatches(in string: String, options options: NSMatchingOptions = [], range range: NSRange, using block: (NSTextCheckingResult?, NSMatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func matches(in string: String, options options: NSMatchingOptions = [], range range: NSRange) -> [NSTextCheckingResult]
+  func numberOfMatches(in string: String, options options: NSMatchingOptions = [], range range: NSRange) -> Int
+  func firstMatch(in string: String, options options: NSMatchingOptions = [], range range: NSRange) -> NSTextCheckingResult?
+  func rangeOfFirstMatch(in string: String, options options: NSMatchingOptions = [], range range: NSRange) -> NSRange
 }
 extension NSRegularExpression {
-  func stringByReplacingMatches(in string: String, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> String
-  func replaceMatches(in string: NSMutableString, options: NSMatchingOptions = [], range: NSRange, withTemplate templ: String) -> Int
-  func replacementString(for result: NSTextCheckingResult, in string: String, offset: Int, template templ: String) -> String
+  func stringByReplacingMatches(in string: String, options options: NSMatchingOptions = [], range range: NSRange, withTemplate templ: String) -> String
+  func replaceMatches(in string: NSMutableString, options options: NSMatchingOptions = [], range range: NSRange, withTemplate templ: String) -> Int
+  func replacementString(for result: NSTextCheckingResult, in string: String, offset offset: Int, template templ: String) -> String
   class func escapedTemplate(for string: String) -> String
 }
 @available(tvOS 4.0, *)
 class NSDataDetector : NSRegularExpression {
   init(types checkingTypes: NSTextCheckingTypes) throws
   var checkingTypes: NSTextCheckingTypes { get }
-  convenience init(pattern: String, options: NSRegularExpressionOptions = []) throws
+  convenience init(pattern pattern: String, options options: NSRegularExpressionOptions = []) throws
   convenience init()
   init?(coder aDecoder: NSCoder)
 }

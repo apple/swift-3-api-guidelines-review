@@ -6,7 +6,7 @@ protocol UIAppearance : NSObjectProtocol {
   @available(iOS 9.0, *)
   static func whenContained(inInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  static func forTraitCollection(trait: UITraitCollection) -> Self
+  static func forTraitCollection(_ trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  static func forTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  static func forTraitCollection(_ trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

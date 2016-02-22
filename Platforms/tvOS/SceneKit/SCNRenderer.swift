@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
 class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
-  convenience init(context: EAGLContext, options: [NSObject : AnyObject]? = [:])
+  convenience init(context context: EAGLContext, options options: [NSObject : AnyObject]? = [:])
   @available(tvOS 9.0, *)
-  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]? = [:])
+  convenience init(device device: MTLDevice?, options options: [NSObject : AnyObject]? = [:])
   var scene: SCNScene?
   @available(tvOS 8.0, *)
   func render(atTime time: CFTimeInterval)
   @available(tvOS 9.0, *)
-  func render(atTime time: CFTimeInterval, viewport: CGRect, commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
+  func render(atTime time: CFTimeInterval, viewport viewport: CGRect, commandBuffer commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
   @available(tvOS 8.0, *)
   var nextFrameTime: CFTimeInterval { get }
   @available(tvOS, introduced=8.0, deprecated=9.0)
@@ -19,15 +19,15 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
   @available(tvOS 8.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(tvOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(tvOS 8.0, *)
   func isNode(insideFrustum node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(tvOS 9.0, *)
   func nodesInsideFrustum(withPointOfView pointOfView: SCNNode) -> [SCNNode]
   @available(tvOS 8.0, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(tvOS 8.0, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   @available(tvOS 8.0, *)
   var isPlaying: Bool
   @available(tvOS 8.0, *)
@@ -39,9 +39,9 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
   @available(tvOS 8.0, *)
   var isJitteringEnabled: Bool
   @available(tvOS 8.0, *)
-  func prepare(object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
+  func prepare(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)? = nil) -> Bool
   @available(tvOS 8.0, *)
-  func prepare(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
+  func prepare(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)? = nil)
   @available(tvOS 8.0, *)
   var showsStatistics: Bool
   @available(tvOS 9.0, *)

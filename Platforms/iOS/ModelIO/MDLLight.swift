@@ -1,6 +1,6 @@
 
 enum MDLLightType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unknown
   case ambient
@@ -18,13 +18,13 @@ enum MDLLightType : UInt {
 @available(iOS 9.0, *)
 class MDLLight : MDLObject {
   func irradiance(atPoint point: vector_float3) -> Unmanaged<CGColor>
-  func irradiance(atPoint point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
+  func irradiance(atPoint point: vector_float3, colorSpace colorSpace: CGColorSpace) -> Unmanaged<CGColor>
   var lightType: MDLLightType
   init()
 }
 @available(iOS 9.0, *)
 class MDLPhysicallyPlausibleLight : MDLLight {
-  func setColorByTemperature(temperature: Float)
+  func setColorByTemperature(_ temperature: Float)
   var color: CGColor?
   var lumens: Float
   var innerConeAngle: Float
@@ -52,7 +52,7 @@ class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
 }
 @available(iOS 9.0, *)
 class MDLLightProbe : MDLLight {
-  init(reflectiveTexture: MDLTexture?, irradianceTexture: MDLTexture?)
+  init(reflectiveTexture reflectiveTexture: MDLTexture?, irradianceTexture irradianceTexture: MDLTexture?)
   func generateSphericalHarmonics(fromIrradiance sphericalHarmonicsLevel: Int)
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
@@ -61,5 +61,5 @@ class MDLLightProbe : MDLLight {
   init()
 }
 extension MDLLightProbe {
-  /*not inherited*/ init?(textureSize: Int, forLocation transform: MDLTransform, lightsToConsider: [MDLLight], objectsToConsider: [MDLObject], reflectiveCubemap: MDLTexture?, irradianceCubemap: MDLTexture?)
+  /*not inherited*/ init?(textureSize textureSize: Int, forLocation transform: MDLTransform, lightsToConsider lightsToConsider: [MDLLight], objectsToConsider objectsToConsider: [MDLObject], reflectiveCubemap reflectiveCubemap: MDLTexture?, irradianceCubemap irradianceCubemap: MDLTexture?)
 }

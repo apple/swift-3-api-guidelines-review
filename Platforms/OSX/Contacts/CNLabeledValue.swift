@@ -4,10 +4,10 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   var identifier: String { get }
   var label: String { get }
   @NSCopying var value: protocol<NSCopying, NSSecureCoding> { get }
-  init(label: String?, value: protocol<NSCopying, NSSecureCoding>)
-  func settingLabel(label: String?) -> Self
-  func settingValue(value: protocol<NSCopying, NSSecureCoding>) -> Self
-  func settingLabel(label: String?, value: protocol<NSCopying, NSSecureCoding>) -> Self
+  init(label label: String?, value value: protocol<NSCopying, NSSecureCoding>)
+  func settingLabel(_ label: String?) -> Self
+  func settingValue(_ value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func settingLabel(_ label: String?, value value: protocol<NSCopying, NSSecureCoding>) -> Self
   class func localizedString(forLabel label: String) -> String
   init()
   @available(OSX 10.11, *)

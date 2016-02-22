@@ -5,9 +5,9 @@ class MKMapCamera : NSObject, NSSecureCoding, NSCopying {
   var heading: CLLocationDirection
   var pitch: CGFloat
   var altitude: CLLocationDistance
-  convenience init(lookingAtCenter centerCoordinate: CLLocationCoordinate2D, fromEyeCoordinate eyeCoordinate: CLLocationCoordinate2D, eyeAltitude: CLLocationDistance)
+  convenience init(lookingAtCenter centerCoordinate: CLLocationCoordinate2D, fromEyeCoordinate eyeCoordinate: CLLocationCoordinate2D, eyeAltitude eyeAltitude: CLLocationDistance)
   @available(iOS 9.0, *)
-  convenience init(lookingAtCenter centerCoordinate: CLLocationCoordinate2D, fromDistance distance: CLLocationDistance, pitch: CGFloat, heading: CLLocationDirection)
+  convenience init(lookingAtCenter centerCoordinate: CLLocationCoordinate2D, fromDistance distance: CLLocationDistance, pitch pitch: CGFloat, heading heading: CLLocationDirection)
   init()
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool

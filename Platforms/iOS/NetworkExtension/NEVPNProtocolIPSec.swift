@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEVPNIKEAuthenticationMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case none
   case certificate

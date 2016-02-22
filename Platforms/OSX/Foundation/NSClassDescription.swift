@@ -1,6 +1,6 @@
 
 class NSClassDescription : NSObject {
-  class func register(description: NSClassDescription, for aClass: AnyClass)
+  class func register(_ description: NSClassDescription, for aClass: AnyClass)
   class func invalidateClassDescriptionCache()
   /*not inherited*/ init?(for aClass: AnyClass)
   var attributeKeys: [String] { get }

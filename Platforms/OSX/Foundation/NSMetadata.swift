@@ -22,9 +22,9 @@ class NSMetadataQuery : NSObject {
   var resultCount: Int { get }
   func result(at idx: Int) -> AnyObject
   @available(OSX 10.9, *)
-  func enumerateResults(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func enumerateResults(opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResults(_ opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
   func indexOf(result result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
@@ -34,9 +34,9 @@ class NSMetadataQuery : NSObject {
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(OSX 10.4, *)
 let NSMetadataQueryDidStartGatheringNotification: String
@@ -73,7 +73,7 @@ let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 @available(OSX 10.4, *)
 class NSMetadataItem : NSObject {
   @available(OSX 10.9, *)
-  init?(url: NSURL)
+  init?(url url: NSURL)
   func value(forAttribute key: String) -> AnyObject?
   func values(forAttributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }

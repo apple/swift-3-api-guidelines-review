@@ -1,6 +1,6 @@
 
 enum NSPreferencePaneUnselectReply : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case unselectCancel
   case unselectNow
@@ -12,7 +12,7 @@ let NSPrefPaneHelpMenuInfoPListKey: String
 let NSPrefPaneHelpMenuTitleKey: String
 let NSPrefPaneHelpMenuAnchorKey: String
 class NSPreferencePane : NSObject {
-  init(bundle: NSBundle)
+  init(bundle bundle: NSBundle)
   var bundle: NSBundle { get }
   func loadMainView() -> NSView
   func mainViewDidLoad()
@@ -30,6 +30,6 @@ class NSPreferencePane : NSObject {
   var lastKeyView: NSView?
   var autoSaveTextFields: Bool { get }
   var isSelected: Bool { get }
-  func updateHelpMenu(inArrayOfMenuItems: [[String : String]]?)
+  func updateHelpMenu(_ inArrayOfMenuItems: [[String : String]]?)
   init()
 }
