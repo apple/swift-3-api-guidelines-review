@@ -40,8 +40,8 @@ extension Error : ErrorType {
   var _code: Int { get }
 }
 extension Object {
-  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
   class func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
   func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int) -> Bool
 }
