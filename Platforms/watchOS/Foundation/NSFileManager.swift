@@ -41,11 +41,11 @@ class FileManager : Object {
   @available(watchOS 2.0, *)
   func urls(for directory: SearchPathDirectory, inDomains domainMask: SearchPathDomainMask) -> [URL]
   @available(watchOS 2.0, *)
-  func url(for directory: SearchPathDirectory, inDomain domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
+  func url(for directory: SearchPathDirectory, in domain: SearchPathDomainMask, appropriateFor url: URL?, create shouldCreate: Bool) throws -> URL
   @available(watchOS 2.0, *)
   func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, ofDirectoryAt directoryURL: URL, toItemAt otherURL: URL) throws
   @available(watchOS 2.0, *)
-  func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, of directory: SearchPathDirectory, inDomain domainMask: SearchPathDomainMask, toItemAt url: URL) throws
+  func getRelationship(outRelationship: UnsafeMutablePointer<URLRelationship>, of directory: SearchPathDirectory, in domainMask: SearchPathDomainMask, toItemAt url: URL) throws
   @available(watchOS 2.0, *)
   func createDirectory(at url: URL, withIntermediateDirectories createIntermediates: Bool, attributes: [String : AnyObject]? = [:]) throws
   @available(watchOS 2.0, *)

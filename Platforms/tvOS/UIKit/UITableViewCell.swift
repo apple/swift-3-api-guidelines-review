@@ -82,9 +82,9 @@ class UITableViewCell : UIView, Coding, UIGestureRecognizerDelegate {
   @available(tvOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(tvOS 3.0, *)
-  func willTransition(toState state: UITableViewCellStateMask)
+  func willTransition(to state: UITableViewCellStateMask)
   @available(tvOS 3.0, *)
-  func didTransition(toState state: UITableViewCellStateMask)
+  func didTransition(to state: UITableViewCellStateMask)
   convenience init(frame: CGRect)
   convenience init()
   @available(tvOS 3.2, *)
