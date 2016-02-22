@@ -24,9 +24,9 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   class func weakToWeakObjects() -> NSMapTable
   @NSCopying var keyPointerFunctions: NSPointerFunctions { get }
   @NSCopying var valuePointerFunctions: NSPointerFunctions { get }
-  func object(for aKey: AnyObject?) -> AnyObject?
-  func removeObject(for aKey: AnyObject?)
-  func setObject(anObject: AnyObject?, for aKey: AnyObject?)
+  func object(forKey aKey: AnyObject?) -> AnyObject?
+  func removeObject(forKey aKey: AnyObject?)
+  func setObject(anObject: AnyObject?, forKey aKey: AnyObject?)
   var count: Int { get }
   func keyEnumerator() -> NSEnumerator
   func objectEnumerator() -> NSEnumerator?

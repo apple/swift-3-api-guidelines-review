@@ -1,7 +1,7 @@
 
 class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func object(for aKey: AnyObject) -> AnyObject?
+  func object(forKey aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> NSEnumerator
   init()
   init(objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
@@ -48,7 +48,7 @@ extension NSDictionary {
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
   func isEqual(to otherDictionary: [NSObject : AnyObject]) -> Bool
   func objectEnumerator() -> NSEnumerator
-  func objects(for keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
+  func objects(forKeys keys: [AnyObject], notFoundMarker marker: AnyObject) -> [AnyObject]
   func write(toFile path: String, atomically useAuxiliaryFile: Bool) -> Bool
   func write(to url: NSURL, atomically: Bool) -> Bool
   func keysSortedByValue(using comparator: Selector) -> [AnyObject]
@@ -81,7 +81,7 @@ extension NSDictionary {
   convenience init?(contentsOf url: NSURL)
 }
 class NSMutableDictionary : NSDictionary {
-  func removeObject(for aKey: AnyObject)
+  func removeObject(forKey aKey: AnyObject)
   func setObject(anObject: AnyObject, forKey aKey: NSCopying)
   init()
   init(capacity numItems: Int)
@@ -95,7 +95,7 @@ class NSMutableDictionary : NSDictionary {
 extension NSMutableDictionary {
   func addEntries(from otherDictionary: [NSObject : AnyObject])
   func removeAllObjects()
-  func removeObjects(for keyArray: [AnyObject])
+  func removeObjects(forKeys keyArray: [AnyObject])
   func setDictionary(otherDictionary: [NSObject : AnyObject])
   @available(iOS 6.0, *)
   subscript(key: NSCopying) -> AnyObject?
