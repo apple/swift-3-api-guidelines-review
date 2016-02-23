@@ -5,8 +5,8 @@ class PHFetchResult : NSObject, NSCopying, NSFastEnumeration {
   func object(at index: Int) -> AnyObject
   subscript(_ idx: Int) -> AnyObject { get }
   func contains(_ anObject: AnyObject) -> Bool
-  func indexOf(_ anObject: AnyObject) -> Int
-  func indexOf(_ anObject: AnyObject, in range: NSRange) -> Int
+  func index(of anObject: AnyObject) -> Int
+  func index(of anObject: AnyObject, in range: NSRange) -> Int
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
   func objects(at indexes: NSIndexSet) -> [AnyObject]

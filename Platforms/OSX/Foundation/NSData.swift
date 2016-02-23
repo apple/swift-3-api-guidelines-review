@@ -61,7 +61,7 @@ extension NSData {
   func write(toFile path: String, options writeOptionsMask: NSDataWritingOptions = []) throws
   func write(to url: NSURL, options writeOptionsMask: NSDataWritingOptions = []) throws
   @available(OSX 10.6, *)
-  func rangeOf(_ dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
+  func range(of dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(OSX 10.9, *)
   func enumerateByteRanges(_ block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

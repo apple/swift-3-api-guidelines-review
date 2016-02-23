@@ -3,7 +3,7 @@
 class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
   /*not inherited*/ init?(dictionary dictionary: [String : AnyObject])
   /*not inherited*/ init?(bySequencingTechniques techniques: [SCNTechnique])
-  func handleBindingOf(symbol symbol: String, using block: SCNBindingBlock? = nil)
+  func handleBinding(ofSymbol symbol: String, using block: SCNBindingBlock? = nil)
   var dictionaryRepresentation: [String : AnyObject] { get }
   @available(OSX 10.11, *)
   subscript(_ key: AnyObject) -> AnyObject? { get }

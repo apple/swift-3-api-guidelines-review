@@ -42,7 +42,7 @@ class NSDocumentController : NSObject, NSCoding, NSUserInterfaceValidations {
   func noteNewRecentDocumentURL(_ url: NSURL)
   var recentDocumentURLs: [NSURL] { get }
   var defaultType: String? { get }
-  func typeForContentsOf(_ url: NSURL) throws -> String
+  func typeForContents(of url: NSURL) throws -> String
   var documentClassNames: [String] { get }
   func documentClass(forType typeName: String) -> AnyClass?
   func displayName(forType typeName: String) -> String?

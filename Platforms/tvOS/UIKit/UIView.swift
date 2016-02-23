@@ -225,7 +225,7 @@ extension UIView {
   func didMoveToSuperview()
   func willMove(to newWindow: UIWindow?)
   func didMoveToWindow()
-  func isDescendantOf(_ view: UIView) -> Bool
+  func isDescendant(of view: UIView) -> Bool
   func withTag(_ tag: Int) -> UIView?
   func setNeedsLayout()
   func layoutIfNeeded()

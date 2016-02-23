@@ -122,7 +122,7 @@ class NSLayoutManager : NSObject, NSCoding {
   func glyphRange(forCharacterRange charRange: NSRange, actualCharacterRange actualCharRange: NSRangePointer) -> NSRange
   func characterRange(forGlyphRange glyphRange: NSRange, actualGlyphRange actualGlyphRange: NSRangePointer) -> NSRange
   func glyphRange(for container: NSTextContainer) -> NSRange
-  func rangeOf(nominallySpacedGlyphsContaining glyphIndex: Int) -> NSRange
+  func range(ofNominallySpacedGlyphsContaining glyphIndex: Int) -> NSRange
   func boundingRect(forGlyphRange glyphRange: NSRange, in container: NSTextContainer) -> NSRect
   func glyphRange(forBoundingRect bounds: NSRect, in container: NSTextContainer) -> NSRange
   func glyphRange(forBoundingRectWithoutAdditionalLayout bounds: NSRect, in container: NSTextContainer) -> NSRange

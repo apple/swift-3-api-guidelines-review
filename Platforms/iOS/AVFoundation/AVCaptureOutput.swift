@@ -9,7 +9,7 @@ class AVCaptureOutput : NSObject {
   @available(iOS 7.0, *)
   func metadataOutputRectOfInterest(for rectInOutputCoordinates: CGRect) -> CGRect
   @available(iOS 7.0, *)
-  func rectForMetadataOutputRectOf(interest rectInMetadataOutputCoordinates: CGRect) -> CGRect
+  func rectForMetadataOutputRect(ofInterest rectInMetadataOutputCoordinates: CGRect) -> CGRect
   init()
 }
 @available(iOS 4.0, *)

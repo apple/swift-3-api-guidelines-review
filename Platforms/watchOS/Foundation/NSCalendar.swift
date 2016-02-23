@@ -163,12 +163,12 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   var amSymbol: String { get }
   @available(watchOS 2.0, *)
   var pmSymbol: String { get }
-  func minimumRangeOf(_ unit: NSCalendarUnit) -> NSRange
-  func maximumRangeOf(_ unit: NSCalendarUnit) -> NSRange
-  func rangeOf(_ smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> NSRange
-  func ordinalityOf(_ smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> Int
+  func minimumRange(of unit: NSCalendarUnit) -> NSRange
+  func maximumRange(of unit: NSCalendarUnit) -> NSRange
+  func range(of smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> NSRange
+  func ordinality(of smaller: NSCalendarUnit, in larger: NSCalendarUnit, for date: NSDate) -> Int
   @available(watchOS 2.0, *)
-  func rangeOf(_ unit: NSCalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, for date: NSDate) -> Bool
+  func range(of unit: NSCalendarUnit, start datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, for date: NSDate) -> Bool
   func date(from comps: NSDateComponents) -> NSDate?
   func components(_ unitFlags: NSCalendarUnit, from date: NSDate) -> NSDateComponents
   func date(byAdding comps: NSDateComponents, to date: NSDate, options opts: NSCalendarOptions = []) -> NSDate?
@@ -204,7 +204,7 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   @available(watchOS 2.0, *)
   func isDate(inWeekend date: NSDate) -> Bool
   @available(watchOS 2.0, *)
-  func rangeOf(weekendStart datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containing date: NSDate) -> Bool
+  func range(ofWeekendStart datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containing date: NSDate) -> Bool
   @available(watchOS 2.0, *)
   func nextWeekendStart(_ datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options options: NSCalendarOptions = [], after date: NSDate) -> Bool
   @available(watchOS 2.0, *)

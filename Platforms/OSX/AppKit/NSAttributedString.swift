@@ -208,9 +208,9 @@ extension NSAttributedString {
   func lineBreakByHyphenating(before location: Int, within aRange: NSRange) -> Int
   func doubleClick(at location: Int) -> NSRange
   func nextWord(from location: Int, forward isForward: Bool) -> Int
-  func rangeOf(_ block: NSTextBlock, at location: Int) -> NSRange
-  func rangeOf(_ table: NSTextTable, at location: Int) -> NSRange
-  func rangeOf(_ list: NSTextList, at location: Int) -> NSRange
+  func range(of block: NSTextBlock, at location: Int) -> NSRange
+  func range(of table: NSTextTable, at location: Int) -> NSRange
+  func range(of list: NSTextList, at location: Int) -> NSRange
   func itemNumber(in list: NSTextList, at location: Int) -> Int
 }
 extension NSAttributedString : NSPasteboardReading, NSPasteboardWriting {

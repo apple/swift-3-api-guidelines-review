@@ -130,8 +130,8 @@ extension NSObject {
   func display(_ layer: CALayer)
   class func draw(_ layer: CALayer, in ctx: CGContext)
   func draw(_ layer: CALayer, in ctx: CGContext)
-  class func layoutSublayersOf(_ layer: CALayer)
-  func layoutSublayersOf(_ layer: CALayer)
+  class func layoutSublayers(of layer: CALayer)
+  func layoutSublayers(of layer: CALayer)
   class func action(for layer: CALayer, forKey event: String) -> CAAction?
   func action(for layer: CALayer, forKey event: String) -> CAAction?
 }

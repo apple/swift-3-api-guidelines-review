@@ -28,7 +28,7 @@ class UIGestureRecognizer : NSObject {
   func require(toFail otherGestureRecognizer: UIGestureRecognizer)
   func location(in view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
-  func locationOf(touch touchIndex: Int, in view: UIView?) -> CGPoint
+  func location(ofTouch touchIndex: Int, in view: UIView?) -> CGPoint
   convenience init()
 }
 protocol UIGestureRecognizerDelegate : NSObjectProtocol {

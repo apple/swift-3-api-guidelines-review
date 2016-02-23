@@ -1,8 +1,8 @@
 
 class NSCoder : NSObject {
-  func encodeValueOf(objCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
+  func encodeValue(ofObjCType type: UnsafePointer<Int8>, at addr: UnsafePointer<Void>)
   func encodeDataObject(_ data: NSData)
-  func decodeValueOf(objCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
+  func decodeValue(ofObjCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> NSData?
   func version(forClassName className: String) -> Int
   init()
@@ -28,10 +28,10 @@ extension NSCoder {
   func encodeBycopyObject(_ anObject: AnyObject?)
   func encodeByrefObject(_ anObject: AnyObject?)
   func encodeConditionalObject(_ object: AnyObject?)
-  func encodeArrayOf(objCType type: UnsafePointer<Int8>, count count: Int, at array: UnsafePointer<Void>)
+  func encodeArray(ofObjCType type: UnsafePointer<Int8>, count count: Int, at array: UnsafePointer<Void>)
   func encodeBytes(_ byteaddr: UnsafePointer<Void>, length length: Int)
   func decodeObject() -> AnyObject?
-  func decodeArrayOf(objCType itemType: UnsafePointer<Int8>, count count: Int, at array: UnsafeMutablePointer<Void>)
+  func decodeArray(ofObjCType itemType: UnsafePointer<Int8>, count count: Int, at array: UnsafeMutablePointer<Void>)
   func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   func encodePropertyList(_ aPropertyList: AnyObject)
   func decodePropertyList() -> AnyObject?
@@ -62,7 +62,7 @@ extension NSCoder {
   @available(OSX 10.8, *)
   var requiresSecureCoding: Bool { get }
   @available(OSX 10.8, *)
-  func __decodeObjectOf(classes classes: Set<NSObject>?, forKey key: String) -> AnyObject?
+  func __decodeObject(ofClasses classes: Set<NSObject>?, forKey key: String) -> AnyObject?
   @available(OSX 10.8, *)
   func decodePropertyList(forKey key: String) -> AnyObject?
   @available(OSX 10.8, *)

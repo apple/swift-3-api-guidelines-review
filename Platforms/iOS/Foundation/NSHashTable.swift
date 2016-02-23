@@ -28,7 +28,7 @@ class NSHashTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func contains(_ anObject: AnyObject?) -> Bool
   func intersects(_ other: NSHashTable) -> Bool
   func isEqual(to other: NSHashTable) -> Bool
-  func isSubsetOf(_ other: NSHashTable) -> Bool
+  func isSubset(of other: NSHashTable) -> Bool
   func intersect(_ other: NSHashTable)
   func union(_ other: NSHashTable)
   func minus(_ other: NSHashTable)

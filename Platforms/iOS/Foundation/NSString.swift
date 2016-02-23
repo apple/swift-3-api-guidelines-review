@@ -107,12 +107,12 @@ extension NSString {
   @available(iOS 9.0, *)
   func localizedStandardContains(_ str: String) -> Bool
   @available(iOS 9.0, *)
-  func localizedStandardRangeOf(_ str: String) -> NSRange
-  func rangeOf(_ searchString: String) -> NSRange
-  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
-  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
+  func localizedStandardRange(of str: String) -> NSRange
+  func range(of searchString: String) -> NSRange
+  func range(of searchString: String, options mask: NSStringCompareOptions = []) -> NSRange
+  func range(of searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
   @available(iOS 2.0, *)
-  func rangeOf(_ searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale locale: NSLocale?) -> NSRange
+  func range(of searchString: String, options mask: NSStringCompareOptions = [], range searchRange: NSRange, locale locale: NSLocale?) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet, options mask: NSStringCompareOptions = []) -> NSRange
   func rangeOfCharacter(from searchSet: NSCharacterSet, options mask: NSStringCompareOptions = [], range searchRange: NSRange) -> NSRange
@@ -164,7 +164,7 @@ extension NSString {
   func maximumLengthOfBytes(usingEncoding enc: UInt) -> Int
   func lengthOfBytes(usingEncoding enc: UInt) -> Int
   class func availableStringEncodings() -> UnsafePointer<UInt>
-  class func localizedNameOf(stringEncoding encoding: UInt) -> String
+  class func localizedName(ofStringEncoding encoding: UInt) -> String
   class func defaultCStringEncoding() -> UInt
   var decomposedStringWithCanonicalMapping: String { get }
   var precomposedStringWithCanonicalMapping: String { get }
@@ -178,9 +178,9 @@ extension NSString {
   @available(iOS 2.0, *)
   func folding(_ options: NSStringCompareOptions = [], locale locale: NSLocale?) -> String
   @available(iOS 2.0, *)
-  func replacingOccurrencesOf(_ target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
+  func replacingOccurrences(of target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> String
   @available(iOS 2.0, *)
-  func replacingOccurrencesOf(_ target: String, with replacement: String) -> String
+  func replacingOccurrences(of target: String, with replacement: String) -> String
   @available(iOS 2.0, *)
   func replacingCharacters(in range: NSRange, with replacement: String) -> String
   @available(iOS 9.0, *)
@@ -294,7 +294,7 @@ extension NSMutableString {
   func deleteCharacters(in range: NSRange)
   func append(_ aString: String)
   func setString(_ aString: String)
-  func replaceOccurrencesOf(_ target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> Int
+  func replaceOccurrences(of target: String, with replacement: String, options options: NSStringCompareOptions = [], range searchRange: NSRange) -> Int
   @available(iOS 9.0, *)
   func applyTransform(_ transform: String, reverse reverse: Bool, range range: NSRange, updatedRange resultingRange: NSRangePointer) -> Bool
   init(capacity capacity: Int)

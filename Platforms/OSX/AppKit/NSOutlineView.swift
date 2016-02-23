@@ -45,7 +45,7 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   unowned(unsafe) var outlineTableColumn: @sil_unmanaged NSTableColumn?
   func isExpandable(_ item: AnyObject?) -> Bool
   @available(OSX 10.10, *)
-  func numberOfChildrenOf(item item: AnyObject?) -> Int
+  func numberOfChildren(ofItem item: AnyObject?) -> Int
   @available(OSX 10.10, *)
   func child(_ index: Int, ofItem item: AnyObject?) -> AnyObject?
   func expandItem(_ item: AnyObject?, expandChildren expandChildren: Bool)

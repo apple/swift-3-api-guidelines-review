@@ -14,7 +14,7 @@ extension DRTrack {
   func setPreGap(_ preGap: DRMSF!)
 }
 protocol DRTrackDataProduction {
-  func estimateLengthOf(_ track: DRTrack!) -> UInt64
+  func estimateLength(of track: DRTrack!) -> UInt64
   @available(OSX 10.0, *)
   func prepare(_ track: DRTrack!, for burn: DRBurn!, toMedia mediaInfo: [NSObject : AnyObject]!) -> Bool
   func cleanupTrack(afterBurn track: DRTrack!)

@@ -64,7 +64,7 @@ extension AVAssetExportSession {
   class func allExportPresets() -> [String]
   class func exportPresets(compatibleWith asset: AVAsset) -> [String]
   @available(OSX 10.9, *)
-  class func determineCompatibilityOf(exportPreset presetName: String, with asset: AVAsset, outputFileType outputFileType: String?, completionHandler handler: (Bool) -> Void)
+  class func determineCompatibility(ofExportPreset presetName: String, with asset: AVAsset, outputFileType outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }

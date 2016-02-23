@@ -26,10 +26,10 @@ class NSProxy : NSObjectProtocol {
   class func perform(_ aSelector: Selector, with object1: AnyObject!, with object2: AnyObject!) -> Unmanaged<AnyObject>!
   func isProxy() -> Bool
   class func isProxy() -> Bool
-  func isKindOf(_ aClass: AnyClass) -> Bool
-  class func isKindOf(_ aClass: AnyClass) -> Bool
-  func isMemberOf(_ aClass: AnyClass) -> Bool
-  class func isMemberOf(_ aClass: AnyClass) -> Bool
+  func isKind(of aClass: AnyClass) -> Bool
+  class func isKind(of aClass: AnyClass) -> Bool
+  func isMember(of aClass: AnyClass) -> Bool
+  class func isMember(of aClass: AnyClass) -> Bool
   func conforms(to aProtocol: Protocol) -> Bool
   class func conforms(to aProtocol: Protocol) -> Bool
   func responds(to aSelector: Selector) -> Bool

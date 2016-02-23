@@ -14,7 +14,7 @@ class NSPathCell : NSActionCell, NSOpenSavePanelDelegate {
   unowned(unsafe) var delegate: @sil_unmanaged NSPathCellDelegate?
   class func pathComponentCellClass() -> AnyClass
   var pathComponentCells: [NSPathComponentCell]
-  func rectOf(_ cell: NSPathComponentCell, withFrame frame: NSRect, in view: NSView) -> NSRect
+  func rect(of cell: NSPathComponentCell, withFrame frame: NSRect, in view: NSView) -> NSRect
   func pathComponentCell(at point: NSPoint, withFrame frame: NSRect, in view: NSView) -> NSPathComponentCell?
   var clickedPathComponentCell: NSPathComponentCell? { get }
   func mouseEntered(_ event: NSEvent, withFrame frame: NSRect, in view: NSView)

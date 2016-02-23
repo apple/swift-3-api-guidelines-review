@@ -3,15 +3,15 @@ class NSSpellChecker : NSObject {
   class func shared() -> NSSpellChecker
   class func sharedSpellCheckerExists() -> Bool
   class func uniqueSpellDocumentTag() -> Int
-  func checkSpellingOf(_ stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, wordCount wordCount: UnsafeMutablePointer<Int>) -> NSRange
-  func checkSpellingOf(_ stringToCheck: String, startingAt startingOffset: Int) -> NSRange
+  func checkSpelling(of stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, wordCount wordCount: UnsafeMutablePointer<Int>) -> NSRange
+  func checkSpelling(of stringToCheck: String, startingAt startingOffset: Int) -> NSRange
   func countWords(in stringToCount: String, language language: String?) -> Int
   @available(OSX 10.5, *)
-  func checkGrammarOf(_ stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
+  func checkGrammar(of stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
   func check(_ stringToCheck: String, range range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, orthography orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
   @available(OSX 10.6, *)
-  func requestCheckingOf(_ stringToCheck: String, range range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
+  func requestChecking(of stringToCheck: String, range range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject]? = [:], inSpellDocumentWithTag tag: Int, completionHandler completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)? = nil) -> Int
   @available(OSX 10.6, *)
   func menu(for result: NSTextCheckingResult, string checkedString: String, options options: [String : AnyObject]? = [:], atLocation location: NSPoint, in view: NSView) -> NSMenu?
   @available(OSX 10.6, *)

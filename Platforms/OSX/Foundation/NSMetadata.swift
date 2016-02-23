@@ -26,10 +26,10 @@ class NSMetadataQuery : NSObject {
   @available(OSX 10.9, *)
   func enumerateResults(_ opts: NSEnumerationOptions = [], using block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func indexOf(result result: AnyObject) -> Int
+  func index(ofResult result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [NSMetadataQueryResultGroup] { get }
-  func valueOf(attribute attrName: String, forResultAt idx: Int) -> AnyObject?
+  func value(ofAttribute attrName: String, forResultAt idx: Int) -> AnyObject?
   init()
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {

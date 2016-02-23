@@ -3,7 +3,7 @@
 class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
   func object(at idx: Int) -> AnyObject
-  func indexOf(_ object: AnyObject) -> Int
+  func index(of object: AnyObject) -> Int
   init()
   init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
@@ -42,8 +42,8 @@ extension NSOrderedSet {
   func contains(_ object: AnyObject) -> Bool
   func intersects(_ other: NSOrderedSet) -> Bool
   func intersects(_ set: Set<NSObject>) -> Bool
-  func isSubsetOf(_ other: NSOrderedSet) -> Bool
-  func isSubsetOf(_ set: Set<NSObject>) -> Bool
+  func isSubset(of other: NSOrderedSet) -> Bool
+  func isSubset(of set: Set<NSObject>) -> Bool
   @available(iOS 6.0, *)
   subscript(_ idx: Int) -> AnyObject { get }
   func objectEnumerator() -> NSEnumerator
@@ -60,7 +60,7 @@ extension NSOrderedSet {
   func indexesOfObjects(passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   func indexesOfObjects(_ opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   func indexesOfObjects(at s: NSIndexSet, options opts: NSEnumerationOptions = [], passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
-  func indexOf(_ object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
+  func index(of object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
   func sortedArray(comparator cmptr: NSComparator) -> [AnyObject]
   func sortedArray(_ opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
   var description: String { get }

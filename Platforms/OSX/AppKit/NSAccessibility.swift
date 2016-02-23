@@ -43,8 +43,8 @@ extension NSObject {
   class func accessibilityHitTest(_ point: NSPoint) -> AnyObject?
   func accessibilityHitTest(_ point: NSPoint) -> AnyObject?
   var accessibilityFocusedUIElement: AnyObject? { get }
-  class func accessibilityIndexOf(child child: AnyObject) -> Int
-  func accessibilityIndexOf(child child: AnyObject) -> Int
+  class func accessibilityIndex(ofChild child: AnyObject) -> Int
+  func accessibilityIndex(ofChild child: AnyObject) -> Int
   class func accessibilityArrayAttributeCount(_ attribute: String) -> Int
   func accessibilityArrayAttributeCount(_ attribute: String) -> Int
   class func accessibilityArrayAttributeValues(_ attribute: String, index index: Int, maxCount maxCount: Int) -> [AnyObject]

@@ -30,7 +30,7 @@ class NSFileWrapper : NSObject, NSCoding {
   var filename: String?
   var fileAttributes: [String : AnyObject]
   @available(iOS 4.0, *)
-  func matchesContentsOf(_ url: NSURL) -> Bool
+  func matchesContents(of url: NSURL) -> Bool
   @available(iOS 4.0, *)
   func read(from url: NSURL, options options: NSFileWrapperReadingOptions = []) throws
   @available(iOS 4.0, *)

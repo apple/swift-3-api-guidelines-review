@@ -196,7 +196,7 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   func reset()
   func handle(_ event: SCNParticleEvent, forProperties properties: [String], with block: SCNParticleEventBlock)
   func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, with block: SCNParticleModifierBlock)
-  func removeModifiersOf(_ stage: SCNParticleModifierStage)
+  func removeModifiers(of stage: SCNParticleModifierStage)
   func removeAllModifiers()
   init()
   @available(tvOS 8.0, *)

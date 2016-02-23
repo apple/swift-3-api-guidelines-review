@@ -131,12 +131,12 @@ struct _CALayerIvars {
   var layer: UnsafeMutablePointer<Void>
 }
 extension NSObject {
-  class func preferredSizeOf(_ layer: CALayer) -> CGSize
-  func preferredSizeOf(_ layer: CALayer) -> CGSize
-  class func invalidateLayoutOf(_ layer: CALayer)
-  func invalidateLayoutOf(_ layer: CALayer)
-  class func layoutSublayersOf(_ layer: CALayer)
-  func layoutSublayersOf(_ layer: CALayer)
+  class func preferredSize(of layer: CALayer) -> CGSize
+  func preferredSize(of layer: CALayer) -> CGSize
+  class func invalidateLayout(of layer: CALayer)
+  func invalidateLayout(of layer: CALayer)
+  class func layoutSublayers(of layer: CALayer)
+  func layoutSublayers(of layer: CALayer)
 }
 protocol CAAction {
   @available(OSX 10.0, *)

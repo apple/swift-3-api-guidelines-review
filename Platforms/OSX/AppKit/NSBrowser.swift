@@ -83,7 +83,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func scrollRowToVisible(_ row: Int, inColumn column: Int)
   func setTitle(_ aString: String, ofColumn column: Int)
-  func titleOf(column column: Int) -> String?
+  func title(ofColumn column: Int) -> String?
   var pathSeparator: String
   func setPath(_ path: String) -> Bool
   func path() -> String
@@ -121,13 +121,13 @@ class NSBrowser : NSControl {
   func doClick(_ sender: AnyObject?)
   func doDoubleClick(_ sender: AnyObject?)
   func sendAction() -> Bool
-  func titleFrameOf(column column: Int) -> NSRect
-  func drawTitleOf(column column: Int, in aRect: NSRect)
+  func titleFrame(ofColumn column: Int) -> NSRect
+  func drawTitle(ofColumn column: Int, in aRect: NSRect)
   var titleHeight: CGFloat { get }
-  func frameOf(column column: Int) -> NSRect
+  func frame(ofColumn column: Int) -> NSRect
   func frameOf(insideOfColumn column: Int) -> NSRect
   @available(OSX 10.6, *)
-  func frameOf(row row: Int, inColumn column: Int) -> NSRect
+  func frame(ofRow row: Int, inColumn column: Int) -> NSRect
   @available(OSX 10.6, *)
   func getRow(_ row: UnsafeMutablePointer<Int>, column column: UnsafeMutablePointer<Int>, for point: NSPoint) -> Bool
   func columnWidth(forColumnContentWidth columnContentWidth: CGFloat) -> CGFloat
@@ -135,7 +135,7 @@ class NSBrowser : NSControl {
   var columnResizingType: NSBrowserColumnResizingType
   var prefersAllColumnUserResizing: Bool
   func setWidth(_ columnWidth: CGFloat, ofColumn columnIndex: Int)
-  func widthOf(column column: Int) -> CGFloat
+  func width(ofColumn column: Int) -> CGFloat
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
@@ -227,7 +227,7 @@ extension NSBrowser {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
   func matrixClass() -> AnyClass
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func columnOf(_ matrix: NSMatrix) -> Int
+  func column(of matrix: NSMatrix) -> Int
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
   func matrix(inColumn column: Int) -> NSMatrix?
 }

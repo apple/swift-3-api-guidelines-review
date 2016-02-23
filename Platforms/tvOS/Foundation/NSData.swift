@@ -71,7 +71,7 @@ extension NSData {
   func write(toFile path: String, options writeOptionsMask: NSDataWritingOptions = []) throws
   func write(to url: NSURL, options writeOptionsMask: NSDataWritingOptions = []) throws
   @available(tvOS 4.0, *)
-  func rangeOf(_ dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
+  func range(of dataToFind: NSData, options mask: NSDataSearchOptions = [], range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
   func enumerateByteRanges(_ block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
