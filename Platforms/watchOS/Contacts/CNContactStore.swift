@@ -24,7 +24,6 @@ class CNContactStore : NSObject {
   func groups(matching predicate: NSPredicate?) throws -> [CNGroup]
   func containers(matching predicate: NSPredicate?) throws -> [CNContainer]
   func defaultContainerIdentifier() -> String
-  init()
 }
 @available(watchOS 2.0, *)
 let CNContactStoreDidChangeNotification: String

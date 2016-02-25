@@ -13,7 +13,6 @@ class GKGoal : NSObject, NSCopying {
   convenience init(toInterceptAgent target: GKAgent, maxPredictionTime maxPredictionTime: NSTimeInterval)
   convenience init(toFollow path: GKPath, maxPredictionTime maxPredictionTime: NSTimeInterval, forward forward: Bool)
   convenience init(toStayOn path: GKPath, maxPredictionTime maxPredictionTime: NSTimeInterval)
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

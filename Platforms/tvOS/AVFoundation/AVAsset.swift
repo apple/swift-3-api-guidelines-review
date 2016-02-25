@@ -6,7 +6,6 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
-  init()
   @available(tvOS 4.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
@@ -106,7 +105,6 @@ class AVURLAsset : AVAsset {
   class func isPlayableExtendedMIMEType(_ extendedMIMEType: String) -> Bool
   init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
-  convenience init(url URL: NSURL)
 }
 extension AVURLAsset {
   @available(tvOS 6.0, *)
@@ -124,7 +122,4 @@ let AVAssetMediaSelectionGroupsDidChangeNotification: String
 protocol AVFragmentMinding {
 }
 extension AVFragmentedAsset {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
-  func tracks(withMediaType mediaType: String) -> [AVFragmentedAssetTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }

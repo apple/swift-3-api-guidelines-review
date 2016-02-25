@@ -13,5 +13,4 @@ class AVAudioNode : NSObject {
   var numberOfInputs: Int { get }
   var numberOfOutputs: Int { get }
   var lastRenderTime: AVAudioTime? { get }
-  init()
 }

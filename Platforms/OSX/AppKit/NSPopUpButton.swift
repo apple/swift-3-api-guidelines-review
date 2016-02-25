@@ -1,7 +1,6 @@
 
 class NSPopUpButton : NSButton {
   init(frame buttonFrame: NSRect, pullsDown flag: Bool)
-  var menu: NSMenu?
   var pullsDown: Bool
   var autoenablesItems: Bool
   var preferredEdge: NSRectEdge
@@ -32,10 +31,6 @@ class NSPopUpButton : NSButton {
   func itemTitle(at index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func selectedTag() -> Int
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __pbFlags {
   var needsPullsDownFromTemplate: UInt32

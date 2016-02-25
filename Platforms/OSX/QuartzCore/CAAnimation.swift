@@ -5,7 +5,6 @@ class CAAnimation : NSObject, NSCoding, NSCopying, CAMediaTiming, CAAction {
   var timingFunction: CAMediaTimingFunction?
   var delegate: AnyObject?
   var isRemovedOnCompletion: Bool
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -32,16 +31,11 @@ class CAPropertyAnimation : CAAnimation {
   var isAdditive: Bool
   var isCumulative: Bool
   var valueFunction: CAValueFunction?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CABasicAnimation : CAPropertyAnimation {
   var fromValue: AnyObject?
   var toValue: AnyObject?
   var byValue: AnyObject?
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CAKeyframeAnimation : CAPropertyAnimation {
   var values: [AnyObject]?
@@ -53,9 +47,6 @@ class CAKeyframeAnimation : CAPropertyAnimation {
   var continuityValues: [NSNumber]?
   var biasValues: [NSNumber]?
   var rotationMode: String?
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)
 let kCAAnimationLinear: String
@@ -77,9 +68,6 @@ class CASpringAnimation : CABasicAnimation {
   var damping: CGFloat
   var initialVelocity: CGFloat
   var settlingDuration: CFTimeInterval { get }
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CATransition : CAAnimation {
   var type: String
@@ -87,8 +75,6 @@ class CATransition : CAAnimation {
   var startProgress: Float
   var endProgress: Float
   var filter: AnyObject?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)
 let kCATransitionFade: String
@@ -108,6 +94,4 @@ let kCATransitionFromTop: String
 let kCATransitionFromBottom: String
 class CAAnimationGroup : CAAnimation {
   var animations: [CAAnimation]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

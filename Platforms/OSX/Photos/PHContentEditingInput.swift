@@ -8,5 +8,4 @@ class PHContentEditingInput : NSObject {
   var adjustmentData: PHAdjustmentData { get }
   @NSCopying var fullSizeImageURL: NSURL? { get }
   var fullSizeImageOrientation: Int32 { get }
-  init()
 }

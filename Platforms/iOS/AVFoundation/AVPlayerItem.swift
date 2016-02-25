@@ -133,7 +133,6 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
   func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemAccessLogEvent] { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -142,7 +141,6 @@ class AVPlayerItemErrorLog : NSObject, NSCopying {
   func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemErrorLogEvent] { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -181,7 +179,6 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   var mediaRequestsWWAN: Int { get }
   @available(iOS 7.0, *)
   var switchBitrate: Double { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -194,7 +191,6 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
   var errorStatusCode: Int { get }
   var errorDomain: String { get }
   var errorComment: String? { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

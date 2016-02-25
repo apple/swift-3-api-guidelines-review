@@ -1,7 +1,6 @@
 
 @available(OSX 10.5, *)
 class SBObject : NSObject, NSCoding {
-  init()
   init(properties properties: [NSObject : AnyObject])
   init(data data: AnyObject)
   func get() -> AnyObject?

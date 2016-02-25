@@ -122,7 +122,6 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   func show(_ vc: UIViewController, sender sender: AnyObject?)
   @available(tvOS 8.0, *)
   func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
-  convenience init()
   @available(tvOS 2.0, *)
   func encode(with aCoder: NSCoder)
   @available(tvOS 8.0, *)
@@ -276,7 +275,6 @@ enum UIPreviewActionStyle : Int {
 class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
   var handler: (UIPreviewActionItem, UIViewController) -> Void { get }
   convenience init(title title: String, style style: UIPreviewActionStyle, handler handler: (UIPreviewAction, UIViewController) -> Void)
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
@@ -285,7 +283,6 @@ class UIPreviewAction : NSObject, NSCopying, UIPreviewActionItem {
 @available(tvOS 9.0, *)
 class UIPreviewActionGroup : NSObject, NSCopying, UIPreviewActionItem {
   convenience init(title title: String, style style: UIPreviewActionStyle, actions actions: [UIPreviewAction])
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)

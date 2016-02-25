@@ -6,7 +6,6 @@ class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   init(username username: String, service service: String)
   class func localizedString(forKey key: String) -> String
   class func localizedString(forService service: String) -> String
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)

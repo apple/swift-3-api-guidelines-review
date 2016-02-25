@@ -2,7 +2,6 @@
 class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
   func object(at index: Int) -> AnyObject
-  init()
   init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -13,14 +12,9 @@ class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnu
 }
 
 extension NSArray : ArrayLiteralConvertible {
-  required convenience init(arrayLiteral elements: AnyObject...)
-  typealias Element = AnyObject
 }
 
 extension NSArray : SequenceType {
-  final func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
 }
 
 extension NSArray {
@@ -32,14 +26,12 @@ extension NSArray {
 }
 
 extension NSArray : CustomReflectable {
-  func customMirror() -> Mirror
 }
 extension NSArray {
   func adding(_ anObject: AnyObject) -> [AnyObject]
   func addingObjects(from otherArray: [AnyObject]) -> [AnyObject]
   func componentsJoined(by separator: String) -> String
   func contains(_ anObject: AnyObject) -> Bool
-  var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
   func firstObjectCommon(with otherArray: [AnyObject]) -> AnyObject?
@@ -112,13 +104,7 @@ class NSMutableArray : NSArray {
   func removeLastObject()
   func removeObject(at index: Int)
   func replaceObject(at index: Int, with anObject: AnyObject)
-  init()
   init(capacity numItems: Int)
-  init?(coder aDecoder: NSCoder)
-  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object anObject: AnyObject)
-  convenience init(array array: [AnyObject])
-  convenience init(array array: [AnyObject], copyItems flag: Bool)
 }
 extension NSMutableArray {
   func addObjects(from otherArray: [AnyObject])
@@ -138,14 +124,10 @@ extension NSMutableArray {
   func insert(_ objects: [AnyObject], at indexes: NSIndexSet)
   func removeObjects(at indexes: NSIndexSet)
   func replaceObjects(at indexes: NSIndexSet, with objects: [AnyObject])
-  @available(iOS 6.0, *)
-  subscript(_ idx: Int) -> AnyObject
   @available(iOS 4.0, *)
   func sort(comparator cmptr: NSComparator)
   @available(iOS 4.0, *)
   func sort(_ opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
 }
 extension NSMutableArray {
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
 }

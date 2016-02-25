@@ -11,7 +11,6 @@ class CMPedometerData : NSObject, NSSecureCoding, NSCopying {
   var currentPace: NSNumber? { get }
   @available(iOS 9.0, *)
   var currentCadence: NSNumber? { get }
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -33,5 +32,4 @@ class CMPedometer : NSObject {
   func queryPedometerData(from start: NSDate, to end: NSDate, withHandler handler: CMPedometerHandler)
   func startUpdates(from start: NSDate, withHandler handler: CMPedometerHandler)
   func stopUpdates()
-  init()
 }

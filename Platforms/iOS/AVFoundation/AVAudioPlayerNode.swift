@@ -21,7 +21,6 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   func nodeTime(forPlayerTime playerTime: AVAudioTime) -> AVAudioTime?
   func playerTime(forNodeTime nodeTime: AVAudioTime) -> AVAudioTime?
   var isPlaying: Bool { get }
-  init()
   @available(iOS 9.0, *)
   func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(iOS 8.0, *)

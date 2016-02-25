@@ -40,7 +40,6 @@ class TVViewElement : NSObject, NSCopying {
   func resetProperty(_ resettableProperty: TVElementResettableProperty)
   func dispatchEvent(of type: TVElementEventType, canBubble canBubble: Bool, cancellable isCancellable: Bool, extraInfo extraInfo: [String : AnyObject]?, completion completion: ((Bool, Bool) -> Void)? = nil)
   func dispatchEvent(withName eventName: String, canBubble canBubble: Bool, cancellable isCancellable: Bool, extraInfo extraInfo: [String : AnyObject]?, completion completion: ((Bool, Bool) -> Void)? = nil)
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

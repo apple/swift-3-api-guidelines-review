@@ -8,8 +8,6 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var security: CWSecurity { get }
   @available(OSX 10.7, *)
-  init()
-  @available(OSX 10.7, *)
   init(networkProfile networkProfile: CWNetworkProfile)
   @available(OSX 10.7, *)
   func isEqual(to networkProfile: CWNetworkProfile) -> Bool
@@ -25,13 +23,4 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 }
 @available(OSX 10.7, *)
 class CWMutableNetworkProfile : CWNetworkProfile {
-  @available(OSX 10.7, *)
-  @NSCopying var ssidData: NSData
-  @available(OSX 10.7, *)
-  var security: CWSecurity
-  @available(OSX 10.7, *)
-  init()
-  @available(OSX 10.7, *)
-  init(networkProfile networkProfile: CWNetworkProfile)
-  init?(coder aDecoder: NSCoder)
 }

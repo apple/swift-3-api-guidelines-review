@@ -38,5 +38,4 @@ class NEVPNManager : NSObject {
   var connection: NEVPNConnection { get }
   @available(iOS 8.0, *)
   var isEnabled: Bool
-  init()
 }

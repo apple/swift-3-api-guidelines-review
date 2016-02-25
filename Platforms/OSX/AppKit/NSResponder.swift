@@ -1,6 +1,5 @@
 
 class NSResponder : NSObject, NSCoding {
-  init()
   init?(coder coder: NSCoder)
   unowned(unsafe) var next: @sil_unmanaged NSResponder?
   func tryToPerform(_ anAction: Selector, with anObject: AnyObject?) -> Bool

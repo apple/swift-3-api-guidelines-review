@@ -11,6 +11,4 @@ struct UISwipeGestureRecognizerDirection : OptionSetType {
 class UISwipeGestureRecognizer : UIGestureRecognizer {
   var numberOfTouchesRequired: Int
   var direction: UISwipeGestureRecognizerDirection
-  init(target target: AnyObject?, action action: Selector)
-  convenience init()
 }

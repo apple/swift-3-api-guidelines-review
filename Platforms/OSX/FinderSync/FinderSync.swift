@@ -6,7 +6,6 @@ class FIFinderSyncController : NSExtensionContext {
   func setBadgeIdentifier(_ badgeID: String, for url: NSURL)
   func targetedURL() -> NSURL?
   func selectedItemURLs() -> [NSURL]?
-  init()
 }
 enum FIMenuKind : UInt {
   init?(rawValue rawValue: UInt)
@@ -26,7 +25,6 @@ protocol FIFinderSyncProtocol {
   optional var toolbarItemToolTip: String { get }
 }
 class FIFinderSync : NSObject, FIFinderSyncProtocol, NSExtensionRequestHandling {
-  init()
   func menu(for menu: FIMenuKind) -> NSMenu?
   func beginObservingDirectory(at url: NSURL)
   func endObservingDirectory(at url: NSURL)

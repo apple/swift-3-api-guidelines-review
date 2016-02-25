@@ -5,5 +5,4 @@ class CLKComplicationTimelineEntry : NSObject {
   var date: NSDate
   @NSCopying var complicationTemplate: CLKComplicationTemplate
   var timelineAnimationGroup: String?
-  init()
 }

@@ -39,7 +39,4 @@ class CBMutableCharacteristic : CBCharacteristic {
   var permissions: CBAttributePermissions
   @available(tvOS 7.0, *)
   var subscribedCentrals: [CBCentral]? { get }
-  var properties: CBCharacteristicProperties
-  var value: NSData?
-  var descriptors: [CBDescriptor]?
 }

@@ -5,7 +5,6 @@ class NSStatusItem : NSObject {
   var menu: NSMenu?
   @available(OSX 10.10, *)
   var button: NSStatusBarButton? { get }
-  init()
 }
 extension NSStatusItem {
   var action: Selector

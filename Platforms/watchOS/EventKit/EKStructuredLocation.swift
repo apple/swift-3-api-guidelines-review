@@ -5,7 +5,6 @@ class EKStructuredLocation : EKObject, NSCopying {
   var title: String
   var geoLocation: CLLocation?
   var radius: Double
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

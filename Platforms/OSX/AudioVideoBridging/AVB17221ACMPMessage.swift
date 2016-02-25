@@ -18,7 +18,6 @@ class AVB17221ACMPMessage : NSObject, NSCopying {
   var flags: AVB17221ACMPFlags
   var vlanID: UInt16
   @NSCopying var sourceMAC: AVBMACAddress?
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

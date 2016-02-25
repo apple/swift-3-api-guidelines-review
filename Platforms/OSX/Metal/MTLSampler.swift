@@ -40,7 +40,6 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
   @available(OSX 10.11, *)
   var compareFunction: MTLCompareFunction
   var label: String?
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

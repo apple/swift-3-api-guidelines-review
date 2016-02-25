@@ -11,7 +11,6 @@ class NEIPv6Settings : NSObject, NSSecureCoding, NSCopying {
   var includedRoutes: [NEIPv6Route]?
   @available(OSX 10.11, *)
   var excludedRoutes: [NEIPv6Route]?
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
@@ -32,7 +31,6 @@ class NEIPv6Route : NSObject, NSSecureCoding, NSCopying {
   var gatewayAddress: String?
   @available(OSX 10.11, *)
   class func defaultRoute() -> NEIPv6Route
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

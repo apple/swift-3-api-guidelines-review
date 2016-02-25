@@ -16,7 +16,6 @@ class SKAction : NSObject, NSCopying, NSCoding {
   var timingFunction: SKActionTimingFunction
   var speed: CGFloat
   func reversed() -> SKAction
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

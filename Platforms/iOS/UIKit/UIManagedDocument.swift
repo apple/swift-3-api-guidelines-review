@@ -9,6 +9,4 @@ class UIManagedDocument : UIDocument {
   func readAdditionalContent(from absoluteURL: NSURL) throws
   func additionalContent(for absoluteURL: NSURL) throws -> AnyObject
   func writeAdditionalContent(_ content: AnyObject, to absoluteURL: NSURL, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
-  init(fileURL url: NSURL)
-  convenience init()
 }

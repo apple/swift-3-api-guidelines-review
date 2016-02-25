@@ -32,10 +32,8 @@ class EKEvent : EKCalendarItem {
   var isDetached: Bool { get }
   @available(iOS 9.0, *)
   var occurrenceDate: NSDate { get }
-  func refresh() -> Bool
   @available(iOS 9.0, *)
   var birthdayContactIdentifier: String? { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use birthdayContactIdentifier instead")
   var birthdayPersonID: Int { get }
-  init()
 }

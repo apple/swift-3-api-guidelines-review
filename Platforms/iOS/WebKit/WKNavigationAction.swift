@@ -16,5 +16,4 @@ class WKNavigationAction : NSObject {
   @NSCopying var targetFrame: WKFrameInfo? { get }
   var navigationType: WKNavigationType { get }
   @NSCopying var request: NSURLRequest { get }
-  init()
 }

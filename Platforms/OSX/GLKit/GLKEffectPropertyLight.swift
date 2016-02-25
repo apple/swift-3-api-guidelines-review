@@ -20,5 +20,4 @@ class GLKEffectPropertyLight : GLKEffectProperty {
   var linearAttenuation: GLfloat
   var quadraticAttenuation: GLfloat
   var transform: GLKEffectPropertyTransform
-  init()
 }

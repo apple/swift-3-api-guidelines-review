@@ -7,5 +7,4 @@ class WKBackForwardList : NSObject {
   func item(at index: Int) -> WKBackForwardListItem?
   var backList: [WKBackForwardListItem] { get }
   var forwardList: [WKBackForwardListItem] { get }
-  init()
 }

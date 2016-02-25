@@ -11,7 +11,6 @@ class ADClient : NSObject {
   func requestAttributionDetails(_ completionHandler: (([NSObject : AnyObject]!, NSError!) -> Void)!)
   @available(iOS 8.0, *)
   func add(toSegments segmentIdentifiers: [AnyObject]!, replaceExisting replaceExisting: Bool)
-  init()
 }
 let ADClientErrorDomain: String
 enum ADClientError : Int {

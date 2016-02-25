@@ -1,12 +1,6 @@
 
 class NSController : NSObject, NSCoding {
-  init()
   init?(coder coder: NSCoder)
-  func objectDidBeginEditing(_ editor: AnyObject)
-  func objectDidEndEditing(_ editor: AnyObject)
-  func discardEditing()
-  func commitEditing() -> Bool
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   var isEditing: Bool { get }
   func encode(with aCoder: NSCoder)
 }

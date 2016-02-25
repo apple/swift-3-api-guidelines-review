@@ -12,7 +12,6 @@ enum SKBlendMode : Int {
   case replace
 }
 class SKNode : UIResponder, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
   var frame: CGRect { get }

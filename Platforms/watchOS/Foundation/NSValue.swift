@@ -4,7 +4,6 @@ class NSValue : NSObject, NSCopying, NSSecureCoding {
   var objCType: UnsafePointer<Int8> { get }
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   init?(coder aDecoder: NSCoder)
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
@@ -20,7 +19,6 @@ extension NSValue {
   func isEqual(to value: NSValue) -> Bool
 }
 class NSNumber : NSValue {
-  init?(coder aDecoder: NSCoder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
   init(short value: Int16)
@@ -59,17 +57,9 @@ class NSNumber : NSValue {
   func compare(_ otherNumber: NSNumber) -> NSComparisonResult
   func isEqual(to number: NSNumber) -> Bool
   func description(withLocale locale: AnyObject?) -> String
-  convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
-  convenience init()
 }
 
 extension NSNumber : FloatLiteralConvertible, IntegerLiteralConvertible, BooleanLiteralConvertible {
-  required convenience init(integerLiteral value: Int)
-  required convenience init(floatLiteral value: Double)
-  required convenience init(booleanLiteral value: Bool)
-  typealias FloatLiteralType = Double
-  typealias IntegerLiteralType = Int
-  typealias BooleanLiteralType = Bool
 }
 extension NSNumber {
 }

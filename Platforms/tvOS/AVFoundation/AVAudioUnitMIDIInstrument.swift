@@ -13,7 +13,6 @@ class AVAudioUnitMIDIInstrument : AVAudioUnit, AVAudioMixing {
   func sendMIDIEvent(_ midiStatus: UInt8, data1 data1: UInt8, data2 data2: UInt8)
   func sendMIDIEvent(_ midiStatus: UInt8, data1 data1: UInt8)
   func sendMIDISysExEvent(_ midiData: NSData)
-  init()
   @available(tvOS 9.0, *)
   func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)

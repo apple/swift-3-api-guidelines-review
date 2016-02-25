@@ -17,7 +17,6 @@ typealias AVBeatRange = _AVBeatRange
 func AVMakeBeatRange(_ startBeat: AVMusicTimeStamp, _ lengthInBeats: AVMusicTimeStamp) -> AVBeatRange
 @available(OSX 10.11, *)
 class AVAudioSequencer : NSObject {
-  init()
   init(audioEngine engine: AVAudioEngine)
   func load(from fileURL: NSURL, options options: AVMusicSequenceLoadOptions = []) throws
   func load(from data: NSData, options options: AVMusicSequenceLoadOptions = []) throws
@@ -53,7 +52,6 @@ class AVMusicTrack : NSObject {
   var lengthInBeats: AVMusicTimeStamp
   var lengthInSeconds: NSTimeInterval
   var timeResolution: Int { get }
-  init()
 }
 @available(OSX 10.10, *)
 enum AVMusicTrackLoopCount : Int {

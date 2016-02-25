@@ -10,12 +10,6 @@ class GKMatchmakerViewController : UINavigationController {
   func addPlayers(to match: GKMatch)
   @available(tvOS 8.0, *)
   func setHostedPlayer(_ player: GKPlayer, didConnect connected: Bool)
-  @available(tvOS 5.0, *)
-  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
-  init(rootViewController rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 4.1, *)

@@ -36,7 +36,6 @@ class MPNowPlayingInfoLanguageOption : NSObject {
   var languageOptionCharacteristics: [String]? { get }
   var displayName: String? { get }
   var identifier: String? { get }
-  init()
 }
 @available(tvOS 9.0, *)
 class MPNowPlayingInfoLanguageOptionGroup : NSObject {
@@ -44,5 +43,4 @@ class MPNowPlayingInfoLanguageOptionGroup : NSObject {
   var languageOptions: [MPNowPlayingInfoLanguageOption] { get }
   var defaultLanguageOption: MPNowPlayingInfoLanguageOption? { get }
   var allowEmptySelection: Bool { get }
-  init()
 }

@@ -47,7 +47,6 @@ class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecu
   var gobo: SCNMaterialProperty? { get }
   @available(tvOS 8.0, *)
   var categoryBitMask: Int
-  init()
   @available(tvOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)

@@ -29,7 +29,6 @@ class UIGestureRecognizer : NSObject {
   func location(in view: UIView?) -> CGPoint
   func numberOfTouches() -> Int
   func location(ofTouch touchIndex: Int, in view: UIView?) -> CGPoint
-  convenience init()
 }
 protocol UIGestureRecognizerDelegate : NSObjectProtocol {
   @available(tvOS 3.2, *)

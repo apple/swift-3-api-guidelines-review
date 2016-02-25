@@ -9,7 +9,6 @@ class AVAssetDownloadTask : NSURLSessionTask {
   var destinationURL: NSURL { get }
   var options: [String : AnyObject]? { get }
   var loadedTimeRanges: [NSValue] { get }
-  init()
 }
 protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
   @available(iOS 9.0, *)
@@ -21,5 +20,4 @@ protocol AVAssetDownloadDelegate : NSURLSessionTaskDelegate {
 class AVAssetDownloadURLSession : NSURLSession {
   /*not inherited*/ init(configuration configuration: NSURLSessionConfiguration, assetDownloadDelegate delegate: AVAssetDownloadDelegate?, delegateQueue delegateQueue: NSOperationQueue?)
   func assetDownloadTask(with URLAsset: AVURLAsset, destinationURL destinationURL: NSURL, options options: [String : AnyObject]? = [:]) -> AVAssetDownloadTask?
-  init()
 }

@@ -25,10 +25,6 @@ class NSImageCell : NSCell, NSCopying, NSCoding {
   var imageAlignment: NSImageAlignment
   var imageScaling: NSImageScaling
   var imageFrameStyle: NSImageFrameStyle
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __ICFlags {
   var _unused: UInt32

@@ -14,7 +14,6 @@ enum NSSliderType : UInt {
   case circularSlider
 }
 class NSSliderCell : NSActionCell {
-  class func prefersTrackingUntilMouseUp() -> Bool
   var minValue: Double
   var maxValue: Double
   var altIncrementValue: Double
@@ -28,10 +27,6 @@ class NSSliderCell : NSActionCell {
   @available(OSX 10.9, *)
   func barRectFlipped(_ flipped: Bool) -> NSRect
   func drawBar(inside aRect: NSRect, flipped flipped: Bool)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __sliderCellFlags {
   var weAreVertical: UInt32

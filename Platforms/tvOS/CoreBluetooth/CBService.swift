@@ -8,6 +8,4 @@ class CBService : CBAttribute {
 }
 @available(tvOS 6.0, *)
 class CBMutableService : CBService {
-  var includedServices: [CBService]?
-  var characteristics: [CBCharacteristic]?
 }

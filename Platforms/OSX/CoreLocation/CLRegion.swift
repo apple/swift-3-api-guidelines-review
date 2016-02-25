@@ -23,7 +23,6 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   var notifyOnExit: Bool
   @available(OSX, introduced=10.7, deprecated=10.10)
   func contains(_ coordinate: CLLocationCoordinate2D) -> Bool
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)

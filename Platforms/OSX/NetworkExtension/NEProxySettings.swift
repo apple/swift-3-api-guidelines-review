@@ -13,7 +13,6 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   var username: String?
   @available(OSX 10.11, *)
   var password: String?
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
@@ -44,7 +43,6 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
   var exceptionList: [String]?
   @available(OSX 10.11, *)
   var matchDomains: [String]?
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

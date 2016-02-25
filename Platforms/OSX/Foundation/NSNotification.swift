@@ -11,7 +11,6 @@ class NSNotification : NSObject, NSCopying, NSCoding {
 }
 extension NSNotification {
   convenience init(name aName: String, object anObject: AnyObject?)
-  convenience init()
 }
 class NSNotificationCenter : NSObject {
   class func defaultCenter() -> NSNotificationCenter
@@ -23,5 +22,4 @@ class NSNotificationCenter : NSObject {
   func removeObserver(_ observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(OSX 10.6, *)
   func addObserver(forName name: String?, object obj: AnyObject?, queue queue: NSOperationQueue?, using block: (NSNotification) -> Void) -> NSObjectProtocol
-  init()
 }

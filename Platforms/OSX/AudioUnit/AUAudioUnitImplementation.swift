@@ -80,8 +80,6 @@ extension AUParameterNode {
 }
 @available(OSX 10.11, *)
 class AUAudioUnitV2Bridge : AUAudioUnit {
-  init(componentDescription componentDescription: AudioComponentDescription, options options: AudioComponentInstantiationOptions = []) throws
-  convenience init(componentDescription componentDescription: AudioComponentDescription) throws
 }
 protocol AUAudioUnitFactory : NSExtensionRequestHandling {
   @available(OSX 10.11, *)

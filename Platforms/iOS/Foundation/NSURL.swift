@@ -91,7 +91,6 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   func startAccessingSecurityScopedResource() -> Bool
   @available(iOS 8.0, *)
   func stopAccessingSecurityScopedResource()
-  convenience init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -100,11 +99,9 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
 
 extension NSURL : _FileReferenceLiteralConvertible {
   convenience init(failableFileReferenceLiteral path: String)
-  required convenience init(fileReferenceLiteral path: String)
 }
 
 extension NSURL : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 let NSURLFileScheme: String
 @available(iOS 5.0, *)
@@ -345,7 +342,6 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
   init(name name: String, value value: String?)
   var name: String { get }
   var value: String? { get }
-  convenience init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -356,7 +352,6 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
 }
 @available(iOS 7.0, *)
 class NSURLComponents : NSObject, NSCopying {
-  init()
   init?(url url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
   @NSCopying var url: NSURL? { get }
@@ -449,7 +444,6 @@ extension NSURL {
 @available(iOS 5.0, *)
 class NSFileSecurity : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 5.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 5.0, *)

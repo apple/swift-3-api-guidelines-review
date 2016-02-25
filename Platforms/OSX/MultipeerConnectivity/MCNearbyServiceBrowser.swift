@@ -8,7 +8,6 @@ class MCNearbyServiceBrowser : NSObject {
   weak var delegate: @sil_weak MCNearbyServiceBrowserDelegate?
   var myPeerID: MCPeerID { get }
   var serviceType: String { get }
-  convenience init()
 }
 protocol MCNearbyServiceBrowserDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)

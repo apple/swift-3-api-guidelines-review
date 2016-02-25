@@ -65,5 +65,4 @@ class CWInterface : NSObject {
   func associate(toEnterpriseNetwork network: CWNetwork, identity identity: SecIdentity?, username username: String?, password password: String?) throws
   @available(OSX 10.7, *)
   func startIBSSMode(ssid ssidData: NSData, security security: CWIBSSModeSecurity, channel channel: Int, password password: String?) throws
-  init()
 }

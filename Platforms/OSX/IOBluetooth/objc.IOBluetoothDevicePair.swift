@@ -8,7 +8,6 @@ class IOBluetoothDevicePair : NSObject {
   func setDevice(_ inDevice: IOBluetoothDevice!)
   func replyPINCode(_ PINCodeSize: Int, pinCode PINCode: UnsafeMutablePointer<BluetoothPINCode>)
   func replyUserConfirmation(_ reply: Bool)
-  init()
 }
 protocol IOBluetoothDevicePairDelegate : NSObjectProtocol {
   optional func devicePairingStarted(_ sender: AnyObject!)

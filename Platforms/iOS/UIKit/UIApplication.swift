@@ -130,7 +130,6 @@ class UIApplication : UIResponder {
   var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection { get }
   @available(iOS 7.0, *)
   var preferredContentSizeCategory: String { get }
-  init()
 }
 extension UIApplication {
   @available(iOS 8.0, *)

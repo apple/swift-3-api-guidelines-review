@@ -17,6 +17,4 @@ class CMMotionActivity : CMLogItem {
   var automotive: Bool { get }
   @available(iOS 8.0, *)
   var cycling: Bool { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

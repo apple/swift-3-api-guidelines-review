@@ -32,5 +32,4 @@ class SKDownload : NSObject {
   var timeRemaining: NSTimeInterval { get }
   @available(tvOS 6.0, *)
   var transaction: SKPaymentTransaction { get }
-  init()
 }

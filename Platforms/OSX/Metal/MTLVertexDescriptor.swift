@@ -59,35 +59,30 @@ class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
   var stride: Int
   var stepFunction: MTLVertexStepFunction
   var stepRate: Int
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexBufferLayoutDescriptorArray : NSObject {
   subscript(_ index: Int) -> MTLVertexBufferLayoutDescriptor!
-  init()
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptor : NSObject, NSCopying {
   var format: MTLVertexFormat
   var offset: Int
   var bufferIndex: Int
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptorArray : NSObject {
   subscript(_ index: Int) -> MTLVertexAttributeDescriptor!
-  init()
 }
 @available(OSX 10.11, *)
 class MTLVertexDescriptor : NSObject, NSCopying {
   var layouts: MTLVertexBufferLayoutDescriptorArray { get }
   var attributes: MTLVertexAttributeDescriptorArray { get }
   func reset()
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

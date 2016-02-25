@@ -36,6 +36,5 @@ class GCMotion : NSObject {
   var userAcceleration: GCAcceleration { get }
   var attitude: GCQuaternion { get }
   var rotationRate: GCRotationRate { get }
-  init()
 }
 typealias GCMotionValueChangedHandler = (GCMotion) -> Void

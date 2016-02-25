@@ -85,7 +85,6 @@ class MPMoviePlayerController : NSObject, MPMediaPlayback {
   var scalingMode: MPMovieScalingMode
   @available(iOS 6.0, *)
   var readyForDisplay: Bool { get }
-  convenience init()
   @available(iOS 2.0, *)
   func prepareToPlay()
   @available(iOS 2.0, *)
@@ -196,7 +195,6 @@ class MPTimedMetadata : NSObject {
   var value: AnyObject! { get }
   var timestamp: NSTimeInterval { get }
   var allMetadata: [NSObject : AnyObject]! { get }
-  init()
 }
 @available(iOS, introduced=4.0, deprecated=9.0)
 let MPMoviePlayerTimedMetadataUpdatedNotification: String
@@ -224,7 +222,6 @@ class MPMovieAccessLog : NSObject, NSCopying {
   var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -234,7 +231,6 @@ class MPMovieErrorLog : NSObject, NSCopying {
   var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -255,7 +251,6 @@ class MPMovieAccessLogEvent : NSObject, NSCopying {
   var observedBitrate: Double { get }
   var indicatedBitrate: Double { get }
   var numberOfDroppedVideoFrames: Int { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -269,7 +264,6 @@ class MPMovieErrorLogEvent : NSObject, NSCopying {
   var errorStatusCode: Int { get }
   var errorDomain: String! { get }
   var errorComment: String! { get }
-  init()
   @available(iOS 4.3, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

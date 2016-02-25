@@ -87,7 +87,6 @@ class NSLayoutConstraint : NSObject, NSAnimatablePropertyContainer {
   class func activate(_ constraints: [NSLayoutConstraint])
   @available(OSX 10.10, *)
   class func deactivate(_ constraints: [NSLayoutConstraint])
-  init()
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)

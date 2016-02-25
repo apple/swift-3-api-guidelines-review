@@ -17,10 +17,6 @@ class NSSearchFieldCell : NSTextFieldCell {
   var recentSearches: [String]!
   var recentsAutosaveName: String?
   var sendsSearchStringImmediately: Bool
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __sfFlags {
   var sendsWholeSearchString: UInt32

@@ -2,14 +2,11 @@
 @available(iOS 2.0, *)
 class UITableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
   init(style style: UITableViewStyle)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
   var tableView: UITableView!
   @available(iOS 3.2, *)
   var clearsSelectionOnViewWillAppear: Bool
   @available(iOS 6.0, *)
   var refreshControl: UIRefreshControl?
-  convenience init()
   @available(iOS 2.0, *)
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(iOS 6.0, *)

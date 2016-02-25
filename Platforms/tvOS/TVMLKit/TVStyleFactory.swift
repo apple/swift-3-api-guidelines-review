@@ -15,5 +15,4 @@ enum TVViewElementStyleType : Int {
 @available(tvOS 9.0, *)
 class TVStyleFactory : NSObject {
   class func registerStyle(_ styleName: String, with type: TVViewElementStyleType, inherited inherited: Bool)
-  init()
 }

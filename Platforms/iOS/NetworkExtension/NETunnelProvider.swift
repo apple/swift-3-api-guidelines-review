@@ -30,5 +30,4 @@ class NETunnelProvider : NEProvider {
   var routingMethod: NETunnelProviderRoutingMethod { get }
   @available(iOS 9.0, *)
   var reasserting: Bool
-  init()
 }

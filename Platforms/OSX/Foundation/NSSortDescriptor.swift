@@ -14,7 +14,6 @@ class NSSortDescriptor : NSObject, NSSecureCoding, NSCopying {
   var comparator: NSComparator { get }
   func compare(_ object1: AnyObject, to object2: AnyObject) -> NSComparisonResult
   var reversedSortDescriptor: AnyObject { get }
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject

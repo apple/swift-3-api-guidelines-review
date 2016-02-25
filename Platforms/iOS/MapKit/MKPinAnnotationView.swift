@@ -20,8 +20,4 @@ class MKPinAnnotationView : MKAnnotationView {
   var animatesDrop: Bool
   @available(iOS, introduced=3.0, deprecated=9.0, message="Use pinTintColor instead")
   var pinColor: MKPinAnnotationColor
-  init(annotation annotation: MKAnnotation?, reuseIdentifier reuseIdentifier: String?)
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

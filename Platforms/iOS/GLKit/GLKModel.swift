@@ -5,7 +5,6 @@ let kGLKModelErrorDomain: String
 let kGLKModelErrorKey: String
 @available(iOS 9.0, *)
 class GLKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
-  init()
   @available(iOS 9.0, *)
   func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(iOS 9.0, *)
@@ -26,8 +25,6 @@ class GLKMeshBuffer : NSObject, MDLMeshBuffer {
   var glBufferName: GLuint { get }
   var offset: Int { get }
   var type: MDLMeshBufferType { get }
-  func zone() -> MDLMeshBufferZone?
-  init()
   @available(iOS 9.0, *)
   func fill(_ data: NSData, offset offset: Int)
   @available(iOS 9.0, *)

@@ -2,7 +2,6 @@
 class MLMediaLibrary : NSObject {
   init(options options: [String : AnyObject] = [:])
   var mediaSources: [String : MLMediaSource]? { get }
-  convenience init()
 }
 let MLMediaSourcePhotosIdentifier: String
 let MLMediaSourceiPhotoIdentifier: String

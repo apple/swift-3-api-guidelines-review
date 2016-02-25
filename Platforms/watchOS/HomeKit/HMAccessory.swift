@@ -15,7 +15,6 @@ class HMAccessory : NSObject {
   var services: [HMService] { get }
   var isBlocked: Bool { get }
   func identify(completionHandler completion: (NSError?) -> Void)
-  init()
 }
 @available(watchOS 20000, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {

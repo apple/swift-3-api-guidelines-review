@@ -7,6 +7,4 @@ class NSCustomImageRep : NSImageRep {
   init(draw aMethod: Selector, delegate anObject: AnyObject)
   var drawSelector: Selector { get }
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject? { get }
-  init()
-  init?(coder coder: NSCoder)
 }

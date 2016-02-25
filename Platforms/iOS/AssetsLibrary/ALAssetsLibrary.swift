@@ -85,7 +85,6 @@ class ALAssetsLibrary : NSObject {
   class func authorizationStatus() -> ALAuthorizationStatus
   @available(iOS, introduced=6.0, deprecated=9.0, message="Use the Photos framework instead")
   class func disableSharedPhotoStreamsSupport()
-  init()
 }
 
 extension ALAssetsLibrary {

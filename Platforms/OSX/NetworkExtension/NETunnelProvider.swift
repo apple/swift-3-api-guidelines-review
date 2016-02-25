@@ -30,5 +30,4 @@ class NETunnelProvider : NEProvider {
   var routingMethod: NETunnelProviderRoutingMethod { get }
   @available(OSX 10.11, *)
   var reasserting: Bool
-  init()
 }

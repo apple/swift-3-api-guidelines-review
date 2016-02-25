@@ -10,7 +10,6 @@ class MPMediaEntity : NSObject, NSSecureCoding {
   func value(forProperty property: String) -> AnyObject?
   @available(iOS 7.0, *)
   var persistentID: MPMediaEntityPersistentID { get }
-  init()
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)

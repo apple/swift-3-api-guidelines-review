@@ -11,7 +11,6 @@ class NSCache : NSObject {
   var totalCostLimit: Int
   var countLimit: Int
   var evictsObjectsWithDiscardedContent: Bool
-  init()
 }
 protocol NSCacheDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)

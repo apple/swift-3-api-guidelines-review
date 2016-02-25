@@ -17,9 +17,6 @@ class UIWindow : UIView {
   func convert(_ point: CGPoint, from window: UIWindow?) -> CGPoint
   func convert(_ rect: CGRect, to window: UIWindow?) -> CGRect
   func convert(_ rect: CGRect, from window: UIWindow?) -> CGRect
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 let UIWindowLevelNormal: UIWindowLevel
 let UIWindowLevelAlert: UIWindowLevel

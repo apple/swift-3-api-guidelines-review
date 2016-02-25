@@ -18,7 +18,6 @@ class UIDynamicAnimator : NSObject {
   var isRunning: Bool { get }
   func elapsedTime() -> NSTimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?
-  convenience init()
 }
 extension UIDynamicAnimator {
   convenience init(collectionViewLayout layout: UICollectionViewLayout)

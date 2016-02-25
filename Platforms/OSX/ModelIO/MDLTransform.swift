@@ -28,7 +28,6 @@ class MDLTransform : NSObject, MDLTransformComponent {
   var rotation: vector_float3
   var shear: vector_float3
   var scale: vector_float3
-  convenience init()
   @available(OSX 10.11, *)
   var matrix: matrix_float4x4
   @available(OSX 10.11, *)

@@ -5,11 +5,4 @@ class NSStepper : NSControl, NSAccessibilityStepper {
   var increment: Double
   var valueWraps: Bool
   var autorepeat: Bool
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
-  func accessibilityLabel() -> String?
-  func accessibilityPerformIncrement() -> Bool
-  func accessibilityPerformDecrement() -> Bool
-  func accessibilityValue() -> AnyObject?
 }

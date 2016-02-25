@@ -3,7 +3,6 @@
 class NSAttributedString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var string: String { get }
   func attributes(at location: Int, effectiveRange range: NSRangePointer) -> [String : AnyObject]
-  init()
   @available(OSX 10.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
@@ -39,11 +38,6 @@ struct NSAttributedStringEnumerationOptions : OptionSetType {
 class NSMutableAttributedString : NSAttributedString {
   func replaceCharacters(in range: NSRange, with str: String)
   func setAttributes(_ attrs: [String : AnyObject]?, range range: NSRange)
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: NSAttributedString)
 }
 extension NSMutableAttributedString {
   var mutableString: NSMutableString { get }

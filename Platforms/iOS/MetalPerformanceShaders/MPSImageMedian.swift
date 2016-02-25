@@ -5,5 +5,4 @@ class MPSImageMedian : MPSUnaryImageKernel {
   init(device device: MTLDevice, kernelDiameter kernelDiameter: Int)
   class func maxKernelDiameter() -> Int
   class func minKernelDiameter() -> Int
-  convenience init()
 }

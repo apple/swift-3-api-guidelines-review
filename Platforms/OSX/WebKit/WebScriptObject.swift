@@ -34,11 +34,9 @@ class WebScriptObject : NSObject {
   func setWebScriptValueAt(_ index: UInt32, value value: AnyObject!)
   func setException(_ description: String!)
   func jsValue() -> JSValue!
-  init()
 }
 @available(OSX 10.4, *)
 class WebUndefined : NSObject, NSCoding, NSCopying {
-  init()
   @available(OSX 10.4, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

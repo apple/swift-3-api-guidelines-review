@@ -39,7 +39,6 @@ class DRCDTextBlock : NSObject {
   func object(forKey key: String!, ofTrack trackIndex: Int) -> AnyObject!
   func setObject(_ value: AnyObject!, forKey key: String!, ofTrack trackIndex: Int)
   func flatten() -> Int
-  init()
 }
 extension DRCDTextBlock {
   func language() -> String!

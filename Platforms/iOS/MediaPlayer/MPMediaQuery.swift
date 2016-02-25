@@ -34,7 +34,6 @@ class MPMediaQuery : NSObject, NSSecureCoding, NSCopying {
   class func compilations() -> MPMediaQuery
   class func composers() -> MPMediaQuery
   class func genres() -> MPMediaQuery
-  convenience init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
@@ -45,7 +44,6 @@ class MPMediaQuery : NSObject, NSSecureCoding, NSCopying {
 }
 @available(iOS 3.0, *)
 class MPMediaPredicate : NSObject, NSSecureCoding {
-  init()
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
@@ -66,8 +64,6 @@ class MPMediaPropertyPredicate : MPMediaPredicate {
   var property: String { get }
   @NSCopying var value: AnyObject? { get }
   var comparisonType: MPMediaPredicateComparison { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 extension MPMediaItem {
   @available(iOS 4.2, *)

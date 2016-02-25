@@ -32,7 +32,6 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func objectEnumerator() -> NSEnumerator?
   func removeAllObjects()
   func dictionaryRepresentation() -> [NSObject : AnyObject]
-  convenience init()
   @available(iOS 6.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 6.0, *)

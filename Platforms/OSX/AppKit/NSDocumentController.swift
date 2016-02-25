@@ -1,7 +1,6 @@
 
 class NSDocumentController : NSObject, NSCoding, NSUserInterfaceValidations {
   class func shared() -> NSDocumentController
-  init()
   init?(coder coder: NSCoder)
   var documents: [NSDocument] { get }
   var currentDocument: NSDocument? { get }

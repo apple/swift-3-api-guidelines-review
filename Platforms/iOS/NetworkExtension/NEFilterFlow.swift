@@ -4,7 +4,6 @@ var NEFilterFlowBytesMax: UInt64 { get }
 class NEFilterFlow : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   var url: NSURL? { get }
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
@@ -21,8 +20,6 @@ class NEFilterBrowserFlow : NEFilterFlow, NSSecureCoding, NSCopying {
   var response: NSURLResponse? { get }
   @available(iOS 9.0, *)
   var parentURL: NSURL? { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
 class NEFilterSocketFlow : NEFilterFlow, NSSecureCoding, NSCopying {
@@ -36,6 +33,4 @@ class NEFilterSocketFlow : NEFilterFlow, NSSecureCoding, NSCopying {
   var socketType: Int32
   @available(iOS 9.0, *)
   var socketProtocol: Int32
-  init()
-  init?(coder aDecoder: NSCoder)
 }

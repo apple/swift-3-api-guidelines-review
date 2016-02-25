@@ -31,7 +31,6 @@ class UISegmentedControl : UIControl, NSCoding {
   func setEnabled(_ enabled: Bool, forSegmentAt segment: Int)
   func isEnabledForSegment(at segment: Int) -> Bool
   var selectedSegmentIndex: Int
-  var tintColor: UIColor!
   @available(tvOS 5.0, *)
   func setBackgroundImage(_ backgroundImage: UIImage?, for state: UIControlState, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
@@ -48,7 +47,4 @@ class UISegmentedControl : UIControl, NSCoding {
   func setContentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func contentPositionAdjustment(forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics barMetrics: UIBarMetrics) -> UIOffset
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

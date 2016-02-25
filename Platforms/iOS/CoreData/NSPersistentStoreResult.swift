@@ -17,7 +17,6 @@ enum NSBatchDeleteRequestResultType : UInt {
 }
 @available(iOS 8.0, *)
 class NSPersistentStoreResult : NSObject {
-  init()
 }
 @available(iOS 8.0, *)
 class NSPersistentStoreAsynchronousResult : NSPersistentStoreResult {
@@ -25,23 +24,19 @@ class NSPersistentStoreAsynchronousResult : NSPersistentStoreResult {
   var operationError: NSError? { get }
   var progress: NSProgress? { get }
   func cancel()
-  init()
 }
 @available(iOS 8.0, *)
 class NSAsynchronousFetchResult : NSPersistentStoreAsynchronousResult {
   var fetchRequest: NSAsynchronousFetchRequest { get }
   var finalResult: [AnyObject]? { get }
-  init()
 }
 @available(iOS 8.0, *)
 class NSBatchUpdateResult : NSPersistentStoreResult {
   var result: AnyObject? { get }
   var resultType: NSBatchUpdateRequestResultType { get }
-  init()
 }
 @available(iOS 9.0, *)
 class NSBatchDeleteResult : NSPersistentStoreResult {
   var result: AnyObject? { get }
   var resultType: NSBatchDeleteRequestResultType { get }
-  init()
 }

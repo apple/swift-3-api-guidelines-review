@@ -42,7 +42,4 @@ class SKScene : SKEffectNode {
   func didMove(to view: SKView)
   func willMove(from view: SKView)
   func didChangeSize(_ oldSize: CGSize)
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }

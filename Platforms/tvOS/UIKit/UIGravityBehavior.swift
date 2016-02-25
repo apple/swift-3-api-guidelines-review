@@ -9,5 +9,4 @@ class UIGravityBehavior : UIDynamicBehavior {
   var angle: CGFloat
   var magnitude: CGFloat
   func setAngle(_ angle: CGFloat, magnitude magnitude: CGFloat)
-  convenience init()
 }

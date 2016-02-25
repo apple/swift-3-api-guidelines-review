@@ -16,8 +16,6 @@ class UITabBar : UIView {
   func beginCustomizingItems(_ items: [UITabBarItem])
   func endCustomizing(animated animated: Bool) -> Bool
   func isCustomizing() -> Bool
-  @available(iOS 5.0, *)
-  var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS, introduced=5.0, deprecated=8.0, message="Use tintColor")
@@ -38,9 +36,6 @@ class UITabBar : UIView {
   var barStyle: UIBarStyle
   @available(iOS 7.0, *)
   var isTranslucent: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)

@@ -46,7 +46,6 @@ class AVAudioConverter : NSObject {
   var primeInfo: AVAudioConverterPrimeInfo
   func convert(to outputBuffer: AVAudioPCMBuffer, from inputBuffer: AVAudioPCMBuffer) throws
   func convert(to outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFrom inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
-  init()
 }
 extension AVAudioConverter {
   var bitRate: Int

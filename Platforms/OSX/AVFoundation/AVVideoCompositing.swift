@@ -23,7 +23,6 @@ class AVVideoCompositionRenderContext : NSObject {
   var highQualityRendering: Bool { get }
   var videoComposition: AVVideoComposition { get }
   func newPixelBuffer() -> CVPixelBuffer?
-  init()
 }
 @available(OSX 10.9, *)
 protocol AVVideoCompositing : NSObjectProtocol {
@@ -43,7 +42,6 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
   func finishWithError(_ error: NSError)
   func finishCancelledRequest()
-  init()
   @available(OSX 10.9, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -54,7 +52,6 @@ class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var sourceImage: CIImage { get }
   func finish(_ filteredImage: CIImage, context context: CIContext?)
   func finishWithError(_ error: NSError)
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

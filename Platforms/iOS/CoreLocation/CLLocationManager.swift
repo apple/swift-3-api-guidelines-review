@@ -101,5 +101,4 @@ class CLLocationManager : NSObject {
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)
   class func deferredLocationUpdatesAvailable() -> Bool
-  init()
 }

@@ -5,7 +5,6 @@ class NSManagedObjectID : NSObject, NSCopying {
   weak var persistentStore: @sil_weak NSPersistentStore? { get }
   var isTemporaryID: Bool { get }
   func uriRepresentation() -> NSURL
-  init()
   @available(iOS 3.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

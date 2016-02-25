@@ -3,9 +3,6 @@ class ABPerson : ABRecord {
   func parentGroups() -> [AnyObject]!
   @available(OSX 10.8, *)
   func linkedPeople() -> [AnyObject]!
-  init!()
-  @available(OSX 10.5, *)
-  init!(addressBook addressBook: ABAddressBook!)
 }
 extension ABPerson {
   class func addPropertiesAndTypes(_ properties: [NSObject : AnyObject]!) -> Int

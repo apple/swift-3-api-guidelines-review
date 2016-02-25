@@ -37,7 +37,6 @@ class NSConstraintConflict : NSObject {
   var conflictingObjects: [NSManagedObject] { get }
   var conflictingSnapshots: [[NSObject : AnyObject]] { get }
   init(constraint contraint: [String], databaseObject databaseObject: NSManagedObject?, databaseSnapshot databaseSnapshot: [NSObject : AnyObject]?, conflictingObjects conflictingObjects: [NSManagedObject], conflictingSnapshots conflictingSnapshots: [AnyObject])
-  convenience init()
 }
 @available(watchOS 2.0, *)
 class NSMergePolicy : NSObject {

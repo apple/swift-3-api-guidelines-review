@@ -20,7 +20,4 @@ class AVCaptureVideoPreviewLayer : CALayer {
   func rectForMetadataOutputRect(ofInterest rectInMetadataOutputCoordinates: CGRect) -> CGRect
   @available(iOS 6.0, *)
   func transformedMetadataObject(for metadataObject: AVMetadataObject!) -> AVMetadataObject!
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

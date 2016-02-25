@@ -7,7 +7,6 @@ class WebArchive : NSObject, NSCoding, NSCopying {
   var subresources: [AnyObject]! { get }
   var subframeArchives: [AnyObject]! { get }
   @NSCopying var data: NSData! { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject

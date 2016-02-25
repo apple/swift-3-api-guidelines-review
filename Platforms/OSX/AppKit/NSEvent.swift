@@ -280,7 +280,6 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   class func addLocalMonitorForEvents(matching mask: NSEventMask, handler block: (NSEvent) -> NSEvent?) -> AnyObject?
   @available(OSX 10.6, *)
   class func removeMonitor(_ eventMonitor: AnyObject)
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

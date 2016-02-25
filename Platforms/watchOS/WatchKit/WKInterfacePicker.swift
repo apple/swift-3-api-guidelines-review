@@ -14,7 +14,6 @@ class WKPickerItem : NSObject, NSSecureCoding {
   var caption: String?
   @NSCopying var accessoryImage: WKImage?
   @NSCopying var contentImage: WKImage?
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

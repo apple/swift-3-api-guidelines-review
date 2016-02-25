@@ -3,8 +3,6 @@
 let HMErrorDomain: String
 @available(iOS 8.0, *)
 enum HMErrorCode : Int {
-  init?(rawValue rawValue: Int)
-  var rawValue: Int { get }
   case alreadyExists
   case notFound
   case invalidParameter
@@ -96,6 +94,4 @@ enum HMErrorCode : Int {
 }
 
 extension HMErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

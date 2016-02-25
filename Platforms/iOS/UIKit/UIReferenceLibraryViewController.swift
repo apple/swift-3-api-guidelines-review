@@ -3,5 +3,4 @@
 class UIReferenceLibraryViewController : UIViewController {
   class func dictionaryHasDefinition(forTerm term: String) -> Bool
   init(term term: String)
-  init(coder aDecoder: NSCoder)
 }

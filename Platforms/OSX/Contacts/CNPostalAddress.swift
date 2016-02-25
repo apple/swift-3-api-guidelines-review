@@ -8,7 +8,6 @@ class CNPostalAddress : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var country: String { get }
   var isoCountryCode: String { get }
   class func localizedString(forKey key: String) -> String
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)

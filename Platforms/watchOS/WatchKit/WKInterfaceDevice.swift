@@ -51,5 +51,4 @@ class WKInterfaceDevice : NSObject {
   var systemName: String { get }
   @available(watchOS 2.0, *)
   func play(_ type: WKHapticType)
-  init()
 }

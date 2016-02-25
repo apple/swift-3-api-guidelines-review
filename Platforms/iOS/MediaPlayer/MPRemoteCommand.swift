@@ -16,12 +16,10 @@ class MPRemoteCommand : NSObject {
   func removeTarget(_ target: AnyObject, action action: Selector)
   func removeTarget(_ target: AnyObject?)
   func addTarget(handler handler: (MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus) -> AnyObject
-  init()
 }
 @available(iOS 7.1, *)
 class MPSkipIntervalCommand : MPRemoteCommand {
   var preferredIntervals: [AnyObject]
-  init()
 }
 @available(iOS 7.1, *)
 class MPFeedbackCommand : MPRemoteCommand {
@@ -29,20 +27,16 @@ class MPFeedbackCommand : MPRemoteCommand {
   var localizedTitle: String
   @available(iOS 8.0, *)
   var localizedShortTitle: String
-  init()
 }
 @available(iOS 7.1, *)
 class MPRatingCommand : MPRemoteCommand {
   var minimumRating: Float
   var maximumRating: Float
-  init()
 }
 @available(iOS 7.1, *)
 class MPChangePlaybackRateCommand : MPRemoteCommand {
   var supportedPlaybackRates: [NSNumber]
-  init()
 }
 @available(iOS 9.0, *)
 class MPChangePlaybackPositionCommand : MPRemoteCommand {
-  init()
 }

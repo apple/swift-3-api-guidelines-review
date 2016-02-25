@@ -2,13 +2,8 @@
 @available(OSX 10.8, *)
 class SCNLayer : CAOpenGLLayer, SCNSceneRenderer, SCNTechniqueSupport {
   var scene: SCNScene?
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
   var sceneTime: NSTimeInterval
-  @available(OSX 10.8, *)
-  unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
   func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(OSX 10.9, *)

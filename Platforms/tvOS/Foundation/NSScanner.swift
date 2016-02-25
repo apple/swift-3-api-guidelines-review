@@ -6,7 +6,6 @@ class NSScanner : NSObject, NSCopying {
   var caseSensitive: Bool
   var locale: AnyObject?
   init(string string: String)
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 extension NSScanner {

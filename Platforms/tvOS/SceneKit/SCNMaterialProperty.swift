@@ -38,7 +38,6 @@ class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   var mappingChannel: Int
   @available(tvOS 8.0, *)
   var maxAnisotropy: CGFloat
-  init()
   @available(tvOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)

@@ -6,5 +6,4 @@ class WKUserContentController : NSObject {
   func removeAllUserScripts()
   func add(_ scriptMessageHandler: WKScriptMessageHandler, name name: String)
   func removeScriptMessageHandler(forName name: String)
-  init()
 }

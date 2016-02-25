@@ -3,7 +3,6 @@
 class AVInterstitialTimeRange : NSObject, NSCopying, NSSecureCoding {
   init(timeRange timeRange: CMTimeRange)
   var timeRange: CMTimeRange { get }
-  convenience init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)

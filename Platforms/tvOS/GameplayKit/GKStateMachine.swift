@@ -6,7 +6,6 @@ class GKStateMachine : NSObject {
   func update(deltaTime sec: NSTimeInterval)
   func canEnterState(_ stateClass: AnyClass) -> Bool
   func enterState(_ stateClass: AnyClass) -> Bool
-  convenience init()
 }
 
 @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)

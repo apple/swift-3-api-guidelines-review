@@ -13,7 +13,6 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
   var nextFrameTime: CFTimeInterval { get }
   @available(tvOS, introduced=8.0, deprecated=9.0)
   func render()
-  init()
   @available(tvOS 8.0, *)
   var sceneTime: NSTimeInterval
   @available(tvOS 8.0, *)

@@ -10,5 +10,4 @@ class NSHost : NSObject {
   var addresses: [String] { get }
   @available(OSX 10.6, *)
   var localizedName: String? { get }
-  init()
 }

@@ -9,7 +9,6 @@ enum CKRecordSavePolicy : Int {
 }
 @available(iOS 8.0, *)
 class CKModifyRecordsOperation : CKDatabaseOperation {
-  init()
   convenience init(recordsToSave records: [CKRecord]?, recordIDsToDelete recordIDs: [CKRecordID]?)
   var recordsToSave: [CKRecord]?
   var recordIDsToDelete: [CKRecordID]?

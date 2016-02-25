@@ -13,5 +13,4 @@ class NEPacketTunnelProvider : NETunnelProvider {
   func createTCPConnectionThroughTunnel(to remoteEndpoint: NWEndpoint, enableTLS enableTLS: Bool, tlsParameters TLSParameters: NWTLSParameters?, delegate delegate: AnyObject?) -> NWTCPConnection
   @available(iOS 9.0, *)
   func createUDPSessionThroughTunnel(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
-  init()
 }

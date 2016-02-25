@@ -27,7 +27,4 @@ class UISlider : UIControl, NSCoding {
   func maximumValueImageRect(forBounds bounds: CGRect) -> CGRect
   func trackRect(forBounds bounds: CGRect) -> CGRect
   func thumbRect(forBounds bounds: CGRect, trackRect rect: CGRect, value value: Float) -> CGRect
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

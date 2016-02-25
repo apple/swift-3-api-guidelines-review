@@ -9,5 +9,4 @@ class SKProduct : NSObject {
   var downloadable: Bool { get }
   var contentVersion: String? { get }
   var contentLengths: [NSNumber]? { get }
-  init()
 }

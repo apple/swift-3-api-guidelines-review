@@ -1,7 +1,6 @@
 
 @available(iOS 6.0, *)
 class NSShadow : NSObject, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   var shadowOffset: CGSize
   var shadowBlurRadius: CGFloat

@@ -3,7 +3,6 @@ extension DOMNode {
   var webArchive: WebArchive! { get }
 }
 extension DOMDocument {
-  var webFrame: WebFrame! { get }
   func url(withAttributeString string: String!) -> NSURL!
 }
 extension DOMRange {

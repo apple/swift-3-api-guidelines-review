@@ -10,7 +10,6 @@ class IOBluetoothDeviceInquiry : NSObject {
   func foundDevices() -> [AnyObject]!
   func clearFoundDevices()
   func setSearchCriteria(_ inServiceClassMajor: BluetoothServiceClassMajor, majorDeviceClass inMajorDeviceClass: BluetoothDeviceClassMajor, minorDeviceClass inMinorDeviceClass: BluetoothDeviceClassMinor)
-  init()
 }
 protocol IOBluetoothDeviceInquiryDelegate {
   optional func deviceInquiryStarted(_ sender: IOBluetoothDeviceInquiry!)

@@ -12,5 +12,4 @@ enum SFContentBlockerErrorCode : Int {
 @available(iOS 9.0, *)
 class SFContentBlockerManager : NSObject {
   class func reloadContentBlocker(identifier identifier: String, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }

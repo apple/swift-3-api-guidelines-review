@@ -51,7 +51,6 @@ class SCNLight : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSecu
   func attribute(forKey key: String) -> AnyObject?
   @available(OSX, introduced=10.8, deprecated=10.10)
   func setAttribute(_ attribute: AnyObject?, forKey key: String)
-  init()
   @available(OSX 10.8, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)

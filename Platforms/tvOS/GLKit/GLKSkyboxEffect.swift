@@ -10,5 +10,4 @@ class GLKSkyboxEffect : NSObject, GLKNamedEffect {
   var textureCubeMap: GLKEffectPropertyTexture { get }
   var transform: GLKEffectPropertyTransform { get }
   var label: String?
-  init()
 }

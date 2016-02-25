@@ -12,9 +12,6 @@ class UIPickerView : UIView, NSCoding, UITableViewDataSource {
   func reloadComponent(_ component: Int)
   func selectRow(_ row: Int, inComponent component: Int, animated animated: Bool)
   func selectedRow(inComponent component: Int) -> Int
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 2.0, *)
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)

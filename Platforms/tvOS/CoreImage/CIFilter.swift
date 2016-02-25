@@ -140,7 +140,6 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   var outputKeys: [String] { get }
   func setDefaults()
   var attributes: [String : AnyObject] { get }
-  init()
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)

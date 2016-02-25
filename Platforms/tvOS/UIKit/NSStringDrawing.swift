@@ -4,7 +4,6 @@ class NSStringDrawingContext : NSObject {
   var minimumScaleFactor: CGFloat
   var actualScaleFactor: CGFloat { get }
   var totalBounds: CGRect { get }
-  init()
 }
 extension NSString {
   @available(tvOS 7.0, *)

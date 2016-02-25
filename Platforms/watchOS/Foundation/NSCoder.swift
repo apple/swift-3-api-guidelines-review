@@ -5,7 +5,6 @@ class NSCoder : NSObject {
   func decodeValue(ofObjCType type: UnsafePointer<Int8>, at data: UnsafeMutablePointer<Void>)
   func decodeDataObject() -> NSData?
   func version(forClassName className: String) -> Int
-  init()
 }
 
 extension NSCoder {

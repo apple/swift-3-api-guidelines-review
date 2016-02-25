@@ -24,7 +24,6 @@ class EAWiFiUnconfiguredAccessoryBrowser : NSObject {
   func startSearchingForUnconfiguredAccessories(matching predicate: NSPredicate?)
   @available(iOS 8.0, *)
   func stopSearchingForUnconfiguredAccessories()
-  convenience init()
 }
 protocol EAWiFiUnconfiguredAccessoryBrowserDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)

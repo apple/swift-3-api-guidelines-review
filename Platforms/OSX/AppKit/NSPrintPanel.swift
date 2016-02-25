@@ -48,7 +48,6 @@ class NSPrintPanel : NSObject {
   func runModal() -> Int
   @available(OSX 10.5, *)
   var printInfo: NSPrintInfo { get }
-  init()
 }
 extension NSPrintPanel {
 }

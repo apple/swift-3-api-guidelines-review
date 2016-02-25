@@ -13,5 +13,4 @@ class NSTimer : NSObject {
   func invalidate()
   var isValid: Bool { get }
   var userInfo: AnyObject? { get }
-  convenience init()
 }

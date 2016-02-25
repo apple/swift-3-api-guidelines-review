@@ -24,7 +24,6 @@ class NSCollectionViewLayoutAttributes : NSObject, NSCopying {
   convenience init(forInterItemGapBefore indexPath: NSIndexPath)
   convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: NSIndexPath)
   convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: NSIndexPath)
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -43,7 +42,6 @@ class NSCollectionViewUpdateItem : NSObject {
   var indexPathBeforeUpdate: NSIndexPath? { get }
   var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: NSCollectionUpdateAction { get }
-  init()
 }
 @available(OSX 10.11, *)
 class NSCollectionViewLayoutInvalidationContext : NSObject {
@@ -57,7 +55,6 @@ class NSCollectionViewLayoutInvalidationContext : NSObject {
   var invalidatedDecorationIndexPaths: [String : Set<NSIndexPath>]? { get }
   var contentOffsetAdjustment: NSPoint
   var contentSizeAdjustment: NSSize
-  init()
 }
 @available(OSX 10.11, *)
 class NSCollectionViewLayout : NSObject, NSCoding {
@@ -66,7 +63,6 @@ class NSCollectionViewLayout : NSObject, NSCoding {
   func invalidateLayout(with context: NSCollectionViewLayoutInvalidationContext)
   func register(_ viewClass: AnyClass?, forDecorationViewOfKind elementKind: String)
   func register(_ nib: NSNib?, forDecorationViewOfKind elementKind: String)
-  init()
   @available(OSX 10.11, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

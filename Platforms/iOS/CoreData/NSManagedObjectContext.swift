@@ -28,10 +28,6 @@ enum NSManagedObjectContextConcurrencyType : UInt {
 }
 @available(iOS 3.0, *)
 class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
-  @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
-  class func new() -> Self
-  @available(iOS, introduced=3.0, deprecated=9.0, message="Use -initWithConcurrencyType: instead")
-  convenience init()
   @available(iOS 5.0, *)
   init(concurrencyType ct: NSManagedObjectContextConcurrencyType)
   @available(iOS 5.0, *)
@@ -62,7 +58,6 @@ class NSManagedObjectContext : NSObject, NSCoding, NSLocking {
   func delete(_ object: NSManagedObject)
   func refreshObject(_ object: NSManagedObject, mergeChanges flag: Bool)
   func detectConflicts(for object: NSManagedObject)
-  func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change change: [String : AnyObject]?, context context: UnsafeMutablePointer<Void>)
   func processPendingChanges()
   func assign(_ object: AnyObject, to store: NSPersistentStore)
   var insertedObjects: Set<NSManagedObject> { get }

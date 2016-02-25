@@ -26,7 +26,6 @@ class NSExceptionHandler : NSObject {
   func exceptionHangingMask() -> Int
   func setDelegate(_ anObject: AnyObject!)
   func delegate() -> AnyObject!
-  init()
 }
 extension NSObject {
   class func exceptionHandler(_ sender: NSExceptionHandler!, shouldLogException exception: NSException!, mask aMask: Int) -> Bool

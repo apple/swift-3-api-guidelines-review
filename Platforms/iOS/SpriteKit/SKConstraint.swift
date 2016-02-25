@@ -9,7 +9,6 @@ class SKRange : NSObject, NSCoding, NSCopying {
   class func withNoLimits() -> Self
   var lowerLimit: CGFloat
   var upperLimit: CGFloat
-  convenience init()
   @available(iOS 8.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -30,7 +29,6 @@ class SKConstraint : NSObject, NSCoding, NSCopying {
   class func orient(to node: SKNode, offset radians: SKRange) -> Self
   class func orient(to point: CGPoint, offset radians: SKRange) -> Self
   class func orient(to point: CGPoint, in node: SKNode, offset radians: SKRange) -> Self
-  init()
   @available(iOS 8.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

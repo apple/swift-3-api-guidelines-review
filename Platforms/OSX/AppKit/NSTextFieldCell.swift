@@ -9,7 +9,6 @@ class NSTextFieldCell : NSActionCell {
   @NSCopying var backgroundColor: NSColor?
   var drawsBackground: Bool
   @NSCopying var textColor: NSColor?
-  func setUpFieldEditorAttributes(_ textObj: NSText) -> NSText
   var bezelStyle: NSTextFieldBezelStyle
   var placeholderString: String?
   @NSCopying var placeholderAttributedString: NSAttributedString?
@@ -17,10 +16,6 @@ class NSTextFieldCell : NSActionCell {
   func setWantsNotificationForMarkedText(_ flag: Bool)
   @available(OSX 10.5, *)
   var allowedInputSourceLocales: [String]?
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __tfFlags {
   var drawsBackground: UInt32

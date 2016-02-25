@@ -6,5 +6,4 @@ class NSPortMessage : NSObject {
   var sendPort: NSPort? { get }
   func send(before date: NSDate) -> Bool
   var msgid: UInt32
-  convenience init()
 }

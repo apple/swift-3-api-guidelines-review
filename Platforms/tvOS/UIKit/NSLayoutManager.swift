@@ -32,7 +32,6 @@ protocol NSTextLayoutOrientationProvider {
 }
 @available(tvOS 7.0, *)
 class NSLayoutManager : NSObject, NSCoding {
-  init()
   init?(coder coder: NSCoder)
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage?
   var textContainers: [NSTextContainer] { get }

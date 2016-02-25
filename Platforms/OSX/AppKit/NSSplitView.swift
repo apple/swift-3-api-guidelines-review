@@ -31,9 +31,6 @@ class NSSplitView : NSView {
   func holdingPriorityForSubview(at subviewIndex: Int) -> NSLayoutPriority
   @available(OSX 10.8, *)
   func setHoldingPriority(_ priority: NSLayoutPriority, forSubviewAt subviewIndex: Int)
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension NSSplitView {
   @available(OSX 10.11, *)

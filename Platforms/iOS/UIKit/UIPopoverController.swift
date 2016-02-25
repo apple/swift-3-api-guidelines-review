@@ -19,7 +19,6 @@ class UIPopoverController : NSObject, UIAppearanceContainer {
   var popoverLayoutMargins: UIEdgeInsets
   @available(iOS 5.0, *)
   var popoverBackgroundViewClass: AnyClass?
-  init()
 }
 protocol UIPopoverControllerDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.2, deprecated=9.0)

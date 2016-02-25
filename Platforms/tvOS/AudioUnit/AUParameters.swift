@@ -20,13 +20,11 @@ class AUParameterNode : NSObject {
   func token(byAddingParameterObserver observer: AUParameterObserver) -> AUParameterObserverToken
   func token(byAddingParameterRecordingObserver observer: AUParameterRecordingObserver) -> AUParameterObserverToken
   func removeParameterObserver(_ token: AUParameterObserverToken)
-  init()
 }
 @available(tvOS 9.0, *)
 class AUParameterGroup : AUParameterNode, NSSecureCoding {
   var children: [AUParameterNode] { get }
   var allParameters: [AUParameter] { get }
-  init()
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
@@ -37,8 +35,6 @@ class AUParameterGroup : AUParameterNode, NSSecureCoding {
 class AUParameterTree : AUParameterGroup, NSSecureCoding {
   func parameter(withAddress address: AUParameterAddress) -> AUParameter?
   func parameter(withID paramID: AudioUnitParameterID, scope scope: AudioUnitScope, element element: AudioUnitElement) -> AUParameter?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 class AUParameter : AUParameterNode, NSSecureCoding {
@@ -55,7 +51,6 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   func setValue(_ value: AUValue, originator originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
   func string(fromValue value: UnsafePointer<AUValue>) -> String
   func value(from string: String) -> AUValue
-  init()
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)

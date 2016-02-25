@@ -9,5 +9,4 @@ class WKWindowFeatures : NSObject {
   var y: NSNumber? { get }
   var width: NSNumber? { get }
   var height: NSNumber? { get }
-  init()
 }

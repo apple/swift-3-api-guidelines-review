@@ -33,9 +33,6 @@ class NSComboBox : NSTextField {
   var objectValueOfSelectedItem: AnyObject? { get }
   func indexOfItem(with object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NSComboBoxDataSource : NSObjectProtocol {
   optional func numberOfItems(in aComboBox: NSComboBox) -> Int

@@ -6,5 +6,4 @@ class AVNavigationMarkersGroup : NSObject {
   var title: String? { get }
   var timedNavigationMarkers: [AVTimedMetadataGroup]? { get }
   var dateRangeNavigationMarkers: [AVDateRangeMetadataGroup]? { get }
-  convenience init()
 }

@@ -7,9 +7,6 @@ class NSColorWell : NSControl {
   var isBordered: Bool
   func takeColorFrom(_ sender: AnyObject?)
   @NSCopying var color: NSColor
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __cwFlags {
   var isActive: UInt32

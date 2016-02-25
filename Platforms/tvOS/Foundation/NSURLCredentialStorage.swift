@@ -9,7 +9,6 @@ class NSURLCredentialStorage : NSObject {
   func remove(_ credential: NSURLCredential, for space: NSURLProtectionSpace, options options: [String : AnyObject]? = [:])
   func defaultCredential(for space: NSURLProtectionSpace) -> NSURLCredential?
   func setDefaultCredential(_ credential: NSURLCredential, for space: NSURLProtectionSpace)
-  init()
 }
 extension NSURLCredentialStorage {
   @available(tvOS 8.0, *)

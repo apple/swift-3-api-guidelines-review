@@ -10,7 +10,6 @@ class NSPageLayout : NSObject {
   func runModal(_ printInfo: NSPrintInfo) -> Int
   func runModal() -> Int
   var printInfo: NSPrintInfo? { get }
-  init()
 }
 extension NSPageLayout {
 }

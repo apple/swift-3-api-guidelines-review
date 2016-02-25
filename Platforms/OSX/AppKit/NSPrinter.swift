@@ -16,7 +16,6 @@ class NSPrinter : NSObject, NSCopying, NSCoding {
   var languageLevel: Int { get }
   func pageSize(forPaper paperName: String) -> NSSize
   var deviceDescription: [String : AnyObject] { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

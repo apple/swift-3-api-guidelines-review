@@ -6,7 +6,6 @@ class SCNLevelOfDetail : NSObject, NSCopying, NSSecureCoding {
   var geometry: SCNGeometry? { get }
   var screenSpaceRadius: CGFloat { get }
   var worldSpaceDistance: CGFloat { get }
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)

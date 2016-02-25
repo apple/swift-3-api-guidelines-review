@@ -30,7 +30,6 @@ class NSXPCConnection : NSObject, NSXPCProxyCreating {
   var processIdentifier: pid_t { get }
   var effectiveUserIdentifier: uid_t { get }
   var effectiveGroupIdentifier: gid_t { get }
-  init()
 }
 @available(OSX 10.8, *)
 class NSXPCListener : NSObject {
@@ -42,7 +41,6 @@ class NSXPCListener : NSObject {
   func resume()
   func suspend()
   func invalidate()
-  convenience init()
 }
 protocol NSXPCListenerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
@@ -56,11 +54,9 @@ class NSXPCInterface : NSObject {
   func classes(for sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> Set<NSObject>
   func setInterface(_ ifc: NSXPCInterface, for sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool)
   func forSelector(_ sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> NSXPCInterface?
-  init()
 }
 @available(OSX 10.8, *)
 class NSXPCListenerEndpoint : NSObject, NSSecureCoding {
-  init()
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

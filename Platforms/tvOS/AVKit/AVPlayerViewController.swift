@@ -8,9 +8,6 @@ class AVPlayerViewController : UIViewController {
   var isReadyForDisplay: Bool { get }
   var contentOverlayView: UIView? { get }
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 extension AVPlayerViewController {
   var allowedSubtitleOptionLanguages: [String]?

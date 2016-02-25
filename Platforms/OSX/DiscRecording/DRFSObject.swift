@@ -23,7 +23,6 @@ class DRFSObject : NSObject {
   func explicitFilesystemMask() -> DRFilesystemInclusionMask
   func setExplicitFilesystemMask(_ mask: DRFilesystemInclusionMask)
   func effectiveFilesystemMask() -> DRFilesystemInclusionMask
-  init()
 }
 @available(OSX 10.2, *)
 let DRAllFilesystems: String

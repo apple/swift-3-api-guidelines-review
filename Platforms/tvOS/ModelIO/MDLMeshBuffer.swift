@@ -9,7 +9,6 @@ enum MDLMeshBufferType : UInt {
 class MDLMeshBufferMap : NSObject {
   init(bytes bytes: UnsafeMutablePointer<Void>, deallocator deallocator: (() -> Void)? = nil)
   var bytes: UnsafeMutablePointer<Void> { get }
-  init()
 }
 @available(tvOS 9.0, *)
 protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
@@ -24,7 +23,6 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
   init(type type: MDLMeshBufferType, length length: Int)
   init(type type: MDLMeshBufferType, data data: NSData?)
   var data: NSData { get }
-  init()
   @available(tvOS 9.0, *)
   func fill(_ data: NSData, offset offset: Int)
   @available(tvOS 9.0, *)
@@ -53,7 +51,6 @@ protocol MDLMeshBufferAllocator : NSObjectProtocol {
   func newBuffer(from zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
-  init()
   @available(tvOS 9.0, *)
   func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(tvOS 9.0, *)
@@ -70,5 +67,4 @@ class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
 class MDLMeshBufferZoneDefault : NSObject, MDLMeshBufferZone {
   var capacity: Int { get }
   var allocator: MDLMeshBufferAllocator { get }
-  init()
 }

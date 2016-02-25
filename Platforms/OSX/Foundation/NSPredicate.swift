@@ -15,7 +15,6 @@ class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(OSX 10.9, *)
   func allowEvaluation()
-  init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)

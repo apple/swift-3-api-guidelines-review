@@ -5,5 +5,4 @@ class CKModifySubscriptionsOperation : CKDatabaseOperation {
   var subscriptionsToSave: [CKSubscription]?
   var subscriptionIDsToDelete: [String]?
   var modifySubscriptionsCompletionBlock: (([CKSubscription]?, [String]?, NSError?) -> Void)?
-  convenience init()
 }

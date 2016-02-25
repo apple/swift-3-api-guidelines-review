@@ -21,7 +21,6 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
   var count: Int { get }
   subscript(_ index: Int) -> MDLObject? { get }
   func object(at index: Int) -> MDLObject
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)

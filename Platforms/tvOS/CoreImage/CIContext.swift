@@ -29,7 +29,6 @@ class CIContext : NSObject {
   func inputImageMaximumSize() -> CGSize
   @available(tvOS 5.0, *)
   func outputImageMaximumSize() -> CGSize
-  init()
 }
 let kCIContextOutputColorSpace: String
 let kCIContextWorkingColorSpace: String

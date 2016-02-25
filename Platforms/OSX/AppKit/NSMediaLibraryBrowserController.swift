@@ -14,5 +14,4 @@ class NSMediaLibraryBrowserController : NSObject {
   var mediaLibraries: NSMediaLibrary
   class func shared() -> NSMediaLibraryBrowserController
   @IBAction func togglePanel(_ sender: AnyObject?)
-  init()
 }

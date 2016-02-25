@@ -9,7 +9,6 @@ class NSClipView : NSView {
   func viewFrameChanged(_ notification: NSNotification)
   func viewBoundsChanged(_ notification: NSNotification)
   var copiesOnScroll: Bool
-  func autoscroll(_ theEvent: NSEvent) -> Bool
   func scroll(to newOrigin: NSPoint)
   @available(OSX 10.9, *)
   func constrainBoundsRect(_ proposedBounds: NSRect) -> NSRect
@@ -17,9 +16,6 @@ class NSClipView : NSView {
   var contentInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var automaticallyAdjustsContentInsets: Bool
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __cvFlags {
   var onlyUncovered: UInt32

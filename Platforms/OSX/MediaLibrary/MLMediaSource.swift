@@ -8,5 +8,4 @@ class MLMediaSource : NSObject {
   func mediaGroups(forIdentifiers mediaGroupIdentifiers: [String]) -> [String : MLMediaGroup]
   func mediaObject(forIdentifier mediaObjectIdentifier: String) -> MLMediaObject?
   func mediaObjects(forIdentifiers mediaObjectIdentifiers: [String]) -> [String : MLMediaObject]
-  init()
 }

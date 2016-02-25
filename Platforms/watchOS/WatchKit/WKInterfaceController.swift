@@ -60,7 +60,6 @@ enum WKAudioRecorderPreset : Int {
 }
 @available(watchOS 2.0, *)
 class WKInterfaceController : NSObject {
-  init()
   func awake(context context: AnyObject?)
   var contentFrame: CGRect { get }
   func willActivate()
@@ -148,7 +147,6 @@ let WKAudioRecorderControllerOptionsAutorecordKey: String
 let WKAudioRecorderControllerOptionsMaximumDurationKey: String
 @available(watchOS 2.0, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
-  init()
   func didReceiveRemoteNotification(_ remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(_ localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   @available(watchOS 2.0, *)

@@ -23,7 +23,6 @@ class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
   func matchingDescriptors(options options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
   func matchingDescriptors(forFamily family: String) -> [NSFontDescriptor]?
   func matchingDescriptors(forFamily family: String, options options: [String : NSNumber]? = [:]) -> [NSFontDescriptor]?
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
@@ -34,17 +33,8 @@ class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
 }
 @available(OSX 10.7, *)
 class NSMutableFontCollection : NSFontCollection {
-  /*not inherited*/ init(descriptors queryDescriptors: [NSFontDescriptor])
-  class func withAllAvailableDescriptors() -> NSMutableFontCollection
-  /*not inherited*/ init(locale locale: NSLocale)
-  /*not inherited*/ init?(name name: String)
-  /*not inherited*/ init?(name name: String, visibility visibility: NSFontCollectionVisibility)
-  var queryDescriptors: [NSFontDescriptor]?
-  var exclusionDescriptors: [NSFontDescriptor]?
   func addQuery(for descriptors: [NSFontDescriptor])
   func removeQuery(for descriptors: [NSFontDescriptor])
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 let NSFontCollectionIncludeDisabledFontsOption: String

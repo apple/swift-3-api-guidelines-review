@@ -63,7 +63,6 @@ class NSPasteboard : NSObject {
   func data(forType dataType: String) -> NSData?
   func propertyList(forType dataType: String) -> AnyObject?
   func string(forType dataType: String) -> String?
-  init()
 }
 extension NSPasteboard {
   class func typesFilterable(to type: String) -> [String]

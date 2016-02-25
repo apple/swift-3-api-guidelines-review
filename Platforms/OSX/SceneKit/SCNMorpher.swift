@@ -11,7 +11,6 @@ class SCNMorpher : NSObject, SCNAnimatable, NSSecureCoding {
   func setWeight(_ weight: CGFloat, forTargetAt targetIndex: Int)
   func weightForTarget(at targetIndex: Int) -> CGFloat
   var calculationMode: SCNMorpherCalculationMode
-  init()
   @available(OSX 10.9, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.9, *)

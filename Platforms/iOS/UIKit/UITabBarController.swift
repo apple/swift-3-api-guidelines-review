@@ -10,9 +10,6 @@ class UITabBarController : UIViewController, UITabBarDelegate, NSCoding {
   @available(iOS 3.0, *)
   var tabBar: UITabBar { get }
   weak var delegate: @sil_weak UITabBarControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 2.0, *)
   func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
   @available(iOS 2.0, *)

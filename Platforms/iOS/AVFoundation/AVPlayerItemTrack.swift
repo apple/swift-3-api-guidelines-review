@@ -5,5 +5,4 @@ class AVPlayerItemTrack : NSObject {
   var isEnabled: Bool
   @available(iOS 7.0, *)
   var currentVideoFrameRate: Float { get }
-  init()
 }

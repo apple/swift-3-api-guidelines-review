@@ -89,5 +89,4 @@ class ICDevice : NSObject {
   func requestYield()
   func requestSendMessage(_ messageCode: UInt32, outData data: NSData, maxReturnedDataSize maxReturnedDataSize: UInt32, sendMessageDelegate sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func requestEjectOrDisconnect()
-  init()
 }

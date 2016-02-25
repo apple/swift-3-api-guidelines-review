@@ -27,10 +27,6 @@ class NSRulerView : NSView {
   func invalidateHashMarks()
   func drawHashMarksAndLabels(in rect: NSRect)
   func drawMarkers(in rect: NSRect)
-  var isFlipped: Bool { get }
-  convenience init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension NSView {
   func rulerView(_ ruler: NSRulerView, shouldMove marker: NSRulerMarker) -> Bool

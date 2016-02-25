@@ -38,7 +38,6 @@ class AVAudioPlayer : NSObject {
   func averagePower(forChannel channelNumber: Int) -> Float
   @available(iOS 7.0, *)
   var channelAssignments: [NSNumber]?
-  init()
 }
 protocol AVAudioPlayerDelegate : NSObjectProtocol {
   @available(iOS 2.2, *)

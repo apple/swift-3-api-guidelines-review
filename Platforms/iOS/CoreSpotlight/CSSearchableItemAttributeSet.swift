@@ -2,7 +2,6 @@
 @available(iOS 9.0, *)
 class CSSearchableItemAttributeSet : NSObject, NSCopying, NSSecureCoding {
   init(itemContentType itemContentType: String)
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)
@@ -14,22 +13,6 @@ class CSSearchableItemAttributeSet : NSObject, NSCopying, NSSecureCoding {
 class CSLocalizedString : NSString {
   init(localizedStrings localizedStrings: [NSObject : AnyObject])
   func localizedString() -> String
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
-  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
-  convenience init(string aString: String)
-  convenience init(format format: String, arguments argList: CVaListPointer)
-  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data data: NSData, encoding encoding: UInt)
-  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
-  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
-  convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
 }
 @available(iOS 9.0, *)
 class CSCustomAttributeKey : NSObject, NSCopying, NSSecureCoding {
@@ -40,7 +23,6 @@ class CSCustomAttributeKey : NSObject, NSCopying, NSSecureCoding {
   var isSearchableByDefault: Bool { get }
   var isUnique: Bool { get }
   var isMultiValued: Bool { get }
-  convenience init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

@@ -9,7 +9,6 @@ class NSDraggingImageComponent : NSObject {
   var key: String
   var contents: AnyObject?
   var frame: NSRect
-  convenience init()
 }
 @available(OSX 10.7, *)
 class NSDraggingItem : NSObject {
@@ -19,5 +18,4 @@ class NSDraggingItem : NSObject {
   var imageComponentsProvider: (() -> [NSDraggingImageComponent])?
   func setDraggingFrame(_ frame: NSRect, contents contents: AnyObject)
   var imageComponents: [NSDraggingImageComponent]? { get }
-  convenience init()
 }

@@ -35,7 +35,4 @@ class UIStackView : UIView {
   var spacing: CGFloat
   var isBaselineRelativeArrangement: Bool
   var isLayoutMarginsRelativeArrangement: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

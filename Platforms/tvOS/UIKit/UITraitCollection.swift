@@ -1,7 +1,6 @@
 
 @available(tvOS 8.0, *)
 class UITraitCollection : NSObject, NSCopying, NSSecureCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   func containsTraits(in trait: UITraitCollection?) -> Bool
   /*not inherited*/ init(traitsFrom traitCollections: [UITraitCollection])

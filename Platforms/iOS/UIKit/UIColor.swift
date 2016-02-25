@@ -36,7 +36,6 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   var cgColor: CGColor { get }
   @available(iOS 5.0, *)
   var ciColor: CIColor { get }
-  init()
   @available(iOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 2.0, *)
@@ -47,7 +46,6 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
 }
 
 extension UIColor : _ColorLiteralConvertible {
-  required convenience init(colorLiteralRed red: Float, green green: Float, blue blue: Float, alpha alpha: Float)
 }
 extension CIColor {
   @available(iOS 5.0, *)

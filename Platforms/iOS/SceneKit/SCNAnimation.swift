@@ -3,7 +3,6 @@ typealias SCNAnimationEventBlock = (CAAnimation, AnyObject, Bool) -> Void
 @available(iOS 8.0, *)
 class SCNAnimationEvent : NSObject {
   convenience init(keyTime time: CGFloat, block eventBlock: SCNAnimationEventBlock)
-  init()
 }
 protocol SCNAnimatable : NSObjectProtocol {
   func add(_ animation: CAAnimation, forKey key: String?)

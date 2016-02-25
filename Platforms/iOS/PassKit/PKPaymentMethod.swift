@@ -5,7 +5,6 @@ class PKPaymentMethod : NSObject {
   var network: String? { get }
   var type: PKPaymentMethodType { get }
   var paymentPass: PKPaymentPass? { get }
-  init()
 }
 @available(iOS 9.0, *)
 struct PKPaymentMethodType : OptionSetType {

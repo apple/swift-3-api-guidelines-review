@@ -26,7 +26,6 @@ class GKLeaderboard : NSObject {
   var isLoading: Bool { get }
   @available(OSX 10.9, *)
   var groupIdentifier: String? { get }
-  init()
   @available(OSX 10.10, *)
   init(players players: [GKPlayer])
   func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)

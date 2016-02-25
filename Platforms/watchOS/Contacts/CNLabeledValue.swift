@@ -9,7 +9,6 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   func settingValue(_ value: protocol<NSCopying, NSSecureCoding>) -> Self
   func settingLabel(_ label: String?, value value: protocol<NSCopying, NSSecureCoding>) -> Self
   class func localizedString(forLabel label: String) -> String
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

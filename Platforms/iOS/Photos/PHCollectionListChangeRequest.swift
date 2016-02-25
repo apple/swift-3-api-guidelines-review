@@ -13,5 +13,4 @@ class PHCollectionListChangeRequest : NSObject {
   func removeChildCollections(at indexes: NSIndexSet)
   func replaceChildCollections(at indexes: NSIndexSet, withChildCollections collections: NSFastEnumeration)
   func moveChildCollections(at indexes: NSIndexSet, to toIndex: Int)
-  init()
 }

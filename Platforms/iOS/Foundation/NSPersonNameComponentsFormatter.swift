@@ -22,9 +22,6 @@ class NSPersonNameComponentsFormatter : NSFormatter {
   class func localizedString(from components: NSPersonNameComponents, style nameFormatStyle: NSPersonNameComponentsFormatterStyle, options nameOptions: NSPersonNameComponentsFormatterOptions = []) -> String
   func string(from components: NSPersonNameComponents) -> String
   func annotatedString(from components: NSPersonNameComponents) -> NSAttributedString
-  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
 let NSPersonNameComponentKey: String

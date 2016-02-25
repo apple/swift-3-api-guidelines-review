@@ -29,5 +29,4 @@ class NSPropertyListSerialization : NSObject {
   class func data(fromPropertyList plist: AnyObject, format format: NSPropertyListFormat, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> NSData?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use propertyListWithData:options:format:error: instead.")
   class func propertyList(from data: NSData, mutabilityOption opt: NSPropertyListMutabilityOptions = [], format format: UnsafeMutablePointer<NSPropertyListFormat>, errorDescription errorString: UnsafeMutablePointer<NSString?>) -> AnyObject?
-  init()
 }

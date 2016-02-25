@@ -58,7 +58,6 @@ class UIPercentDrivenInteractiveTransition : NSObject, UIViewControllerInteracti
   func update(_ percentComplete: CGFloat)
   func cancel()
   func finish()
-  init()
   @available(iOS 7.0, *)
   func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning)
 }

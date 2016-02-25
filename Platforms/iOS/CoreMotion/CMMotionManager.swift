@@ -51,5 +51,4 @@ class CMMotionManager : NSObject {
   func stopDeviceMotionUpdates()
   @available(iOS 5.0, *)
   var showsDeviceMovementDisplay: Bool
-  init()
 }

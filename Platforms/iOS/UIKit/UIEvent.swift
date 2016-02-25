@@ -40,5 +40,4 @@ class UIEvent : NSObject {
   func coalescedTouches(for touch: UITouch) -> [UITouch]?
   @available(iOS 9.0, *)
   func predictedTouches(for touch: UITouch) -> [UITouch]?
-  init()
 }

@@ -18,14 +18,8 @@ let NSNotificationDeliverImmediately: NSDistributedNotificationOptions
 let NSNotificationPostToAllSessions: NSDistributedNotificationOptions
 class NSDistributedNotificationCenter : NSNotificationCenter {
   class func forType(_ notificationCenterType: String) -> NSDistributedNotificationCenter
-  class func defaultCenter() -> NSDistributedNotificationCenter
   func addObserver(_ observer: AnyObject, selector selector: Selector, name name: String?, object object: String?, suspensionBehavior suspensionBehavior: NSNotificationSuspensionBehavior)
   func postNotificationName(_ name: String, object object: String?, userInfo userInfo: [NSObject : AnyObject]? = [:], deliverImmediately deliverImmediately: Bool)
   func postNotificationName(_ name: String, object object: String?, userInfo userInfo: [NSObject : AnyObject]? = [:], options options: NSDistributedNotificationOptions = [])
   var suspended: Bool
-  func addObserver(_ observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: String?)
-  func postNotificationName(_ aName: String, object anObject: String?)
-  func postNotificationName(_ aName: String, object anObject: String?, userInfo aUserInfo: [NSObject : AnyObject]? = [:])
-  func removeObserver(_ observer: AnyObject, name aName: String?, object anObject: String?)
-  init()
 }

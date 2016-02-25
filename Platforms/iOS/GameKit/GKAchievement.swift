@@ -16,7 +16,6 @@ class GKAchievement : NSObject, NSCoding, NSSecureCoding {
   var showsCompletionBanner: Bool
   @available(iOS 8.0, *)
   var player: GKPlayer { get }
-  init()
   @available(iOS 4.1, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

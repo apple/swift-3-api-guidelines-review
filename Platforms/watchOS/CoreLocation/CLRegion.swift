@@ -15,7 +15,6 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   var notifyOnExit: Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func contains(_ coordinate: CLLocationCoordinate2D) -> Bool
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

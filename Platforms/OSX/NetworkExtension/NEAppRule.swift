@@ -11,7 +11,6 @@ class NEAppRule : NSObject, NSSecureCoding, NSCopying {
   var matchPath: String?
   @available(OSX 10.11, *)
   var matchDomains: [AnyObject]?
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

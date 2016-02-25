@@ -3,7 +3,6 @@
 class CNGroup : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var identifier: String { get }
   var name: String { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

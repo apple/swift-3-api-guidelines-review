@@ -5,5 +5,4 @@ class CBATTRequest : NSObject {
   var characteristic: CBCharacteristic { get }
   var offset: Int { get }
   @NSCopying var value: NSData?
-  init()
 }

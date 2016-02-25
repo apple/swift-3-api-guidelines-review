@@ -9,5 +9,4 @@ class CNSaveRequest : NSObject {
   func delete(_ group: CNMutableGroup)
   func addMember(_ contact: CNContact, to group: CNGroup)
   func removeMember(_ contact: CNContact, from group: CNGroup)
-  init()
 }

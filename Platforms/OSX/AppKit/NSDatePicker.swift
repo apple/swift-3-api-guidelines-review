@@ -16,7 +16,4 @@ class NSDatePicker : NSControl {
   @NSCopying var minDate: NSDate?
   @NSCopying var maxDate: NSDate?
   unowned(unsafe) var delegate: @sil_unmanaged NSDatePickerCellDelegate?
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

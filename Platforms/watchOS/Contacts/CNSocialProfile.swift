@@ -8,7 +8,6 @@ class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
   init(urlString urlString: String?, username username: String?, userIdentifier userIdentifier: String?, service service: String?)
   class func localizedString(forKey key: String) -> String
   class func localizedString(forService service: String) -> String
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

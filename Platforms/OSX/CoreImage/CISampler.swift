@@ -5,7 +5,6 @@ class CISampler : NSObject, NSCopying {
   init(image im: CIImage, options dict: [NSObject : AnyObject]? = [:])
   var definition: CIFilterShape { get }
   var extent: CGRect { get }
-  convenience init()
   @available(OSX 10.4, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -20,7 +20,6 @@ class UIAlertAction : NSObject, NSCopying {
   var title: String? { get }
   var style: UIAlertActionStyle { get }
   var isEnabled: Bool
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -33,10 +32,6 @@ class UIAlertController : UIViewController {
   var preferredAction: UIAlertAction?
   func addTextField(configurationHandler configurationHandler: ((UITextField) -> Void)? = nil)
   var textFields: [UITextField]? { get }
-  var title: String?
   var message: String?
   var preferredStyle: UIAlertControllerStyle { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

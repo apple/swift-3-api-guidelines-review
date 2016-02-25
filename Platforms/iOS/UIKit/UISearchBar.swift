@@ -17,9 +17,6 @@ enum UISearchBarStyle : UInt {
 }
 @available(iOS 2.0, *)
 class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
-  convenience init()
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
   var barStyle: UIBarStyle
   weak var delegate: @sil_weak UISearchBarDelegate?
   var text: String?
@@ -33,9 +30,6 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   var isSearchResultsButtonSelected: Bool
   @available(iOS 3.0, *)
   func setShowsCancelButton(_ showsCancelButton: Bool, animated animated: Bool)
-  @available(iOS 9.0, *)
-  var inputAssistantItem: UITextInputAssistantItem { get }
-  var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 7.0, *)
@@ -48,7 +42,6 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   var selectedScopeButtonIndex: Int
   @available(iOS 3.0, *)
   var showsScopeBar: Bool
-  var inputAccessoryView: UIView?
   @available(iOS 5.0, *)
   var backgroundImage: UIImage?
   @available(iOS 5.0, *)

@@ -29,10 +29,6 @@ class NSSegmentedCell : NSActionCell {
   @available(OSX 10.5, *)
   var segmentStyle: NSSegmentStyle
   func drawSegment(_ segment: Int, inFrame frame: NSRect, with controlView: NSView)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 extension NSSegmentedCell {
   @available(OSX 10.5, *)

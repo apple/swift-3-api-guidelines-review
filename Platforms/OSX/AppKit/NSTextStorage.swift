@@ -20,27 +20,6 @@ class NSTextStorage : NSMutableAttributedString {
   var fixesAttributesLazily: Bool { get }
   func invalidateAttributes(in range: NSRange)
   func ensureAttributesAreFixed(in range: NSRange)
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(OSX 10.11, *)
-  init(url url: NSURL, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(OSX 10.0, *)
-  init(data data: NSData, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  init?(rtf data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(rtfd data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, baseURL base: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(docFormat data: NSData, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(html data: NSData, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(rtfdFileWrapper wrapper: NSFileWrapper, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(url url: NSURL, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init?(path path: String, documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: NSAttributedString)
 }
 protocol NSTextStorageDelegate : NSObjectProtocol {
   @available(OSX 10.11, *)

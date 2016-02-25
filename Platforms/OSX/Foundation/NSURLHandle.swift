@@ -10,5 +10,4 @@ enum NSURLHandleStatus : UInt {
 protocol NSURLHandleClient {
 }
 class NSURLHandle : NSObject {
-  init()
 }

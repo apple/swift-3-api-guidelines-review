@@ -36,8 +36,6 @@ class WKWebView : NSView {
   var allowsMagnification: Bool
   var magnification: CGFloat
   func setMagnification(_ magnification: CGFloat, centeredAt point: CGPoint)
-  convenience init(frame frameRect: NSRect)
-  convenience init()
 }
 extension WKWebView : NSUserInterfaceValidations {
   @IBAction func goBack(_ sender: AnyObject?)

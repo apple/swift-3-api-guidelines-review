@@ -9,7 +9,6 @@ class NSMenuItemCell : NSButtonCell {
   var titleWidth: CGFloat { get }
   var keyEquivalentWidth: CGFloat { get }
   func stateImageRect(forBounds cellFrame: NSRect) -> NSRect
-  func titleRect(forBounds cellFrame: NSRect) -> NSRect
   func keyEquivalentRect(forBounds cellFrame: NSRect) -> NSRect
   func drawSeparatorItem(frame cellFrame: NSRect, in controlView: NSView)
   func drawStateImage(frame cellFrame: NSRect, in controlView: NSView)
@@ -17,11 +16,6 @@ class NSMenuItemCell : NSButtonCell {
   func drawTitle(frame cellFrame: NSRect, in controlView: NSView)
   func drawKeyEquivalent(frame cellFrame: NSRect, in controlView: NSView)
   func drawBorderAndBackground(frame cellFrame: NSRect, in controlView: NSView)
-  var tag: Int
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __micFlags {
   var needsSizing: UInt32

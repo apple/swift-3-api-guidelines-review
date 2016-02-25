@@ -44,7 +44,6 @@ struct __MFlags {
 }
 typealias _MFlags = __MFlags
 class NSMatrix : NSControl, NSUserInterfaceValidations {
-  convenience init(frame frameRect: NSRect)
   init(frame frameRect: NSRect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   init(frame frameRect: NSRect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   var cellClass: AnyClass
@@ -64,7 +63,6 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func deselectSelectedCell()
   func deselectAllCells()
   func selectCell(atRow row: Int, column col: Int)
-  func selectAll(_ sender: AnyObject?)
   func selectCell(tag anInt: Int) -> Bool
   var cellSize: NSSize
   var intercellSpacing: NSSize
@@ -103,8 +101,6 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   var isAutoscroll: Bool
   func scrollCellToVisible(atRow row: Int, column col: Int)
   var mouseDownFlags: Int { get }
-  func mouseDown(_ theEvent: NSEvent)
-  func performKeyEquivalent(_ theEvent: NSEvent) -> Bool
   func sendAction() -> Bool
   func sendDoubleAction()
   unowned(unsafe) var delegate: @sil_unmanaged NSMatrixDelegate?
@@ -115,15 +111,10 @@ class NSMatrix : NSControl, NSUserInterfaceValidations {
   func textDidChange(_ notification: NSNotification)
   func selectText(_ sender: AnyObject?)
   func selectText(atRow row: Int, column col: Int) -> NSCell?
-  func acceptsFirstMouse(_ theEvent: NSEvent?) -> Bool
-  func resetCursorRects()
   func setToolTip(_ toolTipString: String?, for cell: NSCell)
   func toolTip(for cell: NSCell) -> String?
   @available(OSX 10.8, *)
   var autorecalculatesCellSize: Bool
-  func selectedCell() -> NSCell?
-  init?(coder coder: NSCoder)
-  convenience init()
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
 }
 extension NSMatrix {

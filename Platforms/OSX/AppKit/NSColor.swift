@@ -1,7 +1,6 @@
 
 var NSAppKitVersionNumberWithPatternColorLeakFix: Double { get }
 class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPasteboardWriting {
-  init()
   init?(coder coder: NSCoder)
   /*not inherited*/ init(calibratedWhite white: CGFloat, alpha alpha: CGFloat)
   /*not inherited*/ init(calibratedHue hue: CGFloat, saturation saturation: CGFloat, brightness brightness: CGFloat, alpha alpha: CGFloat)
@@ -140,7 +139,6 @@ class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPast
 }
 
 extension NSColor : _ColorLiteralConvertible {
-  required convenience init(colorLiteralRed red: Float, green green: Float, blue blue: Float, alpha alpha: Float)
 }
 extension NSColor {
   /*not inherited*/ init(ciColor color: CIColor)

@@ -68,7 +68,6 @@ class UIDevice : NSObject {
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   @available(iOS 4.2, *)
   func playInputClick()
-  init()
 }
 protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }

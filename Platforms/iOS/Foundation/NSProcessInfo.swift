@@ -38,7 +38,6 @@ class NSProcessInfo : NSObject {
   func isOperatingSystem(atLeastVersion version: NSOperatingSystemVersion) -> Bool
   @available(iOS 4.0, *)
   var systemUptime: NSTimeInterval { get }
-  init()
 }
 @available(iOS 7.0, *)
 struct NSActivityOptions : OptionSetType {

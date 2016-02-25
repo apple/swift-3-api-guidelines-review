@@ -4,7 +4,6 @@ class NSStoryboard : NSObject {
   convenience init(name name: String, bundle storyboardBundleOrNil: NSBundle?)
   func instantiateInitialController() -> AnyObject?
   func instantiateController(withIdentifier identifier: String) -> AnyObject
-  init()
 }
 struct _storyboardFlags {
   var reserved: UInt32

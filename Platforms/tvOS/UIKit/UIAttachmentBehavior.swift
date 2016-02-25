@@ -47,5 +47,4 @@ class UIAttachmentBehavior : UIDynamicBehavior {
   var frictionTorque: CGFloat
   @available(tvOS 9.0, *)
   var attachmentRange: UIFloatRange
-  convenience init()
 }

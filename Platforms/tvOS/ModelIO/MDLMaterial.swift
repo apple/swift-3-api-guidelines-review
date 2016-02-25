@@ -70,14 +70,12 @@ class MDLTextureFilter : NSObject {
   var minFilter: MDLMaterialTextureFilterMode
   var magFilter: MDLMaterialTextureFilterMode
   var mipFilter: MDLMaterialMipMapFilterMode
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLTextureSampler : NSObject {
   var texture: MDLTexture?
   var hardwareFilter: MDLTextureFilter?
   var transform: MDLTransform?
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLMaterialProperty : NSObject, MDLNamed {
@@ -116,7 +114,6 @@ class MDLScatteringFunction : NSObject, MDLNamed {
   var normal: MDLMaterialProperty { get }
   var ambientOcclusion: MDLMaterialProperty { get }
   var ambientOcclusionScale: MDLMaterialProperty { get }
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
@@ -132,7 +129,6 @@ class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
   var sheenTint: MDLMaterialProperty { get }
   var clearcoat: MDLMaterialProperty { get }
   var clearcoatGloss: MDLMaterialProperty { get }
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
@@ -148,7 +144,6 @@ class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
   subscript(_ idx: Int) -> MDLMaterialProperty? { get }
   subscript(_ name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
-  init()
   @available(tvOS 9.0, *)
   func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

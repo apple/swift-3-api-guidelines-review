@@ -3,5 +3,4 @@
 class AVAudioUnitTimeEffect : AVAudioUnit {
   init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
   var bypass: Bool
-  init()
 }

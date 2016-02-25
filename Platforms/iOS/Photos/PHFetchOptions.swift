@@ -10,7 +10,6 @@ class PHFetchOptions : NSObject, NSCopying {
   @available(iOS 9.0, *)
   var fetchLimit: Int
   var wantsIncrementalChangeDetails: Bool
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

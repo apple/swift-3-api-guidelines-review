@@ -5,7 +5,6 @@ class HMAccessoryBrowser : NSObject {
   var discoveredAccessories: [HMAccessory] { get }
   func startSearchingForNewAccessories()
   func stopSearchingForNewAccessories()
-  init()
 }
 @available(iOS 8.0, *)
 protocol HMAccessoryBrowserDelegate : NSObjectProtocol {

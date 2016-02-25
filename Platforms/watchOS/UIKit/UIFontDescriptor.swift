@@ -28,7 +28,6 @@ struct UIFontDescriptorSymbolicTraits : OptionSetType {
 typealias UIFontDescriptorClass = Int
 @available(watchOS 2.0, *)
 class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
-  convenience init()
   init?(coder aDecoder: NSCoder)
   var postscriptName: String { get }
   var pointSize: CGFloat { get }

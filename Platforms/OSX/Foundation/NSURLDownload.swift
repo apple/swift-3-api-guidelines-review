@@ -10,7 +10,6 @@ class NSURLDownload : NSObject {
   @NSCopying var request: NSURLRequest { get }
   @NSCopying var resumeData: NSData? { get }
   var deletesFileUponFailure: Bool
-  init()
 }
 protocol NSURLDownloadDelegate : NSObjectProtocol {
   optional func downloadDidBegin(_ download: NSURLDownload)

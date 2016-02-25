@@ -8,7 +8,6 @@ class HMCharacteristicMetadata : NSObject {
   var format: String? { get }
   var units: String? { get }
   var manufacturerDescription: String? { get }
-  init()
 }
 @available(watchOS 20000, *)
 let HMCharacteristicMetadataFormatBool: String

@@ -51,5 +51,4 @@ class CMMotionManager : NSObject {
   func stopDeviceMotionUpdates()
   @available(watchOS 2.0, *)
   var showsDeviceMovementDisplay: Bool
-  init()
 }

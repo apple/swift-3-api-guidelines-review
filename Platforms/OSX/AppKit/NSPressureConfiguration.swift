@@ -4,7 +4,6 @@ class NSPressureConfiguration : NSObject {
   var pressureBehavior: NSPressureBehavior { get }
   init(pressureBehavior pressureBehavior: NSPressureBehavior)
   func set()
-  convenience init()
 }
 extension NSView {
   @available(OSX 10.11, *)

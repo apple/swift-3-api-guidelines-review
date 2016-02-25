@@ -40,7 +40,6 @@ enum UITextGranularity : Int {
 class UIDictationPhrase : NSObject {
   var text: String { get }
   var alternativeInterpretations: [String]? { get }
-  init()
 }
 protocol UITextInput : UIKeyInput {
   @available(tvOS 3.2, *)
@@ -118,14 +117,12 @@ protocol UITextInput : UIKeyInput {
 }
 @available(tvOS 3.2, *)
 class UITextPosition : NSObject {
-  init()
 }
 @available(tvOS 3.2, *)
 class UITextRange : NSObject {
   var isEmpty: Bool { get }
   var start: UITextPosition { get }
   var end: UITextPosition { get }
-  init()
 }
 @available(tvOS 6.0, *)
 class UITextSelectionRect : NSObject {
@@ -134,7 +131,6 @@ class UITextSelectionRect : NSObject {
   var containsStart: Bool { get }
   var containsEnd: Bool { get }
   var isVertical: Bool { get }
-  init()
 }
 protocol UITextInputDelegate : NSObjectProtocol {
   func selectionWillChange(_ textInput: UITextInput?)
@@ -155,7 +151,6 @@ protocol UITextInputTokenizer : NSObjectProtocol {
 @available(tvOS 3.2, *)
 class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
   init(textInput textInput: UIResponder)
-  init()
   @available(tvOS 3.2, *)
   func rangeEnclosingPosition(_ position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(tvOS 3.2, *)
@@ -169,7 +164,6 @@ class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
 class UITextInputMode : NSObject, NSSecureCoding {
   var primaryLanguage: String? { get }
   class func activeInputModes() -> [String]
-  init()
   @available(tvOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.2, *)

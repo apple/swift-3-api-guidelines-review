@@ -15,22 +15,16 @@ class MPSImageHistogram : MPSKernel {
   init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
   func encode(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram histogram: MTLBuffer, histogramOffset histogramOffset: Int)
   func histogramSize(forSourceFormat sourceFormat: MTLPixelFormat) -> Int
-  convenience init(device device: MTLDevice)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MPSImageHistogramEqualization : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
   func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, histogram histogram: MTLBuffer, histogramOffset histogramOffset: Int)
-  convenience init(device device: MTLDevice)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MPSImageHistogramSpecification : MPSUnaryImageKernel {
   var histogramInfo: MPSImageHistogramInfo { get }
   init(device device: MTLDevice, histogramInfo histogramInfo: UnsafePointer<MPSImageHistogramInfo>)
   func encodeTransform(to commandBuffer: MTLCommandBuffer, sourceTexture source: MTLTexture, sourceHistogram sourceHistogram: MTLBuffer, sourceHistogramOffset sourceHistogramOffset: Int, desiredHistogram desiredHistogram: MTLBuffer, desiredHistogramOffset desiredHistogramOffset: Int)
-  convenience init(device device: MTLDevice)
-  convenience init()
 }

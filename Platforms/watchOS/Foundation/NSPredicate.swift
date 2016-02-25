@@ -13,7 +13,6 @@ class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(watchOS 2.0, *)
   func allowEvaluation()
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

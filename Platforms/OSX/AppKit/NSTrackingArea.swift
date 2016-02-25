@@ -20,7 +20,6 @@ class NSTrackingArea : NSObject, NSCopying, NSCoding {
   var options: NSTrackingAreaOptions { get }
   unowned(unsafe) var owner: @sil_unmanaged AnyObject? { get }
   var userInfo: [NSObject : AnyObject]? { get }
-  init()
   @available(OSX 10.5, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)

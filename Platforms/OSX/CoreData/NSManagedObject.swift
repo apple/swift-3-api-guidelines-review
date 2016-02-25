@@ -33,10 +33,6 @@ class NSManagedObject : NSObject {
   var faultingState: Int { get }
   func willAccessValue(forKey key: String?)
   func didAccessValue(forKey key: String?)
-  func willChangeValue(forKey key: String)
-  func didChangeValue(forKey key: String)
-  func willChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
-  func didChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(OSX 10.6, *)
@@ -48,19 +44,15 @@ class NSManagedObject : NSObject {
   @available(OSX 10.5, *)
   func willTurnIntoFault()
   func didTurnIntoFault()
-  func value(forKey key: String) -> AnyObject?
-  func setValue(_ value: AnyObject?, forKey key: String)
   func primitiveValue(forKey key: String) -> AnyObject?
   func setPrimitiveValue(_ value: AnyObject?, forKey key: String)
   func committedValues(forKeys keys: [String]?) -> [String : AnyObject]
   func changedValues() -> [String : AnyObject]
   @available(OSX 10.7, *)
   func changedValuesForCurrentEvent() -> [String : AnyObject]
-  func validateValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   func validateForDelete() throws
   func validateForInsert() throws
   func validateForUpdate() throws
   func setObservationInfo(_ inObservationInfo: UnsafeMutablePointer<Void>)
   func observationInfo() -> UnsafeMutablePointer<Void>
-  convenience init()
 }

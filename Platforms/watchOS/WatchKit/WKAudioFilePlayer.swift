@@ -27,5 +27,4 @@ class WKAudioFileQueuePlayer : WKAudioFilePlayer {
   func removeItem(_ item: WKAudioFilePlayerItem)
   func removeAllItems()
   var items: [WKAudioFilePlayerItem] { get }
-  convenience init(playerItem item: WKAudioFilePlayerItem)
 }

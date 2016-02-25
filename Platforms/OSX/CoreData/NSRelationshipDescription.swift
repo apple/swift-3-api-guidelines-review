@@ -15,10 +15,6 @@ class NSRelationshipDescription : NSPropertyDescription {
   var minCount: Int
   var deleteRule: NSDeleteRule
   var isToMany: Bool { get }
-  @available(OSX 10.5, *)
-  @NSCopying var versionHash: NSData { get }
   @available(OSX 10.7, *)
   var isOrdered: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

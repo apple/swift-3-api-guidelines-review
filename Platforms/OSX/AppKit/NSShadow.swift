@@ -1,6 +1,5 @@
 
 class NSShadow : NSObject, NSCopying, NSCoding {
-  init()
   var shadowOffset: NSSize
   var shadowBlurRadius: CGFloat
   @NSCopying var shadowColor: NSColor?

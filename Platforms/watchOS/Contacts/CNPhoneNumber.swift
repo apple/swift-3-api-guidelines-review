@@ -3,7 +3,6 @@
 class CNPhoneNumber : NSObject, NSCopying, NSSecureCoding {
   init(stringValue string: String)
   var stringValue: String { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

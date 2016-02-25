@@ -35,7 +35,6 @@ class AVAudioUnitComponent : NSObject {
   var audioComponent: AudioComponent { get }
   var allTagNames: [String] { get }
   var audioComponentDescription: AudioComponentDescription { get }
-  init()
 }
 @available(tvOS 9.0, *)
 let AVAudioUnitComponentTagsDidChangeNotification: String
@@ -47,5 +46,4 @@ class AVAudioUnitComponentManager : NSObject {
   func components(matching predicate: NSPredicate) -> [AVAudioUnitComponent]
   func components(passingTest testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
   func components(matching desc: AudioComponentDescription) -> [AVAudioUnitComponent]
-  init()
 }

@@ -20,7 +20,6 @@ class MDLLight : MDLObject {
   func irradiance(atPoint point: vector_float3) -> Unmanaged<CGColor>
   func irradiance(atPoint point: vector_float3, colorSpace colorSpace: CGColorSpace) -> Unmanaged<CGColor>
   var lightType: MDLLightType
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLPhysicallyPlausibleLight : MDLLight {
@@ -31,14 +30,12 @@ class MDLPhysicallyPlausibleLight : MDLLight {
   var outerConeAngle: Float
   var attenuationStartDistance: Float
   var attenuationEndDistance: Float
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLAreaLight : MDLPhysicallyPlausibleLight {
   var areaRadius: Float
   var superEllipticPower: vector_float2
   var aspect: Float
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
@@ -48,7 +45,6 @@ class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLLightProbe : MDLLight {
@@ -58,7 +54,6 @@ class MDLLightProbe : MDLLight {
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
-  init()
 }
 extension MDLLightProbe {
   /*not inherited*/ init?(textureSize textureSize: Int, forLocation transform: MDLTransform, lightsToConsider lightsToConsider: [MDLLight], objectsToConsider objectsToConsider: [MDLObject], reflectiveCubemap reflectiveCubemap: MDLTexture?, irradianceCubemap irradianceCubemap: MDLTexture?)

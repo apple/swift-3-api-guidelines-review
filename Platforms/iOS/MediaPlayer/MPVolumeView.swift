@@ -33,9 +33,6 @@ class MPVolumeView : UIView, NSCoding {
   func routeButtonImage(for state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
   func routeButtonRect(forBounds bounds: CGRect) -> CGRect
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 @available(iOS 7.0, *)
 let MPVolumeViewWirelessRoutesAvailableDidChangeNotification: String

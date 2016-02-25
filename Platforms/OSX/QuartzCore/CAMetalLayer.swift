@@ -15,7 +15,4 @@ class CAMetalLayer : CALayer {
   var presentsWithTransaction: Bool
   var colorspace: CGColorSpace
   var wantsExtendedDynamicRangeContent: Bool
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

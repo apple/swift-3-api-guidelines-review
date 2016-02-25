@@ -15,5 +15,4 @@ class GLKEffectPropertyFog : GLKEffectProperty {
   var density: GLfloat
   var start: GLfloat
   var end: GLfloat
-  init()
 }

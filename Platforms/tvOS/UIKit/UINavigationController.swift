@@ -25,11 +25,6 @@ class UINavigationController : UIViewController {
   func setNavigationBarHidden(_ hidden: Bool, animated animated: Bool)
   var navigationBar: UINavigationBar { get }
   weak var delegate: @sil_weak UINavigationControllerDelegate?
-  @available(tvOS 8.0, *)
-  func show(_ vc: UIViewController, sender sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)

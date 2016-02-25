@@ -22,13 +22,10 @@ class AVAudioUnitEQFilterParameters : NSObject {
   var bandwidth: Float
   var gain: Float
   var bypass: Bool
-  init()
 }
 @available(tvOS 8.0, *)
 class AVAudioUnitEQ : AVAudioUnitEffect {
   init(numberOfBands numberOfBands: Int)
   var bands: [AVAudioUnitEQFilterParameters] { get }
   var globalGain: Float
-  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
-  init()
 }

@@ -12,7 +12,6 @@ func EAGLGetVersion(_ major: UnsafeMutablePointer<UInt32>, _ minor: UnsafeMutabl
 class EAGLSharegroup : NSObject {
   @available(tvOS 6.0, *)
   var debugLabel: String!
-  init()
 }
 class EAGLContext : NSObject {
   convenience init!(api api: EAGLRenderingAPI)

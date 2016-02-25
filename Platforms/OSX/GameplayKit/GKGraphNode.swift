@@ -8,18 +8,15 @@ class GKGraphNode : NSObject {
   func cost(to node: GKGraphNode) -> Float
   func findPath(to goalNode: GKGraphNode) -> [GKGraphNode]
   func findPath(from startNode: GKGraphNode) -> [GKGraphNode]
-  init()
 }
 @available(OSX 10.11, *)
 class GKGraphNode2D : GKGraphNode {
   var position: vector_float2
   class func node(withPoint point: vector_float2) -> Self
   init(point point: vector_float2)
-  convenience init()
 }
 @available(OSX 10.11, *)
 class GKGridGraphNode : GKGraphNode {
   var gridPosition: vector_int2
   init(gridPosition gridPosition: vector_int2)
-  convenience init()
 }

@@ -13,7 +13,6 @@ enum NSPersistentStoreRequestType : UInt {
 class NSPersistentStoreRequest : NSObject, NSCopying {
   var affectedStores: [NSPersistentStore]?
   var requestType: NSPersistentStoreRequestType { get }
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -24,5 +23,4 @@ class NSAsynchronousFetchRequest : NSPersistentStoreRequest {
   var completionBlock: NSPersistentStoreAsynchronousFetchResultCompletionBlock? { get }
   var estimatedResultCount: Int
   init(fetchRequest request: NSFetchRequest, completionBlock blk: NSPersistentStoreAsynchronousFetchResultCompletionBlock? = nil)
-  init()
 }

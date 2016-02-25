@@ -84,8 +84,6 @@ enum NSTableRowActionEdge : Int {
   case trailing
 }
 class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, NSDraggingSource, NSAccessibilityTable {
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
   func setDataSource(_ aSource: NSTableViewDataSource?)
   func dataSource() -> NSTableViewDataSource?
   func setDelegate(_ delegate: NSTableViewDelegate?)
@@ -115,7 +113,6 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func column(withIdentifier identifier: String) -> Int
   func tableColumn(withIdentifier identifier: String) -> NSTableColumn?
   func tile()
-  func sizeToFit()
   func sizeLastColumnToFit()
   func scrollRowToVisible(_ row: Int)
   func scrollColumnToVisible(_ column: Int)
@@ -140,7 +137,6 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   var allowsMultipleSelection: Bool
   var allowsEmptySelection: Bool
   var allowsColumnSelection: Bool
-  func selectAll(_ sender: AnyObject?)
   func deselectAll(_ sender: AnyObject?)
   func selectColumnIndexes(_ indexes: NSIndexSet, byExtendingSelection extend: Bool)
   func selectRowIndexes(_ indexes: NSIndexSet, byExtendingSelection extend: Bool)
@@ -217,7 +213,6 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func didRemove(_ rowView: NSTableRowView, forRow row: Int)
   @available(OSX 10.10, *)
   var usesStaticContents: Bool
-  convenience init()
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   func textView(_ textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
   func textView(_ textView: NSTextView, clickedOn cell: NSTextAttachmentCellProtocol, in cellFrame: NSRect, at charIndex: Int)
@@ -259,19 +254,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   func draggingSession(_ session: NSDraggingSession, endedAt screenPoint: NSPoint, operation operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
-  func accessibilityLabel() -> String?
-  func accessibilityRows() -> [NSAccessibilityRow]?
-  func accessibilitySelectedRows() -> [NSAccessibilityRow]?
-  func setAccessibilitySelectedRows(_ selectedRows: [NSAccessibilityRow])
-  func accessibilityVisibleRows() -> [NSAccessibilityRow]?
-  func accessibilityColumns() -> [AnyObject]?
-  func accessibilityVisibleColumns() -> [AnyObject]?
-  func accessibilitySelectedColumns() -> [AnyObject]?
   func accessibilityHeaderGroup() -> String?
-  func accessibilitySelectedCells() -> [AnyObject]?
-  func accessibilityVisibleCells() -> [AnyObject]?
-  func accessibilityRowHeaderUIElements() -> [AnyObject]?
-  func accessibilityColumnHeaderUIElements() -> [AnyObject]?
 }
 @available(OSX 10.7, *)
 struct NSTableViewAnimationOptions : OptionSetType {

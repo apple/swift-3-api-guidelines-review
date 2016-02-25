@@ -5,7 +5,6 @@ class CAEmitterBehavior : NSObject, NSCoding {
   var type: String { get }
   var name: String?
   var isEnabled: Bool
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

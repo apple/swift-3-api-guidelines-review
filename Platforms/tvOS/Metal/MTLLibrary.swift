@@ -6,7 +6,6 @@ class MTLVertexAttribute : NSObject {
   @available(tvOS 8.3, *)
   var attributeType: MTLDataType { get }
   var isActive: Bool { get }
-  init()
 }
 @available(tvOS 8.0, *)
 enum MTLFunctionType : UInt {
@@ -37,7 +36,6 @@ class MTLCompileOptions : NSObject, NSCopying {
   var fastMathEnabled: Bool
   @available(tvOS 9.0, *)
   var languageVersion: MTLLanguageVersion
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

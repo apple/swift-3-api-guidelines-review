@@ -8,7 +8,4 @@ class UIDocumentPickerExtensionViewController : UIViewController {
   var validTypes: [String]? { get }
   var providerIdentifier: String { get }
   @NSCopying var documentStorageURL: NSURL? { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

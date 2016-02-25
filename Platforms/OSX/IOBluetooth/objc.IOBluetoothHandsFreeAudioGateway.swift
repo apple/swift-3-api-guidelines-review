@@ -2,8 +2,6 @@
 @available(OSX 10.7, *)
 class IOBluetoothHandsFreeAudioGateway : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
-  init!(device device: IOBluetoothDevice!, delegate inDelegate: AnyObject!)
-  @available(OSX 10.7, *)
   func createIndicator(_ indicatorName: String!, min minValue: Int32, max maxValue: Int32, currentValue currentValue: Int32)
   @available(OSX 10.7, *)
   func process(atCommand atCommand: String!)
@@ -13,7 +11,6 @@ class IOBluetoothHandsFreeAudioGateway : IOBluetoothHandsFree {
   func sendResponse(_ response: String!)
   @available(OSX 10.7, *)
   func sendResponse(_ response: String!, withOK withOK: Bool)
-  init()
 }
 protocol IOBluetoothHandsFreeAudioGatewayDelegate {
   @available(OSX 10.7, *)

@@ -33,7 +33,6 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   var ssidMatch: [String]?
   @available(OSX 10.10, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
@@ -44,25 +43,17 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(OSX 10.10, *)
   var connectionRules: [NEEvaluateConnectionRule]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 enum NEEvaluateConnectionRuleAction : Int {
@@ -83,7 +74,6 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   var useDNSServers: [String]?
   @available(OSX 10.10, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

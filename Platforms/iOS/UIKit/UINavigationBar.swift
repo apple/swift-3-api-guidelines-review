@@ -11,7 +11,6 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   var backItem: UINavigationItem? { get }
   var items: [UINavigationItem]?
   func setItems(_ items: [UINavigationItem]?, animated animated: Bool)
-  var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 7.0, *)
@@ -34,9 +33,6 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   var backIndicatorImage: UIImage?
   @available(iOS 7.0, *)
   var backIndicatorTransitionMaskImage: UIImage?
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 7.0, *)
   var barPosition: UIBarPosition { get }
 }
@@ -74,7 +70,6 @@ class UINavigationItem : NSObject, NSCoding {
   var rightBarButtonItem: UIBarButtonItem?
   func setLeftBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
   func setRightBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
-  convenience init()
   @available(iOS 2.0, *)
   func encode(with aCoder: NSCoder)
 }

@@ -16,16 +16,12 @@ struct NSViewControllerTransitionOptions : OptionSetType {
 @available(OSX 10.5, *)
 class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfaceItemIdentification {
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
   var nibName: String? { get }
   var nibBundle: NSBundle? { get }
   var representedObject: AnyObject?
   var title: String?
   var view: NSView
   func loadView()
-  func commitEditing(delegate delegate: AnyObject?, didCommit didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditing() -> Bool
-  func discardEditing()
   @available(OSX 10.10, *)
   func viewDidLoad()
   @available(OSX 10.10, *)
@@ -46,7 +42,6 @@ class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfa
   func viewWillLayout()
   @available(OSX 10.10, *)
   func viewDidLayout()
-  convenience init()
   @available(OSX 10.10, *)
   func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)

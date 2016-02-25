@@ -67,7 +67,6 @@ class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopy
   var diffieHellmanGroup: NEVPNIKEv2DiffieHellmanGroup
   @available(OSX 10.10, *)
   var lifetimeMinutes: Int32
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
@@ -102,6 +101,4 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   var enableRevocationCheck: Bool
   @available(OSX 10.11, *)
   var strictRevocationCheck: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

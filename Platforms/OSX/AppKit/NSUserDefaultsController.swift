@@ -2,7 +2,6 @@
 class NSUserDefaultsController : NSController {
   class func shared() -> NSUserDefaultsController
   init(defaults defaults: NSUserDefaults?, initialValues initialValues: [String : AnyObject]?)
-  init?(coder coder: NSCoder)
   var defaults: NSUserDefaults { get }
   var initialValues: [String : AnyObject]?
   var appliesImmediately: Bool
@@ -11,7 +10,6 @@ class NSUserDefaultsController : NSController {
   func revert(_ sender: AnyObject?)
   func save(_ sender: AnyObject?)
   func revertToInitialValues(_ sender: AnyObject?)
-  convenience init()
 }
 struct __userDefaultsControllerFlags {
   var _sharedInstance: UInt32

@@ -9,7 +9,4 @@ class AVPlayerLayer : CALayer {
   var videoRect: CGRect { get }
   @available(OSX 10.11, *)
   var pixelBufferAttributes: [String : AnyObject]?
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

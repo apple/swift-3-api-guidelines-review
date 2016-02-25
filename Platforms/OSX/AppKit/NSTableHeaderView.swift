@@ -6,7 +6,4 @@ class NSTableHeaderView : NSView {
   var resizedColumn: Int { get }
   func headerRect(ofColumn column: Int) -> NSRect
   func column(at point: NSPoint) -> Int
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

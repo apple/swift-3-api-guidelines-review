@@ -15,5 +15,4 @@ class NSAppleEventManager : NSObject {
   func replyAppleEvent(forSuspensionID suspensionID: NSAppleEventManagerSuspensionID) -> NSAppleEventDescriptor
   func setCurrentAppleEventAndReplyEventWithSuspensionID(_ suspensionID: NSAppleEventManagerSuspensionID)
   func resume(withSuspensionID suspensionID: NSAppleEventManagerSuspensionID)
-  init()
 }

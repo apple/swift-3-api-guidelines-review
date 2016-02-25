@@ -39,7 +39,6 @@ class WebPreferences : NSObject, NSCoding {
   var cacheModel: WebCacheModel
   var suppressesIncrementalRendering: Bool
   var allowsAirPlayForMediaPlayback: Bool
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

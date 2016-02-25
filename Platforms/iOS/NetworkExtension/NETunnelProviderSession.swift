@@ -7,5 +7,4 @@ class NETunnelProviderSession : NEVPNConnection {
   func stopTunnel()
   @available(iOS 9.0, *)
   func sendProviderMessage(_ messageData: NSData, responseHandler responseHandler: ((NSData?) -> Void)? = nil) throws
-  init()
 }

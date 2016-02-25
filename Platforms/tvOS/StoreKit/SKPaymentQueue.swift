@@ -27,7 +27,6 @@ class SKPaymentQueue : NSObject {
   func remove(_ observer: SKPaymentTransactionObserver)
   @available(tvOS 3.0, *)
   var transactions: [SKPaymentTransaction] { get }
-  init()
 }
 protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(tvOS 3.0, *)

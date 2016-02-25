@@ -17,7 +17,6 @@ class NEVPNProtocol : NSObject, NSCopying, NSSecureCoding {
   var disconnectOnSleep: Bool
   @available(iOS 9.0, *)
   @NSCopying var proxySettings: NEProxySettings?
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)

@@ -6,10 +6,6 @@ class AMBundleAction : AMAction, NSCoding, NSCopying {
   var view: NSView? { get }
   var bundle: NSBundle { get }
   var parameters: NSMutableDictionary?
-  init?(definition dict: [String : AnyObject], fromArchive archived: Bool)
-  @available(OSX 10.5, *)
-  init(contentsOf fileURL: NSURL) throws
-  init()
   @available(OSX 10.4, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

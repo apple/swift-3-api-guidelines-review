@@ -7,7 +7,6 @@ class IOBluetoothSDPServiceAttribute : NSObject, NSCoding {
   func getID() -> BluetoothSDPServiceAttributeID
   func getDataElement() -> IOBluetoothSDPDataElement!
   func getIDDataElement() -> IOBluetoothSDPDataElement!
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -13,20 +13,12 @@ extension NSRange {
 }
 
 extension NSRange : CustomReflectable {
-  func customMirror() -> Mirror
 }
 
 extension NSRange : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension NSRange : _ObjectiveCBridgeable {
-  static func _isBridgedToObjectiveC() -> Bool
-  static func _getObjectiveCType() -> Any.Type
-  func _bridgeToObjectiveC() -> NSValue
-  static func _forceBridgeFromObjectiveC(_ x: NSValue, inout result result: NSRange?)
-  static func _conditionallyBridgeFromObjectiveC(_ x: NSValue, inout result result: NSRange?) -> Bool
-  typealias _ObjectiveCType = NSValue
 }
 typealias NSRange = _NSRange
 typealias NSRangePointer = UnsafeMutablePointer<NSRange>

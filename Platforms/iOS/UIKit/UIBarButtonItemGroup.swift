@@ -6,7 +6,6 @@ class UIBarButtonItemGroup : NSObject, NSCoding {
   var barButtonItems: [UIBarButtonItem]
   var representativeItem: UIBarButtonItem?
   var isDisplayingRepresentativeItem: Bool { get }
-  convenience init()
   @available(iOS 9.0, *)
   func encode(with aCoder: NSCoder)
 }

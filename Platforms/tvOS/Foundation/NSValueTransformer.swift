@@ -18,5 +18,4 @@ class NSValueTransformer : NSObject {
   class func allowsReverseTransformation() -> Bool
   func transformedValue(_ value: AnyObject?) -> AnyObject?
   func reverseTransformedValue(_ value: AnyObject?) -> AnyObject?
-  init()
 }

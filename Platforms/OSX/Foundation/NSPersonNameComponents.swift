@@ -8,7 +8,6 @@ class NSPersonNameComponents : NSObject, NSCopying, NSSecureCoding {
   var nameSuffix: String?
   var nickname: String?
   @NSCopying var phoneticRepresentation: NSPersonNameComponents?
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)

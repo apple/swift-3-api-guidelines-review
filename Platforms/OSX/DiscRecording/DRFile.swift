@@ -1,7 +1,6 @@
 
 class DRFile : DRFSObject {
   init!(path path: String!)
-  init()
 }
 extension DRFile {
   class func virtualFile(withName name: String!, data data: NSData!) -> DRFile!

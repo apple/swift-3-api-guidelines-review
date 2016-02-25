@@ -1,12 +1,10 @@
 
 @available(tvOS 9.0, *)
 class SKAudioNode : SKNode, NSCoding {
-  init?(coder aDecoder: NSCoder)
   convenience init(fileNamed name: String)
   convenience init(url url: NSURL)
   var autoplayLooped: Bool
   var isPositional: Bool
-  convenience init()
 }
 extension SKAction {
   @available(tvOS 9.0, *)

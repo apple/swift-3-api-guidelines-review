@@ -3,8 +3,6 @@
 let WatchKitErrorDomain: String
 @available(iOS 8.2, *)
 enum WatchKitErrorCode : Int {
-  init?(rawValue rawValue: Int)
-  var rawValue: Int { get }
   case unknownError
   case applicationDelegateWatchKitRequestReplyNotCalledError
   case invalidArgumentError
@@ -14,6 +12,4 @@ enum WatchKitErrorCode : Int {
 }
 
 extension WatchKitErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

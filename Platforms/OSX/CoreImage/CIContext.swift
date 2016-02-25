@@ -31,7 +31,6 @@ class CIContext : NSObject {
   func reclaimResources()
   @available(OSX 10.4, *)
   func clearCaches()
-  init()
 }
 let kCIContextOutputColorSpace: String
 let kCIContextWorkingColorSpace: String

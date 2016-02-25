@@ -7,5 +7,4 @@ class SCNPhysicsContact : NSObject {
   var contactNormal: SCNVector3 { get }
   var collisionImpulse: CGFloat { get }
   var penetrationDistance: CGFloat { get }
-  init()
 }

@@ -16,7 +16,6 @@ class NSFetchedResultsController : NSObject {
   var sectionIndexTitles: [String] { get }
   var sections: [NSFetchedResultsSectionInfo]? { get }
   func section(forSectionIndexTitle title: String, at sectionIndex: Int) -> Int
-  init()
 }
 struct _fetchResultsControllerFlags {
   var _sendObjectChangeNotifications: UInt32

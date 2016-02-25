@@ -9,7 +9,6 @@ class CIFilterShape : NSObject, NSCopying {
   func intersect(_ s2: CIFilterShape) -> CIFilterShape
   func intersect(_ r: CGRect) -> CIFilterShape
   var extent: CGRect { get }
-  init()
   @available(OSX 10.4, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

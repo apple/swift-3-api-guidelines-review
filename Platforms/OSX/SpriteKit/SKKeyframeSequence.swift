@@ -28,7 +28,6 @@ class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
   func sample(atTime time: CGFloat) -> AnyObject?
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
-  convenience init()
   func encode(with aCoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

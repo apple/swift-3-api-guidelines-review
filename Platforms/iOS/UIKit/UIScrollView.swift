@@ -64,9 +64,6 @@ class UIScrollView : UIView, NSCoding {
   var pinchGestureRecognizer: UIPinchGestureRecognizer? { get }
   @available(iOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)

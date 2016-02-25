@@ -28,7 +28,6 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   var compoundIndexes: [[AnyObject]]
   @available(OSX 10.11, *)
   var uniquenessConstraints: [[AnyObject]]
-  init()
   @available(OSX 10.4, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

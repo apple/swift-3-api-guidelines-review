@@ -9,7 +9,4 @@ class CAOpenGLLayer : CALayer {
   func releaseCGLContext(_ ctx: CGLContextObj)
   var colorspace: CGColorSpace
   var wantsExtendedDynamicRangeContent: Bool
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

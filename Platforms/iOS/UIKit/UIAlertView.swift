@@ -10,8 +10,6 @@ enum UIAlertViewStyle : Int {
 @available(iOS, introduced=2.0, deprecated=9.0, message="UIAlertView is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleAlert instead")
 class UIAlertView : UIView {
   convenience init(title title: String?, message message: String?, delegate delegate: AnyObject?, cancelButtonTitle cancelButtonTitle: String?)
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
   weak var delegate: @sil_weak AnyObject?
   var title: String
   var message: String?
@@ -27,7 +25,6 @@ class UIAlertView : UIView {
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)
   func textField(at textFieldIndex: Int) -> UITextField?
-  convenience init()
 }
 
 extension UIAlertView {

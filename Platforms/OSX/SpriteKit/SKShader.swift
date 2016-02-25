@@ -9,7 +9,6 @@ class SKShader : NSObject, NSCopying, NSCoding {
   func addUniform(_ uniform: SKUniform)
   func uniformNamed(_ name: String) -> SKUniform?
   func removeUniformNamed(_ name: String)
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

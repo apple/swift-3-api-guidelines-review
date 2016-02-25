@@ -26,5 +26,4 @@ class SKPaymentTransaction : NSObject {
   var transactionIdentifier: String? { get }
   @available(iOS 3.0, *)
   var transactionState: SKPaymentTransactionState { get }
-  init()
 }

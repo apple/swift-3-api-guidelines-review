@@ -12,5 +12,4 @@ protocol NSGlyphStorage {
 class NSGlyphGenerator : NSObject {
   func generateGlyphs(for glyphStorage: NSGlyphStorage, desiredNumberOfCharacters nChars: Int, glyphIndex glyphIndex: UnsafeMutablePointer<Int>, characterIndex charIndex: UnsafeMutablePointer<Int>)
   class func shared() -> NSGlyphGenerator
-  init()
 }

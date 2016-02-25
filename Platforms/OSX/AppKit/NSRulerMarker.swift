@@ -13,7 +13,6 @@ class NSRulerMarker : NSObject, NSCopying, NSCoding {
   var thicknessRequiredInRuler: CGFloat { get }
   func draw(_ rect: NSRect)
   func trackMouse(_ mouseDownEvent: NSEvent, adding isAdding: Bool) -> Bool
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

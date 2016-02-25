@@ -6,9 +6,6 @@ class NSTreeController : NSObjectController {
   var countKeyPath: String?
   var leafKeyPath: String?
   var sortDescriptors: [NSSortDescriptor]
-  var content: AnyObject?
-  func add(_ sender: AnyObject?)
-  func remove(_ sender: AnyObject?)
   func addChild(_ sender: AnyObject?)
   func insert(_ sender: AnyObject?)
   func insertChild(_ sender: AnyObject?)
@@ -23,7 +20,6 @@ class NSTreeController : NSObjectController {
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool
   var alwaysUsesMultipleValuesMarker: Bool
-  var selectedObjects: [AnyObject] { get }
   func setSelectionIndexPaths(_ indexPaths: [NSIndexPath]) -> Bool
   var selectionIndexPaths: [NSIndexPath] { get }
   func setSelectionIndexPath(_ indexPath: NSIndexPath?) -> Bool
@@ -42,9 +38,6 @@ class NSTreeController : NSObjectController {
   func countKeyPath(for node: NSTreeNode) -> String?
   @available(OSX 10.5, *)
   func leafKeyPath(for node: NSTreeNode) -> String?
-  init(content content: AnyObject?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __treeControllerFlags {
   var _avoidsEmptySelection: UInt32

@@ -5,7 +5,6 @@ let NSRegistrationDomain: String
 class NSUserDefaults : NSObject {
   class func standard() -> NSUserDefaults
   class func resetStandardUserDefaults()
-  convenience init()
   @available(OSX 10.9, *)
   init?(suiteName suitename: String?)
   func object(forKey defaultName: String) -> AnyObject?

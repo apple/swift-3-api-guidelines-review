@@ -2,8 +2,6 @@
 @available(OSX 10.7, *)
 class IOBluetoothHandsFreeDevice : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
-  init!(device device: IOBluetoothDevice!, delegate delegate: AnyObject!)
-  @available(OSX 10.7, *)
   func dialNumber(_ aNumber: String!)
   @available(OSX 10.7, *)
   func memoryDial(_ memoryLocation: Int32)
@@ -45,7 +43,6 @@ class IOBluetoothHandsFreeDevice : IOBluetoothHandsFree {
   func send(atCommand atCommand: String!)
   @available(OSX 10.7, *)
   func send(atCommand atCommand: String!, timeout timeout: Float, selector selector: Selector, target target: AnyObject!)
-  init()
 }
 protocol IOBluetoothHandsFreeDeviceDelegate : IOBluetoothHandsFreeDelegate {
   @available(OSX 10.7, *)

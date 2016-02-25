@@ -46,7 +46,6 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   func applyImpulse(_ impulse: CGVector, at point: CGPoint)
   func applyAngularImpulse(_ impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

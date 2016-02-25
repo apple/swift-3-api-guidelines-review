@@ -3,11 +3,6 @@ class NSClassDescription : NSObject {
   class func register(_ description: NSClassDescription, for aClass: AnyClass)
   class func invalidateClassDescriptionCache()
   /*not inherited*/ init?(for aClass: AnyClass)
-  var attributeKeys: [String] { get }
-  var toOneRelationshipKeys: [String] { get }
-  var toManyRelationshipKeys: [String] { get }
-  func inverse(forRelationshipKey relationshipKey: String) -> String?
-  init()
 }
 extension NSObject {
   @NSCopying var classDescription: NSClassDescription { get }

@@ -7,5 +7,4 @@ class OSALanguageInstance : NSObject {
   var defaultTarget: NSAppleEventDescriptor?
   @available(OSX 10.10, *)
   func richText(from descriptor: NSAppleEventDescriptor) -> NSAttributedString?
-  init()
 }

@@ -81,7 +81,6 @@ class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   func remove(keyword keyword: AEKeyword)
   func keywordForDescriptor(at index: Int) -> AEKeyword
   func coerce(toDescriptorType descriptorType: DescType) -> NSAppleEventDescriptor?
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)

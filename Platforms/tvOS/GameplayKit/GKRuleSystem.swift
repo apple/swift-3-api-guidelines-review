@@ -1,7 +1,6 @@
 
 @available(tvOS 9.0, *)
 class GKRuleSystem : NSObject {
-  init()
   func evaluate()
   var state: NSMutableDictionary { get }
   var rules: [GKRule] { get }
@@ -28,15 +27,9 @@ class GKRule : NSObject {
   convenience init(predicate predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade grade: Float)
   convenience init(predicate predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action action: (GKRuleSystem) -> Void)
-  init()
 }
 @available(tvOS 9.0, *)
 class GKNSPredicateRule : GKRule {
   var predicate: NSPredicate { get }
   init(predicate predicate: NSPredicate)
-  func evaluatePredicate(with system: GKRuleSystem) -> Bool
-  convenience init(predicate predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade grade: Float)
-  convenience init(predicate predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade grade: Float)
-  convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action action: (GKRuleSystem) -> Void)
-  init()
 }

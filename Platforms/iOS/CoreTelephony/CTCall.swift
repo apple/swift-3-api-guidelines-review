@@ -13,5 +13,4 @@ class CTCall : NSObject {
   var callState: String { get }
   @available(iOS 4.0, *)
   var callID: String { get }
-  init()
 }

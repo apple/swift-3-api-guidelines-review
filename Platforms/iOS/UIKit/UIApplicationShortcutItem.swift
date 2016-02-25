@@ -59,7 +59,6 @@ enum UIApplicationShortcutIconType : Int {
 class UIApplicationShortcutIcon : NSObject, NSCopying {
   convenience init(type type: UIApplicationShortcutIconType)
   convenience init(templateImageName templateImageName: String)
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -79,11 +78,4 @@ class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
 }
 @available(iOS 9.0, *)
 class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {
-  var type: String
-  var localizedTitle: String
-  var localizedSubtitle: String?
-  @NSCopying var icon: UIApplicationShortcutIcon?
-  var userInfo: [String : NSSecureCoding]?
-  init(type type: String, localizedTitle localizedTitle: String, localizedSubtitle localizedSubtitle: String?, icon icon: UIApplicationShortcutIcon?, userInfo userInfo: [NSObject : AnyObject]? = [:])
-  convenience init(type type: String, localizedTitle localizedTitle: String)
 }

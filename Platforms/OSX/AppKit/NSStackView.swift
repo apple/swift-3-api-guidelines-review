@@ -57,9 +57,6 @@ class NSStackView : NSView {
   func setClippingResistancePriority(_ clippingResistancePriority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
   func huggingPriority(for orientation: NSLayoutConstraintOrientation) -> NSLayoutPriority
   func setHuggingPriority(_ huggingPriority: NSLayoutPriority, for orientation: NSLayoutConstraintOrientation)
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension NSStackView {
   @available(OSX 10.11, *)

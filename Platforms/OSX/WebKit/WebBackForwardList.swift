@@ -14,7 +14,6 @@ class WebBackForwardList : NSObject {
   var forwardListCount: Int32 { get }
   func contains(_ item: WebHistoryItem!) -> Bool
   func item(at index: Int32) -> WebHistoryItem!
-  init()
 }
 extension WebBackForwardList {
   func setPageCacheSize(_ size: Int)

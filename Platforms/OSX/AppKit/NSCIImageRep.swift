@@ -2,8 +2,6 @@
 class NSCIImageRep : NSImageRep {
   init(ciImage image: CIImage)
   var ciImage: CIImage { get }
-  init()
-  init?(coder coder: NSCoder)
 }
 extension CIImage {
   init?(bitmapImageRep bitmapImageRep: NSBitmapImageRep)

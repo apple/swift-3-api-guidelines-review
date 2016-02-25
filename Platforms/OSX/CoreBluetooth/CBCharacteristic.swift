@@ -24,7 +24,6 @@ class CBCharacteristic : NSObject {
   var descriptors: [CBDescriptor]? { get }
   var isBroadcasted: Bool { get }
   var isNotifying: Bool { get }
-  init()
 }
 @available(OSX 10.9, *)
 struct CBAttributePermissions : OptionSetType {
@@ -40,10 +39,5 @@ class CBMutableCharacteristic : CBCharacteristic {
   var permissions: CBAttributePermissions
   @available(OSX 10.9, *)
   var subscribedCentrals: [CBCentral]? { get }
-  var uuid: CBUUID?
-  var properties: CBCharacteristicProperties
-  var value: NSData?
-  var descriptors: [CBDescriptor]?
   init(type UUID: CBUUID?, properties properties: CBCharacteristicProperties, value value: NSData?, permissions permissions: CBAttributePermissions)
-  init()
 }

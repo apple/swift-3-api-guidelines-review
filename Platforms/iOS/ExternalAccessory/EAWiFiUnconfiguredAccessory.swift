@@ -14,5 +14,4 @@ class EAWiFiUnconfiguredAccessory : NSObject {
   var ssid: String { get }
   var macAddress: String { get }
   var properties: EAWiFiUnconfiguredAccessoryProperties { get }
-  init()
 }

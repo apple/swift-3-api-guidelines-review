@@ -41,7 +41,6 @@ class GKTurnBasedParticipant : NSObject {
   var matchOutcome: GKTurnBasedMatchOutcome
   @available(tvOS 6.0, *)
   @NSCopying var timeoutDate: NSDate? { get }
-  init()
 }
 protocol GKTurnBasedEventListener {
   @available(tvOS 8.0, *)
@@ -114,7 +113,6 @@ class GKTurnBasedMatch : NSObject {
   func sendExchange(to participants: [GKTurnBasedParticipant], data data: NSData, localizableMessageKey key: String, arguments arguments: [String], timeout timeout: NSTimeInterval, completionHandler completionHandler: ((GKTurnBasedExchange, NSError) -> Void)? = nil)
   @available(tvOS 7.0, *)
   func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }
 @available(tvOS 7.0, *)
 enum GKTurnBasedExchangeStatus : Int8 {
@@ -146,7 +144,6 @@ class GKTurnBasedExchange : NSObject {
   func cancel(localizableMessageKey key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(tvOS 7.0, *)
   func reply(localizableMessageKey key: String, arguments arguments: [String], data data: NSData, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }
 @available(tvOS 7.0, *)
 class GKTurnBasedExchangeReply : NSObject {
@@ -155,5 +152,4 @@ class GKTurnBasedExchangeReply : NSObject {
   var data: NSData? { get }
   @available(tvOS 8.0, *)
   var replyDate: NSDate? { get }
-  init()
 }

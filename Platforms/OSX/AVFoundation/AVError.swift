@@ -24,8 +24,6 @@ let AVErrorFileTypeKey: String
 @available(OSX 10.7, *)
 let AVErrorDiscontinuityFlagsKey: String
 enum AVError : Int {
-  init?(rawValue rawValue: Int)
-  var rawValue: Int { get }
   case unknown
   case outOfMemory
   case sessionNotRunning
@@ -87,6 +85,4 @@ enum AVError : Int {
 }
 
 extension AVError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

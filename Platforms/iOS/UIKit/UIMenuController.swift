@@ -24,7 +24,6 @@ class UIMenuController : NSObject {
   var menuItems: [UIMenuItem]?
   func update()
   var menuFrame: CGRect { get }
-  init()
 }
 let UIMenuControllerWillShowMenuNotification: String
 let UIMenuControllerDidShowMenuNotification: String
@@ -36,5 +35,4 @@ class UIMenuItem : NSObject {
   init(title title: String, action action: Selector)
   var title: String
   var action: Selector
-  convenience init()
 }

@@ -7,7 +7,6 @@ enum NSTaskTerminationReason : Int {
   case uncaughtSignal
 }
 class NSTask : NSObject {
-  init()
   var launchPath: String?
   var arguments: [String]?
   var environment: [String : String]?

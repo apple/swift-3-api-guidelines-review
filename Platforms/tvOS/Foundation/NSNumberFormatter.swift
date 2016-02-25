@@ -77,8 +77,6 @@ class NSNumberFormatter : NSFormatter {
   var maximumSignificantDigits: Int
   @available(tvOS 2.0, *)
   var isPartialStringValidationEnabled: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSNumberFormatterStyle : UInt {
   init?(rawValue rawValue: UInt)

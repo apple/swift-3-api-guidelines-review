@@ -33,7 +33,6 @@ class NSHashTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func union(_ other: NSHashTable)
   func minus(_ other: NSHashTable)
   var setRepresentation: Set<NSObject> { get }
-  convenience init()
   @available(OSX 10.5, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.5, *)

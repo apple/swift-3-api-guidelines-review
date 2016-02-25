@@ -13,5 +13,4 @@ class AVBInterface : NSObject {
   @available(OSX, introduced=10.8, deprecated=10.10)
   class func myGUID() -> UInt64
   class func myEntityID() -> UInt64
-  init()
 }

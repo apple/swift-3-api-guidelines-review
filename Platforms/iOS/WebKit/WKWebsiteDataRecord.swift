@@ -19,5 +19,4 @@ let WKWebsiteDataTypeIndexedDBDatabases: String
 class WKWebsiteDataRecord : NSObject {
   var displayName: String { get }
   var dataTypes: Set<String> { get }
-  init()
 }

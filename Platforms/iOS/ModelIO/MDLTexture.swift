@@ -35,7 +35,6 @@ class MDLTexture : NSObject, MDLNamed {
   var mipLevelCount: Int { get }
   var channelEncoding: MDLTextureChannelEncoding { get }
   var isCube: Bool
-  convenience init()
   @available(iOS 9.0, *)
   var name: String
 }
@@ -43,12 +42,6 @@ class MDLTexture : NSObject, MDLNamed {
 class MDLURLTexture : MDLTexture {
   init(url URL: NSURL, name name: String?)
   @NSCopying var url: NSURL
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MDLCheckerboardTexture : MDLTexture {
@@ -56,12 +49,6 @@ class MDLCheckerboardTexture : MDLTexture {
   var divisions: Float
   var color1: CGColor?
   var color2: CGColor?
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MDLSkyCubeTexture : MDLTexture {
@@ -79,42 +66,18 @@ class MDLSkyCubeTexture : MDLTexture {
   var contrast: Float
   var saturation: Float
   var highDynamicRangeCompression: vector_float2
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MDLColorSwatchTexture : MDLTexture {
   init(colorTemperatureGradientFrom colorTemperature1: Float, toColorTemperature colorTemperature2: Float, name name: String?, textureDimensions textureDimensions: vector_int2)
   init(colorGradientFrom color1: CGColor, to color2: CGColor, name name: String?, textureDimensions textureDimensions: vector_int2)
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MDLNoiseTexture : MDLTexture {
   init(vectorNoiseWithSmoothness smoothness: Float, name name: String?, textureDimensions textureDimensions: vector_int2, channelEncoding channelEncoding: MDLTextureChannelEncoding)
   init(scalarNoiseWithSmoothness smoothness: Float, name name: String?, textureDimensions textureDimensions: vector_int2, channelCount channelCount: Int32, channelEncoding channelEncoding: MDLTextureChannelEncoding, grayscale grayscale: Bool)
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }
 @available(iOS 9.0, *)
 class MDLNormalMapTexture : MDLTexture {
   init(byGeneratingNormalMapWith sourceTexture: MDLTexture, name name: String?, smoothness smoothness: Float, contrast contrast: Float)
-  convenience init?(named name: String)
-  convenience init?(named name: String, bundle bundleOrNil: NSBundle?)
-  convenience init?(cubeWithImagesNamed names: [String])
-  convenience init?(cubeWithImagesNamed names: [String], bundle bundleOrNil: NSBundle?)
-  init(data pixelData: NSData?, topLeftOrigin topLeftOrigin: Bool, name name: String?, dimensions dimensions: vector_int2, rowStride rowStride: Int, channelCount channelCount: Int, channelEncoding channelEncoding: MDLTextureChannelEncoding, isCube isCube: Bool)
-  convenience init()
 }

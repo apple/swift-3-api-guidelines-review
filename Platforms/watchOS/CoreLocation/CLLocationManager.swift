@@ -46,5 +46,4 @@ class CLLocationManager : NSObject {
   func stopUpdatingLocation()
   @available(watchOS 2.0, *)
   func requestLocation()
-  init()
 }

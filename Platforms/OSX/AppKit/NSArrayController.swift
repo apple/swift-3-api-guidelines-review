@@ -23,28 +23,20 @@ class NSArrayController : NSObjectController {
   func addSelectionIndexes(_ indexes: NSIndexSet) -> Bool
   func removeSelectionIndexes(_ indexes: NSIndexSet) -> Bool
   func setSelectedObjects(_ objects: [AnyObject]) -> Bool
-  var selectedObjects: [AnyObject]! { get }
   func addSelectedObjects(_ objects: [AnyObject]) -> Bool
   func removeSelectedObjects(_ objects: [AnyObject]) -> Bool
-  func add(_ sender: AnyObject?)
-  func remove(_ sender: AnyObject?)
   func insert(_ sender: AnyObject?)
   var canInsert: Bool { get }
   func selectNext(_ sender: AnyObject?)
   func selectPrevious(_ sender: AnyObject?)
   var canSelectNext: Bool { get }
   var canSelectPrevious: Bool { get }
-  func add(_ object: AnyObject)
   func add(_ objects: [AnyObject])
   func insert(_ object: AnyObject, atArrangedObjectIndex index: Int)
   func insert(_ objects: [AnyObject], atArrangedObjectIndexes indexes: NSIndexSet)
   func removeObject(atArrangedObjectIndex index: Int)
   func removeObjects(atArrangedObjectIndexes indexes: NSIndexSet)
-  func remove(_ object: AnyObject)
   func remove(_ objects: [AnyObject])
-  init(content content: AnyObject?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __arrayControllerFlags {
   var _avoidsEmptySelection: UInt32

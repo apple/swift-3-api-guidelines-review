@@ -35,7 +35,6 @@ class UIResponder : NSObject {
   func target(forAction action: Selector, withSender sender: AnyObject?) -> AnyObject?
   @available(iOS 3.0, *)
   var undoManager: NSUndoManager? { get }
-  init()
 }
 @available(iOS 7.0, *)
 struct UIKeyModifierFlags : OptionSetType {
@@ -50,7 +49,6 @@ struct UIKeyModifierFlags : OptionSetType {
 }
 @available(iOS 7.0, *)
 class UIKeyCommand : NSObject, NSCopying, NSSecureCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   var input: String { get }
   var modifierFlags: UIKeyModifierFlags { get }

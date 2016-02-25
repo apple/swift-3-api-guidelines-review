@@ -68,7 +68,6 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
   func hitTestWithSegment(fromPoint pointA: SCNVector3, toPoint pointB: SCNVector3, options options: [String : AnyObject]? = [:]) -> [SCNHitTestResult]
   @available(tvOS 8.0, *)
   var categoryBitMask: Int
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)

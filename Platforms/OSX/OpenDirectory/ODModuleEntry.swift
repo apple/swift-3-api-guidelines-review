@@ -17,5 +17,4 @@ class ODModuleEntry : NSObject {
   func setOption(_ optionName: String!, value value: AnyObject!)
   @available(OSX 10.9, *)
   func option(_ optionName: String!) -> AnyObject!
-  init()
 }

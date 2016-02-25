@@ -8,9 +8,6 @@ class QLPreviewController : UIViewController {
   var currentPreviewItemIndex: Int
   var currentPreviewItem: QLPreviewItem? { get }
   weak var delegate: @sil_weak QLPreviewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol QLPreviewControllerDataSource {
   @available(iOS 4.0, *)

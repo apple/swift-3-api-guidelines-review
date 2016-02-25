@@ -8,7 +8,6 @@ class MCNearbyServiceAdvertiser : NSObject {
   var myPeerID: MCPeerID { get }
   var discoveryInfo: [String : String]? { get }
   var serviceType: String { get }
-  convenience init()
 }
 protocol MCNearbyServiceAdvertiserDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)

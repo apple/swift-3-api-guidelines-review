@@ -53,7 +53,6 @@ class NSSpeechSynthesizer : NSObject {
   class func defaultVoice() -> String
   class func availableVoices() -> [String]
   class func attributes(forVoice voice: String) -> [String : AnyObject]
-  init()
 }
 protocol NSSpeechSynthesizerDelegate : NSObjectProtocol {
   optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, didFinishSpeaking finishedSpeaking: Bool)

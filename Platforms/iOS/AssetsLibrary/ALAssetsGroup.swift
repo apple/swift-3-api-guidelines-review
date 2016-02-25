@@ -29,5 +29,4 @@ class ALAssetsGroup : NSObject {
   var isEditable: Bool { get }
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use addAssets: on a PHAssetCollectionChangeRequest: created from a PHAssetCollection in the Photos framework instead")
   func add(_ asset: ALAsset!) -> Bool
-  init()
 }

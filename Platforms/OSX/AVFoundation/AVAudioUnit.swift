@@ -11,5 +11,4 @@ class AVAudioUnit : AVAudioNode {
   var name: String { get }
   var manufacturerName: String { get }
   var version: Int { get }
-  init()
 }

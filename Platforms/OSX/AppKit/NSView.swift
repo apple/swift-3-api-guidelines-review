@@ -77,7 +77,6 @@ typealias NSTrackingRectTag = Int
 typealias NSToolTipTag = Int
 class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemIdentification, NSDraggingDestination, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
   init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
   unowned(unsafe) var window: @sil_unmanaged NSWindow? { get }
   unowned(unsafe) var superview: @sil_unmanaged NSView? { get }
   var subviews: [NSView]
@@ -197,7 +196,6 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   func mouse(_ aPoint: NSPoint, in aRect: NSRect) -> Bool
   func withTag(_ aTag: Int) -> NSView?
   var tag: Int { get }
-  func performKeyEquivalent(_ theEvent: NSEvent) -> Bool
   func acceptsFirstMouse(_ theEvent: NSEvent?) -> Bool
   func shouldDelayWindowOrdering(for theEvent: NSEvent) -> Bool
   var needsPanelToBecomeKey: Bool { get }
@@ -282,7 +280,6 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   var preparedContentRect: NSRect
   @available(OSX 10.10, *)
   var allowsVibrancy: Bool { get }
-  convenience init()
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)
@@ -829,7 +826,6 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
 }
 
 extension NSView : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 struct __VFlags2 {
   var nextKeyViewRefCount: UInt32

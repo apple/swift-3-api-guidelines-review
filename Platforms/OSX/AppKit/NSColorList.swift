@@ -13,7 +13,6 @@ class NSColorList : NSObject, NSSecureCoding {
   var isEditable: Bool { get }
   func write(toFile path: String?) -> Bool
   func removeFile()
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

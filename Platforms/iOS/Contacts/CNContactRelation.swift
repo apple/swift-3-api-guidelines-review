@@ -3,7 +3,6 @@
 class CNContactRelation : NSObject, NSCopying, NSSecureCoding {
   init(name name: String)
   var name: String { get }
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

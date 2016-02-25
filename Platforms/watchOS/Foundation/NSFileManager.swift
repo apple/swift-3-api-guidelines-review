@@ -135,7 +135,6 @@ class NSFileManager : NSObject {
   @NSCopying var ubiquityIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? { get }
   @available(watchOS 2.0, *)
   func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> NSURL?
-  init()
 }
 extension NSObject {
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -181,7 +180,6 @@ class NSDirectoryEnumerator : NSEnumerator {
   var level: Int { get }
   @available(watchOS 2.0, *)
   func skipDescendants()
-  init()
 }
 let NSFileType: String
 let NSFileTypeDirectory: String

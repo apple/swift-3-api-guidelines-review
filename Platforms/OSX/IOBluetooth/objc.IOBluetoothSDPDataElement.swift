@@ -17,7 +17,6 @@ class IOBluetoothSDPDataElement : NSObject, NSCoding {
   func getValue() -> NSObject!
   func contains(_ dataElement: IOBluetoothSDPDataElement!) -> Bool
   func containsValue(_ cmpValue: NSObject!) -> Bool
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

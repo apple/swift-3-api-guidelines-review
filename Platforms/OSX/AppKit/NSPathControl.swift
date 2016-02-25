@@ -19,10 +19,6 @@ class NSPathControl : NSControl {
   @NSCopying var backgroundColor: NSColor?
   weak var delegate: @sil_weak NSPathControlDelegate?
   func setDraggingSourceOperationMask(_ mask: NSDragOperation, forLocal isLocal: Bool)
-  var menu: NSMenu?
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NSPathControlDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)

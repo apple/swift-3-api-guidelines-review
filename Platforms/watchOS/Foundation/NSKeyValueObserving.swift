@@ -50,22 +50,10 @@ extension NSArray {
   @available(watchOS 2.0, *)
   func removeObserver(_ observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
   func removeObserver(_ observer: NSObject, fromObjectsAt indexes: NSIndexSet, forKeyPath keyPath: String)
-  func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions = [], context context: UnsafeMutablePointer<Void>)
-  @available(watchOS 2.0, *)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSOrderedSet {
-  func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions = [], context context: UnsafeMutablePointer<Void>)
-  @available(watchOS 2.0, *)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSSet {
-  func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions = [], context context: UnsafeMutablePointer<Void>)
-  @available(watchOS 2.0, *)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
-  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSObject {
   class func willChangeValue(forKey key: String)

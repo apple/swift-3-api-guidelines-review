@@ -57,7 +57,6 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   func finishedHandlingError(_ error: NSError, recovered recovered: Bool)
   func userInteractionNoLongerPermitted(forError error: NSError)
   func revert(toContentsOf url: NSURL, completionHandler completionHandler: ((Bool) -> Void)? = nil)
-  convenience init()
   @available(iOS 5.0, *)
   @NSCopying var presentedItemURL: NSURL? { get }
   @available(iOS 5.0, *)

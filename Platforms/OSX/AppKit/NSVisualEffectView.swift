@@ -40,9 +40,4 @@ class NSVisualEffectView : NSView {
   var blendingMode: NSVisualEffectBlendingMode
   var state: NSVisualEffectState
   var maskImage: NSImage?
-  func viewDidMoveToWindow()
-  func viewWillMove(to newWindow: NSWindow?)
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

@@ -48,7 +48,6 @@ struct UITableViewCellStateMask : OptionSetType {
 class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(tvOS 3.0, *)
   init(style style: UITableViewCellStyle, reuseIdentifier reuseIdentifier: String?)
-  init?(coder aDecoder: NSCoder)
   @available(tvOS 3.0, *)
   var imageView: UIImageView? { get }
   @available(tvOS 3.0, *)
@@ -85,10 +84,6 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   func willTransition(to state: UITableViewCellStateMask)
   @available(tvOS 3.0, *)
   func didTransition(to state: UITableViewCellStateMask)
-  convenience init(frame frame: CGRect)
-  convenience init()
-  @available(tvOS 3.2, *)
-  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 3.2, *)
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(tvOS 7.0, *)

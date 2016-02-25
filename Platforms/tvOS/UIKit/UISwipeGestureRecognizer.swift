@@ -10,6 +10,4 @@ struct UISwipeGestureRecognizerDirection : OptionSetType {
 @available(tvOS 3.2, *)
 class UISwipeGestureRecognizer : UIGestureRecognizer {
   var direction: UISwipeGestureRecognizerDirection
-  init(target target: AnyObject?, action action: Selector)
-  convenience init()
 }

@@ -20,7 +20,6 @@ class NSHTTPCookieStorage : NSObject {
   var cookieAcceptPolicy: NSHTTPCookieAcceptPolicy
   @available(OSX 10.7, *)
   func sortedCookies(using sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
-  init()
 }
 extension NSHTTPCookieStorage {
   @available(OSX 10.10, *)

@@ -9,7 +9,6 @@ class NSItemProvider : NSObject, NSCopying {
   var registeredTypeIdentifiers: [AnyObject] { get }
   func hasItemConforming(toTypeIdentifier typeIdentifier: String) -> Bool
   func loadItem(forTypeIdentifier typeIdentifier: String, options options: [NSObject : AnyObject]? = [:], completionHandler completionHandler: NSItemProviderCompletionHandler? = nil)
-  convenience init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

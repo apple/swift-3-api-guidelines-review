@@ -66,9 +66,6 @@ class WebView : NSView {
   var mainFrameDocument: DOMDocument! { get }
   var mainFrameTitle: String! { get }
   var mainFrameIcon: NSImage! { get }
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension WebView : NSUserInterfaceValidations {
   @IBAction func takeStringURLFrom(_ sender: AnyObject?)
@@ -108,7 +105,6 @@ extension WebView {
   var smartInsertDeleteEnabled: Bool
   var isContinuousSpellCheckingEnabled: Bool
   var spellCheckerDocumentTag: Int { get }
-  var undoManager: NSUndoManager! { get }
   var editingDelegate: AnyObject!
   func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }
@@ -129,10 +125,8 @@ extension WebView {
   func delete(_ sender: AnyObject?)
   func pasteAsPlainText(_ sender: AnyObject?)
   func pasteAsRichText(_ sender: AnyObject?)
-  func changeFont(_ sender: AnyObject?)
   func changeAttributes(_ sender: AnyObject?)
   func changeDocumentBackgroundColor(_ sender: AnyObject?)
-  func changeColor(_ sender: AnyObject?)
   func alignCenter(_ sender: AnyObject?)
   func alignJustified(_ sender: AnyObject?)
   func alignLeft(_ sender: AnyObject?)

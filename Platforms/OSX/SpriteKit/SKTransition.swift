@@ -25,6 +25,5 @@ class SKTransition : NSObject, NSCopying {
   /*not inherited*/ init(ciFilter filter: CIFilter, duration sec: NSTimeInterval)
   var pausesIncomingScene: Bool
   var pausesOutgoingScene: Bool
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }

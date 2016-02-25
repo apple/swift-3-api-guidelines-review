@@ -121,7 +121,6 @@ class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
   var inputBias: CGFloat
   weak var inputOrigin: @sil_weak SCNNode?
   var inputProperty: String?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
@@ -198,7 +197,6 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   func addModifier(forProperties properties: [String], at stage: SCNParticleModifierStage, with block: SCNParticleModifierBlock)
   func removeModifiers(of stage: SCNParticleModifierStage)
   func removeAllModifiers()
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

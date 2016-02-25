@@ -145,7 +145,6 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   func unlock()
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use -performBlock: instead")
   func tryLock() -> Bool
-  convenience init()
 }
 struct _persistentStoreCoordinatorFlags {
   var _isRegistered: UInt32

@@ -90,7 +90,6 @@ class NSLayoutConstraint : NSObject {
   class func activate(_ constraints: [NSLayoutConstraint])
   @available(iOS 8.0, *)
   class func deactivate(_ constraints: [NSLayoutConstraint])
-  init()
 }
 extension NSLayoutConstraint {
   @available(iOS 7.0, *)

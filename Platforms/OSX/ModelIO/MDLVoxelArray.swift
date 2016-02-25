@@ -27,5 +27,4 @@ class MDLVoxelArray : NSObject {
   var count: Int { get }
   var voxelIndexExtent: MDLVoxelIndexExtent { get }
   var boundingBox: MDLAxisAlignedBoundingBox { get }
-  init()
 }

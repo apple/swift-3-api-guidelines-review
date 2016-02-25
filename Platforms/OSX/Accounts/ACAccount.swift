@@ -7,5 +7,4 @@ class ACAccount : NSObject {
   var accountDescription: String!
   var username: String!
   var credential: ACAccountCredential!
-  convenience init()
 }

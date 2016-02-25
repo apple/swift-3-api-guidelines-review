@@ -28,7 +28,6 @@ class UIFont : NSObject, NSCopying {
   /*not inherited*/ init(descriptor descriptor: UIFontDescriptor, size pointSize: CGFloat)
   @available(watchOS 2.0, *)
   func fontDescriptor() -> UIFontDescriptor
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

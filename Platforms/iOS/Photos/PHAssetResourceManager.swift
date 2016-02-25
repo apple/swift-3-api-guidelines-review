@@ -8,7 +8,6 @@ typealias PHAssetResourceProgressHandler = (Double) -> Void
 class PHAssetResourceRequestOptions : NSObject, NSCopying {
   var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetResourceProgressHandler?
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -18,5 +17,4 @@ class PHAssetResourceManager : NSObject {
   func requestData(for resource: PHAssetResource, options options: PHAssetResourceRequestOptions?, dataReceivedHandler handler: (NSData) -> Void, completionHandler completionHandler: (NSError?) -> Void) -> PHAssetResourceDataRequestID
   func writeData(for resource: PHAssetResource, toFile fileURL: NSURL, options options: PHAssetResourceRequestOptions?, completionHandler completionHandler: (NSError?) -> Void)
   func cancelDataRequest(_ requestID: PHAssetResourceDataRequestID)
-  init()
 }

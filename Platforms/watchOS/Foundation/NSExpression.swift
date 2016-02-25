@@ -78,7 +78,6 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   func expressionValue(with object: AnyObject?, context context: NSMutableDictionary?) -> AnyObject
   @available(watchOS 2.0, *)
   func allowEvaluation()
-  convenience init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)

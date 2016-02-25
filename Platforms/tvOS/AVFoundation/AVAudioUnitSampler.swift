@@ -7,6 +7,4 @@ class AVAudioUnitSampler : AVAudioUnitMIDIInstrument {
   var stereoPan: Float
   var masterGain: Float
   var globalTuning: Float
-  init(audioComponentDescription description: AudioComponentDescription)
-  init()
 }

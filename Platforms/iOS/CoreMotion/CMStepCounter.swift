@@ -7,5 +7,4 @@ class CMStepCounter : NSObject {
   func queryStepCountStarting(from start: NSDate, to end: NSDate, to queue: NSOperationQueue, withHandler handler: CMStepQueryHandler)
   func startStepCountingUpdates(to queue: NSOperationQueue, updateOn stepCounts: Int, withHandler handler: CMStepUpdateHandler)
   func stopStepCountingUpdates()
-  init()
 }

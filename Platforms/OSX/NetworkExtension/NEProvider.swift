@@ -31,5 +31,4 @@ class NEProvider : NSObject {
   func createUDPSession(to remoteEndpoint: NWEndpoint, from localEndpoint: NWHostEndpoint?) -> NWUDPSession
   @available(OSX 10.11, *)
   var defaultPath: NWPath? { get }
-  init()
 }

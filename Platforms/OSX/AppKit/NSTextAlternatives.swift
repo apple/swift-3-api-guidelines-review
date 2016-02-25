@@ -5,7 +5,6 @@ class NSTextAlternatives : NSObject {
   var primaryString: String { get }
   var alternativeStrings: [String] { get }
   func noteSelectedAlternativeString(_ alternativeString: String)
-  init()
 }
 @available(OSX 10.8, *)
 let NSTextAlternativesSelectedAlternativeStringNotification: String

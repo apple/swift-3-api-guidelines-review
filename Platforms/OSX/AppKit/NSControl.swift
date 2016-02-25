@@ -2,7 +2,6 @@
 class NSControl : NSView {
   weak var target: @sil_weak AnyObject?
   var action: Selector
-  var tag: Int
   var ignoresMultiClick: Bool
   var isContinuous: Bool
   var isEnabled: Bool
@@ -21,8 +20,6 @@ class NSControl : NSView {
   var doubleValue: Double
   @available(OSX 10.10, *)
   func sizeThatFits(_ size: NSSize) -> NSSize
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
   func sizeToFit()
   func sendAction(on mask: Int) -> Int
   func sendAction(_ theAction: Selector, to theTarget: AnyObject?) -> Bool
@@ -33,8 +30,6 @@ class NSControl : NSView {
   func takeObjectValueFrom(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   func takeIntegerValueFrom(_ sender: AnyObject?)
-  func mouseDown(_ theEvent: NSEvent)
-  convenience init()
 }
 struct __conFlags {
   var enabled: UInt32

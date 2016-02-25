@@ -20,5 +20,4 @@ class NSJSONSerialization : NSObject {
   class func jsonObject(with data: NSData, options opt: NSJSONReadingOptions = []) throws -> AnyObject
   class func writeJSONObject(_ obj: AnyObject, to stream: NSOutputStream, options opt: NSJSONWritingOptions = [], error error: NSErrorPointer) -> Int
   class func jsonObject(with stream: NSInputStream, options opt: NSJSONReadingOptions = []) throws -> AnyObject
-  init()
 }

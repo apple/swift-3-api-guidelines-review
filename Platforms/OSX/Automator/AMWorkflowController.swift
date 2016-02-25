@@ -11,8 +11,6 @@ class AMWorkflowController : NSController {
   @IBAction func pause(_ sender: AnyObject)
   @IBAction func step(_ sender: AnyObject)
   @IBAction func reset(_ sender: AnyObject)
-  init()
-  init?(coder coder: NSCoder)
 }
 struct __AMWorkflowControllerFlags {
   var shouldRunLocally: Int

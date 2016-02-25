@@ -12,8 +12,6 @@ class CNPostalAddressFormatter : NSFormatter {
   var style: CNPostalAddressFormatterStyle
   func string(from postalAddress: CNPostalAddress) -> String
   func attributedString(from postalAddress: CNPostalAddress, withDefaultAttributes attributes: [NSObject : AnyObject] = [:]) -> NSAttributedString
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 let CNPostalAddressPropertyAttribute: String
 let CNPostalAddressLocalizedPropertyNameAttribute: String

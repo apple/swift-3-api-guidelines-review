@@ -5,5 +5,4 @@ class NCWidgetController : NSObject {
   @available(*, deprecated, message="Use widgetController instead.")
   class func defaultWidgetController() -> NCWidgetController!
   func setHasContent(_ flag: Bool, forWidgetWithBundleIdentifier bundleID: String!)
-  init()
 }

@@ -40,8 +40,6 @@ enum UIBarButtonSystemItem : Int {
 }
 @available(tvOS 2.0, *)
 class UIBarButtonItem : UIBarItem, NSCoding {
-  init()
-  init?(coder aDecoder: NSCoder)
   convenience init(image image: UIImage?, style style: UIBarButtonItemStyle, target target: AnyObject?, action action: Selector)
   @available(tvOS 5.0, *)
   convenience init(image image: UIImage?, landscapeImagePhone landscapeImagePhone: UIImage?, style style: UIBarButtonItemStyle, target target: AnyObject?, action action: Selector)

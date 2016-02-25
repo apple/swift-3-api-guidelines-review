@@ -1,7 +1,6 @@
 
 var NSImageRepMatchesDevice: Int { get }
 class NSImageRep : NSObject, NSCopying, NSCoding {
-  init()
   init?(coder coder: NSCoder)
   func draw() -> Bool
   func draw(at point: NSPoint) -> Bool

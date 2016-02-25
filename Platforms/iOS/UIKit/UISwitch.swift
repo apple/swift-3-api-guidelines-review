@@ -4,16 +4,11 @@ class UISwitch : UIControl, NSCoding {
   @available(iOS 5.0, *)
   var onTintColor: UIColor?
   @available(iOS 6.0, *)
-  var tintColor: UIColor!
-  @available(iOS 6.0, *)
   var thumbTintColor: UIColor?
   @available(iOS 6.0, *)
   var onImage: UIImage?
   @available(iOS 6.0, *)
   var offImage: UIImage?
   var isOn: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
   func setOn(_ on: Bool, animated animated: Bool)
-  convenience init()
 }

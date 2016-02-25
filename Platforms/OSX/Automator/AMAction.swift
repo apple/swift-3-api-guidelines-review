@@ -42,5 +42,4 @@ class AMAction : NSObject {
   func updateParameters()
   func parametersUpdated()
   var isStopped: Bool { get }
-  init()
 }

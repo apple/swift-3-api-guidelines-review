@@ -17,7 +17,6 @@ class NSRegularExpression : NSObject, NSCopying, NSCoding {
   var options: NSRegularExpressionOptions { get }
   var numberOfCaptureGroups: Int { get }
   class func escapedPattern(for string: String) -> String
-  convenience init()
   @available(tvOS 4.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
@@ -59,7 +58,4 @@ extension NSRegularExpression {
 class NSDataDetector : NSRegularExpression {
   init(types checkingTypes: NSTextCheckingTypes) throws
   var checkingTypes: NSTextCheckingTypes { get }
-  convenience init(pattern pattern: String, options options: NSRegularExpressionOptions = []) throws
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

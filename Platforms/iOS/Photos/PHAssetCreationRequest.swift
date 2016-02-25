@@ -4,7 +4,6 @@ class PHAssetResourceCreationOptions : NSObject, NSCopying {
   var originalFilename: String?
   var uniformTypeIdentifier: String?
   var shouldMoveFile: Bool
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -14,6 +13,4 @@ class PHAssetCreationRequest : PHAssetChangeRequest {
   class func supportsAssetResourceTypes(_ types: [NSNumber]) -> Bool
   func addResource(_ type: PHAssetResourceType, fileURL fileURL: NSURL, options options: PHAssetResourceCreationOptions?)
   func addResource(_ type: PHAssetResourceType, data data: NSData, options options: PHAssetResourceCreationOptions?)
-  convenience init(for asset: PHAsset)
-  init()
 }

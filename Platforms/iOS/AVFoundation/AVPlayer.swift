@@ -12,7 +12,6 @@ class AVPlayer : NSObject {
   init(playerItem item: AVPlayerItem)
   var status: AVPlayerStatus { get }
   var error: NSError? { get }
-  init()
 }
 extension AVPlayer {
   var rate: Float
@@ -100,7 +99,4 @@ class AVQueuePlayer : AVPlayer {
   func insertItem(_ item: AVPlayerItem, after afterItem: AVPlayerItem?)
   func removeItem(_ item: AVPlayerItem)
   func removeAllItems()
-  init(url URL: NSURL)
-  init(playerItem item: AVPlayerItem)
-  init()
 }

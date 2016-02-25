@@ -28,5 +28,4 @@ class NEVPNConnection : NSObject {
   var status: NEVPNStatus { get }
   @available(OSX 10.11, *)
   var connectedDate: NSDate? { get }
-  init()
 }

@@ -8,10 +8,8 @@ class SKVideoNode : SKNode {
   init(videoURL url: NSURL)
   @available(OSX 10.10, *)
   init(url url: NSURL)
-  init?(coder aDecoder: NSCoder)
   func play()
   func pause()
   var size: CGSize
   var anchorPoint: CGPoint
-  convenience init()
 }

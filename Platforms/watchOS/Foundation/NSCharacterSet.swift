@@ -28,7 +28,6 @@ class NSCharacterSet : NSObject, NSCopying, NSMutableCopying, NSCoding {
   func longCharacterIsMember(_ theLongChar: UTF32Char) -> Bool
   func isSuperset(of theOtherSet: NSCharacterSet) -> Bool
   func hasMember(inPlane thePlane: UInt8) -> Bool
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
@@ -41,26 +40,4 @@ class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
   func formUnion(_ otherSet: NSCharacterSet)
   func formIntersection(_ otherSet: NSCharacterSet)
   func invert()
-  class func control() -> NSMutableCharacterSet
-  class func whitespace() -> NSMutableCharacterSet
-  class func whitespaceAndNewline() -> NSMutableCharacterSet
-  class func decimalDigit() -> NSMutableCharacterSet
-  class func letter() -> NSMutableCharacterSet
-  class func lowercaseLetter() -> NSMutableCharacterSet
-  class func uppercaseLetter() -> NSMutableCharacterSet
-  class func nonBase() -> NSMutableCharacterSet
-  class func alphanumeric() -> NSMutableCharacterSet
-  class func decomposable() -> NSMutableCharacterSet
-  class func illegal() -> NSMutableCharacterSet
-  class func punctuation() -> NSMutableCharacterSet
-  class func capitalizedLetter() -> NSMutableCharacterSet
-  class func symbol() -> NSMutableCharacterSet
-  @available(watchOS 2.0, *)
-  class func newline() -> NSMutableCharacterSet
-  /*not inherited*/ init(range aRange: NSRange)
-  /*not inherited*/ init(charactersIn aString: String)
-  /*not inherited*/ init(bitmapRepresentation data: NSData)
-  /*not inherited*/ init?(contentsOfFile fName: String)
-  init(coder aDecoder: NSCoder)
-  convenience init()
 }

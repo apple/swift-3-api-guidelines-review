@@ -8,5 +8,4 @@ class MKDirections : NSObject {
   func calculateETA(completionHandler completionHandler: MKETAHandler)
   func cancel()
   var isCalculating: Bool { get }
-  convenience init()
 }

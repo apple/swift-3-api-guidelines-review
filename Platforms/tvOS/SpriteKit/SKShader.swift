@@ -9,7 +9,6 @@ class SKShader : NSObject, NSCopying, NSCoding {
   func addUniform(_ uniform: SKUniform)
   func uniformNamed(_ name: String) -> SKUniform?
   func removeUniformNamed(_ name: String)
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)

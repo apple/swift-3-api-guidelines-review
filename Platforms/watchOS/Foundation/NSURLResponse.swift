@@ -6,7 +6,6 @@ class NSURLResponse : NSObject, NSSecureCoding, NSCopying {
   var expectedContentLength: Int64 { get }
   var textEncodingName: String? { get }
   var suggestedFilename: String? { get }
-  convenience init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -18,7 +17,4 @@ class NSHTTPURLResponse : NSURLResponse {
   var statusCode: Int { get }
   var allHeaderFields: [NSObject : AnyObject] { get }
   class func localizedString(forStatusCode statusCode: Int) -> String
-  init(url URL: NSURL, mimeType MIMEType: String?, expectedContentLength length: Int, textEncodingName name: String?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

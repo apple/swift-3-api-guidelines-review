@@ -1,9 +1,6 @@
 
 @available(OSX 10.8, *)
 class GKFriendRequestComposeViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension GKFriendRequestComposeViewController {
   class func maxNumberOfRecipients() -> Int

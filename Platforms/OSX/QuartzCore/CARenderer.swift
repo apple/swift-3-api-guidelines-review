@@ -9,5 +9,4 @@ class CARenderer : NSObject {
   func render()
   func nextFrameTime() -> CFTimeInterval
   func endFrame()
-  init()
 }

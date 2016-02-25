@@ -23,7 +23,6 @@ class NSTableColumn : NSObject, NSCoding, NSUserInterfaceItemIdentification {
   var headerToolTip: String?
   @available(OSX 10.5, *)
   var isHidden: Bool
-  convenience init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

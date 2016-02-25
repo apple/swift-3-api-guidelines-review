@@ -24,7 +24,6 @@ class CBCentralManager : NSObject {
   func stopScan()
   func connect(_ peripheral: CBPeripheral, options options: [String : AnyObject]? = [:])
   func cancelPeripheralConnection(_ peripheral: CBPeripheral)
-  init()
 }
 protocol CBCentralManagerDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)

@@ -4,5 +4,4 @@ class WKPreferences : NSObject {
   var minimumFontSize: CGFloat
   var javaScriptEnabled: Bool
   var javaScriptCanOpenWindowsAutomatically: Bool
-  init()
 }

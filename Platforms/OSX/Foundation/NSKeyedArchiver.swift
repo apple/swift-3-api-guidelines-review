@@ -14,18 +14,6 @@ class NSKeyedArchiver : NSCoder {
   func setClassName(_ codedName: String?, for cls: AnyClass)
   class func className(for cls: AnyClass) -> String?
   func className(for cls: AnyClass) -> String?
-  func encode(_ objv: AnyObject?, forKey key: String)
-  func encodeConditionalObject(_ objv: AnyObject?, forKey key: String)
-  func encode(_ boolv: Bool, forKey key: String)
-  func encode(_ intv: Int32, forKey key: String)
-  func encode(_ intv: Int32, forKey key: String)
-  func encode(_ intv: Int64, forKey key: String)
-  func encode(_ realv: Float, forKey key: String)
-  func encode(_ realv: Double, forKey key: String)
-  func encodeBytes(_ bytesp: UnsafePointer<UInt8>, length lenv: Int, forKey key: String)
-  @available(OSX 10.8, *)
-  var requiresSecureCoding: Bool
-  init()
 }
 class NSKeyedUnarchiver : NSCoder {
   class func unarchiveObject(with data: NSData) -> AnyObject?
@@ -37,18 +25,6 @@ class NSKeyedUnarchiver : NSCoder {
   func setClass(_ cls: AnyClass?, forClassName codedName: String)
   class func classForClassName(_ codedName: String) -> AnyClass?
   func classForClassName(_ codedName: String) -> AnyClass?
-  func containsValue(forKey key: String) -> Bool
-  func decodeObject(forKey key: String) -> AnyObject?
-  func decodeBool(forKey key: String) -> Bool
-  func decodeInt(forKey key: String) -> Int32
-  func decodeInt32(forKey key: String) -> Int32
-  func decodeInt64(forKey key: String) -> Int64
-  func decodeFloat(forKey key: String) -> Float
-  func decodeDouble(forKey key: String) -> Double
-  func decodeBytes(forKey key: String, returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafePointer<UInt8>
-  @available(OSX 10.8, *)
-  var requiresSecureCoding: Bool
-  init()
 }
 
 extension NSKeyedUnarchiver {

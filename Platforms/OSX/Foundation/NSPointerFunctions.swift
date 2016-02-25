@@ -39,7 +39,6 @@ class NSPointerFunctions : NSObject, NSCopying {
   var acquireFunction: (@convention(c) (UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?, ObjCBool) -> UnsafeMutablePointer<Void>)?
   var usesStrongWriteBarrier: Bool
   var usesWeakReadAndWriteBarriers: Bool
-  convenience init()
   @available(OSX 10.5, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

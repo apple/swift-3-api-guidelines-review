@@ -3,7 +3,6 @@
 class MKDirectionsRequest : NSObject {
   var source: MKMapItem?
   var destination: MKMapItem?
-  init()
 }
 extension MKDirectionsRequest {
   @available(OSX 10.9, *)

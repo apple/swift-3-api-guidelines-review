@@ -76,7 +76,6 @@ class NSBundle : NSObject {
   class func preferredLocalizations(from localizationsArray: [String], forPreferences preferencesArray: [String]?) -> [String]
   @available(watchOS 2.0, *)
   var executableArchitectures: [NSNumber]? { get }
-  convenience init()
 }
 var NSBundleExecutableArchitectureI386: Int { get }
 var NSBundleExecutableArchitecturePPC: Int { get }

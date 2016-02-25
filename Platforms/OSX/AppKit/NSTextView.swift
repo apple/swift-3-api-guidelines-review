@@ -16,8 +16,6 @@ enum NSSelectionAffinity : UInt {
 let NSAllRomanInputSourcesLocaleIdentifier: String
 class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSTextLayoutOrientationProvider, NSDraggingSource, NSTextInput, NSAccessibilityNavigableStaticText {
   init(frame frameRect: NSRect, textContainer container: NSTextContainer?)
-  init?(coder coder: NSCoder)
-  init(frame frameRect: NSRect)
   unowned(unsafe) var textContainer: @sil_unmanaged NSTextContainer?
   func replaceTextContainer(_ newContainer: NSTextContainer)
   var textContainerInset: NSSize
@@ -25,8 +23,6 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func invalidateTextContainerOrigin()
   unowned(unsafe) var layoutManager: @sil_unmanaged NSLayoutManager? { get }
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage? { get }
-  @available(OSX, introduced=10.0, deprecated=10.11, message="Use -insertText:replacementRange: from NSTextInputClient instead. Since the method is designed to be used solely by the input system, the message should never be sent to a text view from applications. Any content modifications should be via either NSTextStorage or NSText methods.")
-  func insertText(_ insertString: AnyObject)
   func setConstrainedFrameSize(_ desiredSize: NSSize)
   func setAlignment(_ alignment: NSTextAlignment, range range: NSRange)
   func setBaseWritingDirection(_ writingDirection: NSWritingDirection, range range: NSRange)
@@ -44,22 +40,12 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func outline(_ sender: AnyObject?)
   func performFindPanelAction(_ sender: AnyObject?)
   func alignJustified(_ sender: AnyObject?)
-  func changeColor(_ sender: AnyObject?)
   func changeAttributes(_ sender: AnyObject?)
   func changeDocumentBackgroundColor(_ sender: AnyObject?)
   func orderFrontSpacingPanel(_ sender: AnyObject?)
   func orderFrontLinkPanel(_ sender: AnyObject?)
   func orderFrontListPanel(_ sender: AnyObject?)
   func orderFrontTablePanel(_ sender: AnyObject?)
-  func rulerView(_ ruler: NSRulerView, didMove marker: NSRulerMarker)
-  func rulerView(_ ruler: NSRulerView, didRemove marker: NSRulerMarker)
-  func rulerView(_ ruler: NSRulerView, didAdd marker: NSRulerMarker)
-  func rulerView(_ ruler: NSRulerView, shouldMove marker: NSRulerMarker) -> Bool
-  func rulerView(_ ruler: NSRulerView, shouldAdd marker: NSRulerMarker) -> Bool
-  func rulerView(_ ruler: NSRulerView, willMove marker: NSRulerMarker, toLocation location: CGFloat) -> CGFloat
-  func rulerView(_ ruler: NSRulerView, shouldRemove marker: NSRulerMarker) -> Bool
-  func rulerView(_ ruler: NSRulerView, willAdd marker: NSRulerMarker, atLocation location: CGFloat) -> CGFloat
-  func rulerView(_ ruler: NSRulerView, handleMouseDown event: NSEvent)
   func setNeedsDisplayIn(_ rect: NSRect, avoidAdditionalLayout flag: Bool)
   var shouldDrawInsertionPoint: Bool { get }
   func drawInsertionPoint(in rect: NSRect, color color: NSColor, turnedOn flag: Bool)
@@ -77,10 +63,8 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func changeLayoutOrientation(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   func characterIndexForInsertion(at point: NSPoint) -> Int
-  convenience init()
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   func insertText(_ aString: AnyObject, replacementRange replacementRange: NSRange)
-  func doCommand(by aSelector: Selector)
   func setMarkedText(_ aString: AnyObject, selectedRange selectedRange: NSRange, replacementRange replacementRange: NSRange)
   func unmarkText()
   func selectedRange() -> NSRange
@@ -110,17 +94,8 @@ class NSTextView : NSText, NSUserInterfaceValidations, NSTextInputClient, NSText
   func draggingSession(_ session: NSDraggingSession, endedAt screenPoint: NSPoint, operation operation: NSDragOperation)
   @available(OSX 10.7, *)
   func ignoreModifierKeys(for session: NSDraggingSession) -> Bool
-  func accessibilityString(for range: NSRange) -> String?
-  func accessibilityLine(for index: Int) -> Int
-  func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(for range: NSRange) -> NSRect
-  func accessibilityValue() -> String?
-  @available(OSX 10.0, *)
-  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
-  func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextView {
-  func complete(_ sender: AnyObject?)
   var rangeForUserCompletion: NSRange { get }
   func completions(forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]?
   func insertCompletion(_ word: String, forPartialWordRange charRange: NSRange, movement movement: Int, isFinal flag: Bool)
@@ -134,7 +109,6 @@ extension NSTextView {
   func readSelection(from pboard: NSPasteboard, type type: String) -> Bool
   func readSelection(from pboard: NSPasteboard) -> Bool
   class func registerForServices()
-  func validRequestor(forSendType sendType: String, returnType returnType: String) -> AnyObject?
   func pasteAsPlainText(_ sender: AnyObject?)
   func pasteAsRichText(_ sender: AnyObject?)
 }
@@ -193,16 +167,6 @@ extension NSTextView {
   func showFindIndicator(for charRange: NSRange)
   @available(OSX 10.10, *)
   var usesRolloverButtonForSelection: Bool
-  unowned(unsafe) var delegate: @sil_unmanaged NSTextViewDelegate?
-  var isEditable: Bool
-  var isSelectable: Bool
-  var isRichText: Bool
-  var importsGraphics: Bool
-  var drawsBackground: Bool
-  @NSCopying var backgroundColor: NSColor
-  var isFieldEditor: Bool
-  var usesFontPanel: Bool
-  var isRulerVisible: Bool
   func setSelectedRange(_ charRange: NSRange)
   @available(OSX 10.5, *)
   var allowedInputSourceLocales: [String]?

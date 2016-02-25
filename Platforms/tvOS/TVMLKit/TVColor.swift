@@ -14,7 +14,6 @@ class TVColor : NSObject, NSCopying {
   var color: UIColor? { get }
   var gradientColors: [UIColor]? { get }
   var gradientPoints: [NSNumber]? { get }
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

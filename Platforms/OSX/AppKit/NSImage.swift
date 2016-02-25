@@ -103,7 +103,6 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
   var capInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var resizingMode: NSImageResizingMode
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -120,7 +119,6 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
 
 extension NSImage : _ImageLiteralConvertible {
   convenience init!(failableImageLiteral name: String)
-  required convenience init(imageLiteral name: String)
 }
 struct __imageFlags {
   var scalable: UInt32

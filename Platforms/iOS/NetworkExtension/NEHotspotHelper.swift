@@ -51,7 +51,6 @@ class NEHotspotNetwork : NSObject {
   func setConfidence(_ confidence: NEHotspotHelperConfidence)
   @available(iOS 9.0, *)
   func setPassword(_ password: String)
-  init()
 }
 @available(iOS 9.0, *)
 class NEHotspotHelperCommand : NSObject {
@@ -67,7 +66,6 @@ class NEHotspotHelperCommand : NSObject {
   func createTCPConnection(_ endpoint: NWEndpoint) -> NWTCPConnection
   @available(iOS 9.0, *)
   func createUDPSession(_ endpoint: NWEndpoint) -> NWUDPSession
-  init()
 }
 @available(iOS 9.0, *)
 class NEHotspotHelperResponse : NSObject {
@@ -77,7 +75,6 @@ class NEHotspotHelperResponse : NSObject {
   func setNetworkList(_ networkList: [NEHotspotNetwork])
   @available(iOS 9.0, *)
   func deliver()
-  init()
 }
 @available(iOS 9.0, *)
 typealias NEHotspotHelperHandler = (NEHotspotHelperCommand) -> Void
@@ -91,7 +88,6 @@ class NEHotspotHelper : NSObject {
   class func logoff(_ network: NEHotspotNetwork) -> Bool
   @available(iOS 9.0, *)
   class func supportedNetworkInterfaces() -> [AnyObject]
-  init()
 }
 extension NSMutableURLRequest {
   @available(iOS 9.0, *)

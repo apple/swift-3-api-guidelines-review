@@ -7,7 +7,6 @@ class CIDetector : NSObject {
   func features(in image: CIImage) -> [CIFeature]
   @available(OSX 10.8, *)
   func features(in image: CIImage, options options: [String : AnyObject]? = [:]) -> [CIFeature]
-  init()
 }
 @available(OSX 10.7, *)
 let CIDetectorTypeFace: String

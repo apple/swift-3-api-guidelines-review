@@ -44,7 +44,6 @@ class UITableViewRowAction : NSObject, NSCopying {
   var title: String?
   @NSCopying var backgroundColor: UIColor?
   @NSCopying var backgroundEffect: UIVisualEffect?
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -52,7 +51,6 @@ class UITableViewRowAction : NSObject, NSCopying {
 class UITableViewFocusUpdateContext : UIFocusUpdateContext {
   var previouslyFocusedIndexPath: NSIndexPath? { get }
   var nextFocusedIndexPath: NSIndexPath? { get }
-  init()
 }
 protocol UITableViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(iOS 2.0, *)
@@ -134,10 +132,8 @@ let UITableViewSelectionDidChangeNotification: String
 @available(iOS 2.0, *)
 class UITableView : UIScrollView, NSCoding {
   init(frame frame: CGRect, style style: UITableViewStyle)
-  init?(coder aDecoder: NSCoder)
   var style: UITableViewStyle { get }
   weak var dataSource: @sil_weak UITableViewDataSource?
-  weak var delegate: @sil_weak UITableViewDelegate?
   var rowHeight: CGFloat
   var sectionHeaderHeight: CGFloat
   var sectionFooterHeight: CGFloat
@@ -230,8 +226,6 @@ class UITableView : UIScrollView, NSCoding {
   func register(_ aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
   @available(iOS 9.0, *)
   var remembersLastFocusedIndexPath: Bool
-  convenience init(frame frame: CGRect)
-  convenience init()
 }
 protocol UITableViewDataSource : NSObjectProtocol {
   @available(iOS 2.0, *)

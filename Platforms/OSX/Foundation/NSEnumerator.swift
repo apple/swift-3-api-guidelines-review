@@ -12,14 +12,10 @@ protocol NSFastEnumeration {
 }
 class NSEnumerator : NSObject, NSFastEnumeration {
   func nextObject() -> AnyObject?
-  init()
   func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSEnumerator : SequenceType {
-  func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
 }
 extension NSEnumerator {
   var allObjects: [AnyObject] { get }

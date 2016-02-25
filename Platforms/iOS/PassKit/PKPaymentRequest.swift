@@ -47,16 +47,11 @@ class PKPaymentSummaryItem : NSObject {
   @NSCopying var amount: NSDecimalNumber
   @available(iOS 9.0, *)
   var type: PKPaymentSummaryItemType
-  init()
 }
 @available(iOS 8.0, *)
 class PKShippingMethod : PKPaymentSummaryItem {
   var identifier: String?
   var detail: String?
-  convenience init(label label: String, amount amount: NSDecimalNumber)
-  @available(iOS 9.0, *)
-  convenience init(label label: String, amount amount: NSDecimalNumber, type type: PKPaymentSummaryItemType)
-  init()
 }
 @available(iOS 8.0, *)
 class PKPaymentRequest : NSObject {
@@ -80,5 +75,4 @@ class PKPaymentRequest : NSObject {
   @available(iOS 8.3, *)
   var shippingType: PKShippingType
   @NSCopying var applicationData: NSData?
-  init()
 }

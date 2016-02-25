@@ -38,5 +38,4 @@ class NWUDPSession : NSObject {
   func writeDatagram(_ datagram: NSData, completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func cancel()
-  init()
 }

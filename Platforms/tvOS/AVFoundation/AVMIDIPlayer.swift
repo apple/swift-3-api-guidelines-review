@@ -11,5 +11,4 @@ class AVMIDIPlayer : NSObject {
   var isPlaying: Bool { get }
   var rate: Float
   var currentPosition: NSTimeInterval
-  init()
 }

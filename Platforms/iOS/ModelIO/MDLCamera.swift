@@ -28,7 +28,6 @@ class MDLCamera : MDLObject {
   var flash: vector_float3
   var exposureCompression: vector_float2
   var exposure: vector_float3
-  init()
 }
 @available(iOS 9.0, *)
 class MDLStereoscopicCamera : MDLCamera {
@@ -40,5 +39,4 @@ class MDLStereoscopicCamera : MDLCamera {
   var rightViewMatrix: matrix_float4x4 { get }
   var leftProjectionMatrix: matrix_float4x4 { get }
   var rightProjectionMatrix: matrix_float4x4 { get }
-  init()
 }

@@ -1,6 +1,5 @@
 
 class NSSpeechRecognizer : NSObject {
-  init?()
   func startListening()
   func stopListening()
   unowned(unsafe) var delegate: @sil_unmanaged NSSpeechRecognizerDelegate?

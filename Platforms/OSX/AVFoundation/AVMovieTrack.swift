@@ -14,28 +14,20 @@ extension AVMovieTrack {
 }
 @available(OSX 10.11, *)
 class AVMutableMovieTrack : AVMovieTrack {
-  @NSCopying var mediaDataStorage: AVMediaDataStorage?
   @NSCopying var sampleReferenceBaseURL: NSURL?
-  var isEnabled: Bool
-  var alternateGroupID: Int
   var isModified: Bool
   var hasProtectedContent: Bool { get }
   var timescale: CMTimeScale
 }
 extension AVMutableMovieTrack {
-  var languageCode: String?
-  var extendedLanguageTag: String?
 }
 extension AVMutableMovieTrack {
-  var naturalSize: CGSize
-  var preferredTransform: CGAffineTransform
   var layer: Int
   var cleanApertureDimensions: CGSize
   var productionApertureDimensions: CGSize
   var encodedPixelsDimensions: CGSize
 }
 extension AVMutableMovieTrack {
-  var preferredVolume: Float
 }
 extension AVMutableMovieTrack {
   var preferredMediaChunkSize: Int
@@ -49,7 +41,6 @@ extension AVMutableMovieTrack {
   func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovieTrack {
-  var metadata: [AVMetadataItem]
 }
 extension AVMutableMovieTrack {
   func addTrackAssociation(to movieTrack: AVMovieTrack, type trackAssociationType: String)

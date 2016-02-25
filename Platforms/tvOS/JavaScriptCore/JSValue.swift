@@ -47,7 +47,6 @@ class JSValue : NSObject {
   func call(arguments arguments: [AnyObject]!) -> JSValue!
   func construct(withArguments arguments: [AnyObject]!) -> JSValue!
   func invokeMethod(_ method: String!, withArguments arguments: [AnyObject]!) -> JSValue!
-  init()
 }
 extension JSValue {
   /*not inherited*/ init!(point point: CGPoint, in context: JSContext!)

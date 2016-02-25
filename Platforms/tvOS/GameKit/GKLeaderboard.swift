@@ -26,7 +26,6 @@ class GKLeaderboard : NSObject {
   var isLoading: Bool { get }
   @available(tvOS 6.0, *)
   var groupIdentifier: String? { get }
-  init()
   @available(tvOS 8.0, *)
   init(players players: [GKPlayer])
   func loadScores(completionHandler completionHandler: (([GKScore]?, NSError?) -> Void)? = nil)

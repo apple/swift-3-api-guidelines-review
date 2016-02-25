@@ -7,8 +7,6 @@ class MPSUnaryImageKernel : MPSKernel {
   func encode(to commandBuffer: MTLCommandBuffer, inPlace texture: UnsafeMutablePointer<MTLTexture?>, fallbackCopyAllocator copyAllocator: MPSCopyAllocator? = nil) -> Bool
   func encode(to commandBuffer: MTLCommandBuffer, sourceTexture sourceTexture: MTLTexture, destinationTexture destinationTexture: MTLTexture)
   func sourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
-  init(device device: MTLDevice)
-  convenience init()
 }
 @available(tvOS 9.0, *)
 class MPSBinaryImageKernel : MPSKernel {
@@ -22,6 +20,4 @@ class MPSBinaryImageKernel : MPSKernel {
   func encode(to commandBuffer: MTLCommandBuffer, primaryTexture primaryTexture: MTLTexture, secondaryTexture secondaryTexture: MTLTexture, destinationTexture destinationTexture: MTLTexture)
   func primarySourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
   func secondarySourceRegion(forDestinationSize destinationSize: MTLSize) -> MPSRegion
-  init(device device: MTLDevice)
-  convenience init()
 }

@@ -25,12 +25,9 @@ enum NSXMLDTDNodeKind : UInt {
 }
 class NSXMLDTDNode : NSXMLNode {
   init?(xmlString string: String)
-  init(kind kind: NSXMLNodeKind, options options: Int)
-  init()
   var dtdKind: NSXMLDTDNodeKind
   var isExternal: Bool { get }
   var publicID: String?
   var systemID: String?
   var notationName: String?
-  convenience init(kind kind: NSXMLNodeKind)
 }

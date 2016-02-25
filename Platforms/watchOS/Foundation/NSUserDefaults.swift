@@ -5,7 +5,6 @@ let NSRegistrationDomain: String
 class NSUserDefaults : NSObject {
   class func standard() -> NSUserDefaults
   class func resetStandardUserDefaults()
-  convenience init()
   @available(watchOS 2.0, *)
   init?(suiteName suitename: String?)
   @available(watchOS, introduced=2.0, deprecated=2.0)

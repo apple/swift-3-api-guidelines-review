@@ -20,7 +20,6 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(tvOS 7.0, *)
   var bounds: CGRect
   var fileWrapper: NSFileWrapper?
-  convenience init()
   @available(tvOS 7.0, *)
   func image(forBounds imageBounds: CGRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)

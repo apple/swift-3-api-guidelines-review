@@ -54,7 +54,6 @@ class IMKInputController : NSObject, IMKStateSetting, IMKMouseHandling {
   func annotationSelected(_ annotationString: NSAttributedString!, forCandidate candidateString: NSAttributedString!)
   func candidateSelectionChanged(_ candidateString: NSAttributedString!)
   func candidateSelected(_ candidateString: NSAttributedString!)
-  init()
   func activateServer(_ sender: AnyObject!)
   func deactivateServer(_ sender: AnyObject!)
   func value(forTag tag: Int, client sender: AnyObject!) -> AnyObject!

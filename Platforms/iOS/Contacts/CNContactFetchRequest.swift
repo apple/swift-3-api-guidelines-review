@@ -7,5 +7,4 @@ class CNContactFetchRequest : NSObject {
   var mutableObjects: Bool
   var unifyResults: Bool
   var sortOrder: CNContactSortOrder
-  convenience init()
 }

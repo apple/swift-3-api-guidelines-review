@@ -41,14 +41,12 @@ class NSSavePanel : NSPanel {
   var allowedFileTypes: [String]?
   var allowsOtherFileTypes: Bool
   var accessoryView: NSView?
-  unowned(unsafe) var delegate: @sil_unmanaged NSOpenSavePanelDelegate?
   var isExpanded: Bool { get }
   var canCreateDirectories: Bool
   var canSelectHiddenExtension: Bool
   var isExtensionHidden: Bool
   var treatsFilePackagesAsDirectories: Bool
   var prompt: String!
-  var title: String!
   var nameFieldLabel: String!
   @available(OSX 10.6, *)
   var nameFieldStringValue: String
@@ -66,13 +64,6 @@ class NSSavePanel : NSPanel {
   @available(OSX 10.6, *)
   func begin(completionHandler handler: (Int) -> Void)
   func runModal() -> Int
-  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
-  @available(OSX 10.10, *)
-  convenience init(contentViewController contentViewController: NSViewController)
-  convenience init()
-  init?(coder coder: NSCoder)
-  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
 }
 protocol NSOpenSavePanelDelegate : NSObjectProtocol {
   @available(OSX 10.6, *)

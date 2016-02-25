@@ -20,8 +20,6 @@ class UIButton : UIControl, NSCoding {
   var imageEdgeInsets: UIEdgeInsets
   var adjustsImageWhenHighlighted: Bool
   var adjustsImageWhenDisabled: Bool
-  @available(tvOS 5.0, *)
-  var tintColor: UIColor!
   var buttonType: UIButtonType { get }
   func setTitle(_ title: String?, for state: UIControlState)
   func setTitleColor(_ color: UIColor?, for state: UIControlState)
@@ -52,9 +50,6 @@ class UIButton : UIControl, NSCoding {
   func contentRect(forBounds bounds: CGRect) -> CGRect
   func titleRect(forContentRect contentRect: CGRect) -> CGRect
   func imageRect(forContentRect contentRect: CGRect) -> CGRect
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 extension UIButton {
 }

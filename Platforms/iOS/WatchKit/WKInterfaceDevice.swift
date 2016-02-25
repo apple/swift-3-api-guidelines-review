@@ -24,5 +24,4 @@ class WKInterfaceDevice : NSObject {
   var localizedModel: String { get }
   @available(iOS 9.0, *)
   var systemName: String { get }
-  init()
 }

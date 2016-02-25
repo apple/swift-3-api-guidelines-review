@@ -271,7 +271,6 @@ class NSDateComponents : NSObject, NSCopying, NSSecureCoding {
   var isValidDate: Bool { get }
   @available(tvOS 8.0, *)
   func isValidDate(in calendar: NSCalendar) -> Bool
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)

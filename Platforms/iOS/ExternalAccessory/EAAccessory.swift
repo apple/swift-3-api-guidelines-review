@@ -24,7 +24,6 @@ class EAAccessory : NSObject {
   var protocolStrings: [String] { get }
   @available(iOS 3.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged EAAccessoryDelegate?
-  init()
 }
 protocol EAAccessoryDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)

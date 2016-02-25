@@ -6,8 +6,6 @@ class MKDistanceFormatter : NSFormatter {
   @NSCopying var locale: NSLocale!
   var units: MKDistanceFormatterUnits
   var unitStyle: MKDistanceFormatterUnitStyle
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
 enum MKDistanceFormatterUnits : UInt {

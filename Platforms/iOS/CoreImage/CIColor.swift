@@ -13,7 +13,6 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
   var green: CGFloat { get }
   var blue: CGFloat { get }
   var stringRepresentation: String { get }
-  convenience init()
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)

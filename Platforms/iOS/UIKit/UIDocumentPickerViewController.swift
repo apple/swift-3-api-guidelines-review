@@ -17,10 +17,7 @@ enum UIDocumentPickerMode : UInt {
 @available(iOS 8.0, *)
 class UIDocumentPickerViewController : UIViewController {
   init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
-  init?(coder aDecoder: NSCoder)
   init(url url: NSURL, in mode: UIDocumentPickerMode)
   weak var delegate: @sil_weak UIDocumentPickerDelegate?
   var documentPickerMode: UIDocumentPickerMode { get }
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  convenience init()
 }

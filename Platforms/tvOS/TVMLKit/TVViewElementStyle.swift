@@ -62,7 +62,6 @@ class TVViewElementStyle : NSObject, NSCopying {
   var maxTextLines: Int { get }
   var textStyle: String? { get }
   var tintColor: TVColor? { get }
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -31,7 +31,6 @@ let UIPageViewControllerOptionInterPageSpacingKey: String
 @available(iOS 5.0, *)
 class UIPageViewController : UIViewController {
   init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation navigationOrientation: UIPageViewControllerNavigationOrientation, options options: [String : AnyObject]? = [:])
-  init?(coder coder: NSCoder)
   weak var delegate: @sil_weak UIPageViewControllerDelegate?
   weak var dataSource: @sil_weak UIPageViewControllerDataSource?
   var transitionStyle: UIPageViewControllerTransitionStyle { get }
@@ -41,8 +40,6 @@ class UIPageViewController : UIViewController {
   var gestureRecognizers: [UIGestureRecognizer] { get }
   var viewControllers: [UIViewController]? { get }
   func setViewControllers(_ viewControllers: [UIViewController]?, direction direction: UIPageViewControllerNavigationDirection, animated animated: Bool, completion completion: ((Bool) -> Void)? = nil)
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  convenience init()
 }
 protocol UIPageViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)

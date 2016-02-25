@@ -1,7 +1,6 @@
 
 @available(iOS 8.0, *)
 class CKNotificationID : NSObject, NSCopying, NSSecureCoding {
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
@@ -51,10 +50,8 @@ class CKQueryNotification : CKNotification {
   var recordFields: [String : CKRecordValue]? { get }
   @NSCopying var recordID: CKRecordID? { get }
   var isPublicDatabase: Bool { get }
-  convenience init(fromRemoteNotificationDictionary notificationDictionary: [String : NSObject])
 }
 @available(iOS 8.0, *)
 class CKRecordZoneNotification : CKNotification {
   @NSCopying var recordZoneID: CKRecordZoneID? { get }
-  convenience init(fromRemoteNotificationDictionary notificationDictionary: [String : NSObject])
 }

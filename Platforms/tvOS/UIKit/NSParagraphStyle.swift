@@ -9,7 +9,6 @@ class NSTextTab : NSObject, NSCopying, NSCoding {
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
-  convenience init()
   @available(tvOS 7.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
@@ -50,7 +49,6 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var defaultTabInterval: CGFloat { get }
   @available(tvOS 9.0, *)
   var allowsDefaultTighteningForTruncation: Bool { get }
-  init()
   @available(tvOS 6.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)
@@ -63,31 +61,10 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 }
 @available(tvOS 6.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
-  var lineSpacing: CGFloat
-  var paragraphSpacing: CGFloat
-  var alignment: NSTextAlignment
-  var firstLineHeadIndent: CGFloat
-  var headIndent: CGFloat
-  var tailIndent: CGFloat
-  var lineBreakMode: NSLineBreakMode
-  var minimumLineHeight: CGFloat
-  var maximumLineHeight: CGFloat
-  var baseWritingDirection: NSWritingDirection
-  var lineHeightMultiple: CGFloat
-  var paragraphSpacingBefore: CGFloat
-  var hyphenationFactor: Float
-  @available(tvOS 7.0, *)
-  var tabStops: [NSTextTab]!
-  @available(tvOS 7.0, *)
-  var defaultTabInterval: CGFloat
-  @available(tvOS 9.0, *)
-  var allowsDefaultTighteningForTruncation: Bool
   @available(tvOS 9.0, *)
   func addTabStop(_ anObject: NSTextTab)
   @available(tvOS 9.0, *)
   func removeTabStop(_ anObject: NSTextTab)
   @available(tvOS 9.0, *)
   func setParagraphStyle(_ obj: NSParagraphStyle)
-  init()
-  init?(coder aDecoder: NSCoder)
 }

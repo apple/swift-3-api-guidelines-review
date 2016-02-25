@@ -10,7 +10,6 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   var backItem: UINavigationItem? { get }
   var items: [UINavigationItem]?
   func setItems(_ items: [UINavigationItem]?, animated animated: Bool)
-  var tintColor: UIColor!
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 7.0, *)
@@ -29,9 +28,6 @@ class UINavigationBar : UIView, NSCoding, UIBarPositioning {
   func setTitleVerticalPositionAdjustment(_ adjustment: CGFloat, for barMetrics: UIBarMetrics)
   @available(tvOS 5.0, *)
   func titleVerticalPositionAdjustment(for barMetrics: UIBarMetrics) -> CGFloat
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(tvOS 7.0, *)
   var barPosition: UIBarPosition { get }
 }
@@ -63,7 +59,6 @@ class UINavigationItem : NSObject, NSCoding {
   var rightBarButtonItem: UIBarButtonItem?
   func setLeftBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
   func setRightBarButtonItem(_ item: UIBarButtonItem?, animated animated: Bool)
-  convenience init()
   @available(tvOS 2.0, *)
   func encode(with aCoder: NSCoder)
 }

@@ -7,7 +7,6 @@ class PHCollection : PHObject {
   func canPerform(_ anOperation: PHCollectionEditOperation) -> Bool
   class func fetchCollections(in collectionList: PHCollectionList, options options: PHFetchOptions?) -> PHFetchResult
   class func fetchTopLevelUserCollections(_ options: PHFetchOptions?) -> PHFetchResult
-  init()
 }
 @available(iOS 8.0, *)
 class PHAssetCollection : PHCollection {
@@ -26,7 +25,6 @@ class PHAssetCollection : PHCollection {
   class func fetchMoments(_ options: PHFetchOptions?) -> PHFetchResult
   class func transientAssetCollection(with assets: [PHAsset], title title: String?) -> PHAssetCollection
   class func transientAssetCollection(withAssetFetchResult fetchResult: PHFetchResult, title title: String?) -> PHAssetCollection
-  init()
 }
 @available(iOS 8.0, *)
 class PHCollectionList : PHCollection {
@@ -42,5 +40,4 @@ class PHCollectionList : PHCollection {
   class func fetchMomentLists(_ momentListSubtype: PHCollectionListSubtype, options options: PHFetchOptions?) -> PHFetchResult
   class func transientCollectionList(with collections: [PHCollection], title title: String?) -> PHCollectionList
   class func transientCollectionList(withCollectionsFetchResult fetchResult: PHFetchResult, title title: String?) -> PHCollectionList
-  init()
 }

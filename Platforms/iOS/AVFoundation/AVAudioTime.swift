@@ -14,5 +14,4 @@ class AVAudioTime : NSObject {
   var sampleTime: AVAudioFramePosition { get }
   var sampleRate: Double { get }
   var audioTimeStamp: AudioTimeStamp { get }
-  init()
 }

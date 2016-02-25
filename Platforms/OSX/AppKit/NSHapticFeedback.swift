@@ -22,5 +22,4 @@ protocol NSHapticFeedbackPerformer : NSObjectProtocol {
 @available(OSX 10.11, *)
 class NSHapticFeedbackManager : NSObject {
   class func defaultPerformer() -> NSHapticFeedbackPerformer
-  init()
 }

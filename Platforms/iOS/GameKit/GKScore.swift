@@ -18,7 +18,6 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   var shouldSetDefaultLeaderboard: Bool
   @available(iOS 6.0, *)
   class func report(_ scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
   @available(iOS 4.1, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

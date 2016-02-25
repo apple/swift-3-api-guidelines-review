@@ -13,7 +13,6 @@ class EKAlarm : EKObject, NSCopying {
   var emailAddress: String?
   @available(OSX 10.8, *)
   var soundName: String?
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

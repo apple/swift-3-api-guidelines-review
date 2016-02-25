@@ -9,5 +9,4 @@ class PKPaymentToken : NSObject {
   var paymentNetwork: String { get }
   var transactionIdentifier: String { get }
   var paymentData: NSData { get }
-  init()
 }

@@ -23,7 +23,6 @@ struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
 }
 @available(iOS 8.0, *)
 class NSDateComponentsFormatter : NSFormatter {
-  func string(for obj: AnyObject) -> String?
   func string(from components: NSDateComponents) -> String?
   func string(from startDate: NSDate, to endDate: NSDate) -> String?
   func string(fromTimeInterval ti: NSTimeInterval) -> String?
@@ -38,7 +37,4 @@ class NSDateComponentsFormatter : NSFormatter {
   var includesApproximationPhrase: Bool
   var includesTimeRemainingPhrase: Bool
   var formattingContext: NSFormattingContext
-  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

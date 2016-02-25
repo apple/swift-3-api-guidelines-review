@@ -4,7 +4,6 @@ class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
   var count: Int { get }
   func object(at idx: Int) -> AnyObject
   func index(of object: AnyObject) -> Int
-  init()
   init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
@@ -20,9 +19,6 @@ class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
 }
 
 extension NSOrderedSet : SequenceType {
-  func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
 }
 
 extension NSOrderedSet {
@@ -30,8 +26,6 @@ extension NSOrderedSet {
 }
 
 extension NSOrderedSet : ArrayLiteralConvertible {
-  required convenience init(arrayLiteral elements: AnyObject...)
-  typealias Element = AnyObject
 }
 extension NSOrderedSet {
   func getObjects(_ objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range range: NSRange)
@@ -63,7 +57,6 @@ extension NSOrderedSet {
   func index(of object: AnyObject, inSortedRange range: NSRange, options opts: NSBinarySearchingOptions = [], usingComparator cmp: NSComparator) -> Int
   func sortedArray(comparator cmptr: NSComparator) -> [AnyObject]
   func sortedArray(_ opts: NSSortOptions = [], usingComparator cmptr: NSComparator) -> [AnyObject]
-  var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
 }
@@ -83,19 +76,7 @@ class NSMutableOrderedSet : NSOrderedSet {
   func insert(_ object: AnyObject, at idx: Int)
   func removeObject(at idx: Int)
   func replaceObject(at idx: Int, with object: AnyObject)
-  init?(coder aDecoder: NSCoder)
-  init()
   init(capacity numItems: Int)
-  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object object: AnyObject)
-  convenience init(orderedSet set: NSOrderedSet)
-  convenience init(orderedSet set: NSOrderedSet, copyItems flag: Bool)
-  convenience init(orderedSet set: NSOrderedSet, range range: NSRange, copyItems flag: Bool)
-  convenience init(array array: [AnyObject])
-  convenience init(array set: [AnyObject], copyItems flag: Bool)
-  convenience init(array set: [AnyObject], range range: NSRange, copyItems flag: Bool)
-  convenience init(set set: Set<NSObject>)
-  convenience init(set set: Set<NSObject>, copyItems flag: Bool)
 }
 extension NSMutableOrderedSet {
   func add(_ object: AnyObject)
@@ -105,8 +86,6 @@ extension NSMutableOrderedSet {
   func moveObjects(at indexes: NSIndexSet, to idx: Int)
   func insert(_ objects: [AnyObject], at indexes: NSIndexSet)
   func setObject(_ obj: AnyObject, at idx: Int)
-  @available(watchOS 2.0, *)
-  subscript(_ idx: Int) -> AnyObject
   func replaceObjects(in range: NSRange, with objects: UnsafePointer<AnyObject?>, count count: Int)
   func replaceObjects(at indexes: NSIndexSet, with objects: [AnyObject])
   func removeObjects(in range: NSRange)

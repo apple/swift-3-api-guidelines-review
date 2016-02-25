@@ -10,7 +10,4 @@ class AVCaptureVideoPreviewLayer : CALayer {
   @available(OSX 10.7, *)
   var connection: AVCaptureConnection! { get }
   var videoGravity: String!
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

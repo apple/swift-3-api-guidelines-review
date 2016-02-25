@@ -13,8 +13,6 @@ class NSDecimalNumber : NSNumber {
   init(decimal dcm: NSDecimal)
   convenience init(string numberValue: String?)
   convenience init(string numberValue: String?, locale locale: AnyObject?)
-  func description(withLocale locale: AnyObject?) -> String
-  var decimalValue: NSDecimal { get }
   class func zero() -> NSDecimalNumber
   class func one() -> NSDecimalNumber
   class func minimum() -> NSDecimalNumber
@@ -33,36 +31,12 @@ class NSDecimalNumber : NSNumber {
   func multiplying(byPowerOf10 power: Int16) -> NSDecimalNumber
   func multiplying(byPowerOf10 power: Int16, withBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
   func rounding(accordingToBehavior behavior: NSDecimalNumberBehaviors?) -> NSDecimalNumber
-  func compare(_ decimalNumber: NSNumber) -> NSComparisonResult
   class func setDefaultBehavior(_ behavior: NSDecimalNumberBehaviors)
   class func defaultBehavior() -> NSDecimalNumberBehaviors
-  var objCType: UnsafePointer<Int8> { get }
-  var doubleValue: Double { get }
-  init?(coder aDecoder: NSCoder)
-  convenience init(char value: Int8)
-  convenience init(unsignedChar value: UInt8)
-  convenience init(short value: Int16)
-  convenience init(unsignedShort value: UInt16)
-  convenience init(int value: Int32)
-  convenience init(unsignedInt value: UInt32)
-  convenience init(long value: Int)
-  convenience init(unsignedLong value: UInt)
-  convenience init(longLong value: Int64)
-  convenience init(unsignedLongLong value: UInt64)
-  convenience init(float value: Float)
-  convenience init(double value: Double)
-  convenience init(bool value: Bool)
-  @available(tvOS 2.0, *)
-  convenience init(integer value: Int)
-  @available(tvOS 2.0, *)
-  convenience init(unsignedInteger value: UInt)
-  convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
-  convenience init()
 }
 class NSDecimalNumberHandler : NSObject, NSDecimalNumberBehaviors, NSCoding {
   class func defaultDecimalNumberHandler() -> NSDecimalNumberHandler
   init(roundingMode roundingMode: NSRoundingMode, scale scale: Int16, raiseOnExactness exact: Bool, raiseOnOverflow overflow: Bool, raiseOnUnderflow underflow: Bool, raiseOnDivideByZero divideByZero: Bool)
-  convenience init()
   func roundingMode() -> NSRoundingMode
   func scale() -> Int16
   func exceptionDuringOperation(_ operation: Selector, error error: NSCalculationError, leftOperand leftOperand: NSDecimalNumber, rightOperand rightOperand: NSDecimalNumber?) -> NSDecimalNumber?

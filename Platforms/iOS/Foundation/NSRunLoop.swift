@@ -13,7 +13,6 @@ class NSRunLoop : NSObject {
   func remove(_ aPort: NSPort, forMode mode: String)
   func limitDate(forMode mode: String) -> NSDate?
   func acceptInput(forMode mode: String, before limitDate: NSDate)
-  init()
 }
 extension NSRunLoop {
   func run()

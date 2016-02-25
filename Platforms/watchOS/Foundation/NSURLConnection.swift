@@ -14,7 +14,6 @@ class NSURLConnection : NSObject {
   @available(watchOS 2.0, *)
   func setDelegateQueue(_ queue: NSOperationQueue?)
   class func canHandle(_ request: NSURLRequest) -> Bool
-  init()
 }
 protocol NSURLConnectionDelegate : NSObjectProtocol {
   optional func connection(_ connection: NSURLConnection, didFailWithError error: NSError)

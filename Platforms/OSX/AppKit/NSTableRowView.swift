@@ -20,11 +20,4 @@ class NSTableRowView : NSView, NSAccessibilityRow {
   func drawDraggingDestinationFeedback(in dirtyRect: NSRect)
   func view(atColumn column: Int) -> AnyObject?
   var numberOfColumns: Int { get }
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
-  @available(OSX 10.7, *)
-  func accessibilityIndex() -> Int
-  @available(OSX 10.7, *)
-  func accessibilityDisclosureLevel() -> Int
 }

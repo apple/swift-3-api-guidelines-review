@@ -27,7 +27,6 @@ class AVCaptureDevice : NSObject {
   var activeVideoMinFrameDuration: CMTime
   @available(iOS 7.0, *)
   var activeVideoMaxFrameDuration: CMTime
-  init()
 }
 @available(iOS 4.0, *)
 enum AVCaptureDevicePosition : Int {
@@ -259,7 +258,6 @@ class AVFrameRateRange : NSObject {
   var maxFrameRate: Float64 { get }
   var maxFrameDuration: CMTime { get }
   var minFrameDuration: CMTime { get }
-  init()
 }
 @available(iOS 8.0, *)
 enum AVCaptureVideoStabilizationMode : Int {
@@ -309,5 +307,4 @@ class AVCaptureDeviceFormat : NSObject {
   var highResolutionStillImageDimensions: CMVideoDimensions { get }
   @available(iOS 8.0, *)
   var autoFocusSystem: AVCaptureAutoFocusSystem { get }
-  init()
 }

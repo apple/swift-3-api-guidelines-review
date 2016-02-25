@@ -18,6 +18,5 @@ class ODQuery : NSObject, NSCopying {
   func synchronize()
   @available(OSX 10.6, *)
   var operationQueue: NSOperationQueue!
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }

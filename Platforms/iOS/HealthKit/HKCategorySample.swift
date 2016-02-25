@@ -7,7 +7,6 @@ class HKCategorySample : HKSample {
   convenience init(type type: HKCategoryType, value value: Int, start startDate: NSDate, end endDate: NSDate)
   @available(iOS 9.0, *)
   convenience init(type type: HKCategoryType, value value: Int, start startDate: NSDate, end endDate: NSDate, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathCategoryValue: String

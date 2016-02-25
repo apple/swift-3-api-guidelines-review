@@ -12,9 +12,6 @@ class CAShapeLayer : CALayer {
   var lineJoin: String
   var lineDashPhase: CGFloat
   var lineDashPattern: [NSNumber]?
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 3.0, *)
 let kCAFillRuleNonZero: String

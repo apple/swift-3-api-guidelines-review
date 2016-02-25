@@ -6,7 +6,6 @@ class CSPerson : NSObject, NSSecureCoding, NSCopying {
   var handles: [String] { get }
   var handleIdentifier: String { get }
   var contactIdentifier: String?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

@@ -14,9 +14,6 @@ class GKMatchmakerViewController : NSViewController, GKViewController {
   func setHostedPlayer(_ player: GKPlayer, didConnect connected: Bool)
   @available(OSX, introduced=10.8, deprecated=10.10)
   var defaultInvitationMessage: String?
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol GKMatchmakerViewControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)

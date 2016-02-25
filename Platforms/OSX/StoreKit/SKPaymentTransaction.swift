@@ -14,5 +14,4 @@ class SKPaymentTransaction : NSObject {
   var transactionIdentifier: String? { get }
   var downloads: [AnyObject]? { get }
   var transactionState: SKPaymentTransactionState { get }
-  init()
 }

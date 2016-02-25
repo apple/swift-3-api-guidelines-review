@@ -5,7 +5,6 @@ class WCSessionUserInfoTransfer : NSObject, NSSecureCoding {
   var userInfo: [String : AnyObject] { get }
   var isTransferring: Bool { get }
   func cancel()
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

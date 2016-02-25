@@ -26,8 +26,6 @@ class NSDrawer : NSResponder, NSAccessibilityElementProtocol, NSAccessibility {
   var maxContentSize: NSSize
   var leadingOffset: CGFloat
   var trailingOffset: CGFloat
-  init()
-  init?(coder coder: NSCoder)
   func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?
   func isAccessibilityFocused() -> Bool

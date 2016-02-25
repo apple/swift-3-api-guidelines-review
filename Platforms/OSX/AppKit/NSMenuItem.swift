@@ -37,7 +37,6 @@ class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
   @available(OSX 10.5, *)
   var isHiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

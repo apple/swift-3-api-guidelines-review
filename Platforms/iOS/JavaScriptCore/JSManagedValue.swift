@@ -5,5 +5,4 @@ class JSManagedValue : NSObject {
   /*not inherited*/ init!(value value: JSValue!, andOwner owner: AnyObject!)
   init!(value value: JSValue!)
   var value: JSValue! { get }
-  init()
 }

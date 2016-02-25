@@ -10,9 +10,6 @@ class MPMediaPickerController : UIViewController {
   @available(iOS 9.2, *)
   var showsItemsWithProtectedAssets: Bool
   var prompt: String?
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol MPMediaPickerControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)

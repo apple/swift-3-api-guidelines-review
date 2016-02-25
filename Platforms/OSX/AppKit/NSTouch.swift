@@ -19,7 +19,6 @@ class NSTouch : NSObject, NSCopying {
   var isResting: Bool { get }
   var device: AnyObject? { get }
   var deviceSize: NSSize { get }
-  init()
   @available(OSX 10.6, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

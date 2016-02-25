@@ -14,7 +14,6 @@ class NSTextInputContext : NSObject {
   var keyboardInputSources: [String]? { get }
   var selectedKeyboardInputSource: String?
   class func localizedName(forInputSource inputSourceIdentifier: String) -> String?
-  convenience init()
 }
 @available(OSX 10.6, *)
 let NSTextInputContextKeyboardSelectionDidChangeNotification: String

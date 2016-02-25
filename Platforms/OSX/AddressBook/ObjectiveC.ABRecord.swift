@@ -1,6 +1,5 @@
 
 class ABRecord : NSObject {
-  init!()
   @available(OSX 10.5, *)
   init!(addressBook addressBook: ABAddressBook!)
   func value(forProperty property: String!) -> AnyObject!

@@ -90,7 +90,6 @@ class NSPrintInfo : NSObject, NSCopying, NSCoding {
   var isSelectionOnly: Bool
   @available(OSX 10.9, *)
   func takeSettings(from inPDFInfo: NSPDFInfo)
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

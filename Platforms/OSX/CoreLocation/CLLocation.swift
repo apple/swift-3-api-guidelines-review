@@ -39,10 +39,8 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var speed: CLLocationSpeed { get }
   @NSCopying var timestamp: NSDate { get }
-  var description: String { get }
   @available(OSX 10.6, *)
   func distance(from location: CLLocation) -> CLLocationDistance
-  init()
   @available(OSX 10.6, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)

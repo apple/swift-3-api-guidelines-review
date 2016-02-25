@@ -10,7 +10,6 @@ class UIPrinter : NSObject {
   var supportsColor: Bool { get }
   var supportsDuplex: Bool { get }
   func contactPrinter(_ completionHandler: ((Bool) -> Void)? = nil)
-  init()
 }
 @available(iOS 8.0, *)
 struct UIPrinterJobTypes : OptionSetType {

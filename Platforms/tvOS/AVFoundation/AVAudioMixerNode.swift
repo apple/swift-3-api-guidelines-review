@@ -3,7 +3,6 @@
 class AVAudioMixerNode : AVAudioNode, AVAudioMixing {
   var outputVolume: Float
   var nextAvailableInputBus: AVAudioNodeBus { get }
-  init()
   @available(tvOS 9.0, *)
   func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)

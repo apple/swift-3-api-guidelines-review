@@ -31,7 +31,6 @@ class SCNScene : NSObject, NSSecureCoding {
   var fogColor: AnyObject
   @available(tvOS 8.0, *)
   var isPaused: Bool
-  init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

@@ -12,7 +12,6 @@ class WKUserScript : NSObject, NSCopying {
   var injectionTime: WKUserScriptInjectionTime { get }
   var isForMainFrameOnly: Bool { get }
   init(source source: String, injectionTime injectionTime: WKUserScriptInjectionTime, forMainFrameOnly forMainFrameOnly: Bool)
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

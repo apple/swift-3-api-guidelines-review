@@ -21,6 +21,4 @@ enum AVAudioUnitReverbPreset : Int {
 class AVAudioUnitReverb : AVAudioUnitEffect {
   func loadFactoryPreset(_ preset: AVAudioUnitReverbPreset)
   var wetDryMix: Float
-  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
-  init()
 }

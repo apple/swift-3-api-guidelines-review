@@ -11,13 +11,6 @@ class DRBurnProgressPanel : NSPanel {
   func setVerboseProgressStatus(_ verbose: Bool)
   func verboseProgressStatus() -> Bool
   @IBAction func stopBurn(_ sender: AnyObject!)
-  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
-  @available(OSX 10.10, *)
-  convenience init(contentViewController contentViewController: NSViewController)
-  convenience init()
-  init?(coder coder: NSCoder)
-  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
 }
 extension NSObject {
   class func burnProgressPanelWillBegin(_ aNotification: NSNotification!)

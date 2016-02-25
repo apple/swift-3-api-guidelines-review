@@ -35,29 +35,24 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var resolveDepthPlane: Int
   var loadAction: MTLLoadAction
   var storeAction: MTLStoreAction
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearColor: MTLClearColor
-  init()
 }
 @available(OSX 10.11, *)
 class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearDepth: Double
-  init()
 }
 @available(OSX 10.11, *)
 class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearStencil: UInt32
-  init()
 }
 @available(OSX 10.11, *)
 class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
   subscript(_ attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
-  init()
 }
 @available(OSX 10.11, *)
 class MTLRenderPassDescriptor : NSObject, NSCopying {
@@ -67,7 +62,6 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   var visibilityResultBuffer: MTLBuffer?
   @available(OSX 10.11, *)
   var renderTargetArrayLength: Int
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -1,7 +1,6 @@
 
 @available(OSX 10.11, *)
 class GKEntity : NSObject, NSCopying {
-  init()
   func update(deltaTime seconds: NSTimeInterval)
   var components: [GKComponent] { get }
   func addComponent(_ component: GKComponent)

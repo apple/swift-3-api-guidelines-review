@@ -5,7 +5,6 @@ class MDLVertexAttributeData : NSObject {
   var dataStart: UnsafeMutablePointer<Void>
   var stride: Int
   var format: MDLVertexFormat
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLMesh : MDLObject {
@@ -17,7 +16,6 @@ class MDLMesh : MDLObject {
   var vertexCount: Int { get }
   var vertexBuffers: [MDLMeshBuffer] { get }
   var submeshes: NSMutableArray { get }
-  init()
 }
 extension MDLMesh {
   func addAttribute(name name: String, format format: MDLVertexFormat)

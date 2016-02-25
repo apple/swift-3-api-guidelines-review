@@ -5,5 +5,4 @@ class SKPhysicsContact : NSObject {
   var contactPoint: CGPoint { get }
   var contactNormal: CGVector { get }
   var collisionImpulse: CGFloat { get }
-  init()
 }

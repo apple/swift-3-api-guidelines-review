@@ -6,5 +6,4 @@ class CMAltimeter : NSObject {
   class func isRelativeAltitudeAvailable() -> Bool
   func startRelativeAltitudeUpdates(to queue: NSOperationQueue, withHandler handler: CMAltitudeHandler)
   func stopRelativeAltitudeUpdates()
-  init()
 }

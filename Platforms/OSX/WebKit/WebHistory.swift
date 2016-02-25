@@ -18,5 +18,4 @@ class WebHistory : NSObject {
   func item(for URL: NSURL!) -> WebHistoryItem!
   var historyItemLimit: Int32
   var historyAgeInDaysLimit: Int32
-  init()
 }

@@ -11,8 +11,4 @@ class PKAddPassButton : UIButton {
   convenience init(style addPassButtonStyle: PKAddPassButtonStyle)
   init(addPassButtonStyle style: PKAddPassButtonStyle)
   var addPassButtonStyle: PKAddPassButtonStyle
-  convenience init(type buttonType: UIButtonType)
-  convenience init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

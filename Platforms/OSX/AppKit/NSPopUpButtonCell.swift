@@ -8,7 +8,6 @@ enum NSPopUpArrowPosition : UInt {
 }
 class NSPopUpButtonCell : NSMenuItemCell {
   init(textCell stringValue: String, pullsDown pullDown: Bool)
-  var menu: NSMenu?
   var pullsDown: Bool
   var autoenablesItems: Bool
   var preferredEdge: NSRectEdge
@@ -45,10 +44,6 @@ class NSPopUpButtonCell : NSMenuItemCell {
   func dismissPopUp()
   func performClick(frame frame: NSRect, in controlView: NSView)
   var arrowPosition: NSPopUpArrowPosition
-  convenience init(textCell aString: String)
-  convenience init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __pbcFlags {
   var pullsDown: UInt32

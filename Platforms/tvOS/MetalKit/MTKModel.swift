@@ -27,7 +27,6 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   var buffer: MTLBuffer { get }
   var offset: Int { get }
   var type: MDLMeshBufferType { get }
-  func zone() -> MDLMeshBufferZone?
   @available(tvOS 9.0, *)
   func fill(_ data: NSData, offset offset: Int)
   @available(tvOS 9.0, *)

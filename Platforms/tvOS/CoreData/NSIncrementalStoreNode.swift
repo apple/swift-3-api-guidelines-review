@@ -6,5 +6,4 @@ class NSIncrementalStoreNode : NSObject {
   var objectID: NSManagedObjectID { get }
   var version: UInt64 { get }
   func value(for prop: NSPropertyDescription) -> AnyObject?
-  init()
 }

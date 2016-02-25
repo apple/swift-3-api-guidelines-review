@@ -1,7 +1,6 @@
 
 @available(OSX 10.5, *)
 class NSAtomicStore : NSPersistentStore {
-  init(persistentStoreCoordinator coordinator: NSPersistentStoreCoordinator?, configurationName configurationName: String?, url url: NSURL, options options: [NSObject : AnyObject]? = [:])
   func load() throws
   func save() throws
   func newCacheNode(for managedObject: NSManagedObject) -> NSAtomicStoreCacheNode

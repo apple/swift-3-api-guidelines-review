@@ -38,12 +38,10 @@ enum NSPredicateOperatorType : UInt {
 class NSComparisonPredicate : NSPredicate {
   init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier modifier: NSComparisonPredicateModifier, type type: NSPredicateOperatorType, options options: NSComparisonPredicateOptions = [])
   init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, customSelector selector: Selector)
-  init?(coder coder: NSCoder)
   var predicateOperatorType: NSPredicateOperatorType { get }
   var comparisonPredicateModifier: NSComparisonPredicateModifier { get }
   var leftExpression: NSExpression { get }
   var rightExpression: NSExpression { get }
   var customSelector: Selector { get }
   var options: NSComparisonPredicateOptions { get }
-  convenience init()
 }

@@ -31,7 +31,6 @@ class MPMusicPlayerController : NSObject, MPMediaPlayback {
   class func systemMusicPlayer() -> MPMusicPlayerController
   @available(iOS, introduced=3.0, deprecated=8.0, message="Use +systemMusicPlayer instead.")
   class func iPodMusicPlayer() -> MPMusicPlayerController
-  init()
   @available(iOS 3.0, *)
   func prepareToPlay()
   @available(iOS 3.0, *)

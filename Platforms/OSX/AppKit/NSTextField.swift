@@ -18,7 +18,6 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   func textDidBeginEditing(_ notification: NSNotification)
   func textDidEndEditing(_ notification: NSNotification)
   func textDidChange(_ notification: NSNotification)
-  var acceptsFirstResponder: Bool { get }
   var bezelStyle: NSTextFieldBezelStyle
   @available(OSX 10.8, *)
   var preferredMaxLayoutWidth: CGFloat
@@ -26,18 +25,7 @@ class NSTextField : NSControl, NSUserInterfaceValidations, NSAccessibilityNaviga
   var maximumNumberOfLines: Int
   @available(OSX 10.11, *)
   var allowsDefaultTighteningForTruncation: Bool
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
-  func accessibilityString(for range: NSRange) -> String?
-  func accessibilityLine(for index: Int) -> Int
-  func accessibilityRange(forLine lineNumber: Int) -> NSRange
-  func accessibilityFrame(for range: NSRange) -> NSRect
-  func accessibilityValue() -> String?
-  @available(OSX 10.0, *)
-  func accessibilityAttributedString(for range: NSRange) -> NSAttributedString?
-  func accessibilityVisibleCharacterRange() -> NSRange
 }
 extension NSTextField {
   var allowsEditingTextAttributes: Bool

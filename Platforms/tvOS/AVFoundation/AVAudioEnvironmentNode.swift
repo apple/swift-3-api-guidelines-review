@@ -13,7 +13,6 @@ class AVAudioEnvironmentDistanceAttenuationParameters : NSObject {
   var referenceDistance: Float
   var maximumDistance: Float
   var rolloffFactor: Float
-  init()
 }
 @available(tvOS 8.0, *)
 class AVAudioEnvironmentReverbParameters : NSObject {
@@ -21,7 +20,6 @@ class AVAudioEnvironmentReverbParameters : NSObject {
   var level: Float
   var filterParameters: AVAudioUnitEQFilterParameters { get }
   func loadFactoryReverbPreset(_ preset: AVAudioUnitReverbPreset)
-  init()
 }
 @available(tvOS 8.0, *)
 class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
@@ -33,7 +31,6 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
   var distanceAttenuationParameters: AVAudioEnvironmentDistanceAttenuationParameters { get }
   var reverbParameters: AVAudioEnvironmentReverbParameters { get }
   var applicableRenderingAlgorithms: [NSNumber] { get }
-  init()
   @available(tvOS 9.0, *)
   func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)

@@ -9,8 +9,6 @@ enum UIActivityIndicatorViewStyle : Int {
 @available(iOS 2.0, *)
 class UIActivityIndicatorView : UIView, NSCoding {
   init(activityIndicatorStyle style: UIActivityIndicatorViewStyle)
-  init(frame frame: CGRect)
-  init(coder coder: NSCoder)
   var activityIndicatorViewStyle: UIActivityIndicatorViewStyle
   var hidesWhenStopped: Bool
   @available(iOS 5.0, *)
@@ -18,5 +16,4 @@ class UIActivityIndicatorView : UIView, NSCoding {
   func startAnimating()
   func stopAnimating()
   func isAnimating() -> Bool
-  convenience init()
 }

@@ -9,6 +9,4 @@ struct CMRotationRate {
 @available(watchOS 2.0, *)
 class CMGyroData : CMLogItem {
   var rotationRate: CMRotationRate { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

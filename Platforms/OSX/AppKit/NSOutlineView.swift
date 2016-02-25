@@ -38,10 +38,6 @@ struct __OvFlags {
 typealias _OVFlags = __OvFlags
 var NSOutlineViewDropOnItemIndex: Int { get }
 class NSOutlineView : NSTableView, NSAccessibilityOutline {
-  func setDelegate(_ anObject: NSOutlineViewDelegate?)
-  func delegate() -> NSOutlineViewDelegate?
-  func setDataSource(_ aSource: NSOutlineViewDataSource?)
-  func dataSource() -> NSOutlineViewDataSource?
   unowned(unsafe) var outlineTableColumn: @sil_unmanaged NSTableColumn?
   func isExpandable(_ item: AnyObject?) -> Bool
   @available(OSX 10.10, *)
@@ -76,11 +72,6 @@ class NSOutlineView : NSTableView, NSAccessibilityOutline {
   func removeItems(at indexes: NSIndexSet, inParent parent: AnyObject?, withAnimation animationOptions: NSTableViewAnimationOptions = [])
   @available(OSX 10.7, *)
   func moveItem(at fromIndex: Int, inParent oldParent: AnyObject?, to toIndex: Int, inParent newParent: AnyObject?)
-  @available(OSX 10.7, *)
-  var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NSOutlineViewDataSource : NSObjectProtocol {
   optional func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int

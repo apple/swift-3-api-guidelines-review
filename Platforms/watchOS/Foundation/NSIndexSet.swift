@@ -42,7 +42,6 @@ class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   func enumerateRanges(_ opts: NSEnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
   func enumerateRanges(in range: NSRange, options opts: NSEnumerationOptions = [], using block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
@@ -51,9 +50,6 @@ class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 }
 
 extension NSIndexSet : SequenceType {
-  func generate() -> NSIndexSetGenerator
-  typealias Generator = NSIndexSetGenerator
-  typealias SubSequence = AnySequence<Element>
 }
 class NSMutableIndexSet : NSIndexSet {
   func add(_ indexSet: NSIndexSet)
@@ -64,9 +60,4 @@ class NSMutableIndexSet : NSIndexSet {
   func add(in range: NSRange)
   func remove(in range: NSRange)
   func shiftIndexesStarting(at index: Int, by delta: Int)
-  init(indexesIn range: NSRange)
-  init(indexSet indexSet: NSIndexSet)
-  convenience init(index value: Int)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

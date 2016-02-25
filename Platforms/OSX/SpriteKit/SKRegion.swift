@@ -11,7 +11,6 @@ class SKRegion : NSObject, NSCopying, NSCoding {
   func byDifference(from region: SKRegion) -> Self
   func byIntersection(with region: SKRegion) -> Self
   func contains(_ point: CGPoint) -> Bool
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

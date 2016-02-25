@@ -6,5 +6,4 @@ class NSSaveChangesRequest : NSPersistentStoreRequest {
   var updatedObjects: Set<NSManagedObject>? { get }
   var deletedObjects: Set<NSManagedObject>? { get }
   var lockedObjects: Set<NSManagedObject>? { get }
-  init()
 }

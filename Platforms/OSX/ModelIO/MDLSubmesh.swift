@@ -11,7 +11,6 @@ class MDLSubmeshTopology : NSObject {
   var edgeCreaseCount: Int
   var holes: MDLMeshBuffer?
   var holeCount: Int
-  init()
 }
 @available(OSX 10.11, *)
 class MDLSubmesh : NSObject, MDLNamed {
@@ -26,5 +25,4 @@ class MDLSubmesh : NSObject, MDLNamed {
   var material: MDLMaterial?
   var topology: MDLSubmeshTopology? { get }
   var name: String
-  init()
 }

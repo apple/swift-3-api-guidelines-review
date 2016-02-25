@@ -35,7 +35,6 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   var name: String { get }
   @available(tvOS 9.0, *)
   var quality: AVSpeechSynthesisVoiceQuality { get }
-  init()
   @available(tvOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 7.0, *)
@@ -52,7 +51,6 @@ class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
   var volume: Float
   var preUtteranceDelay: NSTimeInterval
   var postUtteranceDelay: NSTimeInterval
-  init()
   @available(tvOS 7.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 7.0, *)
@@ -70,7 +68,6 @@ class AVSpeechSynthesizer : NSObject {
   func stopSpeaking(at boundary: AVSpeechBoundary) -> Bool
   func pauseSpeaking(at boundary: AVSpeechBoundary) -> Bool
   func continueSpeaking() -> Bool
-  init()
 }
 protocol AVSpeechSynthesizerDelegate : NSObjectProtocol {
   @available(tvOS 7.0, *)

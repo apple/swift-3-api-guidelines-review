@@ -8,7 +8,6 @@ class MCAdvertiserAssistant : NSObject {
   var session: MCSession { get }
   var discoveryInfo: [String : String]? { get }
   var serviceType: String { get }
-  convenience init()
 }
 protocol MCAdvertiserAssistantDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)

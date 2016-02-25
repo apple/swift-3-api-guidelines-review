@@ -6,7 +6,6 @@ class ADInterstitialAd : NSObject {
   var isActionInProgress: Bool { get }
   func cancelAction()
   func present(in containerView: UIView!) -> Bool
-  init()
 }
 protocol ADInterstitialAdDelegate : NSObjectProtocol {
   @available(iOS 4.3, *)

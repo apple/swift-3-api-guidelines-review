@@ -3,7 +3,6 @@ class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
   var count: Int { get }
   func object(forKey aKey: AnyObject) -> AnyObject?
   func keyEnumerator() -> NSEnumerator
-  init()
   init(objects objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -14,21 +13,9 @@ class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {
-  required convenience init(dictionaryLiteral elements: (NSCopying, AnyObject)...)
-  typealias Key = NSCopying
-  typealias Value = AnyObject
 }
 
 extension NSDictionary : SequenceType {
-  final class Generator : GeneratorType {
-    var _fastGenerator: NSFastGenerator
-    var _dictionary: NSDictionary { get }
-    func next() -> (key: AnyObject, value: AnyObject)?
-    init(_ _dict: NSDictionary)
-    typealias Element = (key: AnyObject, value: AnyObject)
-  }
-  func generate() -> NSDictionary.Generator
-  typealias SubSequence = AnySequence<(key: AnyObject, value: AnyObject)>
 }
 
 extension NSDictionary {
@@ -36,13 +23,11 @@ extension NSDictionary {
 }
 
 extension NSDictionary : CustomReflectable {
-  func customMirror() -> Mirror
 }
 extension NSDictionary {
   var allKeys: [AnyObject] { get }
   func allKeys(for anObject: AnyObject) -> [AnyObject]
   var allValues: [AnyObject] { get }
-  var description: String { get }
   var descriptionInStringsFileFormat: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func description(withLocale locale: AnyObject?, indent level: Int) -> String
@@ -83,26 +68,15 @@ extension NSDictionary {
 class NSMutableDictionary : NSDictionary {
   func removeObject(forKey aKey: AnyObject)
   func setObject(_ anObject: AnyObject, forKey aKey: NSCopying)
-  init()
   init(capacity numItems: Int)
-  init?(coder aDecoder: NSCoder)
-  convenience init(objects objects: UnsafePointer<AnyObject?>, forKeys keys: UnsafePointer<NSCopying?>, count cnt: Int)
-  convenience init(object object: AnyObject, forKey key: NSCopying)
-  convenience init(dictionary otherDictionary: [NSObject : AnyObject])
-  convenience init(dictionary otherDictionary: [NSObject : AnyObject], copyItems flag: Bool)
-  convenience init(objects objects: [AnyObject], forKeys keys: [NSCopying])
 }
 extension NSMutableDictionary {
   func addEntries(from otherDictionary: [NSObject : AnyObject])
   func removeAllObjects()
   func removeObjects(forKeys keyArray: [AnyObject])
   func setDictionary(_ otherDictionary: [NSObject : AnyObject])
-  @available(OSX 10.8, *)
-  subscript(_ key: NSCopying) -> AnyObject?
 }
 extension NSMutableDictionary {
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
 }
 extension NSDictionary {
   @available(OSX 10.8, *)

@@ -44,9 +44,6 @@ class NSRuleEditor : NSControl {
   var subrowsKeyPath: String
   var criteriaKeyPath: String
   var displayValuesKeyPath: String
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NSRuleEditorDelegate : NSObjectProtocol {
   func ruleEditor(_ editor: NSRuleEditor, numberOfChildrenForCriterion criterion: AnyObject?, with rowType: NSRuleEditorRowType) -> Int

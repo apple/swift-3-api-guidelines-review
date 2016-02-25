@@ -68,7 +68,6 @@ class NSSpellChecker : NSObject {
   class func isAutomaticDashSubstitutionEnabled() -> Bool
   func language() -> String
   func setLanguage(_ language: String) -> Bool
-  init()
 }
 struct __scFlags {
   var autoShowGuesses: UInt32

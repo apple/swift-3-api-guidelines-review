@@ -67,7 +67,6 @@ class AVCaptureSession : NSObject {
   func stopRunning()
   @available(OSX 10.9, *)
   var masterClock: CMClock! { get }
-  init()
 }
 @available(OSX 10.7, *)
 enum AVVideoFieldMode : Int {
@@ -109,7 +108,6 @@ class AVCaptureConnection : NSObject {
   var isVideoMaxFrameDurationSupported: Bool { get }
   @available(OSX, introduced=10.9, message="Use AVCaptureDevice's activeVideoMaxFrameDuration instead.")
   var videoMaxFrameDuration: CMTime
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureAudioChannel : NSObject {
@@ -119,5 +117,4 @@ class AVCaptureAudioChannel : NSObject {
   var volume: Float
   @available(OSX 10.7, *)
   var isEnabled: Bool
-  init()
 }

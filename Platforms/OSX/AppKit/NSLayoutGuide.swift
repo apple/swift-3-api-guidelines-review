@@ -14,7 +14,6 @@ class NSLayoutGuide : NSObject, NSCoding, NSUserInterfaceItemIdentification {
   var heightAnchor: NSLayoutDimension { get }
   var centerXAnchor: NSLayoutXAxisAnchor { get }
   var centerYAnchor: NSLayoutYAxisAnchor { get }
-  init()
   @available(OSX 10.11, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

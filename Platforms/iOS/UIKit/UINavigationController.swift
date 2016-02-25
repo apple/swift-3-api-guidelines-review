@@ -34,8 +34,6 @@ class UINavigationController : UIViewController {
   @available(iOS 7.0, *)
   var interactivePopGestureRecognizer: UIGestureRecognizer? { get }
   @available(iOS 8.0, *)
-  func show(_ vc: UIViewController, sender sender: AnyObject?)
-  @available(iOS 8.0, *)
   var hidesBarsWhenKeyboardAppears: Bool
   @available(iOS 8.0, *)
   var hidesBarsOnSwipe: Bool
@@ -47,9 +45,6 @@ class UINavigationController : UIViewController {
   var hidesBarsOnTap: Bool
   @available(iOS 8.0, *)
   unowned(unsafe) var barHideOnTapGestureRecognizer: @sil_unmanaged UITapGestureRecognizer { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UINavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)

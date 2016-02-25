@@ -43,7 +43,6 @@ class GKTurnBasedParticipant : NSObject {
   @NSCopying var timeoutDate: NSDate? { get }
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")
   var playerID: String? { get }
-  init()
 }
 protocol GKTurnBasedEventListener {
   @available(OSX 10.10, *)
@@ -116,7 +115,6 @@ class GKTurnBasedMatch : NSObject {
   func sendExchange(to participants: [GKTurnBasedParticipant], data data: NSData, localizableMessageKey key: String, arguments arguments: [String], timeout timeout: NSTimeInterval, completionHandler completionHandler: ((GKTurnBasedExchange, NSError) -> Void)? = nil)
   @available(OSX 10.10, *)
   func sendReminder(to participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }
 @available(OSX 10.10, *)
 enum GKTurnBasedExchangeStatus : Int8 {
@@ -148,7 +146,6 @@ class GKTurnBasedExchange : NSObject {
   func cancel(localizableMessageKey key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func reply(localizableMessageKey key: String, arguments arguments: [String], data data: NSData, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }
 @available(OSX 10.10, *)
 class GKTurnBasedExchangeReply : NSObject {
@@ -157,7 +154,6 @@ class GKTurnBasedExchangeReply : NSObject {
   var data: NSData? { get }
   @available(OSX 10.10, *)
   var replyDate: NSDate? { get }
-  init()
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer with an object that implements the GKTurnBasedEventListener protocol")
 protocol GKTurnBasedEventHandlerDelegate {
@@ -174,5 +170,4 @@ class GKTurnBasedEventHandler : NSObject {
   class func shared() -> GKTurnBasedEventHandler
   @available(OSX, introduced=10.8, deprecated=10.10)
   unowned(unsafe) var delegate: @sil_unmanaged protocol<GKTurnBasedEventHandlerDelegate, NSObjectProtocol>
-  init()
 }

@@ -38,5 +38,4 @@ class DOMHTMLInputElement : DOMHTMLElement {
   func select()
   @available(OSX 10.5, *)
   func setSelectionRange(_ start: Int32, end end: Int32)
-  func click()
 }

@@ -38,7 +38,6 @@ class NSProcessInfo : NSObject {
   func isOperatingSystem(atLeastVersion version: NSOperatingSystemVersion) -> Bool
   @available(watchOS 2.0, *)
   var systemUptime: NSTimeInterval { get }
-  init()
 }
 @available(watchOS 2.0, *)
 struct NSActivityOptions : OptionSetType {

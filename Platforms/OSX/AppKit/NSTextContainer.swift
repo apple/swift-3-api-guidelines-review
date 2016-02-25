@@ -23,7 +23,6 @@ class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   var widthTracksTextView: Bool
   var heightTracksTextView: Bool
   var textView: NSTextView?
-  convenience init()
   @available(OSX 10.0, *)
   func encode(with aCoder: NSCoder)
   @available(OSX 10.7, *)

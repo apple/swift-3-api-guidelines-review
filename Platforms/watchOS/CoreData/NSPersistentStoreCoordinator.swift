@@ -86,7 +86,6 @@ class NSPersistentStoreCoordinator : NSObject {
   func perform(_ block: () -> Void)
   @available(watchOS 2.0, *)
   func performBlockAndWait(_ block: () -> Void)
-  convenience init()
 }
 struct _persistentStoreCoordinatorFlags {
   var _isRegistered: UInt32

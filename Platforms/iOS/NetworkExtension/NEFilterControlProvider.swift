@@ -11,5 +11,4 @@ class NEFilterControlProvider : NEFilterProvider {
   func handleNewFlow(_ flow: NEFilterFlow, completionHandler completionHandler: (NEFilterControlVerdict) -> Void)
   @available(iOS 9.0, *)
   func notifyRulesChanged()
-  init()
 }

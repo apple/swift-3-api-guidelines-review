@@ -8,7 +8,6 @@ class NSLock : NSObject, NSLocking {
   func lock(before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
-  init()
   func lock()
   func unlock()
 }
@@ -23,7 +22,6 @@ class NSConditionLock : NSObject, NSLocking {
   func lock(whenCondition condition: Int, before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
-  convenience init()
   func lock()
   func unlock()
 }
@@ -32,7 +30,6 @@ class NSRecursiveLock : NSObject, NSLocking {
   func lock(before limit: NSDate) -> Bool
   @available(OSX 10.5, *)
   var name: String?
-  init()
   func lock()
   func unlock()
 }
@@ -44,7 +41,6 @@ class NSCondition : NSObject, NSLocking {
   func broadcast()
   @available(OSX 10.5, *)
   var name: String?
-  init()
   @available(OSX 10.5, *)
   func lock()
   @available(OSX 10.5, *)

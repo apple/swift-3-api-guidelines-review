@@ -20,7 +20,6 @@ protocol UIDynamicItem : NSObjectProtocol {
 class UIDynamicItemGroup : NSObject, UIDynamicItem {
   init(items items: [UIDynamicItem])
   var items: [UIDynamicItem] { get }
-  init()
   @available(tvOS 9.0, *)
   var center: CGPoint
   @available(tvOS 9.0, *)
@@ -40,5 +39,4 @@ class UIDynamicBehavior : NSObject {
   var action: (() -> Void)?
   func willMove(to dynamicAnimator: UIDynamicAnimator?)
   var dynamicAnimator: UIDynamicAnimator? { get }
-  init()
 }

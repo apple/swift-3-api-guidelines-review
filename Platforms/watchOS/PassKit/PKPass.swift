@@ -29,5 +29,4 @@ class PKPass : PKObject {
   @available(watchOS 2.0, *)
   var deviceName: String { get }
   func localizedValue(forFieldKey key: String) -> AnyObject?
-  init()
 }

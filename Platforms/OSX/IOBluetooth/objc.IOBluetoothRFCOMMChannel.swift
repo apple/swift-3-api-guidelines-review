@@ -20,7 +20,6 @@ class IOBluetoothRFCOMMChannel : IOBluetoothObject, NSPortDelegate {
   func getDevice() -> IOBluetoothDevice!
   func getObjectID() -> IOBluetoothObjectID
   func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
-  init()
   func handle(_ message: NSPortMessage)
 }
 protocol IOBluetoothRFCOMMChannelDelegate {

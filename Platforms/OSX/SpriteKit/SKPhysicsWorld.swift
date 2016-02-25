@@ -18,7 +18,6 @@ class SKPhysicsWorld : NSObject, NSCoding {
   func enumerateBodies(at point: CGPoint, using block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateBodies(in rect: CGRect, using block: (SKPhysicsBody, UnsafeMutablePointer<ObjCBool>) -> Void)
   func enumerateBodies(alongRayStart start: CGPoint, end end: CGPoint, using block: (SKPhysicsBody, CGPoint, CGVector, UnsafeMutablePointer<ObjCBool>) -> Void)
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -9,7 +9,6 @@ class NSTimeZone : NSObject, NSCopying, NSSecureCoding {
   func daylightSavingTimeOffset(for aDate: NSDate) -> NSTimeInterval
   @available(tvOS 2.0, *)
   func nextDaylightSavingTimeTransition(after aDate: NSDate) -> NSDate?
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
@@ -34,7 +33,6 @@ extension NSTimeZone {
   var daylightSavingTimeOffset: NSTimeInterval { get }
   @available(tvOS 2.0, *)
   @NSCopying var nextDaylightSavingTimeTransition: NSDate? { get }
-  var description: String { get }
   func isEqual(to aTimeZone: NSTimeZone) -> Bool
   @available(tvOS 2.0, *)
   func localizedName(_ style: NSTimeZoneNameStyle, locale locale: NSLocale?) -> String?

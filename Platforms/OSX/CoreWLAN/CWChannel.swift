@@ -9,7 +9,6 @@ class CWChannel : NSObject, NSCopying, NSSecureCoding {
   var channelBand: CWChannelBand { get }
   @available(OSX 10.7, *)
   func isEqual(to channel: CWChannel) -> Bool
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)

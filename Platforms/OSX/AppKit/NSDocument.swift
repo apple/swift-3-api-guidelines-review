@@ -26,7 +26,6 @@ enum NSSaveOperationType : UInt {
   case autosaveAsOperation
 }
 class NSDocument : NSObject, NSFilePresenter, NSUserInterfaceValidations {
-  init()
   convenience init(type typeName: String) throws
   @available(OSX 10.6, *)
   class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool

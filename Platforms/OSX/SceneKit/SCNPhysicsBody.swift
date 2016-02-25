@@ -51,7 +51,6 @@ class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
   func applyTorque(_ torque: SCNVector4, impulse impulse: Bool)
   func clearAllForces()
   func resetTransform()
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

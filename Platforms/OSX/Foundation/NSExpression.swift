@@ -78,7 +78,6 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   func expressionValue(with object: AnyObject?, context context: NSMutableDictionary?) -> AnyObject
   @available(OSX 10.9, *)
   func allowEvaluation()
-  convenience init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)

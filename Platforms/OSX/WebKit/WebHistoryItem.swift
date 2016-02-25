@@ -8,6 +8,5 @@ class WebHistoryItem : NSObject, NSCopying {
   var lastVisitedTimeInterval: NSTimeInterval { get }
   var alternateTitle: String!
   var icon: NSImage! { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -7,7 +7,6 @@ class IOBluetoothHostController : NSObject {
   func setClassOfDevice(_ classOfDevice: BluetoothClassOfDevice, forTimeInterval seconds: NSTimeInterval) -> IOReturn
   func addressAsString() -> String!
   func nameAsString() -> String!
-  init()
 }
 extension NSObject {
   class func readRSSI(forDeviceComplete controller: AnyObject!, device device: IOBluetoothDevice!, info info: UnsafeMutablePointer<BluetoothHCIRSSIInfo>, error error: IOReturn)

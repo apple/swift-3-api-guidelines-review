@@ -22,7 +22,6 @@ class NSEntityMapping : NSObject {
   var sourceExpression: NSExpression?
   var userInfo: [NSObject : AnyObject]?
   var entityMigrationPolicyClassName: String?
-  init()
 }
 struct __entityMappingFlags {
   var _isInUse: UInt32

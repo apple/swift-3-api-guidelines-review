@@ -10,7 +10,6 @@ class AVPictureInPictureController : NSObject {
   var isPictureInPicturePossible: Bool { get }
   var isPictureInPictureActive: Bool { get }
   var isPictureInPictureSuspended: Bool { get }
-  convenience init()
 }
 protocol AVPictureInPictureControllerDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)

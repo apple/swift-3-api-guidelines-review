@@ -105,13 +105,11 @@ class AUAudioUnitBus : NSObject {
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var supportedChannelLayoutTags: [NSNumber]? { get }
   var contextPresentationLatency: NSTimeInterval
-  init()
 }
 @available(OSX 10.11, *)
 class AUAudioUnitPreset : NSObject, NSSecureCoding {
   var number: Int
   var name: String
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)

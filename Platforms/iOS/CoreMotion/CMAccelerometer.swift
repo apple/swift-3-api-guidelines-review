@@ -9,6 +9,4 @@ struct CMAcceleration {
 @available(iOS 4.0, *)
 class CMAccelerometerData : CMLogItem {
   var acceleration: CMAcceleration { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -23,10 +23,5 @@ class NSSearchField : NSTextField {
   @available(OSX 10.10, *)
   var sendsSearchStringImmediately: Bool
   @available(OSX 10.11, *)
-  unowned(unsafe) var delegate: @sil_unmanaged NSSearchFieldDelegate?
-  @available(OSX 10.11, *)
   var centersPlaceholder: Bool
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

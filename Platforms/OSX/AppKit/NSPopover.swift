@@ -17,8 +17,6 @@ enum NSPopoverBehavior : Int {
 }
 @available(OSX 10.7, *)
 class NSPopover : NSResponder, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
-  init()
-  init?(coder coder: NSCoder)
   @IBOutlet unowned(unsafe) var delegate: @sil_unmanaged NSPopoverDelegate?
   @available(OSX 10.10, *)
   var appearance: NSAppearance?

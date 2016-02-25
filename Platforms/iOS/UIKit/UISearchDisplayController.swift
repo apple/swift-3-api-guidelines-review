@@ -16,7 +16,6 @@ class UISearchDisplayController : NSObject {
   var displaysSearchBarInNavigationBar: Bool
   @available(iOS 7.0, *)
   var navigationItem: UINavigationItem? { get }
-  init()
 }
 protocol UISearchDisplayDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.0, deprecated=8.0)

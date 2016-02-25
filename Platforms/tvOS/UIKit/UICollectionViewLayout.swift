@@ -25,7 +25,6 @@ class UICollectionViewLayoutAttributes : NSObject, NSCopying, UIDynamicItem {
   convenience init(forCellWith indexPath: NSIndexPath)
   convenience init(forSupplementaryViewOfKind elementKind: String, with indexPath: NSIndexPath)
   convenience init(forDecorationViewOfKind decorationViewKind: String, with indexPath: NSIndexPath)
-  init()
   @available(tvOS 6.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 9.0, *)
@@ -47,7 +46,6 @@ class UICollectionViewUpdateItem : NSObject {
   var indexPathBeforeUpdate: NSIndexPath? { get }
   var indexPathAfterUpdate: NSIndexPath? { get }
   var updateAction: UICollectionUpdateAction { get }
-  init()
 }
 @available(tvOS 7.0, *)
 class UICollectionViewLayoutInvalidationContext : NSObject {
@@ -75,11 +73,9 @@ class UICollectionViewLayoutInvalidationContext : NSObject {
   var targetIndexPathsForInteractivelyMovingItems: [NSIndexPath]? { get }
   @available(tvOS 9.0, *)
   var interactiveMovementTarget: CGPoint { get }
-  init()
 }
 @available(tvOS 6.0, *)
 class UICollectionViewLayout : NSObject, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   var collectionView: UICollectionView? { get }
   func invalidateLayout()

@@ -78,7 +78,6 @@ struct __BCFlags2 {
 }
 typealias _BCFlags2 = __BCFlags2
 class NSButtonCell : NSActionCell {
-  var title: String!
   var alternateTitle: String
   var alternateImage: NSImage?
   var imagePosition: NSCellImagePosition
@@ -87,22 +86,14 @@ class NSButtonCell : NSActionCell {
   var highlightsBy: NSCellStyleMask
   var showsStateBy: NSCellStyleMask
   func setButtonType(_ aType: NSButtonType)
-  var isOpaque: Bool { get }
   var isTransparent: Bool
   func setPeriodicDelay(_ delay: Float, interval interval: Float)
-  func getPeriodicDelay(_ delay: UnsafeMutablePointer<Float>, interval interval: UnsafeMutablePointer<Float>)
-  var keyEquivalent: String
   var keyEquivalentModifierMask: Int
   var keyEquivalentFont: NSFont?
   func setKeyEquivalentFont(_ fontName: String, size fontSize: CGFloat)
-  func performClick(_ sender: AnyObject?)
   func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView)
   func drawTitle(_ title: NSAttributedString, withFrame frame: NSRect, in controlView: NSView) -> NSRect
   func drawBezel(frame frame: NSRect, in controlView: NSView)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSGradientType : UInt {
   init?(rawValue rawValue: UInt)

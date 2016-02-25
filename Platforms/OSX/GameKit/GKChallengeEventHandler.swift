@@ -13,5 +13,4 @@ protocol GKChallengeEventHandlerDelegate : NSObjectProtocol {
 class GKChallengeEventHandler : NSObject {
   @available(OSX, introduced=10.8, deprecated=10.10)
   unowned(unsafe) var delegate: @sil_unmanaged GKChallengeEventHandlerDelegate!
-  init()
 }

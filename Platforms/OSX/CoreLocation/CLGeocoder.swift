@@ -8,5 +8,4 @@ class CLGeocoder : NSObject {
   func geocodeAddressString(_ addressString: String, completionHandler completionHandler: CLGeocodeCompletionHandler)
   func geocodeAddressString(_ addressString: String, in region: CLRegion?, completionHandler completionHandler: CLGeocodeCompletionHandler)
   func cancelGeocode()
-  init()
 }

@@ -17,7 +17,6 @@ class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
   @NSCopying var passwordReference: NSData?
   @available(iOS 9.0, *)
   @NSCopying var identityReference: NSData?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

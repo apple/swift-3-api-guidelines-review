@@ -20,7 +20,6 @@ class NSHTTPCookieStorage : NSObject {
   var cookieAcceptPolicy: NSHTTPCookieAcceptPolicy
   @available(watchOS 2.0, *)
   func sortedCookies(using sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
-  init()
 }
 extension NSHTTPCookieStorage {
   @available(watchOS 2.0, *)

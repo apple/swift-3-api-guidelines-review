@@ -11,9 +11,6 @@ class ABPersonViewController : UIViewController, UIViewControllerRestoration {
   @available(iOS 4.0, *)
   var shouldShowLinkedPeople: Bool
   func setHighlightedItemForProperty(_ property: ABPropertyID, withIdentifier identifier: ABMultiValueIdentifier)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 2.0, *)
   class func viewController(withRestorationIdentifierPath identifierComponents: [AnyObject], coder coder: NSCoder) -> UIViewController?
 }

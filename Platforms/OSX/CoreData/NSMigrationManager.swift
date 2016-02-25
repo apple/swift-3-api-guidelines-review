@@ -20,7 +20,6 @@ class NSMigrationManager : NSObject {
   var migrationProgress: Float { get }
   var userInfo: [NSObject : AnyObject]?
   func cancelMigrationWithError(_ error: NSError)
-  init()
 }
 struct _migrationManagerFlags {
   var _migrationWasCancelled: UInt32

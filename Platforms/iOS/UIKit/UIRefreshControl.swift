@@ -1,14 +1,10 @@
 
 @available(iOS 6.0, *)
 class UIRefreshControl : UIControl {
-  init()
   var isRefreshing: Bool { get }
-  var tintColor: UIColor!
   var attributedTitle: NSAttributedString?
   @available(iOS 6.0, *)
   func beginRefreshing()
   @available(iOS 6.0, *)
   func endRefreshing()
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
 }

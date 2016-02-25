@@ -3,7 +3,6 @@
 class PHChange : NSObject {
   func changeDetails(for object: PHObject) -> PHObjectChangeDetails?
   func changeDetails(for object: PHFetchResult) -> PHFetchResultChangeDetails?
-  init()
 }
 @available(iOS 8.0, *)
 class PHObjectChangeDetails : NSObject {
@@ -11,7 +10,6 @@ class PHObjectChangeDetails : NSObject {
   var objectAfterChanges: PHObject? { get }
   var assetContentChanged: Bool { get }
   var objectWasDeleted: Bool { get }
-  init()
 }
 @available(iOS 8.0, *)
 class PHFetchResultChangeDetails : NSObject {
@@ -27,5 +25,4 @@ class PHFetchResultChangeDetails : NSObject {
   func enumerateMoves(_ handler: (Int, Int) -> Void)
   var hasMoves: Bool { get }
   convenience init(from fromResult: PHFetchResult, to toResult: PHFetchResult, changedObjects changedObjects: [PHObject])
-  init()
 }

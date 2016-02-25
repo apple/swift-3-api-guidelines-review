@@ -14,5 +14,4 @@ class HMService : NSObject {
   var isUserInteractive: Bool { get }
   func updateName(_ name: String, completionHandler completion: (NSError?) -> Void)
   func updateAssociatedServiceType(_ serviceType: String?, completionHandler completion: (NSError?) -> Void)
-  init()
 }

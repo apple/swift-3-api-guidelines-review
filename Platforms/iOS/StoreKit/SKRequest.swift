@@ -7,7 +7,6 @@ class SKRequest : NSObject {
   func cancel()
   @available(iOS 3.0, *)
   func start()
-  init()
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)

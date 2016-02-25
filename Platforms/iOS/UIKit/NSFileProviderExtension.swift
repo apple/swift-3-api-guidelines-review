@@ -11,5 +11,4 @@ class NSFileProviderExtension : NSObject {
   func startProvidingItem(at url: NSURL, completionHandler completionHandler: (NSError?) -> Void)
   func itemChanged(at url: NSURL)
   func stopProvidingItem(at url: NSURL)
-  init()
 }

@@ -14,17 +14,11 @@ class NSButton : NSControl, NSUserInterfaceValidations, NSAccessibilityButton {
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
   func highlight(_ flag: Bool)
-  func performKeyEquivalent(_ key: NSEvent) -> Bool
   @available(OSX 10.10.3, *)
   var isSpringLoaded: Bool
   @available(OSX 10.10.3, *)
   var maxAcceleratorLevel: Int
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
-  func accessibilityLabel() -> String?
-  func accessibilityPerformPress() -> Bool
 }
 extension NSButton {
   @NSCopying var attributedTitle: NSAttributedString

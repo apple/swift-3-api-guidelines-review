@@ -21,7 +21,6 @@ class LAContext : NSObject {
   var localizedFallbackTitle: String?
   @available(OSX 10.11, *)
   var evaluatedPolicyDomainState: NSData? { get }
-  init()
 }
 @available(OSX 10.11, *)
 enum LACredentialType : Int {

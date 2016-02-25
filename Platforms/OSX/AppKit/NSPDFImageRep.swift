@@ -5,6 +5,4 @@ class NSPDFImageRep : NSImageRep {
   var bounds: NSRect { get }
   var currentPage: Int
   var pageCount: Int { get }
-  init()
-  init?(coder coder: NSCoder)
 }

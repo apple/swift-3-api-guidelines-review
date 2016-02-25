@@ -25,7 +25,6 @@ class AVAudioRecorder : NSObject {
   func averagePower(forChannel channelNumber: Int) -> Float
   @available(iOS 7.0, *)
   var channelAssignments: [NSNumber]?
-  init()
 }
 protocol AVAudioRecorderDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)

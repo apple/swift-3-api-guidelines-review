@@ -36,7 +36,6 @@ class NSToolbar : NSObject {
   func validateVisibleItems()
   @available(OSX 10.10, *)
   var allowsExtensionItems: Bool
-  convenience init()
 }
 struct __tbFlags {
   var allowsUserCustomization: UInt32

@@ -39,8 +39,6 @@ struct __SFlags {
 }
 typealias _SFlags = __SFlags
 class NSScrollView : NSView, NSTextFinderBarContainer {
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
   @available(OSX 10.7, *)
   class func frameSize(forContentSize cSize: NSSize, horizontalScrollerClass horizontalScrollerClass: AnyClass?, verticalScrollerClass verticalScrollerClass: AnyClass?, borderType aType: NSBorderType, controlSize controlSize: NSControlSize, scrollerStyle scrollerStyle: NSScrollerStyle) -> NSSize
   @available(OSX 10.7, *)
@@ -66,8 +64,6 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var pageScroll: CGFloat
   var scrollsDynamically: Bool
   func tile()
-  func reflectScrolledClipView(_ cView: NSClipView)
-  func scrollWheel(_ theEvent: NSEvent)
   @available(OSX 10.7, *)
   var scrollerStyle: NSScrollerStyle
   @available(OSX 10.7, *)
@@ -100,7 +96,6 @@ class NSScrollView : NSView, NSTextFinderBarContainer {
   var contentInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var scrollerInsets: NSEdgeInsets
-  convenience init()
   var findBarView: NSView?
   var isFindBarVisible: Bool
   func findBarViewDidChangeHeight()

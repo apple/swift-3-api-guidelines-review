@@ -10,8 +10,6 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
 class EKEventStore : NSObject {
   @available(OSX 10.9, *)
   class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
-  @available(OSX 10.9, *)
-  init()
   @available(OSX 10.11, *)
   init(sources sources: [EKSource])
   @available(OSX 10.9, *)

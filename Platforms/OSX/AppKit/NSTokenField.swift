@@ -7,9 +7,6 @@ class NSTokenField : NSTextField {
   class func defaultCompletionDelay() -> NSTimeInterval
   @NSCopying var tokenizingCharacterSet: NSCharacterSet!
   class func defaultTokenizingCharacterSet() -> NSCharacterSet
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NSTokenFieldDelegate : NSTextFieldDelegate {
   optional func tokenField(_ tokenField: NSTokenField, completionsForSubstring substring: String, indexOfToken tokenIndex: Int, indexOfSelectedItem selectedIndex: UnsafeMutablePointer<Int>) -> [AnyObject]?

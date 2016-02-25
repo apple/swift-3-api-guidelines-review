@@ -20,5 +20,4 @@ class NSEntityMigrationPolicy : NSObject {
   func endRelationshipCreation(for mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
   func performCustomValidation(for mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
   func end(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
-  init()
 }

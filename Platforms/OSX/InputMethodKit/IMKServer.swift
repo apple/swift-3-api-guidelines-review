@@ -10,5 +10,4 @@ class IMKServer : NSObject {
   func paletteWillTerminate() -> Bool
   @available(OSX 10.7, *)
   func lastKeyEventWasDeadKey() -> Bool
-  init()
 }

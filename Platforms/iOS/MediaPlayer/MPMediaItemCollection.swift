@@ -6,6 +6,4 @@ class MPMediaItemCollection : MPMediaEntity {
   var representativeItem: MPMediaItem? { get }
   var count: Int { get }
   var mediaTypes: MPMediaType { get }
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

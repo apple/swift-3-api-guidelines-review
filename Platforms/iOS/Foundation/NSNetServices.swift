@@ -47,10 +47,8 @@ class NSNetService : NSObject {
   func txtRecordData() -> NSData?
   func startMonitoring()
   func stopMonitoring()
-  convenience init()
 }
 class NSNetServiceBrowser : NSObject {
-  init()
   unowned(unsafe) var delegate: @sil_unmanaged NSNetServiceBrowserDelegate?
   @available(iOS 7.0, *)
   var includesPeerToPeer: Bool

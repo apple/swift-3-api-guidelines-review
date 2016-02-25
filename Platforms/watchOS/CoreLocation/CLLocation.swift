@@ -31,7 +31,6 @@ func CLLocationCoordinate2DMake(_ latitude: CLLocationDegrees, _ longitude: CLLo
 @available(watchOS 2.0, *)
 class CLFloor : NSObject, NSCopying, NSSecureCoding {
   var level: Int { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
@@ -53,10 +52,8 @@ class CLLocation : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var timestamp: NSDate { get }
   @available(watchOS 2.0, *)
   @NSCopying var floor: CLFloor? { get }
-  var description: String { get }
   @available(watchOS 2.0, *)
   func distance(from location: CLLocation) -> CLLocationDistance
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

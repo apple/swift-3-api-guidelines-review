@@ -13,5 +13,4 @@ class TVImageElement : TVViewElement {
   var url: NSURL? { get }
   var srcset: [String : NSURL]? { get }
   var imageType: TVImageType { get }
-  init()
 }

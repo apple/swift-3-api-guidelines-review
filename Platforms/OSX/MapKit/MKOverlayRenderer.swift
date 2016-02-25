@@ -14,7 +14,6 @@ class MKOverlayRenderer : NSObject {
   func setNeedsDisplayIn(_ mapRect: MKMapRect, zoomScale zoomScale: MKZoomScale)
   var alpha: CGFloat
   var contentScaleFactor: CGFloat { get }
-  convenience init()
 }
 @available(OSX 10.9, *)
 func MKRoadWidthAtZoomScale(_ zoomScale: MKZoomScale) -> CGFloat

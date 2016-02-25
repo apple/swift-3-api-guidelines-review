@@ -24,7 +24,5 @@ class CNContactFormatter : NSFormatter {
   var style: CNContactFormatterStyle
   func string(from contact: CNContact) -> String?
   func attributedString(from contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]? = [:]) -> NSAttributedString?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 let CNContactPropertyAttribute: String

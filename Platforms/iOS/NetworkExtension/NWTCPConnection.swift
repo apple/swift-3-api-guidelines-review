@@ -42,7 +42,6 @@ class NWTCPConnection : NSObject {
   func write(_ data: NSData, completionHandler completion: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func writeClose()
-  init()
 }
 protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)

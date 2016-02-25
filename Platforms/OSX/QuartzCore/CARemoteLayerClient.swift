@@ -4,5 +4,4 @@ class CARemoteLayerClient : NSObject {
   func invalidate()
   var clientId: UInt32 { get }
   var layer: CALayer?
-  init()
 }

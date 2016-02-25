@@ -15,5 +15,4 @@ class ODAttributeMap : NSObject {
   func setStaticValue(_ staticValue: String!)
   @available(OSX 10.9, *)
   func setVariableSubstitution(_ variableSubstitution: String!)
-  init()
 }

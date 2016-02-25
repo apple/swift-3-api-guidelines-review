@@ -9,11 +9,9 @@ class SKTextureAtlas : NSObject, NSCoding {
   class func preloadTextureAtlasesNamed(_ atlasNames: [String], withCompletionHandler completionHandler: (NSError?, [SKTextureAtlas]) -> Void)
   func preload(completionHandler completionHandler: () -> Void)
   var textureNames: [String] { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension SKTextureAtlas : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }

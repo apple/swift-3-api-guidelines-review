@@ -7,7 +7,4 @@ class SKLightNode : SKNode {
   var shadowColor: UIColor
   var falloff: CGFloat
   var categoryBitMask: UInt32
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }

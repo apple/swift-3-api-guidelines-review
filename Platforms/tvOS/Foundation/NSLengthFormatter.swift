@@ -21,7 +21,4 @@ class NSLengthFormatter : NSFormatter {
   func string(fromMeters numberInMeters: Double) -> String
   func unitString(fromValue value: Double, unit unit: NSLengthFormatterUnit) -> String
   func unitString(fromMeters numberInMeters: Double, usedUnit unitp: UnsafeMutablePointer<NSLengthFormatterUnit>) -> String
-  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

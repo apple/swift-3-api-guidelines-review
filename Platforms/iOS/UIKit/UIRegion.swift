@@ -9,7 +9,6 @@ class UIRegion : NSObject, NSCopying, NSCoding {
   func byDifference(from region: UIRegion) -> Self
   func byIntersection(with region: UIRegion) -> Self
   func contains(_ point: CGPoint) -> Bool
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

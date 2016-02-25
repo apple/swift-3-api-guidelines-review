@@ -64,9 +64,6 @@ class UIScrollView : UIView, NSCoding {
   var directionalPressGestureRecognizer: UIGestureRecognizer { get }
   @available(tvOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)

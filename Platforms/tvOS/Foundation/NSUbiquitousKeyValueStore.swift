@@ -21,7 +21,6 @@ class NSUbiquitousKeyValueStore : NSObject {
   func setBool(_ value: Bool, forKey aKey: String)
   var dictionaryRepresentation: [String : AnyObject] { get }
   func synchronize() -> Bool
-  init()
 }
 @available(tvOS 5.0, *)
 let NSUbiquitousKeyValueStoreDidChangeExternallyNotification: String

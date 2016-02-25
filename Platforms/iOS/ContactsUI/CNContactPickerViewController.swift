@@ -6,9 +6,6 @@ class CNContactPickerViewController : UIViewController {
   @NSCopying var predicateForEnablingContact: NSPredicate?
   @NSCopying var predicateForSelectionOfContact: NSPredicate?
   @NSCopying var predicateForSelectionOfProperty: NSPredicate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 @available(iOS 9.0, *)
 protocol CNContactPickerDelegate : NSObjectProtocol {

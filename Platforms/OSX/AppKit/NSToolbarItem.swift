@@ -19,7 +19,6 @@ class NSToolbarItem : NSObject, NSCopying, NSValidatedUserInterfaceItem {
   func validate()
   var autovalidates: Bool
   var allowsDuplicatesInToolbar: Bool { get }
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 struct __tbiFlags {

@@ -13,7 +13,6 @@ class PHLivePhoto : NSObject, NSCopying, NSSecureCoding {
   var size: CGSize { get }
   class func request(resourceFileURLs fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize targetSize: CGSize, contentMode contentMode: PHImageContentMode, resultHandler resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
   class func cancelRequest(requestID requestID: PHLivePhotoRequestID)
-  init()
   @available(iOS 9.1, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.1, *)

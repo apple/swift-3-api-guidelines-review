@@ -22,7 +22,6 @@ class HKHealthStore : NSObject {
   func bloodType() throws -> HKBloodTypeObject
   @available(watchOS 2.0, *)
   func fitzpatrickSkinType() throws -> HKFitzpatrickSkinTypeObject
-  init()
 }
 extension HKHealthStore {
   func add(_ samples: [HKSample], to workout: HKWorkout, completion completion: (Bool, NSError?) -> Void)
@@ -42,7 +41,6 @@ extension HKHealthStore {
 @available(watchOS 2.0, *)
 class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
   var biologicalSex: HKBiologicalSex { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
@@ -54,7 +52,6 @@ class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
 @available(watchOS 2.0, *)
 class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
   var bloodType: HKBloodType { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)
@@ -66,7 +63,6 @@ class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
 @available(watchOS 2.0, *)
 class HKFitzpatrickSkinTypeObject : NSObject, NSCopying, NSSecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

@@ -31,7 +31,6 @@ class NSAlert : NSObject {
   @available(OSX 10.9, *)
   func beginSheetModal(for sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)? = nil)
   var window: NSWindow { get }
-  init()
 }
 var NSAlertFirstButtonReturn: Int { get }
 var NSAlertSecondButtonReturn: Int { get }

@@ -15,11 +15,9 @@ class NEFilterProvider : NEProvider {
   func stopFilter(_ reason: NEProviderStopReason, completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
-  init()
 }
 @available(iOS 9.0, *)
 class NEFilterVerdict : NSObject, NSSecureCoding, NSCopying {
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
@@ -42,8 +40,6 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   class func urlAppendStringVerdict(withMapKey urlAppendMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
   class func filterDataVerdict(withFilterInbound filterInbound: Bool, peekInboundBytes peekInboundBytes: Int, filterOutbound filterOutbound: Bool, peekOutboundBytes peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
 class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying {
@@ -53,6 +49,4 @@ class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying
   class func drop(updateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
 }

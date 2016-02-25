@@ -13,5 +13,4 @@ class NSAnimationContext : NSObject {
   var completionHandler: (() -> Void)?
   @available(OSX 10.8, *)
   var allowsImplicitAnimation: Bool
-  init()
 }

@@ -32,13 +32,6 @@ class UISplitViewController : UIViewController {
   var maximumPrimaryColumnWidth: CGFloat
   @available(iOS 8.0, *)
   var primaryColumnWidth: CGFloat { get }
-  @available(iOS 8.0, *)
-  func show(_ vc: UIViewController, sender sender: AnyObject?)
-  @available(iOS 8.0, *)
-  func showDetailViewController(_ vc: UIViewController, sender sender: AnyObject?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UISplitViewControllerDelegate {
   @available(iOS 8.0, *)

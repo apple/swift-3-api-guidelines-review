@@ -34,7 +34,6 @@ class UIPrintInteractionController : NSObject {
   func present(from item: UIBarButtonItem, animated animated: Bool, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func print(to printer: UIPrinter, completionHandler completion: UIPrintInteractionCompletionHandler? = nil) -> Bool
   func dismiss(animated animated: Bool)
-  init()
 }
 protocol UIPrintInteractionControllerDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)

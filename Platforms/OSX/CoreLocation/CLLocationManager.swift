@@ -66,5 +66,4 @@ class CLLocationManager : NSObject {
   func requestState(for region: CLRegion)
   @available(OSX 10.9, *)
   class func deferredLocationUpdatesAvailable() -> Bool
-  init()
 }

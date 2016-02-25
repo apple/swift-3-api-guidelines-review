@@ -7,5 +7,4 @@ class UILocalizedIndexedCollation : NSObject {
   func sectionForSectionIndexTitle(at indexTitleIndex: Int) -> Int
   func section(for object: AnyObject, collationStringSelector selector: Selector) -> Int
   func sortedArray(from array: [AnyObject], collationStringSelector selector: Selector) -> [AnyObject]
-  init()
 }

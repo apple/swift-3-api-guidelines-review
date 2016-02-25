@@ -8,5 +8,4 @@ class NSDraggingSession : NSObject {
   var draggingSequenceNumber: Int { get }
   var draggingLocation: NSPoint { get }
   func enumerateDraggingItems(_ enumOpts: NSDraggingItemEnumerationOptions = [], for view: NSView?, classes classArray: [AnyClass], searchOptions searchOptions: [String : AnyObject] = [:], using block: (NSDraggingItem, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  init()
 }

@@ -30,7 +30,6 @@ class UIDevice : NSObject {
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   @available(tvOS 4.2, *)
   func playInputClick()
-  init()
 }
 protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }

@@ -10,7 +10,6 @@ enum NSURLCredentialPersistence : UInt {
 }
 class NSURLCredential : NSObject, NSSecureCoding, NSCopying {
   var persistence: NSURLCredentialPersistence { get }
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

@@ -31,7 +31,6 @@ protocol AVAudio3DMixing : NSObjectProtocol {
 @available(tvOS 9.0, *)
 class AVAudioMixingDestination : NSObject, AVAudioMixing {
   var connectionPoint: AVAudioConnectionPoint { get }
-  init()
   @available(tvOS 9.0, *)
   func destination(forMixer mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(tvOS 8.0, *)

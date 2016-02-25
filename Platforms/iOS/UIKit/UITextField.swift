@@ -54,13 +54,8 @@ class UITextField : UIControl, UITextInput, NSCoding {
   func rightViewRect(forBounds bounds: CGRect) -> CGRect
   func drawText(in rect: CGRect)
   func drawPlaceholder(in rect: CGRect)
-  var inputView: UIView?
-  var inputAccessoryView: UIView?
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)

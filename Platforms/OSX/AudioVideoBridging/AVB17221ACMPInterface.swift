@@ -16,8 +16,4 @@ class AVB17221ACMPInterface : AVB1722ControlInterface {
   func removeHandler(forEntityID targetEntityID: UInt64)
   func sendACMPResponseMessage(_ message: AVB17221ACMPMessage) throws
   func sendACMPCommand(_ message: AVB17221ACMPMessage, completionHandler completionHandler: AVB17221ACMPInterfaceCompletion) -> Bool
-  @available(OSX 10.9, *)
-  init?(interfaceName anInterfaceName: String)
-  @available(OSX 10.11, *)
-  init?(interface anInterface: AVBInterface)
 }

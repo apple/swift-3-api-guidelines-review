@@ -1,7 +1,6 @@
 
 @available(iOS 7.0, *)
 class JSContext : NSObject {
-  init!()
   init!(virtualMachine virtualMachine: JSVirtualMachine!)
   func evaluateScript(_ script: String!) -> JSValue!
   @available(iOS 8.0, *)

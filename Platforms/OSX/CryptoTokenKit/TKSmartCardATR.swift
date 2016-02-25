@@ -15,7 +15,6 @@ class TKSmartCardATRInterfaceGroup : NSObject {
   var tb: NSNumber? { get }
   var tc: NSNumber? { get }
   var `protocol`: NSNumber? { get }
-  init()
 }
 @available(OSX 10.10, *)
 class TKSmartCardATR : NSObject {
@@ -26,5 +25,4 @@ class TKSmartCardATR : NSObject {
   func interfaceGroup(at index: Int) -> TKSmartCardATRInterfaceGroup?
   func interfaceGroup(for protocol: TKSmartCardProtocol) -> TKSmartCardATRInterfaceGroup?
   var historicalBytes: NSData { get }
-  init()
 }

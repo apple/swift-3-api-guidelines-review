@@ -29,5 +29,4 @@ class EAAccessoryManager : NSObject {
   func unregisterForLocalNotifications()
   @available(iOS 3.0, *)
   var connectedAccessories: [EAAccessory] { get }
-  init()
 }

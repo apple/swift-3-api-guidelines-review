@@ -57,7 +57,6 @@ class UIScreen : NSObject, UITraitEnvironment {
   var supportsFocus: Bool { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIScreen bounds]")
   var applicationFrame: CGRect { get }
-  init()
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)

@@ -94,7 +94,6 @@ class HKWorkout : HKSample {
   convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration duration: NSTimeInterval, totalEnergyBurned totalEnergyBurned: HKQuantity?, totalDistance totalDistance: HKQuantity?, metadata metadata: [String : AnyObject]?)
   @available(watchOS 2.0, *)
   convenience init(activityType workoutActivityType: HKWorkoutActivityType, start startDate: NSDate, end endDate: NSDate, duration duration: NSTimeInterval, totalEnergyBurned totalEnergyBurned: HKQuantity?, totalDistance totalDistance: HKQuantity?, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let HKPredicateKeyPathWorkoutDuration: String

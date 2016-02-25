@@ -39,9 +39,6 @@ class NSTabView : NSView {
   func index(of tabViewItem: NSTabViewItem) -> Int
   func tabViewItem(at index: Int) -> NSTabViewItem
   func indexOfTabViewItem(withIdentifier identifier: AnyObject) -> Int
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __NSTabViewDelegateRespondTo {
   var shouldSelectTabViewItem: UInt32

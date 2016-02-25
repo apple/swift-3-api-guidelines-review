@@ -6,7 +6,6 @@ class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
@@ -102,7 +101,6 @@ class AVURLAsset : AVAsset {
   class func isPlayableExtendedMIMEType(_ extendedMIMEType: String) -> Bool
   init(url URL: NSURL, options options: [String : AnyObject]? = [:])
   @NSCopying var url: NSURL { get }
-  convenience init(url URL: NSURL)
 }
 extension AVURLAsset {
   @available(OSX 10.9, *)
@@ -127,16 +125,10 @@ protocol AVFragmentMinding {
 }
 @available(OSX 10.11, *)
 class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
-  var tracks: [AVFragmentedAssetTrack] { get }
-  init(url URL: NSURL, options options: [String : AnyObject]? = [:])
-  convenience init(url URL: NSURL)
   @available(OSX 10.11, *)
   var isAssociatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedAsset {
-  func track(withTrackID trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
-  func tracks(withMediaType mediaType: String) -> [AVFragmentedAssetTrack]
-  func tracks(withMediaCharacteristic mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }
 @available(OSX 10.11, *)
 class AVFragmentedAssetMinder : NSObject {
@@ -145,5 +137,4 @@ class AVFragmentedAssetMinder : NSObject {
   var assets: [AVAsset] { get }
   func addFragmentedAsset(_ asset: AVAsset)
   func removeFragmentedAsset(_ asset: AVAsset)
-  init()
 }

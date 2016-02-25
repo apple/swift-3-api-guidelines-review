@@ -24,7 +24,6 @@ class HKHealthStore : NSObject {
   func bloodType() throws -> HKBloodTypeObject
   @available(iOS 9.0, *)
   func fitzpatrickSkinType() throws -> HKFitzpatrickSkinTypeObject
-  init()
 }
 extension HKHealthStore {
   func add(_ samples: [HKSample], to workout: HKWorkout, completion completion: (Bool, NSError?) -> Void)
@@ -43,7 +42,6 @@ extension HKHealthStore {
 @available(iOS 8.0, *)
 class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
   var biologicalSex: HKBiologicalSex { get }
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
@@ -55,7 +53,6 @@ class HKBiologicalSexObject : NSObject, NSCopying, NSSecureCoding {
 @available(iOS 8.0, *)
 class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
   var bloodType: HKBloodType { get }
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
@@ -67,7 +64,6 @@ class HKBloodTypeObject : NSObject, NSCopying, NSSecureCoding {
 @available(iOS 9.0, *)
 class HKFitzpatrickSkinTypeObject : NSObject, NSCopying, NSSecureCoding {
   var skinType: HKFitzpatrickSkinType { get }
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

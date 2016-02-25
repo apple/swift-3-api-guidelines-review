@@ -10,6 +10,4 @@ class DOMHTMLButtonElement : DOMHTMLElement {
   var value: String!
   @available(OSX 10.6, *)
   var willValidate: Bool { get }
-  @available(OSX 10.5, *)
-  func click()
 }

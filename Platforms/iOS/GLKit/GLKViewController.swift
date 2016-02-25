@@ -12,9 +12,6 @@ class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   var timeSinceLastDraw: NSTimeInterval { get }
   var pauseOnWillResignActive: Bool
   var resumeOnDidBecomeActive: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 5.0, *)
   func glkView(_ view: GLKView, drawIn rect: CGRect)
 }

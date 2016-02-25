@@ -16,7 +16,6 @@ class CBUUID : NSObject, NSCopying {
   /*not inherited*/ init(cfuuid theUUID: CFUUID)
   @available(iOS 7.0, *)
   /*not inherited*/ init(nsuuid theUUID: NSUUID)
-  init()
   @available(iOS 5.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

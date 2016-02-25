@@ -19,9 +19,6 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, NSCodi
   @IBAction func navigateBack(_ sender: AnyObject?)
   @IBAction func navigateForward(_ sender: AnyObject?)
   @IBAction func takeSelectedIndexFrom(_ sender: AnyObject?)
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)

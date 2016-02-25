@@ -23,10 +23,6 @@ class NSPathCell : NSActionCell, NSOpenSavePanelDelegate {
   @NSCopying var backgroundColor: NSColor?
   var placeholderString: String?
   @NSCopying var placeholderAttributedString: NSAttributedString?
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
   @available(OSX 10.6, *)
   func panel(_ sender: AnyObject, shouldEnable url: NSURL) -> Bool
   @available(OSX 10.6, *)

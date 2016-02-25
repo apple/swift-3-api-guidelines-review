@@ -20,5 +20,4 @@ class ODSession : NSObject {
   var mappingTemplateNames: [AnyObject]! { get }
   @available(OSX 10.9, *)
   func configuration(forNodename nodename: String!) -> ODConfiguration!
-  init()
 }

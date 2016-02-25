@@ -8,9 +8,6 @@ class MCBrowserViewController : UIViewController, MCNearbyServiceBrowserDelegate
   var session: MCSession { get }
   var minimumNumberOfPeers: Int
   var maximumNumberOfPeers: Int
-  convenience init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 7.0, *)
   func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
   @available(iOS 7.0, *)

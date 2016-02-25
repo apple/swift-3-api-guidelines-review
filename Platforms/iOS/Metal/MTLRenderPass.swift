@@ -35,14 +35,12 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var resolveDepthPlane: Int
   var loadAction: MTLLoadAction
   var storeAction: MTLStoreAction
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(iOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearColor: MTLClearColor
-  init()
 }
 @available(iOS 9.0, *)
 enum MTLMultisampleDepthResolveFilter : UInt {
@@ -57,17 +55,14 @@ class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
   var clearDepth: Double
   @available(iOS 9.0, *)
   var depthResolveFilter: MTLMultisampleDepthResolveFilter
-  init()
 }
 @available(iOS 8.0, *)
 class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearStencil: UInt32
-  init()
 }
 @available(iOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
   subscript(_ attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
-  init()
 }
 @available(iOS 8.0, *)
 class MTLRenderPassDescriptor : NSObject, NSCopying {
@@ -75,7 +70,6 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
   var visibilityResultBuffer: MTLBuffer?
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

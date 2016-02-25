@@ -13,7 +13,6 @@ class CNContainer : NSObject, NSCopying, NSSecureCoding {
   var identifier: String { get }
   var name: String { get }
   var type: CNContainerType { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

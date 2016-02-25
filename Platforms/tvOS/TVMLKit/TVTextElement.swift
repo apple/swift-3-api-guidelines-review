@@ -15,5 +15,4 @@ class TVTextElement : TVViewElement {
   var textStyle: TVTextElementStyle { get }
   func attributedString(with font: UIFont) -> NSAttributedString
   func attributedString(with font: UIFont, foregroundColor foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
-  init()
 }

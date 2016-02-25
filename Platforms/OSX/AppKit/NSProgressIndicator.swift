@@ -28,10 +28,6 @@ class NSProgressIndicator : NSView, NSAccessibilityProgressIndicator {
   var style: NSProgressIndicatorStyle
   func sizeToFit()
   var isDisplayedWhenStopped: Bool
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
-  func accessibilityValue() -> NSNumber?
 }
 struct __progressIndicatorFlags {
   var isSpinning: UInt32

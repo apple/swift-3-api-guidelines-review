@@ -11,9 +11,6 @@ class SLComposeServiceViewController : NSViewController, NSTextViewDelegate {
   func isContentValid() -> Bool
   func validateContent()
   var charactersRemaining: NSNumber!
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.10, *)
   func textView(_ textView: NSTextView, clickedOnLink link: AnyObject, at charIndex: Int) -> Bool
   @available(OSX 10.10, *)

@@ -13,7 +13,6 @@ class AVMetadataItem : NSObject, AVAsynchronousKeyValueLoading, NSCopying, NSMut
   var dataType: String? { get }
   @NSCopying var value: protocol<NSCopying, NSObjectProtocol>? { get }
   var extraAttributes: [String : AnyObject]? { get }
-  init()
   @available(tvOS 4.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 4.0, *)
@@ -56,27 +55,10 @@ extension AVMetadataItem {
 }
 @available(tvOS 4.0, *)
 class AVMutableMetadataItem : AVMetadataItem {
-  @available(tvOS 8.0, *)
-  var identifier: String?
-  @available(tvOS 8.0, *)
-  var extendedLanguageTag: String?
-  @NSCopying var locale: NSLocale?
-  var time: CMTime
-  @available(tvOS 4.2, *)
-  var duration: CMTime
-  @available(tvOS 8.0, *)
-  var dataType: String?
-  @NSCopying var value: protocol<NSCopying, NSObjectProtocol>?
-  var extraAttributes: [String : AnyObject]?
-  init()
 }
 extension AVMutableMetadataItem {
-  @available(tvOS 9.0, *)
-  @NSCopying var startDate: NSDate?
 }
 extension AVMutableMetadataItem {
-  var keySpace: String?
-  @NSCopying var key: protocol<NSCopying, NSObjectProtocol>?
 }
 extension AVMetadataItem {
   @available(tvOS 9.0, *)
@@ -87,12 +69,10 @@ class AVMetadataItemValueRequest : NSObject {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
   func respond(withValue value: protocol<NSCopying, NSObjectProtocol>)
   func respondWithError(_ error: NSError)
-  init()
 }
 @available(tvOS 7.0, *)
 class AVMetadataItemFilter : NSObject {
   class func forSharing() -> AVMetadataItemFilter
-  init()
 }
 extension AVMetadataItem {
   class func metadataItems(from metadataItems: [AVMetadataItem], with locale: NSLocale) -> [AVMetadataItem]

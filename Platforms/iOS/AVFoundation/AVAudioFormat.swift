@@ -20,7 +20,6 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   init(settings settings: [String : AnyObject])
   @available(iOS 9.0, *)
   init(cmAudioFormatDescription formatDescription: CMAudioFormatDescription)
-  func isEqual(_ object: AnyObject) -> Bool
   var isStandard: Bool { get }
   var commonFormat: AVAudioCommonFormat { get }
   var channelCount: AVAudioChannelCount { get }
@@ -31,7 +30,6 @@ class AVAudioFormat : NSObject, NSSecureCoding {
   var settings: [String : AnyObject] { get }
   @available(iOS 9.0, *)
   var formatDescription: CMAudioFormatDescription { get }
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)

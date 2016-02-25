@@ -39,7 +39,6 @@ class CKSubscription : NSObject, NSSecureCoding, NSCopying {
 @available(tvOS 8.0, *)
 class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var desiredKeys: [String]?
-  init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

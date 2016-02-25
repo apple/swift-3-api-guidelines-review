@@ -26,9 +26,6 @@ class UISearchController : UIViewController, UIViewControllerTransitioningDelega
   var hidesNavigationBarDuringPresentation: Bool
   var searchResultsController: UIViewController? { get }
   var searchBar: UISearchBar { get }
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(tvOS 8.0, *)
   func animationController(forPresentedController presented: UIViewController, presenting presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
   @available(tvOS 8.0, *)

@@ -34,6 +34,5 @@ class GCMotion : NSObject {
   var valueChangedHandler: GCMotionValueChangedHandler?
   var gravity: GCAcceleration { get }
   var userAcceleration: GCAcceleration { get }
-  init()
 }
 typealias GCMotionValueChangedHandler = (GCMotion) -> Void

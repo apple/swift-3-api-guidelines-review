@@ -6,7 +6,6 @@ class UIToolbar : UIView, UIBarPositioning {
   @available(iOS 3.0, *)
   var isTranslucent: Bool
   func setItems(_ items: [UIBarButtonItem]?, animated animated: Bool)
-  var tintColor: UIColor!
   @available(iOS 7.0, *)
   var barTintColor: UIColor?
   @available(iOS 5.0, *)
@@ -19,9 +18,6 @@ class UIToolbar : UIView, UIBarPositioning {
   func shadowImage(forToolbarPosition topOrBottom: UIBarPosition) -> UIImage?
   @available(iOS 7.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged UIToolbarDelegate?
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 7.0, *)
   var barPosition: UIBarPosition { get }
 }

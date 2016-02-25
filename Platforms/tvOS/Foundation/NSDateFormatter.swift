@@ -61,8 +61,6 @@ class NSDateFormatter : NSFormatter {
   @NSCopying var gregorianStartDate: NSDate?
   @available(tvOS 4.0, *)
   var doesRelativeDateFormatting: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSDateFormatterStyle : UInt {
   init?(rawValue rawValue: UInt)

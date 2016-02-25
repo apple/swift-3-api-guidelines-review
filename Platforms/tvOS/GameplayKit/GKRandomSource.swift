@@ -7,7 +7,6 @@ protocol GKRandom {
 }
 @available(tvOS 9.0, *)
 class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
-  init()
   init(coder aDecoder: NSCoder)
   class func sharedRandom() -> GKRandomSource
   func arrayByShufflingObjects(in array: [AnyObject]) -> [AnyObject]
@@ -29,22 +28,16 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
 @available(tvOS 9.0, *)
 class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: NSData
-  convenience init()
   init(seed seed: NSData)
   func dropValues(count count: Int)
-  init(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 class GKLinearCongruentialRandomSource : GKRandomSource {
   var seed: UInt64
-  convenience init()
   init(seed seed: UInt64)
-  init(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 class GKMersenneTwisterRandomSource : GKRandomSource {
   var seed: UInt64
-  convenience init()
   init(seed seed: UInt64)
-  init(coder aDecoder: NSCoder)
 }

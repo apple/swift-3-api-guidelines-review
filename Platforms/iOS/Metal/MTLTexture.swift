@@ -40,7 +40,6 @@ class MTLTextureDescriptor : NSObject, NSCopying {
   var storageMode: MTLStorageMode
   @available(iOS 9.0, *)
   var usage: MTLTextureUsage
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

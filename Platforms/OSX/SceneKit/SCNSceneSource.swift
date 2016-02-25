@@ -62,7 +62,6 @@ class SCNSceneSource : NSObject {
   func identifiersOfEntries(with entryClass: AnyClass) -> [String]
   @available(OSX 10.9, *)
   func entries(passingTest predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
-  init()
 }
 
 @available(iOS 8.0, OSX 10.8, *)

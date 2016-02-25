@@ -19,5 +19,4 @@ class UIDynamicItemBehavior : UIDynamicBehavior {
   func linearVelocity(for item: UIDynamicItem) -> CGPoint
   func addAngularVelocity(_ velocity: CGFloat, for item: UIDynamicItem)
   func angularVelocity(for item: UIDynamicItem) -> CGFloat
-  convenience init()
 }

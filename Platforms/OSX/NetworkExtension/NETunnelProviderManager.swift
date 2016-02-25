@@ -7,5 +7,4 @@ class NETunnelProviderManager : NEVPNManager {
   func copyAppRules() -> [NEAppRule]?
   @available(OSX 10.11, *)
   var routingMethod: NETunnelProviderRoutingMethod { get }
-  init()
 }

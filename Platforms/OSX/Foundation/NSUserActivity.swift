@@ -2,7 +2,6 @@
 @available(OSX 10.10, *)
 class NSUserActivity : NSObject {
   init(activityType activityType: String)
-  init()
   var activityType: String { get }
   var title: String?
   var userInfo: [NSObject : AnyObject]?

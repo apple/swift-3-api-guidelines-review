@@ -21,5 +21,4 @@ class GLKEffectPropertyTexture : GLKEffectProperty {
   var name: GLuint
   var target: GLKTextureTarget
   var envMode: GLKTextureEnvMode
-  init()
 }

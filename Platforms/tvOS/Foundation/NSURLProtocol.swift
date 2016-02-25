@@ -24,7 +24,6 @@ class NSURLProtocol : NSObject {
   class func removeProperty(forKey key: String, in request: NSMutableURLRequest)
   class func registerClass(_ protocolClass: AnyClass) -> Bool
   class func unregisterClass(_ protocolClass: AnyClass)
-  convenience init()
 }
 extension NSURLProtocol {
   @available(tvOS 8.0, *)

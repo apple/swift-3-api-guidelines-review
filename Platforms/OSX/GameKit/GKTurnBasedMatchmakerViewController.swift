@@ -1,9 +1,6 @@
 
 @available(OSX 10.8, *)
 class GKTurnBasedMatchmakerViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension GKTurnBasedMatchmakerViewController {
   unowned(unsafe) var turnBasedMatchmakerDelegate: @sil_unmanaged GKTurnBasedMatchmakerViewControllerDelegate?

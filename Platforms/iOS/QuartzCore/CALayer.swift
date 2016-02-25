@@ -8,7 +8,6 @@ struct CAEdgeAntialiasingMask : OptionSetType {
   static var layerTopEdge: CAEdgeAntialiasingMask { get }
 }
 class CALayer : NSObject, NSCoding, CAMediaTiming {
-  init()
   init(layer layer: AnyObject)
   func presentationLayer() -> AnyObject?
   func modelLayer() -> AnyObject

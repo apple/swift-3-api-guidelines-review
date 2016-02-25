@@ -31,7 +31,6 @@ class CBPeripheral : NSObject, NSCopying {
   func discoverDescriptors(for characteristic: CBCharacteristic)
   func readValue(for descriptor: CBDescriptor)
   func writeValue(_ data: NSData, for descriptor: CBDescriptor)
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

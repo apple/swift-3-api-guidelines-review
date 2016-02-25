@@ -11,7 +11,6 @@ struct NSFetchRequestResultType : OptionSetType {
 }
 @available(iOS 3.0, *)
 class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
-  init()
   @available(iOS 4.0, *)
   convenience init(entityName entityName: String)
   var entity: NSEntityDescription?
@@ -20,7 +19,6 @@ class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   var predicate: NSPredicate?
   var sortDescriptors: [NSSortDescriptor]?
   var fetchLimit: Int
-  var affectedStores: [NSPersistentStore]?
   @available(iOS 3.0, *)
   var resultType: NSFetchRequestResultType
   @available(iOS 3.0, *)

@@ -9,7 +9,6 @@ class ABMultiValue : NSObject, NSCopying, NSMutableCopying, NSFastEnumeration {
   func propertyType() -> ABPropertyType
   func value(forIdentifier identifier: String!) -> AnyObject!
   func label(forIdentifier identifier: String!) -> AnyObject!
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
@@ -21,5 +20,4 @@ class ABMutableMultiValue : ABMultiValue {
   func replace(at index: Int, withValue value: AnyObject!) -> Bool
   func replaceLabel(at index: Int, withLabel label: String!) -> Bool
   func setPrimaryIdentifier(_ identifier: String!) -> Bool
-  init()
 }

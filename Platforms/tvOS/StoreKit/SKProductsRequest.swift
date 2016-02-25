@@ -7,9 +7,6 @@ protocol SKProductsRequestDelegate : SKRequestDelegate {
 class SKProductsRequest : SKRequest {
   @available(tvOS 3.0, *)
   init(productIdentifiers productIdentifiers: Set<String>)
-  @available(tvOS 3.0, *)
-  unowned(unsafe) var delegate: @sil_unmanaged SKProductsRequestDelegate?
-  init()
 }
 @available(tvOS 3.0, *)
 class SKProductsResponse : NSObject {
@@ -17,5 +14,4 @@ class SKProductsResponse : NSObject {
   var products: [SKProduct] { get }
   @available(tvOS 3.0, *)
   var invalidProductIdentifiers: [String] { get }
-  init()
 }

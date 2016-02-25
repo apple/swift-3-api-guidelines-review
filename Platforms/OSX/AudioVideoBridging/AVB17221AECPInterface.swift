@@ -23,8 +23,4 @@ class AVB17221AECPInterface : AVB1722ControlInterface {
   func removeResponseHandler(forControllerEntityID controllerEntityID: UInt64)
   func sendCommand(_ message: AVB17221AECPMessage, to destMAC: AVBMACAddress, completionHandler completionHandler: AVB17221AECPInterfaceCompletion) -> Bool
   func sendResponse(_ message: AVB17221AECPMessage, to destMAC: AVBMACAddress) throws
-  @available(OSX 10.9, *)
-  init?(interfaceName anInterfaceName: String)
-  @available(OSX 10.11, *)
-  init?(interface anInterface: AVBInterface)
 }

@@ -54,7 +54,6 @@ class IOBluetoothL2CAPChannel : IOBluetoothObject, NSPortDelegate {
   var remoteChannelID: BluetoothL2CAPChannelID { get }
   func isIncoming() -> Bool
   func register(forChannelCloseNotification observer: AnyObject!, selector inSelector: Selector) -> IOBluetoothUserNotification!
-  init()
   func handle(_ message: NSPortMessage)
 }
 protocol IOBluetoothL2CAPChannelDelegate {

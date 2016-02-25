@@ -83,7 +83,6 @@ class NSFontManager : NSObject {
   func convertFontTraits(_ traits: NSFontTraitMask) -> NSFontTraitMask
   @available(OSX 10.5, *)
   weak var target: @sil_weak AnyObject?
-  init()
 }
 struct _fmFlags {
   var multipleFont: UInt32

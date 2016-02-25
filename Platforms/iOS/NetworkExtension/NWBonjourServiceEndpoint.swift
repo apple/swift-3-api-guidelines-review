@@ -9,5 +9,4 @@ class NWBonjourServiceEndpoint : NWEndpoint {
   var type: String { get }
   @available(iOS 9.0, *)
   var domain: String { get }
-  init()
 }

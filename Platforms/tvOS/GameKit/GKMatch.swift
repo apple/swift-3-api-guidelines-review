@@ -27,7 +27,6 @@ class GKMatch : NSObject {
   func chooseBestHostingPlayer(completionHandler completionHandler: (GKPlayer?) -> Void)
   @available(tvOS 6.0, *)
   func rematch(completionHandler completionHandler: ((GKMatch?, NSError?) -> Void)? = nil)
-  init()
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)

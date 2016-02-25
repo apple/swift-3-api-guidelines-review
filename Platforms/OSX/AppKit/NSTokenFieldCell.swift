@@ -20,10 +20,6 @@ class NSTokenFieldCell : NSTextFieldCell {
   @NSCopying var tokenizingCharacterSet: NSCharacterSet!
   class func defaultTokenizingCharacterSet() -> NSCharacterSet
   unowned(unsafe) var delegate: @sil_unmanaged NSTokenFieldCellDelegate?
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 protocol NSTokenFieldCellDelegate : NSObjectProtocol {
   optional func tokenFieldCell(_ tokenFieldCell: NSTokenFieldCell, completionsForSubstring substring: String, indexOfToken tokenIndex: Int, indexOfSelectedItem selectedIndex: UnsafeMutablePointer<Int>) -> [AnyObject]

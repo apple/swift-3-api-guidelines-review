@@ -122,8 +122,6 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   func sendAction(_ theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> Bool
   func target(forAction theAction: Selector) -> AnyObject?
   func target(forAction theAction: Selector, to theTarget: AnyObject?, from sender: AnyObject?) -> AnyObject?
-  func tryToPerform(_ anAction: Selector, with anObject: AnyObject?) -> Bool
-  func validRequestor(forSendType sendType: String, returnType returnType: String) -> AnyObject?
   func report(_ theException: NSException)
   class func detachDrawingThread(_ selector: Selector, toTarget target: AnyObject, with argument: AnyObject?)
   func reply(toApplicationShouldTerminate shouldTerminate: Bool)
@@ -135,8 +133,6 @@ class NSApplication : NSResponder, NSUserInterfaceValidations, NSAccessibilityEl
   var currentSystemPresentationOptions: NSApplicationPresentationOptions { get }
   @available(OSX 10.9, *)
   var occlusionState: NSApplicationOcclusionState { get }
-  init()
-  init?(coder coder: NSCoder)
   func validate(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   func accessibilityFrame() -> NSRect
   func accessibilityParent() -> AnyObject?

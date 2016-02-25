@@ -9,7 +9,6 @@ class NSTextTab : NSObject, NSCopying, NSCoding {
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
-  convenience init()
   @available(OSX 10.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
@@ -54,7 +53,6 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var textBlocks: [NSTextBlock] { get }
   var textLists: [NSTextList] { get }
   var headerLevel: Int { get }
-  init()
   @available(OSX 10.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.0, *)
@@ -67,37 +65,12 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 }
 @available(OSX 10.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
-  var lineSpacing: CGFloat
-  var paragraphSpacing: CGFloat
-  var alignment: NSTextAlignment
-  var firstLineHeadIndent: CGFloat
-  var headIndent: CGFloat
-  var tailIndent: CGFloat
-  var lineBreakMode: NSLineBreakMode
-  var minimumLineHeight: CGFloat
-  var maximumLineHeight: CGFloat
-  var baseWritingDirection: NSWritingDirection
-  var lineHeightMultiple: CGFloat
-  var paragraphSpacingBefore: CGFloat
-  var hyphenationFactor: Float
-  @available(OSX 10.0, *)
-  var tabStops: [NSTextTab]!
-  @available(OSX 10.0, *)
-  var defaultTabInterval: CGFloat
-  @available(OSX 10.11, *)
-  var allowsDefaultTighteningForTruncation: Bool
   @available(OSX 10.0, *)
   func addTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
   func removeTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
   func setParagraphStyle(_ obj: NSParagraphStyle)
-  var tighteningFactorForTruncation: Float
-  var textBlocks: [NSTextBlock]
-  var textLists: [NSTextList]
-  var headerLevel: Int
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSTextTabType : UInt {
   init?(rawValue rawValue: UInt)

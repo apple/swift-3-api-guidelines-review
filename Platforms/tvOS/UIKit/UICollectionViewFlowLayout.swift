@@ -13,7 +13,6 @@ enum UICollectionViewScrollDirection : Int {
 class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext {
   var invalidateFlowLayoutDelegateMetrics: Bool
   var invalidateFlowLayoutAttributes: Bool
-  init()
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(tvOS 6.0, *)
@@ -44,6 +43,4 @@ class UICollectionViewFlowLayout : UICollectionViewLayout {
   var sectionHeadersPinToVisibleBounds: Bool
   @available(tvOS 9.0, *)
   var sectionFootersPinToVisibleBounds: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

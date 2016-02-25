@@ -33,10 +33,6 @@ class NSManagedObject : NSObject {
   var faultingState: Int { get }
   func willAccessValue(forKey key: String?)
   func didAccessValue(forKey key: String?)
-  func willChangeValue(forKey key: String)
-  func didChangeValue(forKey key: String)
-  func willChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
-  func didChangeValue(forKey inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, using inObjects: Set<NSObject>)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(watchOS 2.0, *)
@@ -48,17 +44,13 @@ class NSManagedObject : NSObject {
   @available(watchOS 2.0, *)
   func willTurnIntoFault()
   func didTurnIntoFault()
-  func value(forKey key: String) -> AnyObject?
-  func setValue(_ value: AnyObject?, forKey key: String)
   func primitiveValue(forKey key: String) -> AnyObject?
   func setPrimitiveValue(_ value: AnyObject?, forKey key: String)
   func committedValues(forKeys keys: [String]?) -> [String : AnyObject]
   func changedValues() -> [String : AnyObject]
   @available(watchOS 2.0, *)
   func changedValuesForCurrentEvent() -> [String : AnyObject]
-  func validateValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   func validateForDelete() throws
   func validateForInsert() throws
   func validateForUpdate() throws
-  convenience init()
 }

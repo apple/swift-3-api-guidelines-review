@@ -45,7 +45,6 @@ class CBPeripheralManager : NSObject {
   func removeAllServices()
   func respond(to request: CBATTRequest, withResult result: CBATTError)
   func updateValue(_ value: NSData, for characteristic: CBMutableCharacteristic, onSubscribedCentrals centrals: [CBCentral]?) -> Bool
-  convenience init()
 }
 protocol CBPeripheralManagerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)

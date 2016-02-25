@@ -7,7 +7,6 @@ class GKGraph : NSObject {
   func removeNodes(_ nodes: [GKGraphNode])
   func addNodes(_ nodes: [GKGraphNode])
   func findPath(from startNode: GKGraphNode, to endNode: GKGraphNode) -> [GKGraphNode]
-  init()
 }
 @available(OSX 10.11, *)
 class GKObstacleGraph : GKGraph {
@@ -24,8 +23,6 @@ class GKObstacleGraph : GKGraph {
   func lockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func unlockConnection(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D)
   func isConnectionLocked(from startNode: GKGraphNode2D, to endNode: GKGraphNode2D) -> Bool
-  init(nodes nodes: [GKGraphNode])
-  init()
 }
 @available(OSX 10.11, *)
 class GKGridGraph : GKGraph {
@@ -36,6 +33,4 @@ class GKGridGraph : GKGraph {
   init(fromGridStartingAt position: vector_int2, width width: Int32, height height: Int32, diagonalsAllowed diagonalsAllowed: Bool)
   func node(atGridPosition position: vector_int2) -> GKGridGraphNode?
   func connectNode(toAdjacentNodes node: GKGridGraphNode)
-  init(nodes nodes: [GKGraphNode])
-  init()
 }

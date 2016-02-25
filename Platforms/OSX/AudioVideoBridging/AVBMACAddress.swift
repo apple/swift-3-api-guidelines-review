@@ -6,7 +6,6 @@ class AVBMACAddress : NSObject, NSCopying {
   @NSCopying var dataRepresentation: NSData
   var stringRepresentation: String
   var isMulticast: Bool
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

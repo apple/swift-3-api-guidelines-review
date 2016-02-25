@@ -24,7 +24,6 @@ class GKChallenge : NSObject, NSCoding, NSSecureCoding {
   var issueDate: NSDate { get }
   var completionDate: NSDate? { get }
   var message: String? { get }
-  init()
   @available(iOS 6.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -34,14 +33,10 @@ class GKChallenge : NSObject, NSCoding, NSSecureCoding {
 @available(iOS 6.0, *)
 class GKScoreChallenge : GKChallenge {
   var score: GKScore? { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 6.0, *)
 class GKAchievementChallenge : GKChallenge {
   var achievement: GKAchievement? { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 extension GKScore {
   @available(iOS 8.0, *)

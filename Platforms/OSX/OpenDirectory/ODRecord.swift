@@ -62,7 +62,6 @@ class ODRecord : NSObject {
   var secondsUntilPasswordExpires: Int64 { get }
   @available(OSX 10.10, *)
   var secondsUntilAuthenticationsExpire: Int64 { get }
-  init()
 }
 extension ODRecord {
   @available(OSX 10.6, *)

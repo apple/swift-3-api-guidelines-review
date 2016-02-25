@@ -13,7 +13,6 @@ class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   func evaluate(with object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(tvOS 7.0, *)
   func allowEvaluation()
-  init()
   @available(tvOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 3.0, *)

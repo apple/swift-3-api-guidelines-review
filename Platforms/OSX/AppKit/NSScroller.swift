@@ -62,7 +62,6 @@ class NSScroller : NSControl {
   var usableParts: NSUsableScrollerParts { get }
   var arrowsPosition: NSScrollArrowPosition
   var controlTint: NSControlTint
-  var controlSize: NSControlSize
   func draw(_ whichArrow: NSScrollerArrow, highlight flag: Bool)
   func drawKnob()
   func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool)
@@ -72,9 +71,6 @@ class NSScroller : NSControl {
   func trackScrollButtons(_ theEvent: NSEvent)
   var hitPart: NSScrollerPart { get }
   var knobProportion: CGFloat
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __sFlags2 {
   var hitPart: UInt32

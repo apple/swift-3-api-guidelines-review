@@ -32,7 +32,6 @@ enum NSTextFinderMatchingType : Int {
 }
 @available(OSX 10.7, *)
 class NSTextFinder : NSObject, NSCoding {
-  init()
   @IBOutlet unowned(unsafe) var client: @sil_unmanaged NSTextFinderClient?
   func perform(_ op: NSTextFinderAction)
   func validate(_ op: NSTextFinderAction) -> Bool

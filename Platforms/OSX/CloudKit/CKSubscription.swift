@@ -49,7 +49,6 @@ class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var shouldSendContentAvailable: Bool
   @available(OSX 10.11, *)
   var category: String?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

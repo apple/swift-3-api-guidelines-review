@@ -10,11 +10,6 @@ class SCNPlane : SCNGeometry {
   var cornerRadius: CGFloat
   @available(tvOS 8.0, *)
   var cornerSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNBox : SCNGeometry {
@@ -27,11 +22,6 @@ class SCNBox : SCNGeometry {
   var heightSegmentCount: Int
   var lengthSegmentCount: Int
   var chamferSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNPyramid : SCNGeometry {
@@ -42,11 +32,6 @@ class SCNPyramid : SCNGeometry {
   var widthSegmentCount: Int
   var heightSegmentCount: Int
   var lengthSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNSphere : SCNGeometry {
@@ -54,11 +39,6 @@ class SCNSphere : SCNGeometry {
   var radius: CGFloat
   var isGeodesic: Bool
   var segmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNCylinder : SCNGeometry {
@@ -67,11 +47,6 @@ class SCNCylinder : SCNGeometry {
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNCone : SCNGeometry {
@@ -81,11 +56,6 @@ class SCNCone : SCNGeometry {
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNTube : SCNGeometry {
@@ -95,11 +65,6 @@ class SCNTube : SCNGeometry {
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNCapsule : SCNGeometry {
@@ -109,11 +74,6 @@ class SCNCapsule : SCNGeometry {
   var radialSegmentCount: Int
   var heightSegmentCount: Int
   var capSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNTorus : SCNGeometry {
@@ -122,11 +82,6 @@ class SCNTorus : SCNGeometry {
   var pipeRadius: CGFloat
   var ringSegmentCount: Int
   var pipeSegmentCount: Int
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNFloor : SCNGeometry {
@@ -135,11 +90,6 @@ class SCNFloor : SCNGeometry {
   var reflectionFalloffEnd: CGFloat
   @available(tvOS 8.0, *)
   var reflectionResolutionScaleFactor: CGFloat
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 class SCNText : SCNGeometry {
@@ -155,11 +105,6 @@ class SCNText : SCNGeometry {
   @NSCopying var chamferProfile: UIBezierPath?
   @available(tvOS 8.0, *)
   var flatness: CGFloat
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }
 @available(tvOS 8.0, *)
 enum SCNChamferMode : Int {
@@ -177,9 +122,4 @@ class SCNShape : SCNGeometry {
   var chamferMode: SCNChamferMode
   var chamferRadius: CGFloat
   @NSCopying var chamferProfile: UIBezierPath?
-  convenience init(sources sources: [SCNGeometrySource], elements elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(tvOS 9.0, *)
-  convenience init(mdlMesh mdlMesh: MDLMesh)
 }

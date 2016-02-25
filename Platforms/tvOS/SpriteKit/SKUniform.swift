@@ -35,7 +35,6 @@ class SKUniform : NSObject, NSCopying, NSCoding {
   init(name name: String, float value: GLKMatrix2)
   init(name name: String, float value: GLKMatrix3)
   init(name name: String, float value: GLKMatrix4)
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)

@@ -32,10 +32,8 @@ class EKEvent : EKCalendarItem {
   var isDetached: Bool { get }
   @available(watchOS 2.0, *)
   var occurrenceDate: NSDate { get }
-  func refresh() -> Bool
   @available(watchOS 2.0, *)
   var birthdayContactIdentifier: String? { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use birthdayContactIdentifier instead")
   var birthdayPersonID: Int { get }
-  init()
 }

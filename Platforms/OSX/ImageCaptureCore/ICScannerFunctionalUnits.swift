@@ -139,7 +139,6 @@ class ICScannerFeature : NSObject {
   var internalName: String? { get }
   var humanReadableName: String? { get }
   var tooltip: String? { get }
-  init()
 }
 class ICScannerFeatureEnumeration : ICScannerFeature {
   unowned(unsafe) var currentValue: @sil_unmanaged AnyObject
@@ -147,7 +146,6 @@ class ICScannerFeatureEnumeration : ICScannerFeature {
   var values: [NSNumber] { get }
   var menuItemLabels: [String] { get }
   var menuItemLabelsTooltips: [String] { get }
-  init()
 }
 class ICScannerFeatureRange : ICScannerFeature {
   var currentValue: CGFloat
@@ -155,15 +153,12 @@ class ICScannerFeatureRange : ICScannerFeature {
   var minValue: CGFloat { get }
   var maxValue: CGFloat { get }
   var stepSize: CGFloat { get }
-  init()
 }
 class ICScannerFeatureBoolean : ICScannerFeature {
   var value: Bool
-  init()
 }
 class ICScannerFeatureTemplate : ICScannerFeature {
   var targets: [NSMutableArray] { get }
-  init()
 }
 class ICScannerFunctionalUnit : NSObject {
   var type: ICScannerFunctionalUnitType { get }
@@ -196,25 +191,21 @@ class ICScannerFunctionalUnit : NSObject {
   var overviewScanInProgress: Bool { get }
   var overviewImage: CGImage? { get }
   var overviewResolution: Int
-  init()
 }
 class ICScannerFunctionalUnitFlatbed : ICScannerFunctionalUnit {
   var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
   var documentSize: NSSize { get }
-  init()
 }
 class ICScannerFunctionalUnitPositiveTransparency : ICScannerFunctionalUnit {
   var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
   var documentSize: NSSize { get }
-  init()
 }
 class ICScannerFunctionalUnitNegativeTransparency : ICScannerFunctionalUnit {
   var supportedDocumentTypes: NSIndexSet { get }
   var documentType: ICScannerDocumentType
   var documentSize: NSSize { get }
-  init()
 }
 class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
   var supportedDocumentTypes: NSIndexSet { get }
@@ -226,5 +217,4 @@ class ICScannerFunctionalUnitDocumentFeeder : ICScannerFunctionalUnit {
   var oddPageOrientation: ICEXIFOrientationType
   var evenPageOrientation: ICEXIFOrientationType
   var reverseFeederPageOrder: Bool { get }
-  init()
 }

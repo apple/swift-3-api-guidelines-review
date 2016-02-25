@@ -61,7 +61,4 @@ class SKEmitterNode : SKNode {
   var particleZPositionRange: CGFloat
   @available(OSX, introduced=10.8, deprecated=10.10)
   var particleZPositionSpeed: CGFloat
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }

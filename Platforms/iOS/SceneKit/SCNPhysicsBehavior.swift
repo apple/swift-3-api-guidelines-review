@@ -1,7 +1,6 @@
 
 @available(iOS 8.0, *)
 class SCNPhysicsBehavior : NSObject, NSSecureCoding {
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -18,8 +17,6 @@ class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
   var bodyB: SCNPhysicsBody? { get }
   var axisB: SCNVector3
   var anchorB: SCNVector3
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
@@ -29,8 +26,6 @@ class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
   var anchorA: SCNVector3
   var bodyB: SCNPhysicsBody? { get }
   var anchorB: SCNVector3
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
@@ -50,8 +45,6 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
   var motorMaximumForce: CGFloat
   var motorTargetAngularVelocity: CGFloat
   var motorMaximumTorque: CGFloat
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
@@ -68,7 +61,6 @@ class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
   var axle: SCNVector3
   var radius: CGFloat
   var suspensionRestLength: CGFloat
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)
@@ -86,6 +78,4 @@ class SCNPhysicsVehicle : SCNPhysicsBehavior {
   func applyEngineForce(_ value: CGFloat, forWheelAt index: Int)
   func setSteeringAngle(_ value: CGFloat, forWheelAt index: Int)
   func applyBrakingForce(_ value: CGFloat, forWheelAt index: Int)
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -16,16 +16,13 @@ class ICCameraItem : NSObject {
   var userData: NSMutableDictionary? { get }
   var ptpObjectHandle: UInt32 { get }
   var wasAddedAfterContentCatalogCompleted: Bool { get }
-  init()
 }
 class ICCameraFolder : ICCameraItem {
   var contents: [ICCameraItem] { get }
-  init()
 }
 class ICCameraFile : ICCameraItem {
   var fileSize: off_t { get }
   var orientation: ICEXIFOrientationType
   var duration: Double { get }
   var sidecarFiles: [ICCameraItem] { get }
-  init()
 }

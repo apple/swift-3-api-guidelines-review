@@ -108,7 +108,6 @@ class IOBluetoothHandsFree : NSObject {
   func disconnectSCO()
   @available(OSX 10.7, *)
   func isSCOConnected() -> Bool
-  init()
 }
 protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)

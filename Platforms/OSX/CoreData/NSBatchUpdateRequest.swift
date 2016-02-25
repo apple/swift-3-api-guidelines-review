@@ -9,7 +9,6 @@ class NSBatchUpdateRequest : NSPersistentStoreRequest {
   var includesSubentities: Bool
   var resultType: NSBatchUpdateRequestResultType
   var propertiesToUpdate: [NSObject : AnyObject]?
-  init()
 }
 struct _requestFlags {
   var includesSubentities: UInt32

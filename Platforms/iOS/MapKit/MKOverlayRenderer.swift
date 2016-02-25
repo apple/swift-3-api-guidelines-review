@@ -14,5 +14,4 @@ class MKOverlayRenderer : NSObject {
   func setNeedsDisplayIn(_ mapRect: MKMapRect, zoomScale zoomScale: MKZoomScale)
   var alpha: CGFloat
   var contentScaleFactor: CGFloat { get }
-  convenience init()
 }

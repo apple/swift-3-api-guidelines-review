@@ -36,6 +36,4 @@ class NSByteCountFormatter : NSFormatter {
   var zeroPadsFractionDigits: Bool
   @available(tvOS 8.0, *)
   var formattingContext: NSFormattingContext
-  init()
-  init?(coder aDecoder: NSCoder)
 }

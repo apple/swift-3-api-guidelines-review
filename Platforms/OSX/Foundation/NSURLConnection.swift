@@ -18,7 +18,6 @@ class NSURLConnection : NSObject {
   @available(OSX 10.7, *)
   func setDelegateQueue(_ queue: NSOperationQueue?)
   class func canHandle(_ request: NSURLRequest) -> Bool
-  init()
 }
 protocol NSURLConnectionDelegate : NSObjectProtocol {
   optional func connection(_ connection: NSURLConnection, didFailWithError error: NSError)

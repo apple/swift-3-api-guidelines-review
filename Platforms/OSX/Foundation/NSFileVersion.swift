@@ -37,5 +37,4 @@ class NSFileVersion : NSObject {
   func replaceItem(at url: NSURL, options options: NSFileVersionReplacingOptions = []) throws -> NSURL
   func remove() throws
   class func removeOtherVersionsOfItem(at url: NSURL) throws
-  init()
 }

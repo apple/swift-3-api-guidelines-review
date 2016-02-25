@@ -20,7 +20,6 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var inlandWater: String? { get }
   var ocean: String? { get }
   var areasOfInterest: [String]? { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

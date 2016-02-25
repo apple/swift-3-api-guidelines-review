@@ -30,5 +30,4 @@ class UIPress : NSObject {
   var responder: UIResponder? { get }
   var gestureRecognizers: [UIGestureRecognizer]? { get }
   var force: CGFloat { get }
-  init()
 }

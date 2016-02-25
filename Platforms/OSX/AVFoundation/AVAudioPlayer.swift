@@ -36,7 +36,6 @@ class AVAudioPlayer : NSObject {
   func updateMeters()
   func peakPower(forChannel channelNumber: Int) -> Float
   func averagePower(forChannel channelNumber: Int) -> Float
-  init()
 }
 protocol AVAudioPlayerDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)

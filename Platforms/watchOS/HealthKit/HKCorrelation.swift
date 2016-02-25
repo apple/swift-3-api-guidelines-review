@@ -8,5 +8,4 @@ class HKCorrelation : HKSample {
   @available(watchOS 2.0, *)
   convenience init(type correlationType: HKCorrelationType, start startDate: NSDate, end endDate: NSDate, objects objects: Set<HKSample>, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
   func objects(for objectType: HKObjectType) -> Set<HKSample>
-  init?(coder aDecoder: NSCoder)
 }

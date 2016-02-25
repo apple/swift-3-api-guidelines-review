@@ -10,7 +10,6 @@ class CSSearchableItem : NSObject, NSSecureCoding, NSCopying {
   var domainIdentifier: String?
   @NSCopying var expirationDate: NSDate!
   var attributeSet: CSSearchableItemAttributeSet
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

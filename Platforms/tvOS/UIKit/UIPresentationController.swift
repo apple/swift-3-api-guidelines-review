@@ -31,7 +31,6 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   func dismissalTransitionWillBegin()
   func dismissalTransitionDidEnd(_ completed: Bool)
   @NSCopying var overrideTraitCollection: UITraitCollection?
-  init()
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)

@@ -36,7 +36,6 @@ enum WKTextInputMode : Int {
 }
 @available(iOS 8.2, *)
 class WKInterfaceController : NSObject {
-  init()
   func awake(context context: AnyObject?)
   var contentFrame: CGRect { get }
   func willActivate()
@@ -78,7 +77,6 @@ extension WKInterfaceController {
 }
 @available(iOS 8.2, *)
 class WKUserNotificationInterfaceController : WKInterfaceController {
-  init()
   func didReceiveRemoteNotification(_ remoteNotification: [NSObject : AnyObject], withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
   func didReceive(_ localNotification: UILocalNotification, withCompletion completionHandler: (WKUserNotificationInterfaceType) -> Void)
 }

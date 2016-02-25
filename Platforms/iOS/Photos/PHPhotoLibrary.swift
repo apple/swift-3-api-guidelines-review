@@ -21,5 +21,4 @@ class PHPhotoLibrary : NSObject {
   func performChangesAndWait(_ changeBlock: dispatch_block_t) throws
   func register(_ observer: PHPhotoLibraryChangeObserver)
   func unregisterChangeObserver(_ observer: PHPhotoLibraryChangeObserver)
-  init()
 }

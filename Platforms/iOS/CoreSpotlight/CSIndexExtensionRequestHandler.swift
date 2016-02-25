@@ -1,7 +1,6 @@
 
 @available(iOS 9.0, *)
 class CSIndexExtensionRequestHandler : NSObject, NSExtensionRequestHandling, CSSearchableIndexDelegate {
-  init()
   @available(iOS 9.0, *)
   func beginRequest(_ context: NSExtensionContext)
   @available(iOS 9.0, *)

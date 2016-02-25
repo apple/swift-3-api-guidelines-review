@@ -24,7 +24,6 @@ class NSFileAccessIntent : NSObject {
   class func readingIntent(with url: NSURL, options options: NSFileCoordinatorReadingOptions = []) -> Self
   class func writingIntent(with url: NSURL, options options: NSFileCoordinatorWritingOptions = []) -> Self
   @NSCopying var url: NSURL { get }
-  init()
 }
 @available(iOS 5.0, *)
 class NSFileCoordinator : NSObject {
@@ -45,5 +44,4 @@ class NSFileCoordinator : NSObject {
   func item(at oldURL: NSURL, willMoveTo newURL: NSURL)
   func item(at oldURL: NSURL, didMoveTo newURL: NSURL)
   func cancel()
-  convenience init()
 }

@@ -44,7 +44,6 @@ class SCNGeometry : NSObject, SCNAnimatable, SCNBoundingVolume, SCNShadable, NSC
   var edgeCreasesElement: SCNGeometryElement?
   @available(tvOS 8.0, *)
   var edgeCreasesSource: SCNGeometrySource?
-  init()
   @available(tvOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)
@@ -101,7 +100,6 @@ class SCNGeometrySource : NSObject, NSSecureCoding {
   var bytesPerComponent: Int { get }
   var dataOffset: Int { get }
   var dataStride: Int { get }
-  init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
@@ -115,7 +113,6 @@ class SCNGeometryElement : NSObject, NSSecureCoding {
   var primitiveType: SCNGeometryPrimitiveType { get }
   var primitiveCount: Int { get }
   var bytesPerIndex: Int { get }
-  init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)

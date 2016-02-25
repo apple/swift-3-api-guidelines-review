@@ -11,7 +11,6 @@ class NSTextList : NSObject, NSCoding, NSCopying {
   func marker(forItemNumber itemNum: Int) -> String
   @available(OSX 10.6, *)
   var startingItemNumber: Int
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject

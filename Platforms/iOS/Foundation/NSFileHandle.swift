@@ -12,7 +12,6 @@ class NSFileHandle : NSObject, NSSecureCoding {
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
   init?(coder coder: NSCoder)
-  convenience init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
 }
@@ -59,5 +58,4 @@ extension NSFileHandle {
 class NSPipe : NSObject {
   var fileHandleForReading: NSFileHandle { get }
   var fileHandleForWriting: NSFileHandle { get }
-  init()
 }

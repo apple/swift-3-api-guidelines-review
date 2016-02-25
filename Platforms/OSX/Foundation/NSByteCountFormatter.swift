@@ -36,6 +36,4 @@ class NSByteCountFormatter : NSFormatter {
   var zeroPadsFractionDigits: Bool
   @available(OSX 10.10, *)
   var formattingContext: NSFormattingContext
-  init()
-  init?(coder aDecoder: NSCoder)
 }

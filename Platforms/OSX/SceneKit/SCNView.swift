@@ -30,9 +30,6 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.10, *)
   var antialiasingMode: SCNAntialiasingMode
   var pixelFormat: NSOpenGLPixelFormat?
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.10, *)
   var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)

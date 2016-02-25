@@ -7,5 +7,4 @@ class CKFetchNotificationChangesOperation : CKOperation {
   var moreComing: Bool { get }
   var notificationChangedBlock: ((CKNotification) -> Void)?
   var fetchNotificationChangesCompletionBlock: ((CKServerChangeToken?, NSError?) -> Void)?
-  init()
 }

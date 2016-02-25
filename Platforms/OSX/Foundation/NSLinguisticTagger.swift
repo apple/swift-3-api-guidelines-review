@@ -110,7 +110,6 @@ class NSLinguisticTagger : NSObject {
   func tags(in range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions = [], tokenRanges tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(OSX 10.7, *)
   func possibleTags(at charIndex: Int, scheme tagScheme: String, tokenRange tokenRange: NSRangePointer, sentenceRange sentenceRange: NSRangePointer, scores scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
-  convenience init()
 }
 extension NSString {
   @available(OSX 10.7, *)

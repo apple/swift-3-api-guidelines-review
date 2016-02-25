@@ -19,7 +19,4 @@ class UIDatePicker : UIControl, NSCoding {
   var countDownDuration: NSTimeInterval
   var minuteInterval: Int
   func setDate(_ date: NSDate, animated animated: Bool)
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

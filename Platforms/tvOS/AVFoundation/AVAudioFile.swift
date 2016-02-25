@@ -13,5 +13,4 @@ class AVAudioFile : NSObject {
   var processingFormat: AVAudioFormat { get }
   var length: AVAudioFramePosition { get }
   var framePosition: AVAudioFramePosition
-  init()
 }

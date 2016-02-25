@@ -11,7 +11,6 @@ class NSHelpManager : NSObject {
   func find(_ query: String, inBook book: String?)
   @available(OSX 10.6, *)
   func registerBooks(in bundle: NSBundle) -> Bool
-  init()
 }
 let NSContextHelpModeDidActivateNotification: String
 let NSContextHelpModeDidDeactivateNotification: String

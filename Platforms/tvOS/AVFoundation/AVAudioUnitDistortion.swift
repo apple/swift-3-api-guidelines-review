@@ -31,6 +31,4 @@ class AVAudioUnitDistortion : AVAudioUnitEffect {
   func loadFactoryPreset(_ preset: AVAudioUnitDistortionPreset)
   var preGain: Float
   var wetDryMix: Float
-  init(audioComponentDescription audioComponentDescription: AudioComponentDescription)
-  init()
 }

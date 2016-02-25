@@ -6,7 +6,6 @@ class DRTrack : NSObject {
   func testProductionSpeed(forInterval interval: NSTimeInterval) -> Float
   func testProductionSpeed(forLength length: UInt32) -> Float
   func estimateLength() -> UInt64
-  init()
 }
 extension DRTrack {
   func length() -> DRMSF!

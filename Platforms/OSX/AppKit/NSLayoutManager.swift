@@ -42,7 +42,6 @@ enum NSTypesetterBehavior : Int {
 }
 @available(OSX 10.0, *)
 class NSLayoutManager : NSObject, NSCoding {
-  init()
   init?(coder coder: NSCoder)
   unowned(unsafe) var textStorage: @sil_unmanaged NSTextStorage?
   func replaceTextStorage(_ newTextStorage: NSTextStorage)

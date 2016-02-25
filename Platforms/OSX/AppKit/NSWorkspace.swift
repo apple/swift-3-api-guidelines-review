@@ -86,7 +86,6 @@ class NSWorkspace : NSObject {
   func filenameExtension(_ filenameExtension: String, isValidForType typeName: String) -> Bool
   @available(OSX 10.5, *)
   func type(_ firstTypeName: String, conformsToType secondTypeName: String) -> Bool
-  init()
 }
 extension NSWorkspace {
   @available(OSX 10.6, *)

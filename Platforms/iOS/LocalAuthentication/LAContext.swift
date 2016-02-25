@@ -29,7 +29,6 @@ class LAContext : NSObject {
   var evaluatedPolicyDomainState: NSData? { get }
   @available(iOS 9.0, *)
   var touchIDAuthenticationAllowableReuseDuration: NSTimeInterval
-  init()
 }
 @available(iOS 9.0, *)
 enum LACredentialType : Int {

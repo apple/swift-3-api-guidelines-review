@@ -9,5 +9,4 @@ class CMMotionActivityManager : NSObject {
   func queryActivityStarting(from start: NSDate, to end: NSDate, to queue: NSOperationQueue, withHandler handler: CMMotionActivityQueryHandler)
   func startActivityUpdates(to queue: NSOperationQueue, withHandler handler: CMMotionActivityHandler)
   func stopActivityUpdates()
-  init()
 }

@@ -3,7 +3,6 @@
 class SCNConstraint : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   @available(tvOS 8.0, *)
   var influenceFactor: CGFloat
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 8.0, *)
@@ -35,8 +34,6 @@ class SCNLookAtConstraint : SCNConstraint {
   convenience init(target target: SCNNode)
   var target: SCNNode { get }
   var gimbalLockEnabled: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct SCNBillboardAxis : OptionSetType {
   init(rawValue rawValue: UInt)
@@ -49,14 +46,10 @@ struct SCNBillboardAxis : OptionSetType {
 @available(tvOS 9.0, *)
 class SCNBillboardConstraint : SCNConstraint {
   var freeAxes: SCNBillboardAxis
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNTransformConstraint : SCNConstraint {
   convenience init(inWorldSpace world: Bool, with block: (SCNNode, SCNMatrix4) -> SCNMatrix4)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 8.0, *)
 class SCNIKConstraint : SCNConstraint {
@@ -67,6 +60,4 @@ class SCNIKConstraint : SCNConstraint {
   var targetPosition: SCNVector3
   func setMaxAllowedRotationAngle(_ angle: CGFloat, forJoint node: SCNNode)
   func maxAllowedRotationAngle(forJoint node: SCNNode) -> CGFloat
-  init()
-  init?(coder aDecoder: NSCoder)
 }

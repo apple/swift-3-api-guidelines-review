@@ -8,7 +8,6 @@ class GKLeaderboardSet : NSObject, NSCoding, NSSecureCoding {
   class func loadLeaderboardSets(completionHandler completionHandler: (([GKLeaderboardSet]?, NSError?) -> Void)? = nil)
   @available(OSX 10.10, *)
   func loadLeaderboards(completionHandler completionHandler: (([GKLeaderboard]?, NSError?) -> Void)? = nil)
-  init()
   @available(OSX 10.10, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

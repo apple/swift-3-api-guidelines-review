@@ -31,9 +31,6 @@ class ADBannerView : UIView {
   var isBannerViewActionInProgress: Bool { get }
   func cancelAction()
   var advertisingSection: String!
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol ADBannerViewDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)

@@ -57,7 +57,6 @@ class CIImage : NSObject, NSSecureCoding, NSCopying {
   var colorSpace: CGColorSpace? { get }
   @available(OSX 10.11, *)
   func regionOfInterest(for image: CIImage, in rect: CGRect) -> CGRect
-  init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)

@@ -14,7 +14,6 @@ let NSCollectionElementKindSectionFooter: String
 class NSCollectionViewFlowLayoutInvalidationContext : NSCollectionViewLayoutInvalidationContext {
   var invalidateFlowLayoutDelegateMetrics: Bool
   var invalidateFlowLayoutAttributes: Bool
-  init()
 }
 protocol NSCollectionViewDelegateFlowLayout : NSCollectionViewDelegate {
   @available(OSX 10.11, *)
@@ -40,6 +39,4 @@ class NSCollectionViewFlowLayout : NSCollectionViewLayout {
   var headerReferenceSize: NSSize
   var footerReferenceSize: NSSize
   var sectionInset: NSEdgeInsets
-  init()
-  init?(coder aDecoder: NSCoder)
 }

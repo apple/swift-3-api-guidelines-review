@@ -4,7 +4,6 @@ class GCGamepadSnapshot : GCGamepad {
   @NSCopying var snapshotData: NSData
   init(snapshotData data: NSData)
   init(controller controller: GCController, snapshotData data: NSData)
-  init()
 }
 struct GCGamepadSnapShotDataV100 {
   var version: UInt16

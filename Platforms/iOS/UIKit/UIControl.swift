@@ -73,7 +73,4 @@ class UIControl : UIView {
   func actions(forTarget target: AnyObject?, forControlEvent controlEvent: UIControlEvents) -> [String]?
   func sendAction(_ action: Selector, to target: AnyObject?, for event: UIEvent?)
   func sendActions(for controlEvents: UIControlEvents)
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

@@ -33,7 +33,6 @@ class SCNScene : NSObject, NSSecureCoding {
   var fogColor: AnyObject
   @available(OSX 10.10, *)
   var isPaused: Bool
-  init()
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)

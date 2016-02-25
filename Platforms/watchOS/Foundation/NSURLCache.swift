@@ -13,7 +13,6 @@ class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
   @NSCopying var data: NSData { get }
   var userInfo: [NSObject : AnyObject]? { get }
   var storagePolicy: NSURLCacheStoragePolicy { get }
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -33,7 +32,6 @@ class NSURLCache : NSObject {
   var diskCapacity: Int
   var currentMemoryUsage: Int { get }
   var currentDiskUsage: Int { get }
-  init()
 }
 extension NSURLCache {
   @available(watchOS 2.0, *)

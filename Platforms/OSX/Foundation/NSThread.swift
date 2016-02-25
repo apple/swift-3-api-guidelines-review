@@ -28,8 +28,6 @@ class NSThread : NSObject {
   @available(OSX 10.5, *)
   class func main() -> NSThread
   @available(OSX 10.5, *)
-  init()
-  @available(OSX 10.5, *)
   convenience init(target target: AnyObject, selector selector: Selector, object argument: AnyObject?)
   @available(OSX 10.5, *)
   var isExecuting: Bool { get }

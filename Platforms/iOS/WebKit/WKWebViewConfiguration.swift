@@ -24,7 +24,6 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var selectionGranularity: WKSelectionGranularity
   @available(iOS 9.0, *)
   var allowsPictureInPictureMediaPlayback: Bool
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

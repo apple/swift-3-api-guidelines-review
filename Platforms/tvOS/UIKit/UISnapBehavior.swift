@@ -5,5 +5,4 @@ class UISnapBehavior : UIDynamicBehavior {
   @available(tvOS 9.0, *)
   var snapPoint: CGPoint
   var damping: CGFloat
-  convenience init()
 }

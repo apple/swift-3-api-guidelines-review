@@ -152,7 +152,6 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   var attributes: [String : AnyObject] { get }
   @available(OSX 10.4, *)
   func apply(_ k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]? = [:]) -> CIImage?
-  init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)

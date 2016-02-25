@@ -23,5 +23,4 @@ class SKDownload : NSObject {
   var transaction: SKPaymentTransaction? { get }
   class func contentURL(forProductID productID: String) -> NSURL?
   class func deleteContent(forProductID productID: String)
-  init()
 }

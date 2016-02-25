@@ -1,7 +1,6 @@
 
 class AMWorkflow : NSObject, NSCopying {
   class func run(at fileURL: NSURL, withInput input: AnyObject?) throws -> AnyObject
-  init()
   convenience init(contentsOf fileURL: NSURL) throws
   func write(to fileURL: NSURL) throws
   func setValue(_ value: AnyObject?, forVariableWithName variableName: String) -> Bool

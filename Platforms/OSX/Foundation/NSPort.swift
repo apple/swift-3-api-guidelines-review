@@ -11,7 +11,6 @@ class NSPort : NSObject, NSCopying, NSCoding {
   var reservedSpaceLength: Int { get }
   func send(before limitDate: NSDate, components components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
   func send(before limitDate: NSDate, msgid msgID: Int, components components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -22,17 +21,11 @@ protocol NSPortDelegate : NSObjectProtocol {
 class NSMachPort : NSPort {
   class func port(withMachPort machPort: UInt32) -> NSPort
   init(machPort machPort: UInt32)
-  func setDelegate(_ anObject: NSMachPortDelegate?)
-  func delegate() -> NSMachPortDelegate?
   @available(OSX 10.5, *)
   class func port(withMachPort machPort: UInt32, options f: NSMachPortOptions = []) -> NSPort
   @available(OSX 10.5, *)
   init(machPort machPort: UInt32, options f: NSMachPortOptions = [])
   var machPort: UInt32 { get }
-  func schedule(in runLoop: NSRunLoop, forMode mode: String)
-  func remove(from runLoop: NSRunLoop, forMode mode: String)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)
 struct NSMachPortOptions : OptionSetType {
@@ -46,11 +39,8 @@ protocol NSMachPortDelegate : NSPortDelegate {
   optional func handleMachMessage(_ msg: UnsafeMutablePointer<Void>)
 }
 class NSMessagePort : NSPort {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class NSSocketPort : NSPort {
-  convenience init()
   convenience init?(tcpPort port: UInt16)
   init?(protocolFamily family: Int32, socketType type: Int32, protocol protocol: Int32, address address: NSData)
   init?(protocolFamily family: Int32, socketType type: Int32, protocol protocol: Int32, socket sock: NSSocketNativeHandle)
@@ -61,5 +51,4 @@ class NSSocketPort : NSPort {
   var `protocol`: Int32 { get }
   @NSCopying var address: NSData { get }
   var socket: NSSocketNativeHandle { get }
-  init?(coder aDecoder: NSCoder)
 }

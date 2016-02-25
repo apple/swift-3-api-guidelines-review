@@ -32,7 +32,6 @@ class NSGraphicsContext : NSObject {
   @available(OSX 10.10, *)
   var cgContext: CGContext { get }
   var isFlipped: Bool { get }
-  init()
 }
 extension NSGraphicsContext {
   var shouldAntialias: Bool

@@ -39,7 +39,6 @@ class NSFontDescriptor : NSObject, NSCopying, NSSecureCoding {
   func withMatrix(_ matrix: NSAffineTransform) -> NSFontDescriptor
   func withFace(_ newFace: String) -> NSFontDescriptor
   func withFamily(_ newFamily: String) -> NSFontDescriptor
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)

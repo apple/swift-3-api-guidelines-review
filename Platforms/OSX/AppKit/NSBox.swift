@@ -43,9 +43,6 @@ class NSBox : NSView {
   @NSCopying var borderColor: NSColor
   @available(OSX 10.5, *)
   @NSCopying var fillColor: NSColor
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __bFlags {
   var borderType: NSBorderType

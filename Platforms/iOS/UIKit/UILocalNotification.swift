@@ -1,7 +1,6 @@
 
 @available(iOS 4.0, *)
 class UILocalNotification : NSObject, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   @NSCopying var fireDate: NSDate?
   @NSCopying var timeZone: NSTimeZone?

@@ -47,7 +47,6 @@ class UIScreen : NSObject, UITraitEnvironment {
   weak var focusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
   var supportsFocus: Bool { get }
-  init()
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)

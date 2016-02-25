@@ -11,6 +11,5 @@ class GCGamepad : NSObject {
   var buttonY: GCControllerButtonInput { get }
   var leftShoulder: GCControllerButtonInput { get }
   var rightShoulder: GCControllerButtonInput { get }
-  init()
 }
 typealias GCGamepadValueChangedHandler = (GCGamepad, GCControllerElement) -> Void

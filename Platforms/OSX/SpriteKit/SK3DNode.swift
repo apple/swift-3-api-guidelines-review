@@ -2,7 +2,6 @@
 @available(OSX 10.10, *)
 class SK3DNode : SKNode {
   init(viewportSize viewportSize: CGSize)
-  init?(coder aDecoder: NSCoder)
   var viewportSize: CGSize
   var sceneTime: NSTimeInterval
   func hitTest(_ point: CGPoint, options options: [String : AnyObject]? = [:]) -> [AnyObject]
@@ -11,6 +10,4 @@ class SK3DNode : SKNode {
   var isPlaying: Bool
   var loops: Bool
   var autoenablesDefaultLighting: Bool
-  convenience init()
-  convenience init?(fileNamed filename: String)
 }

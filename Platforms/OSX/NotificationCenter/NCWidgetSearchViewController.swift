@@ -6,9 +6,6 @@ class NCWidgetSearchViewController : NSViewController {
   var searchDescription: String!
   var searchResultsPlaceholderString: String!
   var searchResultKeyPath: String!
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 protocol NCWidgetSearchViewDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)

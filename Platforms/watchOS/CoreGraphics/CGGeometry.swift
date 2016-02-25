@@ -13,12 +13,9 @@ extension CGPoint {
 }
 
 extension CGPoint : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGPoint : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGPoint : Equatable {
@@ -37,12 +34,9 @@ extension CGSize {
 }
 
 extension CGSize : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGSize : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGSize : Equatable {
@@ -114,12 +108,9 @@ extension CGRect {
 }
 
 extension CGRect : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGRect : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGRect : Equatable {

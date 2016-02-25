@@ -3,5 +3,4 @@
 class MKMapSnapshot : NSObject {
   var image: UIImage { get }
   func point(for coordinate: CLLocationCoordinate2D) -> CGPoint
-  init()
 }

@@ -3,6 +3,4 @@
 class NSExpressionDescription : NSPropertyDescription {
   var expression: NSExpression?
   var expressionResultType: NSAttributeType
-  init()
-  init?(coder aDecoder: NSCoder)
 }

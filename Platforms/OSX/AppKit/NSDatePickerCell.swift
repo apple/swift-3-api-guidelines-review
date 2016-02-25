@@ -37,10 +37,6 @@ class NSDatePickerCell : NSActionCell {
   @NSCopying var minDate: NSDate?
   @NSCopying var maxDate: NSDate?
   unowned(unsafe) var delegate: @sil_unmanaged NSDatePickerCellDelegate?
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __dateCellFlags {
   var elements: UInt32

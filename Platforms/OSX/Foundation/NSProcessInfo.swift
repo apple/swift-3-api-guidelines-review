@@ -48,7 +48,6 @@ class NSProcessInfo : NSObject {
   func enableAutomaticTermination(_ reason: String)
   @available(OSX 10.7, *)
   var automaticTerminationSupportEnabled: Bool
-  init()
 }
 @available(OSX 10.9, *)
 struct NSActivityOptions : OptionSetType {

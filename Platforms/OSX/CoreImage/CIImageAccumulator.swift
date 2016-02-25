@@ -10,5 +10,4 @@ class CIImageAccumulator : NSObject {
   func setImage(_ image: CIImage)
   func setImage(_ image: CIImage, dirtyRect dirtyRect: CGRect)
   func clear()
-  init()
 }

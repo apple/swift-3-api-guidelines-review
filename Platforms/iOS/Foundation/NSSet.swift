@@ -3,7 +3,6 @@ class NSSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnume
   var count: Int { get }
   func member(_ object: AnyObject) -> AnyObject?
   func objectEnumerator() -> NSEnumerator
-  init()
   init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -14,9 +13,6 @@ class NSSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnume
 }
 
 extension NSSet : SequenceType {
-  func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
 }
 
 extension NSSet {
@@ -24,8 +20,6 @@ extension NSSet {
 }
 
 extension NSSet : ArrayLiteralConvertible {
-  required convenience init(arrayLiteral elements: AnyObject...)
-  typealias Element = AnyObject
 }
 
 extension NSSet {
@@ -33,13 +27,11 @@ extension NSSet {
 }
 
 extension NSSet : CustomReflectable {
-  func customMirror() -> Mirror
 }
 extension NSSet {
   var allObjects: [AnyObject] { get }
   func anyObject() -> AnyObject?
   func contains(_ anObject: AnyObject) -> Bool
-  var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   func intersects(_ otherSet: Set<NSObject>) -> Bool
   func isEqual(to otherSet: Set<NSObject>) -> Bool
@@ -68,14 +60,7 @@ extension NSSet {
 class NSMutableSet : NSSet {
   func add(_ object: AnyObject)
   func remove(_ object: AnyObject)
-  init?(coder aDecoder: NSCoder)
-  init()
   init(capacity numItems: Int)
-  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object object: AnyObject)
-  convenience init(set set: Set<NSObject>)
-  convenience init(set set: Set<NSObject>, copyItems flag: Bool)
-  convenience init(array array: [AnyObject])
 }
 extension NSMutableSet {
   func addObjects(from array: [AnyObject])
@@ -88,16 +73,5 @@ extension NSMutableSet {
 extension NSMutableSet {
 }
 class NSCountedSet : NSMutableSet {
-  init(capacity numItems: Int)
-  convenience init(array array: [AnyObject])
-  convenience init(set set: Set<NSObject>)
   func count(for object: AnyObject) -> Int
-  func objectEnumerator() -> NSEnumerator
-  func add(_ object: AnyObject)
-  func remove(_ object: AnyObject)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
-  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object object: AnyObject)
-  convenience init(set set: Set<NSObject>, copyItems flag: Bool)
 }

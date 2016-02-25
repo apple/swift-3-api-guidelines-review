@@ -147,7 +147,6 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   class func userInterfaceLayoutDirection(for attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
   @available(tvOS 9.0, *)
   var semanticContentAttribute: UISemanticContentAttribute
-  convenience init()
   @available(tvOS 2.0, *)
   func encode(with aCoder: NSCoder)
   @available(tvOS 2.0, *)
@@ -187,7 +186,6 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
 }
 
 extension UIView : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension UIView {
   var frame: CGRect

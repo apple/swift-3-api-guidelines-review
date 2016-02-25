@@ -39,7 +39,6 @@ class AVCaptureDevice : NSObject {
   var inputSources: [AnyObject]! { get }
   @available(OSX 10.7, *)
   var activeInputSource: AVCaptureDeviceInputSource!
-  init()
 }
 @available(OSX 10.7, *)
 enum AVCaptureDevicePosition : Int {
@@ -156,18 +155,15 @@ class AVFrameRateRange : NSObject {
   var maxFrameRate: Float64 { get }
   var maxFrameDuration: CMTime { get }
   var minFrameDuration: CMTime { get }
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureDeviceFormat : NSObject {
   var mediaType: String! { get }
   var formatDescription: CMFormatDescription! { get }
   var videoSupportedFrameRateRanges: [AnyObject]! { get }
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureDeviceInputSource : NSObject {
   var inputSourceID: String! { get }
   var localizedName: String! { get }
-  init()
 }

@@ -10,5 +10,4 @@ class NSAlignmentFeedbackFilter : NSObject {
   func alignmentFeedbackTokenForHorizontalMovement(in view: NSView?, previousX previousX: CGFloat, alignedX alignedX: CGFloat, defaultX defaultX: CGFloat) -> NSAlignmentFeedbackToken?
   func alignmentFeedbackTokenForVerticalMovement(in view: NSView?, previousY previousY: CGFloat, alignedY alignedY: CGFloat, defaultY defaultY: CGFloat) -> NSAlignmentFeedbackToken?
   func performFeedback(_ alignmentFeedbackTokens: [NSAlignmentFeedbackToken], performanceTime performanceTime: NSHapticFeedbackPerformanceTime)
-  init()
 }

@@ -9,7 +9,6 @@ class SCNTechnique : NSObject, SCNAnimatable, NSCopying, NSSecureCoding {
   subscript(_ key: AnyObject) -> AnyObject? { get }
   @available(iOS 9.0, *)
   func setObject(_ obj: AnyObject?, forKeyedSubscript key: NSCopying)
-  init()
   @available(iOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(iOS 8.0, *)

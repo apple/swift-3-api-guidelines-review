@@ -30,7 +30,6 @@ class NSMetadataQuery : NSObject {
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [NSMetadataQueryResultGroup] { get }
   func value(ofAttribute attrName: String, forResultAt idx: Int) -> AnyObject?
-  init()
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(OSX 10.4, *)
@@ -77,14 +76,12 @@ class NSMetadataItem : NSObject {
   func value(forAttribute key: String) -> AnyObject?
   func values(forAttributes keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
-  convenience init()
 }
 @available(OSX 10.4, *)
 class NSMetadataQueryAttributeValueTuple : NSObject {
   var attribute: String { get }
   var value: AnyObject? { get }
   var count: Int { get }
-  init()
 }
 @available(OSX 10.4, *)
 class NSMetadataQueryResultGroup : NSObject {
@@ -94,5 +91,4 @@ class NSMetadataQueryResultGroup : NSObject {
   var resultCount: Int { get }
   func result(at idx: Int) -> AnyObject
   var results: [AnyObject] { get }
-  init()
 }

@@ -8,5 +8,4 @@ class EKSource : EKObject {
   var calendars: Set<EKCalendar> { get }
   @available(watchOS 2.0, *)
   func calendars(for entityType: EKEntityType) -> Set<EKCalendar>
-  init()
 }

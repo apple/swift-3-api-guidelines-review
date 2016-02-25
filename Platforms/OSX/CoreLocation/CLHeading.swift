@@ -10,8 +10,6 @@ class CLHeading : NSObject, NSCopying, NSSecureCoding {
   var y: CLHeadingComponentValue { get }
   var z: CLHeadingComponentValue { get }
   @NSCopying var timestamp: NSDate { get }
-  var description: String { get }
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)

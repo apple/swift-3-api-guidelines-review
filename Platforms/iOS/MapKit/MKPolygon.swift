@@ -6,9 +6,6 @@ class MKPolygon : MKMultiPoint, MKOverlay {
   convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count count: Int)
   convenience init(coordinates coords: UnsafeMutablePointer<CLLocationCoordinate2D>, count count: Int, interiorPolygons interiorPolygons: [MKPolygon]?)
   var interiorPolygons: [MKPolygon]? { get }
-  init()
-  @available(iOS 4.0, *)
-  var coordinate: CLLocationCoordinate2D { get }
   @available(iOS 4.0, *)
   var boundingMapRect: MKMapRect { get }
   @available(iOS 4.0, *)

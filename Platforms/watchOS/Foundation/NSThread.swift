@@ -28,8 +28,6 @@ class NSThread : NSObject {
   @available(watchOS 2.0, *)
   class func main() -> NSThread
   @available(watchOS 2.0, *)
-  init()
-  @available(watchOS 2.0, *)
   convenience init(target target: AnyObject, selector selector: Selector, object argument: AnyObject?)
   @available(watchOS 2.0, *)
   var isExecuting: Bool { get }

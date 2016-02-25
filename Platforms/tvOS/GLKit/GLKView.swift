@@ -45,9 +45,6 @@ class GLKView : UIView, NSCoding {
   var snapshot: UIImage { get }
   var enableSetNeedsDisplay: Bool
   func display()
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol GLKViewDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)

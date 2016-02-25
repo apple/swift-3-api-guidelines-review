@@ -5,7 +5,6 @@ class NSAccessibilityElement : NSObject, NSAccessibility {
   func accessibilityAddChildElement(_ childElement: NSAccessibilityElement)
   func accessibilityFrameInParentSpace() -> NSRect
   func setAccessibilityFrameInParentSpace(_ accessibilityFrameInParentSpace: NSRect)
-  init()
   @available(OSX 10.10, *)
   func accessibilityLayoutPoint(forScreenPoint point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)

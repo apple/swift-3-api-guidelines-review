@@ -4,7 +4,6 @@ class TVApplicationControllerContext : NSObject, NSCopying {
   @NSCopying var javaScriptApplicationURL: NSURL
   var storageIdentifier: String?
   var launchOptions: [String : AnyObject]
-  init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

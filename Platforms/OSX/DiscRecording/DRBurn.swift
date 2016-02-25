@@ -8,7 +8,6 @@ class DRBurn : NSObject {
   func properties() -> [NSObject : AnyObject]!
   func setProperties(_ properties: [NSObject : AnyObject]!)
   func device() -> DRDevice!
-  init()
 }
 extension DRBurn {
   func requestedBurnSpeed() -> Float

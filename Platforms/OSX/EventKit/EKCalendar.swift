@@ -17,5 +17,4 @@ class EKCalendar : EKObject {
   var supportedEventAvailabilities: EKCalendarEventAvailabilityMask { get }
   @available(OSX 10.8, *)
   var allowedEntityTypes: EKEntityMask { get }
-  init()
 }

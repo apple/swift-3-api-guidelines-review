@@ -6,7 +6,6 @@ class CNInstantMessageAddress : NSObject, NSCopying, NSSecureCoding {
   init(username username: String, service service: String)
   class func localizedString(forKey key: String) -> String
   class func localizedString(forService service: String) -> String
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

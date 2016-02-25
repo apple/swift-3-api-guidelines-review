@@ -31,12 +31,10 @@ class SKTexture : NSObject, NSCopying, NSCoding {
   func cgImage() -> CGImage
   class func preload(_ textures: [SKTexture], withCompletionHandler completionHandler: () -> Void)
   func preload(completionHandler completionHandler: () -> Void)
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension SKTexture : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }

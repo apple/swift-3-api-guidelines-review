@@ -106,7 +106,6 @@ class AVAudioSession : NSObject {
   var preferredInput: AVAudioSessionPortDescription? { get }
   @available(tvOS 7.0, *)
   var availableInputs: [AVAudioSessionPortDescription]? { get }
-  init()
 }
 typealias PermissionBlock = (Bool) -> Void
 extension AVAudioSession {
@@ -264,7 +263,6 @@ class AVAudioSessionChannelDescription : NSObject {
   var owningPortUID: String { get }
   var channelNumber: Int { get }
   var channelLabel: AudioChannelLabel { get }
-  init()
 }
 @available(tvOS 6.0, *)
 class AVAudioSessionPortDescription : NSObject {
@@ -280,13 +278,11 @@ class AVAudioSessionPortDescription : NSObject {
   var preferredDataSource: AVAudioSessionDataSourceDescription? { get }
   @available(tvOS 7.0, *)
   func setPreferredDataSource(_ dataSource: AVAudioSessionDataSourceDescription?) throws
-  init()
 }
 @available(tvOS 6.0, *)
 class AVAudioSessionRouteDescription : NSObject {
   var inputs: [AVAudioSessionPortDescription] { get }
   var outputs: [AVAudioSessionPortDescription] { get }
-  init()
 }
 @available(tvOS 6.0, *)
 class AVAudioSessionDataSourceDescription : NSObject {
@@ -304,7 +300,6 @@ class AVAudioSessionDataSourceDescription : NSObject {
   var preferredPolarPattern: String? { get }
   @available(tvOS 7.0, *)
   func setPreferredPolarPattern(_ pattern: String?) throws
-  init()
 }
 var AVAudioSessionInterruptionFlags_ShouldResume: Int { get }
 var AVAudioSessionSetActiveFlags_NotifyOthersOnDeactivation: Int { get }

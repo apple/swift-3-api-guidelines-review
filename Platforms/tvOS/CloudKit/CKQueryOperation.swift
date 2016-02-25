@@ -13,7 +13,6 @@ class CKQueryCursor : NSObject, NSCopying, NSSecureCoding {
 let CKQueryOperationMaximumResults: Int
 @available(tvOS 8.0, *)
 class CKQueryOperation : CKDatabaseOperation {
-  init()
   convenience init(query query: CKQuery)
   convenience init(cursor cursor: CKQueryCursor)
   @NSCopying var query: CKQuery?

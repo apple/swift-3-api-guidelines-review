@@ -22,7 +22,6 @@ class NSTextContainer : NSObject, NSCoding, NSTextLayoutOrientationProvider {
   var isSimpleRectangularTextContainer: Bool { get }
   var widthTracksTextView: Bool
   var heightTracksTextView: Bool
-  convenience init()
   @available(iOS 7.0, *)
   func encode(with aCoder: NSCoder)
   @available(iOS 7.0, *)

@@ -59,7 +59,6 @@ class UIImagePickerController : UINavigationController, NSCoding {
   class func isFlashAvailable(for cameraDevice: UIImagePickerControllerCameraDevice) -> Bool
   @available(iOS 4.0, *)
   class func availableCaptureModes(for cameraDevice: UIImagePickerControllerCameraDevice) -> [NSNumber]?
-  weak var delegate: @sil_weak protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>?
   var sourceType: UIImagePickerControllerSourceType
   var mediaTypes: [String]
   @available(iOS 3.1, *)
@@ -86,12 +85,6 @@ class UIImagePickerController : UINavigationController, NSCoding {
   var cameraDevice: UIImagePickerControllerCameraDevice
   @available(iOS 4.0, *)
   var cameraFlashMode: UIImagePickerControllerCameraFlashMode
-  @available(iOS 5.0, *)
-  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
-  init(rootViewController rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UIImagePickerControllerDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)

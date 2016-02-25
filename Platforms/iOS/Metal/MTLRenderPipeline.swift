@@ -51,7 +51,6 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var destinationAlphaBlendFactor: MTLBlendFactor
   var alphaBlendOperation: MTLBlendOperation
   var writeMask: MTLColorWriteMask
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -59,7 +58,6 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
 class MTLRenderPipelineReflection : NSObject {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
-  init()
 }
 @available(iOS 8.0, *)
 class MTLRenderPipelineDescriptor : NSObject, NSCopying {
@@ -75,7 +73,6 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   var depthAttachmentPixelFormat: MTLPixelFormat
   var stencilAttachmentPixelFormat: MTLPixelFormat
   func reset()
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -87,5 +84,4 @@ protocol MTLRenderPipelineState : NSObjectProtocol {
 @available(iOS 8.0, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
   subscript(_ attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
-  init()
 }

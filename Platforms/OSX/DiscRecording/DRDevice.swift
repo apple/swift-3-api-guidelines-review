@@ -14,7 +14,6 @@ class DRDevice : NSObject {
   func acquireMediaReservation()
   func releaseMediaReservation()
   func isEqual(to otherDevice: DRDevice!) -> Bool
-  init()
 }
 extension DRDevice {
   func writesCD() -> Bool

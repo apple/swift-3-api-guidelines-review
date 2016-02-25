@@ -222,7 +222,6 @@ class NSCell : NSObject, NSCopying, NSCoding, NSUserInterfaceItemIdentification,
   var usesSingleLineMode: Bool
   @available(OSX 10.7, *)
   func draggingImageComponents(frame frame: NSRect, in view: NSView) -> [NSDraggingImageComponent]
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

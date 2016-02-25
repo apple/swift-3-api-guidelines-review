@@ -35,14 +35,12 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var resolveDepthPlane: Int
   var loadAction: MTLLoadAction
   var storeAction: MTLStoreAction
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearColor: MTLClearColor
-  init()
 }
 @available(tvOS 9.0, *)
 enum MTLMultisampleDepthResolveFilter : UInt {
@@ -57,17 +55,14 @@ class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
   var clearDepth: Double
   @available(tvOS 9.0, *)
   var depthResolveFilter: MTLMultisampleDepthResolveFilter
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearStencil: UInt32
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
   subscript(_ attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassDescriptor : NSObject, NSCopying {
@@ -75,7 +70,6 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
   var visibilityResultBuffer: MTLBuffer?
-  init()
   @available(tvOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

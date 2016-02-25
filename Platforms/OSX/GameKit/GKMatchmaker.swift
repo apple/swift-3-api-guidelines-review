@@ -36,7 +36,6 @@ class GKMatchRequest : NSObject {
   var inviteeResponseHandler: ((String, GKInviteeResponse) -> Void)?
   @available(OSX 10.9, *)
   class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
-  init()
 }
 enum GKMatchType : UInt {
   init?(rawValue rawValue: UInt)
@@ -56,7 +55,6 @@ class GKInvite : NSObject {
   var playerGroup: Int { get }
   @available(OSX 10.9, *)
   var playerAttributes: UInt32 { get }
-  init()
 }
 protocol GKInviteEventListener {
   @available(OSX 10.10, *)
@@ -84,7 +82,6 @@ class GKMatchmaker : NSObject {
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(OSX 10.9, *)
   func stopBrowsingForNearbyPlayers()
-  init()
 }
 extension GKMatchmaker {
   @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer to register an object that implements the GKInviteEventListenerProtocol instead")

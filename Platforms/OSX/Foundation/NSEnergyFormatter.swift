@@ -17,7 +17,4 @@ class NSEnergyFormatter : NSFormatter {
   func string(fromJoules numberInJoules: Double) -> String
   func unitString(fromValue value: Double, unit unit: NSEnergyFormatterUnit) -> String
   func unitString(fromJoules numberInJoules: Double, usedUnit unitp: UnsafeMutablePointer<NSEnergyFormatterUnit>) -> String
-  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

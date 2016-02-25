@@ -1,12 +1,6 @@
 
 @available(iOS 4.2, *)
 class GKFriendRequestComposeViewController : UINavigationController {
-  @available(iOS 5.0, *)
-  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
-  init(rootViewController rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 extension GKFriendRequestComposeViewController {
   class func maxNumberOfRecipients() -> Int

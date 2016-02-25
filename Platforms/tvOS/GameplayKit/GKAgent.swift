@@ -14,13 +14,10 @@ class GKAgent : GKComponent {
   var speed: Float { get }
   var maxAcceleration: Float
   var maxSpeed: Float
-  init()
 }
 @available(tvOS 9.0, *)
 class GKAgent2D : GKAgent {
   var position: vector_float2
   var velocity: vector_float2 { get }
   var rotation: Float
-  func update(deltaTime seconds: NSTimeInterval)
-  init()
 }

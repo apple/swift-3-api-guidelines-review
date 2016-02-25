@@ -17,7 +17,6 @@ enum NSXMLNodeKind : UInt {
   case notationDeclarationKind
 }
 class NSXMLNode : NSObject, NSCopying {
-  init()
   convenience init(kind kind: NSXMLNodeKind)
   init(kind kind: NSXMLNodeKind, options options: Int)
   class func document() -> AnyObject
@@ -57,7 +56,6 @@ class NSXMLNode : NSObject, NSCopying {
   class func localName(forName name: String) -> String
   class func prefix(forName name: String) -> String?
   class func predefinedNamespace(forPrefix name: String) -> NSXMLNode?
-  var description: String { get }
   var xmlString: String { get }
   func xmlString(withOptions options: Int) -> String
   func canonicalXMLStringPreservingComments(_ comments: Bool) -> String

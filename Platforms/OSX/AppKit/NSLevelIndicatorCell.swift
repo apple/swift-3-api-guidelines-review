@@ -20,8 +20,4 @@ class NSLevelIndicatorCell : NSActionCell {
   func rectOfTickMark(at index: Int) -> NSRect
   func tickMarkValue(at index: Int) -> Double
   func setImage(_ image: NSImage?)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

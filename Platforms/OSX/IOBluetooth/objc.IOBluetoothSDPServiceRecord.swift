@@ -18,7 +18,6 @@ class IOBluetoothSDPServiceRecord : NSObject, NSCoding {
   func matchesSearch(_ searchArray: [AnyObject]!) -> Bool
   func hasService(from array: [AnyObject]!) -> Bool
   var sortedAttributes: [AnyObject]! { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

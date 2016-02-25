@@ -26,7 +26,6 @@ class OBEXSession : NSObject {
   func openTransportConnection(_ inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
   func hasOpenTransportConnection() -> Bool
   func closeTransportConnection() -> OBEXError
-  init()
 }
 typealias OBEXTransportEventType = UInt32
 struct OBEXTransportEventTypes : RawRepresentable, Equatable {

@@ -11,7 +11,6 @@ class UIPrintFormatter : NSObject, NSCopying {
   var pageCount: Int { get }
   func rectForPage(at pageIndex: Int) -> CGRect
   func draw(in rect: CGRect, forPageAt pageIndex: Int)
-  init()
   @available(iOS 4.2, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -26,18 +25,15 @@ class UISimpleTextPrintFormatter : UIPrintFormatter {
   var font: UIFont?
   var color: UIColor?
   var textAlignment: NSTextAlignment
-  init()
 }
 @available(iOS 4.2, *)
 class UIMarkupTextPrintFormatter : UIPrintFormatter {
   init(markupText markupText: String)
   var markupText: String?
-  init()
 }
 @available(iOS 4.2, *)
 class UIViewPrintFormatter : UIPrintFormatter {
   var view: UIView { get }
-  init()
 }
 extension UIView {
   func viewPrintFormatter() -> UIViewPrintFormatter

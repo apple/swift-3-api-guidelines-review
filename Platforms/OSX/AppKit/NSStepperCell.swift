@@ -5,8 +5,4 @@ class NSStepperCell : NSActionCell {
   var increment: Double
   var valueWraps: Bool
   var autorepeat: Bool
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

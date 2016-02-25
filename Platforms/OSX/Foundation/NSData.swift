@@ -43,7 +43,6 @@ struct NSDataBase64DecodingOptions : OptionSetType {
 class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
@@ -51,7 +50,6 @@ class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   init?(coder aDecoder: NSCoder)
 }
 extension NSData {
-  var description: String { get }
   func getBytes(_ buffer: UnsafeMutablePointer<Void>, length length: Int)
   func getBytes(_ buffer: UnsafeMutablePointer<Void>, range range: NSRange)
   func isEqual(to other: NSData) -> Bool
@@ -97,25 +95,6 @@ extension NSData {
 }
 class NSMutableData : NSData {
   var mutableBytes: UnsafeMutablePointer<Void> { get }
-  var length: Int
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes bytes: UnsafePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, freeWhenDone b: Bool)
-  @available(OSX 10.9, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data data: NSData)
-  @available(OSX 10.9, *)
-  init?(base64EncodedString base64String: String, options options: NSDataBase64DecodingOptions = [])
-  @available(OSX 10.9, *)
-  init?(base64EncodedData base64Data: NSData, options options: NSDataBase64DecodingOptions = [])
-  @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
 }
 extension NSMutableData {
   func appendBytes(_ bytes: UnsafePointer<Void>, length length: Int)
@@ -132,26 +111,6 @@ extension NSMutableData {
 }
 @available(OSX 10.6, *)
 class NSPurgeableData : NSMutableData, NSDiscardableContent {
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes bytes: UnsafePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, freeWhenDone b: Bool)
-  @available(OSX 10.9, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data data: NSData)
-  @available(OSX 10.9, *)
-  init?(base64EncodedString base64String: String, options options: NSDataBase64DecodingOptions = [])
-  @available(OSX 10.9, *)
-  init?(base64EncodedData base64Data: NSData, options options: NSDataBase64DecodingOptions = [])
-  @available(OSX, introduced=10.0, deprecated=10.10, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  init?(capacity capacity: Int)
-  init?(length length: Int)
   @available(OSX 10.6, *)
   func beginAccess() -> Bool
   @available(OSX 10.6, *)

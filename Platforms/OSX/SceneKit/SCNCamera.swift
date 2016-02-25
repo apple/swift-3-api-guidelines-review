@@ -24,7 +24,6 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
   var aperture: CGFloat
   @available(OSX 10.10, *)
   var categoryBitMask: Int
-  init()
   @available(OSX 10.8, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)

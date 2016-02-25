@@ -14,7 +14,6 @@ enum MKAnnotationViewDragState : UInt {
 class MKAnnotationView : NSView {
   init(annotation annotation: MKAnnotation?, reuseIdentifier reuseIdentifier: String?)
   var reuseIdentifier: String? { get }
-  func prepareForReuse()
   var annotation: MKAnnotation?
   var image: NSImage?
   var centerOffset: CGPoint
@@ -36,7 +35,4 @@ class MKAnnotationView : NSView {
   var dragState: MKAnnotationViewDragState
   @available(OSX 10.9, *)
   func setDragState(_ newDragState: MKAnnotationViewDragState, animated animated: Bool)
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

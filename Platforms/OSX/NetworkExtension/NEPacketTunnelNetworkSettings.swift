@@ -9,8 +9,4 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
   @NSCopying var tunnelOverheadBytes: NSNumber?
   @available(OSX 10.11, *)
   @NSCopying var mtu: NSNumber?
-  @available(OSX 10.11, *)
-  init(tunnelRemoteAddress address: String)
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -55,5 +55,4 @@ class ICCameraDevice : ICDevice {
   func requestUploadFile(_ fileURL: NSURL, options options: [String : AnyObject]? = [:], uploadDelegate uploadDelegate: AnyObject, didUploadSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func requestReadData(from file: ICCameraFile, atOffset offset: off_t, length length: off_t, readDelegate readDelegate: AnyObject, didReadDataSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func requestSendPTPCommand(_ command: NSData, outData data: NSData, sendCommandDelegate sendCommandDelegate: AnyObject, didSendCommand selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
-  init()
 }

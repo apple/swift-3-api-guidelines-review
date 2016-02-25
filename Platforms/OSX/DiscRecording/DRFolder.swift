@@ -1,7 +1,6 @@
 
 class DRFolder : DRFSObject {
   init!(path path: String!)
-  init()
 }
 extension DRFolder {
   class func virtualFolder(withName name: String!) -> DRFolder!

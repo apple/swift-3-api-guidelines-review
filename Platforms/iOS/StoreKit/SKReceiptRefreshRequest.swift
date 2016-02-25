@@ -5,7 +5,6 @@ class SKReceiptRefreshRequest : SKRequest {
   init(receiptProperties properties: [String : AnyObject]?)
   @available(iOS 7.0, *)
   var receiptProperties: [String : AnyObject]? { get }
-  init()
 }
 @available(iOS 7.1, *)
 func SKTerminateForInvalidReceipt()

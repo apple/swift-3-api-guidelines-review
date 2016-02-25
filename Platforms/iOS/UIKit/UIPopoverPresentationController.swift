@@ -11,7 +11,6 @@ protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControl
 }
 @available(iOS 8.0, *)
 class UIPopoverPresentationController : UIPresentationController {
-  weak var delegate: @sil_weak UIPopoverPresentationControllerDelegate?
   var permittedArrowDirections: UIPopoverArrowDirection
   var sourceView: UIView?
   var sourceRect: CGRect
@@ -23,6 +22,4 @@ class UIPopoverPresentationController : UIPresentationController {
   @NSCopying var backgroundColor: UIColor?
   var popoverLayoutMargins: UIEdgeInsets
   var popoverBackgroundViewClass: AnyObject.Type?
-  init(presentedViewController presentedViewController: UIViewController, presenting presentingViewController: UIViewController)
-  init()
 }

@@ -18,7 +18,4 @@ class NSMassFormatter : NSFormatter {
   func string(fromKilograms numberInKilograms: Double) -> String
   func unitString(fromValue value: Double, unit unit: NSMassFormatterUnit) -> String
   func unitString(fromKilograms numberInKilograms: Double, usedUnit unitp: UnsafeMutablePointer<NSMassFormatterUnit>) -> String
-  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

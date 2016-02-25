@@ -12,5 +12,4 @@ class PHAssetCollectionChangeRequest : NSObject {
   func removeAssets(at indexes: NSIndexSet)
   func replaceAssets(at indexes: NSIndexSet, withAssets assets: NSFastEnumeration)
   func moveAssets(at fromIndexes: NSIndexSet, to toIndex: Int)
-  init()
 }

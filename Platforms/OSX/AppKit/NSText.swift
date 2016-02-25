@@ -36,8 +36,6 @@ var NSDownTextMovement: Int { get }
 var NSCancelTextMovement: Int { get }
 var NSOtherTextMovement: Int { get }
 class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
   var string: String?
   func replaceCharacters(in range: NSRange, with aString: String)
   func replaceCharacters(in range: NSRange, withRTF rtfData: NSData)
@@ -77,8 +75,6 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   func paste(_ sender: AnyObject?)
   func pasteFont(_ sender: AnyObject?)
   func pasteRuler(_ sender: AnyObject?)
-  func selectAll(_ sender: AnyObject?)
-  func changeFont(_ sender: AnyObject?)
   func alignLeft(_ sender: AnyObject?)
   func alignRight(_ sender: AnyObject?)
   func alignCenter(_ sender: AnyObject?)
@@ -89,7 +85,6 @@ class NSText : NSView, NSChangeSpelling, NSIgnoreMisspelledWords {
   func showGuessPanel(_ sender: AnyObject?)
   func checkSpelling(_ sender: AnyObject?)
   func toggleRuler(_ sender: AnyObject?)
-  convenience init()
   func changeSpelling(_ sender: AnyObject?)
   func ignoreSpelling(_ sender: AnyObject?)
 }

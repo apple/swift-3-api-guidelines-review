@@ -37,7 +37,6 @@ class NSUndoManager : NSObject {
   var redoMenuItemTitle: String { get }
   func undoMenuTitle(forUndoActionName actionName: String) -> String
   func redoMenuTitle(forUndoActionName actionName: String) -> String
-  init()
 }
 
 extension NSUndoManager {

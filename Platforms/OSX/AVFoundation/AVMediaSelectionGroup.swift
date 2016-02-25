@@ -6,7 +6,6 @@ class AVMediaSelectionGroup : NSObject, NSCopying {
   var defaultOption: AVMediaSelectionOption? { get }
   var allowsEmptySelection: Bool { get }
   func mediaSelectionOption(withPropertyList plist: AnyObject) -> AVMediaSelectionOption?
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -36,7 +35,6 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   func displayName(_ locale: NSLocale) -> String
   @available(OSX 10.9, *)
   var displayName: String { get }
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

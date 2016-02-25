@@ -1,6 +1,5 @@
 
 class NSXMLDTD : NSXMLNode {
-  init()
   convenience init(contentsOf url: NSURL, options mask: Int) throws
   init(data data: NSData, options mask: Int) throws
   var publicID: String?
@@ -16,5 +15,4 @@ class NSXMLDTD : NSXMLNode {
   func elementDeclaration(forName name: String) -> NSXMLDTDNode?
   func attributeDeclaration(forName name: String, elementName elementName: String) -> NSXMLDTDNode?
   class func predefinedEntityDeclaration(forName name: String) -> NSXMLDTDNode?
-  convenience init(kind kind: NSXMLNodeKind)
 }

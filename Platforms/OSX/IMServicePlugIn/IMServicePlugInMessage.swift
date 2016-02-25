@@ -7,7 +7,6 @@ class IMServicePlugInMessage : NSObject, NSCoding, NSCopying {
   var guid: String! { get }
   @NSCopying var content: NSAttributedString!
   @NSCopying var date: NSDate!
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject

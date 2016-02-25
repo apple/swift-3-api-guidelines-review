@@ -9,9 +9,6 @@ enum GKGameCenterViewControllerState : Int {
 }
 @available(OSX 10.9, *)
 class GKGameCenterViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension GKGameCenterViewController {
   unowned(unsafe) var gameCenterDelegate: @sil_unmanaged GKGameCenterControllerDelegate?

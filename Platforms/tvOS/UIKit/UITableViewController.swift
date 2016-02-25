@@ -2,12 +2,9 @@
 @available(tvOS 2.0, *)
 class UITableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
   init(style style: UITableViewStyle)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
   var tableView: UITableView!
   @available(tvOS 3.2, *)
   var clearsSelectionOnViewWillAppear: Bool
-  convenience init()
   @available(tvOS 2.0, *)
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: NSIndexPath)
   @available(tvOS 6.0, *)

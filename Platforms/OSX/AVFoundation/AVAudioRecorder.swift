@@ -17,7 +17,6 @@ class AVAudioRecorder : NSObject {
   func updateMeters()
   func peakPower(forChannel channelNumber: Int) -> Float
   func averagePower(forChannel channelNumber: Int) -> Float
-  init()
 }
 protocol AVAudioRecorderDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)

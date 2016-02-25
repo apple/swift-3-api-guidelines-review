@@ -7,5 +7,4 @@ class NSStatusBar : NSObject {
   func remove(_ item: NSStatusItem)
   var isVertical: Bool { get }
   var thickness: CGFloat { get }
-  init()
 }

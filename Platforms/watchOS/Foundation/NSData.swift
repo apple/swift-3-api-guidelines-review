@@ -53,7 +53,6 @@ struct NSDataBase64DecodingOptions : OptionSetType {
 class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
@@ -61,7 +60,6 @@ class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   init?(coder aDecoder: NSCoder)
 }
 extension NSData {
-  var description: String { get }
   func getBytes(_ buffer: UnsafeMutablePointer<Void>, length length: Int)
   func getBytes(_ buffer: UnsafeMutablePointer<Void>, range range: NSRange)
   func isEqual(to other: NSData) -> Bool
@@ -111,27 +109,6 @@ extension NSData {
 }
 class NSMutableData : NSData {
   var mutableBytes: UnsafeMutablePointer<Void> { get }
-  var length: Int
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes bytes: UnsafePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, freeWhenDone b: Bool)
-  @available(watchOS 2.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data data: NSData)
-  @available(watchOS 2.0, *)
-  init?(base64EncodedString base64String: String, options options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  init?(base64EncodedData base64Data: NSData, options options: NSDataBase64DecodingOptions = [])
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  init?(base64Encoding base64String: String)
 }
 extension NSMutableData {
   func appendBytes(_ bytes: UnsafePointer<Void>, length length: Int)
@@ -148,28 +125,6 @@ extension NSMutableData {
 }
 @available(watchOS 2.0, *)
 class NSPurgeableData : NSMutableData, NSDiscardableContent {
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes bytes: UnsafePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, freeWhenDone b: Bool)
-  @available(watchOS 2.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)? = nil)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions = []) throws
-  init(contentsOf url: NSURL, options readOptionsMask: NSDataReadingOptions = []) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOf url: NSURL)
-  init(data data: NSData)
-  @available(watchOS 2.0, *)
-  init?(base64EncodedString base64String: String, options options: NSDataBase64DecodingOptions = [])
-  @available(watchOS 2.0, *)
-  init?(base64EncodedData base64Data: NSData, options options: NSDataBase64DecodingOptions = [])
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  init?(base64Encoding base64String: String)
-  init?(capacity capacity: Int)
-  init?(length length: Int)
   @available(watchOS 2.0, *)
   func beginAccess() -> Bool
   @available(watchOS 2.0, *)

@@ -34,7 +34,6 @@ class PHImageRequestOptions : NSObject, NSCopying {
   var isNetworkAccessAllowed: Bool
   var isSynchronous: Bool
   var progressHandler: PHAssetImageProgressHandler?
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -43,7 +42,6 @@ class PHLivePhotoRequestOptions : NSObject, NSCopying {
   var deliveryMode: PHImageRequestOptionsDeliveryMode
   var isNetworkAccessAllowed: Bool
   var progressHandler: PHAssetImageProgressHandler?
-  init()
   @available(iOS 9.1, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -71,7 +69,6 @@ class PHVideoRequestOptions : NSObject {
   var version: PHVideoRequestOptionsVersion
   var deliveryMode: PHVideoRequestOptionsDeliveryMode
   var progressHandler: PHAssetVideoProgressHandler?
-  init()
 }
 @available(iOS 8.0, *)
 typealias PHImageRequestID = Int32
@@ -99,7 +96,6 @@ class PHImageManager : NSObject {
   func requestPlayerItem(forVideo asset: PHAsset, options options: PHVideoRequestOptions?, resultHandler resultHandler: (AVPlayerItem?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
   func requestExportSession(forVideo asset: PHAsset, options options: PHVideoRequestOptions?, exportPreset exportPreset: String, resultHandler resultHandler: (AVAssetExportSession?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
   func requestAVAsset(forVideo asset: PHAsset, options options: PHVideoRequestOptions?, resultHandler resultHandler: (AVAsset?, AVAudioMix?, [NSObject : AnyObject]?) -> Void) -> PHImageRequestID
-  init()
 }
 @available(iOS 8.0, *)
 class PHCachingImageManager : PHImageManager {
@@ -107,5 +103,4 @@ class PHCachingImageManager : PHImageManager {
   func startCachingImages(for assets: [PHAsset], targetSize targetSize: CGSize, contentMode contentMode: PHImageContentMode, options options: PHImageRequestOptions?)
   func stopCachingImages(for assets: [PHAsset], targetSize targetSize: CGSize, contentMode contentMode: PHImageContentMode, options options: PHImageRequestOptions?)
   func stopCachingImagesForAllAssets()
-  init()
 }

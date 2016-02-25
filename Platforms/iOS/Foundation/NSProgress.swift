@@ -33,7 +33,6 @@ class NSProgress : NSObject {
   func resume()
   var userInfo: [NSObject : AnyObject] { get }
   var kind: String?
-  convenience init()
 }
 typealias NSProgressUnpublishingHandler = () -> Void
 typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?

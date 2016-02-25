@@ -6,7 +6,6 @@ class EKRecurrenceDayOfWeek : NSObject, NSCopying {
   init(dayOfTheWeek dayOfTheWeek: EKWeekday, weekNumber weekNumber: Int)
   var dayOfTheWeek: EKWeekday { get }
   var weekNumber: Int { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

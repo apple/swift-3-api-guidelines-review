@@ -25,5 +25,4 @@ class GCController : NSObject {
   class func controllers() -> [GCController]
   class func startWirelessControllerDiscovery(completionHandler completionHandler: (() -> Void)? = nil)
   class func stopWirelessControllerDiscovery()
-  init()
 }

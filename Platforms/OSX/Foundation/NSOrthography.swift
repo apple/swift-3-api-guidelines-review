@@ -6,7 +6,6 @@ class NSOrthography : NSObject, NSCopying, NSCoding {
   @available(OSX 10.6, *)
   init(dominantScript script: String, languageMap map: [String : [String]])
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(OSX 10.6, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)

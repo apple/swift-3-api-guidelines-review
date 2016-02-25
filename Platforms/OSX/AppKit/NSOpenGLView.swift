@@ -8,9 +8,6 @@ class NSOpenGLView : NSView {
   func reshape()
   var pixelFormat: NSOpenGLPixelFormat?
   func prepareOpenGL()
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 extension NSView {
   @available(OSX 10.7, *)

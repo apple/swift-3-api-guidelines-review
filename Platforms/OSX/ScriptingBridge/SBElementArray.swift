@@ -7,13 +7,4 @@ class SBElementArray : NSMutableArray {
   func array(byApplying selector: Selector) -> [AnyObject]
   func array(byApplying aSelector: Selector, with argument: AnyObject) -> [AnyObject]
   func get() -> [AnyObject]?
-  init()
-  init(capacity numItems: Int)
-  init?(coder aDecoder: NSCoder)
-  convenience init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object anObject: AnyObject)
-  convenience init(array array: [AnyObject])
-  convenience init(array array: [AnyObject], copyItems flag: Bool)
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOf url: NSURL)
 }

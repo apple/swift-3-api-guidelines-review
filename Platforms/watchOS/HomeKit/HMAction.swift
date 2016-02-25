@@ -3,5 +3,4 @@
 class HMAction : NSObject {
   @available(watchOS 2.0, *)
   @NSCopying var uniqueIdentifier: NSUUID { get }
-  init()
 }

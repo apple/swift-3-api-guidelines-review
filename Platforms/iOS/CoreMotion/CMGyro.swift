@@ -9,6 +9,4 @@ struct CMRotationRate {
 @available(iOS 4.0, *)
 class CMGyroData : CMLogItem {
   var rotationRate: CMRotationRate { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

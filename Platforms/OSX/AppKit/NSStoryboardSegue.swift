@@ -7,7 +7,6 @@ class NSStoryboardSegue : NSObject {
   var sourceController: AnyObject { get }
   var destinationController: AnyObject { get }
   func perform()
-  convenience init()
 }
 protocol NSSeguePerforming : NSObjectProtocol {
   @available(OSX 10.10, *)

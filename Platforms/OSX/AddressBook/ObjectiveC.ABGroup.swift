@@ -9,9 +9,6 @@ class ABGroup : ABRecord {
   func parentGroups() -> [AnyObject]!
   func setDistributionIdentifier(_ identifier: String!, forProperty property: String!, person person: ABPerson!) -> Bool
   func distributionIdentifier(forProperty property: String!, person person: ABPerson!) -> String!
-  init!()
-  @available(OSX 10.5, *)
-  init!(addressBook addressBook: ABAddressBook!)
 }
 extension ABGroup {
   class func addPropertiesAndTypes(_ properties: [NSObject : AnyObject]!) -> Int

@@ -7,5 +7,4 @@ class NEAppProxyTCPFlow : NEAppProxyFlow {
   func write(_ data: NSData, withCompletionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.11, *)
   var remoteEndpoint: NWEndpoint { get }
-  init()
 }

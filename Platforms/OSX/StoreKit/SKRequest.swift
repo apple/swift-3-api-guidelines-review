@@ -4,7 +4,6 @@ class SKRequest : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged SKRequestDelegate?
   func cancel()
   func start()
-  init()
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)

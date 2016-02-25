@@ -5,7 +5,6 @@ class EKRecurrenceEnd : NSObject, NSCopying {
   convenience init(occurrenceCount occurrenceCount: Int)
   var endDate: NSDate? { get }
   var occurrenceCount: Int { get }
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

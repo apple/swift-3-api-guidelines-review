@@ -13,5 +13,4 @@ class CNSaveRequest : NSObject {
   func removeSubgroup(_ subgroup: CNGroup, from group: CNGroup)
   func addMember(_ contact: CNContact, to group: CNGroup)
   func removeMember(_ contact: CNContact, from group: CNGroup)
-  init()
 }

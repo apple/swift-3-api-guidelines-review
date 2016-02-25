@@ -21,7 +21,6 @@ protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
 }
 @available(iOS 2.0, *)
 class UITextView : UIScrollView, UITextInput {
-  weak var delegate: @sil_weak UITextViewDelegate?
   var text: String!
   var font: UIFont?
   var textColor: UIColor?
@@ -39,13 +38,10 @@ class UITextView : UIScrollView, UITextInput {
   @available(iOS 6.0, *)
   var typingAttributes: [String : AnyObject]
   func scrollRangeToVisible(_ range: NSRange)
-  var inputView: UIView?
-  var inputAccessoryView: UIView?
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
   @available(iOS 7.0, *)
   init(frame frame: CGRect, textContainer textContainer: NSTextContainer?)
-  init?(coder aDecoder: NSCoder)
   @available(iOS 7.0, *)
   var textContainer: NSTextContainer { get }
   @available(iOS 7.0, *)
@@ -56,8 +52,6 @@ class UITextView : UIScrollView, UITextInput {
   var textStorage: NSTextStorage { get }
   @available(iOS 7.0, *)
   var linkTextAttributes: [String : AnyObject]!
-  convenience init(frame frame: CGRect)
-  convenience init()
   @available(iOS 3.2, *)
   func text(in range: UITextRange) -> String?
   @available(iOS 3.2, *)

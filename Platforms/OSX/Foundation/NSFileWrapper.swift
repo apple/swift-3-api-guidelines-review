@@ -44,7 +44,6 @@ class NSFileWrapper : NSObject, NSCoding {
   @NSCopying var regularFileContents: NSData? { get }
   @available(OSX 10.6, *)
   @NSCopying var symbolicLinkDestinationURL: NSURL? { get }
-  convenience init()
   @available(OSX 10.0, *)
   func encode(with aCoder: NSCoder)
 }

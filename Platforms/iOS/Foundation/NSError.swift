@@ -28,7 +28,6 @@ class NSError : NSObject, NSCopying, NSSecureCoding {
   class func setUserInfoValueProviderForDomain(_ errorDomain: String, provider provider: ((NSError, String) -> AnyObject?)? = nil)
   @available(iOS 9.0, *)
   class func userInfoValueProvider(forDomain errorDomain: String) -> ((NSError, String) -> AnyObject?)?
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
@@ -36,8 +35,6 @@ class NSError : NSObject, NSCopying, NSSecureCoding {
 }
 
 extension NSError : ErrorType {
-  var _domain: String { get }
-  var _code: Int { get }
 }
 extension NSObject {
   class func attemptRecovery(fromError error: NSError, optionIndex recoveryOptionIndex: Int, delegate delegate: AnyObject?, didRecover didRecoverSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)

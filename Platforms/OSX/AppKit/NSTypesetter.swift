@@ -47,7 +47,6 @@ class NSTypesetter : NSObject {
   class func sharedSystemTypesetter() -> AnyObject
   class func sharedSystemTypesetter(for theBehavior: NSTypesetterBehavior) -> AnyObject
   class func defaultTypesetterBehavior() -> NSTypesetterBehavior
-  init()
 }
 extension NSTypesetter {
   func willSetLineFragmentRect(_ lineRect: NSRectPointer, forGlyphRange glyphRange: NSRange, usedRect usedRect: NSRectPointer, baselineOffset baselineOffset: UnsafeMutablePointer<CGFloat>)

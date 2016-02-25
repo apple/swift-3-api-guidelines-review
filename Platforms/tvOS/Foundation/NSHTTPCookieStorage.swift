@@ -20,7 +20,6 @@ class NSHTTPCookieStorage : NSObject {
   var cookieAcceptPolicy: NSHTTPCookieAcceptPolicy
   @available(tvOS 5.0, *)
   func sortedCookies(using sortOrder: [NSSortDescriptor]) -> [NSHTTPCookie]
-  init()
 }
 extension NSHTTPCookieStorage {
   @available(tvOS 8.0, *)

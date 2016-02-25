@@ -5,6 +5,4 @@ class NSEPSImageRep : NSImageRep {
   func prepareGState()
   @NSCopying var epsRepresentation: NSData { get }
   var boundingBox: NSRect { get }
-  init()
-  init?(coder coder: NSCoder)
 }

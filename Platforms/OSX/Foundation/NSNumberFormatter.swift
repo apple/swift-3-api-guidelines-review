@@ -78,8 +78,6 @@ class NSNumberFormatter : NSFormatter {
   var maximumSignificantDigits: Int
   @available(OSX 10.5, *)
   var isPartialStringValidationEnabled: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSNumberFormatterStyle : UInt {
   init?(rawValue rawValue: UInt)

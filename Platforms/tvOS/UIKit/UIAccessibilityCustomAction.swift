@@ -5,5 +5,4 @@ class UIAccessibilityCustomAction : NSObject {
   var name: String
   weak var target: @sil_weak AnyObject?
   var selector: Selector
-  init()
 }

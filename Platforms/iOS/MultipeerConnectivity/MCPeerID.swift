@@ -3,7 +3,6 @@
 class MCPeerID : NSObject, NSCopying, NSSecureCoding {
   init(displayName myDisplayName: String)
   var displayName: String { get }
-  convenience init()
   @available(iOS 7.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)

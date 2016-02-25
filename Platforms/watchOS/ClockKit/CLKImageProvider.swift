@@ -7,6 +7,5 @@ class CLKImageProvider : NSObject, NSCopying {
   var twoPieceImageBackground: UIImage?
   var twoPieceImageForeground: UIImage?
   var accessibilityLabel: String?
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
 }

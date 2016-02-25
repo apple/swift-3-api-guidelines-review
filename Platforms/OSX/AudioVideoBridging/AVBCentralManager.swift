@@ -10,5 +10,4 @@ class AVBCentralManager : NSObject {
   class func releaseDynamicEntityID(_ entityID: UInt64)
   class func nextAvailableDynamicEntityModelID() -> UInt64
   class func releaseDynamicEntityModelID(_ entityModelID: UInt64)
-  init()
 }

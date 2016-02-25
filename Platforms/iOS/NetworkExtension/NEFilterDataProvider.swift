@@ -15,7 +15,6 @@ class NEFilterDataProvider : NEFilterProvider {
   func handleRemediation(for flow: NEFilterFlow) -> NEFilterRemediationVerdict
   @available(iOS 9.0, *)
   func handleRulesChanged()
-  init()
 }
 @available(iOS 9.0, *)
 class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
@@ -29,8 +28,6 @@ class NEFilterDataVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   /*not inherited*/ init(passBytes passBytes: Int, peekBytes peekBytes: Int)
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterDataVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 9.0, *)
 class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
@@ -40,6 +37,4 @@ class NEFilterRemediationVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   class func drop() -> NEFilterRemediationVerdict
   @available(iOS 9.0, *)
   class func needRules() -> NEFilterRemediationVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
 }

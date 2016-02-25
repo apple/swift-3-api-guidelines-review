@@ -11,7 +11,6 @@ class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
   func replacePointer(at index: Int, withPointer item: UnsafeMutablePointer<Void>)
   func compact()
   var count: Int
-  convenience init()
   @available(watchOS 2.0, *)
   func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(watchOS 2.0, *)

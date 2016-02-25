@@ -85,13 +85,11 @@ class MTLStructMember : NSObject {
   var dataType: MTLDataType { get }
   func structType() -> MTLStructType?
   func arrayType() -> MTLArrayType?
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLStructType : NSObject {
   var members: [MTLStructMember] { get }
   func member(byName name: String) -> MTLStructMember?
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLArrayType : NSObject {
@@ -100,7 +98,6 @@ class MTLArrayType : NSObject {
   var stride: Int { get }
   func elementStructType() -> MTLStructType?
   func element() -> MTLArrayType?
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLArgument : NSObject {
@@ -117,5 +114,4 @@ class MTLArgument : NSObject {
   var threadgroupMemoryDataSize: Int { get }
   var textureType: MTLTextureType { get }
   var textureDataType: MTLDataType { get }
-  init()
 }

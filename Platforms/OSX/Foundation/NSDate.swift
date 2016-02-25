@@ -5,7 +5,6 @@ typealias NSTimeInterval = Double
 var NSTimeIntervalSince1970: Double { get }
 class NSDate : NSObject, NSCopying, NSSecureCoding {
   var timeIntervalSinceReferenceDate: NSTimeInterval { get }
-  init()
   init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
@@ -15,7 +14,6 @@ class NSDate : NSObject, NSCopying, NSSecureCoding {
 
 extension NSDate : CustomPlaygroundQuickLookable {
   var summary: String { get }
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension NSDate {
   func timeInterval(since anotherDate: NSDate) -> NSTimeInterval
@@ -27,7 +25,6 @@ extension NSDate {
   func laterDate(_ anotherDate: NSDate) -> NSDate
   func compare(_ other: NSDate) -> NSComparisonResult
   func isEqual(to otherDate: NSDate) -> Bool
-  var description: String { get }
   func description(withLocale locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> NSTimeInterval
 }

@@ -18,7 +18,6 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   var text: String?
   var prompt: String?
   var placeholder: String?
-  var tintColor: UIColor!
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 7.0, *)
@@ -31,7 +30,6 @@ class UISearchBar : UIView, UIBarPositioning, UITextInputTraits {
   var selectedScopeButtonIndex: Int
   @available(tvOS 3.0, *)
   var showsScopeBar: Bool
-  var inputAccessoryView: UIView?
   @available(tvOS 5.0, *)
   var backgroundImage: UIImage?
   @available(tvOS 5.0, *)

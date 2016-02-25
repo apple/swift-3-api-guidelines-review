@@ -46,7 +46,6 @@ class SCNProgram : NSObject, NSCopying, NSSecureCoding {
   unowned(unsafe) var delegate: @sil_unmanaged SCNProgramDelegate?
   @available(OSX 10.11, *)
   var library: MTLLibrary?
-  init()
   @available(OSX 10.8, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.8, *)

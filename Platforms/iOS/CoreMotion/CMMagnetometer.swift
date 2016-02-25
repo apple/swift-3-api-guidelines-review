@@ -9,6 +9,4 @@ struct CMMagneticField {
 @available(iOS 5.0, *)
 class CMMagnetometerData : CMLogItem {
   var magneticField: CMMagneticField { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

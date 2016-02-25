@@ -14,5 +14,4 @@ class HMCharacteristic : NSObject {
   func writeValue(_ value: AnyObject?, completionHandler completion: (NSError?) -> Void)
   func readValue(completionHandler completion: (NSError?) -> Void)
   func enableNotification(_ enable: Bool, completionHandler completion: (NSError?) -> Void)
-  init()
 }

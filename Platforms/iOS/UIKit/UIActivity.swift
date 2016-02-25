@@ -48,5 +48,4 @@ class UIActivity : NSObject {
   func activityViewController() -> UIViewController?
   func perform()
   func activityDidFinish(_ completed: Bool)
-  init()
 }

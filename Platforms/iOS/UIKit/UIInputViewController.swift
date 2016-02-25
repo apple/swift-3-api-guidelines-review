@@ -6,15 +6,11 @@ protocol UITextDocumentProxy : UIKeyInput {
 }
 @available(iOS 8.0, *)
 class UIInputViewController : UIViewController, UITextInputDelegate {
-  var inputView: UIInputView?
   var textDocumentProxy: UITextDocumentProxy { get }
   var primaryLanguage: String?
   func dismissKeyboard()
   func advanceToNextInputMode()
   func requestSupplementaryLexicon(completion completionHandler: (UILexicon) -> Void)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 8.0, *)
   func selectionWillChange(_ textInput: UITextInput?)
   @available(iOS 8.0, *)

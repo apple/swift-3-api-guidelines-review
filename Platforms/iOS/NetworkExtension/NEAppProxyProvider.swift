@@ -9,5 +9,4 @@ class NEAppProxyProvider : NETunnelProvider {
   func cancelProxyWithError(_ error: NSError?)
   @available(iOS 9.0, *)
   func handleNewFlow(_ flow: NEAppProxyFlow) -> Bool
-  init()
 }

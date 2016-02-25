@@ -22,7 +22,6 @@ class SCNPhysicsShape : NSObject, NSCopying, NSSecureCoding {
   var sourceObject: AnyObject { get }
   @available(iOS 9.0, *)
   var transforms: [NSValue]? { get }
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 8.0, *)

@@ -13,5 +13,4 @@ class CTCellularData : NSObject {
   var cellularDataRestrictionDidUpdateNotifier: CellularDataRestrictionDidUpdateNotifier?
   @available(iOS 9.0, *)
   var restrictedState: CTCellularDataRestrictedState { get }
-  init()
 }

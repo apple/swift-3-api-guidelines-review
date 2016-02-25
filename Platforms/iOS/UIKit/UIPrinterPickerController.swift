@@ -25,5 +25,4 @@ class UIPrinterPickerController : NSObject {
   func present(from rect: CGRect, in view: UIView, animated animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func present(from item: UIBarButtonItem, animated animated: Bool, completionHandler completion: UIPrinterPickerCompletionHandler? = nil) -> Bool
   func dismiss(animated animated: Bool)
-  init()
 }

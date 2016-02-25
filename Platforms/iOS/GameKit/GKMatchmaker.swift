@@ -36,7 +36,6 @@ class GKMatchRequest : NSObject {
   var inviteeResponseHandler: ((String, GKInviteeResponse) -> Void)?
   @available(iOS 6.0, *)
   class func maxPlayersAllowedForMatch(of matchType: GKMatchType) -> Int
-  init()
 }
 enum GKMatchType : UInt {
   init?(rawValue rawValue: UInt)
@@ -56,7 +55,6 @@ class GKInvite : NSObject {
   var playerGroup: Int { get }
   @available(iOS 6.0, *)
   var playerAttributes: UInt32 { get }
-  init()
 }
 protocol GKInviteEventListener {
   @available(iOS 7.0, *)
@@ -86,7 +84,6 @@ class GKMatchmaker : NSObject {
   func startBrowsingForNearbyPlayers(handler reachableHandler: ((GKPlayer, Bool) -> Void)? = nil)
   @available(iOS 6.0, *)
   func stopBrowsingForNearbyPlayers()
-  init()
 }
 extension GKMatchmaker {
   @available(iOS, introduced=6.0, deprecated=8.0)

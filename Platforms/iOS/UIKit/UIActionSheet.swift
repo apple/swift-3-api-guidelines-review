@@ -28,9 +28,6 @@ class UIActionSheet : UIView {
   func show(from rect: CGRect, in view: UIView, animated animated: Bool)
   func show(in view: UIView)
   func dismiss(clickedButtonIndex buttonIndex: Int, animated animated: Bool)
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 
 extension UIActionSheet {

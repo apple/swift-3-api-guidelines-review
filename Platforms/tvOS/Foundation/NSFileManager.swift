@@ -121,7 +121,6 @@ class NSFileManager : NSObject {
   @NSCopying var ubiquityIdentityToken: protocol<NSCoding, NSCopying, NSObjectProtocol>? { get }
   @available(tvOS 7.0, *)
   func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> NSURL?
-  init()
 }
 extension NSObject {
 }
@@ -159,7 +158,6 @@ class NSDirectoryEnumerator : NSEnumerator {
   var level: Int { get }
   @available(tvOS 4.0, *)
   func skipDescendants()
-  init()
 }
 let NSFileType: String
 let NSFileTypeDirectory: String

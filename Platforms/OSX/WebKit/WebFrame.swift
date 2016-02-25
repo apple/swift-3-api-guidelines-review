@@ -22,5 +22,4 @@ class WebFrame : NSObject {
   var windowObject: WebScriptObject! { get }
   var globalContext: JSGlobalContextRef { get }
   var javaScriptContext: JSContext! { get }
-  init()
 }

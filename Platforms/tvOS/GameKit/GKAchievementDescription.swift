@@ -12,7 +12,6 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
   var isHidden: Bool { get }
   @available(tvOS 6.0, *)
   var isReplayable: Bool { get }
-  init()
   @available(tvOS 4.1, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

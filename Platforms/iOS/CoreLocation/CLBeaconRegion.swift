@@ -11,8 +11,6 @@ class CLBeaconRegion : CLRegion {
   var major: NSNumber? { get }
   var minor: NSNumber? { get }
   var notifyEntryStateOnDisplay: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 7.0, *)
 class CLBeacon : NSObject, NSCopying, NSSecureCoding {
@@ -22,7 +20,6 @@ class CLBeacon : NSObject, NSCopying, NSSecureCoding {
   var proximity: CLProximity { get }
   var accuracy: CLLocationAccuracy { get }
   var rssi: Int { get }
-  init()
   @available(iOS 7.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 7.0, *)

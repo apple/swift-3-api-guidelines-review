@@ -7,7 +7,6 @@ class NSMappingModel : NSObject {
   init?(contentsOf url: NSURL?)
   var entityMappings: [NSEntityMapping]!
   var entityMappingsByName: [String : NSEntityMapping] { get }
-  init()
 }
 struct __modelMappingFlags {
   var _isInUse: UInt32

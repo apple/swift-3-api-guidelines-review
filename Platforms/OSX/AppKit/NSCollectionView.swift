@@ -54,9 +54,6 @@ class NSCollectionViewItem : NSViewController, NSCopying, NSCollectionViewElemen
   @IBOutlet unowned(unsafe) var textField: @sil_unmanaged NSTextField?
   @available(OSX 10.7, *)
   var draggingImageComponents: [NSDraggingImageComponent] { get }
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.5, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.11, *)
@@ -111,7 +108,6 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   func selectItems(at indexPaths: Set<NSIndexPath>, scrollPosition scrollPosition: NSCollectionViewScrollPosition)
   @available(OSX 10.11, *)
   func deselectItems(at indexPaths: Set<NSIndexPath>)
-  @IBAction func selectAll(_ sender: AnyObject?)
   @IBAction func deselectAll(_ sender: AnyObject?)
   @available(OSX 10.11, *)
   func register(_ itemClass: AnyClass?, forItemWithIdentifier identifier: String)
@@ -171,9 +167,6 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   func draggingImageForItems(at indexPaths: Set<NSIndexPath>, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   @available(OSX 10.6, *)
   func draggingImageForItems(at indexes: NSIndexSet, with event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.7, *)
   func draggingSession(_ session: NSDraggingSession, sourceOperationMaskFor context: NSDraggingContext) -> NSDragOperation
   @available(OSX 10.7, *)

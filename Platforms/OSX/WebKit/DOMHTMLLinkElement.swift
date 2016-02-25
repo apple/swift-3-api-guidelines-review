@@ -10,8 +10,6 @@ class DOMHTMLLinkElement : DOMHTMLElement {
   var rev: String!
   var target: String!
   var type: String!
-  @available(OSX 10.4, *)
-  var sheet: DOMStyleSheet! { get }
   @available(OSX 10.5, *)
   @NSCopying var absoluteLinkURL: NSURL! { get }
 }

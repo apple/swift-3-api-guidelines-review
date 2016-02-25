@@ -13,7 +13,6 @@ class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   var matchDomains: [String]?
   @available(iOS 9.0, *)
   var matchDomainsNoSearch: Bool
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)

@@ -13,7 +13,6 @@ enum NSTestComparisonOperation : UInt {
 }
 class NSScriptWhoseTest : NSObject, NSCoding {
   func isTrue() -> Bool
-  init()
   init?(coder inCoder: NSCoder)
   func encode(with aCoder: NSCoder)
 }
@@ -21,11 +20,8 @@ class NSLogicalTest : NSScriptWhoseTest {
   init(andTestWith subTests: [NSSpecifierTest])
   init(orTestWith subTests: [NSSpecifierTest])
   init(notTestWith subTest: NSScriptWhoseTest)
-  convenience init()
-  init?(coder inCoder: NSCoder)
 }
 class NSSpecifierTest : NSScriptWhoseTest {
-  init?(coder inCoder: NSCoder)
   init(objectSpecifier obj1: NSScriptObjectSpecifier?, comparisonOperator compOp: NSTestComparisonOperation, test obj2: AnyObject?)
 }
 extension NSObject {

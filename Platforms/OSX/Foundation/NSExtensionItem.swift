@@ -5,7 +5,6 @@ class NSExtensionItem : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var attributedContentText: NSAttributedString?
   var attachments: [AnyObject]?
   var userInfo: [NSObject : AnyObject]?
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

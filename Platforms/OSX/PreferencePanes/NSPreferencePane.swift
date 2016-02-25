@@ -31,5 +31,4 @@ class NSPreferencePane : NSObject {
   var autoSaveTextFields: Bool { get }
   var isSelected: Bool { get }
   func updateHelpMenu(_ inArrayOfMenuItems: [[String : String]]?)
-  init()
 }

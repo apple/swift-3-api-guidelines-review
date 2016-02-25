@@ -37,7 +37,6 @@ class CAEmitterCell : NSObject, NSCoding, CAMediaTiming {
   var minificationFilterBias: Float
   var emitterCells: [CAEmitterCell]?
   var style: [NSObject : AnyObject]?
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   var beginTime: CFTimeInterval

@@ -28,7 +28,6 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   var compoundIndexes: [[AnyObject]]
   @available(watchOS 2.0, *)
   var uniquenessConstraints: [[AnyObject]]
-  init()
   @available(watchOS 2.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

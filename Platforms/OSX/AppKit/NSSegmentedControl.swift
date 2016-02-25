@@ -52,7 +52,4 @@ class NSSegmentedControl : NSControl {
   var trackingMode: NSSegmentSwitchTracking
   @available(OSX 10.10.3, *)
   var doubleValueForSelectedSegment: Double { get }
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }

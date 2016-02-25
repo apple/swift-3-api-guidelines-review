@@ -68,8 +68,6 @@ class IOBluetoothDevice : IOBluetoothObject, NSCoding, NSSecureCoding {
   func setSupervisionTimeout(_ timeout: UInt16) -> IOReturn
   func openL2CAPChannelSync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
   func openL2CAPChannelAsync(_ newChannel: AutoreleasingUnsafeMutablePointer<IOBluetoothL2CAPChannel?>, withPSM psm: BluetoothL2CAPPSM, withConfiguration channelConfiguration: [NSObject : AnyObject]!, delegate channelDelegate: AnyObject!) -> IOReturn
-  func awakeAfter(_ coder: NSCoder!) -> AnyObject!
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   class func supportsSecureCoding() -> Bool

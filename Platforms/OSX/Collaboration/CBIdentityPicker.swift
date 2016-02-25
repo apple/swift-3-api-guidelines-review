@@ -8,5 +8,4 @@ class CBIdentityPicker : NSObject {
   func runModal(for window: NSWindow, modalDelegate delegate: AnyObject?, didEnd didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func runModal(for window: NSWindow, completionHandler completionHandler: ((NSModalResponse) -> Void)? = nil)
   var identities: [CBIdentity] { get }
-  init()
 }

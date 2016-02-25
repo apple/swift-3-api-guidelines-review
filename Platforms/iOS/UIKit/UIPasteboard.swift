@@ -24,7 +24,6 @@ class UIPasteboard : NSObject {
   func data(forPasteboardType pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
   var items: [AnyObject]
   func addItems(_ items: [[String : AnyObject]])
-  init()
 }
 let UIPasteboardChangedNotification: String
 let UIPasteboardChangedTypesAddedKey: String

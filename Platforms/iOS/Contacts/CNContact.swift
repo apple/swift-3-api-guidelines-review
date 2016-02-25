@@ -57,7 +57,6 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func comparator(forNameSortOrder sortOrder: CNContactSortOrder) -> NSComparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
   func isUnifiedWithContact(withIdentifier contactIdentifier: String) -> Bool
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

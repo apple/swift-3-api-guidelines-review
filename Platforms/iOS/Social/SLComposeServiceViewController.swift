@@ -17,9 +17,6 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   func popConfigurationViewController()
   func loadPreviewView() -> UIView!
   var autoCompletionViewController: UIViewController!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 8.0, *)
   func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
   @available(iOS 8.0, *)

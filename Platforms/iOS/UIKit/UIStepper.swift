@@ -9,8 +9,6 @@ class UIStepper : UIControl {
   var maximumValue: Double
   var stepValue: Double
   @available(iOS 6.0, *)
-  var tintColor: UIColor!
-  @available(iOS 6.0, *)
   func setBackgroundImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
   func backgroundImage(for state: UIControlState) -> UIImage?
@@ -26,7 +24,4 @@ class UIStepper : UIControl {
   func setDecrementImage(_ image: UIImage?, for state: UIControlState)
   @available(iOS 6.0, *)
   func decrementImage(for state: UIControlState) -> UIImage?
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

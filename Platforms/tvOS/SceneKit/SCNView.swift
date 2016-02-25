@@ -26,9 +26,6 @@ class SCNView : UIView, SCNSceneRenderer, SCNTechniqueSupport {
   var eaglContext: EAGLContext?
   @available(tvOS 8.0, *)
   var antialiasingMode: SCNAntialiasingMode
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(tvOS 8.0, *)
   var sceneTime: NSTimeInterval
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?

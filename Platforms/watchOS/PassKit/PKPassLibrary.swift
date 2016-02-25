@@ -29,7 +29,6 @@ class PKPassLibrary : NSObject {
   func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)? = nil)
   @available(watchOS 2.0, *)
   func canAddPaymentPass(withPrimaryAccountIdentifier primaryAccountIdentifier: String) -> Bool
-  init()
 }
 @available(watchOS 2.0, *)
 let PKPassLibraryDidChangeNotification: String

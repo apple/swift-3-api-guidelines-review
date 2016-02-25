@@ -31,7 +31,6 @@ class NSStream : NSObject {
   func remove(from aRunLoop: NSRunLoop, forMode mode: String)
   var streamStatus: NSStreamStatus { get }
   @NSCopying var streamError: NSError? { get }
-  init()
 }
 class NSInputStream : NSStream {
   func read(_ buffer: UnsafeMutablePointer<UInt8>, maxLength len: Int) -> Int
@@ -40,7 +39,6 @@ class NSInputStream : NSStream {
   init(data data: NSData)
   @available(iOS 4.0, *)
   init?(url url: NSURL)
-  convenience init()
 }
 class NSOutputStream : NSStream {
   func write(_ buffer: UnsafePointer<UInt8>, maxLength len: Int) -> Int
@@ -49,7 +47,6 @@ class NSOutputStream : NSStream {
   init(toBuffer buffer: UnsafeMutablePointer<UInt8>, capacity capacity: Int)
   @available(iOS 4.0, *)
   init?(url url: NSURL, append shouldAppend: Bool)
-  convenience init()
 }
 extension NSStream {
   @available(iOS 8.0, *)

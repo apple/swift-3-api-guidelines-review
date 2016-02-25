@@ -58,9 +58,6 @@ class MKMapView : NSView, NSCoding {
   var annotationVisibleRect: CGRect { get }
   @available(OSX 10.9, *)
   func showAnnotations(_ annotations: [MKAnnotation], animated animated: Bool)
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 @available(OSX 10.9, *)
 enum MKOverlayLevel : Int {

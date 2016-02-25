@@ -7,7 +7,6 @@ class EKAlarm : EKObject, NSCopying {
   @NSCopying var absoluteDate: NSDate?
   @NSCopying var structuredLocation: EKStructuredLocation?
   var proximity: EKAlarmProximity
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -24,7 +24,6 @@ class NEAppProxyFlow : NSObject {
   func closeWriteWithError(_ error: NSError?)
   @available(OSX 10.11, *)
   var metaData: NEFlowMetaData { get }
-  init()
 }
 @available(OSX 10.11, *)
 class NEFlowMetaData : NSObject {
@@ -32,5 +31,4 @@ class NEFlowMetaData : NSObject {
   var sourceAppUniqueIdentifier: NSData { get }
   @available(OSX 10.11, *)
   var sourceAppSigningIdentifier: String { get }
-  init()
 }

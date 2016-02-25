@@ -18,8 +18,6 @@ class CWWiFiClient : NSObject {
   @available(OSX 10.10, *)
   class func shared() -> CWWiFiClient
   @available(OSX 10.10, *)
-  init?()
-  @available(OSX 10.10, *)
   func interface() -> CWInterface?
   @available(OSX 10.10, *)
   class func interfaceNames() -> [String]?

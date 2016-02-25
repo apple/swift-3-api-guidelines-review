@@ -15,5 +15,4 @@ class UIPrintPageRenderer : NSObject {
   func drawHeaderForPage(at pageIndex: Int, in headerRect: CGRect)
   func drawContentForPage(at pageIndex: Int, in contentRect: CGRect)
   func drawFooterForPage(at pageIndex: Int, in footerRect: CGRect)
-  init()
 }

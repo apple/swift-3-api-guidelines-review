@@ -37,7 +37,6 @@ class NSAnimation : NSObject, NSCopying, NSCoding {
   func clearStart()
   func clearStop()
   var runLoopModesForAnimating: [String]? { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -78,9 +77,6 @@ let NSViewAnimationFadeOutEffect: String
 class NSViewAnimation : NSAnimation {
   init(viewAnimations viewAnimations: [[String : AnyObject]])
   var viewAnimations: [[String : AnyObject]]
-  init(duration duration: NSTimeInterval, animationCurve animationCurve: NSAnimationCurve)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __vaFlags {
   var reserved: UInt32

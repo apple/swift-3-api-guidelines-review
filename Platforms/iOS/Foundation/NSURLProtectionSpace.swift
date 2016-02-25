@@ -31,8 +31,6 @@ class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
   var proxyType: String? { get }
   var `protocol`: String? { get }
   var authenticationMethod: String { get }
-  func isProxy() -> Bool
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

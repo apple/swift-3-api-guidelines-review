@@ -85,7 +85,6 @@ enum MDLVertexFormat : UInt {
 @available(iOS 9.0, *)
 class MDLVertexBufferLayout : NSObject, NSCopying {
   var stride: Int
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -97,7 +96,6 @@ class MDLVertexAttribute : NSObject, NSCopying {
   var offset: Int
   var bufferIndex: Int
   var initializationValue: vector_float4
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -111,7 +109,6 @@ class MDLVertexDescriptor : NSObject, NSCopying {
   func reset()
   func setPackedStrides()
   func setPackedOffsets()
-  init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

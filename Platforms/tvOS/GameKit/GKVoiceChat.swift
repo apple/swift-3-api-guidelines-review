@@ -22,7 +22,6 @@ class GKVoiceChat : NSObject {
   @available(tvOS 8.0, *)
   var players: [GKPlayer] { get }
   class func isVoIPAllowed() -> Bool
-  init()
 }
 extension GKVoiceChat {
 }

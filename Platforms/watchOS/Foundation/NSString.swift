@@ -49,7 +49,6 @@ struct NSStringEncodingConversionOptions : OptionSetType {
 class NSString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   func character(at index: Int) -> unichar
-  init()
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
@@ -58,12 +57,6 @@ class NSString : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 }
 
 extension NSString : StringLiteralConvertible {
-  required convenience init(unicodeScalarLiteral value: StaticString)
-  required convenience init(extendedGraphemeClusterLiteral value: StaticString)
-  required convenience init(stringLiteral value: StaticString)
-  typealias StringLiteralType = StaticString
-  typealias ExtendedGraphemeClusterLiteralType = StaticString
-  typealias UnicodeScalarLiteralType = StaticString
 }
 
 extension NSString {
@@ -80,7 +73,6 @@ extension NSString {
 }
 
 extension NSString : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension NSString {
   func substring(from from: Int) -> String
@@ -187,8 +179,6 @@ extension NSString {
   func applyingTransform(_ transform: String, reverse reverse: Bool) -> String?
   func write(to url: NSURL, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
   func write(toFile path: String, atomically useAuxiliaryFile: Bool, encoding enc: UInt) throws
-  var description: String { get }
-  var hash: Int { get }
   convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
   convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
   convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
@@ -268,32 +258,6 @@ let NSStringEncodingDetectionLossySubstitutionKey: String
 let NSStringEncodingDetectionLikelyLanguageKey: String
 class NSMutableString : NSString {
   func replaceCharacters(in range: NSRange, with aString: String)
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
-  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
-  convenience init(string aString: String)
-  convenience init(format format: String, arguments argList: CVaListPointer)
-  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data data: NSData, encoding encoding: UInt)
-  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
-  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
-  convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 
 extension NSMutableString {
@@ -354,59 +318,7 @@ extension NSString {
 }
 var NSProprietaryStringEncoding: UInt { get }
 class NSSimpleCString : NSString {
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
-  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
-  convenience init(string aString: String)
-  convenience init(format format: String, arguments argList: CVaListPointer)
-  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data data: NSData, encoding encoding: UInt)
-  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
-  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
-  convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 class NSConstantString : NSSimpleCString {
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init(charactersNoCopy characters: UnsafeMutablePointer<unichar>, length length: Int, freeWhenDone freeBuffer: Bool)
-  convenience init(characters characters: UnsafePointer<unichar>, length length: Int)
-  convenience init?(utf8String nullTerminatedCString: UnsafePointer<Int8>)
-  convenience init(string aString: String)
-  convenience init(format format: String, arguments argList: CVaListPointer)
-  convenience init(format format: String, locale locale: AnyObject?, arguments argList: CVaListPointer)
-  convenience init?(data data: NSData, encoding encoding: UInt)
-  convenience init?(bytes bytes: UnsafePointer<Void>, length len: Int, encoding encoding: UInt)
-  convenience init?(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length len: Int, encoding encoding: UInt, freeWhenDone freeBuffer: Bool)
-  convenience init?(cString nullTerminatedCString: UnsafePointer<Int8>, encoding encoding: UInt)
-  convenience init(contentsOf url: NSURL, encoding enc: UInt) throws
-  convenience init(contentsOfFile path: String, encoding enc: UInt) throws
-  convenience init(contentsOf url: NSURL, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  convenience init(contentsOfFile path: String, usedEncoding enc: UnsafeMutablePointer<UInt>) throws
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOfFile path: String)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(contentsOf url: NSURL)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cStringNoCopy bytes: UnsafeMutablePointer<Int8>, length length: Int, freeWhenDone freeBuffer: Bool)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>, length length: Int)
-  @available(watchOS, introduced=2.0, deprecated=2.0)
-  convenience init?(cString bytes: UnsafePointer<Int8>)
 }
 var _NSConstantStringClassReference: UnsafeMutablePointer<Void>

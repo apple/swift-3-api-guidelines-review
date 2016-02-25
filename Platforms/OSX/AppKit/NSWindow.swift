@@ -172,7 +172,6 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func makeFirstResponder(_ aResponder: NSResponder?) -> Bool
   unowned(unsafe) var firstResponder: @sil_unmanaged NSResponder { get }
   var resizeFlags: Int { get }
-  func keyDown(_ theEvent: NSEvent)
   func close()
   var isReleasedWhenClosed: Bool
   func miniaturize(_ sender: AnyObject?)
@@ -180,8 +179,6 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var isZoomed: Bool { get }
   func zoom(_ sender: AnyObject?)
   var isMiniaturized: Bool { get }
-  func tryToPerform(_ anAction: Selector, with anObject: AnyObject?) -> Bool
-  func validRequestor(forSendType sendType: String, returnType returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
   func setContentBorderThickness(_ thickness: CGFloat, for edge: NSRectEdge)
@@ -347,8 +344,6 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   convenience init(contentViewController contentViewController: NSViewController)
   @available(OSX 10.11, *)
   func performDrag(_ event: NSEvent)
-  convenience init()
-  init?(coder coder: NSCoder)
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)

@@ -89,7 +89,6 @@ class UIImage : NSObject, NSSecureCoding {
   func imageFlippedForRightToLeftLayoutDirection() -> UIImage
   @available(tvOS 9.0, *)
   var flipsForRightToLeftLayoutDirection: Bool { get }
-  init()
   @available(tvOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 2.0, *)
@@ -99,7 +98,6 @@ class UIImage : NSObject, NSSecureCoding {
 
 extension UIImage : _ImageLiteralConvertible {
   convenience init!(failableImageLiteral name: String)
-  required convenience init(imageLiteral name: String)
 }
 extension UIImage {
 }

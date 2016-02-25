@@ -10,7 +10,6 @@ class NSPasteboardItem : NSObject, NSPasteboardWriting, NSPasteboardReading {
   func data(forType type: String) -> NSData?
   func string(forType type: String) -> String?
   func propertyList(forType type: String) -> AnyObject?
-  init()
   @available(OSX 10.6, *)
   func writableTypes(for pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)

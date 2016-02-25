@@ -121,7 +121,6 @@ class AVAudioSession : NSObject {
   var preferredInput: AVAudioSessionPortDescription? { get }
   @available(iOS 7.0, *)
   var availableInputs: [AVAudioSessionPortDescription]? { get }
-  init()
 }
 typealias PermissionBlock = (Bool) -> Void
 extension AVAudioSession {
@@ -280,7 +279,6 @@ class AVAudioSessionChannelDescription : NSObject {
   var owningPortUID: String { get }
   var channelNumber: Int { get }
   var channelLabel: AudioChannelLabel { get }
-  init()
 }
 @available(iOS 6.0, *)
 class AVAudioSessionPortDescription : NSObject {
@@ -296,13 +294,11 @@ class AVAudioSessionPortDescription : NSObject {
   var preferredDataSource: AVAudioSessionDataSourceDescription? { get }
   @available(iOS 7.0, *)
   func setPreferredDataSource(_ dataSource: AVAudioSessionDataSourceDescription?) throws
-  init()
 }
 @available(iOS 6.0, *)
 class AVAudioSessionRouteDescription : NSObject {
   var inputs: [AVAudioSessionPortDescription] { get }
   var outputs: [AVAudioSessionPortDescription] { get }
-  init()
 }
 @available(iOS 6.0, *)
 class AVAudioSessionDataSourceDescription : NSObject {
@@ -320,7 +316,6 @@ class AVAudioSessionDataSourceDescription : NSObject {
   var preferredPolarPattern: String? { get }
   @available(iOS 7.0, *)
   func setPreferredPolarPattern(_ pattern: String?) throws
-  init()
 }
 protocol AVAudioSessionDelegate : NSObjectProtocol {
   optional func beginInterruption()

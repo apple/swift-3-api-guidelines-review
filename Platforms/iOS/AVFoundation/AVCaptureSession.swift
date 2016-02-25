@@ -90,7 +90,6 @@ class AVCaptureSession : NSObject {
   func stopRunning()
   @available(iOS 7.0, *)
   var masterClock: CMClock! { get }
-  init()
 }
 @available(iOS 4.0, *)
 class AVCaptureConnection : NSObject {
@@ -125,11 +124,9 @@ class AVCaptureConnection : NSObject {
   var isVideoStabilizationEnabled: Bool { get }
   @available(iOS, introduced=6.0, deprecated=8.0, message="Use preferredVideoStabilizationMode instead.")
   var enablesVideoStabilizationWhenAvailable: Bool
-  init()
 }
 @available(iOS 4.0, *)
 class AVCaptureAudioChannel : NSObject {
   var averagePowerLevel: Float { get }
   var peakHoldLevel: Float { get }
-  init()
 }

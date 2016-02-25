@@ -67,7 +67,6 @@ class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopy
   var diffieHellmanGroup: NEVPNIKEv2DiffieHellmanGroup
   @available(iOS 8.0, *)
   var lifetimeMinutes: Int32
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
@@ -102,6 +101,4 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   var enableRevocationCheck: Bool
   @available(iOS 9.0, *)
   var strictRevocationCheck: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

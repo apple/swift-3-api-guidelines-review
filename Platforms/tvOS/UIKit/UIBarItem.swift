@@ -1,7 +1,6 @@
 
 @available(tvOS 2.0, *)
 class UIBarItem : NSObject, NSCoding, UIAppearance {
-  init()
   init?(coder aDecoder: NSCoder)
   var isEnabled: Bool
   var title: String?

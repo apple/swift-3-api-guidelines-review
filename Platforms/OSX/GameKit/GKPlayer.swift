@@ -10,7 +10,6 @@ class GKPlayer : NSObject {
   class func anonymousGuestPlayer(withIdentifier guestIdentifier: String) -> Self
   @available(OSX 10.11, *)
   var guestIdentifier: String? { get }
-  init()
 }
 extension GKPlayer {
   @available(OSX 10.8, *)

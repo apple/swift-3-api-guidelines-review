@@ -16,7 +16,6 @@ class UIDocumentInteractionController : NSObject, UIActionSheetDelegate {
   func dismissPreview(animated animated: Bool)
   func dismissMenu(animated animated: Bool)
   var gestureRecognizers: [UIGestureRecognizer] { get }
-  init()
   @available(iOS, introduced=2.0, deprecated=8.3)
   func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)

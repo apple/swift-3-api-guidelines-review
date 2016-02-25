@@ -9,5 +9,4 @@ class MPContentItem : NSObject {
   var isPlayable: Bool
   var playbackProgress: Float
   init(identifier identifier: String)
-  convenience init()
 }

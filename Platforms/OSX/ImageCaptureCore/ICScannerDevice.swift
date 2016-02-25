@@ -28,5 +28,4 @@ class ICScannerDevice : ICDevice {
   func requestOverviewScan()
   func requestScan()
   func cancelScan()
-  init()
 }

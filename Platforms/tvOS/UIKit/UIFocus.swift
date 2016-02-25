@@ -15,7 +15,6 @@ class UIFocusUpdateContext : NSObject {
   weak var previouslyFocusedView: @sil_weak UIView? { get }
   weak var nextFocusedView: @sil_weak UIView? { get }
   var focusHeading: UIFocusHeading { get }
-  init()
 }
 @available(tvOS 9.0, *)
 protocol UIFocusEnvironment : NSObjectProtocol {
@@ -29,6 +28,4 @@ protocol UIFocusEnvironment : NSObjectProtocol {
 class UIFocusGuide : UILayoutGuide {
   var isEnabled: Bool
   weak var preferredFocusedView: @sil_weak UIView?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

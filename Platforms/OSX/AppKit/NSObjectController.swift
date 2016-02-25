@@ -1,7 +1,6 @@
 
 class NSObjectController : NSController {
   init(content content: AnyObject?)
-  init?(coder coder: NSCoder)
   var content: AnyObject?
   var selection: AnyObject { get }
   var selectedObjects: [AnyObject] { get }
@@ -17,7 +16,6 @@ class NSObjectController : NSController {
   func remove(_ sender: AnyObject?)
   var canRemove: Bool { get }
   func validate(_ item: NSValidatedUserInterfaceItem) -> Bool
-  convenience init()
 }
 struct __objectControllerFlags {
   var _editable: UInt32

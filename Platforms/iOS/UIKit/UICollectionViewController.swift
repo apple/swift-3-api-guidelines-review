@@ -2,8 +2,6 @@
 @available(iOS 6.0, *)
 class UICollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   init(collectionViewLayout layout: UICollectionViewLayout)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
   var collectionView: UICollectionView?
   var clearsSelectionOnViewWillAppear: Bool
   @available(iOS 7.0, *)
@@ -12,7 +10,6 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   var collectionViewLayout: UICollectionViewLayout { get }
   @available(iOS 9.0, *)
   var installsStandardGestureForInteractiveMovement: Bool
-  convenience init()
   @available(iOS 6.0, *)
   func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)

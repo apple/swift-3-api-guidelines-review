@@ -32,7 +32,6 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   func getRed(_ red: UnsafeMutablePointer<CGFloat>, green green: UnsafeMutablePointer<CGFloat>, blue blue: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>) -> Bool
   func withAlphaComponent(_ alpha: CGFloat) -> UIColor
   var cgColor: CGColor { get }
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
@@ -43,5 +42,4 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
 }
 
 extension UIColor : _ColorLiteralConvertible {
-  required convenience init(colorLiteralRed red: Float, green green: Float, blue blue: Float, alpha alpha: Float)
 }

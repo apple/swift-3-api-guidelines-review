@@ -8,13 +8,11 @@ class MDLObject : NSObject, MDLNamed {
   var children: MDLObjectContainerComponent
   func addChild(_ child: MDLObject)
   func boundingBox(atTime time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
-  init()
   @available(tvOS 9.0, *)
   var name: String
 }
 @available(tvOS 9.0, *)
 class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
-  init()
   @available(tvOS 9.0, *)
   func add(_ object: MDLObject)
   @available(tvOS 9.0, *)

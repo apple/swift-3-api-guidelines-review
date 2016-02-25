@@ -11,7 +11,6 @@ class NSPort : NSObject, NSCopying, NSCoding {
   var reservedSpaceLength: Int { get }
   func send(before limitDate: NSDate, components components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
   func send(before limitDate: NSDate, msgid msgID: Int, components components: NSMutableArray?, from receivePort: NSPort?, reserved headerSpaceReserved: Int) -> Bool
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -21,17 +20,11 @@ protocol NSPortDelegate : NSObjectProtocol {
 class NSMachPort : NSPort {
   class func port(withMachPort machPort: UInt32) -> NSPort
   init(machPort machPort: UInt32)
-  func setDelegate(_ anObject: NSMachPortDelegate?)
-  func delegate() -> NSMachPortDelegate?
   @available(tvOS 2.0, *)
   class func port(withMachPort machPort: UInt32, options f: NSMachPortOptions = []) -> NSPort
   @available(tvOS 2.0, *)
   init(machPort machPort: UInt32, options f: NSMachPortOptions = [])
   var machPort: UInt32 { get }
-  func schedule(in runLoop: NSRunLoop, forMode mode: String)
-  func remove(from runLoop: NSRunLoop, forMode mode: String)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
 struct NSMachPortOptions : OptionSetType {
@@ -45,6 +38,4 @@ protocol NSMachPortDelegate : NSPortDelegate {
   optional func handleMachMessage(_ msg: UnsafeMutablePointer<Void>)
 }
 class NSMessagePort : NSPort {
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -7,5 +7,4 @@ class MKMapSnapshotter : NSObject {
   func start(_ queue: dispatch_queue_t, completionHandler completionHandler: MKMapSnapshotCompletionHandler)
   func cancel()
   var isLoading: Bool { get }
-  convenience init()
 }

@@ -14,8 +14,6 @@ class DOMKeyboardEvent : DOMUIEvent {
   var metaKey: Bool { get }
   @available(OSX 10.5, *)
   var altGraphKey: Bool { get }
-  var keyCode: Int32 { get }
-  var charCode: Int32 { get }
   func getModifierState(_ keyIdentifierArg: String!) -> Bool
   @available(OSX 10.8, *)
   func initKeyboardEvent(_ type: String!, canBubble canBubble: Bool, cancelable cancelable: Bool, view view: DOMAbstractView!, keyIdentifier keyIdentifier: String!, location location: UInt32, ctrlKey ctrlKey: Bool, altKey altKey: Bool, shiftKey shiftKey: Bool, metaKey metaKey: Bool, altGraphKey altGraphKey: Bool)

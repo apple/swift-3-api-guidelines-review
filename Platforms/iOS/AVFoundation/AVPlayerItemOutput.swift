@@ -5,7 +5,6 @@ class AVPlayerItemOutput : NSObject {
   func itemTime(forMachAbsoluteTime machAbsoluteTime: Int64) -> CMTime
   @available(iOS 6.0, *)
   var suppressesPlayerRendering: Bool
-  init()
 }
 @available(iOS 6.0, *)
 class AVPlayerItemVideoOutput : AVPlayerItemOutput {
@@ -16,7 +15,6 @@ class AVPlayerItemVideoOutput : AVPlayerItemOutput {
   func requestNotificationOfMediaDataChange(advanceInterval interval: NSTimeInterval)
   unowned(unsafe) var delegate: @sil_unmanaged AVPlayerItemOutputPullDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
-  convenience init()
 }
 protocol AVPlayerItemOutputPullDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
@@ -30,7 +28,6 @@ class AVPlayerItemLegibleOutput : AVPlayerItemOutput {
   weak var delegate: @sil_weak AVPlayerItemLegibleOutputPushDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
   var advanceIntervalForDelegateInvocation: NSTimeInterval
-  init()
 }
 extension AVPlayerItemLegibleOutput {
   init(mediaSubtypesForNativeRepresentation subtypes: [NSNumber])
@@ -57,7 +54,6 @@ class AVPlayerItemMetadataOutput : AVPlayerItemOutput {
   weak var delegate: @sil_weak AVPlayerItemMetadataOutputPushDelegate? { get }
   var delegateQueue: dispatch_queue_t? { get }
   var advanceIntervalForDelegateInvocation: NSTimeInterval
-  convenience init()
 }
 protocol AVPlayerItemMetadataOutputPushDelegate : AVPlayerItemOutputPushDelegate {
   @available(iOS 8.0, *)

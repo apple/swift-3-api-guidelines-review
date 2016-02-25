@@ -9,6 +9,4 @@ class NSCollectionViewGridLayout : NSCollectionViewLayout {
   var minimumItemSize: NSSize
   var maximumItemSize: NSSize
   var backgroundColors: [NSColor]!
-  init()
-  init?(coder aDecoder: NSCoder)
 }

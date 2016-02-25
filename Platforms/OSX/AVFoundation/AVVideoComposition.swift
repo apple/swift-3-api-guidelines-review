@@ -9,7 +9,6 @@ class AVVideoComposition : NSObject, NSCopying, NSMutableCopying {
   var renderSize: CGSize { get }
   var instructions: [AVVideoCompositionInstructionProtocol] { get }
   var animationTool: AVVideoCompositionCoreAnimationTool? { get }
-  init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)
@@ -21,19 +20,8 @@ extension AVVideoComposition {
 }
 @available(OSX 10.7, *)
 class AVMutableVideoComposition : AVVideoComposition {
-  @available(OSX 10.9, *)
-  /*not inherited*/ init(propertiesOf asset: AVAsset)
-  @available(OSX 10.9, *)
-  var customVideoCompositorClass: AnyObject.Type?
-  var frameDuration: CMTime
-  var renderSize: CGSize
-  var instructions: [AVVideoCompositionInstructionProtocol]
-  var animationTool: AVVideoCompositionCoreAnimationTool?
-  init()
 }
 extension AVMutableVideoComposition {
-  @available(OSX 10.11, *)
-  /*not inherited*/ init(asset asset: AVAsset, applyingCIFiltersWithHandler applier: (AVAsynchronousCIImageFilteringRequest) -> Void)
 }
 @available(OSX 10.7, *)
 class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMutableCopying, AVVideoCompositionInstructionProtocol {
@@ -45,7 +33,6 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
   var requiredSourceTrackIDs: [NSValue] { get }
   @available(OSX 10.9, *)
   var passthroughTrackID: CMPersistentTrackID { get }
-  init()
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
@@ -60,12 +47,6 @@ class AVVideoCompositionInstruction : NSObject, NSSecureCoding, NSCopying, NSMut
 }
 @available(OSX 10.7, *)
 class AVMutableVideoCompositionInstruction : AVVideoCompositionInstruction {
-  var timeRange: CMTimeRange
-  var backgroundColor: CGColor?
-  var layerInstructions: [AVVideoCompositionLayerInstruction]
-  var enablePostProcessing: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
@@ -74,7 +55,6 @@ class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, 
   func getOpacityRamp(for time: CMTime, startOpacity startOpacity: UnsafeMutablePointer<Float>, endOpacity endOpacity: UnsafeMutablePointer<Float>, timeRange timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
   @available(OSX 10.9, *)
   func getCropRectangleRamp(for time: CMTime, startCropRectangle startCropRectangle: UnsafeMutablePointer<CGRect>, endCropRectangle endCropRectangle: UnsafeMutablePointer<CGRect>, timeRange timeRange: UnsafeMutablePointer<CMTimeRange>) -> Bool
-  init()
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
@@ -88,7 +68,6 @@ class AVVideoCompositionLayerInstruction : NSObject, NSSecureCoding, NSCopying, 
 @available(OSX 10.7, *)
 class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruction {
   convenience init(assetTrack track: AVAssetTrack)
-  var trackID: CMPersistentTrackID
   func setTransformRampFromStart(_ startTransform: CGAffineTransform, toEnd endTransform: CGAffineTransform, timeRange timeRange: CMTimeRange)
   func setTransform(_ transform: CGAffineTransform, at time: CMTime)
   func setOpacityRampFromStartOpacity(_ startOpacity: Float, toEndOpacity endOpacity: Float, timeRange timeRange: CMTimeRange)
@@ -97,8 +76,6 @@ class AVMutableVideoCompositionLayerInstruction : AVVideoCompositionLayerInstruc
   func setCropRectangleRampFromStartCropRectangle(_ startCropRectangle: CGRect, toEndCropRectangle endCropRectangle: CGRect, timeRange timeRange: CMTimeRange)
   @available(OSX 10.9, *)
   func setCropRectangle(_ cropRectangle: CGRect, at time: CMTime)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 class AVVideoCompositionCoreAnimationTool : NSObject {
@@ -106,7 +83,6 @@ class AVVideoCompositionCoreAnimationTool : NSObject {
   convenience init(postProcessingAsVideoLayer videoLayer: CALayer, in animationLayer: CALayer)
   @available(OSX 10.9, *)
   convenience init(postProcessingAsVideoLayers videoLayers: [CALayer], in animationLayer: CALayer)
-  init()
 }
 extension AVAsset {
   func unusedTrackID() -> CMPersistentTrackID

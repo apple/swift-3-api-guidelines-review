@@ -18,5 +18,4 @@ class NSBackgroundActivityScheduler : NSObject {
   func schedule(_ block: (NSBackgroundActivityCompletionHandler) -> Void)
   func invalidate()
   var shouldDefer: Bool { get }
-  convenience init()
 }

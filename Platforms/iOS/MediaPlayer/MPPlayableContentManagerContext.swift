@@ -7,5 +7,4 @@ class MPPlayableContentManagerContext : NSObject {
   @available(iOS, introduced=8.4, deprecated=9.0, message="Use contentLimitsEnforced")
   var contentLimitsEnabled: Bool { get }
   var endpointAvailable: Bool { get }
-  init()
 }

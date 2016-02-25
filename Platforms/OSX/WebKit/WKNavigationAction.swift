@@ -18,5 +18,4 @@ class WKNavigationAction : NSObject {
   @NSCopying var request: NSURLRequest { get }
   var modifierFlags: NSEventModifierFlags { get }
   var buttonNumber: Int { get }
-  init()
 }

@@ -56,7 +56,6 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   var fresnelExponent: CGFloat
   @available(tvOS 9.0, *)
   var blendMode: SCNBlendMode
-  init()
   @available(tvOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)

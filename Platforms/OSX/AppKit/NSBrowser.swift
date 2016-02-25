@@ -48,7 +48,6 @@ enum NSBrowserDropOperation : UInt {
   case above
 }
 class NSBrowser : NSControl {
-  class func cellClass() -> AnyClass
   func loadColumnZero()
   var isLoaded: Bool { get }
   var doubleAction: Selector
@@ -116,7 +115,6 @@ class NSBrowser : NSControl {
   var firstVisibleColumn: Int { get }
   var lastVisibleColumn: Int { get }
   func loadedCell(atRow row: Int, column col: Int) -> AnyObject?
-  func selectAll(_ sender: AnyObject?)
   func tile()
   func doClick(_ sender: AnyObject?)
   func doDoubleClick(_ sender: AnyObject?)
@@ -158,10 +156,6 @@ class NSBrowser : NSControl {
   var backgroundColor: NSColor
   @available(OSX 10.6, *)
   func editItem(at indexPath: NSIndexPath, with theEvent: NSEvent, select select: Bool)
-  func selectedCell() -> AnyObject?
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 let NSBrowserColumnConfigurationDidChangeNotification: String
 protocol NSBrowserDelegate : NSObjectProtocol {

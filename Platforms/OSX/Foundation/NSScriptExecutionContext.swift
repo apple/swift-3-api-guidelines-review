@@ -4,5 +4,4 @@ class NSScriptExecutionContext : NSObject {
   var topLevelObject: AnyObject?
   var objectBeingTested: AnyObject?
   var rangeContainerObject: AnyObject?
-  init()
 }

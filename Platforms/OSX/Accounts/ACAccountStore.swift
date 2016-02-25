@@ -20,7 +20,6 @@ class ACAccountStore : NSObject {
   func requestAccessToAccounts(_ accountType: ACAccountType!, options options: [NSObject : AnyObject]! = [:], completion completion: ACAccountStoreRequestAccessCompletionHandler!)
   func renewCredentials(for account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
   func removeAccount(_ account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
-  init()
 }
 @available(OSX 10.8, *)
 let ACAccountStoreDidChangeNotification: String

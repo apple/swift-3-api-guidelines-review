@@ -1,7 +1,6 @@
 
 class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
   init(window window: NSWindow?)
-  init?(coder coder: NSCoder)
   convenience init(windowNibName windowNibName: String)
   convenience init(windowNibName windowNibName: String, owner owner: AnyObject)
   convenience init(windowNibPath windowNibPath: String, owner owner: AnyObject)
@@ -24,7 +23,6 @@ class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
   func loadWindow()
   func close()
   @IBAction func showWindow(_ sender: AnyObject?)
-  convenience init()
   @available(OSX 10.10, *)
   func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)

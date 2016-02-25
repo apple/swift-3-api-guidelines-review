@@ -8,16 +8,12 @@ class NSDictionaryControllerKeyValuePair : NSObject {
 }
 @available(OSX 10.5, *)
 class NSDictionaryController : NSArrayController {
-  func newObject() -> NSDictionaryControllerKeyValuePair
   var initialKey: String
   var initialValue: AnyObject
   var includedKeys: [String]
   var excludedKeys: [String]
   var localizedKeyDictionary: [String : String]
   var localizedKeyTable: String?
-  init(content content: AnyObject?)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct __dictionaryControllerFlags {
   var _deepCopiesValues: UInt32

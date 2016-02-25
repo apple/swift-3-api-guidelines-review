@@ -44,5 +44,4 @@ class CLLocationManager : NSObject {
   func stopUpdatingLocation()
   @available(tvOS 9.0, *)
   func requestLocation()
-  init()
 }

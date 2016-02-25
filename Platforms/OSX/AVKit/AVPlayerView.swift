@@ -10,9 +10,6 @@ class AVPlayerView : NSView {
   var videoBounds: NSRect { get }
   @available(OSX 10.10, *)
   var contentOverlayView: NSView? { get }
-  init(frame frameRect: NSRect)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 @available(OSX 10.9, *)
 enum AVPlayerViewControlsStyle : Int {

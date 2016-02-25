@@ -67,7 +67,6 @@ class SCNAction : NSObject, NSCopying, NSSecureCoding {
   class func customAction(withDuration seconds: NSTimeInterval, actionBlock block: (SCNNode, CGFloat) -> Void) -> SCNAction
   @available(OSX 10.11, *)
   class func play(_ source: SCNAudioSource, waitForCompletion wait: Bool) -> SCNAction
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

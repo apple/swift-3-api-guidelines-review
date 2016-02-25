@@ -18,6 +18,4 @@ class NSDateIntervalFormatter : NSFormatter {
   var dateStyle: NSDateIntervalFormatterStyle
   var timeStyle: NSDateIntervalFormatterStyle
   func string(from fromDate: NSDate, to toDate: NSDate) -> String
-  init()
-  init?(coder aDecoder: NSCoder)
 }

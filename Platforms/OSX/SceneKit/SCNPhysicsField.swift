@@ -30,7 +30,6 @@ class SCNPhysicsField : NSObject, NSCopying, NSSecureCoding {
   class func electric() -> SCNPhysicsField
   class func magnetic() -> SCNPhysicsField
   class func customField(evaluationBlock block: SCNFieldForceEvaluator) -> SCNPhysicsField
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.10, *)

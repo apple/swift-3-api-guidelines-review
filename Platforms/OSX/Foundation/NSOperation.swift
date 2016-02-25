@@ -25,7 +25,6 @@ class NSOperation : NSObject {
   var qualityOfService: NSQualityOfService
   @available(OSX 10.10, *)
   var name: String?
-  init()
 }
 enum NSOperationQueuePriority : Int {
   init?(rawValue rawValue: Int)
@@ -41,7 +40,6 @@ class NSBlockOperation : NSOperation {
   convenience init(block block: () -> Void)
   func addExecutionBlock(_ block: () -> Void)
   var executionBlocks: [() -> Void] { get }
-  init()
 }
 @available(OSX 10.5, *)
 let NSInvocationOperationVoidResultException: String
@@ -72,5 +70,4 @@ class NSOperationQueue : NSObject {
   class func current() -> NSOperationQueue?
   @available(OSX 10.6, *)
   class func main() -> NSOperationQueue
-  init()
 }

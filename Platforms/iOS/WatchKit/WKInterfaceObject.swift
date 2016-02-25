@@ -21,5 +21,4 @@ extension WKInterfaceObject {
 class WKAccessibilityImageRegion : NSObject {
   var frame: CGRect
   var label: String
-  init()
 }

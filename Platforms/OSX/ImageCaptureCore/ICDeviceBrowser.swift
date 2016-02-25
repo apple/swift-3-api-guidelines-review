@@ -13,7 +13,6 @@ class ICDeviceBrowser : NSObject {
   var browsedDeviceTypeMask: ICDeviceTypeMask
   var devices: [ICDevice]? { get }
   func preferredDevice() -> ICDevice
-  init()
   func start()
   func stop()
 }

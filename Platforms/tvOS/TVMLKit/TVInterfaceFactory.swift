@@ -11,7 +11,6 @@ protocol TVInterfaceCreating : NSObjectProtocol {
 class TVInterfaceFactory : NSObject, TVInterfaceCreating {
   class func shared() -> Self
   var extendedInterfaceCreator: TVInterfaceCreating?
-  init()
   @available(tvOS 9.0, *)
   func view(for element: TVViewElement, existing existingView: UIView?) -> UIView?
   @available(tvOS 9.0, *)

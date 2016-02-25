@@ -5,5 +5,4 @@ class PHAdjustmentData : NSObject {
   var formatIdentifier: String { get }
   var formatVersion: String { get }
   var data: NSData { get }
-  init()
 }

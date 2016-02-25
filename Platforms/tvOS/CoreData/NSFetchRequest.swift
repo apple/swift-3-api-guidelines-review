@@ -11,7 +11,6 @@ struct NSFetchRequestResultType : OptionSetType {
 }
 @available(tvOS 3.0, *)
 class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
-  init()
   @available(tvOS 4.0, *)
   convenience init(entityName entityName: String)
   var entity: NSEntityDescription?
@@ -20,7 +19,6 @@ class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   var predicate: NSPredicate?
   var sortDescriptors: [NSSortDescriptor]?
   var fetchLimit: Int
-  var affectedStores: [NSPersistentStore]?
   @available(tvOS 3.0, *)
   var resultType: NSFetchRequestResultType
   @available(tvOS 3.0, *)

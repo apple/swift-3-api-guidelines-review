@@ -13,5 +13,4 @@ class ICScannerBandData : NSObject {
   var dataNumRows: Int { get }
   var dataSize: Int { get }
   var dataBuffer: NSData? { get }
-  init()
 }

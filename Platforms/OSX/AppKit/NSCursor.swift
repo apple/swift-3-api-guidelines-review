@@ -44,13 +44,11 @@ class NSCursor : NSObject, NSCoding {
   var isSetOnMouseEntered: Bool { get }
   func mouseEntered(_ theEvent: NSEvent)
   func mouseExited(_ theEvent: NSEvent)
-  convenience init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension NSCursor : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 struct _cursorFlags {
   var onMouseExited: UInt32

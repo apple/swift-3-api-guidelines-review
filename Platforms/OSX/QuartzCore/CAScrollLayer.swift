@@ -3,9 +3,6 @@ class CAScrollLayer : CALayer {
   func scroll(to p: CGPoint)
   func scroll(to r: CGRect)
   var scrollMode: String
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }
 extension CALayer {
   func scroll(_ p: CGPoint)

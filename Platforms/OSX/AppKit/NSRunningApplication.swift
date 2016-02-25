@@ -38,7 +38,6 @@ class NSRunningApplication : NSObject {
   convenience init?(processIdentifier pid: pid_t)
   class func current() -> Self
   class func terminateAutomaticallyTerminableApplications()
-  init()
 }
 extension NSWorkspace {
   @available(OSX 10.6, *)

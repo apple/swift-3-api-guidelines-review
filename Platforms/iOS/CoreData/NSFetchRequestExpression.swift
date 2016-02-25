@@ -6,9 +6,6 @@ class NSFetchRequestExpression : NSExpression {
   var requestExpression: NSExpression { get }
   var contextExpression: NSExpression { get }
   var isCountOnlyRequest: Bool { get }
-  init(expressionType type: NSExpressionType)
-  init?(coder coder: NSCoder)
-  convenience init()
 }
 struct _fetchExpressionFlags {
   var isCountOnly: UInt32

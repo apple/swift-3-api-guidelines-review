@@ -34,5 +34,4 @@ class EKCalendarItem : EKObject {
   var recurrenceRules: [EKRecurrenceRule]?
   func addRecurrenceRule(_ rule: EKRecurrenceRule)
   func removeRecurrenceRule(_ rule: EKRecurrenceRule)
-  init()
 }

@@ -17,19 +17,15 @@ class HKObjectType : NSObject, NSSecureCoding, NSCopying {
 }
 @available(watchOS 2.0, *)
 class HKCharacteristicType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 class HKSampleType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 class HKCategoryType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 class HKCorrelationType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 enum HKQuantityAggregationStyle : Int {
@@ -42,9 +38,7 @@ enum HKQuantityAggregationStyle : Int {
 class HKQuantityType : HKSampleType {
   var aggregationStyle: HKQuantityAggregationStyle { get }
   func isCompatibleWith(_ unit: HKUnit) -> Bool
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 class HKWorkoutType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }

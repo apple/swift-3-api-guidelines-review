@@ -4,7 +4,6 @@ class SFAuthorization : NSObject, NSCoding {
   func authorizationRef() -> AuthorizationRef
   class func authorization(with flags: AuthorizationFlags, rights rights: UnsafePointer<AuthorizationRights>, environment environment: UnsafePointer<AuthorizationEnvironment>) -> AnyObject!
   init!(flags flags: AuthorizationFlags, rights rights: UnsafePointer<AuthorizationRights>, environment environment: UnsafePointer<AuthorizationEnvironment>)
-  init!()
   func invalidateCredentials()
   func obtain(right rightName: AuthorizationString, flags flags: AuthorizationFlags) throws
   func obtain(rights rights: UnsafePointer<AuthorizationRights>, flags flags: AuthorizationFlags, environment environment: UnsafePointer<AuthorizationEnvironment>, authorizedRights authorizedRights: UnsafeMutablePointer<UnsafeMutablePointer<AuthorizationRights>>) throws

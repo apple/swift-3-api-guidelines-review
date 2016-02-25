@@ -12,8 +12,6 @@ enum SKBlendMode : Int {
   case replace
 }
 class SKNode : NSResponder, NSCopying, NSCoding {
-  init()
-  init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
   var frame: CGRect { get }
   func calculateAccumulatedFrame() -> CGRect

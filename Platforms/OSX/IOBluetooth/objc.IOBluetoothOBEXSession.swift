@@ -11,13 +11,8 @@ class IOBluetoothOBEXSession : OBEXSession, IOBluetoothRFCOMMChannelDelegate {
   func sendBufferTroughChannel() -> IOReturn
   func restartTransmission()
   func isSessionTargetAMac() -> Bool
-  func openTransportConnection(_ inSelector: Selector, selectorTarget inTarget: AnyObject!, refCon inUserRefCon: UnsafeMutablePointer<Void>) -> OBEXError
-  func hasOpenTransportConnection() -> Bool
-  func closeTransportConnection() -> OBEXError
-  func sendData(toTransport inDataToSend: UnsafeMutablePointer<Void>, dataLength inDataLength: Int) -> OBEXError
   func setOpenTransportConnectionAsyncSelector(_ inSelector: Selector, target inSelectorTarget: AnyObject!, refCon inUserRefCon: AnyObject!)
   func setOBEXSessionOpenConnectionCallback(_ inCallback: IOBluetoothOBEXSessionOpenConnectionCallback!, refCon inUserRefCon: UnsafeMutablePointer<Void>)
-  init()
   func rfcommChannelData(_ rfcommChannel: IOBluetoothRFCOMMChannel!, data dataPointer: UnsafeMutablePointer<Void>, length dataLength: Int)
   func rfcommChannelOpenComplete(_ rfcommChannel: IOBluetoothRFCOMMChannel!, status error: IOReturn)
   func rfcommChannelClosed(_ rfcommChannel: IOBluetoothRFCOMMChannel!)

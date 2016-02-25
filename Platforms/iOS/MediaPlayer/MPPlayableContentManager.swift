@@ -9,5 +9,4 @@ class MPPlayableContentManager : NSObject {
   func reloadData()
   func beginUpdates()
   func endUpdates()
-  init()
 }

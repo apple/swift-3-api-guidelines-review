@@ -80,7 +80,6 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var vertical: NSFont { get }
   @available(OSX 10.7, *)
   var isVertical: Bool { get }
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)

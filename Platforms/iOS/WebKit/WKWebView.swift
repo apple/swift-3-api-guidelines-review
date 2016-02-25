@@ -34,6 +34,4 @@ class WKWebView : UIView {
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
   var scrollView: UIScrollView { get }
-  convenience init(frame frame: CGRect)
-  convenience init()
 }

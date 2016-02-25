@@ -23,13 +23,11 @@ class MIDINetworkHost : NSObject {
   var port: Int { get }
   var netServiceName: String? { get }
   var netServiceDomain: String? { get }
-  init()
 }
 @available(iOS 4.2, *)
 class MIDINetworkConnection : NSObject {
   convenience init(host host: MIDINetworkHost)
   var host: MIDINetworkHost { get }
-  init()
 }
 @available(iOS 4.2, *)
 class MIDINetworkSession : NSObject {
@@ -47,5 +45,4 @@ class MIDINetworkSession : NSObject {
   func removeConnection(_ connection: MIDINetworkConnection) -> Bool
   func sourceEndpoint() -> MIDIEndpointRef
   func destinationEndpoint() -> MIDIEndpointRef
-  init()
 }

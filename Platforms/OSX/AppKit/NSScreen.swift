@@ -20,7 +20,6 @@ class NSScreen : NSObject {
   func backingAlignedRect(_ aRect: NSRect, options options: NSAlignmentOptions = []) -> NSRect
   @available(OSX 10.7, *)
   var backingScaleFactor: CGFloat { get }
-  init()
 }
 @available(OSX 10.6, *)
 let NSScreenColorSpaceDidChangeNotification: String

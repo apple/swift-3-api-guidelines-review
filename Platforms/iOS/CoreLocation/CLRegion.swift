@@ -24,7 +24,6 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   var notifyOnEntry: Bool
   @available(iOS 7.0, *)
   var notifyOnExit: Bool
-  init()
   @available(iOS 4.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 4.0, *)

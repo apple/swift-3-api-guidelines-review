@@ -9,5 +9,4 @@ class ACAccount : NSObject {
   @available(iOS 7.0, *)
   var userFullName: String! { get }
   var credential: ACAccountCredential!
-  convenience init()
 }

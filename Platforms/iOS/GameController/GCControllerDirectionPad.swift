@@ -8,6 +8,5 @@ class GCControllerDirectionPad : GCControllerElement {
   var down: GCControllerButtonInput { get }
   var left: GCControllerButtonInput { get }
   var right: GCControllerButtonInput { get }
-  init()
 }
 typealias GCControllerDirectionPadValueChangedHandler = (GCControllerDirectionPad, Float, Float) -> Void

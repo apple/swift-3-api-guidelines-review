@@ -1,7 +1,6 @@
 
 @available(tvOS 7.0, *)
 class UIMotionEffect : NSObject, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   func keyPathsAndRelativeValues(forViewerOffset viewerOffset: UIOffset) -> [String : AnyObject]?
   @available(tvOS 7.0, *)
@@ -18,16 +17,12 @@ enum UIInterpolatingMotionEffectType : Int {
 @available(tvOS 7.0, *)
 class UIInterpolatingMotionEffect : UIMotionEffect {
   init(keyPath keyPath: String, type type: UIInterpolatingMotionEffectType)
-  init?(coder aDecoder: NSCoder)
   var keyPath: String { get }
   var type: UIInterpolatingMotionEffectType { get }
   var minimumRelativeValue: AnyObject?
   var maximumRelativeValue: AnyObject?
-  convenience init()
 }
 @available(tvOS 7.0, *)
 class UIMotionEffectGroup : UIMotionEffect {
   var motionEffects: [UIMotionEffect]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

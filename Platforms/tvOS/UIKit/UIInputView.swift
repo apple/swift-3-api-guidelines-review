@@ -12,7 +12,4 @@ class UIInputView : UIView {
   @available(tvOS 9.0, *)
   var allowsSelfSizing: Bool
   init(frame frame: CGRect, inputViewStyle inputViewStyle: UIInputViewStyle)
-  init?(coder aDecoder: NSCoder)
-  convenience init(frame frame: CGRect)
-  convenience init()
 }

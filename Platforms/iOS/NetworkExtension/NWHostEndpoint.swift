@@ -7,5 +7,4 @@ class NWHostEndpoint : NWEndpoint {
   var hostname: String { get }
   @available(iOS 9.0, *)
   var port: String { get }
-  init()
 }

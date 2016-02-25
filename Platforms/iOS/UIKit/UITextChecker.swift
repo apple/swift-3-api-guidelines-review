@@ -11,5 +11,4 @@ class UITextChecker : NSObject {
   class func hasLearnedWord(_ word: String) -> Bool
   class func unlearnWord(_ word: String)
   class func availableLanguages() -> [AnyObject]
-  init()
 }

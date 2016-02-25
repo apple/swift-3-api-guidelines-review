@@ -28,5 +28,4 @@ class NEFilterManager : NSObject {
   var providerConfiguration: NEFilterProviderConfiguration?
   @available(iOS 8.0, *)
   var isEnabled: Bool
-  init()
 }

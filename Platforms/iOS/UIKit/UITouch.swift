@@ -70,5 +70,4 @@ class UITouch : NSObject {
   var estimatedProperties: UITouchProperties { get }
   @available(iOS 9.1, *)
   var estimatedPropertiesExpectingUpdates: UITouchProperties { get }
-  init()
 }

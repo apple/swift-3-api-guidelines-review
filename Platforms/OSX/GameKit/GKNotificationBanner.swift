@@ -5,5 +5,4 @@ class GKNotificationBanner : NSObject {
   class func show(title title: String?, message message: String?, completionHandler completionHandler: (() -> Void)? = nil)
   @available(OSX 10.8, *)
   class func show(title title: String?, message message: String?, duration duration: NSTimeInterval, completionHandler completionHandler: (() -> Void)? = nil)
-  init()
 }

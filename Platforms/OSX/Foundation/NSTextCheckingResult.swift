@@ -27,7 +27,6 @@ var NSTextCheckingAllTypes: NSTextCheckingTypes { get }
 class NSTextCheckingResult : NSObject, NSCopying, NSCoding {
   var resultType: NSTextCheckingType { get }
   var range: NSRange { get }
-  init()
   @available(OSX 10.6, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.6, *)

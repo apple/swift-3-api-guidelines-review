@@ -10,9 +10,6 @@ class AVPlayerViewController : UIViewController {
   var allowsPictureInPicturePlayback: Bool
   @available(iOS 9.0, *)
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)

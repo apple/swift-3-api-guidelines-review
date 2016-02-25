@@ -14,7 +14,6 @@ class EKRecurrenceRule : EKObject, NSCopying {
   var weeksOfTheYear: [NSNumber]? { get }
   var monthsOfTheYear: [NSNumber]? { get }
   var setPositions: [NSNumber]? { get }
-  init()
   @available(iOS 4.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

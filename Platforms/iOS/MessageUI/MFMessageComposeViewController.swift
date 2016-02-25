@@ -34,12 +34,6 @@ class MFMessageComposeViewController : UINavigationController {
   func addAttachmentURL(_ attachmentURL: NSURL, withAlternateFilename alternateFilename: String?) -> Bool
   @available(iOS 7.0, *)
   func addAttachmentData(_ attachmentData: NSData, typeIdentifier uti: String, filename filename: String) -> Bool
-  @available(iOS 5.0, *)
-  init(navigationBarClass navigationBarClass: AnyClass?, toolbarClass toolbarClass: AnyClass?)
-  init(rootViewController rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol MFMessageComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 4.0, *)

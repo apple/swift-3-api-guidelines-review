@@ -13,8 +13,6 @@ class UITabBar : UIView {
   var items: [UITabBarItem]?
   unowned(unsafe) var selectedItem: @sil_unmanaged UITabBarItem?
   func setItems(_ items: [UITabBarItem]?, animated animated: Bool)
-  @available(tvOS 5.0, *)
-  var tintColor: UIColor!
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 5.0, *)
@@ -29,9 +27,6 @@ class UITabBar : UIView {
   var itemSpacing: CGFloat
   @available(tvOS 7.0, *)
   var isTranslucent: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)

@@ -23,9 +23,6 @@ class PHLivePhotoView : UIView {
   var playbackGestureRecognizer: UIGestureRecognizer { get }
   func startPlayback(_ playbackStyle: PHLivePhotoViewPlaybackStyle)
   func stopPlayback()
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol PHLivePhotoViewDelegate : NSObjectProtocol {
   @available(iOS 9.1, *)

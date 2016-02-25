@@ -28,7 +28,6 @@ class NSSound : NSObject, NSCopying, NSCoding, NSPasteboardReading, NSPasteboard
   var loops: Bool
   @available(OSX 10.5, *)
   var playbackDeviceIdentifier: String?
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

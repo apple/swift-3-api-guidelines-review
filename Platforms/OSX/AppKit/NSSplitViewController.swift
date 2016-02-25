@@ -11,15 +11,11 @@ class NSSplitViewController : NSViewController, NSSplitViewDelegate {
   func splitViewItem(for viewController: NSViewController) -> NSSplitViewItem?
   @available(OSX 10.11, *)
   var minimumThicknessForInlineSidebars: CGFloat
-  func viewDidLoad()
   func splitView(_ splitView: NSSplitView, canCollapseSubview subview: NSView) -> Bool
   func splitView(_ splitView: NSSplitView, shouldCollapseSubview subview: NSView, forDoubleClickOnDividerAt dividerIndex: Int) -> Bool
   func splitView(_ splitView: NSSplitView, shouldHideDividerAt dividerIndex: Int) -> Bool
   func splitView(_ splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect
   func splitView(_ splitView: NSSplitView, additionalEffectiveRectOfDividerAt dividerIndex: Int) -> NSRect
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.10, *)
   func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat
   @available(OSX 10.10, *)
@@ -83,7 +79,6 @@ class NSSplitViewItem : NSObject, NSAnimatablePropertyContainer, NSCoding {
   var automaticMaximumThickness: CGFloat
   @available(OSX 10.11, *)
   var isSpringLoaded: Bool
-  init()
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)

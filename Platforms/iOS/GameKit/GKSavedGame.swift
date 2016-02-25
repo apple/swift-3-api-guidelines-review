@@ -9,7 +9,6 @@ class GKSavedGame : NSObject, NSCopying {
   var modificationDate: NSDate? { get }
   @available(iOS 8.0, *)
   func loadData(completionHandler handler: ((NSData?, NSError?) -> Void)? = nil)
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

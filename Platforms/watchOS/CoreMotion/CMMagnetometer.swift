@@ -9,6 +9,4 @@ struct CMMagneticField {
 @available(watchOS 2.0, *)
 class CMMagnetometerData : CMLogItem {
   var magneticField: CMMagneticField { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -20,7 +20,6 @@ class HMAccessory : NSObject {
   var isBlocked: Bool { get }
   func updateName(_ name: String, completionHandler completion: (NSError?) -> Void)
   func identify(completionHandler completion: (NSError?) -> Void)
-  init()
 }
 @available(iOS 8.0, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {

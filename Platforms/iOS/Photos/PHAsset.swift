@@ -24,5 +24,4 @@ class PHAsset : PHObject {
   class func fetchAssets(_ options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(_ mediaType: PHAssetMediaType, options options: PHFetchOptions?) -> PHFetchResult
   class func fetchAssets(alAssetURLs assetURLs: [NSURL], options options: PHFetchOptions?) -> PHFetchResult
-  init()
 }

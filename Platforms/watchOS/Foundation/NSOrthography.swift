@@ -6,7 +6,6 @@ class NSOrthography : NSObject, NSCopying, NSCoding {
   @available(watchOS 2.0, *)
   init(dominantScript script: String, languageMap map: [String : [String]])
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

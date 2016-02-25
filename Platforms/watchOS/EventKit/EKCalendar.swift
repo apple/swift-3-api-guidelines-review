@@ -19,5 +19,4 @@ class EKCalendar : EKObject {
   var supportedEventAvailabilities: EKCalendarEventAvailabilityMask { get }
   @available(watchOS 2.0, *)
   var allowedEntityTypes: EKEntityMask { get }
-  init()
 }

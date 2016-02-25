@@ -33,7 +33,6 @@ class MTLStencilDescriptor : NSObject, NSCopying {
   var depthStencilPassOperation: MTLStencilOperation
   var readMask: UInt32
   var writeMask: UInt32
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -44,7 +43,6 @@ class MTLDepthStencilDescriptor : NSObject, NSCopying {
   @NSCopying var frontFaceStencil: MTLStencilDescriptor!
   @NSCopying var backFaceStencil: MTLStencilDescriptor!
   var label: String?
-  init()
   @available(iOS 8.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

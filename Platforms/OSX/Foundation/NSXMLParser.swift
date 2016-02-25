@@ -24,7 +24,6 @@ class NSXMLParser : NSObject {
   func abortParsing()
   @NSCopying var parserError: NSError? { get }
   var shouldResolveExternalEntities: Bool
-  convenience init()
 }
 extension NSXMLParser {
   var publicID: String? { get }

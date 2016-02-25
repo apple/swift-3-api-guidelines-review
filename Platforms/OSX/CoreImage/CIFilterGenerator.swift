@@ -15,7 +15,6 @@ class CIFilterGenerator : NSObject, NSSecureCoding, NSCopying, CIFilterConstruct
   func filter() -> CIFilter
   func registerFilterName(_ name: String)
   func write(to aURL: NSURL, atomically flag: Bool) -> Bool
-  init()
   @available(OSX 10.5, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.5, *)

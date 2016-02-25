@@ -25,5 +25,4 @@ class ALAssetRepresentation : NSObject {
   func scale() -> Float
   @available(iOS, introduced=5.0, deprecated=9.0, message="Use the Photos framework instead")
   func filename() -> String!
-  init()
 }

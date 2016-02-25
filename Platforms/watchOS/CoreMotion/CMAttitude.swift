@@ -36,7 +36,6 @@ class CMAttitude : NSObject, NSCopying, NSSecureCoding {
   var rotationMatrix: CMRotationMatrix { get }
   var quaternion: CMQuaternion { get }
   func multiply(byInverseOf attitude: CMAttitude)
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

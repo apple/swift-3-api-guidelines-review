@@ -22,7 +22,6 @@ class GKVoiceChat : NSObject {
   @available(iOS 8.0, *)
   var players: [GKPlayer] { get }
   class func isVoIPAllowed() -> Bool
-  init()
 }
 extension GKVoiceChat {
   @available(iOS, introduced=5.0, deprecated=8.0, message="use players")

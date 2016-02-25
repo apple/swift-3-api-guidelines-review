@@ -15,7 +15,6 @@ typealias UICollectionViewLayoutInteractiveTransitionCompletion = (Bool, Bool) -
 class UICollectionViewFocusUpdateContext : UIFocusUpdateContext {
   var previouslyFocusedIndexPath: NSIndexPath? { get }
   var nextFocusedIndexPath: NSIndexPath? { get }
-  init()
 }
 protocol UICollectionViewDataSource : NSObjectProtocol {
   @available(tvOS 6.0, *)
@@ -78,9 +77,7 @@ protocol UICollectionViewDelegate : UIScrollViewDelegate {
 @available(tvOS 6.0, *)
 class UICollectionView : UIScrollView {
   init(frame frame: CGRect, collectionViewLayout layout: UICollectionViewLayout)
-  init?(coder aDecoder: NSCoder)
   var collectionViewLayout: UICollectionViewLayout
-  weak var delegate: @sil_weak UICollectionViewDelegate?
   weak var dataSource: @sil_weak UICollectionViewDataSource?
   var backgroundView: UIView?
   func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String)
@@ -139,8 +136,6 @@ class UICollectionView : UIScrollView {
   func cancelInteractiveMovement()
   @available(tvOS 9.0, *)
   var remembersLastFocusedIndexPath: Bool
-  convenience init(frame frame: CGRect)
-  convenience init()
 }
 extension NSIndexPath {
   @available(tvOS 6.0, *)

@@ -26,7 +26,6 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   @available(tvOS 5.0, *)
   var cgAffineTransformValue: CGAffineTransform { get }
   var stringRepresentation: String { get }
-  convenience init()
   @available(tvOS 5.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 5.0, *)

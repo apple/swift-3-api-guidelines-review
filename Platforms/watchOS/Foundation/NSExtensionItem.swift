@@ -5,7 +5,6 @@ class NSExtensionItem : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var attributedContentText: NSAttributedString?
   var attachments: [AnyObject]?
   var userInfo: [NSObject : AnyObject]?
-  init()
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

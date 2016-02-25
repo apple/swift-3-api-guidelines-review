@@ -11,7 +11,6 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var applicationNameForUserAgent: String?
   @available(OSX 10.11, *)
   var allowsAirPlayForMediaPlayback: Bool
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

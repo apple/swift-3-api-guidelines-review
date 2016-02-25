@@ -61,6 +61,4 @@ class IMKCandidates : NSResponder {
   func lineNumberForCandidate(withIdentifier candidateIdentifier: Int) -> Int
   @available(OSX 10.7, *)
   func clearSelection()
-  init()
-  init?(coder coder: NSCoder)
 }

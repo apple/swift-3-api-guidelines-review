@@ -5,7 +5,6 @@ class AVAssetReaderOutput : NSObject {
   @available(tvOS 5.0, *)
   var alwaysCopiesSampleData: Bool
   func copyNextSampleBuffer() -> CMSampleBuffer?
-  init()
 }
 extension AVAssetReaderOutput {
   @available(tvOS 8.0, *)

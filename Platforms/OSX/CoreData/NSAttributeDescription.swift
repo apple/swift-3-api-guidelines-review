@@ -24,13 +24,9 @@ class NSAttributeDescription : NSPropertyDescription {
   var attributeValueClassName: String?
   var defaultValue: AnyObject?
   @available(OSX 10.5, *)
-  @NSCopying var versionHash: NSData { get }
-  @available(OSX 10.5, *)
   var valueTransformerName: String?
   @available(OSX 10.7, *)
   var allowsExternalBinaryDataStorage: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __attributeDescriptionFlags {
   var _hasMaxValueInExtraIvars: UInt32

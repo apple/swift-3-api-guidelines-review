@@ -21,8 +21,4 @@ class PKPaymentButton : UIButton {
   convenience init(type buttonType: PKPaymentButtonType, style buttonStyle: PKPaymentButtonStyle)
   @available(iOS 9.0, *)
   init(paymentButtonType type: PKPaymentButtonType, paymentButtonStyle style: PKPaymentButtonStyle)
-  convenience init(type buttonType: UIButtonType)
-  convenience init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

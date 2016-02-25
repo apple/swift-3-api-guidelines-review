@@ -7,7 +7,6 @@ class HMHomeManager : NSObject {
   func updatePrimaryHome(_ home: HMHome, completionHandler completion: (NSError?) -> Void)
   func addHome(name homeName: String, completionHandler completion: (HMHome?, NSError?) -> Void)
   func removeHome(_ home: HMHome, completionHandler completion: (NSError?) -> Void)
-  init()
 }
 @available(iOS 8.0, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {

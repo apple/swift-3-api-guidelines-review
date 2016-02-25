@@ -16,7 +16,6 @@ class UIBezierPath : NSObject, NSCopying, NSCoding {
   convenience init(roundedRect rect: CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii cornerRadii: CGSize)
   convenience init(arcCenter center: CGPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat, clockwise clockwise: Bool)
   convenience init(cgPath CGPath: CGPath)
-  init()
   init?(coder aDecoder: NSCoder)
   var cgPath: CGPath
   func move(to point: CGPoint)

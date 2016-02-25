@@ -24,7 +24,6 @@ class SCNCamera : NSObject, SCNAnimatable, SCNTechniqueSupport, NSCopying, NSSec
   var aperture: CGFloat
   @available(tvOS 8.0, *)
   var categoryBitMask: Int
-  init()
   @available(tvOS 8.0, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)

@@ -20,7 +20,6 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   func insertTabViewItem(_ tabViewItem: NSTabViewItem, at index: Int)
   func removeTabViewItem(_ tabViewItem: NSTabViewItem)
   func tabViewItem(for viewController: NSViewController) -> NSTabViewItem?
-  func viewDidLoad()
   func tabView(_ tabView: NSTabView, willSelect tabViewItem: NSTabViewItem?)
   func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?)
   func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool
@@ -28,9 +27,6 @@ class NSTabViewController : NSViewController, NSTabViewDelegate, NSToolbarDelega
   func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String]
   func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [String]
   func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [String]
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder coder: NSCoder)
-  convenience init()
   @available(OSX 10.10, *)
   func tabViewDidChangeNumber(ofTabViewItems tabView: NSTabView)
   @available(OSX 10.10, *)

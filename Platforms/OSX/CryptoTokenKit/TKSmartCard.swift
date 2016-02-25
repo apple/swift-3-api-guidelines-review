@@ -4,7 +4,6 @@ class TKSmartCardSlotManager : NSObject {
   class func defaultManager() -> Self?
   var slotNames: [String] { get }
   func getSlotWithName(_ name: String, reply reply: (TKSmartCardSlot?) -> Void)
-  init()
 }
 @available(OSX 10.10, *)
 enum TKSmartCardSlotState : Int {
@@ -66,7 +65,6 @@ class TKSmartCardPINFormat : NSObject {
   var pinBitOffset: Int
   var pinLengthBitOffset: Int
   var pinLengthBitSize: Int
-  init()
 }
 @available(OSX 10.11, *)
 protocol TKSmartCardUserInteractionDelegate {
@@ -85,7 +83,6 @@ class TKSmartCardUserInteraction : NSObject {
   var interactionTimeout: NSTimeInterval
   func run(reply reply: (Bool, NSError?) -> Void)
   func cancel() -> Bool
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
@@ -94,16 +91,13 @@ class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
   var locale: NSLocale!
   var resultSW: UInt16
   var resultData: NSData?
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForSecurePINVerification : TKSmartCardUserInteractionForPINOperation {
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForSecurePINChange : TKSmartCardUserInteractionForPINOperation {
   var pinConfirmation: TKSmartCardPINConfirmation
-  init()
 }
 @available(OSX 10.10, *)
 class TKSmartCardSlot : NSObject {
@@ -113,7 +107,6 @@ class TKSmartCardSlot : NSObject {
   var maxInputLength: Int { get }
   var maxOutputLength: Int { get }
   func makeSmartCard() -> TKSmartCard?
-  init()
 }
 @available(OSX 10.10, *)
 class TKSmartCard : NSObject {
@@ -130,7 +123,6 @@ class TKSmartCard : NSObject {
   func userInteractionForSecurePINVerification(with PINFormat: TKSmartCardPINFormat, apdu APDU: NSData, pinByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
   @available(OSX 10.11, *)
   func userInteractionForSecurePINChange(with PINFormat: TKSmartCardPINFormat, apdu APDU: NSData, currentPINByteOffset currentPINByteOffset: Int, newPINByteOffset newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
-  init()
 }
 extension TKSmartCard {
   var cla: UInt8

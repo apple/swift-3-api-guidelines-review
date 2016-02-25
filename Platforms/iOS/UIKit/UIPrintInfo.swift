@@ -32,7 +32,6 @@ class UIPrintInfo : NSObject, NSCopying, NSCoding {
   var outputType: UIPrintInfoOutputType
   var orientation: UIPrintInfoOrientation
   var duplex: UIPrintInfoDuplex
-  convenience init()
   @available(iOS 4.2, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 4.2, *)

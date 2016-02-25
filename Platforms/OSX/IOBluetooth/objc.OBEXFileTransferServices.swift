@@ -20,7 +20,6 @@ class OBEXFileTransferServices : NSObject {
   func send(_ inData: NSData!, type inType: String!, name inName: String!) -> OBEXError
   func getDefaultVCard(_ inLocalPathAndName: String!) -> OBEXError
   func abort() -> OBEXError
-  init()
 }
 extension NSObject {
   class func fileTransferServicesConnectionComplete(_ inServices: OBEXFileTransferServices!, error inError: OBEXError)

@@ -10,6 +10,5 @@ class NSColorPicker : NSObject, NSColorPickingDefault {
   func setMode(_ mode: NSColorPanelMode)
   var buttonToolTip: String { get }
   var minContentSize: NSSize { get }
-  init()
   func alphaControlAddedOrRemoved(_ sender: AnyObject?)
 }

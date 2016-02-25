@@ -2,7 +2,6 @@
 class CAValueFunction : NSObject, NSCoding {
   convenience init?(name name: String)
   var name: String { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

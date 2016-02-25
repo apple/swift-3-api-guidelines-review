@@ -27,8 +27,6 @@ struct MPMediaType : OptionSetType {
 }
 @available(iOS 3.0, *)
 class MPMediaItem : MPMediaEntity {
-  @available(iOS 5.0, *)
-  var persistentID: MPMediaEntityPersistentID { get }
   @available(iOS 7.0, *)
   var mediaType: MPMediaType { get }
   @available(iOS 7.0, *)
@@ -97,8 +95,6 @@ class MPMediaItem : MPMediaEntity {
   var userGrouping: String? { get }
   @available(iOS 7.0, *)
   var bookmarkTime: NSTimeInterval { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 4.2, *)
 let MPMediaItemPropertyPersistentID: String
@@ -157,5 +153,4 @@ class MPMediaItemArtwork : NSObject {
   func image(with size: CGSize) -> UIImage?
   var bounds: CGRect { get }
   var imageCropRect: CGRect { get }
-  convenience init()
 }

@@ -19,6 +19,4 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
   var localIdentifier: String?
   @available(OSX 10.10, *)
   var remoteIdentifier: String?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

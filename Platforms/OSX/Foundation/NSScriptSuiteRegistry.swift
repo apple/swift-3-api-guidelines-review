@@ -15,5 +15,4 @@ class NSScriptSuiteRegistry : NSObject {
   func classDescription(withAppleEventCode appleEventCode: FourCharCode) -> NSScriptClassDescription?
   func commandDescription(appleEventClass appleEventClassCode: FourCharCode, andAppleEventCode appleEventIDCode: FourCharCode) -> NSScriptCommandDescription?
   func aeteResource(_ languageName: String) -> NSData?
-  init()
 }

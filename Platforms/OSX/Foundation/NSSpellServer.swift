@@ -4,7 +4,6 @@ class NSSpellServer : NSObject {
   func registerLanguage(_ language: String?, byVendor vendor: String?) -> Bool
   func isWord(inUserDictionaries word: String, caseSensitive flag: Bool) -> Bool
   func run()
-  init()
 }
 struct __ssFlags {
   var delegateLearnsWords: UInt32

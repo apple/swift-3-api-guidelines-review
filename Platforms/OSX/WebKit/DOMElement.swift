@@ -21,7 +21,6 @@ class DOMElement : DOMNode {
   var offsetParent: DOMElement! { get }
   var innerHTML: String!
   var outerHTML: String!
-  var className: String!
   @available(OSX 10.5, *)
   var innerText: String! { get }
   @available(OSX 10.6, *)

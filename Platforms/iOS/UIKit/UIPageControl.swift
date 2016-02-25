@@ -11,7 +11,4 @@ class UIPageControl : UIControl {
   var pageIndicatorTintColor: UIColor?
   @available(iOS 6.0, *)
   var currentPageIndicatorTintColor: UIColor?
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

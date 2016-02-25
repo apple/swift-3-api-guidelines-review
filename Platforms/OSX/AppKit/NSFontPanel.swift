@@ -9,16 +9,8 @@ class NSFontPanel : NSPanel {
   var accessoryView: NSView?
   func setPanelFont(_ fontObj: NSFont, isMultiple flag: Bool)
   func panelConvert(_ fontObj: NSFont) -> NSFont
-  var worksWhenModal: Bool
   var isEnabled: Bool
   func reloadDefaultFontFamilies()
-  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
-  @available(OSX 10.10, *)
-  convenience init(contentViewController contentViewController: NSViewController)
-  convenience init()
-  init?(coder coder: NSCoder)
-  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
 }
 struct __fpFlags {
   var setFontChange: UInt32

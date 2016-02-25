@@ -57,7 +57,6 @@ class NSOpenGLPixelFormat : NSObject, NSCoding {
   func getValues(_ vals: UnsafeMutablePointer<GLint>, forAttribute attrib: NSOpenGLPixelFormatAttribute, forVirtualScreen screen: GLint)
   var numberOfVirtualScreens: GLint { get }
   var cglPixelFormatObj: COpaquePointer { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
@@ -98,7 +97,6 @@ class NSOpenGLContext : NSObject, NSLocking {
   func getValues(_ vals: UnsafeMutablePointer<GLint>, for param: NSOpenGLContextParameter)
   var currentVirtualScreen: GLint
   var cglContextObj: UnsafeMutablePointer<_CGLContextObject> { get }
-  init()
   func lock()
   func unlock()
 }

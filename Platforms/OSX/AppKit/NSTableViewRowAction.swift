@@ -12,7 +12,6 @@ class NSTableViewRowAction : NSObject, NSCopying {
   var style: NSTableViewRowActionStyle { get }
   var title: String
   @NSCopying var backgroundColor: NSColor!
-  init()
   @available(OSX 10.11, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

@@ -38,7 +38,6 @@ class SCNHitTestResult : NSObject {
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
   func textureCoordinates(withMappingChannel channel: Int) -> CGPoint
-  init()
 }
 protocol SCNSceneRenderer : NSObjectProtocol {
   @available(iOS 8.0, *)

@@ -40,14 +40,12 @@ enum UITextGranularity : Int {
 class UIDictationPhrase : NSObject {
   var text: String { get }
   var alternativeInterpretations: [String]? { get }
-  init()
 }
 @available(iOS 9.0, *)
 class UITextInputAssistantItem : NSObject {
   var allowsHidingShortcuts: Bool
   var leadingBarButtonGroups: [UIBarButtonItemGroup]
   var trailingBarButtonGroups: [UIBarButtonItemGroup]
-  init()
 }
 protocol UITextInput : UIKeyInput {
   @available(iOS 3.2, *)
@@ -131,14 +129,12 @@ let UITextInputTextColorKey: String
 let UITextInputTextFontKey: String
 @available(iOS 3.2, *)
 class UITextPosition : NSObject {
-  init()
 }
 @available(iOS 3.2, *)
 class UITextRange : NSObject {
   var isEmpty: Bool { get }
   var start: UITextPosition { get }
   var end: UITextPosition { get }
-  init()
 }
 @available(iOS 6.0, *)
 class UITextSelectionRect : NSObject {
@@ -147,7 +143,6 @@ class UITextSelectionRect : NSObject {
   var containsStart: Bool { get }
   var containsEnd: Bool { get }
   var isVertical: Bool { get }
-  init()
 }
 protocol UITextInputDelegate : NSObjectProtocol {
   func selectionWillChange(_ textInput: UITextInput?)
@@ -168,7 +163,6 @@ protocol UITextInputTokenizer : NSObjectProtocol {
 @available(iOS 3.2, *)
 class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
   init(textInput textInput: UIResponder)
-  init()
   @available(iOS 3.2, *)
   func rangeEnclosingPosition(_ position: UITextPosition, with granularity: UITextGranularity, inDirection direction: UITextDirection) -> UITextRange?
   @available(iOS 3.2, *)
@@ -182,7 +176,6 @@ class UITextInputStringTokenizer : NSObject, UITextInputTokenizer {
 class UITextInputMode : NSObject, NSSecureCoding {
   var primaryLanguage: String? { get }
   class func activeInputModes() -> [String]
-  init()
   @available(iOS 4.2, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.2, *)

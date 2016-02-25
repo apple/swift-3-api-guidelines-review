@@ -34,7 +34,6 @@ class ABAddressBook : NSObject {
   func defaultCountryCode() -> String!
   @available(OSX 10.3, *)
   func defaultNameOrdering() -> Int
-  init()
 }
 struct __ABBookflags {
   var hasUnsavedChanges: UInt32

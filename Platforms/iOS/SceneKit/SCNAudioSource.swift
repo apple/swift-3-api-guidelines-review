@@ -11,7 +11,6 @@ class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
   var loops: Bool
   var shouldStream: Bool
   func load()
-  convenience init()
   @available(iOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(iOS 9.0, *)

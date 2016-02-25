@@ -51,7 +51,6 @@ class PKPassLibrary : NSObject {
   func activate(_ paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion completion: ((Bool, NSError) -> Void)? = nil)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
   func activate(_ paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion completion: ((Bool, NSError) -> Void)? = nil)
-  init()
 }
 @available(iOS 6.0, *)
 let PKPassLibraryDidChangeNotification: String

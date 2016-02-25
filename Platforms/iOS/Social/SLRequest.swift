@@ -17,5 +17,4 @@ class SLRequest : NSObject {
   func addMultipartData(_ data: NSData!, withName name: String!, type type: String!, filename filename: String!)
   func preparedURLRequest() -> NSURLRequest!
   func perform(handler handler: SLRequestHandler!)
-  init()
 }

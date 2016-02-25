@@ -43,7 +43,6 @@ class NSProgress : NSObject {
   class func removeSubscriber(_ subscriber: AnyObject)
   @available(OSX 10.9, *)
   var isOld: Bool { get }
-  convenience init()
 }
 typealias NSProgressUnpublishingHandler = () -> Void
 typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?

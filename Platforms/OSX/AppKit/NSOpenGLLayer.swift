@@ -8,7 +8,4 @@ class NSOpenGLLayer : CAOpenGLLayer {
   func openGLContext(for pixelFormat: NSOpenGLPixelFormat) -> NSOpenGLContext
   func canDraw(in context: NSOpenGLContext, pixelFormat pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>) -> Bool
   func draw(in context: NSOpenGLContext, pixelFormat pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>)
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

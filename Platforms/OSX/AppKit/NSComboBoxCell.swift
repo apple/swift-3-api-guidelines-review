@@ -28,10 +28,6 @@ class NSComboBoxCell : NSTextFieldCell {
   var objectValueOfSelectedItem: AnyObject? { get }
   func indexOfItem(with object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __cbcFlags {
   var usesDataSource: UInt32

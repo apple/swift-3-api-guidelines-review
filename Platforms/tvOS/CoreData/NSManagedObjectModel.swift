@@ -3,7 +3,6 @@
 class NSManagedObjectModel : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   class func mergedModel(from bundles: [NSBundle]?) -> NSManagedObjectModel?
   /*not inherited*/ init?(byMerging models: [NSManagedObjectModel]?)
-  init()
   convenience init?(contentsOf url: NSURL)
   var entitiesByName: [String : NSEntityDescription] { get }
   var entities: [NSEntityDescription]

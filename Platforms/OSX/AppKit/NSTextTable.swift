@@ -37,7 +37,6 @@ enum NSTextTableLayoutAlgorithm : UInt {
   case fixedLayoutAlgorithm
 }
 class NSTextBlock : NSObject, NSCoding, NSCopying {
-  init()
   func setValue(_ val: CGFloat, type type: NSTextBlockValueType, for dimension: NSTextBlockDimension)
   func value(for dimension: NSTextBlockDimension) -> CGFloat
   func valueType(for dimension: NSTextBlockDimension) -> NSTextBlockValueType
@@ -67,8 +66,6 @@ class NSTextTableBlock : NSTextBlock {
   var rowSpan: Int { get }
   var startingColumn: Int { get }
   var columnSpan: Int { get }
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 class NSTextTable : NSTextBlock {
   var numberOfColumns: Int
@@ -78,6 +75,4 @@ class NSTextTable : NSTextBlock {
   func rect(for block: NSTextTableBlock, layoutAt startingPoint: NSPoint, in rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
   func boundsRect(for block: NSTextTableBlock, contentRect contentRect: NSRect, in rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
   func drawBackground(for block: NSTextTableBlock, withFrame frameRect: NSRect, in controlView: NSView, characterRange charRange: NSRange, layoutManager layoutManager: NSLayoutManager)
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -11,5 +11,4 @@ class EASession : NSObject {
   var inputStream: NSInputStream? { get }
   @available(iOS 3.0, *)
   var outputStream: NSOutputStream? { get }
-  init()
 }

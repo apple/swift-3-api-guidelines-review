@@ -56,7 +56,6 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   var fresnelExponent: CGFloat
   @available(OSX 10.11, *)
   var blendMode: SCNBlendMode
-  init()
   @available(OSX 10.8, *)
   func add(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)

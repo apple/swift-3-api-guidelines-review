@@ -1,9 +1,7 @@
 
 class NSScriptClassDescription : NSClassDescription {
-  /*not inherited*/ init?(for aClass: AnyClass)
   init?(suiteName suiteName: String, className className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
   var suiteName: String? { get }
-  var className: String? { get }
   var implementationClassName: String? { get }
   var superclass: NSScriptClassDescription? { get }
   var appleEventCode: FourCharCode { get }
@@ -24,7 +22,6 @@ class NSScriptClassDescription : NSClassDescription {
   func hasReadableProperty(forKey key: String) -> Bool
   @available(OSX 10.5, *)
   func hasWritableProperty(forKey key: String) -> Bool
-  convenience init()
 }
 extension NSScriptClassDescription {
 }

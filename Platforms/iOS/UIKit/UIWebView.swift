@@ -68,9 +68,6 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   var allowsPictureInPictureMediaPlayback: Bool
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 2.0, *)
   func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)

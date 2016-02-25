@@ -15,7 +15,6 @@ class NSURLAuthenticationChallenge : NSObject, NSSecureCoding {
   @NSCopying var failureResponse: NSURLResponse? { get }
   @NSCopying var error: NSError? { get }
   var sender: NSURLAuthenticationChallengeSender? { get }
-  init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

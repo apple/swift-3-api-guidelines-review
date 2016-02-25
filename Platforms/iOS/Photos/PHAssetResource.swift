@@ -8,5 +8,4 @@ class PHAssetResource : NSObject {
   class func assetResources(for asset: PHAsset) -> [PHAssetResource]
   @available(iOS 9.1, *)
   class func assetResources(for livePhoto: PHLivePhoto) -> [PHAssetResource]
-  init()
 }

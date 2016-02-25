@@ -14,7 +14,6 @@ class UILayoutGuide : NSObject, NSCoding {
   var heightAnchor: NSLayoutDimension { get }
   var centerXAnchor: NSLayoutXAxisAnchor { get }
   var centerYAnchor: NSLayoutYAxisAnchor { get }
-  init()
   @available(tvOS 9.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

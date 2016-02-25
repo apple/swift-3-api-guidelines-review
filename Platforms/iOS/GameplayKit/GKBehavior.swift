@@ -12,7 +12,6 @@ class GKBehavior : NSObject, NSFastEnumeration {
   func removeAllGoals()
   subscript(_ idx: Int) -> GKGoal { get }
   subscript(_ goal: GKGoal) -> NSNumber
-  init()
   @available(iOS 9.0, *)
   func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

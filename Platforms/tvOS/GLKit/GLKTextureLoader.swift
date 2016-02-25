@@ -64,7 +64,6 @@ class GLKTextureInfo : NSObject, NSCopying {
   var alphaState: GLKTextureInfoAlphaState { get }
   var textureOrigin: GLKTextureInfoOrigin { get }
   var containsMipmaps: Bool { get }
-  init()
   @available(tvOS 5.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -86,5 +85,4 @@ class GLKTextureLoader : NSObject {
   func cubeMap(withContentsOfFiles paths: [AnyObject], options options: [String : NSNumber]? = [:], queue queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMap(withContentsOfFile path: String, options options: [String : NSNumber]? = [:], queue queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
   func cubeMap(withContentsOf url: NSURL, options options: [String : NSNumber]? = [:], queue queue: dispatch_queue_t?, completionHandler block: GLKTextureLoaderCallback)
-  init()
 }

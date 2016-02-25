@@ -1,7 +1,6 @@
 
 @available(tvOS 5.0, *)
 class NSIncrementalStore : NSPersistentStore {
-  func loadMetadata() throws
   func execute(_ request: NSPersistentStoreRequest, with context: NSManagedObjectContext?) throws -> AnyObject
   func newValuesForObject(with objectID: NSManagedObjectID, with context: NSManagedObjectContext) throws -> NSIncrementalStoreNode
   func newValue(forRelationship relationship: NSRelationshipDescription, forObjectWith objectID: NSManagedObjectID, with context: NSManagedObjectContext?) throws -> AnyObject
@@ -11,5 +10,4 @@ class NSIncrementalStore : NSPersistentStore {
   func managedObjectContextDidUnregisterObjects(with objectIDs: [NSManagedObjectID])
   func newObjectID(forEntity entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
   func referenceObject(for objectID: NSManagedObjectID) -> AnyObject
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, url url: NSURL, options options: [NSObject : AnyObject]? = [:])
 }

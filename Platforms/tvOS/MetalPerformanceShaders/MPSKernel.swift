@@ -7,7 +7,6 @@ class MPSKernel : NSObject, NSCopying {
   var label: String?
   init(device device: MTLDevice)
   func copy(with zone: NSZone = nil, device device: MTLDevice?) -> Self
-  convenience init()
   @available(tvOS 9.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }

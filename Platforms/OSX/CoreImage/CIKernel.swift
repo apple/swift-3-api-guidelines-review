@@ -12,21 +12,14 @@ class CIKernel : NSObject {
   func setROISelector(_ method: Selector)
   @available(OSX 10.11, *)
   func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
-  init()
 }
 @available(OSX 10.11, *)
 class CIColorKernel : CIKernel {
-  @available(OSX 10.10, *)
-  convenience init?(string string: String)
   @available(OSX 10.11, *)
   func apply(extent extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
-  init()
 }
 @available(OSX 10.11, *)
 class CIWarpKernel : CIKernel {
-  @available(OSX 10.10, *)
-  convenience init?(string string: String)
   @available(OSX 10.11, *)
   func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
-  init()
 }

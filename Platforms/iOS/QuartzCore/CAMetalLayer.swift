@@ -13,7 +13,4 @@ class CAMetalLayer : CALayer {
   var drawableSize: CGSize
   func nextDrawable() -> CAMetalDrawable?
   var presentsWithTransaction: Bool
-  init()
-  init(layer layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

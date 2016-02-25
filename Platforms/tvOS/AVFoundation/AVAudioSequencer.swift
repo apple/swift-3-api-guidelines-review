@@ -51,7 +51,6 @@ class AVMusicTrack : NSObject {
   var lengthInBeats: AVMusicTimeStamp
   var lengthInSeconds: NSTimeInterval
   var timeResolution: Int { get }
-  init()
 }
 @available(tvOS 8.0, *)
 enum AVMusicTrackLoopCount : Int {

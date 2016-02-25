@@ -13,7 +13,6 @@ class PHAssetChangeRequest : NSObject {
   var isHidden: Bool
   var contentEditingOutput: PHContentEditingOutput?
   func revertAssetContentToOriginal()
-  init()
 }
 @available(iOS 8.0, *)
 typealias PHContentEditingInputRequestID = Int
@@ -22,7 +21,6 @@ class PHContentEditingInputRequestOptions : NSObject {
   var canHandleAdjustmentData: (PHAdjustmentData) -> Bool
   var isNetworkAccessAllowed: Bool
   var progressHandler: ((Double, UnsafeMutablePointer<ObjCBool>) -> Void)?
-  init()
 }
 extension PHAsset {
   @available(iOS 8.0, *)

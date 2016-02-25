@@ -8,9 +8,6 @@ class UICollectionReusableView : UIView {
   func didTransition(from oldLayout: UICollectionViewLayout, to newLayout: UICollectionViewLayout)
   @available(iOS 8.0, *)
   func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 @available(iOS 6.0, *)
 class UICollectionViewCell : UICollectionReusableView {
@@ -19,7 +16,4 @@ class UICollectionViewCell : UICollectionReusableView {
   var isHighlighted: Bool
   var backgroundView: UIView?
   var selectedBackgroundView: UIView?
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

@@ -93,7 +93,6 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   @available(OSX 10.5, *)
   func append(roundedRect rect: NSRect, xRadius xRadius: CGFloat, yRadius yRadius: CGFloat)
   func contains(_ point: NSPoint) -> Bool
-  init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

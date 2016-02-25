@@ -7,5 +7,4 @@ class GKPath : NSObject {
   init(points points: UnsafeMutablePointer<vector_float2>, count count: Int, radius radius: Float, cyclical cyclical: Bool)
   convenience init(graphNodes graphNodes: [GKGraphNode2D], radius radius: Float)
   func point(at index: Int) -> vector_float2
-  convenience init()
 }

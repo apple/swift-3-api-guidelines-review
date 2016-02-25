@@ -13,7 +13,6 @@ enum NSUserNotificationActivationType : Int {
 }
 @available(OSX 10.8, *)
 class NSUserNotification : NSObject, NSCopying {
-  init()
   var title: String?
   var subtitle: String?
   var informativeText: String?
@@ -49,7 +48,6 @@ class NSUserNotificationAction : NSObject, NSCopying {
   convenience init(identifier identifier: String?, title title: String?)
   var identifier: String? { get }
   var title: String? { get }
-  init()
   @available(OSX 10.10, *)
   func copy(with zone: NSZone = nil) -> AnyObject
 }
@@ -66,7 +64,6 @@ class NSUserNotificationCenter : NSObject {
   func deliver(_ notification: NSUserNotification)
   func removeDeliveredNotification(_ notification: NSUserNotification)
   func removeAllDeliveredNotifications()
-  init()
 }
 protocol NSUserNotificationCenterDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)

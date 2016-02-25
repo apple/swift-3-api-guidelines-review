@@ -21,7 +21,6 @@ class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   var isStoredInExternalRecord: Bool
   @available(tvOS 3.0, *)
   var renamingIdentifier: String?
-  init()
   @available(tvOS 3.0, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

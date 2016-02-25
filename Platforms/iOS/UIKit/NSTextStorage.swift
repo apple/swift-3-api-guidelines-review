@@ -20,17 +20,6 @@ class NSTextStorage : NSMutableAttributedString {
   var fixesAttributesLazily: Bool { get }
   func invalidateAttributes(in range: NSRange)
   func ensureAttributesAreFixed(in range: NSRange)
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  init(url url: NSURL, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS 7.0, *)
-  init(data data: NSData, options options: [String : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  @available(iOS, introduced=7.0, deprecated=9.0, message="Use -initWithURL:options:documentAttributes:error: instead")
-  init(fileURL url: NSURL, options options: [NSObject : AnyObject] = [:], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
-  init(string str: String)
-  init(string str: String, attributes attrs: [String : AnyObject]? = [:])
-  init(attributedString attrStr: NSAttributedString)
 }
 protocol NSTextStorageDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)

@@ -7,5 +7,4 @@ class EKReminder : EKCalendarItem {
   var isCompleted: Bool
   @NSCopying var completionDate: NSDate?
   var priority: Int
-  init()
 }

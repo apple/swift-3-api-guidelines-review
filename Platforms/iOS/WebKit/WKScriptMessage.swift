@@ -5,5 +5,4 @@ class WKScriptMessage : NSObject {
   weak var webView: @sil_weak WKWebView? { get }
   @NSCopying var frameInfo: WKFrameInfo { get }
   var name: String { get }
-  init()
 }

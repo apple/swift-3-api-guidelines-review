@@ -22,7 +22,6 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   var bounds: NSRect
   var fileWrapper: NSFileWrapper?
   var attachmentCell: NSTextAttachmentCellProtocol?
-  convenience init()
   @available(OSX 10.11, *)
   func image(forBounds imageBounds: NSRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> NSImage?
   @available(OSX 10.11, *)
@@ -56,14 +55,7 @@ protocol NSTextAttachmentCellProtocol : NSObjectProtocol {
   func cellFrame(for textContainer: NSTextContainer, proposedLineFragment lineFrag: NSRect, glyphPosition position: NSPoint, characterIndex charIndex: Int) -> NSRect
 }
 class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
-  func draw(frame cellFrame: NSRect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
-  func highlight(_ flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView?)
-  func trackMouse(_ theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
   func cellSize() -> NSSize
   func cellBaselineOffset() -> NSPoint
   @available(OSX 10.0, *)

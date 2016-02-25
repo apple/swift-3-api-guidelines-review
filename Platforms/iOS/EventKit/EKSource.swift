@@ -6,5 +6,4 @@ class EKSource : EKObject {
   var title: String { get }
   @available(iOS 6.0, *)
   func calendars(for entityType: EKEntityType) -> Set<EKCalendar>
-  init()
 }

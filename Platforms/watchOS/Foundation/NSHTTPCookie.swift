@@ -29,5 +29,4 @@ class NSHTTPCookie : NSObject {
   var comment: String? { get }
   @NSCopying var commentURL: NSURL? { get }
   var portList: [NSNumber]? { get }
-  init()
 }

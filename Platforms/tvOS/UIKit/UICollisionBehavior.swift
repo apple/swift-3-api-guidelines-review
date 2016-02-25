@@ -33,5 +33,4 @@ class UICollisionBehavior : UIDynamicBehavior {
   var boundaryIdentifiers: [NSCopying]? { get }
   func removeAllBoundaries()
   weak var collisionDelegate: @sil_weak UICollisionBehaviorDelegate?
-  convenience init()
 }

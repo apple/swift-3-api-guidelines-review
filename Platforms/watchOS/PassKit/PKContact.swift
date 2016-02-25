@@ -5,5 +5,4 @@ class PKContact : NSObject {
   var postalAddress: CNPostalAddress?
   var emailAddress: String?
   var phoneNumber: CNPhoneNumber?
-  init()
 }

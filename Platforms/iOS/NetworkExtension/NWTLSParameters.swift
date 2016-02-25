@@ -8,5 +8,4 @@ class NWTLSParameters : NSObject {
   var minimumSSLProtocolVersion: Int
   @available(iOS 9.0, *)
   var maximumSSLProtocolVersion: Int
-  init()
 }

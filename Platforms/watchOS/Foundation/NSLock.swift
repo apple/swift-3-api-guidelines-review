@@ -8,7 +8,6 @@ class NSLock : NSObject, NSLocking {
   func lock(before limit: NSDate) -> Bool
   @available(watchOS 2.0, *)
   var name: String?
-  init()
   func lock()
   func unlock()
 }
@@ -23,7 +22,6 @@ class NSConditionLock : NSObject, NSLocking {
   func lock(whenCondition condition: Int, before limit: NSDate) -> Bool
   @available(watchOS 2.0, *)
   var name: String?
-  convenience init()
   func lock()
   func unlock()
 }
@@ -32,7 +30,6 @@ class NSRecursiveLock : NSObject, NSLocking {
   func lock(before limit: NSDate) -> Bool
   @available(watchOS 2.0, *)
   var name: String?
-  init()
   func lock()
   func unlock()
 }
@@ -44,7 +41,6 @@ class NSCondition : NSObject, NSLocking {
   func broadcast()
   @available(watchOS 2.0, *)
   var name: String?
-  init()
   @available(watchOS 2.0, *)
   func lock()
   @available(watchOS 2.0, *)

@@ -8,5 +8,4 @@ class CADisplayLink : NSObject {
   var duration: CFTimeInterval { get }
   var isPaused: Bool
   var frameInterval: Int
-  init()
 }

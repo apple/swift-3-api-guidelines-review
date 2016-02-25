@@ -7,5 +7,4 @@ class PKContact : NSObject {
   var phoneNumber: CNPhoneNumber?
   @available(iOS 9.2, *)
   var supplementarySubLocality: String?
-  init()
 }

@@ -24,13 +24,9 @@ class NSAttributeDescription : NSPropertyDescription {
   var attributeValueClassName: String?
   var defaultValue: AnyObject?
   @available(watchOS 2.0, *)
-  @NSCopying var versionHash: NSData { get }
-  @available(watchOS 2.0, *)
   var valueTransformerName: String?
   @available(watchOS 2.0, *)
   var allowsExternalBinaryDataStorage: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __attributeDescriptionFlags {
   var _hasMaxValueInExtraIvars: UInt32

@@ -4,7 +4,6 @@ class HMHomeManager : NSObject {
   weak var delegate: @sil_weak HMHomeManagerDelegate?
   var primaryHome: HMHome? { get }
   var homes: [HMHome] { get }
-  init()
 }
 @available(watchOS 20000, *)
 protocol HMHomeManagerDelegate : NSObjectProtocol {

@@ -8,7 +8,6 @@ class CAEmitterBehavior : NSObject, NSCoding {
   func inputKeys() -> [AnyObject]
   class func attributes(forKey key: String) -> [NSObject : AnyObject]
   func attributes(forKeyPath keyPath: String) -> [NSObject : AnyObject]
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

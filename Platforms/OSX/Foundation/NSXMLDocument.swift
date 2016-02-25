@@ -8,7 +8,6 @@ enum NSXMLDocumentContentKind : UInt {
   case textKind
 }
 class NSXMLDocument : NSXMLNode {
-  init()
   convenience init(xmlString string: String, options mask: Int) throws
   convenience init(contentsOf url: NSURL, options mask: Int) throws
   init(data data: NSData, options mask: Int) throws
@@ -34,6 +33,4 @@ class NSXMLDocument : NSXMLNode {
   func object(byApplyingXSLTString xslt: String, arguments arguments: [String : String]?) throws -> AnyObject
   func objectByApplyingXSLT(at xsltURL: NSURL, arguments argument: [String : String]?) throws -> AnyObject
   func validate() throws
-  convenience init(kind kind: NSXMLNodeKind)
-  convenience init(kind kind: NSXMLNodeKind, options options: Int)
 }

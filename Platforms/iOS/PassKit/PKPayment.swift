@@ -11,5 +11,4 @@ class PKPayment : NSObject {
   @available(iOS 9.0, *)
   var shippingContact: PKContact? { get }
   var shippingMethod: PKShippingMethod? { get }
-  init()
 }

@@ -39,7 +39,6 @@ class MCSession : NSObject {
   var securityIdentity: [AnyObject]? { get }
   var encryptionPreference: MCEncryptionPreference { get }
   var connectedPeers: [MCPeerID] { get }
-  convenience init()
 }
 protocol MCSessionDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)

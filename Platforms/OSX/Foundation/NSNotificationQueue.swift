@@ -19,5 +19,4 @@ class NSNotificationQueue : NSObject {
   func enqueue(_ notification: NSNotification, postingStyle postingStyle: NSPostingStyle)
   func enqueue(_ notification: NSNotification, postingStyle postingStyle: NSPostingStyle, coalesceMask coalesceMask: NSNotificationCoalescing, forModes modes: [String]?)
   func dequeueNotifications(matching notification: NSNotification, coalesceMask coalesceMask: Int)
-  convenience init()
 }

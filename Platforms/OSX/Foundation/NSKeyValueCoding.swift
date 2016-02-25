@@ -53,24 +53,14 @@ extension NSObject {
   func setValuesForKeysWith(_ keyedValues: [String : AnyObject])
 }
 extension NSArray {
-  func value(forKey key: String) -> AnyObject
-  func setValue(_ value: AnyObject?, forKey key: String)
 }
 extension NSDictionary {
-  func value(forKey key: String) -> AnyObject?
 }
 extension NSMutableDictionary {
-  func setValue(_ value: AnyObject?, forKey key: String)
 }
 extension NSOrderedSet {
-  @available(OSX 10.7, *)
-  func value(forKey key: String) -> AnyObject
-  @available(OSX 10.7, *)
-  func setValue(_ value: AnyObject?, forKey key: String)
 }
 extension NSSet {
-  func value(forKey key: String) -> AnyObject
-  func setValue(_ value: AnyObject?, forKey key: String)
 }
 extension NSObject {
 }

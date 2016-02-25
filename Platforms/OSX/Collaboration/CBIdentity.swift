@@ -20,7 +20,6 @@ class CBIdentity : NSObject, NSCoding, NSCopying {
   var persistentReference: NSData? { get }
   var isHidden: Bool { get }
   func isMember(ofGroup group: CBGroupIdentity) -> Bool
-  init()
   @available(OSX 10.5, *)
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -34,8 +33,6 @@ class CBUserIdentity : CBIdentity, NSCoding, NSCopying {
   var certificate: SecCertificate? { get }
   var isEnabled: Bool { get }
   func authenticate(withPassword password: String) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)
 class CBGroupIdentity : CBIdentity {
@@ -43,6 +40,4 @@ class CBGroupIdentity : CBIdentity {
   var posixGID: gid_t { get }
   @available(OSX 10.11, *)
   var memberIdentities: [CBIdentity] { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

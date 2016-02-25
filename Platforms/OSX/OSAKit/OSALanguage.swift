@@ -31,5 +31,4 @@ class OSALanguage : NSObject {
   var features: OSALanguageFeatures { get }
   @available(OSX 10.6, *)
   var isThreadSafe: Bool { get }
-  init()
 }

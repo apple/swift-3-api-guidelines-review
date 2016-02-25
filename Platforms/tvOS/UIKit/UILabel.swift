@@ -12,7 +12,6 @@ class UILabel : UIView, NSCoding {
   @NSCopying var attributedText: NSAttributedString?
   var highlightedTextColor: UIColor?
   var isHighlighted: Bool
-  var isUserInteractionEnabled: Bool
   var isEnabled: Bool
   var numberOfLines: Int
   var adjustsFontSizeToFitWidth: Bool
@@ -25,7 +24,4 @@ class UILabel : UIView, NSCoding {
   func drawText(in rect: CGRect)
   @available(tvOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
-  init(frame frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

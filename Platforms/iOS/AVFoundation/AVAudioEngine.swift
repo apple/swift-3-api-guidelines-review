@@ -1,7 +1,6 @@
 
 @available(iOS 8.0, *)
 class AVAudioEngine : NSObject {
-  init()
   func attach(_ node: AVAudioNode)
   func detach(_ node: AVAudioNode)
   func connect(_ node1: AVAudioNode, to node2: AVAudioNode, fromBus bus1: AVAudioNodeBus, toBus bus2: AVAudioNodeBus, format format: AVAudioFormat?)

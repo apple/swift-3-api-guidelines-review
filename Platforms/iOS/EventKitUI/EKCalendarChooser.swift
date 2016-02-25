@@ -20,9 +20,6 @@ class EKCalendarChooser : UIViewController {
   var showsDoneButton: Bool
   var showsCancelButton: Bool
   var selectedCalendars: Set<EKCalendar>
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol EKCalendarChooserDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)

@@ -13,5 +13,4 @@ class ODRecordMap : NSObject {
   func attributeMap(forStandardAttribute standardAttribute: String!) -> ODAttributeMap!
   @available(OSX 10.9, *)
   func setAttributeMap(_ attributeMap: ODAttributeMap!, forStandardAttribute standardAttribute: String!)
-  init()
 }

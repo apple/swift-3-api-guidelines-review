@@ -32,7 +32,6 @@ class SCNPhysicsWorld : NSObject, NSSecureCoding {
   func contactTest(with body: SCNPhysicsBody, options options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func convexSweepTest(with shape: SCNPhysicsShape, from from: SCNMatrix4, to to: SCNMatrix4, options options: [String : AnyObject]? = [:]) -> [SCNPhysicsContact]
   func updateCollisionPairs()
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)

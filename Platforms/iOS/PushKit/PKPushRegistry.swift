@@ -9,7 +9,6 @@ class PKPushRegistry : NSObject {
   var desiredPushTypes: Set<NSObject>!
   func pushToken(forType type: String!) -> NSData!
   init!(queue queue: dispatch_queue_t!)
-  init()
 }
 protocol PKPushRegistryDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)

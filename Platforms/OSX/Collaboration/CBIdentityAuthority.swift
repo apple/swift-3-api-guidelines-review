@@ -5,5 +5,4 @@ class CBIdentityAuthority : NSObject {
   class func managed() -> CBIdentityAuthority
   class func defaultIdentityAuthority() -> CBIdentityAuthority
   var localizedName: String { get }
-  init()
 }

@@ -20,5 +20,4 @@ class UIPushBehavior : UIDynamicBehavior {
   var magnitude: CGFloat
   var pushDirection: CGVector
   func setAngle(_ angle: CGFloat, magnitude magnitude: CGFloat)
-  convenience init()
 }

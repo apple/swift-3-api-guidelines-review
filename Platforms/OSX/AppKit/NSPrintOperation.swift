@@ -50,7 +50,6 @@ class NSPrintOperation : NSObject {
   func destroyContext()
   func deliverResult() -> Bool
   func cleanUp()
-  init()
 }
 extension NSPrintOperation {
 }

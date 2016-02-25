@@ -8,5 +8,4 @@ class NKLibrary : NSObject {
   func issue(withName name: String) -> NKIssue?
   func addIssue(name name: String, date date: NSDate) -> NKIssue
   func removeIssue(_ issue: NKIssue)
-  init()
 }

@@ -54,7 +54,6 @@ class NSMenu : NSObject, NSCopying, NSCoding {
   var showsStateColumn: Bool
   @available(OSX 10.11, *)
   var userInterfaceLayoutDirection: NSUserInterfaceLayoutDirection
-  convenience init()
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)

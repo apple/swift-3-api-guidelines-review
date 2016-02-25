@@ -4,7 +4,6 @@ class NSXMLElement : NSXMLNode {
   init(name name: String, uri URI: String?)
   convenience init(name name: String, stringValue string: String?)
   init(xmlString string: String) throws
-  convenience init(kind kind: NSXMLNodeKind, options options: Int)
   func elements(forName name: String) -> [NSXMLElement]
   func elements(forLocalName localName: String, uri URI: String?) -> [NSXMLElement]
   func addAttribute(_ attribute: NSXMLNode)
@@ -26,8 +25,6 @@ class NSXMLElement : NSXMLNode {
   func addChild(_ child: NSXMLNode)
   func replaceChild(at index: Int, with node: NSXMLNode)
   func normalizeAdjacentTextNodesPreservingCDATA(_ preserve: Bool)
-  convenience init()
-  convenience init(kind kind: NSXMLNodeKind)
 }
 extension NSXMLElement {
   func setAttributesAs(_ attributes: [NSObject : AnyObject])

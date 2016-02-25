@@ -27,7 +27,6 @@ class CNContactStore : NSObject {
   func containers(matching predicate: NSPredicate?) throws -> [CNContainer]
   func execute(_ saveRequest: CNSaveRequest) throws
   func defaultContainerIdentifier() -> String
-  init()
 }
 @available(OSX 10.11, *)
 let CNContactStoreDidChangeNotification: String

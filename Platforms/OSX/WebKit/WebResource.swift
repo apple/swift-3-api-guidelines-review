@@ -6,7 +6,6 @@ class WebResource : NSObject, NSCoding, NSCopying {
   var mimeType: String! { get }
   var textEncodingName: String! { get }
   var frameName: String! { get }
-  init()
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   func copy(with zone: NSZone = nil) -> AnyObject

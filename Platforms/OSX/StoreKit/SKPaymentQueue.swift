@@ -14,7 +14,6 @@ class SKPaymentQueue : NSObject {
   func pause(_ downloads: [SKDownload])
   func resumeDownloads(_ downloads: [SKDownload])
   func cancel(_ downloads: [SKDownload])
-  init()
 }
 protocol SKPaymentTransactionObserver : NSObjectProtocol {
   @available(OSX 10.7, *)

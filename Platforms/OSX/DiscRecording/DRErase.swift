@@ -7,7 +7,6 @@ class DRErase : NSObject {
   func properties() -> [NSObject : AnyObject]!
   func setProperties(_ properties: [NSObject : AnyObject]!)
   func device() -> DRDevice!
-  init()
 }
 extension DRErase {
   func eraseType() -> String!

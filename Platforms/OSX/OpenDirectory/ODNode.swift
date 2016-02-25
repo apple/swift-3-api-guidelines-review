@@ -51,5 +51,4 @@ class ODNode : NSObject {
   func accountPolicies() throws -> [NSObject : AnyObject]
   @available(OSX 10.10, *)
   func passwordContentCheck(_ password: String!, forRecordName recordName: String!) throws
-  init()
 }

@@ -7,5 +7,4 @@ class NEAppProxyUDPFlow : NEAppProxyFlow {
   func writeDatagrams(_ datagrams: [NSData], sentBy remoteEndpoints: [NWEndpoint], completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
   var localEndpoint: NWEndpoint? { get }
-  init()
 }

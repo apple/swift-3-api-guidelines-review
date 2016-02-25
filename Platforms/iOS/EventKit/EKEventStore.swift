@@ -10,8 +10,6 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
 class EKEventStore : NSObject {
   @available(iOS 6.0, *)
   class func authorizationStatus(for entityType: EKEntityType) -> EKAuthorizationStatus
-  @available(iOS 4.0, *)
-  init()
   @available(iOS 6.0, *)
   func requestAccess(to entityType: EKEntityType, completion completion: EKEventStoreRequestAccessCompletionHandler)
   var eventStoreIdentifier: String { get }

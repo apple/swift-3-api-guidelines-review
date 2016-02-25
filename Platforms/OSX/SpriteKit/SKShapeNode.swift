@@ -41,11 +41,7 @@ class SKShapeNode : SKNode {
   var strokeTexture: SKTexture?
   @available(OSX 10.10, *)
   var strokeShader: SKShader?
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }
 
 extension SKShapeNode : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }

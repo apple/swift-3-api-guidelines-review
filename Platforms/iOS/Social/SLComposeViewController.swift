@@ -17,7 +17,4 @@ class SLComposeViewController : UIViewController {
   func add(_ url: NSURL!) -> Bool
   func removeAllURLs() -> Bool
   var completionHandler: SLComposeViewControllerCompletionHandler!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

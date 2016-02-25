@@ -11,7 +11,6 @@ struct NSAffineTransformStruct {
 }
 class NSAffineTransform : NSObject, NSCopying, NSSecureCoding {
   convenience init(transform transform: NSAffineTransform)
-  init()
   func translateX(by deltaX: CGFloat, yBy deltaY: CGFloat)
   func rotate(byDegrees angle: CGFloat)
   func rotate(byRadians angle: CGFloat)

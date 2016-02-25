@@ -91,7 +91,6 @@ class NSURL : NSObject, NSSecureCoding, NSCopying, NSURLHandleClient {
   func startAccessingSecurityScopedResource() -> Bool
   @available(OSX 10.7, *)
   func stopAccessingSecurityScopedResource()
-  convenience init()
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
@@ -100,11 +99,9 @@ class NSURL : NSObject, NSSecureCoding, NSCopying, NSURLHandleClient {
 
 extension NSURL : _FileReferenceLiteralConvertible {
   convenience init(failableFileReferenceLiteral path: String)
-  required convenience init(fileReferenceLiteral path: String)
 }
 
 extension NSURL : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 let NSURLFileScheme: String
 @available(OSX 10.7, *)
@@ -349,7 +346,6 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
   init(name name: String, value value: String?)
   var name: String { get }
   var value: String? { get }
-  convenience init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
@@ -360,7 +356,6 @@ class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
 }
 @available(OSX 10.9, *)
 class NSURLComponents : NSObject, NSCopying {
-  init()
   init?(url url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
   @NSCopying var url: NSURL? { get }
@@ -453,7 +448,6 @@ extension NSURL {
 @available(OSX 10.7, *)
 class NSFileSecurity : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(OSX 10.7, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(OSX 10.7, *)

@@ -7,7 +7,6 @@ class HKQuantitySample : HKSample {
   convenience init(type quantityType: HKQuantityType, quantity quantity: HKQuantity, start startDate: NSDate, end endDate: NSDate, metadata metadata: [String : AnyObject]?)
   @available(watchOS 2.0, *)
   convenience init(type quantityType: HKQuantityType, quantity quantity: HKQuantity, start startDate: NSDate, end endDate: NSDate, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let HKPredicateKeyPathQuantity: String

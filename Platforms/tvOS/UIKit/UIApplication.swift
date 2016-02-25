@@ -43,7 +43,6 @@ class UIApplication : UIResponder {
   var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection { get }
   @available(tvOS 7.0, *)
   var preferredContentSizeCategory: String { get }
-  init()
 }
 extension UIApplication {
   @available(tvOS 8.0, *)

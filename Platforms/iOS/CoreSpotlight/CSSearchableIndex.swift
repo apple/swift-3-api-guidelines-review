@@ -24,7 +24,6 @@ class CSSearchableIndex : NSObject {
   func deleteSearchableItems(identifiers identifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func deleteSearchableItems(domainIdentifiers domainIdentifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func deleteAllSearchableItems(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  init()
 }
 extension CSSearchableIndex {
   func beginBatch()

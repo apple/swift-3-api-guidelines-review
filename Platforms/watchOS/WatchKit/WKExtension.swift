@@ -5,7 +5,6 @@ class WKExtension : NSObject {
   func openSystemURL(_ url: NSURL)
   weak var delegate: @sil_weak WKExtensionDelegate?
   var rootInterfaceController: WKInterfaceController? { get }
-  init()
 }
 @available(watchOS 2.0, *)
 protocol WKExtensionDelegate : NSObjectProtocol {

@@ -16,7 +16,6 @@ class SCNSkinner : NSObject, NSSecureCoding {
   var boneWeights: SCNGeometrySource { get }
   @available(OSX 10.10, *)
   var boneIndices: SCNGeometrySource { get }
-  init()
   @available(OSX 10.9, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.9, *)

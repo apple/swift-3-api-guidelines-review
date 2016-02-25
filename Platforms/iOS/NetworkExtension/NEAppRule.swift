@@ -7,7 +7,6 @@ class NEAppRule : NSObject, NSSecureCoding, NSCopying {
   var matchSigningIdentifier: String { get }
   @available(iOS 9.0, *)
   var matchDomains: [AnyObject]?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
