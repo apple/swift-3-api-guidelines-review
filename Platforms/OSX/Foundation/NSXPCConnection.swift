@@ -1,26 +1,26 @@
 
 protocol NSXPCProxyCreating {
   func remoteObjectProxy() -> AnyObject
-  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(_ handler: (NSError) -> Void) -> AnyObject
 }
 @available(OSX 10.8, *)
 struct NSXPCConnectionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Privileged: NSXPCConnectionOptions { get }
 }
 @available(OSX 10.8, *)
 class NSXPCConnection : NSObject, NSXPCProxyCreating {
-  init(serviceName: String)
+  init(serviceName serviceName: String)
   var serviceName: String? { get }
-  init(machServiceName name: String, options: NSXPCConnectionOptions)
+  init(machServiceName name: String, options options: NSXPCConnectionOptions)
   init(listenerEndpoint endpoint: NSXPCListenerEndpoint)
   var endpoint: NSXPCListenerEndpoint { get }
   var exportedInterface: NSXPCInterface?
   var exportedObject: AnyObject?
   var remoteObjectInterface: NSXPCInterface?
   var remoteObjectProxy: AnyObject { get }
-  func remoteObjectProxyWithErrorHandler(handler: (NSError) -> Void) -> AnyObject
+  func remoteObjectProxyWithErrorHandler(_ handler: (NSError) -> Void) -> AnyObject
   var interruptionHandler: (() -> Void)?
   var invalidationHandler: (() -> Void)?
   func resume()
@@ -30,7 +30,6 @@ class NSXPCConnection : NSObject, NSXPCProxyCreating {
   var processIdentifier: pid_t { get }
   var effectiveUserIdentifier: uid_t { get }
   var effectiveGroupIdentifier: gid_t { get }
-  init()
 }
 @available(OSX 10.8, *)
 class NSXPCListener : NSObject {
@@ -42,28 +41,25 @@ class NSXPCListener : NSObject {
   func resume()
   func suspend()
   func invalidate()
-  convenience init()
 }
 protocol NSXPCListenerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func listener(listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool
+  optional func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool
 }
 @available(OSX 10.8, *)
 class NSXPCInterface : NSObject {
   /*not inherited*/ init(withProtocol protocol: Protocol)
   unowned(unsafe) var `protocol`: @sil_unmanaged Protocol
-  func setClasses(classes: Set<NSObject>, forSelector sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func classesForSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> Set<NSObject>
-  func setInterface(ifc: NSXPCInterface, forSelector sel: Selector, argumentIndex arg: Int, ofReply: Bool)
-  func interfaceForSelector(sel: Selector, argumentIndex arg: Int, ofReply: Bool) -> NSXPCInterface?
-  init()
+  func setClasses(_ classes: Set<NSObject>, forSelector sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool)
+  func classesForSelector(_ sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> Set<NSObject>
+  func setInterface(_ ifc: NSXPCInterface, forSelector sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool)
+  func interfaceForSelector(_ sel: Selector, argumentIndex arg: Int, ofReply ofReply: Bool) -> NSXPCInterface?
 }
 @available(OSX 10.8, *)
 class NSXPCListenerEndpoint : NSObject, NSSecureCoding {
-  init()
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

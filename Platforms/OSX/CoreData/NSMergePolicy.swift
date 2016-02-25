@@ -10,7 +10,7 @@ var NSOverwriteMergePolicy: AnyObject
 @available(OSX 10.4, *)
 var NSRollbackMergePolicy: AnyObject
 enum NSMergePolicyType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ErrorMergePolicyType
   case MergeByPropertyStoreTrumpMergePolicyType
@@ -36,16 +36,15 @@ class NSConstraintConflict : NSObject {
   var databaseSnapshot: [String : AnyObject]? { get }
   var conflictingObjects: [NSManagedObject] { get }
   var conflictingSnapshots: [[NSObject : AnyObject]] { get }
-  init(constraint contraint: [String], databaseObject: NSManagedObject?, databaseSnapshot: [NSObject : AnyObject]?, conflictingObjects: [NSManagedObject], conflictingSnapshots: [AnyObject])
-  convenience init()
+  init(constraint contraint: [String], databaseObject databaseObject: NSManagedObject?, databaseSnapshot databaseSnapshot: [NSObject : AnyObject]?, conflictingObjects conflictingObjects: [NSManagedObject], conflictingSnapshots conflictingSnapshots: [AnyObject])
 }
 @available(OSX 10.7, *)
 class NSMergePolicy : NSObject {
   var mergeType: NSMergePolicyType { get }
   init(mergeType ty: NSMergePolicyType)
-  func resolveConflicts(list: [AnyObject]) throws
+  func resolveConflicts(_ list: [AnyObject]) throws
   @available(OSX 10.11, *)
-  func resolveOptimisticLockingVersionConflicts(list: [NSMergeConflict]) throws
+  func resolveOptimisticLockingVersionConflicts(_ list: [NSMergeConflict]) throws
   @available(OSX 10.11, *)
-  func resolveConstraintConflicts(list: [NSConstraintConflict]) throws
+  func resolveConstraintConflicts(_ list: [NSConstraintConflict]) throws
 }

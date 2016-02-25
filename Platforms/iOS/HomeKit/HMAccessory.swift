@@ -18,16 +18,15 @@ class HMAccessory : NSObject {
   weak var room: @sil_weak HMRoom? { get }
   var services: [HMService] { get }
   var blocked: Bool { get }
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
-  func identifyWithCompletionHandler(completion: (NSError?) -> Void)
-  init()
+  func updateName(_ name: String, completionHandler completion: (NSError?) -> Void)
+  func identifyWithCompletionHandler(_ completion: (NSError?) -> Void)
 }
 @available(iOS 8.0, *)
 protocol HMAccessoryDelegate : NSObjectProtocol {
-  optional func accessoryDidUpdateName(accessory: HMAccessory)
-  optional func accessory(accessory: HMAccessory, didUpdateNameForService service: HMService)
-  optional func accessory(accessory: HMAccessory, didUpdateAssociatedServiceTypeForService service: HMService)
-  optional func accessoryDidUpdateServices(accessory: HMAccessory)
-  optional func accessoryDidUpdateReachability(accessory: HMAccessory)
-  optional func accessory(accessory: HMAccessory, service: HMService, didUpdateValueForCharacteristic characteristic: HMCharacteristic)
+  optional func accessoryDidUpdateName(_ accessory: HMAccessory)
+  optional func accessory(_ accessory: HMAccessory, didUpdateNameForService service: HMService)
+  optional func accessory(_ accessory: HMAccessory, didUpdateAssociatedServiceTypeForService service: HMService)
+  optional func accessoryDidUpdateServices(_ accessory: HMAccessory)
+  optional func accessoryDidUpdateReachability(_ accessory: HMAccessory)
+  optional func accessory(_ accessory: HMAccessory, service service: HMService, didUpdateValueForCharacteristic characteristic: HMCharacteristic)
 }

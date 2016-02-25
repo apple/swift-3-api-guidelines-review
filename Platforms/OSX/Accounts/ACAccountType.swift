@@ -32,5 +32,4 @@ class ACAccountType : NSObject {
   var accountTypeDescription: String! { get }
   var identifier: String! { get }
   var accessGranted: Bool { get }
-  init()
 }

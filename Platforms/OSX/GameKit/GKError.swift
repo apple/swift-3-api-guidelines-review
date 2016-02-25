@@ -1,8 +1,6 @@
 
 let GKErrorDomain: String
 enum GKErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case Unknown
   case Cancelled
   case CommunicationsFailure
@@ -33,6 +31,4 @@ enum GKErrorCode : Int {
 }
 
 extension GKErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

@@ -1,13 +1,12 @@
 
 class NSValue : NSObject, NSCopying, NSSecureCoding {
-  func getValue(value: UnsafeMutablePointer<Void>)
+  func getValue(_ value: UnsafeMutablePointer<Void>)
   var objCType: UnsafePointer<Int8> { get }
   init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
   init?(coder aDecoder: NSCoder)
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSValue {
   /*not inherited*/ init(_ value: UnsafePointer<Void>, withObjCType type: UnsafePointer<Int8>)
@@ -15,12 +14,11 @@ extension NSValue {
 extension NSValue {
   /*not inherited*/ init(nonretainedObject anObject: AnyObject?)
   var nonretainedObjectValue: AnyObject? { get }
-  /*not inherited*/ init(pointer: UnsafePointer<Void>)
+  /*not inherited*/ init(pointer pointer: UnsafePointer<Void>)
   var pointerValue: UnsafeMutablePointer<Void> { get }
-  func isEqualToValue(value: NSValue) -> Bool
+  func isEqualToValue(_ value: NSValue) -> Bool
 }
 class NSNumber : NSValue {
-  init?(coder aDecoder: NSCoder)
   init(char value: Int8)
   init(unsignedChar value: UInt8)
   init(short value: Int16)
@@ -56,20 +54,12 @@ class NSNumber : NSValue {
   @available(watchOS 2.0, *)
   var unsignedIntegerValue: UInt { get }
   var stringValue: String { get }
-  func compare(otherNumber: NSNumber) -> NSComparisonResult
-  func isEqualToNumber(number: NSNumber) -> Bool
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  convenience init(bytes value: UnsafePointer<Void>, objCType type: UnsafePointer<Int8>)
-  convenience init()
+  func compare(_ otherNumber: NSNumber) -> NSComparisonResult
+  func isEqualToNumber(_ number: NSNumber) -> Bool
+  func descriptionWithLocale(_ locale: AnyObject?) -> String
 }
 
 extension NSNumber : FloatLiteralConvertible, IntegerLiteralConvertible, BooleanLiteralConvertible {
-  required convenience init(integerLiteral value: Int)
-  required convenience init(floatLiteral value: Double)
-  required convenience init(booleanLiteral value: Bool)
-  typealias FloatLiteralType = Double
-  typealias IntegerLiteralType = Int
-  typealias BooleanLiteralType = Bool
 }
 extension NSNumber {
 }

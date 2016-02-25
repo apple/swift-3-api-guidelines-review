@@ -15,7 +15,7 @@ let MDLVertexAttributeSubdivisionStencil: String
 let MDLVertexAttributeTangent: String
 let MDLVertexAttributeTextureCoordinate: String
 enum MDLVertexFormat : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Invalid
   case PackedBit
@@ -85,33 +85,30 @@ enum MDLVertexFormat : UInt {
 @available(iOS 9.0, *)
 class MDLVertexBufferLayout : NSObject, NSCopying {
   var stride: Int
-  init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class MDLVertexAttribute : NSObject, NSCopying {
-  init(name: String, format: MDLVertexFormat, offset: Int, bufferIndex: Int)
+  init(name name: String, format format: MDLVertexFormat, offset offset: Int, bufferIndex bufferIndex: Int)
   var name: String
   var format: MDLVertexFormat
   var offset: Int
   var bufferIndex: Int
   var initializationValue: vector_float4
-  init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class MDLVertexDescriptor : NSObject, NSCopying {
-  init(vertexDescriptor: MDLVertexDescriptor)
-  func attributeNamed(name: String) -> MDLVertexAttribute?
-  func addOrReplaceAttribute(attribute: MDLVertexAttribute)
+  init(vertexDescriptor vertexDescriptor: MDLVertexDescriptor)
+  func attributeNamed(_ name: String) -> MDLVertexAttribute?
+  func addOrReplaceAttribute(_ attribute: MDLVertexAttribute)
   var attributes: NSMutableArray
   var layouts: NSMutableArray
   func reset()
   func setPackedStrides()
   func setPackedOffsets()
-  init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

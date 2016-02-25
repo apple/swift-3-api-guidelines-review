@@ -1,3 +1,3 @@
 
-func JSStringCreateWithCFString(string: CFString!) -> JSStringRef
-func JSStringCopyCFString(alloc: CFAllocator!, _ string: JSStringRef) -> CFString!
+func JSStringCreateWithCFString(_ string: CFString!) -> JSStringRef
+func JSStringCopyCFString(_ alloc: CFAllocator!, _ string: JSStringRef) -> CFString!

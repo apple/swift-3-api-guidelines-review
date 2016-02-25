@@ -1,6 +1,6 @@
 
 enum GKTurnBasedMatchStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Open
@@ -8,7 +8,7 @@ enum GKTurnBasedMatchStatus : Int {
   case Matching
 }
 enum GKTurnBasedParticipantStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Invited
@@ -18,7 +18,7 @@ enum GKTurnBasedParticipantStatus : Int {
   case Done
 }
 enum GKTurnBasedMatchOutcome : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Quit
@@ -43,23 +43,22 @@ class GKTurnBasedParticipant : NSObject {
   @NSCopying var timeoutDate: NSDate? { get }
   @available(OSX, introduced=10.8, deprecated=10.10, message="use player")
   var playerID: String? { get }
-  init()
 }
 protocol GKTurnBasedEventListener {
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithOtherPlayers playersToInvite: [GKPlayer])
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, receivedTurnEventForMatch match: GKTurnBasedMatch, didBecomeActive: Bool)
+  optional func player(_ player: GKPlayer, receivedTurnEventForMatch match: GKTurnBasedMatch, didBecomeActive didBecomeActive: Bool)
   @available(OSX 10.8, *)
-  optional func player(player: GKPlayer, matchEnded match: GKTurnBasedMatch)
+  optional func player(_ player: GKPlayer, matchEnded match: GKTurnBasedMatch)
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, receivedExchangeRequest exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
+  optional func player(_ player: GKPlayer, receivedExchangeRequest exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, receivedExchangeCancellation exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
+  optional func player(_ player: GKPlayer, receivedExchangeCancellation exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
   @available(OSX 10.10, *)
-  optional func player(player: GKPlayer, receivedExchangeReplies replies: [GKTurnBasedExchangeReply], forCompletedExchange exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
+  optional func player(_ player: GKPlayer, receivedExchangeReplies replies: [GKTurnBasedExchangeReply], forCompletedExchange exchange: GKTurnBasedExchange, forMatch match: GKTurnBasedMatch)
   @available(OSX 10.11, *)
-  optional func player(player: GKPlayer, wantsToQuitMatch match: GKTurnBasedMatch)
+  optional func player(_ player: GKPlayer, wantsToQuitMatch match: GKTurnBasedMatch)
 }
 @available(OSX 10.9, *)
 var GKTurnTimeoutDefault: NSTimeInterval
@@ -74,7 +73,7 @@ class GKTurnBasedMatch : NSObject {
   var currentParticipant: GKTurnBasedParticipant? { get }
   var matchData: NSData? { get }
   @available(OSX 10.10, *)
-  func setLocalizableMessageWithKey(key: String, arguments: [String]?)
+  func setLocalizableMessageWithKey(_ key: String, arguments arguments: [String]?)
   var message: String?
   @available(OSX 10.8, *)
   var matchDataMaximumSize: Int { get }
@@ -88,39 +87,38 @@ class GKTurnBasedMatch : NSObject {
   var exchangeDataMaximumSize: Int { get }
   @available(OSX 10.10, *)
   var exchangeMaxInitiatedExchangesPerPlayer: Int { get }
-  class func findMatchForRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
-  class func loadMatchesWithCompletionHandler(completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)?)
+  class func findMatchForRequest(_ request: GKMatchRequest, withCompletionHandler completionHandler: (GKTurnBasedMatch?, NSError?) -> Void)
+  class func loadMatchesWithCompletionHandler(_ completionHandler: (([GKTurnBasedMatch]?, NSError?) -> Void)?)
   @available(OSX 10.8, *)
-  class func loadMatchWithID(matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  class func loadMatchWithID(_ matchID: String, withCompletionHandler completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
   @available(OSX 10.9, *)
-  func rematchWithCompletionHandler(completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  func rematchWithCompletionHandler(_ completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
   @available(OSX 10.8, *)
-  func acceptInviteWithCompletionHandler(completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
+  func acceptInviteWithCompletionHandler(_ completionHandler: ((GKTurnBasedMatch?, NSError?) -> Void)?)
   @available(OSX 10.8, *)
-  func declineInviteWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
-  func removeWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
-  func loadMatchDataWithCompletionHandler(completionHandler: ((NSData?, NSError?) -> Void)?)
+  func declineInviteWithCompletionHandler(_ completionHandler: ((NSError?) -> Void)?)
+  func removeWithCompletionHandler(_ completionHandler: ((NSError?) -> Void)?)
+  func loadMatchDataWithCompletionHandler(_ completionHandler: ((NSData?, NSError?) -> Void)?)
   @available(OSX 10.9, *)
-  func endTurnWithNextParticipants(nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func endTurnWithNextParticipants(_ nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData matchData: NSData, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.9, *)
-  func participantQuitInTurnWithOutcome(matchOutcome: GKTurnBasedMatchOutcome, nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData: NSData, completionHandler: ((NSError?) -> Void)?)
-  func participantQuitOutOfTurnWithOutcome(matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((NSError?) -> Void)?)
-  func endMatchInTurnWithMatchData(matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func participantQuitInTurnWithOutcome(_ matchOutcome: GKTurnBasedMatchOutcome, nextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, matchData matchData: NSData, completionHandler completionHandler: ((NSError?) -> Void)?)
+  func participantQuitOutOfTurnWithOutcome(_ matchOutcome: GKTurnBasedMatchOutcome, withCompletionHandler completionHandler: ((NSError?) -> Void)?)
+  func endMatchInTurnWithMatchData(_ matchData: NSData, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.10, *)
-  func endMatchInTurnWithMatchData(matchData: NSData, scores: [GKScore]?, achievements: [GKAchievement]?, completionHandler: ((NSError?) -> Void)?)
+  func endMatchInTurnWithMatchData(_ matchData: NSData, scores scores: [GKScore]?, achievements achievements: [GKAchievement]?, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.8, *)
-  func saveCurrentTurnWithMatchData(matchData: NSData, completionHandler: ((NSError?) -> Void)?)
+  func saveCurrentTurnWithMatchData(_ matchData: NSData, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.10, *)
-  func saveMergedMatchData(matchData: NSData, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler: ((NSError?) -> Void)?)
+  func saveMergedMatchData(_ matchData: NSData, withResolvedExchanges exchanges: [GKTurnBasedExchange], completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.10, *)
-  func sendExchangeToParticipants(participants: [GKTurnBasedParticipant], data: NSData, localizableMessageKey key: String, arguments: [String], timeout: NSTimeInterval, completionHandler: ((GKTurnBasedExchange, NSError) -> Void)?)
+  func sendExchangeToParticipants(_ participants: [GKTurnBasedParticipant], data data: NSData, localizableMessageKey key: String, arguments arguments: [String], timeout timeout: NSTimeInterval, completionHandler completionHandler: ((GKTurnBasedExchange, NSError) -> Void)?)
   @available(OSX 10.10, *)
-  func sendReminderToParticipants(participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments: [String], completionHandler: ((NSError?) -> Void)?)
-  init()
+  func sendReminderToParticipants(_ participants: [GKTurnBasedParticipant], localizableMessageKey key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)?)
 }
 @available(OSX 10.10, *)
 enum GKTurnBasedExchangeStatus : Int8 {
-  init?(rawValue: Int8)
+  init?(rawValue rawValue: Int8)
   var rawValue: Int8 { get }
   case Unknown
   case Active
@@ -145,10 +143,9 @@ class GKTurnBasedExchange : NSObject {
   var completionDate: NSDate? { get }
   var replies: [GKTurnBasedExchangeReply]? { get }
   @available(OSX 10.10, *)
-  func cancelWithLocalizableMessageKey(key: String, arguments: [String], completionHandler: ((NSError?) -> Void)?)
+  func cancelWithLocalizableMessageKey(_ key: String, arguments arguments: [String], completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(OSX 10.10, *)
-  func replyWithLocalizableMessageKey(key: String, arguments: [String], data: NSData, completionHandler: ((NSError?) -> Void)?)
-  init()
+  func replyWithLocalizableMessageKey(_ key: String, arguments arguments: [String], data data: NSData, completionHandler completionHandler: ((NSError?) -> Void)?)
 }
 @available(OSX 10.10, *)
 class GKTurnBasedExchangeReply : NSObject {
@@ -157,16 +154,15 @@ class GKTurnBasedExchangeReply : NSObject {
   var data: NSData? { get }
   @available(OSX 10.10, *)
   var replyDate: NSDate? { get }
-  init()
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer with an object that implements the GKTurnBasedEventListener protocol")
 protocol GKTurnBasedEventHandlerDelegate {
   @available(OSX, introduced=10.8, deprecated=10.10)
-  func handleInviteFromGameCenter(playersToInvite: [GKPlayer])
+  func handleInviteFromGameCenter(_ playersToInvite: [GKPlayer])
   @available(OSX, introduced=10.9, deprecated=10.10)
-  func handleTurnEventForMatch(match: GKTurnBasedMatch, didBecomeActive: Bool)
+  func handleTurnEventForMatch(_ match: GKTurnBasedMatch, didBecomeActive didBecomeActive: Bool)
   @available(OSX, introduced=10.8, deprecated=10.10)
-  optional func handleMatchEnded(match: GKTurnBasedMatch)
+  optional func handleMatchEnded(_ match: GKTurnBasedMatch)
 }
 @available(OSX, introduced=10.8, deprecated=10.10, message="Use registerListener on GKLocalPlayer with an object that implements the GKTurnBasedEventListener protocol")
 class GKTurnBasedEventHandler : NSObject {
@@ -174,5 +170,4 @@ class GKTurnBasedEventHandler : NSObject {
   class func sharedTurnBasedEventHandler() -> GKTurnBasedEventHandler
   @available(OSX, introduced=10.8, deprecated=10.10)
   unowned(unsafe) var delegate: @sil_unmanaged protocol<GKTurnBasedEventHandlerDelegate, NSObjectProtocol>
-  init()
 }

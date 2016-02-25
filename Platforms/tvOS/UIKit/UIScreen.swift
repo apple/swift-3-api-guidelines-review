@@ -8,7 +8,7 @@ let UIScreenModeDidChangeNotification: String
 @available(tvOS 5.0, *)
 let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Scale
   case InsetBounds
@@ -42,18 +42,17 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(tvOS 8.0, *)
   var nativeScale: CGFloat { get }
   @available(tvOS 4.0, *)
-  func displayLinkWithTarget(target: AnyObject, selector sel: Selector) -> CADisplayLink?
+  func displayLinkWithTarget(_ target: AnyObject, selector sel: Selector) -> CADisplayLink?
   @available(tvOS 9.0, *)
   weak var focusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
   var supportsFocus: Bool { get }
-  init()
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UIScreen {
   @available(tvOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfterScreenUpdates(_ afterUpdates: Bool) -> UIView
 }

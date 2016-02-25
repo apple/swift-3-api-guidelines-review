@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum UIDynamicItemCollisionBoundsType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Rectangle
   case Ellipse
@@ -18,9 +18,8 @@ protocol UIDynamicItem : NSObjectProtocol {
 }
 @available(tvOS 9.0, *)
 class UIDynamicItemGroup : NSObject, UIDynamicItem {
-  init(items: [UIDynamicItem])
+  init(items items: [UIDynamicItem])
   var items: [UIDynamicItem] { get }
-  init()
   @available(tvOS 9.0, *)
   var center: CGPoint
   @available(tvOS 9.0, *)
@@ -34,11 +33,10 @@ class UIDynamicItemGroup : NSObject, UIDynamicItem {
 }
 @available(tvOS 7.0, *)
 class UIDynamicBehavior : NSObject {
-  func addChildBehavior(behavior: UIDynamicBehavior)
-  func removeChildBehavior(behavior: UIDynamicBehavior)
+  func addChildBehavior(_ behavior: UIDynamicBehavior)
+  func removeChildBehavior(_ behavior: UIDynamicBehavior)
   var childBehaviors: [UIDynamicBehavior] { get }
   var action: (() -> Void)?
-  func willMoveToAnimator(dynamicAnimator: UIDynamicAnimator?)
+  func willMoveToAnimator(_ dynamicAnimator: UIDynamicAnimator?)
   var dynamicAnimator: UIDynamicAnimator? { get }
-  init()
 }

@@ -4,11 +4,11 @@ class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 4.0, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(_ key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(iOS 4.0, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(_ keys: [String], completionHandler handler: (() -> Void)?)
 }
 extension AVAssetTrack {
   var mediaType: String { get }
@@ -18,7 +18,7 @@ extension AVAssetTrack {
   var enabled: Bool { get }
   var selfContained: Bool { get }
   var totalSampleDataLength: Int64 { get }
-  func hasMediaCharacteristic(mediaCharacteristic: String) -> Bool
+  func hasMediaCharacteristic(_ mediaCharacteristic: String) -> Bool
 }
 extension AVAssetTrack {
   var timeRange: CMTimeRange { get }
@@ -45,21 +45,21 @@ extension AVAssetTrack {
 }
 extension AVAssetTrack {
   var segments: [AVAssetTrackSegment] { get }
-  func segmentForTrackTime(trackTime: CMTime) -> AVAssetTrackSegment?
-  func samplePresentationTimeForTrackTime(trackTime: CMTime) -> CMTime
+  func segmentForTrackTime(_ trackTime: CMTime) -> AVAssetTrackSegment?
+  func samplePresentationTimeForTrackTime(_ trackTime: CMTime) -> CMTime
 }
 extension AVAssetTrack {
   var commonMetadata: [AVMetadataItem] { get }
   @available(iOS 8.0, *)
   var metadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataForFormat(_ format: String) -> [AVMetadataItem]
 }
 extension AVAssetTrack {
   @available(iOS 7.0, *)
   var availableTrackAssociationTypes: [String] { get }
   @available(iOS 7.0, *)
-  func associatedTracksOfType(trackAssociationType: String) -> [AVAssetTrack]
+  func associatedTracksOfType(_ trackAssociationType: String) -> [AVAssetTrack]
 }
 @available(iOS 7.0, *)
 let AVTrackAssociationTypeAudioFallback: String

@@ -1,27 +1,26 @@
 
 var NSAppKitVersionNumberWithPatternColorLeakFix: Double { get }
 class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPasteboardWriting {
-  init()
-  init?(coder: NSCoder)
-  /*not inherited*/ init(calibratedWhite white: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(calibratedHue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(calibratedRed red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(deviceWhite white: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(deviceHue hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(deviceRed red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init(deviceCyan cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, black: CGFloat, alpha: CGFloat)
-  /*not inherited*/ init?(catalogName listName: String, colorName: String)
-  /*not inherited*/ init(colorSpace space: NSColorSpace, components: UnsafePointer<CGFloat>, count numberOfComponents: Int)
+  init?(coder coder: NSCoder)
+  /*not inherited*/ init(calibratedWhite white: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(calibratedHue hue: CGFloat, saturation saturation: CGFloat, brightness brightness: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(calibratedRed red: CGFloat, green green: CGFloat, blue blue: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(deviceWhite white: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(deviceHue hue: CGFloat, saturation saturation: CGFloat, brightness brightness: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(deviceRed red: CGFloat, green green: CGFloat, blue blue: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init(deviceCyan cyan: CGFloat, magenta magenta: CGFloat, yellow yellow: CGFloat, black black: CGFloat, alpha alpha: CGFloat)
+  /*not inherited*/ init?(catalogName listName: String, colorName colorName: String)
+  /*not inherited*/ init(colorSpace space: NSColorSpace, components components: UnsafePointer<CGFloat>, count numberOfComponents: Int)
   @available(OSX 10.7, *)
-  /*not inherited*/ init(genericGamma22White white: CGFloat, alpha: CGFloat)
+  /*not inherited*/ init(genericGamma22White white: CGFloat, alpha alpha: CGFloat)
   @available(OSX 10.7, *)
-  /*not inherited*/ init(SRGBRed red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+  /*not inherited*/ init(SRGBRed red: CGFloat, green green: CGFloat, blue blue: CGFloat, alpha alpha: CGFloat)
   @available(OSX 10.9, *)
-  /*not inherited*/ init(white: CGFloat, alpha: CGFloat)
+  /*not inherited*/ init(white white: CGFloat, alpha alpha: CGFloat)
   @available(OSX 10.9, *)
-  /*not inherited*/ init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+  /*not inherited*/ init(red red: CGFloat, green green: CGFloat, blue blue: CGFloat, alpha alpha: CGFloat)
   @available(OSX 10.9, *)
-  /*not inherited*/ init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
+  /*not inherited*/ init(hue hue: CGFloat, saturation saturation: CGFloat, brightness brightness: CGFloat, alpha alpha: CGFloat)
   class func blackColor() -> NSColor
   class func darkGrayColor() -> NSColor
   class func lightGrayColor() -> NSColor
@@ -79,19 +78,19 @@ class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPast
   class func alternateSelectedControlColor() -> NSColor
   class func alternateSelectedControlTextColor() -> NSColor
   class func controlAlternatingRowBackgroundColors() -> [NSColor]
-  func highlightWithLevel(val: CGFloat) -> NSColor?
-  func shadowWithLevel(val: CGFloat) -> NSColor?
+  func highlightWithLevel(_ val: CGFloat) -> NSColor?
+  func shadowWithLevel(_ val: CGFloat) -> NSColor?
   /*not inherited*/ init(forControlTint controlTint: NSControlTint)
   class func currentControlTint() -> NSControlTint
   func set()
   func setFill()
   func setStroke()
   var colorSpaceName: String { get }
-  func colorUsingColorSpaceName(colorSpace: String) -> NSColor?
-  func colorUsingColorSpaceName(colorSpace: String?, device deviceDescription: [String : AnyObject]?) -> NSColor?
-  func colorUsingColorSpace(space: NSColorSpace) -> NSColor?
-  func blendedColorWithFraction(fraction: CGFloat, ofColor color: NSColor) -> NSColor?
-  func colorWithAlphaComponent(alpha: CGFloat) -> NSColor
+  func colorUsingColorSpaceName(_ colorSpace: String) -> NSColor?
+  func colorUsingColorSpaceName(_ colorSpace: String?, device deviceDescription: [String : AnyObject]?) -> NSColor?
+  func colorUsingColorSpace(_ space: NSColorSpace) -> NSColor?
+  func blendedColorWithFraction(_ fraction: CGFloat, ofColor color: NSColor) -> NSColor?
+  func colorWithAlphaComponent(_ alpha: CGFloat) -> NSColor
   var catalogNameComponent: String { get }
   var colorNameComponent: String { get }
   var localizedCatalogNameComponent: String { get }
@@ -99,54 +98,53 @@ class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPast
   var redComponent: CGFloat { get }
   var greenComponent: CGFloat { get }
   var blueComponent: CGFloat { get }
-  func getRed(red: UnsafeMutablePointer<CGFloat>, green: UnsafeMutablePointer<CGFloat>, blue: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>)
+  func getRed(_ red: UnsafeMutablePointer<CGFloat>, green green: UnsafeMutablePointer<CGFloat>, blue blue: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>)
   var hueComponent: CGFloat { get }
   var saturationComponent: CGFloat { get }
   var brightnessComponent: CGFloat { get }
-  func getHue(hue: UnsafeMutablePointer<CGFloat>, saturation: UnsafeMutablePointer<CGFloat>, brightness: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>)
+  func getHue(_ hue: UnsafeMutablePointer<CGFloat>, saturation saturation: UnsafeMutablePointer<CGFloat>, brightness brightness: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>)
   var whiteComponent: CGFloat { get }
-  func getWhite(white: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>)
+  func getWhite(_ white: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>)
   var cyanComponent: CGFloat { get }
   var magentaComponent: CGFloat { get }
   var yellowComponent: CGFloat { get }
   var blackComponent: CGFloat { get }
-  func getCyan(cyan: UnsafeMutablePointer<CGFloat>, magenta: UnsafeMutablePointer<CGFloat>, yellow: UnsafeMutablePointer<CGFloat>, black: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>)
+  func getCyan(_ cyan: UnsafeMutablePointer<CGFloat>, magenta magenta: UnsafeMutablePointer<CGFloat>, yellow yellow: UnsafeMutablePointer<CGFloat>, black black: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>)
   var colorSpace: NSColorSpace { get }
   var numberOfComponents: Int { get }
-  func getComponents(components: UnsafeMutablePointer<CGFloat>)
+  func getComponents(_ components: UnsafeMutablePointer<CGFloat>)
   var alphaComponent: CGFloat { get }
   /*not inherited*/ init?(fromPasteboard pasteBoard: NSPasteboard)
-  func writeToPasteboard(pasteBoard: NSPasteboard)
+  func writeToPasteboard(_ pasteBoard: NSPasteboard)
   /*not inherited*/ init(patternImage image: NSImage)
   var patternImage: NSImage { get }
-  func drawSwatchInRect(rect: NSRect)
+  func drawSwatchInRect(_ rect: NSRect)
   @available(OSX 10.8, *)
   /*not inherited*/ init?(CGColor cgColor: CGColor)
   @available(OSX 10.8, *)
   var CGColor: CGColor { get }
-  class func setIgnoresAlpha(flag: Bool)
+  class func setIgnoresAlpha(_ flag: Bool)
   class func ignoresAlpha() -> Bool
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  class func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func encodeWithCoder(_ aCoder: NSCoder)
+  class func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
 }
 
 extension NSColor : _ColorLiteralConvertible {
-  required convenience init(colorLiteralRed red: Float, green: Float, blue: Float, alpha: Float)
 }
 extension NSColor {
   /*not inherited*/ init(CIColor color: CIColor)
 }
 extension CIColor {
-  convenience init?(color: NSColor)
+  convenience init?(color color: NSColor)
 }
 extension NSCoder {
 }

@@ -28,34 +28,32 @@ class NSCursor : NSObject, NSCoding {
   @available(OSX 10.7, *)
   class func IBeamCursorForVerticalLayout() -> NSCursor
   init(image newImage: NSImage, hotSpot aPoint: NSPoint)
-  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot: NSPoint)
+  convenience init(image newImage: NSImage, foregroundColorHint fg: NSColor?, backgroundColorHint bg: NSColor?, hotSpot hotSpot: NSPoint)
   class func hide()
   class func unhide()
-  class func setHiddenUntilMouseMoves(flag: Bool)
+  class func setHiddenUntilMouseMoves(_ flag: Bool)
   class func pop()
   var image: NSImage { get }
   var hotSpot: NSPoint { get }
   func push()
   func pop()
   func set()
-  func setOnMouseExited(flag: Bool)
-  func setOnMouseEntered(flag: Bool)
+  func setOnMouseExited(_ flag: Bool)
+  func setOnMouseEntered(_ flag: Bool)
   var setOnMouseExited: Bool { get }
   var setOnMouseEntered: Bool { get }
-  func mouseEntered(theEvent: NSEvent)
-  func mouseExited(theEvent: NSEvent)
-  convenience init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func mouseEntered(_ theEvent: NSEvent)
+  func mouseExited(_ theEvent: NSEvent)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension NSCursor : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 struct _cursorFlags {
   var onMouseExited: UInt32
   var onMouseEntered: UInt32
   var cursorType: UInt32
   init()
-  init(onMouseExited: UInt32, onMouseEntered: UInt32, cursorType: UInt32)
+  init(onMouseExited onMouseExited: UInt32, onMouseEntered onMouseEntered: UInt32, cursorType cursorType: UInt32)
 }

@@ -14,28 +14,20 @@ extension AVMovieTrack {
 }
 @available(OSX 10.11, *)
 class AVMutableMovieTrack : AVMovieTrack {
-  @NSCopying var mediaDataStorage: AVMediaDataStorage?
   @NSCopying var sampleReferenceBaseURL: NSURL?
-  var enabled: Bool
-  var alternateGroupID: Int
   var modified: Bool
   var hasProtectedContent: Bool { get }
   var timescale: CMTimeScale
 }
 extension AVMutableMovieTrack {
-  var languageCode: String?
-  var extendedLanguageTag: String?
 }
 extension AVMutableMovieTrack {
-  var naturalSize: CGSize
-  var preferredTransform: CGAffineTransform
   var layer: Int
   var cleanApertureDimensions: CGSize
   var productionApertureDimensions: CGSize
   var encodedPixelsDimensions: CGSize
 }
 extension AVMutableMovieTrack {
-  var preferredVolume: Float
 }
 extension AVMutableMovieTrack {
   var preferredMediaChunkSize: Int
@@ -43,17 +35,16 @@ extension AVMutableMovieTrack {
   var preferredMediaChunkAlignment: Int
 }
 extension AVMutableMovieTrack {
-  func insertTimeRange(timeRange: CMTimeRange, ofTrack track: AVAssetTrack, atTime startTime: CMTime, copySampleData: Bool) throws
-  func insertEmptyTimeRange(timeRange: CMTimeRange)
-  func removeTimeRange(timeRange: CMTimeRange)
-  func scaleTimeRange(timeRange: CMTimeRange, toDuration duration: CMTime)
+  func insertTimeRange(_ timeRange: CMTimeRange, ofTrack track: AVAssetTrack, atTime startTime: CMTime, copySampleData copySampleData: Bool) throws
+  func insertEmptyTimeRange(_ timeRange: CMTimeRange)
+  func removeTimeRange(_ timeRange: CMTimeRange)
+  func scaleTimeRange(_ timeRange: CMTimeRange, toDuration duration: CMTime)
 }
 extension AVMutableMovieTrack {
-  var metadata: [AVMetadataItem]
 }
 extension AVMutableMovieTrack {
-  func addTrackAssociationToTrack(movieTrack: AVMovieTrack, type trackAssociationType: String)
-  func removeTrackAssociationToTrack(movieTrack: AVMovieTrack, type trackAssociationType: String)
+  func addTrackAssociationToTrack(_ movieTrack: AVMovieTrack, type trackAssociationType: String)
+  func removeTrackAssociationToTrack(_ movieTrack: AVMovieTrack, type trackAssociationType: String)
 }
 @available(OSX 10.10, *)
 let AVFragmentedMovieTrackTimeRangeDidChangeNotification: String

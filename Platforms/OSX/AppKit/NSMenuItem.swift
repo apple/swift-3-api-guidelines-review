@@ -1,6 +1,6 @@
 
 class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
-  class func setUsesUserKeyEquivalents(flag: Bool)
+  class func setUsesUserKeyEquivalents(_ flag: Bool)
   class func usesUserKeyEquivalents() -> Bool
   class func separatorItem() -> NSMenuItem
   init(title aString: String, action aSelector: Selector, keyEquivalent charCode: String)
@@ -15,7 +15,7 @@ class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
   var userKeyEquivalent: String { get }
-  func setTitleWithMnemonic(stringWithAmpersand: String)
+  func setTitleWithMnemonic(_ stringWithAmpersand: String)
   var image: NSImage?
   var state: Int
   var onStateImage: NSImage!
@@ -37,9 +37,8 @@ class NSMenuItem : NSObject, NSCopying, NSCoding, NSValidatedUserInterfaceItem {
   @available(OSX 10.5, *)
   var hiddenOrHasHiddenAncestor: Bool { get }
   var toolTip: String?
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct __miFlags {
@@ -63,7 +62,7 @@ struct __miFlags {
   var noRepeatKEs: UInt32
   var targetWeak: UInt32
   init()
-  init(keGenerationCount: UInt32, disabled: UInt32, isSeparator: UInt32, hidden: UInt32, alternate: UInt32, moreAlternate: UInt32, singleAlternate: UInt32, indent: UInt32, keShareMode: UInt32, state: UInt32, destructive: UInt32, RESERVED1: UInt32, limitedView: UInt32, nextItemIsAlternate: UInt32, blockKE: UInt32, ignoredForAccessibility: UInt32, hiddenActiveKE: UInt32, noRepeatKEs: UInt32, targetWeak: UInt32)
+  init(keGenerationCount keGenerationCount: UInt32, disabled disabled: UInt32, isSeparator isSeparator: UInt32, hidden hidden: UInt32, alternate alternate: UInt32, moreAlternate moreAlternate: UInt32, singleAlternate singleAlternate: UInt32, indent indent: UInt32, keShareMode keShareMode: UInt32, state state: UInt32, destructive destructive: UInt32, RESERVED1 RESERVED1: UInt32, limitedView limitedView: UInt32, nextItemIsAlternate nextItemIsAlternate: UInt32, blockKE blockKE: UInt32, ignoredForAccessibility ignoredForAccessibility: UInt32, hiddenActiveKE hiddenActiveKE: UInt32, noRepeatKEs noRepeatKEs: UInt32, targetWeak targetWeak: UInt32)
 }
 extension NSView {
   @available(OSX 10.5, *)

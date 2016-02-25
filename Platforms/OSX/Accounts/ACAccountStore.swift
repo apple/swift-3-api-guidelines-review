@@ -1,6 +1,6 @@
 
 enum ACAccountCredentialRenewResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Renewed
   case Rejected
@@ -13,14 +13,13 @@ typealias ACAccountStoreCredentialRenewalHandler = (ACAccountCredentialRenewResu
 @available(OSX 10.8, *)
 class ACAccountStore : NSObject {
   var accounts: [AnyObject]! { get }
-  func accountWithIdentifier(identifier: String!) -> ACAccount!
-  func accountTypeWithAccountTypeIdentifier(typeIdentifier: String!) -> ACAccountType!
-  func accountsWithAccountType(accountType: ACAccountType!) -> [AnyObject]!
-  func saveAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
-  func requestAccessToAccountsWithType(accountType: ACAccountType!, options: [NSObject : AnyObject]!, completion: ACAccountStoreRequestAccessCompletionHandler!)
-  func renewCredentialsForAccount(account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
-  func removeAccount(account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
-  init()
+  func accountWithIdentifier(_ identifier: String!) -> ACAccount!
+  func accountTypeWithAccountTypeIdentifier(_ typeIdentifier: String!) -> ACAccountType!
+  func accountsWithAccountType(_ accountType: ACAccountType!) -> [AnyObject]!
+  func saveAccount(_ account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
+  func requestAccessToAccountsWithType(_ accountType: ACAccountType!, options options: [NSObject : AnyObject]!, completion completion: ACAccountStoreRequestAccessCompletionHandler!)
+  func renewCredentialsForAccount(_ account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
+  func removeAccount(_ account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
 }
 @available(OSX 10.8, *)
 let ACAccountStoreDidChangeNotification: String

@@ -1,15 +1,14 @@
 
 @available(iOS 3.2, *)
 class UITextChecker : NSObject {
-  func rangeOfMisspelledWordInString(stringToCheck: String, range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language: String) -> NSRange
-  func guessesForWordRange(range: NSRange, inString string: String, language: String) -> [AnyObject]?
-  func completionsForPartialWordRange(range: NSRange, inString string: String?, language: String) -> [AnyObject]?
-  func ignoreWord(wordToIgnore: String)
+  func rangeOfMisspelledWordInString(_ stringToCheck: String, range range: NSRange, startingAt startingOffset: Int, wrap wrapFlag: Bool, language language: String) -> NSRange
+  func guessesForWordRange(_ range: NSRange, inString string: String, language language: String) -> [AnyObject]?
+  func completionsForPartialWordRange(_ range: NSRange, inString string: String?, language language: String) -> [AnyObject]?
+  func ignoreWord(_ wordToIgnore: String)
   func ignoredWords() -> [AnyObject]?
-  func setIgnoredWords(words: [AnyObject]?)
-  class func learnWord(word: String)
-  class func hasLearnedWord(word: String) -> Bool
-  class func unlearnWord(word: String)
+  func setIgnoredWords(_ words: [AnyObject]?)
+  class func learnWord(_ word: String)
+  class func hasLearnedWord(_ word: String) -> Bool
+  class func unlearnWord(_ word: String)
   class func availableLanguages() -> [AnyObject]
-  init()
 }

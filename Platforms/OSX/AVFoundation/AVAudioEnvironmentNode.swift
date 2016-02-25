@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum AVAudioEnvironmentDistanceAttenuationModel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Exponential
   case Inverse
@@ -13,15 +13,13 @@ class AVAudioEnvironmentDistanceAttenuationParameters : NSObject {
   var referenceDistance: Float
   var maximumDistance: Float
   var rolloffFactor: Float
-  init()
 }
 @available(OSX 10.10, *)
 class AVAudioEnvironmentReverbParameters : NSObject {
   var enable: Bool
   var level: Float
   var filterParameters: AVAudioUnitEQFilterParameters { get }
-  func loadFactoryReverbPreset(preset: AVAudioUnitReverbPreset)
-  init()
+  func loadFactoryReverbPreset(_ preset: AVAudioUnitReverbPreset)
 }
 @available(OSX 10.10, *)
 class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
@@ -33,9 +31,8 @@ class AVAudioEnvironmentNode : AVAudioNode, AVAudioMixing {
   var distanceAttenuationParameters: AVAudioEnvironmentDistanceAttenuationParameters { get }
   var reverbParameters: AVAudioEnvironmentReverbParameters { get }
   var applicableRenderingAlgorithms: [NSNumber] { get }
-  init()
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationForMixer(_ mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

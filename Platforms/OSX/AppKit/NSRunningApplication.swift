@@ -1,12 +1,12 @@
 
 struct NSApplicationActivationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var ActivateAllWindows: NSApplicationActivationOptions { get }
   static var ActivateIgnoringOtherApps: NSApplicationActivationOptions { get }
 }
 enum NSApplicationActivationPolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Regular
   case Accessory
@@ -31,14 +31,13 @@ class NSRunningApplication : NSObject {
   var executableArchitecture: Int { get }
   func hide() -> Bool
   func unhide() -> Bool
-  func activateWithOptions(options: NSApplicationActivationOptions) -> Bool
+  func activateWithOptions(_ options: NSApplicationActivationOptions) -> Bool
   func terminate() -> Bool
   func forceTerminate() -> Bool
-  class func runningApplicationsWithBundleIdentifier(bundleIdentifier: String) -> [NSRunningApplication]
+  class func runningApplicationsWithBundleIdentifier(_ bundleIdentifier: String) -> [NSRunningApplication]
   convenience init?(processIdentifier pid: pid_t)
   class func currentApplication() -> Self
   class func terminateAutomaticallyTerminableApplications()
-  init()
 }
 extension NSWorkspace {
   @available(OSX 10.6, *)

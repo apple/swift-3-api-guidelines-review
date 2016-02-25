@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NWUDPSessionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Invalid
   case Waiting
@@ -31,12 +31,11 @@ class NWUDPSession : NSObject {
   @available(OSX 10.11, *)
   var maximumDatagramLength: Int { get }
   @available(OSX 10.11, *)
-  func setReadHandler(handler: ([NSData]?, NSError?) -> Void, maxDatagrams: Int)
+  func setReadHandler(_ handler: ([NSData]?, NSError?) -> Void, maxDatagrams maxDatagrams: Int)
   @available(OSX 10.11, *)
-  func writeMultipleDatagrams(datagramArray: [NSData], completionHandler: (NSError?) -> Void)
+  func writeMultipleDatagrams(_ datagramArray: [NSData], completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.11, *)
-  func writeDatagram(datagram: NSData, completionHandler: (NSError?) -> Void)
+  func writeDatagram(_ datagram: NSData, completionHandler completionHandler: (NSError?) -> Void)
   @available(OSX 10.11, *)
   func cancel()
-  init()
 }

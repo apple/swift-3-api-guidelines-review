@@ -1,6 +1,6 @@
 
 enum UIBarMetrics : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Compact
@@ -13,7 +13,7 @@ enum UIBarMetrics : Int {
 }
 @available(iOS 7.0, *)
 enum UIBarPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Any
   case Bottom
@@ -26,5 +26,5 @@ protocol UIBarPositioning : NSObjectProtocol {
 }
 protocol UIBarPositioningDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  optional func positionForBar(bar: UIBarPositioning) -> UIBarPosition
+  optional func positionForBar(_ bar: UIBarPositioning) -> UIBarPosition
 }

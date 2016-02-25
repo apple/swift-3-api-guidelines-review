@@ -12,5 +12,4 @@ class MLMediaObject : NSObject {
   var fileSize: Int { get }
   @NSCopying var modificationDate: NSDate? { get }
   @NSCopying var thumbnailURL: NSURL? { get }
-  init()
 }

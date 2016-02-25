@@ -1,6 +1,6 @@
 
 enum UIButtonType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Custom
   @available(tvOS 7.0, *)
@@ -20,23 +20,21 @@ class UIButton : UIControl, NSCoding {
   var imageEdgeInsets: UIEdgeInsets
   var adjustsImageWhenHighlighted: Bool
   var adjustsImageWhenDisabled: Bool
-  @available(tvOS 5.0, *)
-  var tintColor: UIColor!
   var buttonType: UIButtonType { get }
-  func setTitle(title: String?, forState state: UIControlState)
-  func setTitleColor(color: UIColor?, forState state: UIControlState)
-  func setTitleShadowColor(color: UIColor?, forState state: UIControlState)
-  func setImage(image: UIImage?, forState state: UIControlState)
-  func setBackgroundImage(image: UIImage?, forState state: UIControlState)
+  func setTitle(_ title: String?, forState state: UIControlState)
+  func setTitleColor(_ color: UIColor?, forState state: UIControlState)
+  func setTitleShadowColor(_ color: UIColor?, forState state: UIControlState)
+  func setImage(_ image: UIImage?, forState state: UIControlState)
+  func setBackgroundImage(_ image: UIImage?, forState state: UIControlState)
   @available(tvOS 6.0, *)
-  func setAttributedTitle(title: NSAttributedString?, forState state: UIControlState)
-  func titleForState(state: UIControlState) -> String?
-  func titleColorForState(state: UIControlState) -> UIColor?
-  func titleShadowColorForState(state: UIControlState) -> UIColor?
-  func imageForState(state: UIControlState) -> UIImage?
-  func backgroundImageForState(state: UIControlState) -> UIImage?
+  func setAttributedTitle(_ title: NSAttributedString?, forState state: UIControlState)
+  func titleForState(_ state: UIControlState) -> String?
+  func titleColorForState(_ state: UIControlState) -> UIColor?
+  func titleShadowColorForState(_ state: UIControlState) -> UIColor?
+  func imageForState(_ state: UIControlState) -> UIImage?
+  func backgroundImageForState(_ state: UIControlState) -> UIImage?
   @available(tvOS 6.0, *)
-  func attributedTitleForState(state: UIControlState) -> NSAttributedString?
+  func attributedTitleForState(_ state: UIControlState) -> NSAttributedString?
   var currentTitle: String? { get }
   var currentTitleColor: UIColor { get }
   var currentTitleShadowColor: UIColor? { get }
@@ -48,13 +46,10 @@ class UIButton : UIControl, NSCoding {
   var titleLabel: UILabel? { get }
   @available(tvOS 3.0, *)
   var imageView: UIImageView? { get }
-  func backgroundRectForBounds(bounds: CGRect) -> CGRect
-  func contentRectForBounds(bounds: CGRect) -> CGRect
-  func titleRectForContentRect(contentRect: CGRect) -> CGRect
-  func imageRectForContentRect(contentRect: CGRect) -> CGRect
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func backgroundRectForBounds(_ bounds: CGRect) -> CGRect
+  func contentRectForBounds(_ bounds: CGRect) -> CGRect
+  func titleRectForContentRect(_ contentRect: CGRect) -> CGRect
+  func imageRectForContentRect(_ contentRect: CGRect) -> CGRect
 }
 extension UIButton {
 }

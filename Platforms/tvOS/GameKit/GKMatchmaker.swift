@@ -1,6 +1,6 @@
 
 enum GKInviteRecipientResponse : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case InviteRecipientResponseAccepted
   case InviteRecipientResponseDeclined
@@ -31,11 +31,10 @@ class GKMatchRequest : NSObject {
   @available(tvOS 8.0, *)
   var recipientResponseHandler: ((GKPlayer, GKInviteRecipientResponse) -> Void)?
   @available(tvOS 6.0, *)
-  class func maxPlayersAllowedForMatchOfType(matchType: GKMatchType) -> Int
-  init()
+  class func maxPlayersAllowedForMatchOfType(_ matchType: GKMatchType) -> Int
 }
 enum GKMatchType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case PeerToPeer
   case Hosted
@@ -50,35 +49,33 @@ class GKInvite : NSObject {
   var playerGroup: Int { get }
   @available(tvOS 6.0, *)
   var playerAttributes: UInt32 { get }
-  init()
 }
 protocol GKInviteEventListener {
   @available(tvOS 7.0, *)
-  optional func player(player: GKPlayer, didAcceptInvite invite: GKInvite)
+  optional func player(_ player: GKPlayer, didAcceptInvite invite: GKInvite)
   @available(tvOS 8.0, *)
-  optional func player(player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
+  optional func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer])
 }
 @available(tvOS 4.1, *)
 class GKMatchmaker : NSObject {
   class func sharedMatchmaker() -> GKMatchmaker
   @available(tvOS 6.0, *)
-  func matchForInvite(invite: GKInvite, completionHandler: ((GKMatch?, NSError?) -> Void)?)
-  func findMatchForRequest(request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)?)
+  func matchForInvite(_ invite: GKInvite, completionHandler completionHandler: ((GKMatch?, NSError?) -> Void)?)
+  func findMatchForRequest(_ request: GKMatchRequest, withCompletionHandler completionHandler: ((GKMatch?, NSError?) -> Void)?)
   @available(tvOS 8.0, *)
-  func findPlayersForHostedRequest(request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
-  func addPlayersToMatch(match: GKMatch, matchRequest: GKMatchRequest, completionHandler: ((NSError?) -> Void)?)
+  func findPlayersForHostedRequest(_ request: GKMatchRequest, withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  func addPlayersToMatch(_ match: GKMatch, matchRequest matchRequest: GKMatchRequest, completionHandler completionHandler: ((NSError?) -> Void)?)
   func cancel()
   @available(tvOS 8.0, *)
-  func cancelPendingInviteToPlayer(player: GKPlayer)
+  func cancelPendingInviteToPlayer(_ player: GKPlayer)
   @available(tvOS 6.0, *)
-  func finishMatchmakingForMatch(match: GKMatch)
-  func queryPlayerGroupActivity(playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)?)
-  func queryActivityWithCompletionHandler(completionHandler: ((Int, NSError?) -> Void)?)
+  func finishMatchmakingForMatch(_ match: GKMatch)
+  func queryPlayerGroupActivity(_ playerGroup: Int, withCompletionHandler completionHandler: ((Int, NSError?) -> Void)?)
+  func queryActivityWithCompletionHandler(_ completionHandler: ((Int, NSError?) -> Void)?)
   @available(tvOS 8.0, *)
-  func startBrowsingForNearbyPlayersWithHandler(reachableHandler: ((GKPlayer, Bool) -> Void)?)
+  func startBrowsingForNearbyPlayersWithHandler(_ reachableHandler: ((GKPlayer, Bool) -> Void)?)
   @available(tvOS 6.0, *)
   func stopBrowsingForNearbyPlayers()
-  init()
 }
 extension GKMatchmaker {
 }

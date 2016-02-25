@@ -5,7 +5,7 @@ class CFNumberFormatter {
 typealias CFNumberFormatterRef = CFNumberFormatter
 func CFNumberFormatterGetTypeID() -> CFTypeID
 enum CFNumberFormatterStyle : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case NoStyle
   case DecimalStyle
@@ -22,22 +22,22 @@ enum CFNumberFormatterStyle : CFIndex {
   @available(OSX 10.11, *)
   case CurrencyAccountingStyle
 }
-func CFNumberFormatterCreate(allocator: CFAllocator!, _ locale: CFLocale!, _ style: CFNumberFormatterStyle) -> CFNumberFormatter!
-func CFNumberFormatterGetLocale(formatter: CFNumberFormatter!) -> CFLocale!
-func CFNumberFormatterGetStyle(formatter: CFNumberFormatter!) -> CFNumberFormatterStyle
-func CFNumberFormatterGetFormat(formatter: CFNumberFormatter!) -> CFString!
-func CFNumberFormatterSetFormat(formatter: CFNumberFormatter!, _ formatString: CFString!)
-func CFNumberFormatterCreateStringWithNumber(allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ number: CFNumber!) -> CFString!
-func CFNumberFormatterCreateStringWithValue(allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ numberType: CFNumberType, _ valuePtr: UnsafePointer<Void>) -> CFString!
+func CFNumberFormatterCreate(_ allocator: CFAllocator!, _ locale: CFLocale!, _ style: CFNumberFormatterStyle) -> CFNumberFormatter!
+func CFNumberFormatterGetLocale(_ formatter: CFNumberFormatter!) -> CFLocale!
+func CFNumberFormatterGetStyle(_ formatter: CFNumberFormatter!) -> CFNumberFormatterStyle
+func CFNumberFormatterGetFormat(_ formatter: CFNumberFormatter!) -> CFString!
+func CFNumberFormatterSetFormat(_ formatter: CFNumberFormatter!, _ formatString: CFString!)
+func CFNumberFormatterCreateStringWithNumber(_ allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ number: CFNumber!) -> CFString!
+func CFNumberFormatterCreateStringWithValue(_ allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ numberType: CFNumberType, _ valuePtr: UnsafePointer<Void>) -> CFString!
 struct CFNumberFormatterOptionFlags : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var ParseIntegersOnly: CFNumberFormatterOptionFlags { get }
 }
-func CFNumberFormatterCreateNumberFromString(allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ string: CFString!, _ rangep: UnsafeMutablePointer<CFRange>, _ options: CFOptionFlags) -> CFNumber!
-func CFNumberFormatterGetValueFromString(formatter: CFNumberFormatter!, _ string: CFString!, _ rangep: UnsafeMutablePointer<CFRange>, _ numberType: CFNumberType, _ valuePtr: UnsafeMutablePointer<Void>) -> Bool
-func CFNumberFormatterSetProperty(formatter: CFNumberFormatter!, _ key: CFString!, _ value: CFTypeRef!)
-func CFNumberFormatterCopyProperty(formatter: CFNumberFormatter!, _ key: CFString!) -> CFTypeRef!
+func CFNumberFormatterCreateNumberFromString(_ allocator: CFAllocator!, _ formatter: CFNumberFormatter!, _ string: CFString!, _ rangep: UnsafeMutablePointer<CFRange>, _ options: CFOptionFlags) -> CFNumber!
+func CFNumberFormatterGetValueFromString(_ formatter: CFNumberFormatter!, _ string: CFString!, _ rangep: UnsafeMutablePointer<CFRange>, _ numberType: CFNumberType, _ valuePtr: UnsafeMutablePointer<Void>) -> Bool
+func CFNumberFormatterSetProperty(_ formatter: CFNumberFormatter!, _ key: CFString!, _ value: CFTypeRef!)
+func CFNumberFormatterCopyProperty(_ formatter: CFNumberFormatter!, _ key: CFString!) -> CFTypeRef!
 let kCFNumberFormatterCurrencyCode: CFString!
 let kCFNumberFormatterDecimalSeparator: CFString!
 let kCFNumberFormatterCurrencyDecimalSeparator: CFString!
@@ -82,7 +82,7 @@ let kCFNumberFormatterMinSignificantDigits: CFString!
 @available(OSX 10.5, *)
 let kCFNumberFormatterMaxSignificantDigits: CFString!
 enum CFNumberFormatterRoundingMode : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case RoundCeiling
   case RoundFloor
@@ -93,11 +93,11 @@ enum CFNumberFormatterRoundingMode : CFIndex {
   case RoundHalfUp
 }
 enum CFNumberFormatterPadPosition : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case BeforePrefix
   case AfterPrefix
   case BeforeSuffix
   case AfterSuffix
 }
-func CFNumberFormatterGetDecimalInfoForCurrencyCode(currencyCode: CFString!, _ defaultFractionDigits: UnsafeMutablePointer<Int32>, _ roundingIncrement: UnsafeMutablePointer<Double>) -> Bool
+func CFNumberFormatterGetDecimalInfoForCurrencyCode(_ currencyCode: CFString!, _ defaultFractionDigits: UnsafeMutablePointer<Int32>, _ roundingIncrement: UnsafeMutablePointer<Double>) -> Bool

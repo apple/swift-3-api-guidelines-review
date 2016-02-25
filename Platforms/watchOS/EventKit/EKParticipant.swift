@@ -10,7 +10,6 @@ class EKParticipant : EKObject, NSCopying {
   var currentUser: Bool { get }
   @available(watchOS 2.0, *)
   var contactPredicate: NSPredicate { get }
-  init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

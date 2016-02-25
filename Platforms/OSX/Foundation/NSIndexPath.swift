@@ -1,20 +1,19 @@
 
 class NSIndexPath : NSObject, NSCopying, NSSecureCoding {
-  init(indexes: UnsafePointer<Int>, length: Int)
-  convenience init(index: Int)
-  func indexPathByAddingIndex(index: Int) -> NSIndexPath
+  init(indexes indexes: UnsafePointer<Int>, length length: Int)
+  convenience init(index index: Int)
+  func indexPathByAddingIndex(_ index: Int) -> NSIndexPath
   func indexPathByRemovingLastIndex() -> NSIndexPath
-  func indexAtPosition(position: Int) -> Int
+  func indexAtPosition(_ position: Int) -> Int
   var length: Int { get }
   @available(OSX 10.9, *)
-  func getIndexes(indexes: UnsafeMutablePointer<Int>, range positionRange: NSRange)
-  func compare(otherObject: NSIndexPath) -> NSComparisonResult
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func getIndexes(_ indexes: UnsafeMutablePointer<Int>, range positionRange: NSRange)
+  func compare(_ otherObject: NSIndexPath) -> NSComparisonResult
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSIndexPath {
-  func getIndexes(indexes: UnsafeMutablePointer<Int>)
+  func getIndexes(_ indexes: UnsafeMutablePointer<Int>)
 }

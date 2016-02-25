@@ -23,20 +23,18 @@ class NSException : NSObject, NSCopying, NSCoding {
   @available(watchOS 2.0, *)
   var callStackSymbols: [String] { get }
   func raise()
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSException {
-  class func raise(name: String, format: String, arguments argList: CVaListPointer)
+  class func raise(_ name: String, format format: String, arguments argList: CVaListPointer)
 }
 typealias NSUncaughtExceptionHandler = (NSException) -> Void
 func NSGetUncaughtExceptionHandler() -> (@convention(c) (NSException) -> Void)?
-func NSSetUncaughtExceptionHandler(_: (@convention(c) (NSException) -> Void)?)
+func NSSetUncaughtExceptionHandler(_ _: (@convention(c) (NSException) -> Void)?)
 @available(watchOS 2.0, *)
 let NSAssertionHandlerKey: String
 class NSAssertionHandler : NSObject {
   class func currentHandler() -> NSAssertionHandler
-  init()
 }

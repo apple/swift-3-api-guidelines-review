@@ -1,6 +1,6 @@
 
 struct MPSKernelOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   @available(iOS 9.0, *)
   static var None: MPSKernelOptions { get }
@@ -10,7 +10,7 @@ struct MPSKernelOptions : OptionSetType {
   static var AllowReducedPrecision: MPSKernelOptions { get }
 }
 enum MPSImageEdgeMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   @available(iOS 9.0, *)
   case Zero
@@ -22,27 +22,27 @@ struct MPSOffset {
   var y: Int
   var z: Int
   init()
-  init(x: Int, y: Int, z: Int)
+  init(x x: Int, y y: Int, z z: Int)
 }
 struct MPSOrigin {
   var x: Double
   var y: Double
   var z: Double
   init()
-  init(x: Double, y: Double, z: Double)
+  init(x x: Double, y y: Double, z z: Double)
 }
 struct MPSSize {
   var width: Double
   var height: Double
   var depth: Double
   init()
-  init(width: Double, height: Double, depth: Double)
+  init(width width: Double, height height: Double, depth depth: Double)
 }
 struct MPSRegion {
   var origin: MPSOrigin
   var size: MPSSize
   init()
-  init(origin: MPSOrigin, size: MPSSize)
+  init(origin origin: MPSOrigin, size size: MPSSize)
 }
 let MPSRectNoClip: MTLRegion
 struct MPSScaleTransform {
@@ -51,6 +51,6 @@ struct MPSScaleTransform {
   var translateX: Double
   var translateY: Double
   init()
-  init(scaleX: Double, scaleY: Double, translateX: Double, translateY: Double)
+  init(scaleX scaleX: Double, scaleY scaleY: Double, translateX translateX: Double, translateY translateY: Double)
 }
 typealias MPSCopyAllocator = (MPSKernel, MTLCommandBuffer, MTLTexture) -> MTLTexture

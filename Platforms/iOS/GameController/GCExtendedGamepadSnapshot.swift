@@ -3,8 +3,7 @@
 class GCExtendedGamepadSnapshot : GCExtendedGamepad {
   @NSCopying var snapshotData: NSData
   init(snapshotData data: NSData)
-  init(controller: GCController, snapshotData data: NSData)
-  init()
+  init(controller controller: GCController, snapshotData data: NSData)
 }
 struct GCExtendedGamepadSnapShotDataV100 {
   var version: UInt16
@@ -24,9 +23,9 @@ struct GCExtendedGamepadSnapShotDataV100 {
   var leftTrigger: Float
   var rightTrigger: Float
   init()
-  init(version: UInt16, size: UInt16, dpadX: Float, dpadY: Float, buttonA: Float, buttonB: Float, buttonX: Float, buttonY: Float, leftShoulder: Float, rightShoulder: Float, leftThumbstickX: Float, leftThumbstickY: Float, rightThumbstickX: Float, rightThumbstickY: Float, leftTrigger: Float, rightTrigger: Float)
+  init(version version: UInt16, size size: UInt16, dpadX dpadX: Float, dpadY dpadY: Float, buttonA buttonA: Float, buttonB buttonB: Float, buttonX buttonX: Float, buttonY buttonY: Float, leftShoulder leftShoulder: Float, rightShoulder rightShoulder: Float, leftThumbstickX leftThumbstickX: Float, leftThumbstickY leftThumbstickY: Float, rightThumbstickX rightThumbstickX: Float, rightThumbstickY rightThumbstickY: Float, leftTrigger leftTrigger: Float, rightTrigger rightTrigger: Float)
 }
 @available(iOS 7.0, *)
-func GCExtendedGamepadSnapShotDataV100FromNSData(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
+func GCExtendedGamepadSnapShotDataV100FromNSData(_ snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>, _ data: NSData?) -> Bool
 @available(iOS 7.0, *)
-func NSDataFromGCExtendedGamepadSnapShotDataV100(snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>) -> NSData?
+func NSDataFromGCExtendedGamepadSnapShotDataV100(_ snapshotData: UnsafeMutablePointer<GCExtendedGamepadSnapShotDataV100>) -> NSData?

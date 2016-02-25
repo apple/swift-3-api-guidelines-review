@@ -6,7 +6,7 @@ struct PyBaseExceptionObject {
   var args: UnsafeMutablePointer<PyObject>
   var message: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, dict: UnsafeMutablePointer<PyObject>, args: UnsafeMutablePointer<PyObject>, message: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, dict dict: UnsafeMutablePointer<PyObject>, args args: UnsafeMutablePointer<PyObject>, message message: UnsafeMutablePointer<PyObject>)
 }
 struct PySyntaxErrorObject {
   var ob_refcnt: Py_ssize_t
@@ -21,7 +21,7 @@ struct PySyntaxErrorObject {
   var text: UnsafeMutablePointer<PyObject>
   var print_file_and_line: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, dict: UnsafeMutablePointer<PyObject>, args: UnsafeMutablePointer<PyObject>, message: UnsafeMutablePointer<PyObject>, msg: UnsafeMutablePointer<PyObject>, filename: UnsafeMutablePointer<PyObject>, lineno: UnsafeMutablePointer<PyObject>, offset: UnsafeMutablePointer<PyObject>, text: UnsafeMutablePointer<PyObject>, print_file_and_line: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, dict dict: UnsafeMutablePointer<PyObject>, args args: UnsafeMutablePointer<PyObject>, message message: UnsafeMutablePointer<PyObject>, msg msg: UnsafeMutablePointer<PyObject>, filename filename: UnsafeMutablePointer<PyObject>, lineno lineno: UnsafeMutablePointer<PyObject>, offset offset: UnsafeMutablePointer<PyObject>, text text: UnsafeMutablePointer<PyObject>, print_file_and_line print_file_and_line: UnsafeMutablePointer<PyObject>)
 }
 struct PyUnicodeErrorObject {
   var ob_refcnt: Py_ssize_t
@@ -35,7 +35,7 @@ struct PyUnicodeErrorObject {
   var end: Py_ssize_t
   var reason: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, dict: UnsafeMutablePointer<PyObject>, args: UnsafeMutablePointer<PyObject>, message: UnsafeMutablePointer<PyObject>, encoding: UnsafeMutablePointer<PyObject>, object: UnsafeMutablePointer<PyObject>, start: Py_ssize_t, end: Py_ssize_t, reason: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, dict dict: UnsafeMutablePointer<PyObject>, args args: UnsafeMutablePointer<PyObject>, message message: UnsafeMutablePointer<PyObject>, encoding encoding: UnsafeMutablePointer<PyObject>, object object: UnsafeMutablePointer<PyObject>, start start: Py_ssize_t, end end: Py_ssize_t, reason reason: UnsafeMutablePointer<PyObject>)
 }
 struct PySystemExitObject {
   var ob_refcnt: Py_ssize_t
@@ -45,7 +45,7 @@ struct PySystemExitObject {
   var message: UnsafeMutablePointer<PyObject>
   var code: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, dict: UnsafeMutablePointer<PyObject>, args: UnsafeMutablePointer<PyObject>, message: UnsafeMutablePointer<PyObject>, code: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, dict dict: UnsafeMutablePointer<PyObject>, args args: UnsafeMutablePointer<PyObject>, message message: UnsafeMutablePointer<PyObject>, code code: UnsafeMutablePointer<PyObject>)
 }
 struct PyEnvironmentErrorObject {
   var ob_refcnt: Py_ssize_t
@@ -57,19 +57,19 @@ struct PyEnvironmentErrorObject {
   var strerror: UnsafeMutablePointer<PyObject>
   var filename: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, dict: UnsafeMutablePointer<PyObject>, args: UnsafeMutablePointer<PyObject>, message: UnsafeMutablePointer<PyObject>, myerrno: UnsafeMutablePointer<PyObject>, strerror: UnsafeMutablePointer<PyObject>, filename: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, dict dict: UnsafeMutablePointer<PyObject>, args args: UnsafeMutablePointer<PyObject>, message message: UnsafeMutablePointer<PyObject>, myerrno myerrno: UnsafeMutablePointer<PyObject>, strerror strerror: UnsafeMutablePointer<PyObject>, filename filename: UnsafeMutablePointer<PyObject>)
 }
-func PyErr_SetNone(_: UnsafeMutablePointer<PyObject>)
-func PyErr_SetObject(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>)
-func PyErr_SetString(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>)
+func PyErr_SetNone(_ _: UnsafeMutablePointer<PyObject>)
+func PyErr_SetObject(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>)
+func PyErr_SetString(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>)
 func PyErr_Occurred() -> UnsafeMutablePointer<PyObject>
 func PyErr_Clear()
-func PyErr_Fetch(_: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>)
-func PyErr_Restore(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>)
-func PyErr_GivenExceptionMatches(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>) -> Int32
-func PyErr_ExceptionMatches(_: UnsafeMutablePointer<PyObject>) -> Int32
-func PyErr_NormalizeException(_: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>)
-func _PyErr_ReplaceException(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>)
+func PyErr_Fetch(_ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>)
+func PyErr_Restore(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>)
+func PyErr_GivenExceptionMatches(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>) -> Int32
+func PyErr_ExceptionMatches(_ _: UnsafeMutablePointer<PyObject>) -> Int32
+func PyErr_NormalizeException(_ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ _: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>)
+func _PyErr_ReplaceException(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>)
 var PyExc_BaseException: UnsafeMutablePointer<PyObject>
 var PyExc_Exception: UnsafeMutablePointer<PyObject>
 var PyExc_StopIteration: UnsafeMutablePointer<PyObject>
@@ -122,43 +122,43 @@ var PyExc_UnicodeWarning: UnsafeMutablePointer<PyObject>
 var PyExc_BytesWarning: UnsafeMutablePointer<PyObject>
 func PyErr_BadArgument() -> Int32
 func PyErr_NoMemory() -> UnsafeMutablePointer<PyObject>
-func PyErr_SetFromErrno(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyErr_SetFromErrnoWithFilenameObject(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyErr_SetFromErrnoWithFilename(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
+func PyErr_SetFromErrno(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyErr_SetFromErrnoWithFilenameObject(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyErr_SetFromErrnoWithFilename(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
 func PyErr_BadInternalCall()
-func _PyErr_BadInternalCall(filename: UnsafeMutablePointer<Int8>, _ lineno: Int32)
-func PyErr_NewException(name: UnsafeMutablePointer<Int8>, _ base: UnsafeMutablePointer<PyObject>, _ dict: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyErr_NewExceptionWithDoc(name: UnsafeMutablePointer<Int8>, _ doc: UnsafeMutablePointer<Int8>, _ base: UnsafeMutablePointer<PyObject>, _ dict: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyErr_WriteUnraisable(_: UnsafeMutablePointer<PyObject>)
+func _PyErr_BadInternalCall(_ filename: UnsafeMutablePointer<Int8>, _ lineno: Int32)
+func PyErr_NewException(_ name: UnsafeMutablePointer<Int8>, _ base: UnsafeMutablePointer<PyObject>, _ dict: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyErr_NewExceptionWithDoc(_ name: UnsafeMutablePointer<Int8>, _ doc: UnsafeMutablePointer<Int8>, _ base: UnsafeMutablePointer<PyObject>, _ dict: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyErr_WriteUnraisable(_ _: UnsafeMutablePointer<PyObject>)
 func PyErr_CheckSignals() -> Int32
 func PyErr_SetInterrupt()
-func PySignal_SetWakeupFd(fd: Int32) -> Int32
-func PyErr_SyntaxLocation(_: UnsafePointer<Int8>, _: Int32)
-func PyErr_ProgramText(_: UnsafePointer<Int8>, _: Int32) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeDecodeError_Create(_: UnsafePointer<Int8>, _: UnsafePointer<Int8>, _: Py_ssize_t, _: Py_ssize_t, _: Py_ssize_t, _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeEncodeError_Create(_: UnsafePointer<Int8>, _: UnsafePointer<Py_UNICODE>, _: Py_ssize_t, _: Py_ssize_t, _: Py_ssize_t, _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeTranslateError_Create(_: UnsafePointer<Py_UNICODE>, _: Py_ssize_t, _: Py_ssize_t, _: Py_ssize_t, _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeEncodeError_GetEncoding(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeDecodeError_GetEncoding(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeEncodeError_GetObject(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeDecodeError_GetObject(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeTranslateError_GetObject(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeEncodeError_GetStart(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeDecodeError_GetStart(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeTranslateError_GetStart(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeEncodeError_SetStart(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeDecodeError_SetStart(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeTranslateError_SetStart(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeEncodeError_GetEnd(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeDecodeError_GetEnd(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeTranslateError_GetEnd(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
-func PyUnicodeEncodeError_SetEnd(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeDecodeError_SetEnd(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeTranslateError_SetEnd(_: UnsafeMutablePointer<PyObject>, _: Py_ssize_t) -> Int32
-func PyUnicodeEncodeError_GetReason(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeDecodeError_GetReason(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeTranslateError_GetReason(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyUnicodeEncodeError_SetReason(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>) -> Int32
-func PyUnicodeDecodeError_SetReason(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>) -> Int32
-func PyUnicodeTranslateError_SetReason(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>) -> Int32
-func PyOS_vsnprintf(str: UnsafeMutablePointer<Int8>, _ size: Int, _ format: UnsafePointer<Int8>, _ va: CVaListPointer) -> Int32
+func PySignal_SetWakeupFd(_ fd: Int32) -> Int32
+func PyErr_SyntaxLocation(_ _: UnsafePointer<Int8>, _ _: Int32)
+func PyErr_ProgramText(_ _: UnsafePointer<Int8>, _ _: Int32) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeDecodeError_Create(_ _: UnsafePointer<Int8>, _ _: UnsafePointer<Int8>, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeEncodeError_Create(_ _: UnsafePointer<Int8>, _ _: UnsafePointer<Py_UNICODE>, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeTranslateError_Create(_ _: UnsafePointer<Py_UNICODE>, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: Py_ssize_t, _ _: UnsafePointer<Int8>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeEncodeError_GetEncoding(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeDecodeError_GetEncoding(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeEncodeError_GetObject(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeDecodeError_GetObject(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeTranslateError_GetObject(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeEncodeError_GetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeDecodeError_GetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeTranslateError_GetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeEncodeError_SetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeDecodeError_SetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeTranslateError_SetStart(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeEncodeError_GetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeDecodeError_GetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeTranslateError_GetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<Py_ssize_t>) -> Int32
+func PyUnicodeEncodeError_SetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeDecodeError_SetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeTranslateError_SetEnd(_ _: UnsafeMutablePointer<PyObject>, _ _: Py_ssize_t) -> Int32
+func PyUnicodeEncodeError_GetReason(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeDecodeError_GetReason(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeTranslateError_GetReason(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyUnicodeEncodeError_SetReason(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>) -> Int32
+func PyUnicodeDecodeError_SetReason(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>) -> Int32
+func PyUnicodeTranslateError_SetReason(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>) -> Int32
+func PyOS_vsnprintf(_ str: UnsafeMutablePointer<Int8>, _ size: Int, _ format: UnsafePointer<Int8>, _ va: CVaListPointer) -> Int32

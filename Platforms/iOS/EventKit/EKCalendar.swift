@@ -2,7 +2,7 @@
 @available(iOS 4.0, *)
 class EKCalendar : EKObject {
   @available(iOS 6.0, *)
-  /*not inherited*/ init(forEntityType entityType: EKEntityType, eventStore: EKEventStore)
+  /*not inherited*/ init(forEntityType entityType: EKEntityType, eventStore eventStore: EKEventStore)
   var source: EKSource
   @available(iOS 5.0, *)
   var calendarIdentifier: String { get }
@@ -17,5 +17,4 @@ class EKCalendar : EKObject {
   var supportedEventAvailabilities: EKCalendarEventAvailabilityMask { get }
   @available(iOS 6.0, *)
   var allowedEntityTypes: EKEntityMask { get }
-  init()
 }

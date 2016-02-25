@@ -1,8 +1,7 @@
 
 @available(OSX 10.10, *)
 class CKFetchRecordsOperation : CKDatabaseOperation {
-  init()
-  convenience init(recordIDs: [CKRecordID])
+  convenience init(recordIDs recordIDs: [CKRecordID])
   class func fetchCurrentUserRecordOperation() -> Self
   var recordIDs: [CKRecordID]?
   var desiredKeys: [String]?

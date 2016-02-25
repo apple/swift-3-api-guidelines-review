@@ -4,11 +4,9 @@ class UIManagedDocument : UIDocument {
   class func persistentStoreName() -> String
   var persistentStoreOptions: [NSObject : AnyObject]?
   var modelConfiguration: String?
-  func configurePersistentStoreCoordinatorForURL(storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions: [NSObject : AnyObject]?) throws
-  func persistentStoreTypeForFileType(fileType: String) -> String
-  func readAdditionalContentFromURL(absoluteURL: NSURL) throws
-  func additionalContentForURL(absoluteURL: NSURL) throws -> AnyObject
-  func writeAdditionalContent(content: AnyObject, toURL absoluteURL: NSURL, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
-  init(fileURL url: NSURL)
-  convenience init()
+  func configurePersistentStoreCoordinatorForURL(_ storeURL: NSURL, ofType fileType: String, modelConfiguration configuration: String?, storeOptions storeOptions: [NSObject : AnyObject]?) throws
+  func persistentStoreTypeForFileType(_ fileType: String) -> String
+  func readAdditionalContentFromURL(_ absoluteURL: NSURL) throws
+  func additionalContentForURL(_ absoluteURL: NSURL) throws -> AnyObject
+  func writeAdditionalContent(_ content: AnyObject, toURL absoluteURL: NSURL, originalContentsURL absoluteOriginalContentsURL: NSURL?) throws
 }

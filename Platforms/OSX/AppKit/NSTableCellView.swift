@@ -7,7 +7,4 @@ class NSTableCellView : NSView {
   var backgroundStyle: NSBackgroundStyle
   var rowSizeStyle: NSTableViewRowSizeStyle
   var draggingImageComponents: [NSDraggingImageComponent] { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }

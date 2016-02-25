@@ -1,30 +1,27 @@
 
 class NSScriptClassDescription : NSClassDescription {
-  /*not inherited*/ init?(forClass aClass: AnyClass)
-  init?(suiteName: String, className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
+  init?(suiteName suiteName: String, className className: String, dictionary classDeclaration: [NSObject : AnyObject]?)
   var suiteName: String? { get }
-  var className: String? { get }
   var implementationClassName: String? { get }
   var superclassDescription: NSScriptClassDescription? { get }
   var appleEventCode: FourCharCode { get }
-  func matchesAppleEventCode(appleEventCode: FourCharCode) -> Bool
-  func supportsCommand(commandDescription: NSScriptCommandDescription) -> Bool
-  func selectorForCommand(commandDescription: NSScriptCommandDescription) -> Selector
-  func typeForKey(key: String) -> String?
-  func classDescriptionForKey(key: String) -> NSScriptClassDescription?
-  func appleEventCodeForKey(key: String) -> FourCharCode
-  func keyWithAppleEventCode(appleEventCode: FourCharCode) -> String?
+  func matchesAppleEventCode(_ appleEventCode: FourCharCode) -> Bool
+  func supportsCommand(_ commandDescription: NSScriptCommandDescription) -> Bool
+  func selectorForCommand(_ commandDescription: NSScriptCommandDescription) -> Selector
+  func typeForKey(_ key: String) -> String?
+  func classDescriptionForKey(_ key: String) -> NSScriptClassDescription?
+  func appleEventCodeForKey(_ key: String) -> FourCharCode
+  func keyWithAppleEventCode(_ appleEventCode: FourCharCode) -> String?
   var defaultSubcontainerAttributeKey: String? { get }
-  func isLocationRequiredToCreateForKey(toManyRelationshipKey: String) -> Bool
+  func isLocationRequiredToCreateForKey(_ toManyRelationshipKey: String) -> Bool
   @available(OSX 10.5, *)
-  func hasPropertyForKey(key: String) -> Bool
+  func hasPropertyForKey(_ key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasOrderedToManyRelationshipForKey(key: String) -> Bool
+  func hasOrderedToManyRelationshipForKey(_ key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasReadablePropertyForKey(key: String) -> Bool
+  func hasReadablePropertyForKey(_ key: String) -> Bool
   @available(OSX 10.5, *)
-  func hasWritablePropertyForKey(key: String) -> Bool
-  convenience init()
+  func hasWritablePropertyForKey(_ key: String) -> Bool
 }
 extension NSScriptClassDescription {
 }

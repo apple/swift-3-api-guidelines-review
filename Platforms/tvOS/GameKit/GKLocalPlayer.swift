@@ -7,22 +7,21 @@ class GKLocalPlayer : GKPlayer {
   @available(tvOS 6.0, *)
   var authenticateHandler: ((UIViewController?, NSError?) -> Void)?
   @available(tvOS 8.0, *)
-  func loadFriendPlayersWithCompletionHandler(completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  func loadFriendPlayersWithCompletionHandler(_ completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
   @available(tvOS 7.0, *)
-  func setDefaultLeaderboardIdentifier(leaderboardIdentifier: String, completionHandler: ((NSError?) -> Void)?)
+  func setDefaultLeaderboardIdentifier(_ leaderboardIdentifier: String, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(tvOS 7.0, *)
-  func loadDefaultLeaderboardIdentifierWithCompletionHandler(completionHandler: ((String?, NSError?) -> Void)?)
+  func loadDefaultLeaderboardIdentifierWithCompletionHandler(_ completionHandler: ((String?, NSError?) -> Void)?)
   @available(tvOS 7.0, *)
-  func generateIdentityVerificationSignatureWithCompletionHandler(completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)?)
-  init()
+  func generateIdentityVerificationSignatureWithCompletionHandler(_ completionHandler: ((NSURL?, NSData?, NSData?, UInt64, NSError?) -> Void)?)
 }
 protocol GKLocalPlayerListener : GKChallengeListener, GKInviteEventListener, GKTurnBasedEventListener, GKSavedGameListener {
 }
 extension GKLocalPlayer {
   @available(tvOS 7.0, *)
-  func registerListener(listener: GKLocalPlayerListener)
+  func registerListener(_ listener: GKLocalPlayerListener)
   @available(tvOS 7.0, *)
-  func unregisterListener(listener: GKLocalPlayerListener)
+  func unregisterListener(_ listener: GKLocalPlayerListener)
   @available(tvOS 7.0, *)
   func unregisterAllListeners()
 }

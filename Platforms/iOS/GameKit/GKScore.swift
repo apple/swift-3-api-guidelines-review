@@ -3,7 +3,7 @@
 class GKScore : NSObject, NSCoding, NSSecureCoding {
   init(leaderboardIdentifier identifier: String)
   @available(iOS 8.0, *)
-  init(leaderboardIdentifier identifier: String, player: GKPlayer)
+  init(leaderboardIdentifier identifier: String, player player: GKPlayer)
   var value: Int64
   var formattedValue: String? { get }
   @available(iOS 7.0, *)
@@ -17,10 +17,9 @@ class GKScore : NSObject, NSCoding, NSSecureCoding {
   @available(iOS 5.0, *)
   var shouldSetDefaultLeaderboard: Bool
   @available(iOS 6.0, *)
-  class func reportScores(scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
-  init()
+  class func reportScores(_ scores: [GKScore], withCompletionHandler completionHandler: ((NSError?) -> Void)?)
   @available(iOS 4.1, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 4.1, *)
   class func supportsSecureCoding() -> Bool

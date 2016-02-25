@@ -1,7 +1,7 @@
 
 @available(iOS 4.0, *)
 class AVPlayerLayer : CALayer {
-  /*not inherited*/ init(player: AVPlayer?)
+  /*not inherited*/ init(player player: AVPlayer?)
   var player: AVPlayer?
   var videoGravity: String
   var readyForDisplay: Bool { get }
@@ -9,7 +9,4 @@ class AVPlayerLayer : CALayer {
   var videoRect: CGRect { get }
   @available(iOS 9.0, *)
   var pixelBufferAttributes: [String : AnyObject]?
-  init()
-  init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

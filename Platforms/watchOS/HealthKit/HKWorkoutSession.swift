@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum HKWorkoutSessionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NotStarted
   case Running
@@ -9,7 +9,7 @@ enum HKWorkoutSessionState : Int {
 }
 @available(watchOS 2.0, *)
 enum HKWorkoutSessionLocationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Indoor
@@ -23,15 +23,15 @@ class HKWorkoutSession : NSObject, NSSecureCoding {
   var state: HKWorkoutSessionState { get }
   var startDate: NSDate? { get }
   var endDate: NSDate? { get }
-  init(activityType: HKWorkoutActivityType, locationType: HKWorkoutSessionLocationType)
+  init(activityType activityType: HKWorkoutActivityType, locationType locationType: HKWorkoutSessionLocationType)
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 protocol HKWorkoutSessionDelegate : NSObjectProtocol {
-  func workoutSession(workoutSession: HKWorkoutSession, didChangeToState toState: HKWorkoutSessionState, fromState: HKWorkoutSessionState, date: NSDate)
-  func workoutSession(workoutSession: HKWorkoutSession, didFailWithError error: NSError)
+  func workoutSession(_ workoutSession: HKWorkoutSession, didChangeToState toState: HKWorkoutSessionState, fromState fromState: HKWorkoutSessionState, date date: NSDate)
+  func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: NSError)
 }

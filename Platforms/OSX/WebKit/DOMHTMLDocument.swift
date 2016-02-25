@@ -29,8 +29,8 @@ class DOMHTMLDocument : DOMDocument {
   var vlinkColor: String!
   func open()
   func close()
-  func write(text: String!)
-  func writeln(text: String!)
+  func write(_ text: String!)
+  func writeln(_ text: String!)
   @available(OSX 10.6, *)
   func clear()
   @available(OSX 10.5, *)

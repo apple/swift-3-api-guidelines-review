@@ -1,7 +1,7 @@
 
 @available(OSX 10.7, *)
 struct NSTouchPhase : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Began: NSTouchPhase { get }
   static var Moved: NSTouchPhase { get }
@@ -19,7 +19,6 @@ class NSTouch : NSObject, NSCopying {
   var resting: Bool { get }
   var device: AnyObject? { get }
   var deviceSize: NSSize { get }
-  init()
   @available(OSX 10.6, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

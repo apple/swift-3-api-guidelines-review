@@ -4,7 +4,7 @@ struct setentry {
   var hash: Int
   var key: UnsafeMutablePointer<PyObject>
   init()
-  init(hash: Int, key: UnsafeMutablePointer<PyObject>)
+  init(hash hash: Int, key key: UnsafeMutablePointer<PyObject>)
 }
 typealias PySetObject = _setobject
 struct _setobject {
@@ -19,18 +19,18 @@ struct _setobject {
   var hash: Int
   var weakreflist: UnsafeMutablePointer<PyObject>
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, fill: Py_ssize_t, used: Py_ssize_t, mask: Py_ssize_t, table: UnsafeMutablePointer<setentry>, lookup: (@convention(c) (UnsafeMutablePointer<PySetObject>, UnsafeMutablePointer<PyObject>, Int) -> UnsafeMutablePointer<setentry>)!, smalltable: (setentry, setentry, setentry, setentry, setentry, setentry, setentry, setentry), hash: Int, weakreflist: UnsafeMutablePointer<PyObject>)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, fill fill: Py_ssize_t, used used: Py_ssize_t, mask mask: Py_ssize_t, table table: UnsafeMutablePointer<setentry>, lookup lookup: (@convention(c) (UnsafeMutablePointer<PySetObject>, UnsafeMutablePointer<PyObject>, Int) -> UnsafeMutablePointer<setentry>)!, smalltable smalltable: (setentry, setentry, setentry, setentry, setentry, setentry, setentry, setentry), hash hash: Int, weakreflist weakreflist: UnsafeMutablePointer<PyObject>)
 }
 var PySet_Type: PyTypeObject
 var PyFrozenSet_Type: PyTypeObject
-func PySet_New(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyFrozenSet_New(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PySet_Size(anyset: UnsafeMutablePointer<PyObject>) -> Py_ssize_t
-func PySet_Clear(set: UnsafeMutablePointer<PyObject>) -> Int32
-func PySet_Contains(anyset: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
-func PySet_Discard(set: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
-func PySet_Add(set: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
-func _PySet_Next(set: UnsafeMutablePointer<PyObject>, _ pos: UnsafeMutablePointer<Py_ssize_t>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>) -> Int32
-func _PySet_NextEntry(set: UnsafeMutablePointer<PyObject>, _ pos: UnsafeMutablePointer<Py_ssize_t>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ hash: UnsafeMutablePointer<Int>) -> Int32
-func PySet_Pop(set: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func _PySet_Update(set: UnsafeMutablePointer<PyObject>, _ iterable: UnsafeMutablePointer<PyObject>) -> Int32
+func PySet_New(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyFrozenSet_New(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PySet_Size(_ anyset: UnsafeMutablePointer<PyObject>) -> Py_ssize_t
+func PySet_Clear(_ set: UnsafeMutablePointer<PyObject>) -> Int32
+func PySet_Contains(_ anyset: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
+func PySet_Discard(_ set: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
+func PySet_Add(_ set: UnsafeMutablePointer<PyObject>, _ key: UnsafeMutablePointer<PyObject>) -> Int32
+func _PySet_Next(_ set: UnsafeMutablePointer<PyObject>, _ pos: UnsafeMutablePointer<Py_ssize_t>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>) -> Int32
+func _PySet_NextEntry(_ set: UnsafeMutablePointer<PyObject>, _ pos: UnsafeMutablePointer<Py_ssize_t>, _ key: UnsafeMutablePointer<UnsafeMutablePointer<PyObject>>, _ hash: UnsafeMutablePointer<Int>) -> Int32
+func PySet_Pop(_ set: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func _PySet_Update(_ set: UnsafeMutablePointer<PyObject>, _ iterable: UnsafeMutablePointer<PyObject>) -> Int32

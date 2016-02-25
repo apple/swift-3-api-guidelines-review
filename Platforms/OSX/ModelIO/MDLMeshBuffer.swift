@@ -1,19 +1,18 @@
 
 enum MDLMeshBufferType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Vertex
   case Index
 }
 @available(OSX 10.11, *)
 class MDLMeshBufferMap : NSObject {
-  init(bytes: UnsafeMutablePointer<Void>, deallocator: (() -> Void)?)
+  init(bytes bytes: UnsafeMutablePointer<Void>, deallocator deallocator: (() -> Void)?)
   var bytes: UnsafeMutablePointer<Void> { get }
-  init()
 }
 @available(OSX 10.11, *)
 protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
-  func fillData(data: NSData, offset: Int)
+  func fillData(_ data: NSData, offset offset: Int)
   func map() -> MDLMeshBufferMap
   var length: Int { get }
   var allocator: MDLMeshBufferAllocator { get }
@@ -21,12 +20,11 @@ protocol MDLMeshBuffer : NSObjectProtocol, NSCopying {
 }
 @available(OSX 10.11, *)
 class MDLMeshBufferData : NSObject, MDLMeshBuffer {
-  init(type: MDLMeshBufferType, length: Int)
-  init(type: MDLMeshBufferType, data: NSData?)
+  init(type type: MDLMeshBufferType, length length: Int)
+  init(type type: MDLMeshBufferType, data data: NSData?)
   var data: NSData { get }
-  init()
   @available(OSX 10.11, *)
-  func fillData(data: NSData, offset: Int)
+  func fillData(_ data: NSData, offset offset: Int)
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
@@ -36,7 +34,7 @@ class MDLMeshBufferData : NSObject, MDLMeshBuffer {
   @available(OSX 10.11, *)
   var type: MDLMeshBufferType { get }
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MDLMeshBufferZone : NSObjectProtocol {
@@ -45,30 +43,28 @@ protocol MDLMeshBufferZone : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
 protocol MDLMeshBufferAllocator : NSObjectProtocol {
-  func newZone(capacity: Int) -> MDLMeshBufferZone
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(_ sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWithData(_ data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 class MDLMeshBufferDataAllocator : NSObject, MDLMeshBufferAllocator {
-  init()
   @available(OSX 10.11, *)
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(_ sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWithData(_ data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 class MDLMeshBufferZoneDefault : NSObject, MDLMeshBufferZone {
   var capacity: Int { get }
   var allocator: MDLMeshBufferAllocator { get }
-  init()
 }

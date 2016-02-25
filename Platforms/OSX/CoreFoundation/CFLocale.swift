@@ -14,15 +14,15 @@ func CFLocaleCopyISOCurrencyCodes() -> CFArray!
 func CFLocaleCopyCommonISOCurrencyCodes() -> CFArray!
 @available(OSX 10.5, *)
 func CFLocaleCopyPreferredLanguages() -> CFArray!
-func CFLocaleCreateCanonicalLanguageIdentifierFromString(allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFString!
-func CFLocaleCreateCanonicalLocaleIdentifierFromString(allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFString!
-func CFLocaleCreateCanonicalLocaleIdentifierFromScriptManagerCodes(allocator: CFAllocator!, _ lcode: LangCode, _ rcode: RegionCode) -> CFString!
+func CFLocaleCreateCanonicalLanguageIdentifierFromString(_ allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFString!
+func CFLocaleCreateCanonicalLocaleIdentifierFromString(_ allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFString!
+func CFLocaleCreateCanonicalLocaleIdentifierFromScriptManagerCodes(_ allocator: CFAllocator!, _ lcode: LangCode, _ rcode: RegionCode) -> CFString!
 @available(OSX 10.6, *)
-func CFLocaleCreateLocaleIdentifierFromWindowsLocaleCode(allocator: CFAllocator!, _ lcid: UInt32) -> CFString!
+func CFLocaleCreateLocaleIdentifierFromWindowsLocaleCode(_ allocator: CFAllocator!, _ lcid: UInt32) -> CFString!
 @available(OSX 10.6, *)
-func CFLocaleGetWindowsLocaleCodeFromLocaleIdentifier(localeIdentifier: CFString!) -> UInt32
+func CFLocaleGetWindowsLocaleCodeFromLocaleIdentifier(_ localeIdentifier: CFString!) -> UInt32
 enum CFLocaleLanguageDirection : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case Unknown
   case LeftToRight
@@ -31,16 +31,16 @@ enum CFLocaleLanguageDirection : CFIndex {
   case BottomToTop
 }
 @available(OSX 10.6, *)
-func CFLocaleGetLanguageCharacterDirection(isoLangCode: CFString!) -> CFLocaleLanguageDirection
+func CFLocaleGetLanguageCharacterDirection(_ isoLangCode: CFString!) -> CFLocaleLanguageDirection
 @available(OSX 10.6, *)
-func CFLocaleGetLanguageLineDirection(isoLangCode: CFString!) -> CFLocaleLanguageDirection
-func CFLocaleCreateComponentsFromLocaleIdentifier(allocator: CFAllocator!, _ localeID: CFString!) -> CFDictionary!
-func CFLocaleCreateLocaleIdentifierFromComponents(allocator: CFAllocator!, _ dictionary: CFDictionary!) -> CFString!
-func CFLocaleCreate(allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFLocale!
-func CFLocaleCreateCopy(allocator: CFAllocator!, _ locale: CFLocale!) -> CFLocale!
-func CFLocaleGetIdentifier(locale: CFLocale!) -> CFString!
-func CFLocaleGetValue(locale: CFLocale!, _ key: CFString!) -> CFTypeRef!
-func CFLocaleCopyDisplayNameForPropertyValue(displayLocale: CFLocale!, _ key: CFString!, _ value: CFString!) -> CFString!
+func CFLocaleGetLanguageLineDirection(_ isoLangCode: CFString!) -> CFLocaleLanguageDirection
+func CFLocaleCreateComponentsFromLocaleIdentifier(_ allocator: CFAllocator!, _ localeID: CFString!) -> CFDictionary!
+func CFLocaleCreateLocaleIdentifierFromComponents(_ allocator: CFAllocator!, _ dictionary: CFDictionary!) -> CFString!
+func CFLocaleCreate(_ allocator: CFAllocator!, _ localeIdentifier: CFString!) -> CFLocale!
+func CFLocaleCreateCopy(_ allocator: CFAllocator!, _ locale: CFLocale!) -> CFLocale!
+func CFLocaleGetIdentifier(_ locale: CFLocale!) -> CFString!
+func CFLocaleGetValue(_ locale: CFLocale!, _ key: CFString!) -> CFTypeRef!
+func CFLocaleCopyDisplayNameForPropertyValue(_ displayLocale: CFLocale!, _ key: CFString!, _ value: CFString!) -> CFString!
 @available(OSX 10.5, *)
 let kCFLocaleCurrentLocaleDidChangeNotification: CFString!
 let kCFLocaleIdentifier: CFString!

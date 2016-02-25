@@ -1,13 +1,13 @@
 
 @available(OSX 10.11, *)
 enum CNEntityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Contacts
 }
 @available(OSX 10.11, *)
 enum CNAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NotDetermined
   case Restricted
@@ -16,18 +16,17 @@ enum CNAuthorizationStatus : Int {
 }
 @available(OSX 10.11, *)
 class CNContactStore : NSObject {
-  class func authorizationStatusForEntityType(entityType: CNEntityType) -> CNAuthorizationStatus
-  func requestAccessForEntityType(entityType: CNEntityType, completionHandler: (Bool, NSError?) -> Void)
-  func unifiedContactsMatchingPredicate(predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
-  func unifiedContactWithIdentifier(identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
+  class func authorizationStatusForEntityType(_ entityType: CNEntityType) -> CNAuthorizationStatus
+  func requestAccessForEntityType(_ entityType: CNEntityType, completionHandler completionHandler: (Bool, NSError?) -> Void)
+  func unifiedContactsMatchingPredicate(_ predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
+  func unifiedContactWithIdentifier(_ identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   @available(OSX 10.11, *)
-  func unifiedMeContactWithKeysToFetch(keys: [CNKeyDescriptor]) throws -> CNContact
-  func enumerateContactsWithFetchRequest(fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
-  func groupsMatchingPredicate(predicate: NSPredicate?) throws -> [CNGroup]
-  func containersMatchingPredicate(predicate: NSPredicate?) throws -> [CNContainer]
-  func executeSaveRequest(saveRequest: CNSaveRequest) throws
+  func unifiedMeContactWithKeysToFetch(_ keys: [CNKeyDescriptor]) throws -> CNContact
+  func enumerateContactsWithFetchRequest(_ fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
+  func groupsMatchingPredicate(_ predicate: NSPredicate?) throws -> [CNGroup]
+  func containersMatchingPredicate(_ predicate: NSPredicate?) throws -> [CNContainer]
+  func executeSaveRequest(_ saveRequest: CNSaveRequest) throws
   func defaultContainerIdentifier() -> String
-  init()
 }
 @available(OSX 10.11, *)
 let CNContactStoreDidChangeNotification: String

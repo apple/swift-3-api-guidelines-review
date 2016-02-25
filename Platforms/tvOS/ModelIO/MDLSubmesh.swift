@@ -11,14 +11,13 @@ class MDLSubmeshTopology : NSObject {
   var edgeCreaseCount: Int
   var holes: MDLMeshBuffer?
   var holeCount: Int
-  init()
 }
 @available(tvOS 9.0, *)
 class MDLSubmesh : NSObject, MDLNamed {
-  init(name: String, indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?)
-  init(indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?)
-  init(name: String, indexBuffer: MDLMeshBuffer, indexCount: Int, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType, material: MDLMaterial?, topology: MDLSubmeshTopology?)
-  init?(MDLSubmesh submesh: MDLSubmesh, indexType: MDLIndexBitDepth, geometryType: MDLGeometryType)
+  init(name name: String, indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?)
+  init(indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?)
+  init(name name: String, indexBuffer indexBuffer: MDLMeshBuffer, indexCount indexCount: Int, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType, material material: MDLMaterial?, topology topology: MDLSubmeshTopology?)
+  init?(MDLSubmesh submesh: MDLSubmesh, indexType indexType: MDLIndexBitDepth, geometryType geometryType: MDLGeometryType)
   var indexBuffer: MDLMeshBuffer { get }
   var indexCount: Int { get }
   var indexType: MDLIndexBitDepth { get }
@@ -26,5 +25,4 @@ class MDLSubmesh : NSObject, MDLNamed {
   var material: MDLMaterial?
   var topology: MDLSubmeshTopology? { get }
   var name: String
-  init()
 }

@@ -5,5 +5,4 @@ class CTCallCenter : NSObject {
   var currentCalls: Set<CTCall>? { get }
   @available(iOS 4.0, *)
   var callEventHandler: ((CTCall) -> Void)?
-  init()
 }

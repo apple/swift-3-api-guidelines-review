@@ -4,7 +4,7 @@ class SCPreferences {
 @available(*, deprecated, renamed="SCPreferences")
 typealias SCPreferencesRef = SCPreferences
 struct SCPreferencesNotification : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Commit: SCPreferencesNotification { get }
   static var Apply: SCPreferencesNotification { get }
@@ -16,42 +16,42 @@ struct SCPreferencesContext {
   var release: (@convention(c) (UnsafePointer<Void>) -> Void)?
   var copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
 }
 typealias SCPreferencesCallBack = @convention(c) (SCPreferences, SCPreferencesNotification, UnsafeMutablePointer<Void>) -> Void
 @available(OSX 10.1, *)
 func SCPreferencesGetTypeID() -> CFTypeID
 @available(OSX 10.1, *)
-func SCPreferencesCreate(allocator: CFAllocator?, _ name: CFString, _ prefsID: CFString?) -> SCPreferences?
+func SCPreferencesCreate(_ allocator: CFAllocator?, _ name: CFString, _ prefsID: CFString?) -> SCPreferences?
 @available(OSX 10.5, *)
-func SCPreferencesCreateWithAuthorization(allocator: CFAllocator?, _ name: CFString, _ prefsID: CFString?, _ authorization: AuthorizationRef) -> SCPreferences?
+func SCPreferencesCreateWithAuthorization(_ allocator: CFAllocator?, _ name: CFString, _ prefsID: CFString?, _ authorization: AuthorizationRef) -> SCPreferences?
 @available(OSX 10.1, *)
-func SCPreferencesLock(prefs: SCPreferences, _ wait: Bool) -> Bool
+func SCPreferencesLock(_ prefs: SCPreferences, _ wait: Bool) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesCommitChanges(prefs: SCPreferences) -> Bool
+func SCPreferencesCommitChanges(_ prefs: SCPreferences) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesApplyChanges(prefs: SCPreferences) -> Bool
+func SCPreferencesApplyChanges(_ prefs: SCPreferences) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesUnlock(prefs: SCPreferences) -> Bool
+func SCPreferencesUnlock(_ prefs: SCPreferences) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesGetSignature(prefs: SCPreferences) -> CFData?
+func SCPreferencesGetSignature(_ prefs: SCPreferences) -> CFData?
 @available(OSX 10.1, *)
-func SCPreferencesCopyKeyList(prefs: SCPreferences) -> CFArray?
+func SCPreferencesCopyKeyList(_ prefs: SCPreferences) -> CFArray?
 @available(OSX 10.1, *)
-func SCPreferencesGetValue(prefs: SCPreferences, _ key: CFString) -> CFPropertyList?
+func SCPreferencesGetValue(_ prefs: SCPreferences, _ key: CFString) -> CFPropertyList?
 @available(OSX 10.1, *)
-func SCPreferencesAddValue(prefs: SCPreferences, _ key: CFString, _ value: CFPropertyList) -> Bool
+func SCPreferencesAddValue(_ prefs: SCPreferences, _ key: CFString, _ value: CFPropertyList) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesSetValue(prefs: SCPreferences, _ key: CFString, _ value: CFPropertyList) -> Bool
+func SCPreferencesSetValue(_ prefs: SCPreferences, _ key: CFString, _ value: CFPropertyList) -> Bool
 @available(OSX 10.1, *)
-func SCPreferencesRemoveValue(prefs: SCPreferences, _ key: CFString) -> Bool
+func SCPreferencesRemoveValue(_ prefs: SCPreferences, _ key: CFString) -> Bool
 @available(OSX 10.4, *)
-func SCPreferencesSetCallback(prefs: SCPreferences, _ callout: SCPreferencesCallBack?, _ context: UnsafeMutablePointer<SCPreferencesContext>) -> Bool
+func SCPreferencesSetCallback(_ prefs: SCPreferences, _ callout: SCPreferencesCallBack?, _ context: UnsafeMutablePointer<SCPreferencesContext>) -> Bool
 @available(OSX 10.4, *)
-func SCPreferencesScheduleWithRunLoop(prefs: SCPreferences, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
+func SCPreferencesScheduleWithRunLoop(_ prefs: SCPreferences, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
 @available(OSX 10.4, *)
-func SCPreferencesUnscheduleFromRunLoop(prefs: SCPreferences, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
+func SCPreferencesUnscheduleFromRunLoop(_ prefs: SCPreferences, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
 @available(OSX 10.6, *)
-func SCPreferencesSetDispatchQueue(prefs: SCPreferences, _ queue: dispatch_queue_t?) -> Bool
+func SCPreferencesSetDispatchQueue(_ prefs: SCPreferences, _ queue: dispatch_queue_t?) -> Bool
 @available(OSX 10.4, *)
-func SCPreferencesSynchronize(prefs: SCPreferences)
+func SCPreferencesSynchronize(_ prefs: SCPreferences)

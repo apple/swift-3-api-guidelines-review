@@ -3,7 +3,7 @@
 class DOMText : DOMCharacterData {
   @available(OSX 10.6, *)
   var wholeText: String! { get }
-  func splitText(offset: UInt32) -> DOMText!
+  func splitText(_ offset: UInt32) -> DOMText!
   @available(OSX 10.6, *)
-  func replaceWholeText(content: String!) -> DOMText!
+  func replaceWholeText(_ content: String!) -> DOMText!
 }

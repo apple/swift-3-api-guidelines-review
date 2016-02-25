@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum NWTCPConnectionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Invalid
   case Connecting
@@ -35,22 +35,21 @@ class NWTCPConnection : NSObject {
   @available(iOS 9.0, *)
   func cancel()
   @available(iOS 9.0, *)
-  func readLength(length: Int, completionHandler completion: (NSData?, NSError?) -> Void)
+  func readLength(_ length: Int, completionHandler completion: (NSData?, NSError?) -> Void)
   @available(iOS 9.0, *)
-  func readMinimumLength(minimum: Int, maximumLength maximum: Int, completionHandler completion: (NSData?, NSError?) -> Void)
+  func readMinimumLength(_ minimum: Int, maximumLength maximum: Int, completionHandler completion: (NSData?, NSError?) -> Void)
   @available(iOS 9.0, *)
-  func write(data: NSData, completionHandler completion: (NSError?) -> Void)
+  func write(_ data: NSData, completionHandler completion: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func writeClose()
-  init()
 }
 protocol NWTCPConnectionAuthenticationDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
-  optional func shouldProvideIdentityForConnection(connection: NWTCPConnection) -> Bool
+  optional func shouldProvideIdentityForConnection(_ connection: NWTCPConnection) -> Bool
   @available(iOS 9.0, *)
-  optional func provideIdentityForConnection(connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
+  optional func provideIdentityForConnection(_ connection: NWTCPConnection, completionHandler completion: (SecIdentity, [AnyObject]) -> Void)
   @available(iOS 9.0, *)
-  optional func shouldEvaluateTrustForConnection(connection: NWTCPConnection) -> Bool
+  optional func shouldEvaluateTrustForConnection(_ connection: NWTCPConnection) -> Bool
   @available(iOS 9.0, *)
-  optional func evaluateTrustForConnection(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
+  optional func evaluateTrustForConnection(_ connection: NWTCPConnection, peerCertificateChain peerCertificateChain: [AnyObject], completionHandler completion: (SecTrust) -> Void)
 }

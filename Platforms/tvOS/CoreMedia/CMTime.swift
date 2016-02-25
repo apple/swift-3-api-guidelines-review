@@ -4,7 +4,7 @@ typealias CMTimeScale = Int32
 var kCMTimeMaxTimescale: Int { get }
 typealias CMTimeEpoch = Int64
 struct CMTimeFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Valid: CMTimeFlags { get }
   static var HasBeenRounded: CMTimeFlags { get }
@@ -19,12 +19,12 @@ struct CMTime {
   var flags: CMTimeFlags
   var epoch: CMTimeEpoch
   init()
-  init(value: CMTimeValue, timescale: CMTimeScale, flags: CMTimeFlags, epoch: CMTimeEpoch)
+  init(value value: CMTimeValue, timescale timescale: CMTimeScale, flags flags: CMTimeFlags, epoch epoch: CMTimeEpoch)
 }
 
 extension CMTime {
-  init(seconds: Double, preferredTimescale: CMTimeScale)
-  init(value: CMTimeValue, timescale: CMTimeScale)
+  init(seconds seconds: Double, preferredTimescale preferredTimescale: CMTimeScale)
+  init(value value: CMTimeValue, timescale timescale: CMTimeScale)
 }
 
 extension CMTime {
@@ -35,7 +35,7 @@ extension CMTime {
   var isNumeric: Bool { get }
   var hasBeenRounded: Bool { get }
   var seconds: Double { get }
-  func convertScale(newTimescale: Int32, method: CMTimeRoundingMethod) -> CMTime
+  func convertScale(_ newTimescale: Int32, method method: CMTimeRoundingMethod) -> CMTime
 }
 
 extension CMTime : Equatable, Comparable {
@@ -51,15 +51,15 @@ let kCMTimeNegativeInfinity: CMTime
 @available(tvOS 4.0, *)
 let kCMTimeZero: CMTime
 @available(tvOS 4.0, *)
-func CMTimeMake(value: Int64, _ timescale: Int32) -> CMTime
+func CMTimeMake(_ value: Int64, _ timescale: Int32) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMakeWithEpoch(value: Int64, _ timescale: Int32, _ epoch: Int64) -> CMTime
+func CMTimeMakeWithEpoch(_ value: Int64, _ timescale: Int32, _ epoch: Int64) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMakeWithSeconds(seconds: Float64, _ preferredTimeScale: Int32) -> CMTime
+func CMTimeMakeWithSeconds(_ seconds: Float64, _ preferredTimeScale: Int32) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeGetSeconds(time: CMTime) -> Float64
+func CMTimeGetSeconds(_ time: CMTime) -> Float64
 enum CMTimeRoundingMethod : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case RoundHalfAwayFromZero
   case RoundTowardZero
@@ -70,29 +70,29 @@ enum CMTimeRoundingMethod : UInt32 {
   static var Default: CMTimeRoundingMethod { get }
 }
 @available(tvOS 4.0, *)
-func CMTimeConvertScale(time: CMTime, _ newTimescale: Int32, _ method: CMTimeRoundingMethod) -> CMTime
+func CMTimeConvertScale(_ time: CMTime, _ newTimescale: Int32, _ method: CMTimeRoundingMethod) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeAdd(addend1: CMTime, _ addend2: CMTime) -> CMTime
+func CMTimeAdd(_ addend1: CMTime, _ addend2: CMTime) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeSubtract(minuend: CMTime, _ subtrahend: CMTime) -> CMTime
+func CMTimeSubtract(_ minuend: CMTime, _ subtrahend: CMTime) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMultiply(time: CMTime, _ multiplier: Int32) -> CMTime
+func CMTimeMultiply(_ time: CMTime, _ multiplier: Int32) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMultiplyByFloat64(time: CMTime, _ multiplier: Float64) -> CMTime
+func CMTimeMultiplyByFloat64(_ time: CMTime, _ multiplier: Float64) -> CMTime
 @available(tvOS 7.1, *)
-func CMTimeMultiplyByRatio(time: CMTime, _ multiplier: Int32, _ divisor: Int32) -> CMTime
+func CMTimeMultiplyByRatio(_ time: CMTime, _ multiplier: Int32, _ divisor: Int32) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeCompare(time1: CMTime, _ time2: CMTime) -> Int32
+func CMTimeCompare(_ time1: CMTime, _ time2: CMTime) -> Int32
 @available(tvOS 4.0, *)
-func CMTimeMinimum(time1: CMTime, _ time2: CMTime) -> CMTime
+func CMTimeMinimum(_ time1: CMTime, _ time2: CMTime) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeMaximum(time1: CMTime, _ time2: CMTime) -> CMTime
+func CMTimeMaximum(_ time1: CMTime, _ time2: CMTime) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeAbsoluteValue(time: CMTime) -> CMTime
+func CMTimeAbsoluteValue(_ time: CMTime) -> CMTime
 @available(tvOS 4.0, *)
-func CMTimeCopyAsDictionary(time: CMTime, _ allocator: CFAllocator?) -> CFDictionary?
+func CMTimeCopyAsDictionary(_ time: CMTime, _ allocator: CFAllocator?) -> CFDictionary?
 @available(tvOS 4.0, *)
-func CMTimeMakeFromDictionary(dict: CFDictionary?) -> CMTime
+func CMTimeMakeFromDictionary(_ dict: CFDictionary?) -> CMTime
 @available(tvOS 4.0, *)
 let kCMTimeValueKey: CFString
 @available(tvOS 4.0, *)
@@ -102,6 +102,6 @@ let kCMTimeEpochKey: CFString
 @available(tvOS 4.0, *)
 let kCMTimeFlagsKey: CFString
 @available(tvOS 4.0, *)
-func CMTimeCopyDescription(allocator: CFAllocator?, _ time: CMTime) -> CFString?
+func CMTimeCopyDescription(_ allocator: CFAllocator?, _ time: CMTime) -> CFString?
 @available(tvOS 4.0, *)
-func CMTimeShow(time: CMTime)
+func CMTimeShow(_ time: CMTime)

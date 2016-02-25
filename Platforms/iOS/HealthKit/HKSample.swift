@@ -4,7 +4,6 @@ class HKSample : HKObject {
   var sampleType: HKSampleType { get }
   var startDate: NSDate { get }
   var endDate: NSDate { get }
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 let HKSampleSortIdentifierStartDate: String

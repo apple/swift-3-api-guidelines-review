@@ -1,17 +1,16 @@
 
 protocol UIPopoverPresentationControllerDelegate : UIAdaptivePresentationControllerDelegate {
   @available(iOS 8.0, *)
-  optional func prepareForPopoverPresentation(popoverPresentationController: UIPopoverPresentationController)
+  optional func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool
+  optional func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool
   @available(iOS 8.0, *)
-  optional func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController)
+  optional func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController)
   @available(iOS 8.0, *)
-  optional func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>)
+  optional func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>)
 }
 @available(iOS 8.0, *)
 class UIPopoverPresentationController : UIPresentationController {
-  weak var delegate: @sil_weak UIPopoverPresentationControllerDelegate?
   var permittedArrowDirections: UIPopoverArrowDirection
   var sourceView: UIView?
   var sourceRect: CGRect
@@ -23,6 +22,4 @@ class UIPopoverPresentationController : UIPresentationController {
   @NSCopying var backgroundColor: UIColor?
   var popoverLayoutMargins: UIEdgeInsets
   var popoverBackgroundViewClass: AnyObject.Type?
-  init(presentedViewController: UIViewController, presentingViewController: UIViewController)
-  init()
 }

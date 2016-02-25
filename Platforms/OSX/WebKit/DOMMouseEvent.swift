@@ -24,7 +24,7 @@ class DOMMouseEvent : DOMUIEvent {
   @available(OSX 10.5, *)
   var toElement: DOMNode! { get }
   @available(OSX 10.5, *)
-  func initMouseEvent(type: String!, canBubble: Bool, cancelable: Bool, view: DOMAbstractView!, detail: Int32, screenX: Int32, screenY: Int32, clientX: Int32, clientY: Int32, ctrlKey: Bool, altKey: Bool, shiftKey: Bool, metaKey: Bool, button: UInt16, relatedTarget: DOMEventTarget!)
+  func initMouseEvent(_ type: String!, canBubble canBubble: Bool, cancelable cancelable: Bool, view view: DOMAbstractView!, detail detail: Int32, screenX screenX: Int32, screenY screenY: Int32, clientX clientX: Int32, clientY clientY: Int32, ctrlKey ctrlKey: Bool, altKey altKey: Bool, shiftKey shiftKey: Bool, metaKey metaKey: Bool, button button: UInt16, relatedTarget relatedTarget: DOMEventTarget!)
 }
 extension DOMMouseEvent {
 }

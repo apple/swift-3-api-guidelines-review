@@ -1,6 +1,6 @@
 
 enum AURenderEventType : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Parameter
   case ParameterRamp
@@ -13,7 +13,7 @@ struct AURenderEventHeader {
   var eventType: AURenderEventType
   var reserved: UInt8
   init()
-  init(next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime: AUEventSampleTime, eventType: AURenderEventType, reserved: UInt8)
+  init(next next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime eventSampleTime: AUEventSampleTime, eventType eventType: AURenderEventType, reserved reserved: UInt8)
 }
 struct AUParameterEvent {
   var next: UnsafeMutablePointer<AURenderEvent>
@@ -24,7 +24,7 @@ struct AUParameterEvent {
   var parameterAddress: AUParameterAddress
   var value: AUValue
   init()
-  init(next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime: AUEventSampleTime, eventType: AURenderEventType, reserved: (UInt8, UInt8, UInt8), rampDurationSampleFrames: AUAudioFrameCount, parameterAddress: AUParameterAddress, value: AUValue)
+  init(next next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime eventSampleTime: AUEventSampleTime, eventType eventType: AURenderEventType, reserved reserved: (UInt8, UInt8, UInt8), rampDurationSampleFrames rampDurationSampleFrames: AUAudioFrameCount, parameterAddress parameterAddress: AUParameterAddress, value value: AUValue)
 }
 struct AUMIDIEvent {
   var next: UnsafeMutablePointer<AURenderEvent>
@@ -35,36 +35,36 @@ struct AUMIDIEvent {
   var cable: UInt8
   var data: (UInt8, UInt8, UInt8)
   init()
-  init(next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime: AUEventSampleTime, eventType: AURenderEventType, reserved: UInt8, length: UInt16, cable: UInt8, data: (UInt8, UInt8, UInt8))
+  init(next next: UnsafeMutablePointer<AURenderEvent>, eventSampleTime eventSampleTime: AUEventSampleTime, eventType eventType: AURenderEventType, reserved reserved: UInt8, length length: UInt16, cable cable: UInt8, data data: (UInt8, UInt8, UInt8))
 }
 struct AURenderEvent {
   var head: AURenderEventHeader
   var parameter: AUParameterEvent
   var MIDI: AUMIDIEvent
-  init(head: AURenderEventHeader)
-  init(parameter: AUParameterEvent)
-  init(MIDI: AUMIDIEvent)
+  init(head head: AURenderEventHeader)
+  init(parameter parameter: AUParameterEvent)
+  init(MIDI MIDI: AUMIDIEvent)
   init()
 }
 typealias AUInternalRenderBlock = (UnsafeMutablePointer<AudioUnitRenderActionFlags>, UnsafePointer<AudioTimeStamp>, AUAudioFrameCount, Int, UnsafeMutablePointer<AudioBufferList>, UnsafePointer<AURenderEvent>, AURenderPullInputBlock?) -> AUAudioUnitStatus
 extension AUAudioUnit {
-  class func registerSubclass(cls: AnyClass, asComponentDescription componentDescription: AudioComponentDescription, name: String, version: UInt32)
+  class func registerSubclass(_ cls: AnyClass, asComponentDescription componentDescription: AudioComponentDescription, name name: String, version version: UInt32)
   var internalRenderBlock: AUInternalRenderBlock { get }
-  func setRenderResourcesAllocated(flag: Bool)
+  func setRenderResourcesAllocated(_ flag: Bool)
 }
 extension AUAudioUnitBus {
   var supportedChannelCounts: [NSNumber]?
   var maximumChannelCount: AUAudioChannelCount
 }
 extension AUAudioUnitBusArray {
-  func replaceBusses(busArray: [AUAudioUnitBus])
+  func replaceBusses(_ busArray: [AUAudioUnitBus])
 }
 extension AUParameterTree {
-  class func createParameterWithIdentifier(identifier: String, name: String, address: AUParameterAddress, min: AUValue, max: AUValue, unit: AudioUnitParameterUnit, unitName: String?, flags: AudioUnitParameterOptions, valueStrings: [String]?, dependentParameters: [NSNumber]?) -> AUParameter
-  class func createGroupWithIdentifier(identifier: String, name: String, children: [AUParameterNode]) -> AUParameterGroup
-  class func createGroupTemplate(children: [AUParameterNode]) -> AUParameterGroup
-  class func createGroupFromTemplate(templateGroup: AUParameterGroup, identifier: String, name: String, addressOffset: AUParameterAddress) -> AUParameterGroup
-  class func createTreeWithChildren(children: [AUParameterNode]) -> AUParameterTree
+  class func createParameterWithIdentifier(_ identifier: String, name name: String, address address: AUParameterAddress, min min: AUValue, max max: AUValue, unit unit: AudioUnitParameterUnit, unitName unitName: String?, flags flags: AudioUnitParameterOptions, valueStrings valueStrings: [String]?, dependentParameters dependentParameters: [NSNumber]?) -> AUParameter
+  class func createGroupWithIdentifier(_ identifier: String, name name: String, children children: [AUParameterNode]) -> AUParameterGroup
+  class func createGroupTemplate(_ children: [AUParameterNode]) -> AUParameterGroup
+  class func createGroupFromTemplate(_ templateGroup: AUParameterGroup, identifier identifier: String, name name: String, addressOffset addressOffset: AUParameterAddress) -> AUParameterGroup
+  class func createTreeWithChildren(_ children: [AUParameterNode]) -> AUParameterTree
 }
 typealias AUImplementorValueObserver = (AUParameter, AUValue) -> Void
 typealias AUImplementorValueProvider = (AUParameter) -> AUValue
@@ -80,10 +80,8 @@ extension AUParameterNode {
 }
 @available(iOS 9.0, *)
 class AUAudioUnitV2Bridge : AUAudioUnit {
-  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions) throws
-  convenience init(componentDescription: AudioComponentDescription) throws
 }
 protocol AUAudioUnitFactory : NSExtensionRequestHandling {
   @available(iOS 9.0, *)
-  func createAudioUnitWithComponentDescription(desc: AudioComponentDescription) throws -> AUAudioUnit
+  func createAudioUnitWithComponentDescription(_ desc: AudioComponentDescription) throws -> AUAudioUnit
 }

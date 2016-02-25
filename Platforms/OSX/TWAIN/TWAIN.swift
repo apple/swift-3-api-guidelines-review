@@ -29,7 +29,7 @@ struct TW_FIX32 {
   var Whole: TW_INT16
   var Frac: TW_UINT16
   init()
-  init(Whole: TW_INT16, Frac: TW_UINT16)
+  init(Whole Whole: TW_INT16, Frac Frac: TW_UINT16)
 }
 typealias pTW_FIX32 = UnsafeMutablePointer<TW_FIX32>
 struct TW_CIEPOINT {
@@ -37,7 +37,7 @@ struct TW_CIEPOINT {
   var Y: TW_FIX32
   var Z: TW_FIX32
   init()
-  init(X: TW_FIX32, Y: TW_FIX32, Z: TW_FIX32)
+  init(X X: TW_FIX32, Y Y: TW_FIX32, Z Z: TW_FIX32)
 }
 typealias pTW_CIEPOINT = UnsafeMutablePointer<TW_CIEPOINT>
 struct TW_DECODEFUNCTION {
@@ -50,7 +50,7 @@ struct TW_DECODEFUNCTION {
   var Gamma: TW_FIX32
   var SampleCount: TW_FIX32
   init()
-  init(StartIn: TW_FIX32, BreakIn: TW_FIX32, EndIn: TW_FIX32, StartOut: TW_FIX32, BreakOut: TW_FIX32, EndOut: TW_FIX32, Gamma: TW_FIX32, SampleCount: TW_FIX32)
+  init(StartIn StartIn: TW_FIX32, BreakIn BreakIn: TW_FIX32, EndIn EndIn: TW_FIX32, StartOut StartOut: TW_FIX32, BreakOut BreakOut: TW_FIX32, EndOut EndOut: TW_FIX32, Gamma Gamma: TW_FIX32, SampleCount SampleCount: TW_FIX32)
 }
 typealias pTW_DECODEFUNCTION = UnsafeMutablePointer<TW_DECODEFUNCTION>
 struct TW_ELEMENT8 {
@@ -59,7 +59,7 @@ struct TW_ELEMENT8 {
   var Channel2: TW_UINT8
   var Channel3: TW_UINT8
   init()
-  init(Index: TW_UINT8, Channel1: TW_UINT8, Channel2: TW_UINT8, Channel3: TW_UINT8)
+  init(Index Index: TW_UINT8, Channel1 Channel1: TW_UINT8, Channel2 Channel2: TW_UINT8, Channel3 Channel3: TW_UINT8)
 }
 typealias pTW_ELEMENT8 = UnsafeMutablePointer<TW_ELEMENT8>
 struct TW_FRAME {
@@ -68,7 +68,7 @@ struct TW_FRAME {
   var Right: TW_FIX32
   var Bottom: TW_FIX32
   init()
-  init(Left: TW_FIX32, Top: TW_FIX32, Right: TW_FIX32, Bottom: TW_FIX32)
+  init(Left Left: TW_FIX32, Top Top: TW_FIX32, Right Right: TW_FIX32, Bottom Bottom: TW_FIX32)
 }
 typealias pTW_FRAME = UnsafeMutablePointer<TW_FRAME>
 struct TW_MEMORY {
@@ -76,14 +76,14 @@ struct TW_MEMORY {
   var Length: TW_UINT32
   var TheMem: TW_MEMREF
   init()
-  init(Flags: TW_UINT32, Length: TW_UINT32, TheMem: TW_MEMREF)
+  init(Flags Flags: TW_UINT32, Length Length: TW_UINT32, TheMem TheMem: TW_MEMREF)
 }
 typealias pTW_MEMORY = UnsafeMutablePointer<TW_MEMORY>
 struct TW_TRANSFORMSTAGE {
   var Decode: (TW_DECODEFUNCTION, TW_DECODEFUNCTION, TW_DECODEFUNCTION)
   var Mix: ((TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32))
   init()
-  init(Decode: (TW_DECODEFUNCTION, TW_DECODEFUNCTION, TW_DECODEFUNCTION), Mix: ((TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32)))
+  init(Decode Decode: (TW_DECODEFUNCTION, TW_DECODEFUNCTION, TW_DECODEFUNCTION), Mix Mix: ((TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32), (TW_FIX32, TW_FIX32, TW_FIX32)))
 }
 typealias pTW_TRANSFORMSTAGE = UnsafeMutablePointer<TW_TRANSFORMSTAGE>
 struct TW_VERSION {
@@ -93,7 +93,7 @@ struct TW_VERSION {
   var Country: TW_UINT16
   var Info: TW_STR32
   init()
-  init(MajorNum: TW_UINT16, MinorNum: TW_UINT16, Language: TW_UINT16, Country: TW_UINT16, Info: TW_STR32)
+  init(MajorNum MajorNum: TW_UINT16, MinorNum MinorNum: TW_UINT16, Language Language: TW_UINT16, Country Country: TW_UINT16, Info Info: TW_STR32)
 }
 typealias pTW_VERSION = UnsafeMutablePointer<TW_VERSION>
 struct TW_ARRAY {
@@ -101,7 +101,7 @@ struct TW_ARRAY {
   var NumItems: TW_UINT32
   var ItemList: (TW_UINT8)
   init()
-  init(ItemType: TW_UINT16, NumItems: TW_UINT32, ItemList: (TW_UINT8))
+  init(ItemType ItemType: TW_UINT16, NumItems NumItems: TW_UINT32, ItemList ItemList: (TW_UINT8))
 }
 typealias pTW_ARRAY = UnsafeMutablePointer<TW_ARRAY>
 struct TW_ENUMERATION {
@@ -111,14 +111,14 @@ struct TW_ENUMERATION {
   var DefaultIndex: TW_UINT32
   var ItemList: (TW_UINT8)
   init()
-  init(ItemType: TW_UINT16, NumItems: TW_UINT32, CurrentIndex: TW_UINT32, DefaultIndex: TW_UINT32, ItemList: (TW_UINT8))
+  init(ItemType ItemType: TW_UINT16, NumItems NumItems: TW_UINT32, CurrentIndex CurrentIndex: TW_UINT32, DefaultIndex DefaultIndex: TW_UINT32, ItemList ItemList: (TW_UINT8))
 }
 typealias pTW_ENUMERATION = UnsafeMutablePointer<TW_ENUMERATION>
 struct TW_ONEVALUE {
   var ItemType: TW_UINT16
   var Item: TW_UINT32
   init()
-  init(ItemType: TW_UINT16, Item: TW_UINT32)
+  init(ItemType ItemType: TW_UINT16, Item Item: TW_UINT32)
 }
 typealias pTW_ONEVALUE = UnsafeMutablePointer<TW_ONEVALUE>
 struct TW_RANGE {
@@ -129,7 +129,7 @@ struct TW_RANGE {
   var DefaultValue: TW_UINT32
   var CurrentValue: TW_UINT32
   init()
-  init(ItemType: TW_UINT16, MinValue: TW_UINT32, MaxValue: TW_UINT32, StepSize: TW_UINT32, DefaultValue: TW_UINT32, CurrentValue: TW_UINT32)
+  init(ItemType ItemType: TW_UINT16, MinValue MinValue: TW_UINT32, MaxValue MaxValue: TW_UINT32, StepSize StepSize: TW_UINT32, DefaultValue DefaultValue: TW_UINT32, CurrentValue CurrentValue: TW_UINT32)
 }
 typealias pTW_RANGE = UnsafeMutablePointer<TW_RANGE>
 struct TW_CAPABILITY {
@@ -137,7 +137,7 @@ struct TW_CAPABILITY {
   var ConType: TW_UINT16
   var hContainer: TW_HANDLE
   init()
-  init(Cap: TW_UINT16, ConType: TW_UINT16, hContainer: TW_HANDLE)
+  init(Cap Cap: TW_UINT16, ConType ConType: TW_UINT16, hContainer hContainer: TW_HANDLE)
 }
 typealias pTW_CAPABILITY = UnsafeMutablePointer<TW_CAPABILITY>
 struct TW_CIECOLOR {
@@ -153,20 +153,20 @@ struct TW_CIECOLOR {
   var BlackInk: TW_CIEPOINT
   var Samples: (TW_FIX32)
   init()
-  init(ColorSpace: TW_UINT16, LowEndian: TW_INT16, DeviceDependent: TW_INT16, VersionNumber: TW_INT32, StageABC: TW_TRANSFORMSTAGE, StageLMN: TW_TRANSFORMSTAGE, WhitePoint: TW_CIEPOINT, BlackPoint: TW_CIEPOINT, WhitePaper: TW_CIEPOINT, BlackInk: TW_CIEPOINT, Samples: (TW_FIX32))
+  init(ColorSpace ColorSpace: TW_UINT16, LowEndian LowEndian: TW_INT16, DeviceDependent DeviceDependent: TW_INT16, VersionNumber VersionNumber: TW_INT32, StageABC StageABC: TW_TRANSFORMSTAGE, StageLMN StageLMN: TW_TRANSFORMSTAGE, WhitePoint WhitePoint: TW_CIEPOINT, BlackPoint BlackPoint: TW_CIEPOINT, WhitePaper WhitePaper: TW_CIEPOINT, BlackInk BlackInk: TW_CIEPOINT, Samples Samples: (TW_FIX32))
 }
 typealias pTW_CIECOLOR = UnsafeMutablePointer<TW_CIECOLOR>
 struct TW_EVENT {
   var pEvent: TW_MEMREF
   var TWMessage: TW_UINT16
   init()
-  init(pEvent: TW_MEMREF, TWMessage: TW_UINT16)
+  init(pEvent pEvent: TW_MEMREF, TWMessage TWMessage: TW_UINT16)
 }
 typealias pTW_EVENT = UnsafeMutablePointer<TW_EVENT>
 struct TW_GRAYRESPONSE {
   var Response: (TW_ELEMENT8)
   init()
-  init(Response: (TW_ELEMENT8))
+  init(Response Response: (TW_ELEMENT8))
 }
 typealias pTW_GRAYRESPONSE = UnsafeMutablePointer<TW_GRAYRESPONSE>
 struct TW_IDENTITY {
@@ -179,7 +179,7 @@ struct TW_IDENTITY {
   var ProductFamily: TW_STR32
   var ProductName: TW_STR32
   init()
-  init(Id: TW_MEMREF, Version: TW_VERSION, ProtocolMajor: TW_UINT16, ProtocolMinor: TW_UINT16, SupportedGroups: TW_UINT32, Manufacturer: TW_STR32, ProductFamily: TW_STR32, ProductName: TW_STR32)
+  init(Id Id: TW_MEMREF, Version Version: TW_VERSION, ProtocolMajor ProtocolMajor: TW_UINT16, ProtocolMinor ProtocolMinor: TW_UINT16, SupportedGroups SupportedGroups: TW_UINT32, Manufacturer Manufacturer: TW_STR32, ProductFamily ProductFamily: TW_STR32, ProductName ProductName: TW_STR32)
 }
 typealias pTW_IDENTITY = UnsafeMutablePointer<TW_IDENTITY>
 struct TW_IMAGEINFO {
@@ -194,7 +194,7 @@ struct TW_IMAGEINFO {
   var PixelType: TW_INT16
   var Compression: TW_UINT16
   init()
-  init(XResolution: TW_FIX32, YResolution: TW_FIX32, ImageWidth: TW_INT32, ImageLength: TW_INT32, SamplesPerPixel: TW_INT16, BitsPerSample: (TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16), BitsPerPixel: TW_INT16, Planar: TW_BOOL, PixelType: TW_INT16, Compression: TW_UINT16)
+  init(XResolution XResolution: TW_FIX32, YResolution YResolution: TW_FIX32, ImageWidth ImageWidth: TW_INT32, ImageLength ImageLength: TW_INT32, SamplesPerPixel SamplesPerPixel: TW_INT16, BitsPerSample BitsPerSample: (TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16, TW_INT16), BitsPerPixel BitsPerPixel: TW_INT16, Planar Planar: TW_BOOL, PixelType PixelType: TW_INT16, Compression Compression: TW_UINT16)
 }
 typealias pTW_IMAGEINFO = UnsafeMutablePointer<TW_IMAGEINFO>
 struct TW_IMAGELAYOUT {
@@ -203,7 +203,7 @@ struct TW_IMAGELAYOUT {
   var PageNumber: TW_UINT32
   var FrameNumber: TW_UINT32
   init()
-  init(Frame: TW_FRAME, DocumentNumber: TW_UINT32, PageNumber: TW_UINT32, FrameNumber: TW_UINT32)
+  init(Frame Frame: TW_FRAME, DocumentNumber DocumentNumber: TW_UINT32, PageNumber PageNumber: TW_UINT32, FrameNumber FrameNumber: TW_UINT32)
 }
 typealias pTW_IMAGELAYOUT = UnsafeMutablePointer<TW_IMAGELAYOUT>
 struct TW_IMAGEMEMXFER {
@@ -216,7 +216,7 @@ struct TW_IMAGEMEMXFER {
   var BytesWritten: TW_UINT32
   var Memory: TW_MEMORY
   init()
-  init(Compression: TW_UINT16, BytesPerRow: TW_UINT32, Columns: TW_UINT32, Rows: TW_UINT32, XOffset: TW_UINT32, YOffset: TW_UINT32, BytesWritten: TW_UINT32, Memory: TW_MEMORY)
+  init(Compression Compression: TW_UINT16, BytesPerRow BytesPerRow: TW_UINT32, Columns Columns: TW_UINT32, Rows Rows: TW_UINT32, XOffset XOffset: TW_UINT32, YOffset YOffset: TW_UINT32, BytesWritten BytesWritten: TW_UINT32, Memory Memory: TW_MEMORY)
 }
 typealias pTW_IMAGEMEMXFER = UnsafeMutablePointer<TW_IMAGEMEMXFER>
 struct TW_JPEGCOMPRESSION {
@@ -230,7 +230,7 @@ struct TW_JPEGCOMPRESSION {
   var HuffmanDC: (TW_MEMORY, TW_MEMORY)
   var HuffmanAC: (TW_MEMORY, TW_MEMORY)
   init()
-  init(ColorSpace: TW_UINT16, SubSampling: TW_UINT32, NumComponents: TW_UINT16, RestartFrequency: TW_UINT16, QuantMap: (TW_UINT16, TW_UINT16, TW_UINT16, TW_UINT16), QuantTable: (TW_MEMORY, TW_MEMORY, TW_MEMORY, TW_MEMORY), HuffmanMap: (TW_UINT16, TW_UINT16, TW_UINT16, TW_UINT16), HuffmanDC: (TW_MEMORY, TW_MEMORY), HuffmanAC: (TW_MEMORY, TW_MEMORY))
+  init(ColorSpace ColorSpace: TW_UINT16, SubSampling SubSampling: TW_UINT32, NumComponents NumComponents: TW_UINT16, RestartFrequency RestartFrequency: TW_UINT16, QuantMap QuantMap: (TW_UINT16, TW_UINT16, TW_UINT16, TW_UINT16), QuantTable QuantTable: (TW_MEMORY, TW_MEMORY, TW_MEMORY, TW_MEMORY), HuffmanMap HuffmanMap: (TW_UINT16, TW_UINT16, TW_UINT16, TW_UINT16), HuffmanDC HuffmanDC: (TW_MEMORY, TW_MEMORY), HuffmanAC HuffmanAC: (TW_MEMORY, TW_MEMORY))
 }
 typealias pTW_JPEGCOMPRESSION = UnsafeMutablePointer<TW_JPEGCOMPRESSION>
 struct TW_PALETTE8 {
@@ -238,27 +238,27 @@ struct TW_PALETTE8 {
   var PaletteType: TW_UINT16
   var Colors: (TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8)
   init()
-  init(NumColors: TW_UINT16, PaletteType: TW_UINT16, Colors: (TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8))
+  init(NumColors NumColors: TW_UINT16, PaletteType PaletteType: TW_UINT16, Colors Colors: (TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8, TW_ELEMENT8))
 }
 typealias pTW_PALETTE8 = UnsafeMutablePointer<TW_PALETTE8>
 struct TW_PENDINGXFERS {
   struct __Unnamed_union_TW_JOBCONTROL {
     var EOJ: TW_UINT32
     var Reserved: TW_UINT32
-    init(EOJ: TW_UINT32)
-    init(Reserved: TW_UINT32)
+    init(EOJ EOJ: TW_UINT32)
+    init(Reserved Reserved: TW_UINT32)
     init()
   }
   var Count: TW_UINT16
   var TW_JOBCONTROL: TW_PENDINGXFERS.__Unnamed_union_TW_JOBCONTROL
   init()
-  init(Count: TW_UINT16, TW_JOBCONTROL: TW_PENDINGXFERS.__Unnamed_union_TW_JOBCONTROL)
+  init(Count Count: TW_UINT16, TW_JOBCONTROL TW_JOBCONTROL: TW_PENDINGXFERS.__Unnamed_union_TW_JOBCONTROL)
 }
 typealias pTW_PENDINGXFERS = UnsafeMutablePointer<TW_PENDINGXFERS>
 struct TW_RGBRESPONSE {
   var Response: (TW_ELEMENT8)
   init()
-  init(Response: (TW_ELEMENT8))
+  init(Response Response: (TW_ELEMENT8))
 }
 typealias pTW_RGBRESPONSE = UnsafeMutablePointer<TW_RGBRESPONSE>
 struct TW_SETUPFILEXFER {
@@ -266,7 +266,7 @@ struct TW_SETUPFILEXFER {
   var Format: TW_UINT16
   var VRefNum: TW_INT16
   init()
-  init(FileName: TW_STR255, Format: TW_UINT16, VRefNum: TW_INT16)
+  init(FileName FileName: TW_STR255, Format Format: TW_UINT16, VRefNum VRefNum: TW_INT16)
 }
 typealias pTW_SETUPFILEXFER = UnsafeMutablePointer<TW_SETUPFILEXFER>
 struct TW_SETUPFILEXFER2 {
@@ -276,7 +276,7 @@ struct TW_SETUPFILEXFER2 {
   var VRefNum: TW_INT16
   var ParID: TW_UINT32
   init()
-  init(FileName: TW_MEMREF, FileNameType: TW_UINT16, Format: TW_UINT16, VRefNum: TW_INT16, ParID: TW_UINT32)
+  init(FileName FileName: TW_MEMREF, FileNameType FileNameType: TW_UINT16, Format Format: TW_UINT16, VRefNum VRefNum: TW_INT16, ParID ParID: TW_UINT32)
 }
 typealias pTW_SETUPFILEXFER2 = UnsafeMutablePointer<TW_SETUPFILEXFER2>
 struct TW_SETUPMEMXFER {
@@ -284,14 +284,14 @@ struct TW_SETUPMEMXFER {
   var MaxBufSize: TW_UINT32
   var Preferred: TW_UINT32
   init()
-  init(MinBufSize: TW_UINT32, MaxBufSize: TW_UINT32, Preferred: TW_UINT32)
+  init(MinBufSize MinBufSize: TW_UINT32, MaxBufSize MaxBufSize: TW_UINT32, Preferred Preferred: TW_UINT32)
 }
 typealias pTW_SETUPMEMXFER = UnsafeMutablePointer<TW_SETUPMEMXFER>
 struct TW_STATUS {
   var ConditionCode: TW_UINT16
   var Reserved: TW_UINT16
   init()
-  init(ConditionCode: TW_UINT16, Reserved: TW_UINT16)
+  init(ConditionCode ConditionCode: TW_UINT16, Reserved Reserved: TW_UINT16)
 }
 typealias pTW_STATUS = UnsafeMutablePointer<TW_STATUS>
 struct TW_USERINTERFACE {
@@ -299,14 +299,14 @@ struct TW_USERINTERFACE {
   var ModalUI: TW_BOOL
   var hParent: TW_HANDLE
   init()
-  init(ShowUI: TW_BOOL, ModalUI: TW_BOOL, hParent: TW_HANDLE)
+  init(ShowUI ShowUI: TW_BOOL, ModalUI ModalUI: TW_BOOL, hParent hParent: TW_HANDLE)
 }
 typealias pTW_USERINTERFACE = UnsafeMutablePointer<TW_USERINTERFACE>
 struct TW_TWUNKIDENTITY {
   var identity: TW_IDENTITY
   var dsPath: TW_STR255
   init()
-  init(identity: TW_IDENTITY, dsPath: TW_STR255)
+  init(identity identity: TW_IDENTITY, dsPath dsPath: TW_STR255)
 }
 typealias pTW_TWUNKIDENTITY = UnsafeMutablePointer<TW_TWUNKIDENTITY>
 struct TW_TWUNKDSENTRYPARAMS {
@@ -317,7 +317,7 @@ struct TW_TWUNKDSENTRYPARAMS {
   var message: TW_INT16
   var pDataSize: TW_INT32
   init()
-  init(destFlag: TW_INT8, dest: TW_IDENTITY, dataGroup: TW_INT32, dataArgType: TW_INT16, message: TW_INT16, pDataSize: TW_INT32)
+  init(destFlag destFlag: TW_INT8, dest dest: TW_IDENTITY, dataGroup dataGroup: TW_INT32, dataArgType dataArgType: TW_INT16, message message: TW_INT16, pDataSize pDataSize: TW_INT32)
 }
 typealias pTW_TWUNKDSENTRYPARAMS = UnsafeMutablePointer<TW_TWUNKDSENTRYPARAMS>
 struct TW_TWUNKDSENTRYRETURN {
@@ -325,21 +325,21 @@ struct TW_TWUNKDSENTRYRETURN {
   var conditionCode: TW_UINT16
   var pDataSize: TW_INT32
   init()
-  init(returnCode: TW_UINT16, conditionCode: TW_UINT16, pDataSize: TW_INT32)
+  init(returnCode returnCode: TW_UINT16, conditionCode conditionCode: TW_UINT16, pDataSize pDataSize: TW_INT32)
 }
 typealias pTW_TWUNKDSENTRYRETURN = UnsafeMutablePointer<TW_TWUNKDSENTRYRETURN>
 struct TW_CAPEXT {
   var Cap: TW_UINT16
   var Properties: TW_UINT16
   init()
-  init(Cap: TW_UINT16, Properties: TW_UINT16)
+  init(Cap Cap: TW_UINT16, Properties Properties: TW_UINT16)
 }
 typealias pTW_CAPEXT = UnsafeMutablePointer<TW_CAPEXT>
 struct TW_CUSTOMDSDATA {
   var InfoLength: TW_UINT32
   var hData: TW_HANDLE
   init()
-  init(InfoLength: TW_UINT32, hData: TW_HANDLE)
+  init(InfoLength InfoLength: TW_UINT32, hData hData: TW_HANDLE)
 }
 typealias pTW_CUSTOMDSDATA = UnsafeMutablePointer<TW_CUSTOMDSDATA>
 struct TW_INFO {
@@ -349,21 +349,21 @@ struct TW_INFO {
   var CondCode: TW_UINT16
   var Item: TW_UINT32
   init()
-  init(InfoID: TW_UINT16, ItemType: TW_UINT16, NumItems: TW_UINT16, CondCode: TW_UINT16, Item: TW_UINT32)
+  init(InfoID InfoID: TW_UINT16, ItemType ItemType: TW_UINT16, NumItems NumItems: TW_UINT16, CondCode CondCode: TW_UINT16, Item Item: TW_UINT32)
 }
 typealias pTW_INFO = UnsafeMutablePointer<TW_INFO>
 struct TW_EXTIMAGEINFO {
   var NumInfos: TW_UINT32
   var Info: (TW_INFO)
   init()
-  init(NumInfos: TW_UINT32, Info: (TW_INFO))
+  init(NumInfos NumInfos: TW_UINT32, Info Info: (TW_INFO))
 }
 typealias pTW_EXTIMAGEINFO = UnsafeMutablePointer<TW_EXTIMAGEINFO>
 struct TW_AUDIOINFO {
   var Name: TW_STR255
   var Reserved: TW_UINT32
   init()
-  init(Name: TW_STR255, Reserved: TW_UINT32)
+  init(Name Name: TW_STR255, Reserved Reserved: TW_UINT32)
 }
 typealias pTW_AUDIOINFO = UnsafeMutablePointer<TW_AUDIOINFO>
 struct TW_DEVICEEVENT {
@@ -379,7 +379,7 @@ struct TW_DEVICEEVENT {
   var TimeBeforeFirstCapture: TW_UINT32
   var TimeBetweenCaptures: TW_UINT32
   init()
-  init(Event: TW_UINT32, DeviceName: TW_STR255, BatteryMinutes: TW_UINT32, BatteryPercentage: TW_INT16, PowerSupply: TW_INT32, XResolution: TW_FIX32, YResolution: TW_FIX32, FlashUsed2: TW_UINT32, AutomaticCapture: TW_UINT32, TimeBeforeFirstCapture: TW_UINT32, TimeBetweenCaptures: TW_UINT32)
+  init(Event Event: TW_UINT32, DeviceName DeviceName: TW_STR255, BatteryMinutes BatteryMinutes: TW_UINT32, BatteryPercentage BatteryPercentage: TW_INT16, PowerSupply PowerSupply: TW_INT32, XResolution XResolution: TW_FIX32, YResolution YResolution: TW_FIX32, FlashUsed2 FlashUsed2: TW_UINT32, AutomaticCapture AutomaticCapture: TW_UINT32, TimeBeforeFirstCapture TimeBeforeFirstCapture: TW_UINT32, TimeBetweenCaptures TimeBetweenCaptures: TW_UINT32)
 }
 typealias pTW_DEVICEEVENT = UnsafeMutablePointer<TW_DEVICEEVENT>
 struct TW_FILESYSTEM {
@@ -398,7 +398,7 @@ struct TW_FILESYSTEM {
   var DeviceGroupMask: TW_UINT32
   var Reserved: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8)
   init()
-  init(InputName: TW_STR255, OutputName: TW_STR255, Context: TW_MEMREF, Recursive: Int32, FileType: TW_INT32, Size: TW_UINT32, CreateTimeDate: TW_STR32, ModifiedTimeDate: TW_STR32, FreeSpace: TW_UINT32, NewImageSize: TW_INT32, NumberOfFiles: TW_UINT32, NumberOfSnippets: TW_UINT32, DeviceGroupMask: TW_UINT32, Reserved: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
+  init(InputName InputName: TW_STR255, OutputName OutputName: TW_STR255, Context Context: TW_MEMREF, Recursive Recursive: Int32, FileType FileType: TW_INT32, Size Size: TW_UINT32, CreateTimeDate CreateTimeDate: TW_STR32, ModifiedTimeDate ModifiedTimeDate: TW_STR32, FreeSpace FreeSpace: TW_UINT32, NewImageSize NewImageSize: TW_INT32, NumberOfFiles NumberOfFiles: TW_UINT32, NumberOfSnippets NumberOfSnippets: TW_UINT32, DeviceGroupMask DeviceGroupMask: TW_UINT32, Reserved Reserved: (Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8, Int8))
 }
 typealias pTW_FILESYSTEM = UnsafeMutablePointer<TW_FILESYSTEM>
 struct TW_PASSTHRU {
@@ -409,7 +409,7 @@ struct TW_PASSTHRU {
   var DataBytes: TW_UINT32
   var DataBytesXfered: TW_UINT32
   init()
-  init(pCommand: TW_MEMREF, CommandBytes: TW_UINT32, Direction: TW_INT32, pData: TW_MEMREF, DataBytes: TW_UINT32, DataBytesXfered: TW_UINT32)
+  init(pCommand pCommand: TW_MEMREF, CommandBytes CommandBytes: TW_UINT32, Direction Direction: TW_INT32, pData pData: TW_MEMREF, DataBytes DataBytes: TW_UINT32, DataBytesXfered DataBytesXfered: TW_UINT32)
 }
 typealias pTW_PASSTHRU = UnsafeMutablePointer<TW_PASSTHRU>
 struct TW_SETUPAUDIOFILEXFER {
@@ -417,7 +417,7 @@ struct TW_SETUPAUDIOFILEXFER {
   var Format: TW_UINT16
   var VRefNum: TW_INT16
   init()
-  init(FileName: TW_STR255, Format: TW_UINT16, VRefNum: TW_INT16)
+  init(FileName FileName: TW_STR255, Format Format: TW_UINT16, VRefNum VRefNum: TW_INT16)
 }
 typealias pTW_SETUPAUDIOFILEXFER = UnsafeMutablePointer<TW_SETUPAUDIOFILEXFER>
 struct TW_CALLBACK {
@@ -425,7 +425,7 @@ struct TW_CALLBACK {
   var RefCon: TW_MEMREF
   var Message: TW_INT16
   init()
-  init(CallBackProc: TW_MEMREF, RefCon: TW_MEMREF, Message: TW_INT16)
+  init(CallBackProc CallBackProc: TW_MEMREF, RefCon RefCon: TW_MEMREF, Message Message: TW_INT16)
 }
 typealias pTW_CALLBACK = UnsafeMutablePointer<TW_CALLBACK>
 var TWON_ARRAY: Int32 { get }
@@ -1414,7 +1414,7 @@ var TWQC_SET: Int32 { get }
 var TWQC_GETDEFAULT: Int32 { get }
 var TWQC_GETCURRENT: Int32 { get }
 var TWQC_RESET: Int32 { get }
-func DSM_Entry(pOrigin: pTW_IDENTITY, _ pDest: pTW_IDENTITY, _ DG: TW_UINT32, _ DAT: TW_UINT16, _ MSG: TW_UINT16, _ pData: TW_MEMREF) -> TW_UINT16
+func DSM_Entry(_ pOrigin: pTW_IDENTITY, _ pDest: pTW_IDENTITY, _ DG: TW_UINT32, _ DAT: TW_UINT16, _ MSG: TW_UINT16, _ pData: TW_MEMREF) -> TW_UINT16
 typealias DSMENTRYPROC = @convention(c) (pTW_IDENTITY, pTW_IDENTITY, TW_UINT32, TW_UINT16, TW_UINT16, TW_MEMREF) -> TW_UINT16
-func DS_Entry(pOrigin: pTW_IDENTITY, _ DG: TW_UINT32, _ DAT: TW_UINT16, _ MSG: TW_UINT16, _ pData: TW_MEMREF) -> TW_UINT16
+func DS_Entry(_ pOrigin: pTW_IDENTITY, _ DG: TW_UINT32, _ DAT: TW_UINT16, _ MSG: TW_UINT16, _ pData: TW_MEMREF) -> TW_UINT16
 typealias DSENTRYPROC = @convention(c) (pTW_IDENTITY, TW_UINT32, TW_UINT16, TW_UINT16, TW_MEMREF) -> TW_UINT16

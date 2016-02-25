@@ -1,6 +1,6 @@
 
 extension NSAffineTransform {
-  func transformBezierPath(aPath: NSBezierPath) -> NSBezierPath
+  func transformBezierPath(_ aPath: NSBezierPath) -> NSBezierPath
   func set()
   func concat()
 }

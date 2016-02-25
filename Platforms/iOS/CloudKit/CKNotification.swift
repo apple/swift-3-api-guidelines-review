@@ -1,18 +1,17 @@
 
 @available(iOS 8.0, *)
 class CKNotificationID : NSObject, NSCopying, NSSecureCoding {
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 enum CKNotificationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Query
   case RecordZone
@@ -39,7 +38,7 @@ class CKNotification : NSObject {
 }
 @available(iOS 8.0, *)
 enum CKQueryNotificationReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case RecordCreated
   case RecordUpdated
@@ -51,10 +50,8 @@ class CKQueryNotification : CKNotification {
   var recordFields: [String : CKRecordValue]? { get }
   @NSCopying var recordID: CKRecordID? { get }
   var isPublicDatabase: Bool { get }
-  convenience init(fromRemoteNotificationDictionary notificationDictionary: [String : NSObject])
 }
 @available(iOS 8.0, *)
 class CKRecordZoneNotification : CKNotification {
   @NSCopying var recordZoneID: CKRecordZoneID? { get }
-  convenience init(fromRemoteNotificationDictionary notificationDictionary: [String : NSObject])
 }

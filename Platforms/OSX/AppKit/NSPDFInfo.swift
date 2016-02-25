@@ -7,10 +7,9 @@ class NSPDFInfo : NSObject, NSCopying, NSCoding {
   var orientation: NSPaperOrientation
   var paperSize: NSSize
   var attributes: NSMutableDictionary { get }
-  init()
   @available(OSX 10.9, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.9, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

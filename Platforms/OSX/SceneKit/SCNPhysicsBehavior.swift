@@ -1,41 +1,36 @@
 
 @available(OSX 10.10, *)
 class SCNPhysicsBehavior : NSObject, NSSecureCoding {
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNPhysicsHingeJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, axisA: SCNVector3, anchorA: SCNVector3, bodyB: SCNPhysicsBody, axisB: SCNVector3, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, axis: SCNVector3, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, axisA axisA: SCNVector3, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, axisB axisB: SCNVector3, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, axis axis: SCNVector3, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var axisA: SCNVector3
   var anchorA: SCNVector3
   var bodyB: SCNPhysicsBody? { get }
   var axisB: SCNVector3
   var anchorB: SCNVector3
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNPhysicsBallSocketJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, anchorA: SCNVector3, bodyB: SCNPhysicsBody, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var anchorA: SCNVector3
   var bodyB: SCNPhysicsBody? { get }
   var anchorB: SCNVector3
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
-  convenience init(bodyA: SCNPhysicsBody, axisA: SCNVector3, anchorA: SCNVector3, bodyB: SCNPhysicsBody, axisB: SCNVector3, anchorB: SCNVector3)
-  convenience init(body: SCNPhysicsBody, axis: SCNVector3, anchor: SCNVector3)
+  convenience init(bodyA bodyA: SCNPhysicsBody, axisA axisA: SCNVector3, anchorA anchorA: SCNVector3, bodyB bodyB: SCNPhysicsBody, axisB axisB: SCNVector3, anchorB anchorB: SCNVector3)
+  convenience init(body body: SCNPhysicsBody, axis axis: SCNVector3, anchor anchor: SCNVector3)
   var bodyA: SCNPhysicsBody { get }
   var axisA: SCNVector3
   var anchorA: SCNVector3
@@ -50,12 +45,10 @@ class SCNPhysicsSliderJoint : SCNPhysicsBehavior {
   var motorMaximumForce: CGFloat
   var motorTargetAngularVelocity: CGFloat
   var motorMaximumTorque: CGFloat
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
-  convenience init(node: SCNNode)
+  convenience init(node node: SCNNode)
   var node: SCNNode { get }
   var suspensionStiffness: CGFloat
   var suspensionCompression: CGFloat
@@ -68,24 +61,21 @@ class SCNPhysicsVehicleWheel : NSObject, NSCopying, NSSecureCoding {
   var axle: SCNVector3
   var radius: CGFloat
   var suspensionRestLength: CGFloat
-  init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class SCNPhysicsVehicle : SCNPhysicsBehavior {
-  convenience init(chassisBody: SCNPhysicsBody, wheels: [SCNPhysicsVehicleWheel])
+  convenience init(chassisBody chassisBody: SCNPhysicsBody, wheels wheels: [SCNPhysicsVehicleWheel])
   var speedInKilometersPerHour: CGFloat { get }
   var wheels: [SCNPhysicsVehicleWheel] { get }
   var chassisBody: SCNPhysicsBody { get }
-  func applyEngineForce(value: CGFloat, forWheelAtIndex index: Int)
-  func setSteeringAngle(value: CGFloat, forWheelAtIndex index: Int)
-  func applyBrakingForce(value: CGFloat, forWheelAtIndex index: Int)
-  init()
-  init?(coder aDecoder: NSCoder)
+  func applyEngineForce(_ value: CGFloat, forWheelAtIndex index: Int)
+  func setSteeringAngle(_ value: CGFloat, forWheelAtIndex index: Int)
+  func applyBrakingForce(_ value: CGFloat, forWheelAtIndex index: Int)
 }

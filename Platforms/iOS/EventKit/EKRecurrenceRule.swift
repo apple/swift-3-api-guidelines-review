@@ -1,8 +1,8 @@
 
 @available(iOS 4.0, *)
 class EKRecurrenceRule : EKObject, NSCopying {
-  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval: Int, end: EKRecurrenceEnd?)
-  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [NSNumber]?, monthsOfTheYear months: [NSNumber]?, weeksOfTheYear: [NSNumber]?, daysOfTheYear: [NSNumber]?, setPositions: [NSNumber]?, end: EKRecurrenceEnd?)
+  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval interval: Int, end end: EKRecurrenceEnd?)
+  init(recurrenceWithFrequency type: EKRecurrenceFrequency, interval interval: Int, daysOfTheWeek days: [EKRecurrenceDayOfWeek]?, daysOfTheMonth monthDays: [NSNumber]?, monthsOfTheYear months: [NSNumber]?, weeksOfTheYear weeksOfTheYear: [NSNumber]?, daysOfTheYear daysOfTheYear: [NSNumber]?, setPositions setPositions: [NSNumber]?, end end: EKRecurrenceEnd?)
   var calendarIdentifier: String { get }
   @NSCopying var recurrenceEnd: EKRecurrenceEnd?
   var frequency: EKRecurrenceFrequency { get }
@@ -14,7 +14,6 @@ class EKRecurrenceRule : EKObject, NSCopying {
   var weeksOfTheYear: [NSNumber]? { get }
   var monthsOfTheYear: [NSNumber]? { get }
   var setPositions: [NSNumber]? { get }
-  init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

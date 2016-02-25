@@ -1,6 +1,6 @@
 
 enum EKSpan : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ThisEvent
   case FutureEvents
@@ -9,43 +9,41 @@ typealias EKEventSearchCallback = (EKEvent, UnsafeMutablePointer<ObjCBool>) -> V
 @available(watchOS 2.0, *)
 class EKEventStore : NSObject {
   @available(watchOS 2.0, *)
-  class func authorizationStatusForEntityType(entityType: EKEntityType) -> EKAuthorizationStatus
+  class func authorizationStatusForEntityType(_ entityType: EKEntityType) -> EKAuthorizationStatus
   @available(watchOS 2.0, *)
-  init()
-  @available(watchOS 2.0, *)
-  func requestAccessToEntityType(entityType: EKEntityType, completion: EKEventStoreRequestAccessCompletionHandler)
+  func requestAccessToEntityType(_ entityType: EKEntityType, completion completion: EKEventStoreRequestAccessCompletionHandler)
   var eventStoreIdentifier: String { get }
   @available(watchOS 2.0, *)
   var sources: [EKSource] { get }
   @available(watchOS 2.0, *)
-  func sourceWithIdentifier(identifier: String) -> EKSource
+  func sourceWithIdentifier(_ identifier: String) -> EKSource
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var calendars: [EKCalendar] { get }
   @available(watchOS 2.0, *)
-  func calendarsForEntityType(entityType: EKEntityType) -> [EKCalendar]
+  func calendarsForEntityType(_ entityType: EKEntityType) -> [EKCalendar]
   var defaultCalendarForNewEvents: EKCalendar { get }
   @available(watchOS 2.0, *)
   func defaultCalendarForNewReminders() -> EKCalendar
   @available(watchOS 2.0, *)
-  func calendarWithIdentifier(identifier: String) -> EKCalendar?
+  func calendarWithIdentifier(_ identifier: String) -> EKCalendar?
   @available(watchOS 2.0, *)
-  func calendarItemWithIdentifier(identifier: String) -> EKCalendarItem
+  func calendarItemWithIdentifier(_ identifier: String) -> EKCalendarItem
   @available(watchOS 2.0, *)
-  func calendarItemsWithExternalIdentifier(externalIdentifier: String) -> [EKCalendarItem]
-  func eventWithIdentifier(identifier: String) -> EKEvent?
-  func eventsMatchingPredicate(predicate: NSPredicate) -> [EKEvent]
-  func enumerateEventsMatchingPredicate(predicate: NSPredicate, usingBlock block: EKEventSearchCallback)
-  func predicateForEventsWithStartDate(startDate: NSDate, endDate: NSDate, calendars: [EKCalendar]?) -> NSPredicate
+  func calendarItemsWithExternalIdentifier(_ externalIdentifier: String) -> [EKCalendarItem]
+  func eventWithIdentifier(_ identifier: String) -> EKEvent?
+  func eventsMatchingPredicate(_ predicate: NSPredicate) -> [EKEvent]
+  func enumerateEventsMatchingPredicate(_ predicate: NSPredicate, usingBlock block: EKEventSearchCallback)
+  func predicateForEventsWithStartDate(_ startDate: NSDate, endDate endDate: NSDate, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func fetchRemindersMatchingPredicate(predicate: NSPredicate, completion: ([EKReminder]?) -> Void) -> AnyObject
+  func fetchRemindersMatchingPredicate(_ predicate: NSPredicate, completion completion: ([EKReminder]?) -> Void) -> AnyObject
   @available(watchOS 2.0, *)
-  func cancelFetchRequest(fetchIdentifier: AnyObject)
+  func cancelFetchRequest(_ fetchIdentifier: AnyObject)
   @available(watchOS 2.0, *)
-  func predicateForRemindersInCalendars(calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForRemindersInCalendars(_ calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func predicateForIncompleteRemindersWithDueDateStarting(startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForIncompleteRemindersWithDueDateStarting(_ startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
-  func predicateForCompletedRemindersWithCompletionDateStarting(startDate: NSDate?, ending endDate: NSDate?, calendars: [EKCalendar]?) -> NSPredicate
+  func predicateForCompletedRemindersWithCompletionDateStarting(_ startDate: NSDate?, ending endDate: NSDate?, calendars calendars: [EKCalendar]?) -> NSPredicate
   @available(watchOS 2.0, *)
   func reset()
 }

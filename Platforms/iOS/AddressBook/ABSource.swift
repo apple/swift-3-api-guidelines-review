@@ -14,8 +14,8 @@ let kABSourceNameProperty: ABPropertyID
 @available(iOS, introduced=2.0, deprecated=9.0, message="use CNContainer.type")
 let kABSourceTypeProperty: ABPropertyID
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers: @[CNContactStore.defaultContainerIdentifier]] error:]")
-func ABAddressBookCopyDefaultSource(addressBook: ABAddressBook!) -> Unmanaged<ABRecord>!
+func ABAddressBookCopyDefaultSource(_ addressBook: ABAddressBook!) -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers:] error:]")
-func ABAddressBookGetSourceWithRecordID(addressBook: ABAddressBook!, _ sourceID: ABRecordID) -> Unmanaged<ABRecord>!
+func ABAddressBookGetSourceWithRecordID(_ addressBook: ABAddressBook!, _ sourceID: ABRecordID) -> Unmanaged<ABRecord>!
 @available(iOS, introduced=2.0, deprecated=9.0, message="use [CNContactStore containersMatchingPredicate:nil error:]")
-func ABAddressBookCopyArrayOfAllSources(addressBook: ABAddressBook!) -> Unmanaged<CFArray>!
+func ABAddressBookCopyArrayOfAllSources(_ addressBook: ABAddressBook!) -> Unmanaged<CFArray>!

@@ -1,6 +1,6 @@
 
 enum AVPlayerStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case ReadyToPlay
@@ -8,11 +8,10 @@ enum AVPlayerStatus : Int {
 }
 @available(OSX 10.7, *)
 class AVPlayer : NSObject {
-  init(URL: NSURL)
+  init(URL URL: NSURL)
   init(playerItem item: AVPlayerItem)
   var status: AVPlayerStatus { get }
   var error: NSError? { get }
-  init()
 }
 extension AVPlayer {
   var rate: Float
@@ -21,11 +20,11 @@ extension AVPlayer {
 }
 extension AVPlayer {
   var currentItem: AVPlayerItem? { get }
-  func replaceCurrentItemWithPlayerItem(item: AVPlayerItem?)
+  func replaceCurrentItemWithPlayerItem(_ item: AVPlayerItem?)
   var actionAtItemEnd: AVPlayerActionAtItemEnd
 }
 enum AVPlayerActionAtItemEnd : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Advance
   case Pause
@@ -33,30 +32,30 @@ enum AVPlayerActionAtItemEnd : Int {
 }
 extension AVPlayer {
   func currentTime() -> CMTime
-  func seekToDate(date: NSDate)
+  func seekToDate(_ date: NSDate)
   @available(OSX 10.7, *)
-  func seekToDate(date: NSDate, completionHandler: (Bool) -> Void)
-  func seekToTime(time: CMTime)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seekToDate(_ date: NSDate, completionHandler completionHandler: (Bool) -> Void)
+  func seekToTime(_ time: CMTime)
+  func seekToTime(_ time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime)
   @available(OSX 10.7, *)
-  func seekToTime(time: CMTime, completionHandler: (Bool) -> Void)
+  func seekToTime(_ time: CMTime, completionHandler completionHandler: (Bool) -> Void)
   @available(OSX 10.7, *)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seekToTime(_ time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime, completionHandler completionHandler: (Bool) -> Void)
 }
 extension AVPlayer {
   @available(OSX 10.8, *)
-  func setRate(rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
+  func setRate(_ rate: Float, time itemTime: CMTime, atHostTime hostClockTime: CMTime)
   @available(OSX 10.8, *)
-  func prerollAtRate(rate: Float, completionHandler: ((Bool) -> Void)?)
+  func prerollAtRate(_ rate: Float, completionHandler completionHandler: ((Bool) -> Void)?)
   @available(OSX 10.8, *)
   func cancelPendingPrerolls()
   @available(OSX 10.8, *)
   var masterClock: CMClock?
 }
 extension AVPlayer {
-  func addPeriodicTimeObserverForInterval(interval: CMTime, queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
-  func addBoundaryTimeObserverForTimes(times: [NSValue], queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
-  func removeTimeObserver(observer: AnyObject)
+  func addPeriodicTimeObserverForInterval(_ interval: CMTime, queue queue: dispatch_queue_t?, usingBlock block: (CMTime) -> Void) -> AnyObject
+  func addBoundaryTimeObserverForTimes(_ times: [NSValue], queue queue: dispatch_queue_t?, usingBlock block: () -> Void) -> AnyObject
+  func removeTimeObserver(_ observer: AnyObject)
 }
 extension AVPlayer {
   @available(OSX 10.7, *)
@@ -69,9 +68,9 @@ extension AVPlayer {
   @available(OSX 10.9, *)
   var appliesMediaSelectionCriteriaAutomatically: Bool
   @available(OSX 10.9, *)
-  func setMediaSelectionCriteria(criteria: AVPlayerMediaSelectionCriteria?, forMediaCharacteristic mediaCharacteristic: String)
+  func setMediaSelectionCriteria(_ criteria: AVPlayerMediaSelectionCriteria?, forMediaCharacteristic mediaCharacteristic: String)
   @available(OSX 10.9, *)
-  func mediaSelectionCriteriaForMediaCharacteristic(mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
+  func mediaSelectionCriteriaForMediaCharacteristic(_ mediaCharacteristic: String) -> AVPlayerMediaSelectionCriteria?
 }
 extension AVPlayer {
   @available(OSX 10.9, *)
@@ -85,14 +84,11 @@ extension AVPlayer {
 }
 @available(OSX 10.7, *)
 class AVQueuePlayer : AVPlayer {
-  init(items: [AVPlayerItem])
+  init(items items: [AVPlayerItem])
   func items() -> [AVPlayerItem]
   func advanceToNextItem()
-  func canInsertItem(item: AVPlayerItem, afterItem: AVPlayerItem?) -> Bool
-  func insertItem(item: AVPlayerItem, afterItem: AVPlayerItem?)
-  func removeItem(item: AVPlayerItem)
+  func canInsertItem(_ item: AVPlayerItem, afterItem afterItem: AVPlayerItem?) -> Bool
+  func insertItem(_ item: AVPlayerItem, afterItem afterItem: AVPlayerItem?)
+  func removeItem(_ item: AVPlayerItem)
   func removeAllItems()
-  init(URL: NSURL)
-  init(playerItem item: AVPlayerItem)
-  init()
 }

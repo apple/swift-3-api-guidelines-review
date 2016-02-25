@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum UIPressPhase : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Began
   case Changed
@@ -11,7 +11,7 @@ enum UIPressPhase : Int {
 }
 @available(tvOS 9.0, *)
 enum UIPressType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case UpArrow
   case DownArrow
@@ -30,5 +30,4 @@ class UIPress : NSObject {
   var responder: UIResponder? { get }
   var gestureRecognizers: [UIGestureRecognizer]? { get }
   var force: CGFloat { get }
-  init()
 }

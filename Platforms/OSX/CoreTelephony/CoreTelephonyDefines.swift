@@ -6,5 +6,5 @@ struct CTError {
   var domain: Int32
   var error: Int32
   init()
-  init(domain: Int32, error: Int32)
+  init(domain domain: Int32, error error: Int32)
 }

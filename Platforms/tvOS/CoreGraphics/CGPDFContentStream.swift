@@ -1,14 +1,14 @@
 
 typealias CGPDFContentStreamRef = COpaquePointer
 @available(tvOS 2.0, *)
-func CGPDFContentStreamCreateWithPage(page: CGPDFPage!) -> CGPDFContentStreamRef
+func CGPDFContentStreamCreateWithPage(_ page: CGPDFPage!) -> CGPDFContentStreamRef
 @available(tvOS 2.0, *)
-func CGPDFContentStreamCreateWithStream(stream: CGPDFStreamRef, _ streamResources: CGPDFDictionaryRef, _ parent: CGPDFContentStreamRef) -> CGPDFContentStreamRef
+func CGPDFContentStreamCreateWithStream(_ stream: CGPDFStreamRef, _ streamResources: CGPDFDictionaryRef, _ parent: CGPDFContentStreamRef) -> CGPDFContentStreamRef
 @available(tvOS 2.0, *)
-func CGPDFContentStreamRetain(cs: CGPDFContentStreamRef) -> CGPDFContentStreamRef
+func CGPDFContentStreamRetain(_ cs: CGPDFContentStreamRef) -> CGPDFContentStreamRef
 @available(tvOS 2.0, *)
-func CGPDFContentStreamRelease(cs: CGPDFContentStreamRef)
+func CGPDFContentStreamRelease(_ cs: CGPDFContentStreamRef)
 @available(tvOS 2.0, *)
-func CGPDFContentStreamGetStreams(cs: CGPDFContentStreamRef) -> CFArray!
+func CGPDFContentStreamGetStreams(_ cs: CGPDFContentStreamRef) -> CFArray!
 @available(tvOS 2.0, *)
-func CGPDFContentStreamGetResource(cs: CGPDFContentStreamRef, _ category: UnsafePointer<Int8>, _ name: UnsafePointer<Int8>) -> CGPDFObjectRef
+func CGPDFContentStreamGetResource(_ cs: CGPDFContentStreamRef, _ category: UnsafePointer<Int8>, _ name: UnsafePointer<Int8>) -> CGPDFObjectRef

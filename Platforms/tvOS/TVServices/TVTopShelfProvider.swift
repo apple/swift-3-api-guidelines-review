@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVTopShelfContentStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Inset
   case Sectioned
@@ -15,4 +15,4 @@ protocol TVTopShelfProvider {
 @available(tvOS 9.0, *)
 let TVTopShelfItemsDidChangeNotification: String
 @available(tvOS 9.0, *)
-func TVTopShelfImageSizeForShape(shape: TVContentItemImageShape, _ style: TVTopShelfContentStyle) -> CGSize
+func TVTopShelfImageSizeForShape(_ shape: TVContentItemImageShape, _ style: TVTopShelfContentStyle) -> CGSize

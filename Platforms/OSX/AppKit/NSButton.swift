@@ -5,26 +5,20 @@ class NSButton : NSControl, NSUserInterfaceValidations, NSAccessibilityButton {
   var image: NSImage?
   var alternateImage: NSImage?
   var imagePosition: NSCellImagePosition
-  func setButtonType(aType: NSButtonType)
+  func setButtonType(_ aType: NSButtonType)
   var state: Int
   var bordered: Bool
   var transparent: Bool
-  func setPeriodicDelay(delay: Float, interval: Float)
-  func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
+  func setPeriodicDelay(_ delay: Float, interval interval: Float)
+  func getPeriodicDelay(_ delay: UnsafeMutablePointer<Float>, interval interval: UnsafeMutablePointer<Float>)
   var keyEquivalent: String
   var keyEquivalentModifierMask: Int
-  func highlight(flag: Bool)
-  func performKeyEquivalent(key: NSEvent) -> Bool
+  func highlight(_ flag: Bool)
   @available(OSX 10.10.3, *)
   var springLoaded: Bool
   @available(OSX 10.10.3, *)
   var maxAcceleratorLevel: Int
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
-  func validateUserInterfaceItem(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func accessibilityLabel() -> String?
-  func accessibilityPerformPress() -> Bool
+  func validateUserInterfaceItem(_ anItem: NSValidatedUserInterfaceItem) -> Bool
 }
 extension NSButton {
   @NSCopying var attributedTitle: NSAttributedString

@@ -11,7 +11,7 @@ struct _is {
   var codec_error_registry: UnsafeMutablePointer<PyObject>
   var dlopenflags: Int32
   init()
-  init(next: UnsafeMutablePointer<_is>, tstate_head: UnsafeMutablePointer<_ts>, modules: UnsafeMutablePointer<PyObject>, sysdict: UnsafeMutablePointer<PyObject>, builtins: UnsafeMutablePointer<PyObject>, modules_reloading: UnsafeMutablePointer<PyObject>, codec_search_path: UnsafeMutablePointer<PyObject>, codec_search_cache: UnsafeMutablePointer<PyObject>, codec_error_registry: UnsafeMutablePointer<PyObject>, dlopenflags: Int32)
+  init(next next: UnsafeMutablePointer<_is>, tstate_head tstate_head: UnsafeMutablePointer<_ts>, modules modules: UnsafeMutablePointer<PyObject>, sysdict sysdict: UnsafeMutablePointer<PyObject>, builtins builtins: UnsafeMutablePointer<PyObject>, modules_reloading modules_reloading: UnsafeMutablePointer<PyObject>, codec_search_path codec_search_path: UnsafeMutablePointer<PyObject>, codec_search_cache codec_search_cache: UnsafeMutablePointer<PyObject>, codec_error_registry codec_error_registry: UnsafeMutablePointer<PyObject>, dlopenflags dlopenflags: Int32)
 }
 typealias PyInterpreterState = _is
 typealias Py_tracefunc = @convention(c) (UnsafeMutablePointer<PyObject>, UnsafeMutablePointer<_frame>, Int32, UnsafeMutablePointer<PyObject>) -> Int32
@@ -47,37 +47,37 @@ struct _ts {
   var trash_delete_nesting: Int32
   var trash_delete_later: UnsafeMutablePointer<PyObject>
   init()
-  init(next: UnsafeMutablePointer<_ts>, interp: UnsafeMutablePointer<PyInterpreterState>, frame: UnsafeMutablePointer<_frame>, recursion_depth: Int32, tracing: Int32, use_tracing: Int32, c_profilefunc: Py_tracefunc!, c_tracefunc: Py_tracefunc!, c_profileobj: UnsafeMutablePointer<PyObject>, c_traceobj: UnsafeMutablePointer<PyObject>, curexc_type: UnsafeMutablePointer<PyObject>, curexc_value: UnsafeMutablePointer<PyObject>, curexc_traceback: UnsafeMutablePointer<PyObject>, exc_type: UnsafeMutablePointer<PyObject>, exc_value: UnsafeMutablePointer<PyObject>, exc_traceback: UnsafeMutablePointer<PyObject>, dict: UnsafeMutablePointer<PyObject>, tick_counter: Int32, gilstate_counter: Int32, async_exc: UnsafeMutablePointer<PyObject>, thread_id: Int, trash_delete_nesting: Int32, trash_delete_later: UnsafeMutablePointer<PyObject>)
+  init(next next: UnsafeMutablePointer<_ts>, interp interp: UnsafeMutablePointer<PyInterpreterState>, frame frame: UnsafeMutablePointer<_frame>, recursion_depth recursion_depth: Int32, tracing tracing: Int32, use_tracing use_tracing: Int32, c_profilefunc c_profilefunc: Py_tracefunc!, c_tracefunc c_tracefunc: Py_tracefunc!, c_profileobj c_profileobj: UnsafeMutablePointer<PyObject>, c_traceobj c_traceobj: UnsafeMutablePointer<PyObject>, curexc_type curexc_type: UnsafeMutablePointer<PyObject>, curexc_value curexc_value: UnsafeMutablePointer<PyObject>, curexc_traceback curexc_traceback: UnsafeMutablePointer<PyObject>, exc_type exc_type: UnsafeMutablePointer<PyObject>, exc_value exc_value: UnsafeMutablePointer<PyObject>, exc_traceback exc_traceback: UnsafeMutablePointer<PyObject>, dict dict: UnsafeMutablePointer<PyObject>, tick_counter tick_counter: Int32, gilstate_counter gilstate_counter: Int32, async_exc async_exc: UnsafeMutablePointer<PyObject>, thread_id thread_id: Int, trash_delete_nesting trash_delete_nesting: Int32, trash_delete_later trash_delete_later: UnsafeMutablePointer<PyObject>)
 }
 typealias PyThreadState = _ts
 func PyInterpreterState_New() -> UnsafeMutablePointer<PyInterpreterState>
-func PyInterpreterState_Clear(_: UnsafeMutablePointer<PyInterpreterState>)
-func PyInterpreterState_Delete(_: UnsafeMutablePointer<PyInterpreterState>)
-func PyThreadState_New(_: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
-func _PyThreadState_Prealloc(_: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
-func _PyThreadState_Init(_: UnsafeMutablePointer<PyThreadState>)
-func PyThreadState_Clear(_: UnsafeMutablePointer<PyThreadState>)
-func PyThreadState_Delete(_: UnsafeMutablePointer<PyThreadState>)
+func PyInterpreterState_Clear(_ _: UnsafeMutablePointer<PyInterpreterState>)
+func PyInterpreterState_Delete(_ _: UnsafeMutablePointer<PyInterpreterState>)
+func PyThreadState_New(_ _: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
+func _PyThreadState_Prealloc(_ _: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
+func _PyThreadState_Init(_ _: UnsafeMutablePointer<PyThreadState>)
+func PyThreadState_Clear(_ _: UnsafeMutablePointer<PyThreadState>)
+func PyThreadState_Delete(_ _: UnsafeMutablePointer<PyThreadState>)
 func PyThreadState_DeleteCurrent()
 func PyThreadState_Get() -> UnsafeMutablePointer<PyThreadState>
-func PyThreadState_Swap(_: UnsafeMutablePointer<PyThreadState>) -> UnsafeMutablePointer<PyThreadState>
+func PyThreadState_Swap(_ _: UnsafeMutablePointer<PyThreadState>) -> UnsafeMutablePointer<PyThreadState>
 func PyThreadState_GetDict() -> UnsafeMutablePointer<PyObject>
-func PyThreadState_SetAsyncExc(_: Int, _: UnsafeMutablePointer<PyObject>) -> Int32
+func PyThreadState_SetAsyncExc(_ _: Int, _ _: UnsafeMutablePointer<PyObject>) -> Int32
 var _PyThreadState_Current: UnsafeMutablePointer<PyThreadState>
 struct PyGILState_STATE : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var PyGILState_LOCKED: PyGILState_STATE { get }
 var PyGILState_UNLOCKED: PyGILState_STATE { get }
 func PyGILState_Ensure() -> PyGILState_STATE
-func PyGILState_Release(_: PyGILState_STATE)
+func PyGILState_Release(_ _: PyGILState_STATE)
 func PyGILState_GetThisThreadState() -> UnsafeMutablePointer<PyThreadState>
 func _PyThread_CurrentFrames() -> UnsafeMutablePointer<PyObject>
 func PyInterpreterState_Head() -> UnsafeMutablePointer<PyInterpreterState>
-func PyInterpreterState_Next(_: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyInterpreterState>
-func PyInterpreterState_ThreadHead(_: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
-func PyThreadState_Next(_: UnsafeMutablePointer<PyThreadState>) -> UnsafeMutablePointer<PyThreadState>
+func PyInterpreterState_Next(_ _: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyInterpreterState>
+func PyInterpreterState_ThreadHead(_ _: UnsafeMutablePointer<PyInterpreterState>) -> UnsafeMutablePointer<PyThreadState>
+func PyThreadState_Next(_ _: UnsafeMutablePointer<PyThreadState>) -> UnsafeMutablePointer<PyThreadState>
 typealias PyThreadFrameGetter = @convention(c) (UnsafeMutablePointer<PyThreadState>) -> UnsafeMutablePointer<_frame>
 var _PyThreadState_GetFrame: PyThreadFrameGetter!

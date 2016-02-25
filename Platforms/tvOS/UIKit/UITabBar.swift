@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 enum UITabBarItemPositioning : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Automatic
   case Fill
@@ -12,9 +12,7 @@ class UITabBar : UIView {
   unowned(unsafe) var delegate: @sil_unmanaged UITabBarDelegate?
   var items: [UITabBarItem]?
   unowned(unsafe) var selectedItem: @sil_unmanaged UITabBarItem?
-  func setItems(items: [UITabBarItem]?, animated: Bool)
-  @available(tvOS 5.0, *)
-  var tintColor: UIColor!
+  func setItems(_ items: [UITabBarItem]?, animated animated: Bool)
   @available(tvOS 7.0, *)
   var barTintColor: UIColor?
   @available(tvOS 5.0, *)
@@ -29,11 +27,8 @@ class UITabBar : UIView {
   var itemSpacing: CGFloat
   @available(tvOS 7.0, *)
   var translucent: Bool
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UITabBarDelegate : NSObjectProtocol {
   @available(tvOS 2.0, *)
-  optional func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem)
+  optional func tabBar(_ tabBar: UITabBar, didSelectItem item: UITabBarItem)
 }

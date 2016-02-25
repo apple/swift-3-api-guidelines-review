@@ -3,24 +3,23 @@
 class NSPredicate : NSObject, NSSecureCoding, NSCopying {
   /*not inherited*/ init(format predicateFormat: String, argumentArray arguments: [AnyObject]?)
   /*not inherited*/ init(format predicateFormat: String, arguments argList: CVaListPointer)
-  /*not inherited*/ init(value: Bool)
+  /*not inherited*/ init(value value: Bool)
   @available(watchOS 2.0, *)
-  /*not inherited*/ init(block: (AnyObject, [String : AnyObject]?) -> Bool)
+  /*not inherited*/ init(block block: (AnyObject, [String : AnyObject]?) -> Bool)
   var predicateFormat: String { get }
-  func predicateWithSubstitutionVariables(variables: [String : AnyObject]) -> Self
-  func evaluateWithObject(object: AnyObject?) -> Bool
+  func predicateWithSubstitutionVariables(_ variables: [String : AnyObject]) -> Self
+  func evaluateWithObject(_ object: AnyObject?) -> Bool
   @available(watchOS 2.0, *)
-  func evaluateWithObject(object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
+  func evaluateWithObject(_ object: AnyObject?, substitutionVariables bindings: [String : AnyObject]?) -> Bool
   @available(watchOS 2.0, *)
   func allowEvaluation()
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension NSPredicate {
@@ -30,27 +29,27 @@ struct _predicateFlags {
   var _evaluationBlocked: UInt32
   var _reservedPredicateFlags: UInt32
   init()
-  init(_evaluationBlocked: UInt32, _reservedPredicateFlags: UInt32)
+  init(_evaluationBlocked _evaluationBlocked: UInt32, _reservedPredicateFlags _reservedPredicateFlags: UInt32)
 }
 extension NSArray {
-  func filteredArrayUsingPredicate(predicate: NSPredicate) -> [AnyObject]
+  func filteredArrayUsingPredicate(_ predicate: NSPredicate) -> [AnyObject]
 }
 extension NSMutableArray {
-  func filterUsingPredicate(predicate: NSPredicate)
+  func filterUsingPredicate(_ predicate: NSPredicate)
 }
 extension NSSet {
   @available(watchOS 2.0, *)
-  func filteredSetUsingPredicate(predicate: NSPredicate) -> Set<NSObject>
+  func filteredSetUsingPredicate(_ predicate: NSPredicate) -> Set<NSObject>
 }
 extension NSMutableSet {
   @available(watchOS 2.0, *)
-  func filterUsingPredicate(predicate: NSPredicate)
+  func filterUsingPredicate(_ predicate: NSPredicate)
 }
 extension NSOrderedSet {
   @available(watchOS 2.0, *)
-  func filteredOrderedSetUsingPredicate(p: NSPredicate) -> NSOrderedSet
+  func filteredOrderedSetUsingPredicate(_ p: NSPredicate) -> NSOrderedSet
 }
 extension NSMutableOrderedSet {
   @available(watchOS 2.0, *)
-  func filterUsingPredicate(p: NSPredicate)
+  func filterUsingPredicate(_ p: NSPredicate)
 }

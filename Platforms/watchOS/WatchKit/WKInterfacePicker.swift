@@ -3,10 +3,10 @@
 class WKInterfacePicker : WKInterfaceObject {
   func focus()
   func resignFocus()
-  func setSelectedItemIndex(itemIndex: Int)
-  func setItems(items: [WKPickerItem]?)
-  func setCoordinatedAnimations(coordinatedAnimations: [WKInterfaceObject]?)
-  func setEnabled(enabled: Bool)
+  func setSelectedItemIndex(_ itemIndex: Int)
+  func setItems(_ items: [WKPickerItem]?)
+  func setCoordinatedAnimations(_ coordinatedAnimations: [WKInterfaceObject]?)
+  func setEnabled(_ enabled: Bool)
 }
 @available(watchOS 2.0, *)
 class WKPickerItem : NSObject, NSSecureCoding {
@@ -14,10 +14,9 @@ class WKPickerItem : NSObject, NSSecureCoding {
   var caption: String?
   @NSCopying var accessoryImage: WKImage?
   @NSCopying var contentImage: WKImage?
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -13,12 +13,11 @@ let NSMigrationPropertyMappingKey: String
 let NSMigrationEntityPolicyKey: String
 @available(iOS 3.0, *)
 class NSEntityMigrationPolicy : NSObject {
-  func beginEntityMapping(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func createDestinationInstancesForSourceInstance(sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func endInstanceCreationForEntityMapping(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func createRelationshipsForDestinationInstance(dInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func endRelationshipCreationForEntityMapping(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func performCustomValidationForEntityMapping(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  func endEntityMapping(mapping: NSEntityMapping, manager: NSMigrationManager) throws
-  init()
+  func beginEntityMapping(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func createDestinationInstancesForSourceInstance(_ sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func endInstanceCreationForEntityMapping(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func createRelationshipsForDestinationInstance(_ dInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func endRelationshipCreationForEntityMapping(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func performCustomValidationForEntityMapping(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
+  func endEntityMapping(_ mapping: NSEntityMapping, manager manager: NSMigrationManager) throws
 }

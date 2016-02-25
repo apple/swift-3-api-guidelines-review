@@ -22,7 +22,7 @@ typealias MIDIEntityRef = MIDIObjectRef
 typealias MIDIEndpointRef = MIDIObjectRef
 typealias MIDITimeStamp = UInt64
 enum MIDIObjectType : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Other
   case Device
@@ -47,13 +47,13 @@ struct MIDIPacket {
   var length: UInt16
   var data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(timeStamp: MIDITimeStamp, length: UInt16, data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(timeStamp timeStamp: MIDITimeStamp, length length: UInt16, data data: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct MIDIPacketList {
   var numPackets: UInt32
   var packet: (MIDIPacket)
   init()
-  init(numPackets: UInt32, packet: (MIDIPacket))
+  init(numPackets numPackets: UInt32, packet packet: (MIDIPacket))
 }
 struct MIDISysexSendRequest {
   var destination: MIDIEndpointRef
@@ -65,7 +65,7 @@ struct MIDISysexSendRequest {
   var completionRefCon: UnsafeMutablePointer<Void>
 }
 enum MIDINotificationMessageID : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case MsgSetupChanged
   case MsgObjectAdded
@@ -79,7 +79,7 @@ struct MIDINotification {
   var messageID: MIDINotificationMessageID
   var messageSize: UInt32
   init()
-  init(messageID: MIDINotificationMessageID, messageSize: UInt32)
+  init(messageID messageID: MIDINotificationMessageID, messageSize messageSize: UInt32)
 }
 struct MIDIObjectAddRemoveNotification {
   var messageID: MIDINotificationMessageID
@@ -89,7 +89,7 @@ struct MIDIObjectAddRemoveNotification {
   var child: MIDIObjectRef
   var childType: MIDIObjectType
   init()
-  init(messageID: MIDINotificationMessageID, messageSize: UInt32, parent: MIDIObjectRef, parentType: MIDIObjectType, child: MIDIObjectRef, childType: MIDIObjectType)
+  init(messageID messageID: MIDINotificationMessageID, messageSize messageSize: UInt32, parent parent: MIDIObjectRef, parentType parentType: MIDIObjectType, child child: MIDIObjectRef, childType childType: MIDIObjectType)
 }
 struct MIDIObjectPropertyChangeNotification {
   var messageID: MIDINotificationMessageID
@@ -104,7 +104,7 @@ struct MIDIIOErrorNotification {
   var driverDevice: MIDIDeviceRef
   var errorCode: OSStatus
   init()
-  init(messageID: MIDINotificationMessageID, messageSize: UInt32, driverDevice: MIDIDeviceRef, errorCode: OSStatus)
+  init(messageID messageID: MIDINotificationMessageID, messageSize messageSize: UInt32, driverDevice driverDevice: MIDIDeviceRef, errorCode errorCode: OSStatus)
 }
 @available(OSX 10.0, *)
 let kMIDIPropertyName: CFString
@@ -195,97 +195,97 @@ let kMIDIPropertySupportsShowControl: CFString
 @available(OSX 10.4, *)
 let kMIDIPropertyDisplayName: CFString
 @available(OSX 10.0, *)
-func MIDIClientCreate(name: CFString, _ notifyProc: MIDINotifyProc?, _ notifyRefCon: UnsafeMutablePointer<Void>, _ outClient: UnsafeMutablePointer<MIDIClientRef>) -> OSStatus
+func MIDIClientCreate(_ name: CFString, _ notifyProc: MIDINotifyProc?, _ notifyRefCon: UnsafeMutablePointer<Void>, _ outClient: UnsafeMutablePointer<MIDIClientRef>) -> OSStatus
 @available(OSX 10.11, *)
-func MIDIClientCreateWithBlock(name: CFString, _ outClient: UnsafeMutablePointer<MIDIClientRef>, _ notifyBlock: MIDINotifyBlock?) -> OSStatus
+func MIDIClientCreateWithBlock(_ name: CFString, _ outClient: UnsafeMutablePointer<MIDIClientRef>, _ notifyBlock: MIDINotifyBlock?) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIClientDispose(client: MIDIClientRef) -> OSStatus
+func MIDIClientDispose(_ client: MIDIClientRef) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIInputPortCreate(client: MIDIClientRef, _ portName: CFString, _ readProc: MIDIReadProc, _ refCon: UnsafeMutablePointer<Void>, _ outPort: UnsafeMutablePointer<MIDIPortRef>) -> OSStatus
+func MIDIInputPortCreate(_ client: MIDIClientRef, _ portName: CFString, _ readProc: MIDIReadProc, _ refCon: UnsafeMutablePointer<Void>, _ outPort: UnsafeMutablePointer<MIDIPortRef>) -> OSStatus
 @available(OSX 10.11, *)
-func MIDIInputPortCreateWithBlock(client: MIDIClientRef, _ portName: CFString, _ outPort: UnsafeMutablePointer<MIDIPortRef>, _ readBlock: MIDIReadBlock) -> OSStatus
+func MIDIInputPortCreateWithBlock(_ client: MIDIClientRef, _ portName: CFString, _ outPort: UnsafeMutablePointer<MIDIPortRef>, _ readBlock: MIDIReadBlock) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIOutputPortCreate(client: MIDIClientRef, _ portName: CFString, _ outPort: UnsafeMutablePointer<MIDIPortRef>) -> OSStatus
+func MIDIOutputPortCreate(_ client: MIDIClientRef, _ portName: CFString, _ outPort: UnsafeMutablePointer<MIDIPortRef>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIPortDispose(port: MIDIPortRef) -> OSStatus
+func MIDIPortDispose(_ port: MIDIPortRef) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIPortConnectSource(port: MIDIPortRef, _ source: MIDIEndpointRef, _ connRefCon: UnsafeMutablePointer<Void>) -> OSStatus
+func MIDIPortConnectSource(_ port: MIDIPortRef, _ source: MIDIEndpointRef, _ connRefCon: UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIPortDisconnectSource(port: MIDIPortRef, _ source: MIDIEndpointRef) -> OSStatus
+func MIDIPortDisconnectSource(_ port: MIDIPortRef, _ source: MIDIEndpointRef) -> OSStatus
 @available(OSX 10.0, *)
 func MIDIGetNumberOfDevices() -> Int
 @available(OSX 10.0, *)
-func MIDIGetDevice(deviceIndex0: Int) -> MIDIDeviceRef
+func MIDIGetDevice(_ deviceIndex0: Int) -> MIDIDeviceRef
 @available(OSX 10.0, *)
-func MIDIDeviceGetNumberOfEntities(device: MIDIDeviceRef) -> Int
+func MIDIDeviceGetNumberOfEntities(_ device: MIDIDeviceRef) -> Int
 @available(OSX 10.0, *)
-func MIDIDeviceGetEntity(device: MIDIDeviceRef, _ entityIndex0: Int) -> MIDIEntityRef
+func MIDIDeviceGetEntity(_ device: MIDIDeviceRef, _ entityIndex0: Int) -> MIDIEntityRef
 @available(OSX 10.0, *)
-func MIDIEntityGetNumberOfSources(entity: MIDIEntityRef) -> Int
+func MIDIEntityGetNumberOfSources(_ entity: MIDIEntityRef) -> Int
 @available(OSX 10.0, *)
-func MIDIEntityGetSource(entity: MIDIEntityRef, _ sourceIndex0: Int) -> MIDIEndpointRef
+func MIDIEntityGetSource(_ entity: MIDIEntityRef, _ sourceIndex0: Int) -> MIDIEndpointRef
 @available(OSX 10.0, *)
-func MIDIEntityGetNumberOfDestinations(entity: MIDIEntityRef) -> Int
+func MIDIEntityGetNumberOfDestinations(_ entity: MIDIEntityRef) -> Int
 @available(OSX 10.0, *)
-func MIDIEntityGetDestination(entity: MIDIEntityRef, _ destIndex0: Int) -> MIDIEndpointRef
+func MIDIEntityGetDestination(_ entity: MIDIEntityRef, _ destIndex0: Int) -> MIDIEndpointRef
 @available(OSX 10.2, *)
-func MIDIEntityGetDevice(inEntity: MIDIEntityRef, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus
+func MIDIEntityGetDevice(_ inEntity: MIDIEntityRef, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus
 @available(OSX 10.0, *)
 func MIDIGetNumberOfSources() -> Int
 @available(OSX 10.0, *)
-func MIDIGetSource(sourceIndex0: Int) -> MIDIEndpointRef
+func MIDIGetSource(_ sourceIndex0: Int) -> MIDIEndpointRef
 @available(OSX 10.0, *)
 func MIDIGetNumberOfDestinations() -> Int
 @available(OSX 10.0, *)
-func MIDIGetDestination(destIndex0: Int) -> MIDIEndpointRef
+func MIDIGetDestination(_ destIndex0: Int) -> MIDIEndpointRef
 @available(OSX 10.2, *)
-func MIDIEndpointGetEntity(inEndpoint: MIDIEndpointRef, _ outEntity: UnsafeMutablePointer<MIDIEntityRef>) -> OSStatus
+func MIDIEndpointGetEntity(_ inEndpoint: MIDIEndpointRef, _ outEntity: UnsafeMutablePointer<MIDIEntityRef>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIDestinationCreate(client: MIDIClientRef, _ name: CFString, _ readProc: MIDIReadProc, _ refCon: UnsafeMutablePointer<Void>, _ outDest: UnsafeMutablePointer<MIDIEndpointRef>) -> OSStatus
+func MIDIDestinationCreate(_ client: MIDIClientRef, _ name: CFString, _ readProc: MIDIReadProc, _ refCon: UnsafeMutablePointer<Void>, _ outDest: UnsafeMutablePointer<MIDIEndpointRef>) -> OSStatus
 @available(OSX 10.11, *)
-func MIDIDestinationCreateWithBlock(client: MIDIClientRef, _ name: CFString, _ outDest: UnsafeMutablePointer<MIDIEndpointRef>, _ readBlock: MIDIReadBlock) -> OSStatus
+func MIDIDestinationCreateWithBlock(_ client: MIDIClientRef, _ name: CFString, _ outDest: UnsafeMutablePointer<MIDIEndpointRef>, _ readBlock: MIDIReadBlock) -> OSStatus
 @available(OSX 10.0, *)
-func MIDISourceCreate(client: MIDIClientRef, _ name: CFString, _ outSrc: UnsafeMutablePointer<MIDIEndpointRef>) -> OSStatus
+func MIDISourceCreate(_ client: MIDIClientRef, _ name: CFString, _ outSrc: UnsafeMutablePointer<MIDIEndpointRef>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIEndpointDispose(endpt: MIDIEndpointRef) -> OSStatus
+func MIDIEndpointDispose(_ endpt: MIDIEndpointRef) -> OSStatus
 @available(OSX 10.1, *)
 func MIDIGetNumberOfExternalDevices() -> Int
 @available(OSX 10.1, *)
-func MIDIGetExternalDevice(deviceIndex0: Int) -> MIDIDeviceRef
+func MIDIGetExternalDevice(_ deviceIndex0: Int) -> MIDIDeviceRef
 @available(OSX 10.0, *)
-func MIDIObjectGetIntegerProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ outValue: UnsafeMutablePointer<Int32>) -> OSStatus
+func MIDIObjectGetIntegerProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ outValue: UnsafeMutablePointer<Int32>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIObjectSetIntegerProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ value: Int32) -> OSStatus
+func MIDIObjectSetIntegerProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ value: Int32) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIObjectGetStringProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ str: UnsafeMutablePointer<Unmanaged<CFString>?>) -> OSStatus
+func MIDIObjectGetStringProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ str: UnsafeMutablePointer<Unmanaged<CFString>?>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIObjectSetStringProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ str: CFString) -> OSStatus
+func MIDIObjectSetStringProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ str: CFString) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIObjectGetDataProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ outData: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
+func MIDIObjectGetDataProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ outData: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIObjectSetDataProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ data: CFData) -> OSStatus
+func MIDIObjectSetDataProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ data: CFData) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIObjectGetDictionaryProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ outDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> OSStatus
+func MIDIObjectGetDictionaryProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ outDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIObjectSetDictionaryProperty(obj: MIDIObjectRef, _ propertyID: CFString, _ dict: CFDictionary) -> OSStatus
+func MIDIObjectSetDictionaryProperty(_ obj: MIDIObjectRef, _ propertyID: CFString, _ dict: CFDictionary) -> OSStatus
 @available(OSX 10.1, *)
-func MIDIObjectGetProperties(obj: MIDIObjectRef, _ outProperties: UnsafeMutablePointer<Unmanaged<CFPropertyList>?>, _ deep: Bool) -> OSStatus
+func MIDIObjectGetProperties(_ obj: MIDIObjectRef, _ outProperties: UnsafeMutablePointer<Unmanaged<CFPropertyList>?>, _ deep: Bool) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIObjectRemoveProperty(obj: MIDIObjectRef, _ propertyID: CFString) -> OSStatus
+func MIDIObjectRemoveProperty(_ obj: MIDIObjectRef, _ propertyID: CFString) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIObjectFindByUniqueID(inUniqueID: MIDIUniqueID, _ outObject: UnsafeMutablePointer<MIDIObjectRef>, _ outObjectType: UnsafeMutablePointer<MIDIObjectType>) -> OSStatus
+func MIDIObjectFindByUniqueID(_ inUniqueID: MIDIUniqueID, _ outObject: UnsafeMutablePointer<MIDIObjectRef>, _ outObjectType: UnsafeMutablePointer<MIDIObjectType>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDISend(port: MIDIPortRef, _ dest: MIDIEndpointRef, _ pktlist: UnsafePointer<MIDIPacketList>) -> OSStatus
+func MIDISend(_ port: MIDIPortRef, _ dest: MIDIEndpointRef, _ pktlist: UnsafePointer<MIDIPacketList>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDISendSysex(request: UnsafeMutablePointer<MIDISysexSendRequest>) -> OSStatus
+func MIDISendSysex(_ request: UnsafeMutablePointer<MIDISysexSendRequest>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIReceived(src: MIDIEndpointRef, _ pktlist: UnsafePointer<MIDIPacketList>) -> OSStatus
+func MIDIReceived(_ src: MIDIEndpointRef, _ pktlist: UnsafePointer<MIDIPacketList>) -> OSStatus
 @available(OSX 10.1, *)
-func MIDIFlushOutput(dest: MIDIEndpointRef) -> OSStatus
+func MIDIFlushOutput(_ dest: MIDIEndpointRef) -> OSStatus
 @available(OSX 10.1, *)
 func MIDIRestart() -> OSStatus
-func MIDIPacketNext(pkt: UnsafePointer<MIDIPacket>) -> UnsafeMutablePointer<MIDIPacket>
+func MIDIPacketNext(_ pkt: UnsafePointer<MIDIPacket>) -> UnsafeMutablePointer<MIDIPacket>
 @available(OSX 10.0, *)
-func MIDIPacketListInit(pktlist: UnsafeMutablePointer<MIDIPacketList>) -> UnsafeMutablePointer<MIDIPacket>
+func MIDIPacketListInit(_ pktlist: UnsafeMutablePointer<MIDIPacketList>) -> UnsafeMutablePointer<MIDIPacket>
 @available(OSX 10.0, *)
-func MIDIPacketListAdd(pktlist: UnsafeMutablePointer<MIDIPacketList>, _ listSize: Int, _ curPacket: UnsafeMutablePointer<MIDIPacket>, _ time: MIDITimeStamp, _ nData: Int, _ data: UnsafePointer<UInt8>) -> UnsafeMutablePointer<MIDIPacket>
+func MIDIPacketListAdd(_ pktlist: UnsafeMutablePointer<MIDIPacketList>, _ listSize: Int, _ curPacket: UnsafeMutablePointer<MIDIPacket>, _ time: MIDITimeStamp, _ nData: Int, _ data: UnsafePointer<UInt8>) -> UnsafeMutablePointer<MIDIPacket>

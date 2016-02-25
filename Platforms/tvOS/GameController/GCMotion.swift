@@ -4,21 +4,21 @@ struct GCAcceleration {
   var y: Double
   var z: Double
   init()
-  init(x: Double, y: Double, z: Double)
+  init(x x: Double, y y: Double, z z: Double)
 }
 struct GCRotationRate {
   var x: Double
   var y: Double
   var z: Double
   init()
-  init(x: Double, y: Double, z: Double)
+  init(x x: Double, y y: Double, z z: Double)
 }
 struct GCEulerAngles {
   var pitch: Double
   var yaw: Double
   var roll: Double
   init()
-  init(pitch: Double, yaw: Double, roll: Double)
+  init(pitch pitch: Double, yaw yaw: Double, roll roll: Double)
 }
 struct GCQuaternion {
   var x: Double
@@ -26,7 +26,7 @@ struct GCQuaternion {
   var z: Double
   var w: Double
   init()
-  init(x: Double, y: Double, z: Double, w: Double)
+  init(x x: Double, y y: Double, z z: Double, w w: Double)
 }
 @available(tvOS 8.0, *)
 class GCMotion : NSObject {
@@ -34,6 +34,5 @@ class GCMotion : NSObject {
   var valueChangedHandler: GCMotionValueChangedHandler?
   var gravity: GCAcceleration { get }
   var userAcceleration: GCAcceleration { get }
-  init()
 }
 typealias GCMotionValueChangedHandler = (GCMotion) -> Void

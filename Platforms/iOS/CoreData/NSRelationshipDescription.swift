@@ -1,6 +1,6 @@
 
 enum NSDeleteRule : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NoActionDeleteRule
   case NullifyDeleteRule
@@ -15,10 +15,6 @@ class NSRelationshipDescription : NSPropertyDescription {
   var minCount: Int
   var deleteRule: NSDeleteRule
   var toMany: Bool { get }
-  @available(iOS 3.0, *)
-  @NSCopying var versionHash: NSData { get }
   @available(iOS 5.0, *)
   var ordered: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

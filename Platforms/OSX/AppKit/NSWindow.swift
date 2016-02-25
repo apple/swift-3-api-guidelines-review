@@ -18,7 +18,7 @@ var NSDisplayWindowRunLoopOrdering: Int { get }
 var NSResetCursorRectsRunLoopOrdering: Int { get }
 @available(OSX 10.5, *)
 enum NSWindowSharingType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case ReadOnly
@@ -26,7 +26,7 @@ enum NSWindowSharingType : UInt {
 }
 @available(OSX 10.5, *)
 enum NSWindowBackingLocation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Default
   case VideoMemory
@@ -34,7 +34,7 @@ enum NSWindowBackingLocation : UInt {
 }
 @available(OSX 10.5, *)
 struct NSWindowCollectionBehavior : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Default: NSWindowCollectionBehavior { get }
   static var CanJoinAllSpaces: NSWindowCollectionBehavior { get }
@@ -60,7 +60,7 @@ struct NSWindowCollectionBehavior : OptionSetType {
 }
 @available(OSX 10.7, *)
 enum NSWindowAnimationBehavior : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case None
@@ -72,20 +72,20 @@ var NSWindowNumberListAllApplications: Int { get }
 var NSWindowNumberListAllSpaces: Int { get }
 @available(OSX 10.9, *)
 struct NSWindowOcclusionState : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Visible: NSWindowOcclusionState { get }
 }
 typealias NSWindowNumberListOptions = Int
 enum NSSelectionDirection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DirectSelection
   case SelectingNext
   case SelectingPrevious
 }
 enum NSWindowButton : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case CloseButton
   case MiniaturizeButton
@@ -99,21 +99,21 @@ enum NSWindowButton : UInt {
 }
 @available(OSX 10.10, *)
 enum NSWindowTitleVisibility : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Visible
   case Hidden
 }
 var NSEventDurationForever: Double { get }
 class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceValidations, NSUserInterfaceItemIdentification, NSAppearanceCustomization, NSAccessibilityElementProtocol, NSAccessibility {
-  class func frameRectForContentRect(cRect: NSRect, styleMask aStyle: Int) -> NSRect
-  class func contentRectForFrameRect(fRect: NSRect, styleMask aStyle: Int) -> NSRect
-  class func minFrameWidthWithTitle(aTitle: String, styleMask aStyle: Int) -> CGFloat
+  class func frameRectForContentRect(_ cRect: NSRect, styleMask aStyle: Int) -> NSRect
+  class func contentRectForFrameRect(_ fRect: NSRect, styleMask aStyle: Int) -> NSRect
+  class func minFrameWidthWithTitle(_ aTitle: String, styleMask aStyle: Int) -> CGFloat
   class func defaultDepthLimit() -> NSWindowDepth
-  func frameRectForContentRect(contentRect: NSRect) -> NSRect
-  func contentRectForFrameRect(frameRect: NSRect) -> NSRect
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
+  func frameRectForContentRect(_ contentRect: NSRect) -> NSRect
+  func contentRectForFrameRect(_ frameRect: NSRect) -> NSRect
+  init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+  convenience init(contentRect contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen screen: NSScreen?)
   var title: String
   @available(OSX 10.10, *)
   var titleVisibility: NSWindowTitleVisibility
@@ -126,31 +126,31 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   var titlebarAccessoryViewControllers: [NSTitlebarAccessoryViewController]
   @available(OSX 10.10, *)
-  func addTitlebarAccessoryViewController(childViewController: NSTitlebarAccessoryViewController)
+  func addTitlebarAccessoryViewController(_ childViewController: NSTitlebarAccessoryViewController)
   @available(OSX 10.10, *)
-  func insertTitlebarAccessoryViewController(childViewController: NSTitlebarAccessoryViewController, atIndex index: Int)
+  func insertTitlebarAccessoryViewController(_ childViewController: NSTitlebarAccessoryViewController, atIndex index: Int)
   @available(OSX 10.10, *)
-  func removeTitlebarAccessoryViewControllerAtIndex(index: Int)
+  func removeTitlebarAccessoryViewControllerAtIndex(_ index: Int)
   @available(OSX 10.5, *)
   @NSCopying var representedURL: NSURL?
   var representedFilename: String
-  func setTitleWithRepresentedFilename(filename: String)
+  func setTitleWithRepresentedFilename(_ filename: String)
   var excludedFromWindowsMenu: Bool
   var contentView: NSView?
   unowned(unsafe) var delegate: @sil_unmanaged NSWindowDelegate?
   var windowNumber: Int { get }
   var styleMask: Int
-  func fieldEditor(createFlag: Bool, forObject anObject: AnyObject?) -> NSText?
-  func endEditingFor(anObject: AnyObject?)
-  func constrainFrameRect(frameRect: NSRect, toScreen screen: NSScreen?) -> NSRect
-  func setFrame(frameRect: NSRect, display flag: Bool)
-  func setContentSize(aSize: NSSize)
-  func setFrameOrigin(aPoint: NSPoint)
-  func setFrameTopLeftPoint(aPoint: NSPoint)
-  func cascadeTopLeftFromPoint(topLeftPoint: NSPoint) -> NSPoint
+  func fieldEditor(_ createFlag: Bool, forObject anObject: AnyObject?) -> NSText?
+  func endEditingFor(_ anObject: AnyObject?)
+  func constrainFrameRect(_ frameRect: NSRect, toScreen screen: NSScreen?) -> NSRect
+  func setFrame(_ frameRect: NSRect, display flag: Bool)
+  func setContentSize(_ aSize: NSSize)
+  func setFrameOrigin(_ aPoint: NSPoint)
+  func setFrameTopLeftPoint(_ aPoint: NSPoint)
+  func cascadeTopLeftFromPoint(_ topLeftPoint: NSPoint) -> NSPoint
   var frame: NSRect { get }
-  func animationResizeTime(newFrame: NSRect) -> NSTimeInterval
-  func setFrame(frameRect: NSRect, display displayFlag: Bool, animate animateFlag: Bool)
+  func animationResizeTime(_ newFrame: NSRect) -> NSTimeInterval
+  func setFrame(_ frameRect: NSRect, display displayFlag: Bool, animate animateFlag: Bool)
   @available(OSX 10.6, *)
   var inLiveResize: Bool { get }
   var showsResizeIndicator: Bool
@@ -169,39 +169,36 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   var autodisplay: Bool
   var preservesContentDuringLiveResize: Bool
   func update()
-  func makeFirstResponder(aResponder: NSResponder?) -> Bool
+  func makeFirstResponder(_ aResponder: NSResponder?) -> Bool
   unowned(unsafe) var firstResponder: @sil_unmanaged NSResponder { get }
   var resizeFlags: Int { get }
-  func keyDown(theEvent: NSEvent)
   func close()
   var releasedWhenClosed: Bool
-  func miniaturize(sender: AnyObject?)
-  func deminiaturize(sender: AnyObject?)
+  func miniaturize(_ sender: AnyObject?)
+  func deminiaturize(_ sender: AnyObject?)
   var zoomed: Bool { get }
-  func zoom(sender: AnyObject?)
+  func zoom(_ sender: AnyObject?)
   var miniaturized: Bool { get }
-  func tryToPerform(anAction: Selector, with anObject: AnyObject?) -> Bool
-  func validRequestorForSendType(sendType: String, returnType: String) -> AnyObject?
   @NSCopying var backgroundColor: NSColor!
   @available(OSX 10.5, *)
-  func setContentBorderThickness(thickness: CGFloat, forEdge edge: NSRectEdge)
+  func setContentBorderThickness(_ thickness: CGFloat, forEdge edge: NSRectEdge)
   @available(OSX 10.5, *)
-  func contentBorderThicknessForEdge(edge: NSRectEdge) -> CGFloat
+  func contentBorderThicknessForEdge(_ edge: NSRectEdge) -> CGFloat
   @available(OSX 10.5, *)
-  func setAutorecalculatesContentBorderThickness(flag: Bool, forEdge edge: NSRectEdge)
+  func setAutorecalculatesContentBorderThickness(_ flag: Bool, forEdge edge: NSRectEdge)
   @available(OSX 10.5, *)
-  func autorecalculatesContentBorderThicknessForEdge(edge: NSRectEdge) -> Bool
+  func autorecalculatesContentBorderThicknessForEdge(_ edge: NSRectEdge) -> Bool
   @available(OSX 10.6, *)
   var movable: Bool
   var movableByWindowBackground: Bool
   var hidesOnDeactivate: Bool
   var canHide: Bool
   func center()
-  func makeKeyAndOrderFront(sender: AnyObject?)
-  func orderFront(sender: AnyObject?)
-  func orderBack(sender: AnyObject?)
-  func orderOut(sender: AnyObject?)
-  func orderWindow(place: NSWindowOrderingMode, relativeTo otherWin: Int)
+  func makeKeyAndOrderFront(_ sender: AnyObject?)
+  func orderFront(_ sender: AnyObject?)
+  func orderBack(_ sender: AnyObject?)
+  func orderOut(_ sender: AnyObject?)
+  func orderWindow(_ place: NSWindowOrderingMode, relativeTo otherWin: Int)
   func orderFrontRegardless()
   var miniwindowImage: NSImage?
   var miniwindowTitle: String!
@@ -223,36 +220,36 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var preventsApplicationTerminationWhenModal: Bool
   @available(OSX 10.7, *)
-  func convertRectToScreen(aRect: NSRect) -> NSRect
+  func convertRectToScreen(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRectFromScreen(aRect: NSRect) -> NSRect
+  func convertRectFromScreen(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRectToBacking(aRect: NSRect) -> NSRect
+  func convertRectToBacking(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRectFromBacking(aRect: NSRect) -> NSRect
+  func convertRectFromBacking(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func backingAlignedRect(aRect: NSRect, options: NSAlignmentOptions) -> NSRect
+  func backingAlignedRect(_ aRect: NSRect, options options: NSAlignmentOptions) -> NSRect
   @available(OSX 10.7, *)
   var backingScaleFactor: CGFloat { get }
-  func performClose(sender: AnyObject?)
-  func performMiniaturize(sender: AnyObject?)
-  func performZoom(sender: AnyObject?)
+  func performClose(_ sender: AnyObject?)
+  func performMiniaturize(_ sender: AnyObject?)
+  func performZoom(_ sender: AnyObject?)
   var oneShot: Bool
-  func dataWithEPSInsideRect(rect: NSRect) -> NSData
-  func dataWithPDFInsideRect(rect: NSRect) -> NSData
+  func dataWithEPSInsideRect(_ rect: NSRect) -> NSData
+  func dataWithPDFInsideRect(_ rect: NSRect) -> NSData
   @warn_unqualified_access
-  func print(sender: AnyObject?)
+  func print(_ sender: AnyObject?)
   func disableCursorRects()
   func enableCursorRects()
   func discardCursorRects()
   var areCursorRectsEnabled: Bool { get }
-  func invalidateCursorRectsForView(aView: NSView)
+  func invalidateCursorRectsForView(_ aView: NSView)
   func resetCursorRects()
   var allowsToolTipsWhenApplicationIsInactive: Bool
   var backingType: NSBackingStoreType
   var level: Int
   var depthLimit: NSWindowDepth
-  func setDynamicDepthLimit(flag: Bool)
+  func setDynamicDepthLimit(_ flag: Bool)
   var hasDynamicDepthLimit: Bool { get }
   var screen: NSScreen? { get }
   var deepestScreen: NSScreen? { get }
@@ -279,16 +276,16 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.6, *)
   var onActiveSpace: Bool { get }
   @available(OSX 10.7, *)
-  func toggleFullScreen(sender: AnyObject?)
+  func toggleFullScreen(_ sender: AnyObject?)
   var stringWithSavedFrame: String { get }
-  func setFrameFromString(string: String)
-  func saveFrameUsingName(name: String)
-  func setFrameUsingName(name: String, force: Bool) -> Bool
-  func setFrameUsingName(name: String) -> Bool
-  func setFrameAutosaveName(name: String) -> Bool
+  func setFrameFromString(_ string: String)
+  func saveFrameUsingName(_ name: String)
+  func setFrameUsingName(_ name: String, force force: Bool) -> Bool
+  func setFrameUsingName(_ name: String) -> Bool
+  func setFrameAutosaveName(_ name: String) -> Bool
   var frameAutosaveName: String { get }
-  class func removeFrameUsingName(name: String)
-  func cacheImageInRect(aRect: NSRect)
+  class func removeFrameUsingName(_ name: String)
+  func cacheImageInRect(_ aRect: NSRect)
   func restoreCachedImage()
   func discardCachedImage()
   var minSize: NSSize
@@ -300,64 +297,62 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.11, *)
   var maxFullScreenContentSize: NSSize
   @available(OSX 10.10, *)
-  func trackEventsMatchingMask(mask: NSEventMask, timeout: NSTimeInterval, mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func nextEventMatchingMask(mask: Int) -> NSEvent?
-  func nextEventMatchingMask(mask: Int, untilDate expiration: NSDate?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
-  func discardEventsMatchingMask(mask: Int, beforeEvent lastEvent: NSEvent?)
-  func postEvent(event: NSEvent, atStart flag: Bool)
+  func trackEventsMatchingMask(_ mask: NSEventMask, timeout timeout: NSTimeInterval, mode mode: String, handler trackingHandler: (NSEvent, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func nextEventMatchingMask(_ mask: Int) -> NSEvent?
+  func nextEventMatchingMask(_ mask: Int, untilDate expiration: NSDate?, inMode mode: String, dequeue deqFlag: Bool) -> NSEvent?
+  func discardEventsMatchingMask(_ mask: Int, beforeEvent lastEvent: NSEvent?)
+  func postEvent(_ event: NSEvent, atStart flag: Bool)
   var currentEvent: NSEvent? { get }
   var acceptsMouseMovedEvents: Bool
   var ignoresMouseEvents: Bool
   var deviceDescription: [String : AnyObject] { get }
-  func sendEvent(theEvent: NSEvent)
+  func sendEvent(_ theEvent: NSEvent)
   var mouseLocationOutsideOfEventStream: NSPoint { get }
   unowned(unsafe) var windowController: @sil_unmanaged NSWindowController?
   @available(OSX 10.9, *)
-  func beginSheet(sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)?)
+  func beginSheet(_ sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)?)
   @available(OSX 10.9, *)
-  func beginCriticalSheet(sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)?)
+  func beginCriticalSheet(_ sheetWindow: NSWindow, completionHandler handler: ((NSModalResponse) -> Void)?)
   @available(OSX 10.9, *)
-  func endSheet(sheetWindow: NSWindow)
+  func endSheet(_ sheetWindow: NSWindow)
   @available(OSX 10.9, *)
-  func endSheet(sheetWindow: NSWindow, returnCode: NSModalResponse)
+  func endSheet(_ sheetWindow: NSWindow, returnCode returnCode: NSModalResponse)
   @available(OSX 10.9, *)
   var sheets: [NSWindow] { get }
   var attachedSheet: NSWindow? { get }
   var sheet: Bool { get }
   @available(OSX 10.9, *)
   var sheetParent: NSWindow? { get }
-  class func standardWindowButton(b: NSWindowButton, forStyleMask styleMask: Int) -> NSButton?
-  func standardWindowButton(b: NSWindowButton) -> NSButton?
-  func addChildWindow(childWin: NSWindow, ordered place: NSWindowOrderingMode)
-  func removeChildWindow(childWin: NSWindow)
+  class func standardWindowButton(_ b: NSWindowButton, forStyleMask styleMask: Int) -> NSButton?
+  func standardWindowButton(_ b: NSWindowButton) -> NSButton?
+  func addChildWindow(_ childWin: NSWindow, ordered place: NSWindowOrderingMode)
+  func removeChildWindow(_ childWin: NSWindow)
   var childWindows: [NSWindow]? { get }
   unowned(unsafe) var parentWindow: @sil_unmanaged NSWindow?
   var graphicsContext: NSGraphicsContext? { get }
   @available(OSX 10.6, *)
   var colorSpace: NSColorSpace?
   @available(OSX 10.6, *)
-  class func windowNumbersWithOptions(options: NSWindowNumberListOptions) -> [NSNumber]?
+  class func windowNumbersWithOptions(_ options: NSWindowNumberListOptions) -> [NSNumber]?
   @available(OSX 10.6, *)
-  class func windowNumberAtPoint(point: NSPoint, belowWindowWithWindowNumber windowNumber: Int) -> Int
+  class func windowNumberAtPoint(_ point: NSPoint, belowWindowWithWindowNumber windowNumber: Int) -> Int
   @available(OSX 10.9, *)
   var occlusionState: NSWindowOcclusionState { get }
   @available(OSX 10.10, *)
   var contentViewController: NSViewController?
   @available(OSX 10.10, *)
-  convenience init(contentViewController: NSViewController)
+  convenience init(contentViewController contentViewController: NSViewController)
   @available(OSX 10.11, *)
-  func performWindowDragWithEvent(event: NSEvent)
-  convenience init()
-  init?(coder: NSCoder)
+  func performWindowDragWithEvent(_ event: NSEvent)
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationForKey(_ key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
-  func validateUserInterfaceItem(anItem: NSValidatedUserInterfaceItem) -> Bool
+  class func defaultAnimationForKey(_ key: String) -> AnyObject?
+  func validateUserInterfaceItem(_ anItem: NSValidatedUserInterfaceItem) -> Bool
   var identifier: String?
   @available(OSX 10.9, *)
   var appearance: NSAppearance?
@@ -368,33 +363,33 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   func isAccessibilityFocused() -> Bool
   func accessibilityIdentifier() -> String
   @available(OSX 10.10, *)
-  func accessibilityLayoutPointForScreenPoint(point: NSPoint) -> NSPoint
+  func accessibilityLayoutPointForScreenPoint(_ point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityLayoutSizeForScreenSize(size: NSSize) -> NSSize
+  func accessibilityLayoutSizeForScreenSize(_ size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityScreenPointForLayoutPoint(point: NSPoint) -> NSPoint
+  func accessibilityScreenPointForLayoutPoint(_ point: NSPoint) -> NSPoint
   @available(OSX 10.10, *)
-  func accessibilityScreenSizeForLayoutSize(size: NSSize) -> NSSize
+  func accessibilityScreenSizeForLayoutSize(_ size: NSSize) -> NSSize
   @available(OSX 10.10, *)
-  func accessibilityCellForColumn(column: Int, row: Int) -> AnyObject?
+  func accessibilityCellForColumn(_ column: Int, row row: Int) -> AnyObject?
   @available(OSX 10.10, *)
-  func accessibilityAttributedStringForRange(range: NSRange) -> NSAttributedString?
+  func accessibilityAttributedStringForRange(_ range: NSRange) -> NSAttributedString?
   @available(OSX 10.10, *)
-  func accessibilityRangeForLine(line: Int) -> NSRange
+  func accessibilityRangeForLine(_ line: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityStringForRange(range: NSRange) -> String?
+  func accessibilityStringForRange(_ range: NSRange) -> String?
   @available(OSX 10.10, *)
-  func accessibilityRangeForPosition(point: NSPoint) -> NSRange
+  func accessibilityRangeForPosition(_ point: NSPoint) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityRangeForIndex(index: Int) -> NSRange
+  func accessibilityRangeForIndex(_ index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityFrameForRange(range: NSRange) -> NSRect
+  func accessibilityFrameForRange(_ range: NSRange) -> NSRect
   @available(OSX 10.10, *)
-  func accessibilityRTFForRange(range: NSRange) -> NSData?
+  func accessibilityRTFForRange(_ range: NSRange) -> NSData?
   @available(OSX 10.10, *)
-  func accessibilityStyleRangeForIndex(index: Int) -> NSRange
+  func accessibilityStyleRangeForIndex(_ index: Int) -> NSRange
   @available(OSX 10.10, *)
-  func accessibilityLineForIndex(index: Int) -> Int
+  func accessibilityLineForIndex(_ index: Int) -> Int
   @available(OSX 10.10, *)
   func accessibilityPerformCancel() -> Bool
   @available(OSX 10.10, *)
@@ -418,471 +413,471 @@ class NSWindow : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceVali
   @available(OSX 10.10, *)
   func accessibilityPerformShowMenu() -> Bool
   @available(OSX 10.10, *)
-  func isAccessibilitySelectorAllowed(selector: Selector) -> Bool
+  func isAccessibilitySelectorAllowed(_ selector: Selector) -> Bool
   @available(OSX 10.10, *)
   func isAccessibilityElement() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityElement(accessibilityElement: Bool)
+  func setAccessibilityElement(_ accessibilityElement: Bool)
   @available(OSX 10.10, *)
-  func setAccessibilityFrame(accessibilityFrame: NSRect)
+  func setAccessibilityFrame(_ accessibilityFrame: NSRect)
   @available(OSX 10.10, *)
-  func setAccessibilityFocused(accessibilityFocused: Bool)
+  func setAccessibilityFocused(_ accessibilityFocused: Bool)
   @available(OSX 10.10, *)
   func accessibilityActivationPoint() -> NSPoint
   @available(OSX 10.10, *)
-  func setAccessibilityActivationPoint(accessibilityActivationPoint: NSPoint)
+  func setAccessibilityActivationPoint(_ accessibilityActivationPoint: NSPoint)
   @available(OSX 10.10, *)
   func accessibilityTopLevelUIElement() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityTopLevelUIElement(accessibilityTopLevelUIElement: AnyObject?)
+  func setAccessibilityTopLevelUIElement(_ accessibilityTopLevelUIElement: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityURL() -> NSURL?
   @available(OSX 10.10, *)
-  func setAccessibilityURL(accessibilityURL: NSURL?)
+  func setAccessibilityURL(_ accessibilityURL: NSURL?)
   @available(OSX 10.10, *)
   func accessibilityValue() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityValue(accessibilityValue: AnyObject?)
+  func setAccessibilityValue(_ accessibilityValue: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityValueDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityValueDescription(accessibilityValueDescription: String?)
+  func setAccessibilityValueDescription(_ accessibilityValueDescription: String?)
   @available(OSX 10.10, *)
   func accessibilityVisibleChildren() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityVisibleChildren(accessibilityVisibleChildren: [AnyObject]?)
+  func setAccessibilityVisibleChildren(_ accessibilityVisibleChildren: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilitySubrole() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilitySubrole(accessibilitySubrole: String?)
+  func setAccessibilitySubrole(_ accessibilitySubrole: String?)
   @available(OSX 10.10, *)
   func accessibilityTitle() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityTitle(accessibilityTitle: String?)
+  func setAccessibilityTitle(_ accessibilityTitle: String?)
   @available(OSX 10.10, *)
   func accessibilityTitleUIElement() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityTitleUIElement(accessibilityTitleUIElement: AnyObject?)
+  func setAccessibilityTitleUIElement(_ accessibilityTitleUIElement: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityNextContents() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityNextContents(accessibilityNextContents: [AnyObject]?)
+  func setAccessibilityNextContents(_ accessibilityNextContents: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityOrientation() -> NSAccessibilityOrientation
   @available(OSX 10.10, *)
-  func setAccessibilityOrientation(accessibilityOrientation: NSAccessibilityOrientation)
+  func setAccessibilityOrientation(_ accessibilityOrientation: NSAccessibilityOrientation)
   @available(OSX 10.10, *)
   func accessibilityOverflowButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityOverflowButton(accessibilityOverflowButton: AnyObject?)
+  func setAccessibilityOverflowButton(_ accessibilityOverflowButton: AnyObject?)
   @available(OSX 10.10, *)
-  func setAccessibilityParent(accessibilityParent: AnyObject?)
+  func setAccessibilityParent(_ accessibilityParent: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityPlaceholderValue() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityPlaceholderValue(accessibilityPlaceholderValue: String?)
+  func setAccessibilityPlaceholderValue(_ accessibilityPlaceholderValue: String?)
   @available(OSX 10.10, *)
   func accessibilityPreviousContents() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityPreviousContents(accessibilityPreviousContents: [AnyObject]?)
+  func setAccessibilityPreviousContents(_ accessibilityPreviousContents: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityRole() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityRole(accessibilityRole: String?)
+  func setAccessibilityRole(_ accessibilityRole: String?)
   @available(OSX 10.10, *)
   func accessibilityRoleDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityRoleDescription(accessibilityRoleDescription: String?)
+  func setAccessibilityRoleDescription(_ accessibilityRoleDescription: String?)
   @available(OSX 10.10, *)
   func accessibilitySearchButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilitySearchButton(accessibilitySearchButton: AnyObject?)
+  func setAccessibilitySearchButton(_ accessibilitySearchButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilitySearchMenu() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilitySearchMenu(accessibilitySearchMenu: AnyObject?)
+  func setAccessibilitySearchMenu(_ accessibilitySearchMenu: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilitySelected() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilitySelected(accessibilitySelected: Bool)
+  func setAccessibilitySelected(_ accessibilitySelected: Bool)
   @available(OSX 10.10, *)
   func accessibilitySelectedChildren() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedChildren(accessibilitySelectedChildren: [AnyObject]?)
+  func setAccessibilitySelectedChildren(_ accessibilitySelectedChildren: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityServesAsTitleForUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityServesAsTitleForUIElements(accessibilityServesAsTitleForUIElements: [AnyObject]?)
+  func setAccessibilityServesAsTitleForUIElements(_ accessibilityServesAsTitleForUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityShownMenu() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityShownMenu(accessibilityShownMenu: AnyObject?)
+  func setAccessibilityShownMenu(_ accessibilityShownMenu: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMinValue() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMinValue(accessibilityMinValue: AnyObject?)
+  func setAccessibilityMinValue(_ accessibilityMinValue: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMaxValue() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMaxValue(accessibilityMaxValue: AnyObject?)
+  func setAccessibilityMaxValue(_ accessibilityMaxValue: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityLinkedUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityLinkedUIElements(accessibilityLinkedUIElements: [AnyObject]?)
+  func setAccessibilityLinkedUIElements(_ accessibilityLinkedUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityWindow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityWindow(accessibilityWindow: AnyObject?)
+  func setAccessibilityWindow(_ accessibilityWindow: AnyObject?)
   @available(OSX 10.10, *)
-  func setAccessibilityIdentifier(accessibilityIdentifier: String?)
+  func setAccessibilityIdentifier(_ accessibilityIdentifier: String?)
   @available(OSX 10.10, *)
   func accessibilityHelp() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityHelp(accessibilityHelp: String?)
+  func setAccessibilityHelp(_ accessibilityHelp: String?)
   @available(OSX 10.10, *)
   func accessibilityFilename() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityFilename(accessibilityFilename: String?)
+  func setAccessibilityFilename(_ accessibilityFilename: String?)
   @available(OSX 10.10, *)
   func isAccessibilityExpanded() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityExpanded(accessibilityExpanded: Bool)
+  func setAccessibilityExpanded(_ accessibilityExpanded: Bool)
   @available(OSX 10.10, *)
   func isAccessibilityEdited() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityEdited(accessibilityEdited: Bool)
+  func setAccessibilityEdited(_ accessibilityEdited: Bool)
   @available(OSX 10.10, *)
   func isAccessibilityEnabled() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityEnabled(accessibilityEnabled: Bool)
+  func setAccessibilityEnabled(_ accessibilityEnabled: Bool)
   @available(OSX 10.10, *)
   func accessibilityChildren() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityChildren(accessibilityChildren: [AnyObject]?)
+  func setAccessibilityChildren(_ accessibilityChildren: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityClearButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityClearButton(accessibilityClearButton: AnyObject?)
+  func setAccessibilityClearButton(_ accessibilityClearButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityCancelButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityCancelButton(accessibilityCancelButton: AnyObject?)
+  func setAccessibilityCancelButton(_ accessibilityCancelButton: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityProtectedContent() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityProtectedContent(accessibilityProtectedContent: Bool)
+  func setAccessibilityProtectedContent(_ accessibilityProtectedContent: Bool)
   @available(OSX 10.10, *)
   func accessibilityContents() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityContents(accessibilityContents: [AnyObject]?)
+  func setAccessibilityContents(_ accessibilityContents: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityLabel() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityLabel(accessibilityLabel: String?)
+  func setAccessibilityLabel(_ accessibilityLabel: String?)
   @available(OSX 10.10, *)
   func isAccessibilityAlternateUIVisible() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityAlternateUIVisible(accessibilityAlternateUIVisible: Bool)
+  func setAccessibilityAlternateUIVisible(_ accessibilityAlternateUIVisible: Bool)
   @available(OSX 10.10, *)
   func accessibilitySharedFocusElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySharedFocusElements(accessibilitySharedFocusElements: [AnyObject]?)
+  func setAccessibilitySharedFocusElements(_ accessibilitySharedFocusElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityApplicationFocusedUIElement() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityApplicationFocusedUIElement(accessibilityApplicationFocusedUIElement: AnyObject?)
+  func setAccessibilityApplicationFocusedUIElement(_ accessibilityApplicationFocusedUIElement: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMainWindow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMainWindow(accessibilityMainWindow: AnyObject?)
+  func setAccessibilityMainWindow(_ accessibilityMainWindow: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityHidden() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityHidden(accessibilityHidden: Bool)
+  func setAccessibilityHidden(_ accessibilityHidden: Bool)
   @available(OSX 10.10, *)
   func isAccessibilityFrontmost() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityFrontmost(accessibilityFrontmost: Bool)
+  func setAccessibilityFrontmost(_ accessibilityFrontmost: Bool)
   @available(OSX 10.10, *)
   func accessibilityFocusedWindow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityFocusedWindow(accessibilityFocusedWindow: AnyObject?)
+  func setAccessibilityFocusedWindow(_ accessibilityFocusedWindow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityWindows() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityWindows(accessibilityWindows: [AnyObject]?)
+  func setAccessibilityWindows(_ accessibilityWindows: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityExtrasMenuBar() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityExtrasMenuBar(accessibilityExtrasMenuBar: AnyObject?)
+  func setAccessibilityExtrasMenuBar(_ accessibilityExtrasMenuBar: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMenuBar() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMenuBar(accessibilityMenuBar: AnyObject?)
+  func setAccessibilityMenuBar(_ accessibilityMenuBar: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityColumnTitles() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityColumnTitles(accessibilityColumnTitles: [AnyObject]?)
+  func setAccessibilityColumnTitles(_ accessibilityColumnTitles: [AnyObject]?)
   @available(OSX 10.10, *)
   func isAccessibilityOrderedByRow() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityOrderedByRow(accessibilityOrderedByRow: Bool)
+  func setAccessibilityOrderedByRow(_ accessibilityOrderedByRow: Bool)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
-  func setAccessibilityHorizontalUnits(accessibilityHorizontalUnits: NSAccessibilityUnits)
+  func setAccessibilityHorizontalUnits(_ accessibilityHorizontalUnits: NSAccessibilityUnits)
   @available(OSX 10.10, *)
   func accessibilityVerticalUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
-  func setAccessibilityVerticalUnits(accessibilityVerticalUnits: NSAccessibilityUnits)
+  func setAccessibilityVerticalUnits(_ accessibilityVerticalUnits: NSAccessibilityUnits)
   @available(OSX 10.10, *)
   func accessibilityHorizontalUnitDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityHorizontalUnitDescription(accessibilityHorizontalUnitDescription: String?)
+  func setAccessibilityHorizontalUnitDescription(_ accessibilityHorizontalUnitDescription: String?)
   @available(OSX 10.10, *)
   func accessibilityVerticalUnitDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityVerticalUnitDescription(accessibilityVerticalUnitDescription: String?)
+  func setAccessibilityVerticalUnitDescription(_ accessibilityVerticalUnitDescription: String?)
   @available(OSX 10.10, *)
   func accessibilityHandles() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityHandles(accessibilityHandles: [AnyObject]?)
+  func setAccessibilityHandles(_ accessibilityHandles: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityWarningValue() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityWarningValue(accessibilityWarningValue: AnyObject?)
+  func setAccessibilityWarningValue(_ accessibilityWarningValue: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityCriticalValue() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityCriticalValue(accessibilityCriticalValue: AnyObject?)
+  func setAccessibilityCriticalValue(_ accessibilityCriticalValue: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityDisclosed() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosed(accessibilityDisclosed: Bool)
+  func setAccessibilityDisclosed(_ accessibilityDisclosed: Bool)
   @available(OSX 10.10, *)
   func accessibilityDisclosedByRow() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedByRow(accessibilityDisclosedByRow: AnyObject?)
+  func setAccessibilityDisclosedByRow(_ accessibilityDisclosedByRow: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosedRows() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosedRows(accessibilityDisclosedRows: AnyObject?)
+  func setAccessibilityDisclosedRows(_ accessibilityDisclosedRows: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDisclosureLevel() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityDisclosureLevel(accessibilityDisclosureLevel: Int)
+  func setAccessibilityDisclosureLevel(_ accessibilityDisclosureLevel: Int)
   @available(OSX 10.10, *)
   func accessibilityMarkerUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityMarkerUIElements(accessibilityMarkerUIElements: [AnyObject]?)
+  func setAccessibilityMarkerUIElements(_ accessibilityMarkerUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityMarkerValues() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMarkerValues(accessibilityMarkerValues: AnyObject?)
+  func setAccessibilityMarkerValues(_ accessibilityMarkerValues: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMarkerGroupUIElement() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMarkerGroupUIElement(accessibilityMarkerGroupUIElement: AnyObject?)
+  func setAccessibilityMarkerGroupUIElement(_ accessibilityMarkerGroupUIElement: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityUnits() -> NSAccessibilityUnits
   @available(OSX 10.10, *)
-  func setAccessibilityUnits(accessibilityUnits: NSAccessibilityUnits)
+  func setAccessibilityUnits(_ accessibilityUnits: NSAccessibilityUnits)
   @available(OSX 10.10, *)
   func accessibilityUnitDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityUnitDescription(accessibilityUnitDescription: String?)
+  func setAccessibilityUnitDescription(_ accessibilityUnitDescription: String?)
   @available(OSX 10.10, *)
   func accessibilityRulerMarkerType() -> NSAccessibilityRulerMarkerType
   @available(OSX 10.10, *)
-  func setAccessibilityRulerMarkerType(accessibilityRulerMarkerType: NSAccessibilityRulerMarkerType)
+  func setAccessibilityRulerMarkerType(_ accessibilityRulerMarkerType: NSAccessibilityRulerMarkerType)
   @available(OSX 10.10, *)
   func accessibilityMarkerTypeDescription() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityMarkerTypeDescription(accessibilityMarkerTypeDescription: String?)
+  func setAccessibilityMarkerTypeDescription(_ accessibilityMarkerTypeDescription: String?)
   @available(OSX 10.10, *)
   func accessibilityHorizontalScrollBar() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityHorizontalScrollBar(accessibilityHorizontalScrollBar: AnyObject?)
+  func setAccessibilityHorizontalScrollBar(_ accessibilityHorizontalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityVerticalScrollBar() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityVerticalScrollBar(accessibilityVerticalScrollBar: AnyObject?)
+  func setAccessibilityVerticalScrollBar(_ accessibilityVerticalScrollBar: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityAllowedValues() -> [NSNumber]?
   @available(OSX 10.10, *)
-  func setAccessibilityAllowedValues(accessibilityAllowedValues: [NSNumber]?)
+  func setAccessibilityAllowedValues(_ accessibilityAllowedValues: [NSNumber]?)
   @available(OSX 10.10, *)
   func accessibilityLabelUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityLabelUIElements(accessibilityLabelUIElements: [AnyObject]?)
+  func setAccessibilityLabelUIElements(_ accessibilityLabelUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityLabelValue() -> Float
   @available(OSX 10.10, *)
-  func setAccessibilityLabelValue(accessibilityLabelValue: Float)
+  func setAccessibilityLabelValue(_ accessibilityLabelValue: Float)
   @available(OSX 10.10, *)
   func accessibilitySplitters() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySplitters(accessibilitySplitters: [AnyObject]?)
+  func setAccessibilitySplitters(_ accessibilitySplitters: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityDecrementButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDecrementButton(accessibilityDecrementButton: AnyObject?)
+  func setAccessibilityDecrementButton(_ accessibilityDecrementButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityIncrementButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityIncrementButton(accessibilityIncrementButton: AnyObject?)
+  func setAccessibilityIncrementButton(_ accessibilityIncrementButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityTabs() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityTabs(accessibilityTabs: [AnyObject]?)
+  func setAccessibilityTabs(_ accessibilityTabs: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityHeader() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityHeader(accessibilityHeader: AnyObject?)
+  func setAccessibilityHeader(_ accessibilityHeader: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityColumnCount() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityColumnCount(accessibilityColumnCount: Int)
+  func setAccessibilityColumnCount(_ accessibilityColumnCount: Int)
   @available(OSX 10.10, *)
   func accessibilityRowCount() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityRowCount(accessibilityRowCount: Int)
+  func setAccessibilityRowCount(_ accessibilityRowCount: Int)
   @available(OSX 10.10, *)
   func accessibilityIndex() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityIndex(accessibilityIndex: Int)
+  func setAccessibilityIndex(_ accessibilityIndex: Int)
   @available(OSX 10.10, *)
   func accessibilityColumns() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityColumns(accessibilityColumns: [AnyObject]?)
+  func setAccessibilityColumns(_ accessibilityColumns: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityRows() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityRows(accessibilityRows: [AnyObject]?)
+  func setAccessibilityRows(_ accessibilityRows: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityVisibleRows() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityVisibleRows(accessibilityVisibleRows: [AnyObject]?)
+  func setAccessibilityVisibleRows(_ accessibilityVisibleRows: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilitySelectedRows() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedRows(accessibilitySelectedRows: [AnyObject]?)
+  func setAccessibilitySelectedRows(_ accessibilitySelectedRows: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityVisibleColumns() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityVisibleColumns(accessibilityVisibleColumns: [AnyObject]?)
+  func setAccessibilityVisibleColumns(_ accessibilityVisibleColumns: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilitySelectedColumns() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedColumns(accessibilitySelectedColumns: [AnyObject]?)
+  func setAccessibilitySelectedColumns(_ accessibilitySelectedColumns: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilitySortDirection() -> NSAccessibilitySortDirection
   @available(OSX 10.10, *)
-  func setAccessibilitySortDirection(accessibilitySortDirection: NSAccessibilitySortDirection)
+  func setAccessibilitySortDirection(_ accessibilitySortDirection: NSAccessibilitySortDirection)
   @available(OSX 10.10, *)
   func accessibilityRowHeaderUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityRowHeaderUIElements(accessibilityRowHeaderUIElements: [AnyObject]?)
+  func setAccessibilityRowHeaderUIElements(_ accessibilityRowHeaderUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilitySelectedCells() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedCells(accessibilitySelectedCells: [AnyObject]?)
+  func setAccessibilitySelectedCells(_ accessibilitySelectedCells: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityVisibleCells() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityVisibleCells(accessibilityVisibleCells: [AnyObject]?)
+  func setAccessibilityVisibleCells(_ accessibilityVisibleCells: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityColumnHeaderUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilityColumnHeaderUIElements(accessibilityColumnHeaderUIElements: [AnyObject]?)
+  func setAccessibilityColumnHeaderUIElements(_ accessibilityColumnHeaderUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityRowIndexRange() -> NSRange
   @available(OSX 10.10, *)
-  func setAccessibilityRowIndexRange(accessibilityRowIndexRange: NSRange)
+  func setAccessibilityRowIndexRange(_ accessibilityRowIndexRange: NSRange)
   @available(OSX 10.10, *)
   func accessibilityColumnIndexRange() -> NSRange
   @available(OSX 10.10, *)
-  func setAccessibilityColumnIndexRange(accessibilityColumnIndexRange: NSRange)
+  func setAccessibilityColumnIndexRange(_ accessibilityColumnIndexRange: NSRange)
   @available(OSX 10.10, *)
   func accessibilityInsertionPointLineNumber() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityInsertionPointLineNumber(accessibilityInsertionPointLineNumber: Int)
+  func setAccessibilityInsertionPointLineNumber(_ accessibilityInsertionPointLineNumber: Int)
   @available(OSX 10.10, *)
   func accessibilitySharedCharacterRange() -> NSRange
   @available(OSX 10.10, *)
-  func setAccessibilitySharedCharacterRange(accessibilitySharedCharacterRange: NSRange)
+  func setAccessibilitySharedCharacterRange(_ accessibilitySharedCharacterRange: NSRange)
   @available(OSX 10.10, *)
   func accessibilitySharedTextUIElements() -> [AnyObject]?
   @available(OSX 10.10, *)
-  func setAccessibilitySharedTextUIElements(accessibilitySharedTextUIElements: [AnyObject]?)
+  func setAccessibilitySharedTextUIElements(_ accessibilitySharedTextUIElements: [AnyObject]?)
   @available(OSX 10.10, *)
   func accessibilityVisibleCharacterRange() -> NSRange
   @available(OSX 10.10, *)
-  func setAccessibilityVisibleCharacterRange(accessibilityVisibleCharacterRange: NSRange)
+  func setAccessibilityVisibleCharacterRange(_ accessibilityVisibleCharacterRange: NSRange)
   @available(OSX 10.10, *)
   func accessibilityNumberOfCharacters() -> Int
   @available(OSX 10.10, *)
-  func setAccessibilityNumberOfCharacters(accessibilityNumberOfCharacters: Int)
+  func setAccessibilityNumberOfCharacters(_ accessibilityNumberOfCharacters: Int)
   @available(OSX 10.10, *)
   func accessibilitySelectedText() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedText(accessibilitySelectedText: String?)
+  func setAccessibilitySelectedText(_ accessibilitySelectedText: String?)
   @available(OSX 10.10, *)
   func accessibilitySelectedTextRange() -> NSRange
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRange(accessibilitySelectedTextRange: NSRange)
+  func setAccessibilitySelectedTextRange(_ accessibilitySelectedTextRange: NSRange)
   @available(OSX 10.10, *)
   func accessibilitySelectedTextRanges() -> [NSValue]?
   @available(OSX 10.10, *)
-  func setAccessibilitySelectedTextRanges(accessibilitySelectedTextRanges: [NSValue]?)
+  func setAccessibilitySelectedTextRanges(_ accessibilitySelectedTextRanges: [NSValue]?)
   @available(OSX 10.10, *)
   func accessibilityToolbarButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityToolbarButton(accessibilityToolbarButton: AnyObject?)
+  func setAccessibilityToolbarButton(_ accessibilityToolbarButton: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityModal() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityModal(accessibilityModal: Bool)
+  func setAccessibilityModal(_ accessibilityModal: Bool)
   @available(OSX 10.10, *)
   func accessibilityProxy() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityProxy(accessibilityProxy: AnyObject?)
+  func setAccessibilityProxy(_ accessibilityProxy: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityMain() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityMain(accessibilityMain: Bool)
+  func setAccessibilityMain(_ accessibilityMain: Bool)
   @available(OSX 10.10, *)
   func accessibilityFullScreenButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityFullScreenButton(accessibilityFullScreenButton: AnyObject?)
+  func setAccessibilityFullScreenButton(_ accessibilityFullScreenButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityGrowArea() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityGrowArea(accessibilityGrowArea: AnyObject?)
+  func setAccessibilityGrowArea(_ accessibilityGrowArea: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityDocument() -> String?
   @available(OSX 10.10, *)
-  func setAccessibilityDocument(accessibilityDocument: String?)
+  func setAccessibilityDocument(_ accessibilityDocument: String?)
   @available(OSX 10.10, *)
   func accessibilityDefaultButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityDefaultButton(accessibilityDefaultButton: AnyObject?)
+  func setAccessibilityDefaultButton(_ accessibilityDefaultButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityCloseButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityCloseButton(accessibilityCloseButton: AnyObject?)
+  func setAccessibilityCloseButton(_ accessibilityCloseButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityZoomButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityZoomButton(accessibilityZoomButton: AnyObject?)
+  func setAccessibilityZoomButton(_ accessibilityZoomButton: AnyObject?)
   @available(OSX 10.10, *)
   func accessibilityMinimizeButton() -> AnyObject?
   @available(OSX 10.10, *)
-  func setAccessibilityMinimizeButton(accessibilityMinimizeButton: AnyObject?)
+  func setAccessibilityMinimizeButton(_ accessibilityMinimizeButton: AnyObject?)
   @available(OSX 10.10, *)
   func isAccessibilityMinimized() -> Bool
   @available(OSX 10.10, *)
-  func setAccessibilityMinimized(accessibilityMinimized: Bool)
+  func setAccessibilityMinimized(_ accessibilityMinimized: Bool)
 }
 struct __wFlags {
   var backing: UInt32
@@ -944,14 +939,14 @@ struct __wFlags {
   var sentWindowNeedsDisplayMsg: UInt32
   var unused: UInt32
   init()
-  init(backing: UInt32, visible: UInt32, isMainWindow: UInt32, isKeyWindow: UInt32, hidesOnDeactivate: UInt32, dontFreeWhenClosed: UInt32, oneShot: UInt32, deferred: UInt32, cursorRectsDisabled: UInt32, haveFreeCursorRects: UInt32, validCursorRects: UInt32, docEdited: UInt32, dynamicDepthLimit: UInt32, worksWhenModal: UInt32, limitedBecomeKey: UInt32, needsFlush: UInt32, viewsNeedDisplay: UInt32, ignoredFirstMouse: UInt32, repostedFirstMouse: UInt32, windowDying: UInt32, tempHidden: UInt32, floatingPanel: UInt32, wantsToBeOnMainScreen: UInt32, optimizedDrawingOk: UInt32, optimizeDrawing: UInt32, titleIsRepresentedFilename: UInt32, excludedFromWindowsMenu: UInt32, depthLimit: UInt32, delegateReturnsValidRequestor: UInt32, lmouseupPending: UInt32, rmouseupPending: UInt32, wantsToDestroyRealWindow: UInt32, wantsToRegDragTypes: UInt32, sentInvalidateCursorRectsMsg: UInt32, avoidsActivation: UInt32, frameSavedUsingTitle: UInt32, didRegDragTypes: UInt32, delayedOneShot: UInt32, postedNeedsDisplayNote: UInt32, postedInvalidCursorRectsNote: UInt32, initialFirstResponderTempSet: UInt32, autodisplay: UInt32, tossedFirstEvent: UInt32, isImageCache: UInt32, autolayoutEngagedSomewhere: UInt32, hasRegisteredBackdropViews: UInt32, hasSubLevel: UInt32, keyViewSelectionDirection: UInt32, defaultButtonCellKETemporarilyDisabled: UInt32, defaultButtonCellKEDisabled: UInt32, menuHasBeenSet: UInt32, wantsToBeModal: UInt32, showingModalFrame: UInt32, isTerminating: UInt32, makingFirstResponderForMouseDown: UInt32, needsZoom: UInt32, sentWindowNeedsDisplayMsg: UInt32, unused: UInt32)
+  init(backing backing: UInt32, visible visible: UInt32, isMainWindow isMainWindow: UInt32, isKeyWindow isKeyWindow: UInt32, hidesOnDeactivate hidesOnDeactivate: UInt32, dontFreeWhenClosed dontFreeWhenClosed: UInt32, oneShot oneShot: UInt32, deferred deferred: UInt32, cursorRectsDisabled cursorRectsDisabled: UInt32, haveFreeCursorRects haveFreeCursorRects: UInt32, validCursorRects validCursorRects: UInt32, docEdited docEdited: UInt32, dynamicDepthLimit dynamicDepthLimit: UInt32, worksWhenModal worksWhenModal: UInt32, limitedBecomeKey limitedBecomeKey: UInt32, needsFlush needsFlush: UInt32, viewsNeedDisplay viewsNeedDisplay: UInt32, ignoredFirstMouse ignoredFirstMouse: UInt32, repostedFirstMouse repostedFirstMouse: UInt32, windowDying windowDying: UInt32, tempHidden tempHidden: UInt32, floatingPanel floatingPanel: UInt32, wantsToBeOnMainScreen wantsToBeOnMainScreen: UInt32, optimizedDrawingOk optimizedDrawingOk: UInt32, optimizeDrawing optimizeDrawing: UInt32, titleIsRepresentedFilename titleIsRepresentedFilename: UInt32, excludedFromWindowsMenu excludedFromWindowsMenu: UInt32, depthLimit depthLimit: UInt32, delegateReturnsValidRequestor delegateReturnsValidRequestor: UInt32, lmouseupPending lmouseupPending: UInt32, rmouseupPending rmouseupPending: UInt32, wantsToDestroyRealWindow wantsToDestroyRealWindow: UInt32, wantsToRegDragTypes wantsToRegDragTypes: UInt32, sentInvalidateCursorRectsMsg sentInvalidateCursorRectsMsg: UInt32, avoidsActivation avoidsActivation: UInt32, frameSavedUsingTitle frameSavedUsingTitle: UInt32, didRegDragTypes didRegDragTypes: UInt32, delayedOneShot delayedOneShot: UInt32, postedNeedsDisplayNote postedNeedsDisplayNote: UInt32, postedInvalidCursorRectsNote postedInvalidCursorRectsNote: UInt32, initialFirstResponderTempSet initialFirstResponderTempSet: UInt32, autodisplay autodisplay: UInt32, tossedFirstEvent tossedFirstEvent: UInt32, isImageCache isImageCache: UInt32, autolayoutEngagedSomewhere autolayoutEngagedSomewhere: UInt32, hasRegisteredBackdropViews hasRegisteredBackdropViews: UInt32, hasSubLevel hasSubLevel: UInt32, keyViewSelectionDirection keyViewSelectionDirection: UInt32, defaultButtonCellKETemporarilyDisabled defaultButtonCellKETemporarilyDisabled: UInt32, defaultButtonCellKEDisabled defaultButtonCellKEDisabled: UInt32, menuHasBeenSet menuHasBeenSet: UInt32, wantsToBeModal wantsToBeModal: UInt32, showingModalFrame showingModalFrame: UInt32, isTerminating isTerminating: UInt32, makingFirstResponderForMouseDown makingFirstResponderForMouseDown: UInt32, needsZoom needsZoom: UInt32, sentWindowNeedsDisplayMsg sentWindowNeedsDisplayMsg: UInt32, unused unused: UInt32)
 }
 extension NSWindow {
   unowned(unsafe) var initialFirstResponder: @sil_unmanaged NSView?
-  func selectNextKeyView(sender: AnyObject?)
-  func selectPreviousKeyView(sender: AnyObject?)
-  func selectKeyViewFollowingView(aView: NSView)
-  func selectKeyViewPrecedingView(aView: NSView)
+  func selectNextKeyView(_ sender: AnyObject?)
+  func selectPreviousKeyView(_ sender: AnyObject?)
+  func selectKeyViewFollowingView(_ aView: NSView)
+  func selectKeyViewPrecedingView(_ aView: NSView)
   var keyViewSelectionDirection: NSSelectionDirection { get }
   var defaultButtonCell: NSButtonCell?
   func disableKeyEquivalentForDefaultButtonCell()
@@ -961,109 +956,109 @@ extension NSWindow {
 }
 extension NSWindow {
   var toolbar: NSToolbar?
-  func toggleToolbarShown(sender: AnyObject?)
-  func runToolbarCustomizationPalette(sender: AnyObject?)
+  func toggleToolbarShown(_ sender: AnyObject?)
+  func runToolbarCustomizationPalette(_ sender: AnyObject?)
   var showsToolbarButton: Bool
 }
 extension NSWindow {
-  func dragImage(anImage: NSImage, at baseLocation: NSPoint, offset initialOffset: NSSize, event: NSEvent, pasteboard pboard: NSPasteboard, source sourceObj: AnyObject, slideBack slideFlag: Bool)
-  func registerForDraggedTypes(newTypes: [String])
+  func dragImage(_ anImage: NSImage, at baseLocation: NSPoint, offset initialOffset: NSSize, event event: NSEvent, pasteboard pboard: NSPasteboard, source sourceObj: AnyObject, slideBack slideFlag: Bool)
+  func registerForDraggedTypes(_ newTypes: [String])
   func unregisterDraggedTypes()
 }
 extension NSWindow {
-  convenience init?(windowRef: UnsafeMutablePointer<Void>)
+  convenience init?(windowRef windowRef: UnsafeMutablePointer<Void>)
   var windowRef: UnsafeMutablePointer<Void> { get }
 }
 extension NSWindow {
   @available(OSX, introduced=10.0, deprecated=10.11, message="This method does not do anything and should not be called.")
-  class func menuChanged(menu: NSMenu)
+  class func menuChanged(_ menu: NSMenu)
   @available(OSX, introduced=10.0, deprecated=10.10)
   func gState() -> Int
   @available(OSX, introduced=10.0, deprecated=10.10)
-  func useOptimizedDrawing(flag: Bool)
+  func useOptimizedDrawing(_ flag: Bool)
   @available(OSX, introduced=10.0, deprecated=10.10)
   func canStoreColor() -> Bool
 }
 protocol NSWindowDelegate : NSObjectProtocol {
-  optional func windowShouldClose(sender: AnyObject) -> Bool
-  optional func windowWillReturnFieldEditor(sender: NSWindow, toObject client: AnyObject?) -> AnyObject?
-  optional func windowWillResize(sender: NSWindow, toSize frameSize: NSSize) -> NSSize
-  optional func windowWillUseStandardFrame(window: NSWindow, defaultFrame newFrame: NSRect) -> NSRect
-  optional func windowShouldZoom(window: NSWindow, toFrame newFrame: NSRect) -> Bool
+  optional func windowShouldClose(_ sender: AnyObject) -> Bool
+  optional func windowWillReturnFieldEditor(_ sender: NSWindow, toObject client: AnyObject?) -> AnyObject?
+  optional func windowWillResize(_ sender: NSWindow, toSize frameSize: NSSize) -> NSSize
+  optional func windowWillUseStandardFrame(_ window: NSWindow, defaultFrame newFrame: NSRect) -> NSRect
+  optional func windowShouldZoom(_ window: NSWindow, toFrame newFrame: NSRect) -> Bool
   @available(OSX 10.0, *)
-  optional func windowWillReturnUndoManager(window: NSWindow) -> NSUndoManager?
-  optional func window(window: NSWindow, willPositionSheet sheet: NSWindow, usingRect rect: NSRect) -> NSRect
+  optional func windowWillReturnUndoManager(_ window: NSWindow) -> NSUndoManager?
+  optional func window(_ window: NSWindow, willPositionSheet sheet: NSWindow, usingRect rect: NSRect) -> NSRect
   @available(OSX 10.5, *)
-  optional func window(window: NSWindow, shouldPopUpDocumentPathMenu menu: NSMenu) -> Bool
+  optional func window(_ window: NSWindow, shouldPopUpDocumentPathMenu menu: NSMenu) -> Bool
   @available(OSX 10.5, *)
-  optional func window(window: NSWindow, shouldDragDocumentWithEvent event: NSEvent, from dragImageLocation: NSPoint, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func window(_ window: NSWindow, shouldDragDocumentWithEvent event: NSEvent, from dragImageLocation: NSPoint, withPasteboard pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, willUseFullScreenContentSize proposedSize: NSSize) -> NSSize
+  optional func window(_ window: NSWindow, willUseFullScreenContentSize proposedSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplicationPresentationOptions) -> NSApplicationPresentationOptions
+  optional func window(_ window: NSWindow, willUseFullScreenPresentationOptions proposedOptions: NSApplicationPresentationOptions) -> NSApplicationPresentationOptions
   @available(OSX 10.7, *)
-  optional func customWindowsToEnterFullScreenForWindow(window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreenForWindow(_ window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: NSTimeInterval)
+  optional func window(_ window: NSWindow, startCustomAnimationToEnterFullScreenWithDuration duration: NSTimeInterval)
   @available(OSX 10.7, *)
-  optional func windowDidFailToEnterFullScreen(window: NSWindow)
+  optional func windowDidFailToEnterFullScreen(_ window: NSWindow)
   @available(OSX 10.7, *)
-  optional func customWindowsToExitFullScreenForWindow(window: NSWindow) -> [NSWindow]?
+  optional func customWindowsToExitFullScreenForWindow(_ window: NSWindow) -> [NSWindow]?
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: NSTimeInterval)
+  optional func window(_ window: NSWindow, startCustomAnimationToExitFullScreenWithDuration duration: NSTimeInterval)
   @available(OSX 10.9, *)
-  optional func customWindowsToEnterFullScreenForWindow(window: NSWindow, onScreen screen: NSScreen) -> [NSWindow]?
+  optional func customWindowsToEnterFullScreenForWindow(_ window: NSWindow, onScreen screen: NSScreen) -> [NSWindow]?
   @available(OSX 10.9, *)
-  optional func window(window: NSWindow, startCustomAnimationToEnterFullScreenOnScreen screen: NSScreen, withDuration duration: NSTimeInterval)
+  optional func window(_ window: NSWindow, startCustomAnimationToEnterFullScreenOnScreen screen: NSScreen, withDuration duration: NSTimeInterval)
   @available(OSX 10.7, *)
-  optional func windowDidFailToExitFullScreen(window: NSWindow)
+  optional func windowDidFailToExitFullScreen(_ window: NSWindow)
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, willResizeForVersionBrowserWithMaxPreferredSize maxPreferredFrameSize: NSSize, maxAllowedSize maxAllowedFrameSize: NSSize) -> NSSize
+  optional func window(_ window: NSWindow, willResizeForVersionBrowserWithMaxPreferredSize maxPreferredFrameSize: NSSize, maxAllowedSize maxAllowedFrameSize: NSSize) -> NSSize
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, willEncodeRestorableState state: NSCoder)
+  optional func window(_ window: NSWindow, willEncodeRestorableState state: NSCoder)
   @available(OSX 10.7, *)
-  optional func window(window: NSWindow, didDecodeRestorableState state: NSCoder)
-  optional func windowDidResize(notification: NSNotification)
-  optional func windowDidExpose(notification: NSNotification)
-  optional func windowWillMove(notification: NSNotification)
-  optional func windowDidMove(notification: NSNotification)
-  optional func windowDidBecomeKey(notification: NSNotification)
-  optional func windowDidResignKey(notification: NSNotification)
-  optional func windowDidBecomeMain(notification: NSNotification)
-  optional func windowDidResignMain(notification: NSNotification)
-  optional func windowWillClose(notification: NSNotification)
-  optional func windowWillMiniaturize(notification: NSNotification)
-  optional func windowDidMiniaturize(notification: NSNotification)
-  optional func windowDidDeminiaturize(notification: NSNotification)
-  optional func windowDidUpdate(notification: NSNotification)
-  optional func windowDidChangeScreen(notification: NSNotification)
-  optional func windowDidChangeScreenProfile(notification: NSNotification)
+  optional func window(_ window: NSWindow, didDecodeRestorableState state: NSCoder)
+  optional func windowDidResize(_ notification: NSNotification)
+  optional func windowDidExpose(_ notification: NSNotification)
+  optional func windowWillMove(_ notification: NSNotification)
+  optional func windowDidMove(_ notification: NSNotification)
+  optional func windowDidBecomeKey(_ notification: NSNotification)
+  optional func windowDidResignKey(_ notification: NSNotification)
+  optional func windowDidBecomeMain(_ notification: NSNotification)
+  optional func windowDidResignMain(_ notification: NSNotification)
+  optional func windowWillClose(_ notification: NSNotification)
+  optional func windowWillMiniaturize(_ notification: NSNotification)
+  optional func windowDidMiniaturize(_ notification: NSNotification)
+  optional func windowDidDeminiaturize(_ notification: NSNotification)
+  optional func windowDidUpdate(_ notification: NSNotification)
+  optional func windowDidChangeScreen(_ notification: NSNotification)
+  optional func windowDidChangeScreenProfile(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowDidChangeBackingProperties(notification: NSNotification)
-  optional func windowWillBeginSheet(notification: NSNotification)
-  optional func windowDidEndSheet(notification: NSNotification)
+  optional func windowDidChangeBackingProperties(_ notification: NSNotification)
+  optional func windowWillBeginSheet(_ notification: NSNotification)
+  optional func windowDidEndSheet(_ notification: NSNotification)
   @available(OSX 10.6, *)
-  optional func windowWillStartLiveResize(notification: NSNotification)
+  optional func windowWillStartLiveResize(_ notification: NSNotification)
   @available(OSX 10.6, *)
-  optional func windowDidEndLiveResize(notification: NSNotification)
+  optional func windowDidEndLiveResize(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowWillEnterFullScreen(notification: NSNotification)
+  optional func windowWillEnterFullScreen(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowDidEnterFullScreen(notification: NSNotification)
+  optional func windowDidEnterFullScreen(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowWillExitFullScreen(notification: NSNotification)
+  optional func windowWillExitFullScreen(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowDidExitFullScreen(notification: NSNotification)
+  optional func windowDidExitFullScreen(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowWillEnterVersionBrowser(notification: NSNotification)
+  optional func windowWillEnterVersionBrowser(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowDidEnterVersionBrowser(notification: NSNotification)
+  optional func windowDidEnterVersionBrowser(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowWillExitVersionBrowser(notification: NSNotification)
+  optional func windowWillExitVersionBrowser(_ notification: NSNotification)
   @available(OSX 10.7, *)
-  optional func windowDidExitVersionBrowser(notification: NSNotification)
+  optional func windowDidExitVersionBrowser(_ notification: NSNotification)
   @available(OSX 10.9, *)
-  optional func windowDidChangeOcclusionState(notification: NSNotification)
+  optional func windowDidChangeOcclusionState(_ notification: NSNotification)
 }
 let NSWindowDidBecomeKeyNotification: String
 let NSWindowDidBecomeMainNotification: String

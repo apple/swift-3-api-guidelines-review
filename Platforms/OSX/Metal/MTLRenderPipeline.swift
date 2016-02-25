@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLBlendFactor : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Zero
   case One
@@ -21,7 +21,7 @@ enum MTLBlendFactor : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLBlendOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Add
   case Subtract
@@ -31,7 +31,7 @@ enum MTLBlendOperation : UInt {
 }
 @available(OSX 10.11, *)
 struct MTLColorWriteMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: MTLColorWriteMask { get }
   static var Red: MTLColorWriteMask { get }
@@ -42,7 +42,7 @@ struct MTLColorWriteMask : OptionSetType {
 }
 @available(OSX 10.11, *)
 enum MTLPrimitiveTopologyClass : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unspecified
   case Point
@@ -60,15 +60,13 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var destinationAlphaBlendFactor: MTLBlendFactor
   var alphaBlendOperation: MTLBlendOperation
   var writeMask: MTLColorWriteMask
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineReflection : NSObject {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
-  init()
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineDescriptor : NSObject, NSCopying {
@@ -86,9 +84,8 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   @available(OSX 10.11, *)
   var inputPrimitiveTopology: MTLPrimitiveTopologyClass
   func reset()
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLRenderPipelineState : NSObjectProtocol {
@@ -97,6 +94,5 @@ protocol MTLRenderPipelineState : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
-  subscript (attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
-  init()
+  subscript(_ attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
 }

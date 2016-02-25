@@ -6,17 +6,16 @@ class NSOrthography : NSObject, NSCopying, NSCoding {
   @available(OSX 10.6, *)
   init(dominantScript script: String, languageMap map: [String : [String]])
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(OSX 10.6, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.6, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSOrthography {
   @available(OSX 10.6, *)
-  func languagesForScript(script: String) -> [String]?
+  func languagesForScript(_ script: String) -> [String]?
   @available(OSX 10.6, *)
-  func dominantLanguageForScript(script: String) -> String?
+  func dominantLanguageForScript(_ script: String) -> String?
   @available(OSX 10.6, *)
   var dominantLanguage: String { get }
   @available(OSX 10.6, *)

@@ -1,16 +1,15 @@
 
 class PHAssetCollectionChangeRequest : NSObject {
-  class func creationRequestForAssetCollectionWithTitle(title: String) -> Self
+  class func creationRequestForAssetCollectionWithTitle(_ title: String) -> Self
   var placeholderForCreatedAssetCollection: PHObjectPlaceholder { get }
-  class func deleteAssetCollections(assetCollections: NSFastEnumeration)
+  class func deleteAssetCollections(_ assetCollections: NSFastEnumeration)
   convenience init?(forAssetCollection assetCollection: PHAssetCollection)
-  convenience init?(forAssetCollection assetCollection: PHAssetCollection, assets: PHFetchResult)
+  convenience init?(forAssetCollection assetCollection: PHAssetCollection, assets assets: PHFetchResult)
   var title: String
-  func addAssets(assets: NSFastEnumeration)
-  func insertAssets(assets: NSFastEnumeration, atIndexes indexes: NSIndexSet)
-  func removeAssets(assets: NSFastEnumeration)
-  func removeAssetsAtIndexes(indexes: NSIndexSet)
-  func replaceAssetsAtIndexes(indexes: NSIndexSet, withAssets assets: NSFastEnumeration)
-  func moveAssetsAtIndexes(fromIndexes: NSIndexSet, toIndex: Int)
-  init()
+  func addAssets(_ assets: NSFastEnumeration)
+  func insertAssets(_ assets: NSFastEnumeration, atIndexes indexes: NSIndexSet)
+  func removeAssets(_ assets: NSFastEnumeration)
+  func removeAssetsAtIndexes(_ indexes: NSIndexSet)
+  func replaceAssetsAtIndexes(_ indexes: NSIndexSet, withAssets assets: NSFastEnumeration)
+  func moveAssetsAtIndexes(_ fromIndexes: NSIndexSet, toIndex toIndex: Int)
 }

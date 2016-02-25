@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVColorType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Plain
@@ -14,7 +14,6 @@ class TVColor : NSObject, NSCopying {
   var color: UIColor? { get }
   var gradientColors: [UIColor]? { get }
   var gradientPoints: [NSNumber]? { get }
-  init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

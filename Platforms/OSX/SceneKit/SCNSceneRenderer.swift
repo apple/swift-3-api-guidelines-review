@@ -10,7 +10,7 @@ let SCNHitTestRootNodeKey: String
 let SCNHitTestIgnoreHiddenNodesKey: String
 @available(OSX 10.11, *)
 enum SCNRenderingAPI : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Metal
   case OpenGLLegacy
@@ -19,7 +19,7 @@ enum SCNRenderingAPI : UInt {
 }
 @available(OSX 10.11, *)
 struct SCNDebugOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: SCNDebugOptions { get }
   static var ShowPhysicsShapes: SCNDebugOptions { get }
@@ -39,8 +39,7 @@ class SCNHitTestResult : NSObject {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinatesWithMappingChannel(channel: Int) -> CGPoint
-  init()
+  func textureCoordinatesWithMappingChannel(_ channel: Int) -> CGPoint
 }
 protocol SCNSceneRenderer : NSObjectProtocol {
   @available(OSX 10.8, *)
@@ -49,15 +48,15 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var sceneTime: NSTimeInterval { get set }
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate? { get set }
   @available(OSX 10.8, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]?) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInsideFrustum(_ node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOfView(_ pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   var playing: Bool { get set }
   var loops: Bool { get set }
   @available(OSX 10.8, *)
@@ -65,9 +64,9 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var autoenablesDefaultLighting: Bool { get set }
   var jitteringEnabled: Bool { get set }
   @available(OSX 10.9, *)
-  func prepareObject(object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
+  func prepareObject(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
   @available(OSX 10.10, *)
-  func prepareObjects(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
+  func prepareObjects(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
   @available(OSX 10.9, *)
   var showsStatistics: Bool { get set }
   @available(OSX 10.11, *)
@@ -94,13 +93,13 @@ protocol SCNSceneRenderer : NSObjectProtocol {
 }
 protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
   @available(OSX 10.10, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
   @available(OSX 10.8, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
 }

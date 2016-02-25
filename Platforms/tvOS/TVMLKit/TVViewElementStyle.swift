@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVElementAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Undefined
   case Left
@@ -10,7 +10,7 @@ enum TVElementAlignment : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementContentAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Undefined
   case Top
@@ -19,7 +19,7 @@ enum TVElementContentAlignment : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementPosition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Undefined
   case Center
@@ -36,7 +36,7 @@ enum TVElementPosition : Int {
 }
 @available(tvOS 9.0, *)
 class TVViewElementStyle : NSObject, NSCopying {
-  func valueForStyleProperty(name: String) -> AnyObject?
+  func valueForStyleProperty(_ name: String) -> AnyObject?
   var backgroundColor: TVColor? { get }
   var color: TVColor? { get }
   var fontSize: CGFloat { get }
@@ -62,7 +62,6 @@ class TVViewElementStyle : NSObject, NSCopying {
   var maxTextLines: Int { get }
   var textStyle: String? { get }
   var tintColor: TVColor? { get }
-  init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

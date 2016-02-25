@@ -1,6 +1,6 @@
 
 enum EKEventViewAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Done
   case Responded
@@ -13,11 +13,8 @@ class EKEventViewController : UIViewController {
   var event: EKEvent
   var allowsEditing: Bool
   var allowsCalendarPreview: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol EKEventViewDelegate : NSObjectProtocol {
   @available(iOS 4.2, *)
-  func eventViewController(controller: EKEventViewController, didCompleteWithAction action: EKEventViewAction)
+  func eventViewController(_ controller: EKEventViewController, didCompleteWithAction action: EKEventViewAction)
 }

@@ -8,30 +8,19 @@ class CWNetworkProfile : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var security: CWSecurity { get }
   @available(OSX 10.7, *)
-  init()
+  init(networkProfile networkProfile: CWNetworkProfile)
   @available(OSX 10.7, *)
-  init(networkProfile: CWNetworkProfile)
+  func isEqualToNetworkProfile(_ networkProfile: CWNetworkProfile) -> Bool
   @available(OSX 10.7, *)
-  func isEqualToNetworkProfile(networkProfile: CWNetworkProfile) -> Bool
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  @available(OSX 10.7, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.7, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.7, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.7, *)
 class CWMutableNetworkProfile : CWNetworkProfile {
-  @available(OSX 10.7, *)
-  @NSCopying var ssidData: NSData
-  @available(OSX 10.7, *)
-  var security: CWSecurity
-  @available(OSX 10.7, *)
-  init()
-  @available(OSX 10.7, *)
-  init(networkProfile: CWNetworkProfile)
-  init?(coder aDecoder: NSCoder)
 }

@@ -1,20 +1,19 @@
 
 @available(OSX 10.9, *)
 class MKOverlayRenderer : NSObject {
-  init(overlay: MKOverlay)
+  init(overlay overlay: MKOverlay)
   var overlay: MKOverlay { get }
-  func pointForMapPoint(mapPoint: MKMapPoint) -> CGPoint
-  func mapPointForPoint(point: CGPoint) -> MKMapPoint
-  func rectForMapRect(mapRect: MKMapRect) -> CGRect
-  func mapRectForRect(rect: CGRect) -> MKMapRect
-  func canDrawMapRect(mapRect: MKMapRect, zoomScale: MKZoomScale) -> Bool
-  func drawMapRect(mapRect: MKMapRect, zoomScale: MKZoomScale, inContext context: CGContext)
+  func pointForMapPoint(_ mapPoint: MKMapPoint) -> CGPoint
+  func mapPointForPoint(_ point: CGPoint) -> MKMapPoint
+  func rectForMapRect(_ mapRect: MKMapRect) -> CGRect
+  func mapRectForRect(_ rect: CGRect) -> MKMapRect
+  func canDrawMapRect(_ mapRect: MKMapRect, zoomScale zoomScale: MKZoomScale) -> Bool
+  func drawMapRect(_ mapRect: MKMapRect, zoomScale zoomScale: MKZoomScale, inContext context: CGContext)
   func setNeedsDisplay()
-  func setNeedsDisplayInMapRect(mapRect: MKMapRect)
-  func setNeedsDisplayInMapRect(mapRect: MKMapRect, zoomScale: MKZoomScale)
+  func setNeedsDisplayInMapRect(_ mapRect: MKMapRect)
+  func setNeedsDisplayInMapRect(_ mapRect: MKMapRect, zoomScale zoomScale: MKZoomScale)
   var alpha: CGFloat
   var contentScaleFactor: CGFloat { get }
-  convenience init()
 }
 @available(OSX 10.9, *)
-func MKRoadWidthAtZoomScale(zoomScale: MKZoomScale) -> CGFloat
+func MKRoadWidthAtZoomScale(_ zoomScale: MKZoomScale) -> CGFloat

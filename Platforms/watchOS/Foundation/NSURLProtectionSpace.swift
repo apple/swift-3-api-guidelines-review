@@ -22,8 +22,8 @@ let NSURLAuthenticationMethodClientCertificate: String
 @available(watchOS 2.0, *)
 let NSURLAuthenticationMethodServerTrust: String
 class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
-  init(host: String, port: Int, protocol: String?, realm: String?, authenticationMethod: String?)
-  init(proxyHost host: String, port: Int, type: String?, realm: String?, authenticationMethod: String?)
+  init(host host: String, port port: Int, protocol protocol: String?, realm realm: String?, authenticationMethod authenticationMethod: String?)
+  init(proxyHost host: String, port port: Int, type type: String?, realm realm: String?, authenticationMethod authenticationMethod: String?)
   var realm: String? { get }
   var receivesCredentialSecurely: Bool { get }
   var host: String { get }
@@ -31,12 +31,10 @@ class NSURLProtectionSpace : NSObject, NSSecureCoding, NSCopying {
   var proxyType: String? { get }
   var `protocol`: String? { get }
   var authenticationMethod: String { get }
-  func isProxy() -> Bool
-  init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension NSURLProtectionSpace {
   @available(watchOS 2.0, *)

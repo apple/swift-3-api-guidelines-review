@@ -5,46 +5,45 @@ let NSRegistrationDomain: String
 class NSUserDefaults : NSObject {
   class func standardUserDefaults() -> NSUserDefaults
   class func resetStandardUserDefaults()
-  convenience init()
   @available(watchOS 2.0, *)
   init?(suiteName suitename: String?)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   convenience init?(user username: String)
-  func objectForKey(defaultName: String) -> AnyObject?
-  func setObject(value: AnyObject?, forKey defaultName: String)
-  func removeObjectForKey(defaultName: String)
-  func stringForKey(defaultName: String) -> String?
-  func arrayForKey(defaultName: String) -> [AnyObject]?
-  func dictionaryForKey(defaultName: String) -> [String : AnyObject]?
-  func dataForKey(defaultName: String) -> NSData?
-  func stringArrayForKey(defaultName: String) -> [String]?
-  func integerForKey(defaultName: String) -> Int
-  func floatForKey(defaultName: String) -> Float
-  func doubleForKey(defaultName: String) -> Double
-  func boolForKey(defaultName: String) -> Bool
+  func objectForKey(_ defaultName: String) -> AnyObject?
+  func setObject(_ value: AnyObject?, forKey defaultName: String)
+  func removeObjectForKey(_ defaultName: String)
+  func stringForKey(_ defaultName: String) -> String?
+  func arrayForKey(_ defaultName: String) -> [AnyObject]?
+  func dictionaryForKey(_ defaultName: String) -> [String : AnyObject]?
+  func dataForKey(_ defaultName: String) -> NSData?
+  func stringArrayForKey(_ defaultName: String) -> [String]?
+  func integerForKey(_ defaultName: String) -> Int
+  func floatForKey(_ defaultName: String) -> Float
+  func doubleForKey(_ defaultName: String) -> Double
+  func boolForKey(_ defaultName: String) -> Bool
   @available(watchOS 2.0, *)
-  func URLForKey(defaultName: String) -> NSURL?
-  func setInteger(value: Int, forKey defaultName: String)
-  func setFloat(value: Float, forKey defaultName: String)
-  func setDouble(value: Double, forKey defaultName: String)
-  func setBool(value: Bool, forKey defaultName: String)
+  func URLForKey(_ defaultName: String) -> NSURL?
+  func setInteger(_ value: Int, forKey defaultName: String)
+  func setFloat(_ value: Float, forKey defaultName: String)
+  func setDouble(_ value: Double, forKey defaultName: String)
+  func setBool(_ value: Bool, forKey defaultName: String)
   @available(watchOS 2.0, *)
-  func setURL(url: NSURL?, forKey defaultName: String)
-  func registerDefaults(registrationDictionary: [String : AnyObject])
-  func addSuiteNamed(suiteName: String)
-  func removeSuiteNamed(suiteName: String)
+  func setURL(_ url: NSURL?, forKey defaultName: String)
+  func registerDefaults(_ registrationDictionary: [String : AnyObject])
+  func addSuiteNamed(_ suiteName: String)
+  func removeSuiteNamed(_ suiteName: String)
   func dictionaryRepresentation() -> [String : AnyObject]
   var volatileDomainNames: [String] { get }
-  func volatileDomainForName(domainName: String) -> [String : AnyObject]
-  func setVolatileDomain(domain: [String : AnyObject], forName domainName: String)
-  func removeVolatileDomainForName(domainName: String)
+  func volatileDomainForName(_ domainName: String) -> [String : AnyObject]
+  func setVolatileDomain(_ domain: [String : AnyObject], forName domainName: String)
+  func removeVolatileDomainForName(_ domainName: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   func persistentDomainNames() -> [AnyObject]
-  func persistentDomainForName(domainName: String) -> [String : AnyObject]?
-  func setPersistentDomain(domain: [String : AnyObject], forName domainName: String)
-  func removePersistentDomainForName(domainName: String)
+  func persistentDomainForName(_ domainName: String) -> [String : AnyObject]?
+  func setPersistentDomain(_ domain: [String : AnyObject], forName domainName: String)
+  func removePersistentDomainForName(_ domainName: String)
   func synchronize() -> Bool
-  func objectIsForcedForKey(key: String) -> Bool
-  func objectIsForcedForKey(key: String, inDomain domain: String) -> Bool
+  func objectIsForcedForKey(_ key: String) -> Bool
+  func objectIsForcedForKey(_ key: String, inDomain domain: String) -> Bool
 }
 let NSUserDefaultsDidChangeNotification: String

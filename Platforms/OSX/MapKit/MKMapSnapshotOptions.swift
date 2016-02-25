@@ -8,7 +8,6 @@ class MKMapSnapshotOptions : NSObject, NSCopying {
   var showsPointsOfInterest: Bool
   var showsBuildings: Bool
   var size: NSSize
-  init()
   @available(OSX 10.9, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

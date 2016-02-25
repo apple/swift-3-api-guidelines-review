@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NCUpdateResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NewData
   case NoData
@@ -9,8 +9,8 @@ enum NCUpdateResult : UInt {
 }
 protocol NCWidgetProviding : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func widgetPerformUpdateWithCompletionHandler(completionHandler: (NCUpdateResult) -> Void)
-  optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
+  optional func widgetPerformUpdateWithCompletionHandler(_ completionHandler: (NCUpdateResult) -> Void)
+  optional func widgetMarginInsetsForProposedMarginInsets(_ defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets
 }
 extension UIVibrancyEffect {
   class func notificationCenterVibrancyEffect() -> UIVibrancyEffect

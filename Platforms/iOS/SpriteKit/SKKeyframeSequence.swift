@@ -1,34 +1,33 @@
 
 enum SKInterpolationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Linear
   case Spline
   case Step
 }
 enum SKRepeatMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Clamp
   case Loop
 }
 class SKKeyframeSequence : NSObject, NSCoding, NSCopying {
-  init(keyframeValues values: [AnyObject], times: [NSNumber])
+  init(keyframeValues values: [AnyObject], times times: [NSNumber])
   convenience init(capacity numItems: Int)
   init?(coder aDecoder: NSCoder)
   func count() -> Int
-  func addKeyframeValue(value: AnyObject, time: CGFloat)
+  func addKeyframeValue(_ value: AnyObject, time time: CGFloat)
   func removeLastKeyframe()
-  func removeKeyframeAtIndex(index: Int)
-  func setKeyframeValue(value: AnyObject, forIndex index: Int)
-  func setKeyframeTime(time: CGFloat, forIndex index: Int)
-  func setKeyframeValue(value: AnyObject, time: CGFloat, forIndex index: Int)
-  func getKeyframeValueForIndex(index: Int) -> AnyObject
-  func getKeyframeTimeForIndex(index: Int) -> CGFloat
-  func sampleAtTime(time: CGFloat) -> AnyObject?
+  func removeKeyframeAtIndex(_ index: Int)
+  func setKeyframeValue(_ value: AnyObject, forIndex index: Int)
+  func setKeyframeTime(_ time: CGFloat, forIndex index: Int)
+  func setKeyframeValue(_ value: AnyObject, time time: CGFloat, forIndex index: Int)
+  func getKeyframeValueForIndex(_ index: Int) -> AnyObject
+  func getKeyframeTimeForIndex(_ index: Int) -> CGFloat
+  func sampleAtTime(_ time: CGFloat) -> AnyObject?
   var interpolationMode: SKInterpolationMode
   var repeatMode: SKRepeatMode
-  convenience init()
-  func encodeWithCoder(aCoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

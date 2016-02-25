@@ -1,12 +1,12 @@
 
 enum NSTextBlockValueType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case AbsoluteValueType
   case PercentageValueType
 }
 enum NSTextBlockDimension : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Width
   case MinimumWidth
@@ -16,14 +16,14 @@ enum NSTextBlockDimension : UInt {
   case MaximumHeight
 }
 enum NSTextBlockLayer : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Padding
   case Border
   case Margin
 }
 enum NSTextBlockVerticalAlignment : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case TopAlignment
   case MiddleAlignment
@@ -31,53 +31,48 @@ enum NSTextBlockVerticalAlignment : UInt {
   case BaselineAlignment
 }
 enum NSTextTableLayoutAlgorithm : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case AutomaticLayoutAlgorithm
   case FixedLayoutAlgorithm
 }
 class NSTextBlock : NSObject, NSCoding, NSCopying {
-  init()
-  func setValue(val: CGFloat, type: NSTextBlockValueType, forDimension dimension: NSTextBlockDimension)
-  func valueForDimension(dimension: NSTextBlockDimension) -> CGFloat
-  func valueTypeForDimension(dimension: NSTextBlockDimension) -> NSTextBlockValueType
-  func setContentWidth(val: CGFloat, type: NSTextBlockValueType)
+  func setValue(_ val: CGFloat, type type: NSTextBlockValueType, forDimension dimension: NSTextBlockDimension)
+  func valueForDimension(_ dimension: NSTextBlockDimension) -> CGFloat
+  func valueTypeForDimension(_ dimension: NSTextBlockDimension) -> NSTextBlockValueType
+  func setContentWidth(_ val: CGFloat, type type: NSTextBlockValueType)
   var contentWidth: CGFloat { get }
   var contentWidthValueType: NSTextBlockValueType { get }
-  func setWidth(val: CGFloat, type: NSTextBlockValueType, forLayer layer: NSTextBlockLayer, edge: NSRectEdge)
-  func setWidth(val: CGFloat, type: NSTextBlockValueType, forLayer layer: NSTextBlockLayer)
-  func widthForLayer(layer: NSTextBlockLayer, edge: NSRectEdge) -> CGFloat
-  func widthValueTypeForLayer(layer: NSTextBlockLayer, edge: NSRectEdge) -> NSTextBlockValueType
+  func setWidth(_ val: CGFloat, type type: NSTextBlockValueType, forLayer layer: NSTextBlockLayer, edge edge: NSRectEdge)
+  func setWidth(_ val: CGFloat, type type: NSTextBlockValueType, forLayer layer: NSTextBlockLayer)
+  func widthForLayer(_ layer: NSTextBlockLayer, edge edge: NSRectEdge) -> CGFloat
+  func widthValueTypeForLayer(_ layer: NSTextBlockLayer, edge edge: NSRectEdge) -> NSTextBlockValueType
   var verticalAlignment: NSTextBlockVerticalAlignment
   @NSCopying var backgroundColor: NSColor?
-  func setBorderColor(color: NSColor?, forEdge edge: NSRectEdge)
-  func setBorderColor(color: NSColor?)
-  func borderColorForEdge(edge: NSRectEdge) -> NSColor?
-  func rectForLayoutAtPoint(startingPoint: NSPoint, inRect rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func boundsRectForContentRect(contentRect: NSRect, inRect rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func drawBackgroundWithFrame(frameRect: NSRect, inView controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
-  func encodeWithCoder(aCoder: NSCoder)
+  func setBorderColor(_ color: NSColor?, forEdge edge: NSRectEdge)
+  func setBorderColor(_ color: NSColor?)
+  func borderColorForEdge(_ edge: NSRectEdge) -> NSColor?
+  func rectForLayoutAtPoint(_ startingPoint: NSPoint, inRect rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func boundsRectForContentRect(_ contentRect: NSRect, inRect rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func drawBackgroundWithFrame(_ frameRect: NSRect, inView controlView: NSView, characterRange charRange: NSRange, layoutManager layoutManager: NSLayoutManager)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 class NSTextTableBlock : NSTextBlock {
-  init(table: NSTextTable, startingRow row: Int, rowSpan: Int, startingColumn col: Int, columnSpan colSpan: Int)
+  init(table table: NSTextTable, startingRow row: Int, rowSpan rowSpan: Int, startingColumn col: Int, columnSpan colSpan: Int)
   var table: NSTextTable { get }
   var startingRow: Int { get }
   var rowSpan: Int { get }
   var startingColumn: Int { get }
   var columnSpan: Int { get }
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 class NSTextTable : NSTextBlock {
   var numberOfColumns: Int
   var layoutAlgorithm: NSTextTableLayoutAlgorithm
   var collapsesBorders: Bool
   var hidesEmptyCells: Bool
-  func rectForBlock(block: NSTextTableBlock, layoutAtPoint startingPoint: NSPoint, inRect rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func boundsRectForBlock(block: NSTextTableBlock, contentRect: NSRect, inRect rect: NSRect, textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
-  func drawBackgroundForBlock(block: NSTextTableBlock, withFrame frameRect: NSRect, inView controlView: NSView, characterRange charRange: NSRange, layoutManager: NSLayoutManager)
-  init()
-  init?(coder aDecoder: NSCoder)
+  func rectForBlock(_ block: NSTextTableBlock, layoutAtPoint startingPoint: NSPoint, inRect rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func boundsRectForBlock(_ block: NSTextTableBlock, contentRect contentRect: NSRect, inRect rect: NSRect, textContainer textContainer: NSTextContainer, characterRange charRange: NSRange) -> NSRect
+  func drawBackgroundForBlock(_ block: NSTextTableBlock, withFrame frameRect: NSRect, inView controlView: NSView, characterRange charRange: NSRange, layoutManager layoutManager: NSLayoutManager)
 }

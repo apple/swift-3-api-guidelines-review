@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 struct MKDirectionsTransportType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Automobile: MKDirectionsTransportType { get }
   static var Walking: MKDirectionsTransportType { get }

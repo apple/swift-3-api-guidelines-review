@@ -1,10 +1,10 @@
 
 typealias CGPDFStringRef = COpaquePointer
 @available(watchOS 2.0, *)
-func CGPDFStringGetLength(string: CGPDFStringRef) -> Int
+func CGPDFStringGetLength(_ string: CGPDFStringRef) -> Int
 @available(watchOS 2.0, *)
-func CGPDFStringGetBytePtr(string: CGPDFStringRef) -> UnsafePointer<UInt8>
+func CGPDFStringGetBytePtr(_ string: CGPDFStringRef) -> UnsafePointer<UInt8>
 @available(watchOS 2.0, *)
-func CGPDFStringCopyTextString(string: CGPDFStringRef) -> CFString?
+func CGPDFStringCopyTextString(_ string: CGPDFStringRef) -> CFString?
 @available(watchOS 2.0, *)
-func CGPDFStringCopyDate(string: CGPDFStringRef) -> CFDate?
+func CGPDFStringCopyDate(_ string: CGPDFStringRef) -> CFDate?

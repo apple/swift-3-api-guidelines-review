@@ -3,7 +3,7 @@
 let WCErrorDomain: String
 @available(watchOS 2.0, *)
 enum WCErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case GenericError
   case SessionNotSupported

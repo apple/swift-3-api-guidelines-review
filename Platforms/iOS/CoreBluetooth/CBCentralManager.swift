@@ -1,6 +1,6 @@
 
 enum CBCentralManagerState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Resetting
@@ -15,30 +15,29 @@ class CBCentralManager : NSObject {
   var state: CBCentralManagerState { get }
   @available(iOS 9.0, *)
   var isScanning: Bool { get }
-  convenience init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?)
+  convenience init(delegate delegate: CBCentralManagerDelegate?, queue queue: dispatch_queue_t?)
   @available(iOS 7.0, *)
-  init(delegate: CBCentralManagerDelegate?, queue: dispatch_queue_t?, options: [String : AnyObject]?)
+  init(delegate delegate: CBCentralManagerDelegate?, queue queue: dispatch_queue_t?, options options: [String : AnyObject]?)
   @available(iOS 7.0, *)
-  func retrievePeripheralsWithIdentifiers(identifiers: [NSUUID]) -> [CBPeripheral]
+  func retrievePeripheralsWithIdentifiers(_ identifiers: [NSUUID]) -> [CBPeripheral]
   @available(iOS 7.0, *)
-  func retrieveConnectedPeripheralsWithServices(serviceUUIDs: [CBUUID]) -> [CBPeripheral]
-  func scanForPeripheralsWithServices(serviceUUIDs: [CBUUID]?, options: [String : AnyObject]?)
+  func retrieveConnectedPeripheralsWithServices(_ serviceUUIDs: [CBUUID]) -> [CBPeripheral]
+  func scanForPeripheralsWithServices(_ serviceUUIDs: [CBUUID]?, options options: [String : AnyObject]?)
   func stopScan()
-  func connectPeripheral(peripheral: CBPeripheral, options: [String : AnyObject]?)
-  func cancelPeripheralConnection(peripheral: CBPeripheral)
-  convenience init()
+  func connectPeripheral(_ peripheral: CBPeripheral, options options: [String : AnyObject]?)
+  func cancelPeripheralConnection(_ peripheral: CBPeripheral)
 }
 protocol CBCentralManagerDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
-  func centralManagerDidUpdateState(central: CBCentralManager)
+  func centralManagerDidUpdateState(_ central: CBCentralManager)
   @available(iOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, willRestoreState dict: [String : AnyObject])
+  optional func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : AnyObject])
   @available(iOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber)
+  optional func centralManager(_ central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData advertisementData: [String : AnyObject], RSSI RSSI: NSNumber)
   @available(iOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral)
+  optional func centralManager(_ central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral)
   @available(iOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?)
+  optional func centralManager(_ central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error error: NSError?)
   @available(iOS 5.0, *)
-  optional func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?)
+  optional func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error error: NSError?)
 }

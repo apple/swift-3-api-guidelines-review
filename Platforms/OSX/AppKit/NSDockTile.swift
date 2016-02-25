@@ -8,10 +8,9 @@ class NSDockTile : NSObject {
   var showsApplicationBadge: Bool
   var badgeLabel: String?
   unowned(unsafe) var owner: @sil_unmanaged AnyObject { get }
-  init()
 }
 protocol NSDockTilePlugIn : NSObjectProtocol {
   @available(OSX 10.5, *)
-  func setDockTile(dockTile: NSDockTile?)
+  func setDockTile(_ dockTile: NSDockTile?)
   optional func dockMenu() -> NSMenu?
 }

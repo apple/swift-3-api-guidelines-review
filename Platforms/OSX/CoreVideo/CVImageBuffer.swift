@@ -109,14 +109,14 @@ let kCVImageBufferAlphaChannelIsOpaque: CFString
 typealias CVImageBufferRef = CVImageBuffer
 typealias CVImageBuffer = CVBuffer
 @available(OSX 10.4, *)
-func CVImageBufferGetEncodedSize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetEncodedSize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(OSX 10.4, *)
-func CVImageBufferGetDisplaySize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetDisplaySize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(OSX 10.4, *)
-func CVImageBufferGetCleanRect(imageBuffer: CVImageBuffer) -> CGRect
+func CVImageBufferGetCleanRect(_ imageBuffer: CVImageBuffer) -> CGRect
 @available(OSX 10.4, *)
-func CVImageBufferIsFlipped(imageBuffer: CVImageBuffer) -> Bool
+func CVImageBufferIsFlipped(_ imageBuffer: CVImageBuffer) -> Bool
 @available(OSX 10.4, *)
-func CVImageBufferGetColorSpace(imageBuffer: CVImageBuffer) -> Unmanaged<CGColorSpace>?
+func CVImageBufferGetColorSpace(_ imageBuffer: CVImageBuffer) -> Unmanaged<CGColorSpace>?
 @available(OSX 10.8, *)
-func CVImageBufferCreateColorSpaceFromAttachments(attachments: CFDictionary) -> Unmanaged<CGColorSpace>?
+func CVImageBufferCreateColorSpaceFromAttachments(_ attachments: CFDictionary) -> Unmanaged<CGColorSpace>?

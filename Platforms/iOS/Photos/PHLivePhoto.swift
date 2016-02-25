@@ -11,14 +11,13 @@ let PHLivePhotoInfoCancelledKey: String
 @available(iOS 9.1, *)
 class PHLivePhoto : NSObject, NSCopying, NSSecureCoding {
   var size: CGSize { get }
-  class func requestLivePhotoWithResourceFileURLs(fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize: CGSize, contentMode: PHImageContentMode, resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
-  class func cancelLivePhotoRequestWithRequestID(requestID: PHLivePhotoRequestID)
-  init()
+  class func requestLivePhotoWithResourceFileURLs(_ fileURLs: [NSURL], placeholderImage image: UIImage?, targetSize targetSize: CGSize, contentMode contentMode: PHImageContentMode, resultHandler resultHandler: (PHLivePhoto?, [NSObject : AnyObject]) -> Void) -> PHLivePhotoRequestID
+  class func cancelLivePhotoRequestWithRequestID(_ requestID: PHLivePhotoRequestID)
   @available(iOS 9.1, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 9.1, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.1, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

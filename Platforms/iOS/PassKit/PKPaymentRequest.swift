@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 struct PKMerchantCapability : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Capability3DS: PKMerchantCapability { get }
   static var CapabilityEMV: PKMerchantCapability { get }
@@ -12,7 +12,7 @@ struct PKMerchantCapability : OptionSetType {
 }
 @available(iOS 8.0, *)
 struct PKAddressField : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: PKAddressField { get }
   static var PostalAddress: PKAddressField { get }
@@ -24,7 +24,7 @@ struct PKAddressField : OptionSetType {
 }
 @available(iOS 8.3, *)
 enum PKShippingType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Shipping
   case Delivery
@@ -33,30 +33,25 @@ enum PKShippingType : UInt {
 }
 @available(iOS 9.0, *)
 enum PKPaymentSummaryItemType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Final
   case Pending
 }
 @available(iOS 8.0, *)
 class PKPaymentSummaryItem : NSObject {
-  convenience init(label: String, amount: NSDecimalNumber)
+  convenience init(label label: String, amount amount: NSDecimalNumber)
   @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
+  convenience init(label label: String, amount amount: NSDecimalNumber, type type: PKPaymentSummaryItemType)
   var label: String
   @NSCopying var amount: NSDecimalNumber
   @available(iOS 9.0, *)
   var type: PKPaymentSummaryItemType
-  init()
 }
 @available(iOS 8.0, *)
 class PKShippingMethod : PKPaymentSummaryItem {
   var identifier: String?
   var detail: String?
-  convenience init(label: String, amount: NSDecimalNumber)
-  @available(iOS 9.0, *)
-  convenience init(label: String, amount: NSDecimalNumber, type: PKPaymentSummaryItemType)
-  init()
 }
 @available(iOS 8.0, *)
 class PKPaymentRequest : NSObject {
@@ -80,5 +75,4 @@ class PKPaymentRequest : NSObject {
   @available(iOS 8.3, *)
   var shippingType: PKShippingType
   @NSCopying var applicationData: NSData?
-  init()
 }

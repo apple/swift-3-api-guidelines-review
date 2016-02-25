@@ -2,22 +2,19 @@
 @available(OSX 10.7, *)
 class IOBluetoothHandsFreeAudioGateway : IOBluetoothHandsFree {
   @available(OSX 10.7, *)
-  init!(device: IOBluetoothDevice!, delegate inDelegate: AnyObject!)
+  func createIndicator(_ indicatorName: String!, min minValue: Int32, max maxValue: Int32, currentValue currentValue: Int32)
   @available(OSX 10.7, *)
-  func createIndicator(indicatorName: String!, min minValue: Int32, max maxValue: Int32, currentValue: Int32)
-  @available(OSX 10.7, *)
-  func processATCommand(atCommand: String!)
+  func processATCommand(_ atCommand: String!)
   @available(OSX 10.7, *)
   func sendOKResponse()
   @available(OSX 10.7, *)
-  func sendResponse(response: String!)
+  func sendResponse(_ response: String!)
   @available(OSX 10.7, *)
-  func sendResponse(response: String!, withOK: Bool)
-  init()
+  func sendResponse(_ response: String!, withOK withOK: Bool)
 }
 protocol IOBluetoothHandsFreeAudioGatewayDelegate {
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, hangup: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFreeAudioGateway!, hangup hangup: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFreeAudioGateway!, redial: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFreeAudioGateway!, redial redial: NSNumber!)
 }

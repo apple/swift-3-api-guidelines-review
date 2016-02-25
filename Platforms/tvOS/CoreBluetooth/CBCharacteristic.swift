@@ -1,6 +1,6 @@
 
 struct CBCharacteristicProperties : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Broadcast: CBCharacteristicProperties { get }
   static var Read: CBCharacteristicProperties { get }
@@ -27,7 +27,7 @@ class CBCharacteristic : CBAttribute {
 }
 @available(tvOS 6.0, *)
 struct CBAttributePermissions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Readable: CBAttributePermissions { get }
   static var Writeable: CBAttributePermissions { get }
@@ -39,7 +39,4 @@ class CBMutableCharacteristic : CBCharacteristic {
   var permissions: CBAttributePermissions
   @available(tvOS 7.0, *)
   var subscribedCentrals: [CBCentral]? { get }
-  var properties: CBCharacteristicProperties
-  var value: NSData?
-  var descriptors: [CBDescriptor]?
 }

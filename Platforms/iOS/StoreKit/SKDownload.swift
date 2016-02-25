@@ -1,7 +1,7 @@
 
 @available(iOS 6.0, *)
 enum SKDownloadState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Waiting
   case Active
@@ -32,5 +32,4 @@ class SKDownload : NSObject {
   var timeRemaining: NSTimeInterval { get }
   @available(iOS 6.0, *)
   var transaction: SKPaymentTransaction { get }
-  init()
 }

@@ -7,7 +7,7 @@ typealias CTRubyAnnotationRef = CTRubyAnnotation
 func CTRubyAnnotationGetTypeID() -> CFTypeID
 @available(OSX 10.10, *)
 enum CTRubyAlignment : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Invalid
   case Auto
@@ -20,7 +20,7 @@ enum CTRubyAlignment : UInt8 {
 }
 @available(OSX 10.10, *)
 enum CTRubyOverhang : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Invalid
   case Auto
@@ -30,7 +30,7 @@ enum CTRubyOverhang : UInt8 {
 }
 @available(OSX 10.10, *)
 enum CTRubyPosition : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Before
   case After
@@ -39,14 +39,14 @@ enum CTRubyPosition : UInt8 {
   case Count
 }
 @available(OSX 10.10, *)
-func CTRubyAnnotationCreate(alignment: CTRubyAlignment, _ overhang: CTRubyOverhang, _ sizeFactor: CGFloat, _ text: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CTRubyAnnotation
+func CTRubyAnnotationCreate(_ alignment: CTRubyAlignment, _ overhang: CTRubyOverhang, _ sizeFactor: CGFloat, _ text: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CTRubyAnnotation
 @available(OSX 10.10, *)
-func CTRubyAnnotationCreateCopy(rubyAnnotation: CTRubyAnnotation) -> CTRubyAnnotation
+func CTRubyAnnotationCreateCopy(_ rubyAnnotation: CTRubyAnnotation) -> CTRubyAnnotation
 @available(OSX 10.10, *)
-func CTRubyAnnotationGetAlignment(rubyAnnotation: CTRubyAnnotation) -> CTRubyAlignment
+func CTRubyAnnotationGetAlignment(_ rubyAnnotation: CTRubyAnnotation) -> CTRubyAlignment
 @available(OSX 10.10, *)
-func CTRubyAnnotationGetOverhang(rubyAnnotation: CTRubyAnnotation) -> CTRubyOverhang
+func CTRubyAnnotationGetOverhang(_ rubyAnnotation: CTRubyAnnotation) -> CTRubyOverhang
 @available(OSX 10.10, *)
-func CTRubyAnnotationGetSizeFactor(rubyAnnotation: CTRubyAnnotation) -> CGFloat
+func CTRubyAnnotationGetSizeFactor(_ rubyAnnotation: CTRubyAnnotation) -> CGFloat
 @available(OSX 10.10, *)
-func CTRubyAnnotationGetTextForPosition(rubyAnnotation: CTRubyAnnotation, _ position: CTRubyPosition) -> CFString?
+func CTRubyAnnotationGetTextForPosition(_ rubyAnnotation: CTRubyAnnotation, _ position: CTRubyPosition) -> CFString?

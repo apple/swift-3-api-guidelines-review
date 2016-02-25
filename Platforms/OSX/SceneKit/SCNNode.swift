@@ -7,7 +7,7 @@ let SCNModelViewTransform: String
 let SCNModelViewProjectionTransform: String
 @available(OSX 10.8, *)
 class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume {
-  /*not inherited*/ init(geometry: SCNGeometry?)
+  /*not inherited*/ init(geometry geometry: SCNGeometry?)
   func clone() -> Self
   @available(OSX 10.9, *)
   func flattenedClone() -> Self
@@ -36,22 +36,22 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
   var castsShadow: Bool
   var parentNode: SCNNode? { get }
   var childNodes: [SCNNode] { get }
-  func addChildNode(child: SCNNode)
-  func insertChildNode(child: SCNNode, atIndex index: Int)
+  func addChildNode(_ child: SCNNode)
+  func insertChildNode(_ child: SCNNode, atIndex index: Int)
   func removeFromParentNode()
-  func replaceChildNode(oldChild: SCNNode, with newChild: SCNNode)
-  func childNodeWithName(name: String, recursively: Bool) -> SCNNode?
-  func childNodesPassingTest(predicate: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [SCNNode]
+  func replaceChildNode(_ oldChild: SCNNode, with newChild: SCNNode)
+  func childNodeWithName(_ name: String, recursively recursively: Bool) -> SCNNode?
+  func childNodesPassingTest(_ predicate: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [SCNNode]
   @available(OSX 10.10, *)
-  func enumerateChildNodesUsingBlock(block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateChildNodesUsingBlock(_ block: (SCNNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func convertPosition(position: SCNVector3, toNode node: SCNNode?) -> SCNVector3
+  func convertPosition(_ position: SCNVector3, toNode node: SCNNode?) -> SCNVector3
   @available(OSX 10.9, *)
-  func convertPosition(position: SCNVector3, fromNode node: SCNNode?) -> SCNVector3
+  func convertPosition(_ position: SCNVector3, fromNode node: SCNNode?) -> SCNVector3
   @available(OSX 10.9, *)
-  func convertTransform(transform: SCNMatrix4, toNode node: SCNNode?) -> SCNMatrix4
+  func convertTransform(_ transform: SCNMatrix4, toNode node: SCNNode?) -> SCNMatrix4
   @available(OSX 10.9, *)
-  func convertTransform(transform: SCNMatrix4, fromNode node: SCNNode?) -> SCNMatrix4
+  func convertTransform(_ transform: SCNMatrix4, fromNode node: SCNNode?) -> SCNMatrix4
   @available(OSX 10.10, *)
   var physicsBody: SCNPhysicsBody?
   @available(OSX 10.10, *)
@@ -65,61 +65,60 @@ class SCNNode : NSObject, NSCopying, NSSecureCoding, SCNAnimatable, SCNActionabl
   var paused: Bool
   unowned(unsafe) var rendererDelegate: @sil_unmanaged SCNNodeRendererDelegate?
   @available(OSX 10.9, *)
-  func hitTestWithSegmentFromPoint(pointA: SCNVector3, toPoint pointB: SCNVector3, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTestWithSegmentFromPoint(_ pointA: SCNVector3, toPoint pointB: SCNVector3, options options: [String : AnyObject]?) -> [SCNHitTestResult]
   @available(OSX 10.10, *)
   var categoryBitMask: Int
-  init()
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.10, *)
-  func runAction(action: SCNAction)
+  func runAction(_ action: SCNAction)
   @available(OSX 10.10, *)
-  func runAction(action: SCNAction, completionHandler block: (() -> Void)?)
+  func runAction(_ action: SCNAction, completionHandler block: (() -> Void)?)
   @available(OSX 10.10, *)
-  func runAction(action: SCNAction, forKey key: String?)
+  func runAction(_ action: SCNAction, forKey key: String?)
   @available(OSX 10.10, *)
-  func runAction(action: SCNAction, forKey key: String?, completionHandler block: (() -> Void)?)
+  func runAction(_ action: SCNAction, forKey key: String?, completionHandler block: (() -> Void)?)
   @available(OSX 10.10, *)
   var hasActions: Bool { get }
   @available(OSX 10.10, *)
-  func actionForKey(key: String) -> SCNAction?
+  func actionForKey(_ key: String) -> SCNAction?
   @available(OSX 10.10, *)
-  func removeActionForKey(key: String)
+  func removeActionForKey(_ key: String)
   @available(OSX 10.10, *)
   func removeAllActions()
   @available(OSX 10.10, *)
   var actionKeys: [String] { get }
   @available(OSX 10.8, *)
-  func getBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>) -> Bool
+  func getBoundingBoxMin(_ min: UnsafeMutablePointer<SCNVector3>, max max: UnsafeMutablePointer<SCNVector3>) -> Bool
   @available(OSX 10.8, *)
-  func getBoundingSphereCenter(center: UnsafeMutablePointer<SCNVector3>, radius: UnsafeMutablePointer<CGFloat>) -> Bool
+  func getBoundingSphereCenter(_ center: UnsafeMutablePointer<SCNVector3>, radius radius: UnsafeMutablePointer<CGFloat>) -> Bool
   @available(OSX 10.9, *)
-  func setBoundingBoxMin(min: UnsafeMutablePointer<SCNVector3>, max: UnsafeMutablePointer<SCNVector3>)
+  func setBoundingBoxMin(_ min: UnsafeMutablePointer<SCNVector3>, max max: UnsafeMutablePointer<SCNVector3>)
 }
 protocol SCNNodeRendererDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func renderNode(node: SCNNode, renderer: SCNRenderer, arguments: [String : NSValue])
+  optional func renderNode(_ node: SCNNode, renderer renderer: SCNRenderer, arguments arguments: [String : NSValue])
 }

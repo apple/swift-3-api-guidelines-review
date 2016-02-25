@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 enum MKMapType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Standard
   case Satellite
@@ -14,7 +14,7 @@ enum MKMapType : UInt {
 let MKErrorDomain: String
 @available(OSX 10.9, *)
 enum MKErrorCode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unknown
   case ServerFailure

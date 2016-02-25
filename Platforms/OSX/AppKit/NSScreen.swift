@@ -13,14 +13,13 @@ class NSScreen : NSObject {
   var colorSpace: NSColorSpace? { get }
   var supportedWindowDepths: UnsafePointer<NSWindowDepth> { get }
   @available(OSX 10.7, *)
-  func convertRectToBacking(aRect: NSRect) -> NSRect
+  func convertRectToBacking(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func convertRectFromBacking(aRect: NSRect) -> NSRect
+  func convertRectFromBacking(_ aRect: NSRect) -> NSRect
   @available(OSX 10.7, *)
-  func backingAlignedRect(aRect: NSRect, options: NSAlignmentOptions) -> NSRect
+  func backingAlignedRect(_ aRect: NSRect, options options: NSAlignmentOptions) -> NSRect
   @available(OSX 10.7, *)
   var backingScaleFactor: CGFloat { get }
-  init()
 }
 @available(OSX 10.6, *)
 let NSScreenColorSpaceDidChangeNotification: String

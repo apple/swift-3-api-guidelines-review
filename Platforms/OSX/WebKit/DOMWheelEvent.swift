@@ -11,5 +11,5 @@ class DOMWheelEvent : DOMMouseEvent {
   var wheelDelta: Int32 { get }
   var isHorizontal: Bool { get }
   @available(OSX 10.5, *)
-  func initWheelEvent(wheelDeltaX: Int32, wheelDeltaY: Int32, view: DOMAbstractView!, screenX: Int32, screenY: Int32, clientX: Int32, clientY: Int32, ctrlKey: Bool, altKey: Bool, shiftKey: Bool, metaKey: Bool)
+  func initWheelEvent(_ wheelDeltaX: Int32, wheelDeltaY wheelDeltaY: Int32, view view: DOMAbstractView!, screenX screenX: Int32, screenY screenY: Int32, clientX clientX: Int32, clientY clientY: Int32, ctrlKey ctrlKey: Bool, altKey altKey: Bool, shiftKey shiftKey: Bool, metaKey metaKey: Bool)
 }

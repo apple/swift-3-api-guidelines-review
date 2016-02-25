@@ -1,6 +1,6 @@
 
 class NSDistributedLock : NSObject {
-  init?(path: String)
+  init?(path path: String)
   func tryLock() -> Bool
   func unlock()
   func breakLock()

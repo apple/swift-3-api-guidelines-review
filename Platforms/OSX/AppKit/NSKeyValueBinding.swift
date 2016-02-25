@@ -2,44 +2,44 @@
 var NSMultipleValuesMarker: AnyObject
 var NSNoSelectionMarker: AnyObject
 var NSNotApplicableMarker: AnyObject
-func NSIsControllerMarker(object: AnyObject?) -> Bool
+func NSIsControllerMarker(_ object: AnyObject?) -> Bool
 let NSObservedObjectKey: String
 let NSObservedKeyPathKey: String
 let NSOptionsKey: String
 extension NSObject {
-  class func exposeBinding(binding: String)
+  class func exposeBinding(_ binding: String)
   var exposedBindings: [String] { get }
-  class func valueClassForBinding(binding: String) -> AnyClass?
-  func valueClassForBinding(binding: String) -> AnyClass?
-  class func bind(binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]?)
-  func bind(binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, options: [String : AnyObject]?)
-  class func unbind(binding: String)
-  func unbind(binding: String)
-  class func infoForBinding(binding: String) -> [String : AnyObject]?
-  func infoForBinding(binding: String) -> [String : AnyObject]?
+  class func valueClassForBinding(_ binding: String) -> AnyClass?
+  func valueClassForBinding(_ binding: String) -> AnyClass?
+  class func bind(_ binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, options options: [String : AnyObject]?)
+  func bind(_ binding: String, toObject observable: AnyObject, withKeyPath keyPath: String, options options: [String : AnyObject]?)
+  class func unbind(_ binding: String)
+  func unbind(_ binding: String)
+  class func infoForBinding(_ binding: String) -> [String : AnyObject]?
+  func infoForBinding(_ binding: String) -> [String : AnyObject]?
   @available(OSX 10.5, *)
-  class func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
+  class func optionDescriptionsForBinding(_ aBinding: String) -> [NSAttributeDescription]
   @available(OSX 10.5, *)
-  func optionDescriptionsForBinding(aBinding: String) -> [NSAttributeDescription]
+  func optionDescriptionsForBinding(_ aBinding: String) -> [NSAttributeDescription]
   class func exposedBindings() -> [String]
 }
 extension NSObject {
-  class func setDefaultPlaceholder(placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
-  class func defaultPlaceholderForMarker(marker: AnyObject?, withBinding binding: String) -> AnyObject?
+  class func setDefaultPlaceholder(_ placeholder: AnyObject?, forMarker marker: AnyObject?, withBinding binding: String)
+  class func defaultPlaceholderForMarker(_ marker: AnyObject?, withBinding binding: String) -> AnyObject?
 }
 extension NSObject {
-  class func objectDidBeginEditing(editor: AnyObject)
-  func objectDidBeginEditing(editor: AnyObject)
-  class func objectDidEndEditing(editor: AnyObject)
-  func objectDidEndEditing(editor: AnyObject)
+  class func objectDidBeginEditing(_ editor: AnyObject)
+  func objectDidBeginEditing(_ editor: AnyObject)
+  class func objectDidEndEditing(_ editor: AnyObject)
+  func objectDidEndEditing(_ editor: AnyObject)
 }
 extension NSObject {
   class func discardEditing()
   func discardEditing()
   class func commitEditing() -> Bool
   func commitEditing() -> Bool
-  class func commitEditingWithDelegate(delegate: AnyObject?, didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditingWithDelegate(delegate: AnyObject?, didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  class func commitEditingWithDelegate(_ delegate: AnyObject?, didCommitSelector didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func commitEditingWithDelegate(_ delegate: AnyObject?, didCommitSelector didCommitSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
   class func commitEditingAndReturnError() throws
   @available(OSX 10.7, *)

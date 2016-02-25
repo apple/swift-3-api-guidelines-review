@@ -43,7 +43,7 @@ let NSWritingDirectionAttributeName: String
 let NSVerticalGlyphFormAttributeName: String
 @available(tvOS 6.0, *)
 enum NSUnderlineStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case StyleNone
   case StyleSingle
@@ -66,7 +66,7 @@ enum NSUnderlineStyle : Int {
 }
 @available(tvOS 9.0, *)
 enum NSWritingDirectionFormatType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Embedding
   case Override
@@ -75,7 +75,7 @@ enum NSWritingDirectionFormatType : Int {
 let NSTextEffectLetterpressStyle: String
 extension NSMutableAttributedString {
   @available(tvOS 7.0, *)
-  func fixAttributesInRange(range: NSRange)
+  func fixAttributesInRange(_ range: NSRange)
 }
 @available(tvOS 7.0, *)
 let NSPlainTextDocumentType: String
@@ -117,23 +117,23 @@ let NSDefaultTabIntervalDocumentAttribute: String
 let NSTextLayoutSectionsAttribute: String
 extension NSAttributedString {
   @available(tvOS 9.0, *)
-  init(URL url: NSURL, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(URL url: NSURL, options options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  init(data data: NSData, options options: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func dataFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
+  func dataFromRange(_ range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSData
   @available(tvOS 7.0, *)
-  func fileWrapperFromRange(range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
+  func fileWrapperFromRange(_ range: NSRange, documentAttributes dict: [String : AnyObject]) throws -> NSFileWrapper
 }
 extension NSMutableAttributedString {
   @available(tvOS 9.0, *)
-  func readFromURL(url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFromURL(_ url: NSURL, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
   @available(tvOS 7.0, *)
-  func readFromData(data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
+  func readFromData(_ data: NSData, options opts: [String : AnyObject], documentAttributes dict: AutoreleasingUnsafeMutablePointer<NSDictionary?>) throws
 }
 extension NSAttributedString {
   @available(tvOS 9.0, *)
-  func containsAttachmentsInRange(range: NSRange) -> Bool
+  func containsAttachmentsInRange(_ range: NSRange) -> Bool
 }
 extension NSAttributedString {
 }

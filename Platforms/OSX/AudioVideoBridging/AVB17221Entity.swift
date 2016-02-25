@@ -25,5 +25,4 @@ class AVB17221Entity : NSObject {
   var associationID: UInt64
   var macAddresses: [AVBMACAddress]
   unowned(unsafe) var entityDiscovery: @sil_unmanaged AVB17221EntityDiscovery?
-  init()
 }

@@ -10,13 +10,11 @@ class CLHeading : NSObject, NSCopying, NSSecureCoding {
   var y: CLHeadingComponentValue { get }
   var z: CLHeadingComponentValue { get }
   @NSCopying var timestamp: NSDate { get }
-  var description: String { get }
-  init()
   @available(iOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 3.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

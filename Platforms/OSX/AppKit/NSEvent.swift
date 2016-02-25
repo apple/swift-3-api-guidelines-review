@@ -1,6 +1,6 @@
 
 enum NSEventType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case LeftMouseDown
   case LeftMouseUp
@@ -45,7 +45,7 @@ enum NSEventType : UInt {
   case EventTypePressure
 }
 struct NSEventMask : OptionSetType {
-  init(rawValue: UInt64)
+  init(rawValue rawValue: UInt64)
   let rawValue: UInt64
   static var LeftMouseDownMask: NSEventMask { get }
   static var LeftMouseUpMask: NSEventMask { get }
@@ -88,9 +88,9 @@ struct NSEventMask : OptionSetType {
   static var EventMaskPressure: NSEventMask { get }
   static var AnyEventMask: NSEventMask { get }
 }
-func NSEventMaskFromType(type: NSEventType) -> NSEventMask
+func NSEventMaskFromType(_ type: NSEventType) -> NSEventMask
 struct NSEventModifierFlags : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var AlphaShiftKeyMask: NSEventModifierFlags { get }
   static var ShiftKeyMask: NSEventModifierFlags { get }
@@ -103,7 +103,7 @@ struct NSEventModifierFlags : OptionSetType {
   static var DeviceIndependentModifierFlagsMask: NSEventModifierFlags { get }
 }
 enum NSPointingDeviceType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case UnknownPointingDevice
   case PenPointingDevice
@@ -111,7 +111,7 @@ enum NSPointingDeviceType : UInt {
   case EraserPointingDevice
 }
 struct NSEventButtonMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var PenTipMask: NSEventButtonMask { get }
   static var PenLowerSideMask: NSEventButtonMask { get }
@@ -119,7 +119,7 @@ struct NSEventButtonMask : OptionSetType {
 }
 @available(OSX 10.7, *)
 struct NSEventPhase : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: NSEventPhase { get }
   static var Began: NSEventPhase { get }
@@ -131,7 +131,7 @@ struct NSEventPhase : OptionSetType {
 }
 @available(OSX 10.7, *)
 enum NSEventGestureAxis : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Horizontal
@@ -139,13 +139,13 @@ enum NSEventGestureAxis : Int {
 }
 @available(OSX 10.7, *)
 struct NSEventSwipeTrackingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var LockDirection: NSEventSwipeTrackingOptions { get }
   static var ClampGestureAmount: NSEventSwipeTrackingOptions { get }
 }
 enum NSEventSubtype : Int16 {
-  init?(rawValue: Int16)
+  init?(rawValue rawValue: Int16)
   var rawValue: Int16 { get }
   case NSWindowExposedEventType
   case NSApplicationActivatedEventType
@@ -162,7 +162,7 @@ enum NSEventSubtype : Int16 {
 }
 @available(OSX 10.10.3, *)
 enum NSPressureBehavior : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case PrimaryDefault
@@ -211,13 +211,13 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   @available(OSX 10.5, *)
   var eventRef: UnsafePointer<Void> { get }
   @available(OSX 10.5, *)
-  /*not inherited*/ init?(eventRef: UnsafePointer<Void>)
+  /*not inherited*/ init?(eventRef eventRef: UnsafePointer<Void>)
   @available(OSX 10.5, *)
   var CGEvent: CGEvent? { get }
   @available(OSX 10.5, *)
   /*not inherited*/ init?(CGEvent cgEvent: CGEvent)
   @available(OSX 10.5, *)
-  class func setMouseCoalescingEnabled(flag: Bool)
+  class func setMouseCoalescingEnabled(_ flag: Bool)
   @available(OSX 10.5, *)
   class func isMouseCoalescingEnabled() -> Bool
   @available(OSX 10.5, *)
@@ -242,7 +242,7 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   var pointingDeviceType: NSPointingDeviceType { get }
   var enteringProximity: Bool { get }
   @available(OSX 10.6, *)
-  func touchesMatchingPhase(phase: NSTouchPhase, inView view: NSView?) -> Set<NSTouch>
+  func touchesMatchingPhase(_ phase: NSTouchPhase, inView view: NSView?) -> Set<NSTouch>
   @available(OSX 10.7, *)
   var phase: NSEventPhase { get }
   @available(OSX 10.10.3, *)
@@ -256,13 +256,13 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   @available(OSX 10.7, *)
   class func isSwipeTrackingFromScrollEventsEnabled() -> Bool
   @available(OSX 10.7, *)
-  func trackSwipeEventWithOptions(options: NSEventSwipeTrackingOptions, dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
-  class func startPeriodicEventsAfterDelay(delay: NSTimeInterval, withPeriod period: NSTimeInterval)
+  func trackSwipeEventWithOptions(_ options: NSEventSwipeTrackingOptions, dampenAmountThresholdMin minDampenThreshold: CGFloat, max maxDampenThreshold: CGFloat, usingHandler trackingHandler: (CGFloat, NSEventPhase, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  class func startPeriodicEventsAfterDelay(_ delay: NSTimeInterval, withPeriod period: NSTimeInterval)
   class func stopPeriodicEvents()
-  class func mouseEventWithType(type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure: Float) -> NSEvent?
-  class func keyEventWithType(type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
-  class func enterExitEventWithType(type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
-  class func otherEventWithType(type: NSEventType, location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context: NSGraphicsContext?, subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
+  class func mouseEventWithType(_ type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure pressure: Float) -> NSEvent?
+  class func keyEventWithType(_ type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
+  class func enterExitEventWithType(_ type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
+  class func otherEventWithType(_ type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, subtype subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
   class func mouseLocation() -> NSPoint
   @available(OSX 10.6, *)
   class func modifierFlags() -> NSEventModifierFlags
@@ -275,14 +275,13 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   @available(OSX 10.6, *)
   class func keyRepeatInterval() -> NSTimeInterval
   @available(OSX 10.6, *)
-  class func addGlobalMonitorForEventsMatchingMask(mask: NSEventMask, handler block: (NSEvent) -> Void) -> AnyObject?
+  class func addGlobalMonitorForEventsMatchingMask(_ mask: NSEventMask, handler block: (NSEvent) -> Void) -> AnyObject?
   @available(OSX 10.6, *)
-  class func addLocalMonitorForEventsMatchingMask(mask: NSEventMask, handler block: (NSEvent) -> NSEvent?) -> AnyObject?
+  class func addLocalMonitorForEventsMatchingMask(_ mask: NSEventMask, handler block: (NSEvent) -> NSEvent?) -> AnyObject?
   @available(OSX 10.6, *)
-  class func removeMonitor(eventMonitor: AnyObject)
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  class func removeMonitor(_ eventMonitor: AnyObject)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 var NSUpArrowFunctionKey: Int { get }

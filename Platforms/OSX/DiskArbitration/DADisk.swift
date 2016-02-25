@@ -39,10 +39,10 @@ class DADisk {
 @available(*, deprecated, renamed="DADisk")
 typealias DADiskRef = DADisk
 func DADiskGetTypeID() -> CFTypeID
-func DADiskCreateFromBSDName(allocator: CFAllocator?, _ session: DASession, _ name: UnsafePointer<Int8>) -> DADisk?
-func DADiskCreateFromIOMedia(allocator: CFAllocator?, _ session: DASession, _ media: io_service_t) -> DADisk?
-func DADiskCreateFromVolumePath(allocator: CFAllocator?, _ session: DASession, _ path: CFURL) -> DADisk?
-func DADiskGetBSDName(disk: DADisk) -> UnsafePointer<Int8>
-func DADiskCopyIOMedia(disk: DADisk) -> io_service_t
-func DADiskCopyDescription(disk: DADisk) -> CFDictionary?
-func DADiskCopyWholeDisk(disk: DADisk) -> DADisk?
+func DADiskCreateFromBSDName(_ allocator: CFAllocator?, _ session: DASession, _ name: UnsafePointer<Int8>) -> DADisk?
+func DADiskCreateFromIOMedia(_ allocator: CFAllocator?, _ session: DASession, _ media: io_service_t) -> DADisk?
+func DADiskCreateFromVolumePath(_ allocator: CFAllocator?, _ session: DASession, _ path: CFURL) -> DADisk?
+func DADiskGetBSDName(_ disk: DADisk) -> UnsafePointer<Int8>
+func DADiskCopyIOMedia(_ disk: DADisk) -> io_service_t
+func DADiskCopyDescription(_ disk: DADisk) -> CFDictionary?
+func DADiskCopyWholeDisk(_ disk: DADisk) -> DADisk?

@@ -4,7 +4,7 @@ typealias CGLPixelFormatObj = COpaquePointer
 typealias CGLRendererInfoObj = COpaquePointer
 struct _CGLPixelFormatAttribute : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLPFAAllRenderers: _CGLPixelFormatAttribute { get }
@@ -55,7 +55,7 @@ var kCGLPFAStereo: _CGLPixelFormatAttribute { get }
 typealias CGLPixelFormatAttribute = _CGLPixelFormatAttribute
 struct _CGLRendererProperty : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLRPOffScreen: _CGLRendererProperty { get }
@@ -97,7 +97,7 @@ var kCGLRPMajorGLVersion: _CGLRendererProperty { get }
 typealias CGLRendererProperty = _CGLRendererProperty
 struct _CGLContextEnable : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLCESwapRectangle: _CGLContextEnable { get }
@@ -116,7 +116,7 @@ var kCGLCECrashOnRemovedFunctions: _CGLContextEnable { get }
 typealias CGLContextEnable = _CGLContextEnable
 struct _CGLGPURestartStatus : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLCPGPURestartStatusNone: _CGLGPURestartStatus { get }
@@ -125,7 +125,7 @@ var kCGLCPGPURestartStatusBlacklisted: _CGLGPURestartStatus { get }
 typealias CGLGPURestartStatus = _CGLGPURestartStatus
 struct _CGLContextParameter : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLCPSwapRectangle: _CGLContextParameter { get }
@@ -166,7 +166,7 @@ var kCGLCPContextPriorityRequest: _CGLContextParameter { get }
 typealias CGLContextParameter = _CGLContextParameter
 struct CGLCPContextPriorityRequest : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLCPContextPriorityRequestHigh: CGLCPContextPriorityRequest { get }
@@ -174,7 +174,7 @@ var kCGLCPContextPriorityRequestNormal: CGLCPContextPriorityRequest { get }
 var kCGLCPContextPriorityRequestLow: CGLCPContextPriorityRequest { get }
 struct _CGLGlobalOption : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLGOFormatCacheSize: _CGLGlobalOption { get }
@@ -185,7 +185,7 @@ var kCGLGOUseBuildCache: _CGLGlobalOption { get }
 typealias CGLGlobalOption = _CGLGlobalOption
 struct _CGLOpenGLProfile : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 @available(OSX 10.7, *)
@@ -200,7 +200,7 @@ var kCGLOGLPVersion_GL4_Core: _CGLOpenGLProfile { get }
 typealias CGLOpenGLProfile = _CGLOpenGLProfile
 struct _CGLError : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kCGLNoError: _CGLError { get }

@@ -1,27 +1,26 @@
 
 protocol UITextViewDelegate : NSObjectProtocol, UIScrollViewDelegate {
   @available(tvOS 2.0, *)
-  optional func textViewShouldBeginEditing(textView: UITextView) -> Bool
+  optional func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
   @available(tvOS 2.0, *)
-  optional func textViewShouldEndEditing(textView: UITextView) -> Bool
+  optional func textViewShouldEndEditing(_ textView: UITextView) -> Bool
   @available(tvOS 2.0, *)
-  optional func textViewDidBeginEditing(textView: UITextView)
+  optional func textViewDidBeginEditing(_ textView: UITextView)
   @available(tvOS 2.0, *)
-  optional func textViewDidEndEditing(textView: UITextView)
+  optional func textViewDidEndEditing(_ textView: UITextView)
   @available(tvOS 2.0, *)
-  optional func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+  optional func textView(_ textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
   @available(tvOS 2.0, *)
-  optional func textViewDidChange(textView: UITextView)
+  optional func textViewDidChange(_ textView: UITextView)
   @available(tvOS 2.0, *)
-  optional func textViewDidChangeSelection(textView: UITextView)
+  optional func textViewDidChangeSelection(_ textView: UITextView)
   @available(tvOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
+  optional func textView(_ textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
   @available(tvOS 7.0, *)
-  optional func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
+  optional func textView(_ textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
 }
 @available(tvOS 2.0, *)
 class UITextView : UIScrollView, UITextInput {
-  weak var delegate: @sil_weak UITextViewDelegate?
   var text: String!
   var font: UIFont?
   var textColor: UIColor?
@@ -35,14 +34,11 @@ class UITextView : UIScrollView, UITextInput {
   @NSCopying var attributedText: NSAttributedString!
   @available(tvOS 6.0, *)
   var typingAttributes: [String : AnyObject]
-  func scrollRangeToVisible(range: NSRange)
-  var inputView: UIView?
-  var inputAccessoryView: UIView?
+  func scrollRangeToVisible(_ range: NSRange)
   @available(tvOS 6.0, *)
   var clearsOnInsertion: Bool
   @available(tvOS 7.0, *)
-  init(frame: CGRect, textContainer: NSTextContainer?)
-  init?(coder aDecoder: NSCoder)
+  init(frame frame: CGRect, textContainer textContainer: NSTextContainer?)
   @available(tvOS 7.0, *)
   var textContainer: NSTextContainer { get }
   @available(tvOS 7.0, *)
@@ -53,12 +49,10 @@ class UITextView : UIScrollView, UITextInput {
   var textStorage: NSTextStorage { get }
   @available(tvOS 7.0, *)
   var linkTextAttributes: [String : AnyObject]!
-  convenience init(frame: CGRect)
-  convenience init()
   @available(tvOS 3.2, *)
-  func textInRange(range: UITextRange) -> String?
+  func textInRange(_ range: UITextRange) -> String?
   @available(tvOS 3.2, *)
-  func replaceRange(range: UITextRange, withText text: String)
+  func replaceRange(_ range: UITextRange, withText text: String)
   @available(tvOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(tvOS 3.2, *)
@@ -66,7 +60,7 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 2.0, *)
   var markedTextStyle: [NSObject : AnyObject]?
   @available(tvOS 2.0, *)
-  func setMarkedText(markedText: String?, selectedRange: NSRange)
+  func setMarkedText(_ markedText: String?, selectedRange selectedRange: NSRange)
   @available(tvOS 2.0, *)
   func unmarkText()
   @available(tvOS 3.2, *)
@@ -74,53 +68,53 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(tvOS 3.2, *)
-  func textRangeFromPosition(fromPosition: UITextPosition, toPosition: UITextPosition) -> UITextRange?
+  func textRangeFromPosition(_ fromPosition: UITextPosition, toPosition toPosition: UITextPosition) -> UITextRange?
   @available(tvOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, offset: Int) -> UITextPosition?
+  func positionFromPosition(_ position: UITextPosition, offset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFromPosition(_ position: UITextPosition, inDirection direction: UITextLayoutDirection, offset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func comparePosition(position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
+  func comparePosition(_ position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
   @available(tvOS 3.2, *)
-  func offsetFromPosition(from: UITextPosition, toPosition: UITextPosition) -> Int
+  func offsetFromPosition(_ from: UITextPosition, toPosition toPosition: UITextPosition) -> Int
   @available(tvOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(tvOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(tvOS 3.2, *)
-  func positionWithinRange(range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
+  func positionWithinRange(_ range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterRangeByExtendingPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtendingPosition(_ position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
   @available(tvOS 3.2, *)
-  func baseWritingDirectionForPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionForPosition(_ position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
   @available(tvOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
+  func setBaseWritingDirection(_ writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(tvOS 3.2, *)
-  func firstRectForRange(range: UITextRange) -> CGRect
+  func firstRectForRange(_ range: UITextRange) -> CGRect
   @available(tvOS 3.2, *)
-  func caretRectForPosition(position: UITextPosition) -> CGRect
+  func caretRectForPosition(_ position: UITextPosition) -> CGRect
   @available(tvOS 6.0, *)
-  func selectionRectsForRange(range: UITextRange) -> [AnyObject]
+  func selectionRectsForRange(_ range: UITextRange) -> [AnyObject]
   @available(tvOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint) -> UITextPosition?
+  func closestPositionToPoint(_ point: CGPoint) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
+  func closestPositionToPoint(_ point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterRangeAtPoint(point: CGPoint) -> UITextRange?
+  func characterRangeAtPoint(_ point: CGPoint) -> UITextRange?
   @available(tvOS 6.0, *)
-  func shouldChangeTextInRange(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeTextInRange(_ range: UITextRange, replacementText text: String) -> Bool
   @available(tvOS 3.2, *)
-  func textStylingAtPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAtPosition(_ position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(tvOS 3.2, *)
-  func positionWithinRange(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func positionWithinRange(_ range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(tvOS 3.2, *)
-  func characterOffsetOfPosition(position: UITextPosition, withinRange range: UITextRange) -> Int
+  func characterOffsetOfPosition(_ position: UITextPosition, withinRange range: UITextRange) -> Int
   @available(tvOS 2.0, *)
   var textInputView: UIView { get }
   @available(tvOS 2.0, *)
   var selectionAffinity: UITextStorageDirection
   @available(tvOS 5.1, *)
-  func insertDictationResult(dictationResult: [UIDictationPhrase])
+  func insertDictationResult(_ dictationResult: [UIDictationPhrase])
   @available(tvOS 2.0, *)
   func dictationRecordingDidEnd()
   @available(tvOS 2.0, *)
@@ -128,19 +122,19 @@ class UITextView : UIScrollView, UITextInput {
   @available(tvOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(tvOS 2.0, *)
-  func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
+  func frameForDictationResultPlaceholder(_ placeholder: AnyObject) -> CGRect
   @available(tvOS 2.0, *)
-  func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
+  func removeDictationResultPlaceholder(_ placeholder: AnyObject, willInsertResult willInsertResult: Bool)
   @available(tvOS 9.0, *)
-  func beginFloatingCursorAtPoint(point: CGPoint)
+  func beginFloatingCursorAtPoint(_ point: CGPoint)
   @available(tvOS 9.0, *)
-  func updateFloatingCursorAtPoint(point: CGPoint)
+  func updateFloatingCursorAtPoint(_ point: CGPoint)
   @available(tvOS 9.0, *)
   func endFloatingCursor()
   @available(tvOS 2.0, *)
   func hasText() -> Bool
   @available(tvOS 2.0, *)
-  func insertText(text: String)
+  func insertText(_ text: String)
   @available(tvOS 2.0, *)
   func deleteBackward()
   @available(tvOS 2.0, *)

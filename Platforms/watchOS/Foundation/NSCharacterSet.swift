@@ -22,45 +22,22 @@ class NSCharacterSet : NSObject, NSCopying, NSMutableCopying, NSCoding {
   /*not inherited*/ init(bitmapRepresentation data: NSData)
   /*not inherited*/ init?(contentsOfFile fName: String)
   init(coder aDecoder: NSCoder)
-  func characterIsMember(aCharacter: unichar) -> Bool
+  func characterIsMember(_ aCharacter: unichar) -> Bool
   @NSCopying var bitmapRepresentation: NSData { get }
   @NSCopying var invertedSet: NSCharacterSet { get }
-  func longCharacterIsMember(theLongChar: UTF32Char) -> Bool
-  func isSupersetOfSet(theOtherSet: NSCharacterSet) -> Bool
-  func hasMemberInPlane(thePlane: UInt8) -> Bool
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func longCharacterIsMember(_ theLongChar: UTF32Char) -> Bool
+  func isSupersetOfSet(_ theOtherSet: NSCharacterSet) -> Bool
+  func hasMemberInPlane(_ thePlane: UInt8) -> Bool
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
-  func addCharactersInRange(aRange: NSRange)
-  func removeCharactersInRange(aRange: NSRange)
-  func addCharactersInString(aString: String)
-  func removeCharactersInString(aString: String)
-  func formUnionWithCharacterSet(otherSet: NSCharacterSet)
-  func formIntersectionWithCharacterSet(otherSet: NSCharacterSet)
+  func addCharactersInRange(_ aRange: NSRange)
+  func removeCharactersInRange(_ aRange: NSRange)
+  func addCharactersInString(_ aString: String)
+  func removeCharactersInString(_ aString: String)
+  func formUnionWithCharacterSet(_ otherSet: NSCharacterSet)
+  func formIntersectionWithCharacterSet(_ otherSet: NSCharacterSet)
   func invert()
-  class func controlCharacterSet() -> NSMutableCharacterSet
-  class func whitespaceCharacterSet() -> NSMutableCharacterSet
-  class func whitespaceAndNewlineCharacterSet() -> NSMutableCharacterSet
-  class func decimalDigitCharacterSet() -> NSMutableCharacterSet
-  class func letterCharacterSet() -> NSMutableCharacterSet
-  class func lowercaseLetterCharacterSet() -> NSMutableCharacterSet
-  class func uppercaseLetterCharacterSet() -> NSMutableCharacterSet
-  class func nonBaseCharacterSet() -> NSMutableCharacterSet
-  class func alphanumericCharacterSet() -> NSMutableCharacterSet
-  class func decomposableCharacterSet() -> NSMutableCharacterSet
-  class func illegalCharacterSet() -> NSMutableCharacterSet
-  class func punctuationCharacterSet() -> NSMutableCharacterSet
-  class func capitalizedLetterCharacterSet() -> NSMutableCharacterSet
-  class func symbolCharacterSet() -> NSMutableCharacterSet
-  @available(watchOS 2.0, *)
-  class func newlineCharacterSet() -> NSMutableCharacterSet
-  /*not inherited*/ init(range aRange: NSRange)
-  /*not inherited*/ init(charactersInString aString: String)
-  /*not inherited*/ init(bitmapRepresentation data: NSData)
-  /*not inherited*/ init?(contentsOfFile fName: String)
-  init(coder aDecoder: NSCoder)
-  convenience init()
 }

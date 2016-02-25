@@ -3,7 +3,7 @@
 let HMErrorDomain: String
 @available(watchOS 20000, *)
 enum HMErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AlreadyExists
   case NotFound

@@ -7,5 +7,5 @@ let WebPlugInContainingElementKey: String
 let WebPlugInShouldLoadMainResourceKey: String
 protocol WebPlugInViewFactory : NSObjectProtocol {
   @available(OSX 10.0, *)
-  static func plugInViewWithArguments(arguments: [NSObject : AnyObject]!) -> NSView!
+  static func plugInViewWithArguments(_ arguments: [NSObject : AnyObject]!) -> NSView!
 }

@@ -12,7 +12,7 @@ struct InkPoint {
   var tabletPointData: TabletPointRec
   var keyModifiers: UInt32
   init()
-  init(point: HIPoint, tabletPointData: TabletPointRec, keyModifiers: UInt32)
+  init(point point: HIPoint, tabletPointData tabletPointData: TabletPointRec, keyModifiers keyModifiers: UInt32)
 }
 typealias InkPointPtr = UnsafeMutablePointer<InkPoint>
 typealias InkAlternateCount = CFIndex
@@ -76,44 +76,44 @@ var kInkPenUpperSideButtonMask: Int { get }
 @available(OSX 10.3, *)
 func InkUserWritingMode() -> InkUserWritingModeType
 @available(OSX 10.3, *)
-func InkSetApplicationWritingMode(iWriteWhere: InkApplicationWritingModeType)
+func InkSetApplicationWritingMode(_ iWriteWhere: InkApplicationWritingModeType)
 @available(OSX 10.3, *)
-func InkSetApplicationRecognitionMode(iRecognitionType: InkRecognitionType)
+func InkSetApplicationRecognitionMode(_ iRecognitionType: InkRecognitionType)
 @available(OSX 10.3, *)
-func InkSetPhraseTerminationMode(iSource: InkSourceType, _ iAllowedTerminationTypes: InkTerminationType)
+func InkSetPhraseTerminationMode(_ iSource: InkSourceType, _ iAllowedTerminationTypes: InkTerminationType)
 @available(OSX 10.3, *)
 func InkIsPhraseInProgress() -> Bool
 @available(OSX 10.3, *)
-func InkSetDrawingMode(iDrawingMode: InkDrawingModeType)
+func InkSetDrawingMode(_ iDrawingMode: InkDrawingModeType)
 @available(OSX 10.3, *)
-func InkAddStrokeToCurrentPhrase(iPointCount: UInt, _ iPointArray: UnsafeMutablePointer<InkPoint>)
+func InkAddStrokeToCurrentPhrase(_ iPointCount: UInt, _ iPointArray: UnsafeMutablePointer<InkPoint>)
 @available(OSX 10.3, *)
-func InkTerminateCurrentPhrase(iSource: InkSourceType)
+func InkTerminateCurrentPhrase(_ iSource: InkSourceType)
 @available(OSX 10.3, *)
-func InkTextAlternatesCount(iTextRef: InkText!) -> CFIndex
+func InkTextAlternatesCount(_ iTextRef: InkText!) -> CFIndex
 @available(OSX 10.3, *)
-func InkTextCreateCFString(iTextRef: InkText!, _ iAlternateIndex: CFIndex) -> Unmanaged<CFString>!
+func InkTextCreateCFString(_ iTextRef: InkText!, _ iAlternateIndex: CFIndex) -> Unmanaged<CFString>!
 @available(OSX 10.3, *)
-func InkTextKeyModifiers(iTextRef: InkText!) -> UInt32
+func InkTextKeyModifiers(_ iTextRef: InkText!) -> UInt32
 @available(OSX 10.3, *)
-func InkTextCopy(iTextRef: InkText!) -> Unmanaged<InkText>!
+func InkTextCopy(_ iTextRef: InkText!) -> Unmanaged<InkText>!
 @available(OSX 10.3, *)
-func InkTextBounds(iTextRef: InkText!) -> HIRect
+func InkTextBounds(_ iTextRef: InkText!) -> HIRect
 @available(OSX 10.3, *)
-func InkTextDraw(iTextRef: InkText!, _ iContext: CGContext!, _ iBounds: UnsafePointer<CGRect>, _ iFlags: InkTextDrawFlagsType)
+func InkTextDraw(_ iTextRef: InkText!, _ iContext: CGContext!, _ iBounds: UnsafePointer<CGRect>, _ iFlags: InkTextDrawFlagsType)
 @available(OSX 10.3, *)
-func InkTextFlatten(iTextRef: InkText!, _ ioDataRef: CFMutableData!, _ iIndex: CFIndex) -> CFIndex
+func InkTextFlatten(_ iTextRef: InkText!, _ ioDataRef: CFMutableData!, _ iIndex: CFIndex) -> CFIndex
 @available(OSX 10.3, *)
-func InkTextCreateFromCFData(iFlattenedInkText: CFData!, _ iIndex: CFIndex) -> Unmanaged<InkText>!
+func InkTextCreateFromCFData(_ iFlattenedInkText: CFData!, _ iIndex: CFIndex) -> Unmanaged<InkText>!
 @available(OSX 10.4, *)
 func InkTextGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func InkTextGetStrokeCount(iTextRef: InkText!) -> CFIndex
+func InkTextGetStrokeCount(_ iTextRef: InkText!) -> CFIndex
 @available(OSX 10.4, *)
-func InkTextGetStroke(iTextRef: InkText!, _ iStrokeIndex: CFIndex) -> Unmanaged<InkStroke>!
+func InkTextGetStroke(_ iTextRef: InkText!, _ iStrokeIndex: CFIndex) -> Unmanaged<InkStroke>!
 @available(OSX 10.4, *)
-func InkStrokeGetPointCount(iStrokeRef: InkStroke!) -> CFIndex
+func InkStrokeGetPointCount(_ iStrokeRef: InkStroke!) -> CFIndex
 @available(OSX 10.4, *)
-func InkStrokeGetPoints(iStrokeRef: InkStroke!, _ oPointBuffer: UnsafeMutablePointer<InkPoint>) -> UnsafeMutablePointer<InkPoint>
+func InkStrokeGetPoints(_ iStrokeRef: InkStroke!, _ oPointBuffer: UnsafeMutablePointer<InkPoint>) -> UnsafeMutablePointer<InkPoint>
 @available(OSX 10.4, *)
 func InkStrokeGetTypeID() -> CFTypeID

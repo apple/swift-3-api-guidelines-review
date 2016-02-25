@@ -1,6 +1,6 @@
 
 enum SCNFilterMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 8.0, *)
   case None
@@ -10,7 +10,7 @@ enum SCNFilterMode : Int {
   case Linear
 }
 enum SCNWrapMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 8.0, *)
   case Clamp
@@ -24,7 +24,7 @@ enum SCNWrapMode : Int {
 @available(iOS 8.0, *)
 class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   @available(iOS 8.0, *)
-  convenience init(contents: AnyObject)
+  convenience init(contents contents: AnyObject)
   var contents: AnyObject?
   @available(iOS 8.0, *)
   var intensity: CGFloat
@@ -38,28 +38,27 @@ class SCNMaterialProperty : NSObject, SCNAnimatable, NSSecureCoding {
   var mappingChannel: Int
   @available(iOS 8.0, *)
   var maxAnisotropy: CGFloat
-  init()
   @available(iOS 8.0, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(iOS 8.0, *)
   func removeAllAnimations()
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(iOS 8.0, *)
   var animationKeys: [String] { get }
   @available(iOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(iOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(iOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(iOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(iOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

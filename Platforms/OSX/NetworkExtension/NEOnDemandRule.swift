@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEOnDemandRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Connect
   case Disconnect
@@ -10,7 +10,7 @@ enum NEOnDemandRuleAction : Int {
 }
 @available(OSX 10.10, *)
 enum NEOnDemandRuleInterfaceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(OSX 10.11, *)
   case Any
@@ -33,40 +33,31 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   var SSIDMatch: [String]?
   @available(OSX 10.10, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(OSX 10.10, *)
   var connectionRules: [NEEvaluateConnectionRule]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.10, *)
 enum NEEvaluateConnectionRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ConnectIfNeeded
   case NeverConnect
@@ -83,12 +74,11 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   var useDNSServers: [String]?
   @available(OSX 10.10, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

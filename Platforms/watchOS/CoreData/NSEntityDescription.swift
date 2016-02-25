@@ -1,8 +1,8 @@
 
 @available(watchOS 2.0, *)
 class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
-  class func entityForName(entityName: String, inManagedObjectContext context: NSManagedObjectContext) -> NSEntityDescription?
-  class func insertNewObjectForEntityForName(entityName: String, inManagedObjectContext context: NSManagedObjectContext) -> NSManagedObject
+  class func entityForName(_ entityName: String, inManagedObjectContext context: NSManagedObjectContext) -> NSEntityDescription?
+  class func insertNewObjectForEntityForName(_ entityName: String, inManagedObjectContext context: NSManagedObjectContext) -> NSManagedObject
   unowned(unsafe) var managedObjectModel: @sil_unmanaged NSManagedObjectModel { get }
   var managedObjectClassName: String!
   var name: String?
@@ -15,9 +15,9 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   var userInfo: [NSObject : AnyObject]?
   var attributesByName: [String : NSAttributeDescription] { get }
   var relationshipsByName: [String : NSRelationshipDescription] { get }
-  func relationshipsWithDestinationEntity(entity: NSEntityDescription) -> [NSRelationshipDescription]
+  func relationshipsWithDestinationEntity(_ entity: NSEntityDescription) -> [NSRelationshipDescription]
   @available(watchOS 2.0, *)
-  func isKindOfEntity(entity: NSEntityDescription) -> Bool
+  func isKindOfEntity(_ entity: NSEntityDescription) -> Bool
   @available(watchOS 2.0, *)
   @NSCopying var versionHash: NSData { get }
   @available(watchOS 2.0, *)
@@ -28,14 +28,13 @@ class NSEntityDescription : NSObject, NSCoding, NSCopying, NSFastEnumeration {
   var compoundIndexes: [[AnyObject]]
   @available(watchOS 2.0, *)
   var uniquenessConstraints: [[AnyObject]]
-  init()
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct __entityDescriptionFlags {
   var _isAbstract: UInt32
@@ -52,5 +51,5 @@ struct __entityDescriptionFlags {
   var _validationUniqueProperties: UInt32
   var _reservedEntityDescription: UInt32
   init()
-  init(_isAbstract: UInt32, _shouldValidateOnSave: UInt32, _isImmutable: UInt32, _isFlattened: UInt32, _skipValidation: UInt32, _hasPropertiesIndexedBySpotlight: UInt32, _hasPropertiesStoredInTruthFile: UInt32, _rangesAreInDataBlob: UInt32, _hasAttributesWithExternalDataReferences: UInt32, _hasNonstandardPrimitiveProperties: UInt32, _hasUniqueProperties: UInt32, _validationUniqueProperties: UInt32, _reservedEntityDescription: UInt32)
+  init(_isAbstract _isAbstract: UInt32, _shouldValidateOnSave _shouldValidateOnSave: UInt32, _isImmutable _isImmutable: UInt32, _isFlattened _isFlattened: UInt32, _skipValidation _skipValidation: UInt32, _hasPropertiesIndexedBySpotlight _hasPropertiesIndexedBySpotlight: UInt32, _hasPropertiesStoredInTruthFile _hasPropertiesStoredInTruthFile: UInt32, _rangesAreInDataBlob _rangesAreInDataBlob: UInt32, _hasAttributesWithExternalDataReferences _hasAttributesWithExternalDataReferences: UInt32, _hasNonstandardPrimitiveProperties _hasNonstandardPrimitiveProperties: UInt32, _hasUniqueProperties _hasUniqueProperties: UInt32, _validationUniqueProperties _validationUniqueProperties: UInt32, _reservedEntityDescription _reservedEntityDescription: UInt32)
 }

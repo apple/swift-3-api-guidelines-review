@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVImageType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Image
   case Fullscreen
@@ -13,5 +13,4 @@ class TVImageElement : TVViewElement {
   var URL: NSURL? { get }
   var srcset: [String : NSURL]? { get }
   var imageType: TVImageType { get }
-  init()
 }

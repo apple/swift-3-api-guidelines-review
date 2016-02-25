@@ -3,30 +3,30 @@ class GLKMatrixStack {
 }
 @available(*, deprecated, renamed="GLKMatrixStack")
 typealias GLKMatrixStackRef = GLKMatrixStack
-func GLKMatrixStackCreate(alloc: CFAllocator?) -> Unmanaged<GLKMatrixStack>?
+func GLKMatrixStackCreate(_ alloc: CFAllocator?) -> Unmanaged<GLKMatrixStack>?
 func GLKMatrixStackGetTypeID() -> CFTypeID
-func GLKMatrixStackPush(stack: GLKMatrixStack)
-func GLKMatrixStackPop(stack: GLKMatrixStack)
-func GLKMatrixStackSize(stack: GLKMatrixStack) -> Int32
-func GLKMatrixStackLoadMatrix4(stack: GLKMatrixStack, _ matrix: GLKMatrix4)
-func GLKMatrixStackGetMatrix4(stack: GLKMatrixStack) -> GLKMatrix4
-func GLKMatrixStackGetMatrix3(stack: GLKMatrixStack) -> GLKMatrix3
-func GLKMatrixStackGetMatrix2(stack: GLKMatrixStack) -> GLKMatrix2
-func GLKMatrixStackGetMatrix4Inverse(stack: GLKMatrixStack) -> GLKMatrix4
-func GLKMatrixStackGetMatrix4InverseTranspose(stack: GLKMatrixStack) -> GLKMatrix4
-func GLKMatrixStackGetMatrix3Inverse(stack: GLKMatrixStack) -> GLKMatrix3
-func GLKMatrixStackGetMatrix3InverseTranspose(stack: GLKMatrixStack) -> GLKMatrix3
-func GLKMatrixStackMultiplyMatrix4(stack: GLKMatrixStack, _ matrix: GLKMatrix4)
-func GLKMatrixStackMultiplyMatrixStack(stackLeft: GLKMatrixStack, _ stackRight: GLKMatrixStack)
-func GLKMatrixStackTranslate(stack: GLKMatrixStack, _ tx: Float, _ ty: Float, _ tz: Float)
-func GLKMatrixStackTranslateWithVector3(stack: GLKMatrixStack, _ translationVector: GLKVector3)
-func GLKMatrixStackTranslateWithVector4(stack: GLKMatrixStack, _ translationVector: GLKVector4)
-func GLKMatrixStackScale(stack: GLKMatrixStack, _ sx: Float, _ sy: Float, _ sz: Float)
-func GLKMatrixStackScaleWithVector3(stack: GLKMatrixStack, _ scaleVector: GLKVector3)
-func GLKMatrixStackScaleWithVector4(stack: GLKMatrixStack, _ scaleVector: GLKVector4)
-func GLKMatrixStackRotate(stack: GLKMatrixStack, _ radians: Float, _ x: Float, _ y: Float, _ z: Float)
-func GLKMatrixStackRotateWithVector3(stack: GLKMatrixStack, _ radians: Float, _ axisVector: GLKVector3)
-func GLKMatrixStackRotateWithVector4(stack: GLKMatrixStack, _ radians: Float, _ axisVector: GLKVector4)
-func GLKMatrixStackRotateX(stack: GLKMatrixStack, _ radians: Float)
-func GLKMatrixStackRotateY(stack: GLKMatrixStack, _ radians: Float)
-func GLKMatrixStackRotateZ(stack: GLKMatrixStack, _ radians: Float)
+func GLKMatrixStackPush(_ stack: GLKMatrixStack)
+func GLKMatrixStackPop(_ stack: GLKMatrixStack)
+func GLKMatrixStackSize(_ stack: GLKMatrixStack) -> Int32
+func GLKMatrixStackLoadMatrix4(_ stack: GLKMatrixStack, _ matrix: GLKMatrix4)
+func GLKMatrixStackGetMatrix4(_ stack: GLKMatrixStack) -> GLKMatrix4
+func GLKMatrixStackGetMatrix3(_ stack: GLKMatrixStack) -> GLKMatrix3
+func GLKMatrixStackGetMatrix2(_ stack: GLKMatrixStack) -> GLKMatrix2
+func GLKMatrixStackGetMatrix4Inverse(_ stack: GLKMatrixStack) -> GLKMatrix4
+func GLKMatrixStackGetMatrix4InverseTranspose(_ stack: GLKMatrixStack) -> GLKMatrix4
+func GLKMatrixStackGetMatrix3Inverse(_ stack: GLKMatrixStack) -> GLKMatrix3
+func GLKMatrixStackGetMatrix3InverseTranspose(_ stack: GLKMatrixStack) -> GLKMatrix3
+func GLKMatrixStackMultiplyMatrix4(_ stack: GLKMatrixStack, _ matrix: GLKMatrix4)
+func GLKMatrixStackMultiplyMatrixStack(_ stackLeft: GLKMatrixStack, _ stackRight: GLKMatrixStack)
+func GLKMatrixStackTranslate(_ stack: GLKMatrixStack, _ tx: Float, _ ty: Float, _ tz: Float)
+func GLKMatrixStackTranslateWithVector3(_ stack: GLKMatrixStack, _ translationVector: GLKVector3)
+func GLKMatrixStackTranslateWithVector4(_ stack: GLKMatrixStack, _ translationVector: GLKVector4)
+func GLKMatrixStackScale(_ stack: GLKMatrixStack, _ sx: Float, _ sy: Float, _ sz: Float)
+func GLKMatrixStackScaleWithVector3(_ stack: GLKMatrixStack, _ scaleVector: GLKVector3)
+func GLKMatrixStackScaleWithVector4(_ stack: GLKMatrixStack, _ scaleVector: GLKVector4)
+func GLKMatrixStackRotate(_ stack: GLKMatrixStack, _ radians: Float, _ x: Float, _ y: Float, _ z: Float)
+func GLKMatrixStackRotateWithVector3(_ stack: GLKMatrixStack, _ radians: Float, _ axisVector: GLKVector3)
+func GLKMatrixStackRotateWithVector4(_ stack: GLKMatrixStack, _ radians: Float, _ axisVector: GLKVector4)
+func GLKMatrixStackRotateX(_ stack: GLKMatrixStack, _ radians: Float)
+func GLKMatrixStackRotateY(_ stack: GLKMatrixStack, _ radians: Float)
+func GLKMatrixStackRotateZ(_ stack: GLKMatrixStack, _ radians: Float)

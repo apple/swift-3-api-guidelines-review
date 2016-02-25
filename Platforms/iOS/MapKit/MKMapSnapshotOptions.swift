@@ -9,7 +9,6 @@ class MKMapSnapshotOptions : NSObject, NSCopying {
   var showsBuildings: Bool
   var size: CGSize
   var scale: CGFloat
-  init()
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

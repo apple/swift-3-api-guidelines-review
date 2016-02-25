@@ -5,7 +5,6 @@ class NSManagedObjectID : NSObject, NSCopying {
   weak var persistentStore: @sil_weak NSPersistentStore? { get }
   var temporaryID: Bool { get }
   func URIRepresentation() -> NSURL
-  init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

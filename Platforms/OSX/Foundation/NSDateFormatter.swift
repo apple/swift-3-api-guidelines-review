@@ -2,17 +2,17 @@
 class NSDateFormatter : NSFormatter {
   @available(OSX 10.10, *)
   var formattingContext: NSFormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
-  func stringFromDate(date: NSDate) -> String
-  func dateFromString(string: String) -> NSDate?
+  func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, range rangep: UnsafeMutablePointer<NSRange>) throws
+  func stringFromDate(_ date: NSDate) -> String
+  func dateFromString(_ string: String) -> NSDate?
   @available(OSX 10.6, *)
-  class func localizedStringFromDate(date: NSDate, dateStyle dstyle: NSDateFormatterStyle, timeStyle tstyle: NSDateFormatterStyle) -> String
+  class func localizedStringFromDate(_ date: NSDate, dateStyle dstyle: NSDateFormatterStyle, timeStyle tstyle: NSDateFormatterStyle) -> String
   @available(OSX 10.6, *)
-  class func dateFormatFromTemplate(tmplate: String, options opts: Int, locale: NSLocale?) -> String?
+  class func dateFormatFromTemplate(_ tmplate: String, options opts: Int, locale locale: NSLocale?) -> String?
   class func defaultFormatterBehavior() -> NSDateFormatterBehavior
-  class func setDefaultFormatterBehavior(behavior: NSDateFormatterBehavior)
+  class func setDefaultFormatterBehavior(_ behavior: NSDateFormatterBehavior)
   @available(OSX 10.10, *)
-  func setLocalizedDateFormatFromTemplate(dateFormatTemplate: String)
+  func setLocalizedDateFormatFromTemplate(_ dateFormatTemplate: String)
   var dateFormat: String!
   var dateStyle: NSDateFormatterStyle
   var timeStyle: NSDateFormatterStyle
@@ -61,11 +61,9 @@ class NSDateFormatter : NSFormatter {
   @NSCopying var gregorianStartDate: NSDate?
   @available(OSX 10.6, *)
   var doesRelativeDateFormatting: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 enum NSDateFormatterStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NoStyle
   case ShortStyle
@@ -74,7 +72,7 @@ enum NSDateFormatterStyle : UInt {
   case FullStyle
 }
 enum NSDateFormatterBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case BehaviorDefault
   case Behavior10_0

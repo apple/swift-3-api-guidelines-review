@@ -12,15 +12,15 @@ class SCNScene : NSObject, NSSecureCoding {
   var rootNode: SCNNode { get }
   @available(iOS 8.0, *)
   var physicsWorld: SCNPhysicsWorld { get }
-  func attributeForKey(key: String) -> AnyObject?
-  func setAttribute(attribute: AnyObject?, forKey key: String)
+  func attributeForKey(_ key: String) -> AnyObject?
+  func setAttribute(_ attribute: AnyObject?, forKey key: String)
   @available(iOS 8.0, *)
   var background: SCNMaterialProperty { get }
   @available(iOS 8.0, *)
   convenience init?(named name: String)
   @available(iOS 8.0, *)
-  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]?)
-  convenience init(URL url: NSURL, options: [String : AnyObject]?) throws
+  convenience init?(named name: String, inDirectory directory: String?, options options: [String : AnyObject]?)
+  convenience init(URL url: NSURL, options options: [String : AnyObject]?) throws
   @available(iOS 8.0, *)
   var fogStartDistance: CGFloat
   @available(iOS 8.0, *)
@@ -31,10 +31,9 @@ class SCNScene : NSObject, NSSecureCoding {
   var fogColor: AnyObject
   @available(iOS 8.0, *)
   var paused: Bool
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

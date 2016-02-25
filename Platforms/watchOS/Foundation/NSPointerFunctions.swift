@@ -1,7 +1,7 @@
 
 var __FOUNDATION_NSPOINTERFUNCTIONS__: Int32 { get }
 struct NSPointerFunctionsOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   @available(watchOS 2.0, *)
   static var StrongMemory: NSPointerFunctionsOptions { get }
@@ -30,7 +30,7 @@ struct NSPointerFunctionsOptions : OptionSetType {
 }
 @available(watchOS 2.0, *)
 class NSPointerFunctions : NSObject, NSCopying {
-  init(options: NSPointerFunctionsOptions)
+  init(options options: NSPointerFunctionsOptions)
   var hashFunction: (@convention(c) (UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> Int)?
   var isEqualFunction: (@convention(c) (UnsafePointer<Void>, UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?) -> ObjCBool)?
   var sizeFunction: (@convention(c) (UnsafePointer<Void>) -> Int)?
@@ -39,7 +39,6 @@ class NSPointerFunctions : NSObject, NSCopying {
   var acquireFunction: (@convention(c) (UnsafePointer<Void>, (@convention(c) (UnsafePointer<Void>) -> Int)?, ObjCBool) -> UnsafeMutablePointer<Void>)?
   var usesStrongWriteBarrier: Bool
   var usesWeakReadAndWriteBarriers: Bool
-  convenience init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

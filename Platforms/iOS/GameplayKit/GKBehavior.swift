@@ -2,17 +2,16 @@
 @available(iOS 9.0, *)
 class GKBehavior : NSObject, NSFastEnumeration {
   var goalCount: Int { get }
-  convenience init(goal: GKGoal, weight: Float)
-  convenience init(goals: [GKGoal])
-  convenience init(goals: [GKGoal], andWeights weights: [NSNumber])
-  convenience init(weightedGoals: [GKGoal : NSNumber])
-  func setWeight(weight: Float, forGoal goal: GKGoal)
-  func weightForGoal(goal: GKGoal) -> Float
-  func removeGoal(goal: GKGoal)
+  convenience init(goal goal: GKGoal, weight weight: Float)
+  convenience init(goals goals: [GKGoal])
+  convenience init(goals goals: [GKGoal], andWeights weights: [NSNumber])
+  convenience init(weightedGoals weightedGoals: [GKGoal : NSNumber])
+  func setWeight(_ weight: Float, forGoal goal: GKGoal)
+  func weightForGoal(_ goal: GKGoal) -> Float
+  func removeGoal(_ goal: GKGoal)
   func removeAllGoals()
-  subscript (idx: Int) -> GKGoal { get }
-  subscript (goal: GKGoal) -> NSNumber
-  init()
+  subscript(_ idx: Int) -> GKGoal { get }
+  subscript(_ goal: GKGoal) -> NSNumber
   @available(iOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

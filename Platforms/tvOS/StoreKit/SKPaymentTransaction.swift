@@ -1,7 +1,7 @@
 
 @available(tvOS 3.0, *)
 enum SKPaymentTransactionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Purchasing
   case Purchased
@@ -26,5 +26,4 @@ class SKPaymentTransaction : NSObject {
   var transactionIdentifier: String? { get }
   @available(tvOS 3.0, *)
   var transactionState: SKPaymentTransactionState { get }
-  init()
 }

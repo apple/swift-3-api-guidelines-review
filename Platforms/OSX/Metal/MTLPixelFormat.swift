@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLPixelFormat : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Invalid
   case A8Unorm

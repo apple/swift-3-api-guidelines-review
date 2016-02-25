@@ -1,3 +1,3 @@
 
 @available(OSX 10.10, *)
-func SCNExportJavaScriptModule(context: JSContext)
+func SCNExportJavaScriptModule(_ context: JSContext)

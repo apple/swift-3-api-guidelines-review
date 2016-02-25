@@ -4,20 +4,20 @@ let SCNLightingModelBlinn: String
 let SCNLightingModelLambert: String
 let SCNLightingModelConstant: String
 enum SCNCullMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Back
   case Front
 }
 enum SCNTransparencyMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AOne
   case RGBZero
 }
 @available(OSX 10.11, *)
 enum SCNBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Alpha
   case Add
@@ -56,38 +56,37 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   var fresnelExponent: CGFloat
   @available(OSX 10.11, *)
   var blendMode: SCNBlendMode
-  init()
   @available(OSX 10.8, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.8, *)
   func removeAllAnimations()
   @available(OSX 10.8, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(OSX 10.8, *)
   var animationKeys: [String] { get }
   @available(OSX 10.8, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
   @available(OSX 10.8, *)
   var program: SCNProgram?
   @available(OSX 10.9, *)
-  func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  func handleBindingOfSymbol(_ symbol: String, usingBlock block: SCNBindingBlock?)
   @available(OSX 10.9, *)
-  func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  func handleUnbindingOfSymbol(_ symbol: String, usingBlock block: SCNBindingBlock?)
   @available(OSX 10.9, *)
   var shaderModifiers: [String : String]?
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

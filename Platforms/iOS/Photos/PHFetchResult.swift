@@ -2,21 +2,20 @@
 @available(iOS 8.0, *)
 class PHFetchResult : NSObject, NSCopying, NSFastEnumeration {
   var count: Int { get }
-  func objectAtIndex(index: Int) -> AnyObject
-  subscript (idx: Int) -> AnyObject { get }
-  func containsObject(anObject: AnyObject) -> Bool
-  func indexOfObject(anObject: AnyObject) -> Int
-  func indexOfObject(anObject: AnyObject, inRange range: NSRange) -> Int
+  func objectAtIndex(_ index: Int) -> AnyObject
+  subscript(_ idx: Int) -> AnyObject { get }
+  func containsObject(_ anObject: AnyObject) -> Bool
+  func indexOfObject(_ anObject: AnyObject) -> Int
+  func indexOfObject(_ anObject: AnyObject, inRange range: NSRange) -> Int
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
-  func objectsAtIndexes(indexes: NSIndexSet) -> [AnyObject]
-  func enumerateObjectsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func enumerateObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
-  func countOfAssetsWithMediaType(mediaType: PHAssetMediaType) -> Int
-  init()
+  func objectsAtIndexes(_ indexes: NSIndexSet) -> [AnyObject]
+  func enumerateObjectsUsingBlock(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAtIndexes(_ s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func countOfAssetsWithMediaType(_ mediaType: PHAssetMediaType) -> Int
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 8.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

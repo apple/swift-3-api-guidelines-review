@@ -2,8 +2,6 @@
 @available(iOS 6.0, *)
 class UICollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   init(collectionViewLayout layout: UICollectionViewLayout)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
   var collectionView: UICollectionView?
   var clearsSelectionOnViewWillAppear: Bool
   @available(iOS 7.0, *)
@@ -12,85 +10,84 @@ class UICollectionViewController : UIViewController, UICollectionViewDelegate, U
   var collectionViewLayout: UICollectionViewLayout { get }
   @available(iOS 9.0, *)
   var installsStandardGestureForInteractiveMovement: Bool
-  convenience init()
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 8.0, *)
-  func collectionView(collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, atIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 7.0, *)
-  func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
+  func collectionView(_ collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canFocusItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool
+  func collectionView(_ collectionView: UICollectionView, shouldUpdateFocusInContext context: UICollectionViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func collectionView(_ collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  func indexPathForPreferredFocusedViewInCollectionView(collectionView: UICollectionView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewInCollectionView(_ collectionView: UICollectionView) -> NSIndexPath?
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
+  func collectionView(_ collectionView: UICollectionView, targetIndexPathForMoveFromItemAtIndexPath originalIndexPath: NSIndexPath, toProposedIndexPath proposedIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
+  func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint
   @available(iOS 6.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 6.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 6.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 6.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 6.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
   @available(iOS 6.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollToTop(_ scrollView: UIScrollView)
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+  func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
   @available(iOS 6.0, *)
-  func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+  func numberOfSectionsInCollectionView(_ collectionView: UICollectionView) -> Int
   @available(iOS 6.0, *)
-  func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool
+  func collectionView(_ collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  func collectionView(_ collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
 }

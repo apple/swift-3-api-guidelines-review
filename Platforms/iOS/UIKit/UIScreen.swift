@@ -8,7 +8,7 @@ let UIScreenModeDidChangeNotification: String
 @available(iOS 5.0, *)
 let UIScreenBrightnessDidChangeNotification: String
 enum UIScreenOverscanCompensation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Scale
   case InsetBounds
@@ -50,20 +50,19 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 8.0, *)
   var nativeScale: CGFloat { get }
   @available(iOS 4.0, *)
-  func displayLinkWithTarget(target: AnyObject, selector sel: Selector) -> CADisplayLink?
+  func displayLinkWithTarget(_ target: AnyObject, selector sel: Selector) -> CADisplayLink?
   @available(iOS 9.0, *)
   weak var focusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
   var supportsFocus: Bool { get }
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIScreen bounds]")
   var applicationFrame: CGRect { get }
-  init()
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
 }
 extension UIScreen {
   @available(iOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfterScreenUpdates(_ afterUpdates: Bool) -> UIView
 }

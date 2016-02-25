@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum PHAssetMediaType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Image
@@ -10,7 +10,7 @@ enum PHAssetMediaType : Int {
 }
 @available(OSX 10.11, *)
 struct PHAssetMediaSubtype : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: PHAssetMediaSubtype { get }
   static var PhotoPanorama: PHAssetMediaSubtype { get }

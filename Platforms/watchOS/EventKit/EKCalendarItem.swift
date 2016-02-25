@@ -28,11 +28,10 @@ class EKCalendarItem : EKObject {
   var hasNotes: Bool { get }
   var attendees: [EKParticipant]? { get }
   var alarms: [EKAlarm]?
-  func addAlarm(alarm: EKAlarm)
-  func removeAlarm(alarm: EKAlarm)
+  func addAlarm(_ alarm: EKAlarm)
+  func removeAlarm(_ alarm: EKAlarm)
   @available(watchOS 2.0, *)
   var recurrenceRules: [EKRecurrenceRule]?
-  func addRecurrenceRule(rule: EKRecurrenceRule)
-  func removeRecurrenceRule(rule: EKRecurrenceRule)
-  init()
+  func addRecurrenceRule(_ rule: EKRecurrenceRule)
+  func removeRecurrenceRule(_ rule: EKRecurrenceRule)
 }

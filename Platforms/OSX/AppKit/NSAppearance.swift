@@ -4,14 +4,13 @@ class NSAppearance : NSObject, NSCoding {
   @available(OSX 10.9, *)
   var name: String { get }
   class func currentAppearance() -> NSAppearance
-  class func setCurrentAppearance(appearance: NSAppearance?)
+  class func setCurrentAppearance(_ appearance: NSAppearance?)
   /*not inherited*/ init?(named name: String)
-  init?(appearanceNamed name: String, bundle: NSBundle?)
+  init?(appearanceNamed name: String, bundle bundle: NSBundle?)
   @available(OSX 10.10, *)
   var allowsVibrancy: Bool { get }
-  init()
   @available(OSX 10.9, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)

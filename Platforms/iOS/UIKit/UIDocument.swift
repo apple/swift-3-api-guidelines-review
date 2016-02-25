@@ -1,6 +1,6 @@
 
 enum UIDocumentChangeKind : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Done
   case Undone
@@ -8,13 +8,13 @@ enum UIDocumentChangeKind : Int {
   case Cleared
 }
 enum UIDocumentSaveOperation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ForCreating
   case ForOverwriting
 }
 struct UIDocumentState : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Normal: UIDocumentState { get }
   static var Closed: UIDocumentState { get }
@@ -33,67 +33,66 @@ class UIDocument : NSObject, NSFilePresenter, NSProgressReporting {
   var fileType: String? { get }
   @NSCopying var fileModificationDate: NSDate?
   var documentState: UIDocumentState { get }
-  func openWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
-  func closeWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
-  func loadFromContents(contents: AnyObject, ofType typeName: String?) throws
-  func contentsForType(typeName: String) throws -> AnyObject
+  func openWithCompletionHandler(_ completionHandler: ((Bool) -> Void)?)
+  func closeWithCompletionHandler(_ completionHandler: ((Bool) -> Void)?)
+  func loadFromContents(_ contents: AnyObject, ofType typeName: String?) throws
+  func contentsForType(_ typeName: String) throws -> AnyObject
   func disableEditing()
   func enableEditing()
   var undoManager: NSUndoManager!
   func hasUnsavedChanges() -> Bool
-  func updateChangeCount(change: UIDocumentChangeKind)
-  func changeCountTokenForSaveOperation(saveOperation: UIDocumentSaveOperation) -> AnyObject
-  func updateChangeCountWithToken(changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
-  func saveToURL(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler: ((Bool) -> Void)?)
-  func autosaveWithCompletionHandler(completionHandler: ((Bool) -> Void)?)
+  func updateChangeCount(_ change: UIDocumentChangeKind)
+  func changeCountTokenForSaveOperation(_ saveOperation: UIDocumentSaveOperation) -> AnyObject
+  func updateChangeCountWithToken(_ changeCountToken: AnyObject, forSaveOperation saveOperation: UIDocumentSaveOperation)
+  func saveToURL(_ url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, completionHandler completionHandler: ((Bool) -> Void)?)
+  func autosaveWithCompletionHandler(_ completionHandler: ((Bool) -> Void)?)
   func savingFileType() -> String?
-  func fileNameExtensionForType(typeName: String?, saveOperation: UIDocumentSaveOperation) -> String
-  func writeContents(contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]?, safelyToURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
-  func writeContents(contents: AnyObject, toURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL: NSURL?) throws
-  func fileAttributesToWriteToURL(url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
-  func readFromURL(url: NSURL) throws
-  func performAsynchronousFileAccessUsingBlock(block: () -> Void)
-  func handleError(error: NSError, userInteractionPermitted: Bool)
-  func finishedHandlingError(error: NSError, recovered: Bool)
-  func userInteractionNoLongerPermittedForError(error: NSError)
-  func revertToContentsOfURL(url: NSURL, completionHandler: ((Bool) -> Void)?)
-  convenience init()
+  func fileNameExtensionForType(_ typeName: String?, saveOperation saveOperation: UIDocumentSaveOperation) -> String
+  func writeContents(_ contents: AnyObject, andAttributes additionalFileAttributes: [NSObject : AnyObject]?, safelyToURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws
+  func writeContents(_ contents: AnyObject, toURL url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation, originalContentsURL originalContentsURL: NSURL?) throws
+  func fileAttributesToWriteToURL(_ url: NSURL, forSaveOperation saveOperation: UIDocumentSaveOperation) throws -> [NSObject : AnyObject]
+  func readFromURL(_ url: NSURL) throws
+  func performAsynchronousFileAccessUsingBlock(_ block: () -> Void)
+  func handleError(_ error: NSError, userInteractionPermitted userInteractionPermitted: Bool)
+  func finishedHandlingError(_ error: NSError, recovered recovered: Bool)
+  func userInteractionNoLongerPermittedForError(_ error: NSError)
+  func revertToContentsOfURL(_ url: NSURL, completionHandler completionHandler: ((Bool) -> Void)?)
   @available(iOS 5.0, *)
   @NSCopying var presentedItemURL: NSURL? { get }
   @available(iOS 5.0, *)
   var presentedItemOperationQueue: NSOperationQueue { get }
   @available(iOS 5.0, *)
-  func relinquishPresentedItemToReader(reader: ((() -> Void)?) -> Void)
+  func relinquishPresentedItemToReader(_ reader: ((() -> Void)?) -> Void)
   @available(iOS 5.0, *)
-  func relinquishPresentedItemToWriter(writer: ((() -> Void)?) -> Void)
+  func relinquishPresentedItemToWriter(_ writer: ((() -> Void)?) -> Void)
   @available(iOS 5.0, *)
-  func savePresentedItemChangesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func savePresentedItemChangesWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(iOS 5.0, *)
-  func accommodatePresentedItemDeletionWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func accommodatePresentedItemDeletionWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(iOS 5.0, *)
-  func presentedItemDidMoveToURL(newURL: NSURL)
+  func presentedItemDidMoveToURL(_ newURL: NSURL)
   @available(iOS 5.0, *)
   func presentedItemDidChange()
   @available(iOS 5.0, *)
-  func presentedItemDidGainVersion(version: NSFileVersion)
+  func presentedItemDidGainVersion(_ version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedItemDidLoseVersion(version: NSFileVersion)
+  func presentedItemDidLoseVersion(_ version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedItemDidResolveConflictVersion(version: NSFileVersion)
+  func presentedItemDidResolveConflictVersion(_ version: NSFileVersion)
   @available(iOS 5.0, *)
-  func accommodatePresentedSubitemDeletionAtURL(url: NSURL, completionHandler: (NSError?) -> Void)
+  func accommodatePresentedSubitemDeletionAtURL(_ url: NSURL, completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 5.0, *)
-  func presentedSubitemDidAppearAtURL(url: NSURL)
+  func presentedSubitemDidAppearAtURL(_ url: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(oldURL: NSURL, didMoveToURL newURL: NSURL)
+  func presentedSubitemAtURL(_ oldURL: NSURL, didMoveToURL newURL: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemDidChangeAtURL(url: NSURL)
+  func presentedSubitemDidChangeAtURL(_ url: NSURL)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didGainVersion version: NSFileVersion)
+  func presentedSubitemAtURL(_ url: NSURL, didGainVersion version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didLoseVersion version: NSFileVersion)
+  func presentedSubitemAtURL(_ url: NSURL, didLoseVersion version: NSFileVersion)
   @available(iOS 5.0, *)
-  func presentedSubitemAtURL(url: NSURL, didResolveConflictVersion version: NSFileVersion)
+  func presentedSubitemAtURL(_ url: NSURL, didResolveConflictVersion version: NSFileVersion)
   @available(iOS 7.0, *)
   var progress: NSProgress { get }
 }
@@ -103,7 +102,7 @@ extension UIDocument {
   @available(iOS 8.0, *)
   var userActivity: NSUserActivity?
   @available(iOS 8.0, *)
-  func updateUserActivityState(userActivity: NSUserActivity)
+  func updateUserActivityState(_ userActivity: NSUserActivity)
   @available(iOS 8.0, *)
-  func restoreUserActivityState(userActivity: NSUserActivity)
+  func restoreUserActivityState(_ userActivity: NSUserActivity)
 }

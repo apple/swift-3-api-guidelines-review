@@ -2,8 +2,6 @@
 @available(OSX 10.8, *)
 let EKErrorDomain: String
 enum EKErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case EventNotMutable
   case NoCalendar
   case NoStartDate
@@ -39,6 +37,4 @@ enum EKErrorCode : Int {
 }
 
 extension EKErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

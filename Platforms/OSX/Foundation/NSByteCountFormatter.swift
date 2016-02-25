@@ -1,6 +1,6 @@
 
 struct NSByteCountFormatterUnits : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var UseDefault: NSByteCountFormatterUnits { get }
   static var UseBytes: NSByteCountFormatterUnits { get }
@@ -15,7 +15,7 @@ struct NSByteCountFormatterUnits : OptionSetType {
   static var UseAll: NSByteCountFormatterUnits { get }
 }
 enum NSByteCountFormatterCountStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case File
   case Memory
@@ -24,8 +24,8 @@ enum NSByteCountFormatterCountStyle : Int {
 }
 @available(OSX 10.8, *)
 class NSByteCountFormatter : NSFormatter {
-  class func stringFromByteCount(byteCount: Int64, countStyle: NSByteCountFormatterCountStyle) -> String
-  func stringFromByteCount(byteCount: Int64) -> String
+  class func stringFromByteCount(_ byteCount: Int64, countStyle countStyle: NSByteCountFormatterCountStyle) -> String
+  func stringFromByteCount(_ byteCount: Int64) -> String
   var allowedUnits: NSByteCountFormatterUnits
   var countStyle: NSByteCountFormatterCountStyle
   var allowsNonnumericFormatting: Bool
@@ -36,6 +36,4 @@ class NSByteCountFormatter : NSFormatter {
   var zeroPadsFractionDigits: Bool
   @available(OSX 10.10, *)
   var formattingContext: NSFormattingContext
-  init()
-  init?(coder aDecoder: NSCoder)
 }

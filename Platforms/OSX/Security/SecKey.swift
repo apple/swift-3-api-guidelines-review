@@ -27,14 +27,14 @@ var kSecKeyVerifyRecover: Int32 { get }
 var kSecKeyWrap: Int32 { get }
 var kSecKeyUnwrap: Int32 { get }
 enum SecCredentialType : uint32 {
-  init?(rawValue: uint32)
+  init?(rawValue rawValue: uint32)
   var rawValue: uint32 { get }
   case Default
   case WithUI
   case NoUI
 }
 enum SecPadding : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case None
   case PKCS1
@@ -44,7 +44,7 @@ enum SecPadding : UInt32 {
   case PKCS1SHA1
 }
 enum SecKeySizes : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case SecDefaultKeySize
   case Sec3DES192
@@ -65,19 +65,19 @@ let kSecPublicKeyAttrs: CFString
 @available(OSX 10.3, *)
 func SecKeyGetTypeID() -> CFTypeID
 @available(OSX 10.6, *)
-func SecKeyGetBlockSize(key: SecKey) -> Int
+func SecKeyGetBlockSize(_ key: SecKey) -> Int
 @available(OSX 10.7, *)
-func SecKeyGenerateSymmetric(parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
+func SecKeyGenerateSymmetric(_ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
 @available(OSX 10.7, *)
-func SecKeyCreateFromData(parameters: CFDictionary, _ keyData: CFData, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
+func SecKeyCreateFromData(_ parameters: CFDictionary, _ keyData: CFData, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
 @available(OSX 10.7, *)
-func SecKeyGeneratePair(parameters: CFDictionary, _ publicKey: UnsafeMutablePointer<SecKey?>, _ privateKey: UnsafeMutablePointer<SecKey?>) -> OSStatus
+func SecKeyGeneratePair(_ parameters: CFDictionary, _ publicKey: UnsafeMutablePointer<SecKey?>, _ privateKey: UnsafeMutablePointer<SecKey?>) -> OSStatus
 typealias SecKeyGeneratePairBlock = (SecKey, SecKey, CFError) -> Void
 @available(OSX 10.7, *)
-func SecKeyGeneratePairAsync(parameters: CFDictionary, _ deliveryQueue: dispatch_queue_t, _ result: SecKeyGeneratePairBlock)
+func SecKeyGeneratePairAsync(_ parameters: CFDictionary, _ deliveryQueue: dispatch_queue_t, _ result: SecKeyGeneratePairBlock)
 @available(OSX 10.7, *)
-func SecKeyDeriveFromPassword(password: CFString, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
+func SecKeyDeriveFromPassword(_ password: CFString, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
 @available(OSX 10.7, *)
-func SecKeyWrapSymmetric(keyToWrap: SecKey, _ wrappingKey: SecKey, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
+func SecKeyWrapSymmetric(_ keyToWrap: SecKey, _ wrappingKey: SecKey, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
 @available(OSX 10.7, *)
-func SecKeyUnwrapSymmetric(keyToUnwrap: UnsafeMutablePointer<Unmanaged<CFData>?>, _ unwrappingKey: SecKey, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?
+func SecKeyUnwrapSymmetric(_ keyToUnwrap: UnsafeMutablePointer<Unmanaged<CFData>?>, _ unwrappingKey: SecKey, _ parameters: CFDictionary, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecKey?

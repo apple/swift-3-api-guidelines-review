@@ -8,49 +8,48 @@ class UIDocumentInteractionController : NSObject, UIActionSheetDelegate {
   var name: String?
   var icons: [UIImage] { get }
   var annotation: AnyObject?
-  func presentOptionsMenuFromRect(rect: CGRect, inView view: UIView, animated: Bool) -> Bool
-  func presentOptionsMenuFromBarButtonItem(item: UIBarButtonItem, animated: Bool) -> Bool
-  func presentPreviewAnimated(animated: Bool) -> Bool
-  func presentOpenInMenuFromRect(rect: CGRect, inView view: UIView, animated: Bool) -> Bool
-  func presentOpenInMenuFromBarButtonItem(item: UIBarButtonItem, animated: Bool) -> Bool
-  func dismissPreviewAnimated(animated: Bool)
-  func dismissMenuAnimated(animated: Bool)
+  func presentOptionsMenuFromRect(_ rect: CGRect, inView view: UIView, animated animated: Bool) -> Bool
+  func presentOptionsMenuFromBarButtonItem(_ item: UIBarButtonItem, animated animated: Bool) -> Bool
+  func presentPreviewAnimated(_ animated: Bool) -> Bool
+  func presentOpenInMenuFromRect(_ rect: CGRect, inView view: UIView, animated animated: Bool) -> Bool
+  func presentOpenInMenuFromBarButtonItem(_ item: UIBarButtonItem, animated animated: Bool) -> Bool
+  func dismissPreviewAnimated(_ animated: Bool)
+  func dismissMenuAnimated(_ animated: Bool)
   var gestureRecognizers: [UIGestureRecognizer] { get }
-  init()
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+  func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func actionSheetCancel(actionSheet: UIActionSheet)
+  func actionSheetCancel(_ actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func willPresentActionSheet(actionSheet: UIActionSheet)
+  func willPresentActionSheet(_ actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func didPresentActionSheet(actionSheet: UIActionSheet)
+  func didPresentActionSheet(_ actionSheet: UIActionSheet)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func actionSheet(actionSheet: UIActionSheet, willDismissWithButtonIndex buttonIndex: Int)
+  func actionSheet(_ actionSheet: UIActionSheet, willDismissWithButtonIndex buttonIndex: Int)
   @available(iOS, introduced=2.0, deprecated=8.3)
-  func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int)
+  func actionSheet(_ actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int)
 }
 protocol UIDocumentInteractionControllerDelegate : NSObjectProtocol {
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController
+  optional func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerRectForPreview(controller: UIDocumentInteractionController) -> CGRect
+  optional func documentInteractionControllerRectForPreview(_ controller: UIDocumentInteractionController) -> CGRect
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerViewForPreview(controller: UIDocumentInteractionController) -> UIView?
+  optional func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView?
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerWillBeginPreview(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerWillBeginPreview(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerDidEndPreview(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerWillPresentOptionsMenu(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerWillPresentOptionsMenu(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidDismissOptionsMenu(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerWillPresentOpenInMenu(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerWillPresentOpenInMenu(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionControllerDidDismissOpenInMenu(controller: UIDocumentInteractionController)
+  optional func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController)
   @available(iOS 3.2, *)
-  optional func documentInteractionController(controller: UIDocumentInteractionController, willBeginSendingToApplication application: String?)
+  optional func documentInteractionController(_ controller: UIDocumentInteractionController, willBeginSendingToApplication application: String?)
   @available(iOS 3.2, *)
-  optional func documentInteractionController(controller: UIDocumentInteractionController, didEndSendingToApplication application: String?)
+  optional func documentInteractionController(_ controller: UIDocumentInteractionController, didEndSendingToApplication application: String?)
 }

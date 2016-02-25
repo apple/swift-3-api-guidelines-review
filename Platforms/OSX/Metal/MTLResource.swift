@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLPurgeableState : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case KeepCurrent
   case NonVolatile
@@ -10,14 +10,14 @@ enum MTLPurgeableState : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLCPUCacheMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DefaultCache
   case WriteCombined
 }
 @available(OSX 10.11, *)
 enum MTLStorageMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Shared
   @available(OSX 10.11, *)
@@ -28,7 +28,7 @@ var MTLResourceCPUCacheModeShift: Int32 { get }
 var MTLResourceStorageModeShift: Int32 { get }
 @available(OSX 10.11, *)
 struct MTLResourceOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var CPUCacheModeDefaultCache: MTLResourceOptions { get }
   static var CPUCacheModeWriteCombined: MTLResourceOptions { get }
@@ -48,5 +48,5 @@ protocol MTLResource : NSObjectProtocol {
   var cpuCacheMode: MTLCPUCacheMode { get }
   @available(OSX 10.11, *)
   var storageMode: MTLStorageMode { get }
-  func setPurgeableState(state: MTLPurgeableState) -> MTLPurgeableState
+  func setPurgeableState(_ state: MTLPurgeableState) -> MTLPurgeableState
 }

@@ -9,9 +9,6 @@ class NSLevelIndicator : NSControl {
   var tickMarkPosition: NSTickMarkPosition
   var numberOfTickMarks: Int
   var numberOfMajorTickMarks: Int
-  func tickMarkValueAtIndex(index: Int) -> Double
-  func rectOfTickMarkAtIndex(index: Int) -> NSRect
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
+  func tickMarkValueAtIndex(_ index: Int) -> Double
+  func rectOfTickMarkAtIndex(_ index: Int) -> NSRect
 }

@@ -1,6 +1,6 @@
 
 @available(OSX 10.5, *)
-func CFStringTokenizerCopyBestStringLanguage(string: CFString!, _ range: CFRange) -> CFString!
+func CFStringTokenizerCopyBestStringLanguage(_ string: CFString!, _ range: CFRange) -> CFString!
 @available(*, deprecated, renamed="CFStringTokenizer")
 typealias CFStringTokenizerRef = CFStringTokenizer
 class CFStringTokenizer {
@@ -13,7 +13,7 @@ var kCFStringTokenizerUnitWordBoundary: CFOptionFlags { get }
 var kCFStringTokenizerAttributeLatinTranscription: CFOptionFlags { get }
 var kCFStringTokenizerAttributeLanguage: CFOptionFlags { get }
 struct CFStringTokenizerTokenType : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var None: CFStringTokenizerTokenType { get }
   static var Normal: CFStringTokenizerTokenType { get }
@@ -26,16 +26,16 @@ struct CFStringTokenizerTokenType : OptionSetType {
 @available(OSX 10.5, *)
 func CFStringTokenizerGetTypeID() -> CFTypeID
 @available(OSX 10.5, *)
-func CFStringTokenizerCreate(alloc: CFAllocator!, _ string: CFString!, _ range: CFRange, _ options: CFOptionFlags, _ locale: CFLocale!) -> CFStringTokenizer!
+func CFStringTokenizerCreate(_ alloc: CFAllocator!, _ string: CFString!, _ range: CFRange, _ options: CFOptionFlags, _ locale: CFLocale!) -> CFStringTokenizer!
 @available(OSX 10.5, *)
-func CFStringTokenizerSetString(tokenizer: CFStringTokenizer!, _ string: CFString!, _ range: CFRange)
+func CFStringTokenizerSetString(_ tokenizer: CFStringTokenizer!, _ string: CFString!, _ range: CFRange)
 @available(OSX 10.5, *)
-func CFStringTokenizerGoToTokenAtIndex(tokenizer: CFStringTokenizer!, _ index: CFIndex) -> CFStringTokenizerTokenType
+func CFStringTokenizerGoToTokenAtIndex(_ tokenizer: CFStringTokenizer!, _ index: CFIndex) -> CFStringTokenizerTokenType
 @available(OSX 10.5, *)
-func CFStringTokenizerAdvanceToNextToken(tokenizer: CFStringTokenizer!) -> CFStringTokenizerTokenType
+func CFStringTokenizerAdvanceToNextToken(_ tokenizer: CFStringTokenizer!) -> CFStringTokenizerTokenType
 @available(OSX 10.5, *)
-func CFStringTokenizerGetCurrentTokenRange(tokenizer: CFStringTokenizer!) -> CFRange
+func CFStringTokenizerGetCurrentTokenRange(_ tokenizer: CFStringTokenizer!) -> CFRange
 @available(OSX 10.5, *)
-func CFStringTokenizerCopyCurrentTokenAttribute(tokenizer: CFStringTokenizer!, _ attribute: CFOptionFlags) -> CFTypeRef!
+func CFStringTokenizerCopyCurrentTokenAttribute(_ tokenizer: CFStringTokenizer!, _ attribute: CFOptionFlags) -> CFTypeRef!
 @available(OSX 10.5, *)
-func CFStringTokenizerGetCurrentSubTokens(tokenizer: CFStringTokenizer!, _ ranges: UnsafeMutablePointer<CFRange>, _ maxRangeLength: CFIndex, _ derivedSubTokens: CFMutableArray!) -> CFIndex
+func CFStringTokenizerGetCurrentSubTokens(_ tokenizer: CFStringTokenizer!, _ ranges: UnsafeMutablePointer<CFRange>, _ maxRangeLength: CFIndex, _ derivedSubTokens: CFMutableArray!) -> CFIndex

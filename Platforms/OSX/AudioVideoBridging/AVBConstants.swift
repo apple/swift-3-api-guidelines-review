@@ -4,7 +4,7 @@ var AVB_MODERN_OBJC_RUNTIME: Int32 { get }
 var AVBMACAddressSize: Int32 { get }
 @available(OSX 10.8, *)
 enum AVB17221ADPEntityCapabilities : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(OSX 10.9, *)
   static var EFUMode: AVB17221ADPEntityCapabilities { get }
@@ -36,7 +36,7 @@ enum AVB17221ADPEntityCapabilities : UInt32 {
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPTalkerCapabilities : OptionSetType {
-  init(rawValue: UInt16)
+  init(rawValue rawValue: UInt16)
   let rawValue: UInt16
   static var Implemented: AVB17221ADPTalkerCapabilities { get }
   static var HasOtherSource: AVB17221ADPTalkerCapabilities { get }
@@ -49,7 +49,7 @@ struct AVB17221ADPTalkerCapabilities : OptionSetType {
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPListenerCapabilities : OptionSetType {
-  init(rawValue: UInt16)
+  init(rawValue rawValue: UInt16)
   let rawValue: UInt16
   static var Implemented: AVB17221ADPListenerCapabilities { get }
   static var HasOtherSink: AVB17221ADPListenerCapabilities { get }
@@ -62,14 +62,14 @@ struct AVB17221ADPListenerCapabilities : OptionSetType {
 }
 @available(OSX 10.8, *)
 struct AVB17221ADPControllerCapabilities : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Implemented: AVB17221ADPControllerCapabilities { get }
   static var HasLayer3Proxy: AVB17221ADPControllerCapabilities { get }
 }
 @available(OSX 10.8, *)
 enum AVB17221AECPMessageType : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case AEMCommand
   case AEMResponse
@@ -82,7 +82,7 @@ enum AVB17221AECPMessageType : UInt8 {
 }
 @available(OSX 10.8, *)
 enum AVB17221AECPStatusCode : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Success
   case NotImplemented
@@ -107,7 +107,7 @@ enum AVB17221AECPStatusCode : UInt8 {
 }
 @available(OSX 10.8, *)
 enum AVB17221ACMPMessageType : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case ConnectTXCommand
   case ConnectTXResponse
@@ -126,7 +126,7 @@ enum AVB17221ACMPMessageType : UInt8 {
 }
 @available(OSX 10.8, *)
 enum AVB17221ACMPStatusCode : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Success
   case ListenerUnknownID
@@ -150,7 +150,7 @@ enum AVB17221ACMPStatusCode : UInt8 {
 }
 @available(OSX 10.8, *)
 struct AVB17221ACMPFlags : OptionSetType {
-  init(rawValue: UInt16)
+  init(rawValue rawValue: UInt16)
   let rawValue: UInt16
   static var None: AVB17221ACMPFlags { get }
   static var ClassB: AVB17221ACMPFlags { get }
@@ -163,7 +163,7 @@ struct AVB17221ACMPFlags : OptionSetType {
 }
 @available(OSX 10.8, *)
 enum AVB17221AEMCommandType : UInt16 {
-  init?(rawValue: UInt16)
+  init?(rawValue rawValue: UInt16)
   var rawValue: UInt16 { get }
   case AcquireEntity
   case LockEntity
@@ -243,7 +243,7 @@ enum AVB17221AEMCommandType : UInt16 {
 }
 @available(OSX 10.9, *)
 enum AVB17221AECPAddressAccessTLVMode : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case Read
   case Write

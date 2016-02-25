@@ -11,13 +11,6 @@ class NSOpenPanel : NSSavePanel {
   var canDownloadUbiquitousContents: Bool
   @available(OSX 10.11, *)
   var accessoryViewDisclosed: Bool
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
-  @available(OSX 10.10, *)
-  convenience init(contentViewController: NSViewController)
-  convenience init()
-  init?(coder: NSCoder)
-  convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 extension NSOpenPanel {
 }

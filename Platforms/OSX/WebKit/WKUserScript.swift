@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum WKUserScriptInjectionTime : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AtDocumentStart
   case AtDocumentEnd
@@ -11,8 +11,7 @@ class WKUserScript : NSObject, NSCopying {
   var source: String { get }
   var injectionTime: WKUserScriptInjectionTime { get }
   var forMainFrameOnly: Bool { get }
-  init(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool)
-  init()
+  init(source source: String, injectionTime injectionTime: WKUserScriptInjectionTime, forMainFrameOnly forMainFrameOnly: Bool)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

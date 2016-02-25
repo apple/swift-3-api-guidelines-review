@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum PKPassLibraryAddPassesStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case DidAddPasses
   case ShouldReviewPasses
@@ -9,7 +9,7 @@ enum PKPassLibraryAddPassesStatus : Int {
 }
 @available(iOS 9.0, *)
 enum PKAutomaticPassPresentationSuppressionResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NotSupported
   case AlreadyPresenting
@@ -23,9 +23,9 @@ class PKPassLibrary : NSObject {
   @available(iOS 6.0, *)
   class func isPassLibraryAvailable() -> Bool
   @available(iOS 9.0, *)
-  class func requestAutomaticPassPresentationSuppressionWithResponseHandler(responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
+  class func requestAutomaticPassPresentationSuppressionWithResponseHandler(_ responseHandler: (PKAutomaticPassPresentationSuppressionResult) -> Void) -> PKSuppressionRequestToken
   @available(iOS 9.0, *)
-  class func endAutomaticPassPresentationSuppressionWithRequestToken(requestToken: PKSuppressionRequestToken)
+  class func endAutomaticPassPresentationSuppressionWithRequestToken(_ requestToken: PKSuppressionRequestToken)
   @available(iOS 9.0, *)
   class func isSuppressingAutomaticPassPresentation() -> Bool
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use -[PKPassLibrary isPaymentPassActivationAvailable] instead")
@@ -33,25 +33,24 @@ class PKPassLibrary : NSObject {
   @available(iOS 9.0, *)
   func isPaymentPassActivationAvailable() -> Bool
   func passes() -> [PKPass]
-  func passWithPassTypeIdentifier(identifier: String, serialNumber: String) -> PKPass?
+  func passWithPassTypeIdentifier(_ identifier: String, serialNumber serialNumber: String) -> PKPass?
   @available(iOS 8.0, *)
-  func passesOfType(passType: PKPassType) -> [PKPass]
+  func passesOfType(_ passType: PKPassType) -> [PKPass]
   @available(iOS 9.0, *)
   func remotePaymentPasses() -> [PKPaymentPass]
-  func removePass(pass: PKPass)
-  func containsPass(pass: PKPass) -> Bool
-  func replacePassWithPass(pass: PKPass) -> Bool
+  func removePass(_ pass: PKPass)
+  func containsPass(_ pass: PKPass) -> Bool
+  func replacePassWithPass(_ pass: PKPass) -> Bool
   @available(iOS 7.0, *)
-  func addPasses(passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)?)
+  func addPasses(_ passes: [PKPass], withCompletionHandler completion: ((PKPassLibraryAddPassesStatus) -> Void)?)
   @available(iOS 8.3, *)
   func openPaymentSetup()
   @available(iOS 9.0, *)
-  func canAddPaymentPassWithPrimaryAccountIdentifier(primaryAccountIdentifier: String) -> Bool
+  func canAddPaymentPassWithPrimaryAccountIdentifier(_ primaryAccountIdentifier: String) -> Bool
   @available(iOS 8.0, *)
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion: ((Bool, NSError) -> Void)?)
+  func activatePaymentPass(_ paymentPass: PKPaymentPass, withActivationData activationData: NSData, completion completion: ((Bool, NSError) -> Void)?)
   @available(iOS, introduced=8.0, deprecated=9.0, message="Use activatePaymentPass:withActivationData:completion: instead")
-  func activatePaymentPass(paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion: ((Bool, NSError) -> Void)?)
-  init()
+  func activatePaymentPass(_ paymentPass: PKPaymentPass, withActivationCode activationCode: String, completion completion: ((Bool, NSError) -> Void)?)
 }
 @available(iOS 6.0, *)
 let PKPassLibraryDidChangeNotification: String

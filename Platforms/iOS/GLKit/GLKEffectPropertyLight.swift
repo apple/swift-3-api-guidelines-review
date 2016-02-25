@@ -1,7 +1,7 @@
 
 @available(iOS 5.0, *)
 enum GLKLightingType : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case PerVertex
   case PerPixel
@@ -20,5 +20,4 @@ class GLKEffectPropertyLight : GLKEffectProperty {
   var linearAttenuation: GLfloat
   var quadraticAttenuation: GLfloat
   var transform: GLKEffectPropertyTransform
-  init()
 }

@@ -3,7 +3,7 @@
 let ACErrorDomain: String
 struct ACErrorCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var ACErrorUnknown: ACErrorCode { get }

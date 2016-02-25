@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum NSEnergyFormatterUnit : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Joule
   case Kilojoule
@@ -13,11 +13,8 @@ class NSEnergyFormatter : NSFormatter {
   @NSCopying var numberFormatter: NSNumberFormatter!
   var unitStyle: NSFormattingUnitStyle
   var forFoodEnergyUse: Bool
-  func stringFromValue(value: Double, unit: NSEnergyFormatterUnit) -> String
-  func stringFromJoules(numberInJoules: Double) -> String
-  func unitStringFromValue(value: Double, unit: NSEnergyFormatterUnit) -> String
-  func unitStringFromJoules(numberInJoules: Double, usedUnit unitp: UnsafeMutablePointer<NSEnergyFormatterUnit>) -> String
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
+  func stringFromValue(_ value: Double, unit unit: NSEnergyFormatterUnit) -> String
+  func stringFromJoules(_ numberInJoules: Double) -> String
+  func unitStringFromValue(_ value: Double, unit unit: NSEnergyFormatterUnit) -> String
+  func unitStringFromJoules(_ numberInJoules: Double, usedUnit unitp: UnsafeMutablePointer<NSEnergyFormatterUnit>) -> String
 }

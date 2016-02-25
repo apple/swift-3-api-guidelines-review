@@ -1,6 +1,6 @@
 
 struct AUGenericViewDisplayFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var ViewTitleDisplayFlag: AUGenericViewDisplayFlags { get }
   static var ViewPropertiesDisplayFlag: AUGenericViewDisplayFlags { get }
@@ -11,8 +11,5 @@ class AUGenericView : NSView, AUCustomViewPersistentData {
   var showsExpertParameters: Bool
   init(audioUnit au: AudioUnit)
   init(audioUnit inAudioUnit: AudioUnit, displayFlags inFlags: AUGenericViewDisplayFlags)
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
   var customViewPersistentData: [String : AnyObject]?
 }

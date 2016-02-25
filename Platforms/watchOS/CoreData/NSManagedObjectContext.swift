@@ -19,7 +19,7 @@ let NSInvalidatedObjectsKey: String
 let NSInvalidatedAllObjectsKey: String
 @available(watchOS 2.0, *)
 enum NSManagedObjectContextConcurrencyType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use another NSManagedObjectContextConcurrencyType")
   case ConfinementConcurrencyType
@@ -28,16 +28,12 @@ enum NSManagedObjectContextConcurrencyType : UInt {
 }
 @available(watchOS 2.0, *)
 class NSManagedObjectContext : NSObject, NSCoding {
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithConcurrencyType: instead")
-  class func new() -> Self
-  @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -initWithConcurrencyType: instead")
-  convenience init()
   @available(watchOS 2.0, *)
   init(concurrencyType ct: NSManagedObjectContextConcurrencyType)
   @available(watchOS 2.0, *)
-  func performBlock(block: () -> Void)
+  func performBlock(_ block: () -> Void)
   @available(watchOS 2.0, *)
-  func performBlockAndWait(block: () -> Void)
+  func performBlockAndWait(_ block: () -> Void)
   var persistentStoreCoordinator: NSPersistentStoreCoordinator?
   @available(watchOS 2.0, *)
   var parentContext: NSManagedObjectContext?
@@ -49,22 +45,21 @@ class NSManagedObjectContext : NSObject, NSCoding {
   var userInfo: NSMutableDictionary { get }
   @available(watchOS 2.0, *)
   var concurrencyType: NSManagedObjectContextConcurrencyType { get }
-  func objectRegisteredForID(objectID: NSManagedObjectID) -> NSManagedObject?
-  func objectWithID(objectID: NSManagedObjectID) -> NSManagedObject
+  func objectRegisteredForID(_ objectID: NSManagedObjectID) -> NSManagedObject?
+  func objectWithID(_ objectID: NSManagedObjectID) -> NSManagedObject
   @available(watchOS 2.0, *)
-  func existingObjectWithID(objectID: NSManagedObjectID) throws -> NSManagedObject
-  func executeFetchRequest(request: NSFetchRequest) throws -> [AnyObject]
+  func existingObjectWithID(_ objectID: NSManagedObjectID) throws -> NSManagedObject
+  func executeFetchRequest(_ request: NSFetchRequest) throws -> [AnyObject]
   @available(watchOS 2.0, *)
-  func countForFetchRequest(request: NSFetchRequest, error: NSErrorPointer) -> Int
+  func countForFetchRequest(_ request: NSFetchRequest, error error: NSErrorPointer) -> Int
   @available(watchOS 2.0, *)
-  func executeRequest(request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
-  func insertObject(object: NSManagedObject)
-  func deleteObject(object: NSManagedObject)
-  func refreshObject(object: NSManagedObject, mergeChanges flag: Bool)
-  func detectConflictsForObject(object: NSManagedObject)
-  func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  func executeRequest(_ request: NSPersistentStoreRequest) throws -> NSPersistentStoreResult
+  func insertObject(_ object: NSManagedObject)
+  func deleteObject(_ object: NSManagedObject)
+  func refreshObject(_ object: NSManagedObject, mergeChanges flag: Bool)
+  func detectConflictsForObject(_ object: NSManagedObject)
   func processPendingChanges()
-  func assignObject(object: AnyObject, toPersistentStore store: NSPersistentStore)
+  func assignObject(_ object: AnyObject, toPersistentStore store: NSPersistentStore)
   var insertedObjects: Set<NSManagedObject> { get }
   var updatedObjects: Set<NSManagedObject> { get }
   var deletedObjects: Set<NSManagedObject> { get }
@@ -81,17 +76,17 @@ class NSManagedObjectContext : NSObject, NSCoding {
   @available(watchOS 2.0, *)
   var shouldDeleteInaccessibleFaults: Bool
   @available(watchOS 2.0, *)
-  func shouldHandleInaccessibleFault(fault: NSManagedObject, forObjectID oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
+  func shouldHandleInaccessibleFault(_ fault: NSManagedObject, forObjectID oid: NSManagedObjectID, triggeredByProperty property: NSPropertyDescription?) -> Bool
   var stalenessInterval: NSTimeInterval
   var mergePolicy: AnyObject
   @available(watchOS 2.0, *)
-  func obtainPermanentIDsForObjects(objects: [NSManagedObject]) throws
+  func obtainPermanentIDsForObjects(_ objects: [NSManagedObject]) throws
   @available(watchOS 2.0, *)
-  func mergeChangesFromContextDidSaveNotification(notification: NSNotification)
+  func mergeChangesFromContextDidSaveNotification(_ notification: NSNotification)
   @available(watchOS 2.0, *)
-  class func mergeChangesFromRemoteContextSave(changeNotificationData: [NSObject : AnyObject], intoContexts contexts: [NSManagedObjectContext])
+  class func mergeChangesFromRemoteContextSave(_ changeNotificationData: [NSObject : AnyObject], intoContexts contexts: [NSManagedObjectContext])
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct _managedObjectContextFlags {
@@ -120,5 +115,5 @@ struct _managedObjectContextFlags {
   var _deleteInaccessible: UInt32
   var _reservedFlags: UInt32
   init()
-  init(_registeredForCallback: UInt32, _propagatesDeletesAtEndOfEvent: UInt32, _exhaustiveValidation: UInt32, _processingChanges: UInt32, _useCommittedSnapshot: UInt32, _registeredUndoTransactionID: UInt32, _retainsAllRegisteredObjects: UInt32, _savingInProgress: UInt32, _wasDisposed: UInt32, _unprocessedChangesPending: UInt32, _isDirty: UInt32, _ignoreUndoCheckpoints: UInt32, _propagatingDeletes: UInt32, _isNSEditorEditing: UInt32, _isMainThreadBlessed: UInt32, _isImportContext: UInt32, _preflightSaveInProgress: UInt32, _disableDiscardEditing: UInt32, _isParentStoreContext: UInt32, _postSaveNotifications: UInt32, _isMerging: UInt32, _concurrencyType: UInt32, _deleteInaccessible: UInt32, _reservedFlags: UInt32)
+  init(_registeredForCallback _registeredForCallback: UInt32, _propagatesDeletesAtEndOfEvent _propagatesDeletesAtEndOfEvent: UInt32, _exhaustiveValidation _exhaustiveValidation: UInt32, _processingChanges _processingChanges: UInt32, _useCommittedSnapshot _useCommittedSnapshot: UInt32, _registeredUndoTransactionID _registeredUndoTransactionID: UInt32, _retainsAllRegisteredObjects _retainsAllRegisteredObjects: UInt32, _savingInProgress _savingInProgress: UInt32, _wasDisposed _wasDisposed: UInt32, _unprocessedChangesPending _unprocessedChangesPending: UInt32, _isDirty _isDirty: UInt32, _ignoreUndoCheckpoints _ignoreUndoCheckpoints: UInt32, _propagatingDeletes _propagatingDeletes: UInt32, _isNSEditorEditing _isNSEditorEditing: UInt32, _isMainThreadBlessed _isMainThreadBlessed: UInt32, _isImportContext _isImportContext: UInt32, _preflightSaveInProgress _preflightSaveInProgress: UInt32, _disableDiscardEditing _disableDiscardEditing: UInt32, _isParentStoreContext _isParentStoreContext: UInt32, _postSaveNotifications _postSaveNotifications: UInt32, _isMerging _isMerging: UInt32, _concurrencyType _concurrencyType: UInt32, _deleteInaccessible _deleteInaccessible: UInt32, _reservedFlags _reservedFlags: UInt32)
 }

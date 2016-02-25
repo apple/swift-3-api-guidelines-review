@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLVertexFormat : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Invalid
   case UChar2
@@ -48,7 +48,7 @@ enum MTLVertexFormat : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLVertexStepFunction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Constant
   case PerVertex
@@ -59,35 +59,30 @@ class MTLVertexBufferLayoutDescriptor : NSObject, NSCopying {
   var stride: Int
   var stepFunction: MTLVertexStepFunction
   var stepRate: Int
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexBufferLayoutDescriptorArray : NSObject {
-  subscript (index: Int) -> MTLVertexBufferLayoutDescriptor!
-  init()
+  subscript(_ index: Int) -> MTLVertexBufferLayoutDescriptor!
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptor : NSObject, NSCopying {
   var format: MTLVertexFormat
   var offset: Int
   var bufferIndex: Int
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTLVertexAttributeDescriptorArray : NSObject {
-  subscript (index: Int) -> MTLVertexAttributeDescriptor!
-  init()
+  subscript(_ index: Int) -> MTLVertexAttributeDescriptor!
 }
 @available(OSX 10.11, *)
 class MTLVertexDescriptor : NSObject, NSCopying {
   var layouts: MTLVertexBufferLayoutDescriptorArray { get }
   var attributes: MTLVertexAttributeDescriptorArray { get }
   func reset()
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

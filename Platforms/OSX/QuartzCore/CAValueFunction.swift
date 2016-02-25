@@ -1,9 +1,8 @@
 
 class CAValueFunction : NSObject, NSCoding {
-  convenience init?(name: String)
+  convenience init?(name name: String)
   var name: String { get }
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.6, *)

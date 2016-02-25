@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum MTLCompareFunction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Never
   case Less
@@ -14,7 +14,7 @@ enum MTLCompareFunction : UInt {
 }
 @available(iOS 8.0, *)
 enum MTLStencilOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Keep
   case Zero
@@ -33,9 +33,8 @@ class MTLStencilDescriptor : NSObject, NSCopying {
   var depthStencilPassOperation: MTLStencilOperation
   var readMask: UInt32
   var writeMask: UInt32
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 class MTLDepthStencilDescriptor : NSObject, NSCopying {
@@ -44,9 +43,8 @@ class MTLDepthStencilDescriptor : NSObject, NSCopying {
   @NSCopying var frontFaceStencil: MTLStencilDescriptor!
   @NSCopying var backFaceStencil: MTLStencilDescriptor!
   var label: String?
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLDepthStencilState : NSObjectProtocol {

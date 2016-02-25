@@ -21,7 +21,7 @@ class DOMEvent : DOMObject {
   func stopPropagation()
   func preventDefault()
   @available(OSX 10.5, *)
-  func initEvent(eventTypeArg: String!, canBubbleArg: Bool, cancelableArg: Bool)
+  func initEvent(_ eventTypeArg: String!, canBubbleArg canBubbleArg: Bool, cancelableArg cancelableArg: Bool)
 }
 extension DOMEvent {
 }

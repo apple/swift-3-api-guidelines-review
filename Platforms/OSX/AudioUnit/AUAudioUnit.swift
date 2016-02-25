@@ -5,7 +5,7 @@ var AUEventSampleTimeImmediate: AUEventSampleTime { get }
 typealias AUAudioFrameCount = UInt32
 typealias AUAudioChannelCount = UInt32
 enum AUAudioUnitBusType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Input
   case Output
@@ -17,7 +17,7 @@ typealias AUScheduleParameterBlock = (AUEventSampleTime, AUAudioFrameCount, AUPa
 typealias AUScheduleMIDIEventBlock = (AUEventSampleTime, UInt8, Int, UnsafePointer<UInt8>) -> Void
 typealias AUHostMusicalContextBlock = (UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Int>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Int>, UnsafeMutablePointer<Double>) -> Bool
 struct AUHostTransportStateFlags : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Changed: AUHostTransportStateFlags { get }
   static var Moving: AUHostTransportStateFlags { get }
@@ -27,9 +27,9 @@ struct AUHostTransportStateFlags : OptionSetType {
 typealias AUHostTransportStateBlock = (UnsafeMutablePointer<AUHostTransportStateFlags>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>, UnsafeMutablePointer<Double>) -> Bool
 @available(OSX 10.11, *)
 class AUAudioUnit : NSObject {
-  init(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions) throws
-  convenience init(componentDescription: AudioComponentDescription) throws
-  class func instantiateWithComponentDescription(componentDescription: AudioComponentDescription, options: AudioComponentInstantiationOptions, completionHandler: (AUAudioUnit?, NSError?) -> Void)
+  init(componentDescription componentDescription: AudioComponentDescription, options options: AudioComponentInstantiationOptions) throws
+  convenience init(componentDescription componentDescription: AudioComponentDescription) throws
+  class func instantiateWithComponentDescription(_ componentDescription: AudioComponentDescription, options options: AudioComponentInstantiationOptions, completionHandler completionHandler: (AUAudioUnit?, NSError?) -> Void)
   var componentDescription: AudioComponentDescription { get }
   var component: AudioComponent { get }
   var componentName: String? { get }
@@ -44,11 +44,11 @@ class AUAudioUnit : NSObject {
   var outputBusses: AUAudioUnitBusArray { get }
   var renderBlock: AURenderBlock { get }
   var scheduleParameterBlock: AUScheduleParameterBlock { get }
-  func tokenByAddingRenderObserver(observer: AURenderObserver) -> Int
-  func removeRenderObserver(token: Int)
+  func tokenByAddingRenderObserver(_ observer: AURenderObserver) -> Int
+  func removeRenderObserver(_ token: Int)
   var maximumFramesToRender: AUAudioFrameCount
   var parameterTree: AUParameterTree? { get }
-  func parametersForOverviewWithCount(count: Int) -> [NSNumber]
+  func parametersForOverviewWithCount(_ count: Int) -> [NSNumber]
   var allParameterValues: Bool { get }
   var musicDeviceOrEffect: Bool { get }
   var virtualMIDICableCount: Int { get }
@@ -77,24 +77,24 @@ extension AUAudioUnit {
   var outputProvider: AURenderPullInputBlock?
   var inputHandler: AUInputHandler?
   var deviceID: AudioObjectID { get }
-  func setDeviceID(deviceID: AudioObjectID) throws
+  func setDeviceID(_ deviceID: AudioObjectID) throws
   func startHardware() throws
   func stopHardware()
 }
 @available(OSX 10.11, *)
 class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
-  init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
-  convenience init(audioUnit owner: AUAudioUnit, busType: AUAudioUnitBusType)
+  init(audioUnit owner: AUAudioUnit, busType busType: AUAudioUnitBusType, busses busArray: [AUAudioUnitBus])
+  convenience init(audioUnit owner: AUAudioUnit, busType busType: AUAudioUnitBusType)
   var count: Int { get }
-  subscript (index: Int) -> AUAudioUnitBus { get }
+  subscript(_ index: Int) -> AUAudioUnitBus { get }
   var countChangeable: Bool { get }
-  func setBusCount(count: Int) throws
-  func addObserverToAllBusses(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  func removeObserverFromAllBusses(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  func setBusCount(_ count: Int) throws
+  func addObserverToAllBusses(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions, context context: UnsafeMutablePointer<Void>)
+  func removeObserverFromAllBusses(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(OSX 10.11, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(OSX 10.11, *)
 class AUAudioUnitBus : NSObject {
@@ -105,16 +105,14 @@ class AUAudioUnitBus : NSObject {
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var supportedChannelLayoutTags: [NSNumber]? { get }
   var contextPresentationLatency: NSTimeInterval
-  init()
 }
 @available(OSX 10.11, *)
 class AUAudioUnitPreset : NSObject, NSSecureCoding {
   var number: Int
   var name: String
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

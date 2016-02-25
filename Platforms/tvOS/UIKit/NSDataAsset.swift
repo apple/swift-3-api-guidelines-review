@@ -1,11 +1,11 @@
 
 @available(tvOS 9.0, *)
 class NSDataAsset : NSObject, NSCopying {
-  convenience init?(name: String)
-  init?(name: String, bundle: NSBundle)
+  convenience init?(name name: String)
+  init?(name name: String, bundle bundle: NSBundle)
   var name: String { get }
   @NSCopying var data: NSData { get }
   var typeIdentifier: String { get }
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

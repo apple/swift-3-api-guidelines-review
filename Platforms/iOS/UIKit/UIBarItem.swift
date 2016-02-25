@@ -1,7 +1,6 @@
 
 @available(iOS 2.0, *)
 class UIBarItem : NSObject, NSCoding, UIAppearance {
-  init()
   init?(coder aDecoder: NSCoder)
   var enabled: Bool
   var title: String?
@@ -13,17 +12,17 @@ class UIBarItem : NSObject, NSCoding, UIAppearance {
   var landscapeImagePhoneInsets: UIEdgeInsets
   var tag: Int
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [String : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(_ attributes: [String : AnyObject]?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesForState(state: UIControlState) -> [String : AnyObject]?
+  func titleTextAttributesForState(_ state: UIControlState) -> [String : AnyObject]?
   @available(iOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   @available(iOS 2.0, *)
   class func appearance() -> Self
   @available(iOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOfClasses(_ containerTypes: [AnyObject.Type]) -> Self
   @available(iOS 8.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection) -> Self
+  class func appearanceForTraitCollection(_ trait: UITraitCollection) -> Self
   @available(iOS 9.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceForTraitCollection(_ trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
 }

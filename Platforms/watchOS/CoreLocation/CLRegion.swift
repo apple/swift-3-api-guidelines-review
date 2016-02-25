@@ -2,7 +2,7 @@
 @available(watchOS 2.0, *)
 class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  init(circularRegionWithCenter center: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String)
+  init(circularRegionWithCenter center: CLLocationCoordinate2D, radius radius: CLLocationDistance, identifier identifier: String)
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var center: CLLocationCoordinate2D { get }
   @available(watchOS, introduced=2.0, deprecated=2.0)
@@ -14,13 +14,12 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   @available(watchOS 2.0, *)
   var notifyOnExit: Bool
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func containsCoordinate(coordinate: CLLocationCoordinate2D) -> Bool
-  init()
+  func containsCoordinate(_ coordinate: CLLocationCoordinate2D) -> Bool
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

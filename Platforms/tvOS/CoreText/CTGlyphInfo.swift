@@ -6,7 +6,7 @@ class CTGlyphInfo {
 @available(tvOS 3.2, *)
 func CTGlyphInfoGetTypeID() -> CFTypeID
 enum CTCharacterCollection : UInt16 {
-  init?(rawValue: UInt16)
+  init?(rawValue rawValue: UInt16)
   var rawValue: UInt16 { get }
   @available(tvOS 6.0, *)
   case IdentityMapping
@@ -34,14 +34,14 @@ enum CTCharacterCollection : UInt16 {
   static var kCTAdobeKorea1CharacterCollection: CTCharacterCollection { get }
 }
 @available(tvOS 3.2, *)
-func CTGlyphInfoCreateWithGlyphName(glyphName: CFString, _ font: CTFont, _ baseString: CFString) -> CTGlyphInfo
+func CTGlyphInfoCreateWithGlyphName(_ glyphName: CFString, _ font: CTFont, _ baseString: CFString) -> CTGlyphInfo
 @available(tvOS 3.2, *)
-func CTGlyphInfoCreateWithGlyph(glyph: CGGlyph, _ font: CTFont, _ baseString: CFString) -> CTGlyphInfo
+func CTGlyphInfoCreateWithGlyph(_ glyph: CGGlyph, _ font: CTFont, _ baseString: CFString) -> CTGlyphInfo
 @available(tvOS 3.2, *)
-func CTGlyphInfoCreateWithCharacterIdentifier(cid: CGFontIndex, _ collection: CTCharacterCollection, _ baseString: CFString) -> CTGlyphInfo
+func CTGlyphInfoCreateWithCharacterIdentifier(_ cid: CGFontIndex, _ collection: CTCharacterCollection, _ baseString: CFString) -> CTGlyphInfo
 @available(tvOS 3.2, *)
-func CTGlyphInfoGetGlyphName(glyphInfo: CTGlyphInfo) -> CFString?
+func CTGlyphInfoGetGlyphName(_ glyphInfo: CTGlyphInfo) -> CFString?
 @available(tvOS 3.2, *)
-func CTGlyphInfoGetCharacterIdentifier(glyphInfo: CTGlyphInfo) -> CGFontIndex
+func CTGlyphInfoGetCharacterIdentifier(_ glyphInfo: CTGlyphInfo) -> CGFontIndex
 @available(tvOS 3.2, *)
-func CTGlyphInfoGetCharacterCollection(glyphInfo: CTGlyphInfo) -> CTCharacterCollection
+func CTGlyphInfoGetCharacterCollection(_ glyphInfo: CTGlyphInfo) -> CTCharacterCollection

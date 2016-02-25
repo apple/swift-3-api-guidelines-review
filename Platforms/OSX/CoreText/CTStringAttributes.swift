@@ -32,7 +32,7 @@ let kCTLanguageAttributeName: CFString
 @available(OSX 10.5, *)
 let kCTRunDelegateAttributeName: CFString
 struct CTUnderlineStyle : OptionSetType {
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   let rawValue: Int32
   static var None: CTUnderlineStyle { get }
   static var Single: CTUnderlineStyle { get }
@@ -40,7 +40,7 @@ struct CTUnderlineStyle : OptionSetType {
   static var Double: CTUnderlineStyle { get }
 }
 struct CTUnderlineStyleModifiers : OptionSetType {
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   let rawValue: Int32
   static var PatternSolid: CTUnderlineStyleModifiers { get }
   static var PatternDot: CTUnderlineStyleModifiers { get }

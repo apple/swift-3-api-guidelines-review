@@ -3,7 +3,7 @@
 func SecAccessControlGetTypeID() -> CFTypeID
 @available(watchOS 2.0, *)
 struct SecAccessControlCreateFlags : OptionSetType {
-  init(rawValue: CFIndex)
+  init(rawValue rawValue: CFIndex)
   let rawValue: CFIndex
   static var UserPresence: SecAccessControlCreateFlags { get }
   @available(watchOS 2.0, *)
@@ -22,4 +22,4 @@ struct SecAccessControlCreateFlags : OptionSetType {
   static var ApplicationPassword: SecAccessControlCreateFlags { get }
 }
 @available(watchOS 2.0, *)
-func SecAccessControlCreateWithFlags(allocator: CFAllocator?, _ protection: CFTypeRef, _ flags: SecAccessControlCreateFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccessControl?
+func SecAccessControlCreateWithFlags(_ allocator: CFAllocator?, _ protection: CFTypeRef, _ flags: SecAccessControlCreateFlags, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecAccessControl?

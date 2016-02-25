@@ -3,7 +3,6 @@
 class SKReceiptRefreshRequest : SKRequest {
   init?(receiptProperties properties: [String : AnyObject])
   var receiptProperties: [String : AnyObject]? { get }
-  init()
 }
 @available(OSX 10.7, *)
 let SKReceiptPropertyIsExpired: String

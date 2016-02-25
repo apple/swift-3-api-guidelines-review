@@ -36,7 +36,7 @@ var SCNConsistencyMissingElementError: Int { get }
 var SCNConsistencyMissingAttributeError: Int { get }
 var SCNConsistencyXMLSchemaValidationError: Int { get }
 enum SCNSceneSourceStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Error
   case Parsing
@@ -47,22 +47,21 @@ enum SCNSceneSourceStatus : Int {
 typealias SCNSceneSourceStatusHandler = (Float, SCNSceneSourceStatus, NSError?, UnsafeMutablePointer<ObjCBool>) -> Void
 @available(iOS 8.0, *)
 class SCNSceneSource : NSObject {
-  init?(URL url: NSURL, options: [String : AnyObject]?)
-  init?(data: NSData, options: [String : AnyObject]?)
+  init?(URL url: NSURL, options options: [String : AnyObject]?)
+  init?(data data: NSData, options options: [String : AnyObject]?)
   var url: NSURL? { get }
   var data: NSData? { get }
-  func sceneWithOptions(options: [String : AnyObject]?, statusHandler: SCNSceneSourceStatusHandler?) -> SCNScene?
-  func sceneWithOptions(options: [String : AnyObject]?) throws -> SCNScene
-  func propertyForKey(key: String) -> AnyObject?
-  func __entryWithIdentifier(uid: String, withClass entryClass: AnyClass) -> AnyObject?
-  func identifiersOfEntriesWithClass(entryClass: AnyClass) -> [String]
+  func sceneWithOptions(_ options: [String : AnyObject]?, statusHandler statusHandler: SCNSceneSourceStatusHandler?) -> SCNScene?
+  func sceneWithOptions(_ options: [String : AnyObject]?) throws -> SCNScene
+  func propertyForKey(_ key: String) -> AnyObject?
+  func __entryWithIdentifier(_ uid: String, withClass entryClass: AnyClass) -> AnyObject?
+  func identifiersOfEntriesWithClass(_ entryClass: AnyClass) -> [String]
   @available(iOS 8.0, *)
-  func entriesPassingTest(predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
-  init()
+  func entriesPassingTest(_ predicate: (AnyObject, String, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AnyObject]
 }
 
 @available(iOS 8.0, OSX 10.8, *)
 extension SCNSceneSource {
   @warn_unused_result
-  func entryWithIdentifier<T>(uid: String, withClass entryClass: T.Type) -> T?
+  func entryWithIdentifier<T>(_ uid: String, withClass entryClass: T.Type) -> T?
 }

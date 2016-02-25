@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
-  class func loadAchievementDescriptionsWithCompletionHandler(completionHandler: (([GKAchievementDescription]?, NSError?) -> Void)?)
+  class func loadAchievementDescriptionsWithCompletionHandler(_ completionHandler: (([GKAchievementDescription]?, NSError?) -> Void)?)
   var identifier: String? { get }
   @available(OSX 10.8, *)
   var groupIdentifier: String? { get }
@@ -12,9 +12,8 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
   var hidden: Bool { get }
   @available(OSX 10.8, *)
   var replayable: Bool { get }
-  init()
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
@@ -22,7 +21,7 @@ class GKAchievementDescription : NSObject, NSCoding, NSSecureCoding {
 extension GKAchievementDescription {
   @available(OSX 10.8, *)
   var image: NSImage? { get }
-  func loadImageWithCompletionHandler(completionHandler: ((NSImage?, NSError?) -> Void)?)
+  func loadImageWithCompletionHandler(_ completionHandler: ((NSImage?, NSError?) -> Void)?)
   class func incompleteAchievementImage() -> NSImage
   class func placeholderCompletedAchievementImage() -> NSImage
 }

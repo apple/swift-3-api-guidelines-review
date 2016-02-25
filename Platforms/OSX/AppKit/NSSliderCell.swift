@@ -1,6 +1,6 @@
 
 enum NSTickMarkPosition : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Below
   case Above
@@ -8,13 +8,12 @@ enum NSTickMarkPosition : UInt {
   static var Right: NSTickMarkPosition { get }
 }
 enum NSSliderType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case LinearSlider
   case CircularSlider
 }
 class NSSliderCell : NSActionCell {
-  class func prefersTrackingUntilMouseUp() -> Bool
   var minValue: Double
   var maxValue: Double
   var altIncrementValue: Double
@@ -22,16 +21,12 @@ class NSSliderCell : NSActionCell {
   var vertical: Int { get }
   var trackRect: NSRect { get }
   var knobThickness: CGFloat { get }
-  func knobRectFlipped(flipped: Bool) -> NSRect
-  func drawKnob(knobRect: NSRect)
+  func knobRectFlipped(_ flipped: Bool) -> NSRect
+  func drawKnob(_ knobRect: NSRect)
   func drawKnob()
   @available(OSX 10.9, *)
-  func barRectFlipped(flipped: Bool) -> NSRect
-  func drawBarInside(aRect: NSRect, flipped: Bool)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
+  func barRectFlipped(_ flipped: Bool) -> NSRect
+  func drawBarInside(_ aRect: NSRect, flipped flipped: Bool)
 }
 struct __sliderCellFlags {
   var weAreVertical: UInt32
@@ -48,16 +43,16 @@ struct __sliderCellFlags {
   var snappingAllowed: UInt32
   var reserved2: UInt32
   init()
-  init(weAreVertical: UInt32, weAreVerticalSet: UInt32, reserved1: UInt32, isPressed: UInt32, allowsTickMarkValuesOnly: UInt32, tickMarkPosition: UInt32, sliderType: UInt32, drawing: UInt32, snappedToTickMark: UInt32, snappedToPreviousValue: UInt32, snappedToDefaultValue: UInt32, snappingAllowed: UInt32, reserved2: UInt32)
+  init(weAreVertical weAreVertical: UInt32, weAreVerticalSet weAreVerticalSet: UInt32, reserved1 reserved1: UInt32, isPressed isPressed: UInt32, allowsTickMarkValuesOnly allowsTickMarkValuesOnly: UInt32, tickMarkPosition tickMarkPosition: UInt32, sliderType sliderType: UInt32, drawing drawing: UInt32, snappedToTickMark snappedToTickMark: UInt32, snappedToPreviousValue snappedToPreviousValue: UInt32, snappedToDefaultValue snappedToDefaultValue: UInt32, snappingAllowed snappingAllowed: UInt32, reserved2 reserved2: UInt32)
 }
 extension NSSliderCell {
   var numberOfTickMarks: Int
   var tickMarkPosition: NSTickMarkPosition
   var allowsTickMarkValuesOnly: Bool
-  func tickMarkValueAtIndex(index: Int) -> Double
-  func rectOfTickMarkAtIndex(index: Int) -> NSRect
-  func indexOfTickMarkAtPoint(point: NSPoint) -> Int
-  func closestTickMarkValueToValue(value: Double) -> Double
+  func tickMarkValueAtIndex(_ index: Int) -> Double
+  func rectOfTickMarkAtIndex(_ index: Int) -> NSRect
+  func indexOfTickMarkAtPoint(_ point: NSPoint) -> Int
+  func closestTickMarkValueToValue(_ value: Double) -> Double
   @available(OSX 10.9, *)
   func drawTickMarks()
 }

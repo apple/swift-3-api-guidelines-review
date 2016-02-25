@@ -1,14 +1,14 @@
 
 @available(watchOS 2.0, *)
 enum CNContactFormatterStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case FullName
   case PhoneticFullName
 }
 @available(watchOS 2.0, *)
 enum CNContactDisplayNameOrder : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case UserDefault
   case GivenNameFirst
@@ -16,15 +16,13 @@ enum CNContactDisplayNameOrder : Int {
 }
 @available(watchOS 2.0, *)
 class CNContactFormatter : NSFormatter {
-  class func descriptorForRequiredKeysForStyle(style: CNContactFormatterStyle) -> CNKeyDescriptor
-  class func stringFromContact(contact: CNContact, style: CNContactFormatterStyle) -> String?
-  class func attributedStringFromContact(contact: CNContact, style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
-  class func nameOrderForContact(contact: CNContact) -> CNContactDisplayNameOrder
-  class func delimiterForContact(contact: CNContact) -> String
+  class func descriptorForRequiredKeysForStyle(_ style: CNContactFormatterStyle) -> CNKeyDescriptor
+  class func stringFromContact(_ contact: CNContact, style style: CNContactFormatterStyle) -> String?
+  class func attributedStringFromContact(_ contact: CNContact, style style: CNContactFormatterStyle, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
+  class func nameOrderForContact(_ contact: CNContact) -> CNContactDisplayNameOrder
+  class func delimiterForContact(_ contact: CNContact) -> String
   var style: CNContactFormatterStyle
-  func stringFromContact(contact: CNContact) -> String?
-  func attributedStringFromContact(contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
-  init()
-  init?(coder aDecoder: NSCoder)
+  func stringFromContact(_ contact: CNContact) -> String?
+  func attributedStringFromContact(_ contact: CNContact, defaultAttributes attributes: [NSObject : AnyObject]?) -> NSAttributedString?
 }
 let CNContactPropertyAttribute: String

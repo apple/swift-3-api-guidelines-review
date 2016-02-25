@@ -3,7 +3,7 @@ struct AVPixelAspectRatio {
   var horizontalSpacing: Int
   var verticalSpacing: Int
   init()
-  init(horizontalSpacing: Int, verticalSpacing: Int)
+  init(horizontalSpacing horizontalSpacing: Int, verticalSpacing verticalSpacing: Int)
 }
 struct AVEdgeWidths {
   var left: CGFloat
@@ -11,7 +11,7 @@ struct AVEdgeWidths {
   var right: CGFloat
   var bottom: CGFloat
   init()
-  init(left: CGFloat, top: CGFloat, right: CGFloat, bottom: CGFloat)
+  init(left left: CGFloat, top top: CGFloat, right right: CGFloat, bottom bottom: CGFloat)
 }
 @available(tvOS 7.0, *)
 class AVVideoCompositionRenderContext : NSObject {
@@ -23,14 +23,13 @@ class AVVideoCompositionRenderContext : NSObject {
   var highQualityRendering: Bool { get }
   var videoComposition: AVVideoComposition { get }
   func newPixelBuffer() -> CVPixelBuffer?
-  init()
 }
 @available(tvOS 7.0, *)
 protocol AVVideoCompositing : NSObjectProtocol {
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var requiredPixelBufferAttributesForRenderContext: [String : AnyObject] { get }
-  func renderContextChanged(newRenderContext: AVVideoCompositionRenderContext)
-  func startVideoCompositionRequest(asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
+  func renderContextChanged(_ newRenderContext: AVVideoCompositionRenderContext)
+  func startVideoCompositionRequest(_ asyncVideoCompositionRequest: AVAsynchronousVideoCompositionRequest)
   optional func cancelAllPendingVideoCompositionRequests()
 }
 @available(tvOS 7.0, *)
@@ -39,22 +38,20 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   var compositionTime: CMTime { get }
   var sourceTrackIDs: [NSNumber] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
-  func sourceFrameByTrackID(trackID: CMPersistentTrackID) -> CVPixelBuffer?
-  func finishWithComposedVideoFrame(composedVideoFrame: CVPixelBuffer)
-  func finishWithError(error: NSError)
+  func sourceFrameByTrackID(_ trackID: CMPersistentTrackID) -> CVPixelBuffer?
+  func finishWithComposedVideoFrame(_ composedVideoFrame: CVPixelBuffer)
+  func finishWithError(_ error: NSError)
   func finishCancelledRequest()
-  init()
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 9.0, *)
 class AVAsynchronousCIImageFilteringRequest : NSObject, NSCopying {
   var renderSize: CGSize { get }
   var compositionTime: CMTime { get }
-  func finishWithError(error: NSError)
-  init()
+  func finishWithError(_ error: NSError)
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 7.0, *)
 protocol AVVideoCompositionInstructionProtocol : NSObjectProtocol {

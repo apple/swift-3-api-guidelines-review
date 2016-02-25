@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 struct NSAppleEventSendOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var NoReply: NSAppleEventSendOptions { get }
   static var QueueReply: NSAppleEventSendOptions { get }
@@ -17,34 +17,34 @@ struct NSAppleEventSendOptions : OptionSetType {
 }
 class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   class func nullDescriptor() -> NSAppleEventDescriptor
-  /*not inherited*/ init(boolean: Bool)
+  /*not inherited*/ init(boolean boolean: Bool)
   /*not inherited*/ init(enumCode enumerator: OSType)
   /*not inherited*/ init(int32 signedInt: Int32)
   @available(OSX 10.11, *)
   /*not inherited*/ init(double doubleValue: Double)
-  /*not inherited*/ init(typeCode: OSType)
-  /*not inherited*/ init(string: String)
+  /*not inherited*/ init(typeCode typeCode: OSType)
+  /*not inherited*/ init(string string: String)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(date: NSDate)
+  /*not inherited*/ init(date date: NSDate)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(fileURL: NSURL)
-  class func appleEventWithEventClass(eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: NSAppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID) -> NSAppleEventDescriptor
+  /*not inherited*/ init(fileURL fileURL: NSURL)
+  class func appleEventWithEventClass(_ eventClass: AEEventClass, eventID eventID: AEEventID, targetDescriptor targetDescriptor: NSAppleEventDescriptor?, returnID returnID: AEReturnID, transactionID transactionID: AETransactionID) -> NSAppleEventDescriptor
   class func listDescriptor() -> NSAppleEventDescriptor
   class func recordDescriptor() -> NSAppleEventDescriptor
   @available(OSX 10.11, *)
   class func currentProcessDescriptor() -> NSAppleEventDescriptor
   @available(OSX 10.11, *)
-  /*not inherited*/ init(processIdentifier: pid_t)
+  /*not inherited*/ init(processIdentifier processIdentifier: pid_t)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(bundleIdentifier: String)
+  /*not inherited*/ init(bundleIdentifier bundleIdentifier: String)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(applicationURL: NSURL)
+  /*not inherited*/ init(applicationURL applicationURL: NSURL)
   init(AEDescNoCopy aeDesc: UnsafePointer<AEDesc>)
-  convenience init?(descriptorType: DescType, bytes: UnsafePointer<Void>, length byteCount: Int)
-  convenience init?(descriptorType: DescType, data: NSData?)
-  convenience init(eventClass: AEEventClass, eventID: AEEventID, targetDescriptor: NSAppleEventDescriptor?, returnID: AEReturnID, transactionID: AETransactionID)
-  convenience init(listDescriptor: ())
-  convenience init(recordDescriptor: ())
+  convenience init?(descriptorType descriptorType: DescType, bytes bytes: UnsafePointer<Void>, length byteCount: Int)
+  convenience init?(descriptorType descriptorType: DescType, data data: NSData?)
+  convenience init(eventClass eventClass: AEEventClass, eventID eventID: AEEventID, targetDescriptor targetDescriptor: NSAppleEventDescriptor?, returnID returnID: AEReturnID, transactionID transactionID: AETransactionID)
+  convenience init(listDescriptor listDescriptor: ())
+  convenience init(recordDescriptor recordDescriptor: ())
   var aeDesc: UnsafePointer<AEDesc> { get }
   var descriptorType: DescType { get }
   @NSCopying var data: NSData { get }
@@ -63,27 +63,26 @@ class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   var eventID: AEEventID { get }
   var returnID: AEReturnID { get }
   var transactionID: AETransactionID { get }
-  func setParamDescriptor(descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
-  func paramDescriptorForKeyword(keyword: AEKeyword) -> NSAppleEventDescriptor?
-  func removeParamDescriptorWithKeyword(keyword: AEKeyword)
-  func setAttributeDescriptor(descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
-  func attributeDescriptorForKeyword(keyword: AEKeyword) -> NSAppleEventDescriptor?
+  func setParamDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
+  func paramDescriptorForKeyword(_ keyword: AEKeyword) -> NSAppleEventDescriptor?
+  func removeParamDescriptorWithKeyword(_ keyword: AEKeyword)
+  func setAttributeDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
+  func attributeDescriptorForKeyword(_ keyword: AEKeyword) -> NSAppleEventDescriptor?
   @available(OSX 10.11, *)
-  func sendEventWithOptions(sendOptions: NSAppleEventSendOptions, timeout timeoutInSeconds: NSTimeInterval) throws -> NSAppleEventDescriptor
+  func sendEventWithOptions(_ sendOptions: NSAppleEventSendOptions, timeout timeoutInSeconds: NSTimeInterval) throws -> NSAppleEventDescriptor
   @available(OSX 10.11, *)
   var isRecordDescriptor: Bool { get }
   var numberOfItems: Int { get }
-  func insertDescriptor(descriptor: NSAppleEventDescriptor, atIndex index: Int)
-  func descriptorAtIndex(index: Int) -> NSAppleEventDescriptor?
-  func removeDescriptorAtIndex(index: Int)
-  func setDescriptor(descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
-  func descriptorForKeyword(keyword: AEKeyword) -> NSAppleEventDescriptor?
-  func removeDescriptorWithKeyword(keyword: AEKeyword)
-  func keywordForDescriptorAtIndex(index: Int) -> AEKeyword
-  func coerceToDescriptorType(descriptorType: DescType) -> NSAppleEventDescriptor?
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func insertDescriptor(_ descriptor: NSAppleEventDescriptor, atIndex index: Int)
+  func descriptorAtIndex(_ index: Int) -> NSAppleEventDescriptor?
+  func removeDescriptorAtIndex(_ index: Int)
+  func setDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
+  func descriptorForKeyword(_ keyword: AEKeyword) -> NSAppleEventDescriptor?
+  func removeDescriptorWithKeyword(_ keyword: AEKeyword)
+  func keywordForDescriptorAtIndex(_ index: Int) -> AEKeyword
+  func coerceToDescriptorType(_ descriptorType: DescType) -> NSAppleEventDescriptor?
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

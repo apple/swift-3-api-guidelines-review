@@ -1,6 +1,6 @@
 
 enum AVAssetWriterStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Writing
@@ -21,15 +21,15 @@ class AVAssetWriter : NSObject {
   @available(OSX 10.10, *)
   @NSCopying var directoryForTemporaryFiles: NSURL?
   var inputs: [AVAssetWriterInput] { get }
-  func canApplyOutputSettings(outputSettings: [String : AnyObject]?, forMediaType mediaType: String) -> Bool
-  func canAddInput(input: AVAssetWriterInput) -> Bool
-  func addInput(input: AVAssetWriterInput)
+  func canApplyOutputSettings(_ outputSettings: [String : AnyObject]?, forMediaType mediaType: String) -> Bool
+  func canAddInput(_ input: AVAssetWriterInput) -> Bool
+  func addInput(_ input: AVAssetWriterInput)
   func startWriting() -> Bool
-  func startSessionAtSourceTime(startTime: CMTime)
-  func endSessionAtSourceTime(endTime: CMTime)
+  func startSessionAtSourceTime(_ startTime: CMTime)
+  func endSessionAtSourceTime(_ endTime: CMTime)
   func cancelWriting()
   @available(OSX 10.9, *)
-  func finishWritingWithCompletionHandler(handler: () -> Void)
+  func finishWritingWithCompletionHandler(_ handler: () -> Void)
 }
 extension AVAssetWriter {
   var movieFragmentInterval: CMTime
@@ -39,15 +39,15 @@ extension AVAssetWriter {
 }
 extension AVAssetWriter {
   @available(OSX 10.9, *)
-  func canAddInputGroup(inputGroup: AVAssetWriterInputGroup) -> Bool
+  func canAddInputGroup(_ inputGroup: AVAssetWriterInputGroup) -> Bool
   @available(OSX 10.9, *)
-  func addInputGroup(inputGroup: AVAssetWriterInputGroup)
+  func addInputGroup(_ inputGroup: AVAssetWriterInputGroup)
   @available(OSX 10.9, *)
   var inputGroups: [AVAssetWriterInputGroup] { get }
 }
 @available(OSX 10.9, *)
 class AVAssetWriterInputGroup : AVMediaSelectionGroup {
-  init(inputs: [AVAssetWriterInput], defaultInput: AVAssetWriterInput?)
+  init(inputs inputs: [AVAssetWriterInput], defaultInput defaultInput: AVAssetWriterInput?)
   var inputs: [AVAssetWriterInput] { get }
   var defaultInput: AVAssetWriterInput? { get }
 }

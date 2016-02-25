@@ -1,6 +1,6 @@
 
 enum NSSegmentSwitchTracking : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case SelectOne
   case SelectAny
@@ -10,7 +10,7 @@ enum NSSegmentSwitchTracking : UInt {
 }
 @available(OSX 10.5, *)
 enum NSSegmentStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Automatic
   case Rounded
@@ -27,23 +27,23 @@ enum NSSegmentStyle : Int {
 class NSSegmentedControl : NSControl {
   var segmentCount: Int
   var selectedSegment: Int
-  func selectSegmentWithTag(tag: Int) -> Bool
-  func setWidth(width: CGFloat, forSegment segment: Int)
-  func widthForSegment(segment: Int) -> CGFloat
-  func setImage(image: NSImage?, forSegment segment: Int)
-  func imageForSegment(segment: Int) -> NSImage?
+  func selectSegmentWithTag(_ tag: Int) -> Bool
+  func setWidth(_ width: CGFloat, forSegment segment: Int)
+  func widthForSegment(_ segment: Int) -> CGFloat
+  func setImage(_ image: NSImage?, forSegment segment: Int)
+  func imageForSegment(_ segment: Int) -> NSImage?
   @available(OSX 10.5, *)
-  func setImageScaling(scaling: NSImageScaling, forSegment segment: Int)
+  func setImageScaling(_ scaling: NSImageScaling, forSegment segment: Int)
   @available(OSX 10.5, *)
-  func imageScalingForSegment(segment: Int) -> NSImageScaling
-  func setLabel(label: String, forSegment segment: Int)
-  func labelForSegment(segment: Int) -> String?
-  func setMenu(menu: NSMenu?, forSegment segment: Int)
-  func menuForSegment(segment: Int) -> NSMenu?
-  func setSelected(selected: Bool, forSegment segment: Int)
-  func isSelectedForSegment(segment: Int) -> Bool
-  func setEnabled(enabled: Bool, forSegment segment: Int)
-  func isEnabledForSegment(segment: Int) -> Bool
+  func imageScalingForSegment(_ segment: Int) -> NSImageScaling
+  func setLabel(_ label: String, forSegment segment: Int)
+  func labelForSegment(_ segment: Int) -> String?
+  func setMenu(_ menu: NSMenu?, forSegment segment: Int)
+  func menuForSegment(_ segment: Int) -> NSMenu?
+  func setSelected(_ selected: Bool, forSegment segment: Int)
+  func isSelectedForSegment(_ segment: Int) -> Bool
+  func setEnabled(_ enabled: Bool, forSegment segment: Int)
+  func isEnabledForSegment(_ segment: Int) -> Bool
   @available(OSX 10.5, *)
   var segmentStyle: NSSegmentStyle
   @available(OSX 10.10.3, *)
@@ -52,7 +52,4 @@ class NSSegmentedControl : NSControl {
   var trackingMode: NSSegmentSwitchTracking
   @available(OSX 10.10.3, *)
   var doubleValueForSelectedSegment: Double { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }

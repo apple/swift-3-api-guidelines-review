@@ -1,13 +1,13 @@
 
 enum UIStatusBarStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   @available(iOS 7.0, *)
   case LightContent
 }
 enum UIStatusBarAnimation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   @available(iOS 3.2, *)
@@ -16,7 +16,7 @@ enum UIStatusBarAnimation : Int {
   case Slide
 }
 enum UIInterfaceOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Portrait
@@ -32,7 +32,7 @@ extension UIInterfaceOrientation {
 @available(iOS 6.0, *)
 let UIApplicationInvalidInterfaceOrientationException: String
 struct UIInterfaceOrientationMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Portrait: UIInterfaceOrientationMask { get }
   static var LandscapeLeft: UIInterfaceOrientationMask { get }
@@ -42,11 +42,11 @@ struct UIInterfaceOrientationMask : OptionSetType {
   static var All: UIInterfaceOrientationMask { get }
   static var AllButUpsideDown: UIInterfaceOrientationMask { get }
 }
-func UIInterfaceOrientationIsPortrait(orientation: UIInterfaceOrientation) -> Bool
-func UIInterfaceOrientationIsLandscape(orientation: UIInterfaceOrientation) -> Bool
+func UIInterfaceOrientationIsPortrait(_ orientation: UIInterfaceOrientation) -> Bool
+func UIInterfaceOrientationIsLandscape(_ orientation: UIInterfaceOrientation) -> Bool
 @available(iOS, introduced=3.0, deprecated=8.0, message="Use UIUserNotificationType for user notifications and registerForRemoteNotifications for receiving remote notifications instead.")
 struct UIRemoteNotificationType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: UIRemoteNotificationType { get }
   static var Badge: UIRemoteNotificationType { get }
@@ -56,7 +56,7 @@ struct UIRemoteNotificationType : OptionSetType {
 }
 @available(iOS 7.0, *)
 enum UIBackgroundFetchResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NewData
   case NoData
@@ -64,7 +64,7 @@ enum UIBackgroundFetchResult : UInt {
 }
 @available(iOS 7.0, *)
 enum UIBackgroundRefreshStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Restricted
   case Denied
@@ -72,7 +72,7 @@ enum UIBackgroundRefreshStatus : Int {
 }
 @available(iOS 4.0, *)
 enum UIApplicationState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Active
   case Inactive
@@ -95,16 +95,16 @@ class UIApplication : UIResponder {
   func endIgnoringInteractionEvents()
   func isIgnoringInteractionEvents() -> Bool
   var idleTimerDisabled: Bool
-  func openURL(url: NSURL) -> Bool
+  func openURL(_ url: NSURL) -> Bool
   @available(iOS 3.0, *)
-  func canOpenURL(url: NSURL) -> Bool
-  func sendEvent(event: UIEvent)
+  func canOpenURL(_ url: NSURL) -> Bool
+  func sendEvent(_ event: UIEvent)
   var keyWindow: UIWindow? { get }
   var windows: [UIWindow] { get }
-  func sendAction(action: Selector, to target: AnyObject?, from sender: AnyObject?, forEvent event: UIEvent?) -> Bool
+  func sendAction(_ action: Selector, to target: AnyObject?, from sender: AnyObject?, forEvent event: UIEvent?) -> Bool
   var networkActivityIndicatorVisible: Bool
   @available(iOS 6.0, *)
-  func supportedInterfaceOrientationsForWindow(window: UIWindow?) -> UIInterfaceOrientationMask
+  func supportedInterfaceOrientationsForWindow(_ window: UIWindow?) -> UIInterfaceOrientationMask
   var statusBarOrientationAnimationDuration: NSTimeInterval { get }
   var statusBarFrame: CGRect { get }
   var applicationIconBadgeNumber: Int
@@ -115,13 +115,13 @@ class UIApplication : UIResponder {
   @available(iOS 4.0, *)
   var backgroundTimeRemaining: NSTimeInterval { get }
   @available(iOS 4.0, *)
-  func beginBackgroundTaskWithExpirationHandler(handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTaskWithExpirationHandler(_ handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
   @available(iOS 7.0, *)
-  func beginBackgroundTaskWithName(taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
+  func beginBackgroundTaskWithName(_ taskName: String?, expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
   @available(iOS 4.0, *)
-  func endBackgroundTask(identifier: UIBackgroundTaskIdentifier)
+  func endBackgroundTask(_ identifier: UIBackgroundTaskIdentifier)
   @available(iOS 7.0, *)
-  func setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval: NSTimeInterval)
+  func setMinimumBackgroundFetchInterval(_ minimumBackgroundFetchInterval: NSTimeInterval)
   @available(iOS 7.0, *)
   var backgroundRefreshStatus: UIBackgroundRefreshStatus { get }
   @available(iOS 4.0, *)
@@ -130,7 +130,6 @@ class UIApplication : UIResponder {
   var userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection { get }
   @available(iOS 7.0, *)
   var preferredContentSizeCategory: String { get }
-  init()
 }
 extension UIApplication {
   @available(iOS 8.0, *)
@@ -140,17 +139,17 @@ extension UIApplication {
   @available(iOS 8.0, *)
   func isRegisteredForRemoteNotifications() -> Bool
   @available(iOS, introduced=3.0, deprecated=8.0, message="Please use registerForRemoteNotifications and registerUserNotificationSettings: instead")
-  func registerForRemoteNotificationTypes(types: UIRemoteNotificationType)
+  func registerForRemoteNotificationTypes(_ types: UIRemoteNotificationType)
   @available(iOS, introduced=3.0, deprecated=8.0, message="Please use -[UIApplication isRegisteredForRemoteNotifications], or -[UIApplication currentUserNotificationSettings] to retrieve user-enabled remote notification and user notification settings")
   func enabledRemoteNotificationTypes() -> UIRemoteNotificationType
 }
 extension UIApplication {
   @available(iOS 4.0, *)
-  func presentLocalNotificationNow(notification: UILocalNotification)
+  func presentLocalNotificationNow(_ notification: UILocalNotification)
   @available(iOS 4.0, *)
-  func scheduleLocalNotification(notification: UILocalNotification)
+  func scheduleLocalNotification(_ notification: UILocalNotification)
   @available(iOS 4.0, *)
-  func cancelLocalNotification(notification: UILocalNotification)
+  func cancelLocalNotification(_ notification: UILocalNotification)
   @available(iOS 4.0, *)
   func cancelAllLocalNotifications()
   @available(iOS 4.0, *)
@@ -158,7 +157,7 @@ extension UIApplication {
 }
 extension UIApplication {
   @available(iOS 8.0, *)
-  func registerUserNotificationSettings(notificationSettings: UIUserNotificationSettings)
+  func registerUserNotificationSettings(_ notificationSettings: UIUserNotificationSettings)
   @available(iOS 8.0, *)
   func currentUserNotificationSettings() -> UIUserNotificationSettings?
 }
@@ -170,7 +169,7 @@ extension UIApplication {
 }
 extension UIApplication {
   @available(iOS, introduced=9.0, deprecated=9.0, message="Newsstand apps now behave like normal apps on SpringBoard")
-  func setNewsstandIconImage(image: UIImage?)
+  func setNewsstandIconImage(_ image: UIImage?)
 }
 extension UIApplication {
   @available(iOS 9.0, *)
@@ -184,121 +183,121 @@ extension UIApplication {
   @available(iOS 7.0, *)
   func ignoreSnapshotOnNextApplicationLaunch()
   @available(iOS 7.0, *)
-  class func registerObjectForStateRestoration(object: UIStateRestoring, restorationIdentifier: String)
+  class func registerObjectForStateRestoration(_ object: UIStateRestoring, restorationIdentifier restorationIdentifier: String)
 }
 protocol UIApplicationDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func applicationDidFinishLaunching(application: UIApplication)
+  optional func applicationDidFinishLaunching(_ application: UIApplication)
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
+  optional func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool
   @available(iOS 2.0, *)
-  optional func applicationDidBecomeActive(application: UIApplication)
+  optional func applicationDidBecomeActive(_ application: UIApplication)
   @available(iOS 2.0, *)
-  optional func applicationWillResignActive(application: UIApplication)
+  optional func applicationWillResignActive(_ application: UIApplication)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Please use application:openURL:options:")
-  optional func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool
+  optional func application(_ application: UIApplication, handleOpenURL url: NSURL) -> Bool
   @available(iOS, introduced=4.2, deprecated=9.0, message="Please use application:openURL:options:")
-  optional func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool
+  optional func application(_ application: UIApplication, openURL url: NSURL, sourceApplication sourceApplication: String?, annotation annotation: AnyObject) -> Bool
   @available(iOS 9.0, *)
-  optional func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+  optional func application(_ app: UIApplication, openURL url: NSURL, options options: [String : AnyObject]) -> Bool
   @available(iOS 2.0, *)
-  optional func applicationDidReceiveMemoryWarning(application: UIApplication)
+  optional func applicationDidReceiveMemoryWarning(_ application: UIApplication)
   @available(iOS 2.0, *)
-  optional func applicationWillTerminate(application: UIApplication)
+  optional func applicationWillTerminate(_ application: UIApplication)
   @available(iOS 2.0, *)
-  optional func applicationSignificantTimeChange(application: UIApplication)
+  optional func applicationSignificantTimeChange(_ application: UIApplication)
   @available(iOS 2.0, *)
-  optional func application(application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+  optional func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration duration: NSTimeInterval)
   @available(iOS 2.0, *)
-  optional func application(application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation)
+  optional func application(_ application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation)
   @available(iOS 2.0, *)
-  optional func application(application: UIApplication, willChangeStatusBarFrame newStatusBarFrame: CGRect)
+  optional func application(_ application: UIApplication, willChangeStatusBarFrame newStatusBarFrame: CGRect)
   @available(iOS 2.0, *)
-  optional func application(application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect)
+  optional func application(_ application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings)
+  optional func application(_ application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings)
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
+  optional func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
+  optional func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError)
   @available(iOS 3.0, *)
-  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
   @available(iOS 4.0, *)
-  optional func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
+  optional func application(_ application: UIApplication, didReceiveLocalNotification notification: UILocalNotification)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void)
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void)
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler completionHandler: () -> Void)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void)
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
-  optional func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void)
+  optional func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler completionHandler: () -> Void)
   @available(iOS 7.0, *)
-  optional func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+  optional func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
   @available(iOS 7.0, *)
-  optional func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+  optional func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
   @available(iOS 9.0, *)
-  optional func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void)
+  optional func application(_ application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler completionHandler: (Bool) -> Void)
   @available(iOS 7.0, *)
-  optional func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void)
+  optional func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler completionHandler: () -> Void)
   @available(iOS 8.2, *)
-  optional func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void)
+  optional func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply reply: ([NSObject : AnyObject]?) -> Void)
   @available(iOS 9.0, *)
-  optional func applicationShouldRequestHealthAuthorization(application: UIApplication)
+  optional func applicationShouldRequestHealthAuthorization(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationDidEnterBackground(application: UIApplication)
+  optional func applicationDidEnterBackground(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationWillEnterForeground(application: UIApplication)
+  optional func applicationWillEnterForeground(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationProtectedDataWillBecomeUnavailable(application: UIApplication)
+  optional func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication)
   @available(iOS 4.0, *)
-  optional func applicationProtectedDataDidBecomeAvailable(application: UIApplication)
+  optional func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
   @available(iOS 5.0, *)
   optional var window: UIWindow? { get set }
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask
+  optional func application(_ application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: String) -> Bool
+  optional func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: String) -> Bool
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController?
+  optional func application(_ application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder coder: NSCoder) -> UIViewController?
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
+  optional func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
+  optional func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, willEncodeRestorableStateWithCoder coder: NSCoder)
+  optional func application(_ application: UIApplication, willEncodeRestorableStateWithCoder coder: NSCoder)
   @available(iOS 6.0, *)
-  optional func application(application: UIApplication, didDecodeRestorableStateWithCoder coder: NSCoder)
+  optional func application(_ application: UIApplication, didDecodeRestorableStateWithCoder coder: NSCoder)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
+  optional func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool
+  optional func application(_ application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler restorationHandler: ([AnyObject]?) -> Void) -> Bool
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error: NSError)
+  optional func application(_ application: UIApplication, didFailToContinueUserActivityWithType userActivityType: String, error error: NSError)
   @available(iOS 8.0, *)
-  optional func application(application: UIApplication, didUpdateUserActivity userActivity: NSUserActivity)
+  optional func application(_ application: UIApplication, didUpdateUserActivity userActivity: NSUserActivity)
 }
 extension UIApplication {
   @available(iOS, introduced=2.0, deprecated=9.0, message="Explicit setting of the status bar orientation is more limited in iOS 6.0 and later")
   var statusBarOrientation: UIInterfaceOrientation
   @available(iOS, introduced=2.0, deprecated=9.0, message="Explicit setting of the status bar orientation is more limited in iOS 6.0 and later")
-  func setStatusBarOrientation(interfaceOrientation: UIInterfaceOrientation, animated: Bool)
+  func setStatusBarOrientation(_ interfaceOrientation: UIInterfaceOrientation, animated animated: Bool)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController preferredStatusBarStyle]")
   var statusBarStyle: UIStatusBarStyle
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController preferredStatusBarStyle]")
-  func setStatusBarStyle(statusBarStyle: UIStatusBarStyle, animated: Bool)
+  func setStatusBarStyle(_ statusBarStyle: UIStatusBarStyle, animated animated: Bool)
   @available(iOS, introduced=2.0, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
   var statusBarHidden: Bool
   @available(iOS, introduced=3.2, deprecated=9.0, message="Use -[UIViewController prefersStatusBarHidden]")
-  func setStatusBarHidden(hidden: Bool, withAnimation animation: UIStatusBarAnimation)
+  func setStatusBarHidden(_ hidden: Bool, withAnimation animation: UIStatusBarAnimation)
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
-  func setKeepAliveTimeout(timeout: NSTimeInterval, handler keepAliveHandler: (() -> Void)?) -> Bool
+  func setKeepAliveTimeout(_ timeout: NSTimeInterval, handler keepAliveHandler: (() -> Void)?) -> Bool
   @available(iOS, introduced=4.0, deprecated=9.0, message="Please use UIRemoteNotificationTypeVoIP remote notifications for VoIP applications")
   func clearKeepAliveTimeout()
 }
-func UIApplicationMain(argc: Int32, _ argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ principalClassName: String?, _ delegateClassName: String?) -> Int32
+func UIApplicationMain(_ argc: Int32, _ argv: UnsafeMutablePointer<UnsafeMutablePointer<Int8>>, _ principalClassName: String?, _ delegateClassName: String?) -> Int32
 let UITrackingRunLoopMode: String
 @available(iOS 4.0, *)
 let UIApplicationDidEnterBackgroundNotification: String

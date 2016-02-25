@@ -1,6 +1,6 @@
 
 struct UIRectCorner : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var TopLeft: UIRectCorner { get }
   static var TopRight: UIRectCorner { get }
@@ -10,46 +10,45 @@ struct UIRectCorner : OptionSetType {
 }
 @available(iOS 3.2, *)
 class UIBezierPath : NSObject, NSCopying, NSCoding {
-  convenience init(rect: CGRect)
+  convenience init(rect rect: CGRect)
   convenience init(ovalInRect rect: CGRect)
-  convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat)
-  convenience init(roundedRect rect: CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii: CGSize)
-  convenience init(arcCenter center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
-  convenience init(CGPath: CGPath)
-  init()
+  convenience init(roundedRect rect: CGRect, cornerRadius cornerRadius: CGFloat)
+  convenience init(roundedRect rect: CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii cornerRadii: CGSize)
+  convenience init(arcCenter center: CGPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat, clockwise clockwise: Bool)
+  convenience init(CGPath CGPath: CGPath)
   init?(coder aDecoder: NSCoder)
   var CGPath: CGPath
-  func moveToPoint(point: CGPoint)
-  func addLineToPoint(point: CGPoint)
-  func addCurveToPoint(endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint)
-  func addQuadCurveToPoint(endPoint: CGPoint, controlPoint: CGPoint)
+  func moveToPoint(_ point: CGPoint)
+  func addLineToPoint(_ point: CGPoint)
+  func addCurveToPoint(_ endPoint: CGPoint, controlPoint1 controlPoint1: CGPoint, controlPoint2 controlPoint2: CGPoint)
+  func addQuadCurveToPoint(_ endPoint: CGPoint, controlPoint controlPoint: CGPoint)
   @available(iOS 4.0, *)
-  func addArcWithCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool)
+  func addArcWithCenter(_ center: CGPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat, clockwise clockwise: Bool)
   func closePath()
   func removeAllPoints()
-  func appendPath(bezierPath: UIBezierPath)
+  func appendPath(_ bezierPath: UIBezierPath)
   @available(iOS 6.0, *)
   func bezierPathByReversingPath() -> UIBezierPath
-  func applyTransform(transform: CGAffineTransform)
+  func applyTransform(_ transform: CGAffineTransform)
   var empty: Bool { get }
   var bounds: CGRect { get }
   var currentPoint: CGPoint { get }
-  func containsPoint(point: CGPoint) -> Bool
+  func containsPoint(_ point: CGPoint) -> Bool
   var lineWidth: CGFloat
   var lineCapStyle: CGLineCap
   var lineJoinStyle: CGLineJoin
   var miterLimit: CGFloat
   var flatness: CGFloat
   var usesEvenOddFillRule: Bool
-  func setLineDash(pattern: UnsafePointer<CGFloat>, count: Int, phase: CGFloat)
-  func getLineDash(pattern: UnsafeMutablePointer<CGFloat>, count: UnsafeMutablePointer<Int>, phase: UnsafeMutablePointer<CGFloat>)
+  func setLineDash(_ pattern: UnsafePointer<CGFloat>, count count: Int, phase phase: CGFloat)
+  func getLineDash(_ pattern: UnsafeMutablePointer<CGFloat>, count count: UnsafeMutablePointer<Int>, phase phase: UnsafeMutablePointer<CGFloat>)
   func fill()
   func stroke()
-  func fillWithBlendMode(blendMode: CGBlendMode, alpha: CGFloat)
-  func strokeWithBlendMode(blendMode: CGBlendMode, alpha: CGFloat)
+  func fillWithBlendMode(_ blendMode: CGBlendMode, alpha alpha: CGFloat)
+  func strokeWithBlendMode(_ blendMode: CGBlendMode, alpha alpha: CGFloat)
   func addClip()
   @available(iOS 3.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 3.2, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }

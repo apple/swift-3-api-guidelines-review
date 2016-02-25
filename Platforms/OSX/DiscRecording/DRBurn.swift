@@ -1,24 +1,23 @@
 
 class DRBurn : NSObject {
   /*not inherited*/ init!(forDevice device: DRDevice!)
-  init!(device: DRDevice!)
-  func writeLayout(layout: AnyObject!)
+  init!(device device: DRDevice!)
+  func writeLayout(_ layout: AnyObject!)
   func status() -> [NSObject : AnyObject]!
   func abort()
   func properties() -> [NSObject : AnyObject]!
-  func setProperties(properties: [NSObject : AnyObject]!)
+  func setProperties(_ properties: [NSObject : AnyObject]!)
   func device() -> DRDevice!
-  init()
 }
 extension DRBurn {
   func requestedBurnSpeed() -> Float
-  func setRequestedBurnSpeed(speed: Float)
+  func setRequestedBurnSpeed(_ speed: Float)
   func appendable() -> Bool
-  func setAppendable(appendable: Bool)
+  func setAppendable(_ appendable: Bool)
   func verifyDisc() -> Bool
-  func setVerifyDisc(verify: Bool)
+  func setVerifyDisc(_ verify: Bool)
   func completionAction() -> String!
-  func setCompletionAction(action: String!)
+  func setCompletionAction(_ action: String!)
 }
 @available(OSX 10.2, *)
 let DRBurnRequestedSpeedKey: String

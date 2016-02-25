@@ -1,33 +1,32 @@
 
 @available(OSX 10.8, *)
 class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
-  convenience init(context: CGLContextObj, options: [NSObject : AnyObject]?)
+  convenience init(context context: CGLContextObj, options options: [NSObject : AnyObject]?)
   @available(OSX 10.11, *)
-  convenience init(device: MTLDevice?, options: [NSObject : AnyObject]?)
+  convenience init(device device: MTLDevice?, options options: [NSObject : AnyObject]?)
   var scene: SCNScene?
   @available(OSX 10.10, *)
-  func renderAtTime(time: CFTimeInterval)
+  func renderAtTime(_ time: CFTimeInterval)
   @available(OSX 10.11, *)
-  func renderAtTime(time: CFTimeInterval, viewport: CGRect, commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
+  func renderAtTime(_ time: CFTimeInterval, viewport viewport: CGRect, commandBuffer commandBuffer: MTLCommandBuffer, passDescriptor renderPassDescriptor: MTLRenderPassDescriptor)
   @available(OSX 10.10, *)
   var nextFrameTime: CFTimeInterval { get }
   @available(OSX, introduced=10.8, deprecated=10.11)
   func render()
-  init()
   @available(OSX 10.10, *)
   var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]?) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInsideFrustum(_ node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOfView(_ pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.8, *)
   var playing: Bool
   @available(OSX 10.8, *)
@@ -39,9 +38,9 @@ class SCNRenderer : NSObject, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.8, *)
   var jitteringEnabled: Bool
   @available(OSX 10.9, *)
-  func prepareObject(object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
+  func prepareObject(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
   @available(OSX 10.10, *)
-  func prepareObjects(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
+  func prepareObjects(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
   @available(OSX 10.9, *)
   var showsStatistics: Bool
   @available(OSX 10.11, *)

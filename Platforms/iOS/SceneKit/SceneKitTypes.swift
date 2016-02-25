@@ -4,7 +4,7 @@ struct SCNVector3 {
   var y: Float
   var z: Float
   init()
-  init(x: Float, y: Float, z: Float)
+  init(x x: Float, y y: Float, z z: Float)
 }
 
 extension SCNVector3 {
@@ -21,7 +21,7 @@ struct SCNVector4 {
   var z: Float
   var w: Float
   init()
-  init(x: Float, y: Float, z: Float, w: Float)
+  init(x x: Float, y y: Float, z z: Float, w w: Float)
 }
 
 extension SCNVector4 {
@@ -50,7 +50,7 @@ struct SCNMatrix4 {
   var m43: Float
   var m44: Float
   init()
-  init(m11: Float, m12: Float, m13: Float, m14: Float, m21: Float, m22: Float, m23: Float, m24: Float, m31: Float, m32: Float, m33: Float, m34: Float, m41: Float, m42: Float, m43: Float, m44: Float)
+  init(m11 m11: Float, m12 m12: Float, m13 m13: Float, m14 m14: Float, m21 m21: Float, m22 m22: Float, m23 m23: Float, m24 m24: Float, m31 m31: Float, m32 m32: Float, m33 m33: Float, m34 m34: Float, m41 m41: Float, m42 m42: Float, m43 m43: Float, m44 m44: Float)
 }
 
 extension SCNMatrix4 {
@@ -64,35 +64,35 @@ let SCNMatrix4Identity: SCNMatrix4
 let SCNVector3Zero: SCNVector3
 @available(iOS 8.0, *)
 let SCNVector4Zero: SCNVector4
-func SCNVector3EqualToVector3(a: SCNVector3, _ b: SCNVector3) -> Bool
-func SCNVector4EqualToVector4(a: SCNVector4, _ b: SCNVector4) -> Bool
-func SCNVector3Make(x: Float, _ y: Float, _ z: Float) -> SCNVector3
-func SCNVector4Make(x: Float, _ y: Float, _ z: Float, _ w: Float) -> SCNVector4
-func SCNMatrix4MakeTranslation(x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
-func SCNMatrix4MakeScale(sx: Float, _ sy: Float, _ sz: Float) -> SCNMatrix4
-func SCNMatrix4Translate(mat: SCNMatrix4, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
+func SCNVector3EqualToVector3(_ a: SCNVector3, _ b: SCNVector3) -> Bool
+func SCNVector4EqualToVector4(_ a: SCNVector4, _ b: SCNVector4) -> Bool
+func SCNVector3Make(_ x: Float, _ y: Float, _ z: Float) -> SCNVector3
+func SCNVector4Make(_ x: Float, _ y: Float, _ z: Float, _ w: Float) -> SCNVector4
+func SCNMatrix4MakeTranslation(_ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
+func SCNMatrix4MakeScale(_ sx: Float, _ sy: Float, _ sz: Float) -> SCNMatrix4
+func SCNMatrix4Translate(_ mat: SCNMatrix4, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4MakeRotation(angle: Float, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
+func SCNMatrix4MakeRotation(_ angle: Float, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4Scale(mat: SCNMatrix4, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
+func SCNMatrix4Scale(_ mat: SCNMatrix4, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4Rotate(mat: SCNMatrix4, _ angle: Float, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
+func SCNMatrix4Rotate(_ mat: SCNMatrix4, _ angle: Float, _ x: Float, _ y: Float, _ z: Float) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4Invert(mat: SCNMatrix4) -> SCNMatrix4
+func SCNMatrix4Invert(_ mat: SCNMatrix4) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4Mult(matA: SCNMatrix4, _ matB: SCNMatrix4) -> SCNMatrix4
+func SCNMatrix4Mult(_ matA: SCNMatrix4, _ matB: SCNMatrix4) -> SCNMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4IsIdentity(mat: SCNMatrix4) -> Bool
+func SCNMatrix4IsIdentity(_ mat: SCNMatrix4) -> Bool
 @available(iOS 8.0, *)
-func SCNMatrix4EqualToMatrix4(matA: SCNMatrix4, _ matB: SCNMatrix4) -> Bool
-func SCNVector3FromGLKVector3(vector: GLKVector3) -> SCNVector3
-func SCNVector3ToGLKVector3(vector: SCNVector3) -> GLKVector3
-func SCNVector4FromGLKVector4(vector: GLKVector4) -> SCNVector4
-func SCNVector4ToGLKVector4(vector: SCNVector4) -> GLKVector4
+func SCNMatrix4EqualToMatrix4(_ matA: SCNMatrix4, _ matB: SCNMatrix4) -> Bool
+func SCNVector3FromGLKVector3(_ vector: GLKVector3) -> SCNVector3
+func SCNVector3ToGLKVector3(_ vector: SCNVector3) -> GLKVector3
+func SCNVector4FromGLKVector4(_ vector: GLKVector4) -> SCNVector4
+func SCNVector4ToGLKVector4(_ vector: SCNVector4) -> GLKVector4
 @available(iOS 8.0, *)
-func SCNMatrix4ToGLKMatrix4(mat: SCNMatrix4) -> GLKMatrix4
+func SCNMatrix4ToGLKMatrix4(_ mat: SCNMatrix4) -> GLKMatrix4
 @available(iOS 8.0, *)
-func SCNMatrix4FromGLKMatrix4(mat: GLKMatrix4) -> SCNMatrix4
+func SCNMatrix4FromGLKMatrix4(_ mat: GLKMatrix4) -> SCNMatrix4
 extension NSValue {
   /*not inherited*/ init(SCNVector3 v: SCNVector3)
   /*not inherited*/ init(SCNVector4 v: SCNVector4)

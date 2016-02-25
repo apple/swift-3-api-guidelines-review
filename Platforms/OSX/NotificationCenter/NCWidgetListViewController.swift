@@ -7,23 +7,20 @@ class NCWidgetListViewController : NSViewController {
   var hasDividerLines: Bool
   var editing: Bool
   var showsAddButtonWhenEditing: Bool
-  func viewControllerAtRow(row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
-  func rowForViewController(viewController: NSViewController!) -> Int
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
-  convenience init()
+  func viewControllerAtRow(_ row: Int, makeIfNecessary makeIfNecesary: Bool) -> NSViewController!
+  func rowForViewController(_ viewController: NSViewController!) -> Int
 }
 protocol NCWidgetListViewDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func widgetList(list: NCWidgetListViewController!, viewControllerForRow row: Int) -> NSViewController!
+  func widgetList(_ list: NCWidgetListViewController!, viewControllerForRow row: Int) -> NSViewController!
   @available(OSX 10.10, *)
-  optional func widgetListPerformAddAction(list: NCWidgetListViewController!)
+  optional func widgetListPerformAddAction(_ list: NCWidgetListViewController!)
   @available(OSX 10.10, *)
-  optional func widgetList(list: NCWidgetListViewController!, shouldReorderRow row: Int) -> Bool
+  optional func widgetList(_ list: NCWidgetListViewController!, shouldReorderRow row: Int) -> Bool
   @available(OSX 10.10, *)
-  optional func widgetList(list: NCWidgetListViewController!, didReorderRow row: Int, toRow newIndex: Int)
+  optional func widgetList(_ list: NCWidgetListViewController!, didReorderRow row: Int, toRow newIndex: Int)
   @available(OSX 10.10, *)
-  optional func widgetList(list: NCWidgetListViewController!, shouldRemoveRow row: Int) -> Bool
+  optional func widgetList(_ list: NCWidgetListViewController!, shouldRemoveRow row: Int) -> Bool
   @available(OSX 10.10, *)
-  optional func widgetList(list: NCWidgetListViewController!, didRemoveRow row: Int)
+  optional func widgetList(_ list: NCWidgetListViewController!, didRemoveRow row: Int)
 }

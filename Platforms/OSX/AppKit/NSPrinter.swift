@@ -1,6 +1,6 @@
 
 enum NSPrinterTableStatus : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case OK
   case NotFound
@@ -9,16 +9,15 @@ enum NSPrinterTableStatus : UInt {
 class NSPrinter : NSObject, NSCopying, NSCoding {
   class func printerNames() -> [String]
   class func printerTypes() -> [String]
-  /*not inherited*/ init?(name: String)
-  /*not inherited*/ init?(type: String)
+  /*not inherited*/ init?(name name: String)
+  /*not inherited*/ init?(type type: String)
   var name: String { get }
   var type: String { get }
   var languageLevel: Int { get }
-  func pageSizeForPaper(paperName: String) -> NSSize
+  func pageSizeForPaper(_ paperName: String) -> NSSize
   var deviceDescription: [String : AnyObject] { get }
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSPrinter {

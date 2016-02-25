@@ -1,6 +1,6 @@
 
 enum NSURLRequestCachePolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case UseProtocolCachePolicy
   case ReloadIgnoringLocalCacheData
@@ -11,7 +11,7 @@ enum NSURLRequestCachePolicy : UInt {
   case ReloadRevalidatingCacheData
 }
 enum NSURLRequestNetworkServiceType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NetworkServiceTypeDefault
   case NetworkServiceTypeVoIP
@@ -21,8 +21,8 @@ enum NSURLRequestNetworkServiceType : UInt {
 }
 class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   class func supportsSecureCoding() -> Bool
-  convenience init(URL: NSURL)
-  init(URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
+  convenience init(URL URL: NSURL)
+  init(URL URL: NSURL, cachePolicy cachePolicy: NSURLRequestCachePolicy, timeoutInterval timeoutInterval: NSTimeInterval)
   @NSCopying var URL: NSURL? { get }
   var cachePolicy: NSURLRequestCachePolicy { get }
   var timeoutInterval: NSTimeInterval { get }
@@ -31,30 +31,17 @@ class NSURLRequest : NSObject, NSSecureCoding, NSCopying, NSMutableCopying {
   var networkServiceType: NSURLRequestNetworkServiceType { get }
   @available(tvOS 6.0, *)
   var allowsCellularAccess: Bool { get }
-  convenience init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
 }
 class NSMutableURLRequest : NSURLRequest {
-  @NSCopying var URL: NSURL?
-  var cachePolicy: NSURLRequestCachePolicy
-  var timeoutInterval: NSTimeInterval
-  @NSCopying var mainDocumentURL: NSURL?
-  @available(tvOS 4.0, *)
-  var networkServiceType: NSURLRequestNetworkServiceType
-  @available(tvOS 6.0, *)
-  var allowsCellularAccess: Bool
-  convenience init(URL: NSURL)
-  init(URL: NSURL, cachePolicy: NSURLRequestCachePolicy, timeoutInterval: NSTimeInterval)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 extension NSURLRequest {
   var HTTPMethod: String? { get }
   var allHTTPHeaderFields: [String : String]? { get }
-  func valueForHTTPHeaderField(field: String) -> String?
+  func valueForHTTPHeaderField(_ field: String) -> String?
   @NSCopying var HTTPBody: NSData? { get }
   var HTTPBodyStream: NSInputStream? { get }
   var HTTPShouldHandleCookies: Bool { get }
@@ -62,13 +49,6 @@ extension NSURLRequest {
   var HTTPShouldUsePipelining: Bool { get }
 }
 extension NSMutableURLRequest {
-  var HTTPMethod: String
-  var allHTTPHeaderFields: [String : String]?
-  func setValue(value: String?, forHTTPHeaderField field: String)
-  func addValue(value: String, forHTTPHeaderField field: String)
-  @NSCopying var HTTPBody: NSData?
-  var HTTPBodyStream: NSInputStream?
-  var HTTPShouldHandleCookies: Bool
-  @available(tvOS 4.0, *)
-  var HTTPShouldUsePipelining: Bool
+  func setValue(_ value: String?, forHTTPHeaderField field: String)
+  func addValue(_ value: String, forHTTPHeaderField field: String)
 }

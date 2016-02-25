@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum NSPageControllerTransitionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case StackHistory
   case StackBook
@@ -14,22 +14,19 @@ class NSPageController : NSViewController, NSAnimatablePropertyContainer, NSCodi
   var transitionStyle: NSPageControllerTransitionStyle
   var arrangedObjects: [AnyObject]
   var selectedIndex: Int
-  func navigateForwardToObject(object: AnyObject)
+  func navigateForwardToObject(_ object: AnyObject)
   func completeTransition()
-  @IBAction func navigateBack(sender: AnyObject?)
-  @IBAction func navigateForward(sender: AnyObject?)
-  @IBAction func takeSelectedIndexFrom(sender: AnyObject?)
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
-  convenience init()
+  @IBAction func navigateBack(_ sender: AnyObject?)
+  @IBAction func navigateForward(_ sender: AnyObject?)
+  @IBAction func takeSelectedIndexFrom(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   func animator() -> Self
   @available(OSX 10.5, *)
   var animations: [String : AnyObject]
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationForKey(_ key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  class func defaultAnimationForKey(key: String) -> AnyObject?
+  class func defaultAnimationForKey(_ key: String) -> AnyObject?
 }
 struct __pcDelegateFlags {
   var delegateRespondsToIdentifierForRepresentedObject: UInt32
@@ -42,7 +39,7 @@ struct __pcDelegateFlags {
   var delegateRespondsToReserved1: UInt32
   var reserved: UInt32
   init()
-  init(delegateRespondsToIdentifierForRepresentedObject: UInt32, delegateRespondsToViewControllerForIdentifier: UInt32, delegateRespondsToFrameForRepresentedObject: UInt32, delegateRespondsToPrepareView: UInt32, delegateRespondsToDidTransition: UInt32, delegateRespondsToWillLiveTransition: UInt32, delegateRespondsToDidLiveTransition: UInt32, delegateRespondsToReserved1: UInt32, reserved: UInt32)
+  init(delegateRespondsToIdentifierForRepresentedObject delegateRespondsToIdentifierForRepresentedObject: UInt32, delegateRespondsToViewControllerForIdentifier delegateRespondsToViewControllerForIdentifier: UInt32, delegateRespondsToFrameForRepresentedObject delegateRespondsToFrameForRepresentedObject: UInt32, delegateRespondsToPrepareView delegateRespondsToPrepareView: UInt32, delegateRespondsToDidTransition delegateRespondsToDidTransition: UInt32, delegateRespondsToWillLiveTransition delegateRespondsToWillLiveTransition: UInt32, delegateRespondsToDidLiveTransition delegateRespondsToDidLiveTransition: UInt32, delegateRespondsToReserved1 delegateRespondsToReserved1: UInt32, reserved reserved: UInt32)
 }
 struct __pcFlags {
   var templateCacheIsInvalid: UInt32
@@ -51,21 +48,21 @@ struct __pcFlags {
   var inSwipeGesture: UInt32
   var reserved: UInt32
   init()
-  init(templateCacheIsInvalid: UInt32, private1: UInt32, private2: UInt32, inSwipeGesture: UInt32, reserved: UInt32)
+  init(templateCacheIsInvalid templateCacheIsInvalid: UInt32, private1 private1: UInt32, private2 private2: UInt32, inSwipeGesture inSwipeGesture: UInt32, reserved reserved: UInt32)
 }
 protocol NSPageControllerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, identifierForObject object: AnyObject) -> String
+  optional func pageController(_ pageController: NSPageController, identifierForObject object: AnyObject) -> String
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController
+  optional func pageController(_ pageController: NSPageController, viewControllerForIdentifier identifier: String) -> NSViewController
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, frameForObject object: AnyObject) -> NSRect
+  optional func pageController(_ pageController: NSPageController, frameForObject object: AnyObject) -> NSRect
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, prepareViewController viewController: NSViewController, withObject object: AnyObject)
+  optional func pageController(_ pageController: NSPageController, prepareViewController viewController: NSViewController, withObject object: AnyObject)
   @available(OSX 10.8, *)
-  optional func pageController(pageController: NSPageController, didTransitionToObject object: AnyObject)
+  optional func pageController(_ pageController: NSPageController, didTransitionToObject object: AnyObject)
   @available(OSX 10.8, *)
-  optional func pageControllerWillStartLiveTransition(pageController: NSPageController)
+  optional func pageControllerWillStartLiveTransition(_ pageController: NSPageController)
   @available(OSX 10.8, *)
-  optional func pageControllerDidEndLiveTransition(pageController: NSPageController)
+  optional func pageControllerDidEndLiveTransition(_ pageController: NSPageController)
 }

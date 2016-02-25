@@ -4,5 +4,5 @@ struct CGDeviceColor {
   var green: Float
   var blue: Float
   init()
-  init(red: Float, green: Float, blue: Float)
+  init(red red: Float, green green: Float, blue blue: Float)
 }

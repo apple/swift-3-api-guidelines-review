@@ -12,7 +12,6 @@ class UILabel : UIView, NSCoding {
   @NSCopying var attributedText: NSAttributedString?
   var highlightedTextColor: UIColor?
   var highlighted: Bool
-  var userInteractionEnabled: Bool
   var enabled: Bool
   var numberOfLines: Int
   var adjustsFontSizeToFitWidth: Bool
@@ -21,11 +20,8 @@ class UILabel : UIView, NSCoding {
   var minimumScaleFactor: CGFloat
   @available(iOS 9.0, *)
   var allowsDefaultTighteningForTruncation: Bool
-  func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect
-  func drawTextInRect(rect: CGRect)
+  func textRectForBounds(_ bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect
+  func drawTextInRect(_ rect: CGRect)
   @available(iOS 6.0, *)
   var preferredMaxLayoutWidth: CGFloat
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

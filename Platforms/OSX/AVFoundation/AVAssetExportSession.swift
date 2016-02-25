@@ -36,7 +36,7 @@ let AVAssetExportPresetAppleM4V1080pHD: String
 @available(OSX 10.7, *)
 let AVAssetExportPresetAppleProRes422LPCM: String
 enum AVAssetExportSessionStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Waiting
@@ -47,7 +47,7 @@ enum AVAssetExportSessionStatus : Int {
 }
 @available(OSX 10.7, *)
 class AVAssetExportSession : NSObject {
-  init?(asset: AVAsset, presetName: String)
+  init?(asset asset: AVAsset, presetName presetName: String)
   var presetName: String { get }
   @available(OSX 10.8, *)
   var asset: AVAsset { get }
@@ -56,20 +56,20 @@ class AVAssetExportSession : NSObject {
   var shouldOptimizeForNetworkUse: Bool
   var status: AVAssetExportSessionStatus { get }
   var error: NSError? { get }
-  func exportAsynchronouslyWithCompletionHandler(handler: () -> Void)
+  func exportAsynchronouslyWithCompletionHandler(_ handler: () -> Void)
   var progress: Float { get }
   func cancelExport()
 }
 extension AVAssetExportSession {
   class func allExportPresets() -> [String]
-  class func exportPresetsCompatibleWithAsset(asset: AVAsset) -> [String]
+  class func exportPresetsCompatibleWithAsset(_ asset: AVAsset) -> [String]
   @available(OSX 10.9, *)
-  class func determineCompatibilityOfExportPreset(presetName: String, withAsset asset: AVAsset, outputFileType: String?, completionHandler handler: (Bool) -> Void)
+  class func determineCompatibilityOfExportPreset(_ presetName: String, withAsset asset: AVAsset, outputFileType outputFileType: String?, completionHandler handler: (Bool) -> Void)
 }
 extension AVAssetExportSession {
   var supportedFileTypes: [String] { get }
   @available(OSX 10.9, *)
-  func determineCompatibleFileTypesWithCompletionHandler(handler: ([String]) -> Void)
+  func determineCompatibleFileTypesWithCompletionHandler(_ handler: ([String]) -> Void)
 }
 extension AVAssetExportSession {
   var timeRange: CMTimeRange

@@ -9,13 +9,13 @@ struct CGDataConsumerCallbacks {
   var putBytes: CGDataConsumerPutBytesCallback?
   var releaseConsumer: CGDataConsumerReleaseInfoCallback?
   init()
-  init(putBytes: CGDataConsumerPutBytesCallback?, releaseConsumer: CGDataConsumerReleaseInfoCallback?)
+  init(putBytes putBytes: CGDataConsumerPutBytesCallback?, releaseConsumer releaseConsumer: CGDataConsumerReleaseInfoCallback?)
 }
 @available(watchOS 2.0, *)
 func CGDataConsumerGetTypeID() -> CFTypeID
 @available(watchOS 2.0, *)
-func CGDataConsumerCreate(info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointer<CGDataConsumerCallbacks>) -> CGDataConsumer?
+func CGDataConsumerCreate(_ info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointer<CGDataConsumerCallbacks>) -> CGDataConsumer?
 @available(watchOS 2.0, *)
-func CGDataConsumerCreateWithURL(url: CFURL?) -> CGDataConsumer?
+func CGDataConsumerCreateWithURL(_ url: CFURL?) -> CGDataConsumer?
 @available(watchOS 2.0, *)
-func CGDataConsumerCreateWithCFData(data: CFMutableData?) -> CGDataConsumer?
+func CGDataConsumerCreateWithCFData(_ data: CFMutableData?) -> CGDataConsumer?

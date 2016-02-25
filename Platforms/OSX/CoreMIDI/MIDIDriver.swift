@@ -15,29 +15,29 @@ struct MIDIDriverInterface {
   var Flush: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> OSStatus)!
   var Monitor: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafePointer<MIDIPacketList>) -> OSStatus)!
   init()
-  init(_reserved: UnsafeMutablePointer<Void>, QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, FindDevices: (@convention(c) (MIDIDriverRef, MIDIDeviceListRef) -> OSStatus)!, Start: (@convention(c) (MIDIDriverRef, MIDIDeviceListRef) -> OSStatus)!, Stop: (@convention(c) (MIDIDriverRef) -> OSStatus)!, Configure: (@convention(c) (MIDIDriverRef, MIDIDeviceRef) -> OSStatus)!, Send: (@convention(c) (MIDIDriverRef, UnsafePointer<MIDIPacketList>, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> OSStatus)!, EnableSource: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, DarwinBoolean) -> OSStatus)!, Flush: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> OSStatus)!, Monitor: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafePointer<MIDIPacketList>) -> OSStatus)!)
+  init(_reserved _reserved: UnsafeMutablePointer<Void>, QueryInterface QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, FindDevices FindDevices: (@convention(c) (MIDIDriverRef, MIDIDeviceListRef) -> OSStatus)!, Start Start: (@convention(c) (MIDIDriverRef, MIDIDeviceListRef) -> OSStatus)!, Stop Stop: (@convention(c) (MIDIDriverRef) -> OSStatus)!, Configure Configure: (@convention(c) (MIDIDriverRef, MIDIDeviceRef) -> OSStatus)!, Send Send: (@convention(c) (MIDIDriverRef, UnsafePointer<MIDIPacketList>, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> OSStatus)!, EnableSource EnableSource: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, DarwinBoolean) -> OSStatus)!, Flush Flush: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafeMutablePointer<Void>, UnsafeMutablePointer<Void>) -> OSStatus)!, Monitor Monitor: (@convention(c) (MIDIDriverRef, MIDIEndpointRef, UnsafePointer<MIDIPacketList>) -> OSStatus)!)
 }
 @available(OSX 10.1, *)
 let kMIDIDriverPropertyUsesSerial: CFString!
 @available(OSX 10.0, *)
-func MIDIDeviceCreate(owner: MIDIDriverRef, _ name: CFString!, _ manufacturer: CFString!, _ model: CFString!, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus
+func MIDIDeviceCreate(_ owner: MIDIDriverRef, _ name: CFString!, _ manufacturer: CFString!, _ model: CFString!, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus
 @available(OSX 10.3, *)
-func MIDIDeviceDispose(device: MIDIDeviceRef) -> OSStatus
+func MIDIDeviceDispose(_ device: MIDIDeviceRef) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIDeviceListGetNumberOfDevices(devList: MIDIDeviceListRef) -> Int
+func MIDIDeviceListGetNumberOfDevices(_ devList: MIDIDeviceListRef) -> Int
 @available(OSX 10.0, *)
-func MIDIDeviceListGetDevice(devList: MIDIDeviceListRef, _ index0: Int) -> MIDIDeviceRef
+func MIDIDeviceListGetDevice(_ devList: MIDIDeviceListRef, _ index0: Int) -> MIDIDeviceRef
 @available(OSX 10.0, *)
-func MIDIDeviceListAddDevice(devList: MIDIDeviceListRef, _ dev: MIDIDeviceRef) -> OSStatus
+func MIDIDeviceListAddDevice(_ devList: MIDIDeviceListRef, _ dev: MIDIDeviceRef) -> OSStatus
 @available(OSX 10.1, *)
-func MIDIDeviceListDispose(devList: MIDIDeviceListRef) -> OSStatus
+func MIDIDeviceListDispose(_ devList: MIDIDeviceListRef) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIEndpointSetRefCons(endpt: MIDIEndpointRef, _ ref1: UnsafeMutablePointer<Void>, _ ref2: UnsafeMutablePointer<Void>) -> OSStatus
+func MIDIEndpointSetRefCons(_ endpt: MIDIEndpointRef, _ ref1: UnsafeMutablePointer<Void>, _ ref2: UnsafeMutablePointer<Void>) -> OSStatus
 @available(OSX 10.0, *)
-func MIDIEndpointGetRefCons(endpt: MIDIEndpointRef, _ ref1: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ ref2: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> OSStatus
+func MIDIEndpointGetRefCons(_ endpt: MIDIEndpointRef, _ ref1: UnsafeMutablePointer<UnsafeMutablePointer<Void>>, _ ref2: UnsafeMutablePointer<UnsafeMutablePointer<Void>>) -> OSStatus
 @available(OSX 10.0, *)
 func MIDIGetDriverIORunLoop() -> Unmanaged<CFRunLoop>!
 @available(OSX 10.1, *)
-func MIDIGetDriverDeviceList(driver: MIDIDriverRef) -> MIDIDeviceListRef
+func MIDIGetDriverDeviceList(_ driver: MIDIDriverRef) -> MIDIDeviceListRef
 @available(OSX 10.1, *)
-func MIDIDriverEnableMonitoring(driver: MIDIDriverRef, _ enabled: Bool) -> OSStatus
+func MIDIDriverEnableMonitoring(_ driver: MIDIDriverRef, _ enabled: Bool) -> OSStatus

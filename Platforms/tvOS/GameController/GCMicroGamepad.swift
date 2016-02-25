@@ -9,6 +9,5 @@ class GCMicroGamepad : NSObject {
   var buttonX: GCControllerButtonInput { get }
   var reportsAbsoluteDpadValues: Bool
   var allowsRotation: Bool
-  init()
 }
 typealias GCMicroGamepadValueChangedHandler = (GCMicroGamepad, GCControllerElement) -> Void

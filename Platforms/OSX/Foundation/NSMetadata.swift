@@ -20,23 +20,22 @@ class NSMetadataQuery : NSObject {
   func disableUpdates()
   func enableUpdates()
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAtIndex(_ idx: Int) -> AnyObject
   @available(OSX 10.9, *)
-  func enumerateResultsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResultsUsingBlock(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func enumerateResultsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResultsWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func indexOfResult(result: AnyObject) -> Int
+  func indexOfResult(_ result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [NSMetadataQueryResultGroup] { get }
-  func valueOfAttribute(attrName: String, forResultAtIndex idx: Int) -> AnyObject?
-  init()
+  func valueOfAttribute(_ attrName: String, forResultAtIndex idx: Int) -> AnyObject?
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(OSX 10.4, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(OSX 10.4, *)
 let NSMetadataQueryDidStartGatheringNotification: String
@@ -74,17 +73,15 @@ let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 class NSMetadataItem : NSObject {
   @available(OSX 10.9, *)
   init?(URL url: NSURL)
-  func valueForAttribute(key: String) -> AnyObject?
-  func valuesForAttributes(keys: [String]) -> [String : AnyObject]?
+  func valueForAttribute(_ key: String) -> AnyObject?
+  func valuesForAttributes(_ keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
-  convenience init()
 }
 @available(OSX 10.4, *)
 class NSMetadataQueryAttributeValueTuple : NSObject {
   var attribute: String { get }
   var value: AnyObject? { get }
   var count: Int { get }
-  init()
 }
 @available(OSX 10.4, *)
 class NSMetadataQueryResultGroup : NSObject {
@@ -92,7 +89,6 @@ class NSMetadataQueryResultGroup : NSObject {
   var value: AnyObject { get }
   var subgroups: [NSMetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAtIndex(_ idx: Int) -> AnyObject
   var results: [AnyObject] { get }
-  init()
 }

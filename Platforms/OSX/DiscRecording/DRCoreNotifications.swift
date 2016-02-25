@@ -7,8 +7,8 @@ func DRNotificationCenterGetTypeID() -> CFTypeID
 @available(OSX 10.2, *)
 func DRNotificationCenterCreate() -> Unmanaged<DRNotificationCenterRef>!
 @available(OSX 10.2, *)
-func DRNotificationCenterCreateRunLoopSource(center: DRNotificationCenterRef!) -> Unmanaged<CFRunLoopSource>!
+func DRNotificationCenterCreateRunLoopSource(_ center: DRNotificationCenterRef!) -> Unmanaged<CFRunLoopSource>!
 @available(OSX 10.2, *)
-func DRNotificationCenterAddObserver(center: DRNotificationCenterRef!, _ observer: UnsafePointer<Void>, _ callback: DRNotificationCallback!, _ name: CFString!, _ object: DRType!)
+func DRNotificationCenterAddObserver(_ center: DRNotificationCenterRef!, _ observer: UnsafePointer<Void>, _ callback: DRNotificationCallback!, _ name: CFString!, _ object: DRType!)
 @available(OSX 10.2, *)
-func DRNotificationCenterRemoveObserver(center: DRNotificationCenterRef!, _ observer: UnsafePointer<Void>, _ name: CFString!, _ object: DRType!)
+func DRNotificationCenterRemoveObserver(_ center: DRNotificationCenterRef!, _ observer: UnsafePointer<Void>, _ name: CFString!, _ object: DRType!)

@@ -10,23 +10,21 @@ var NEFilterProviderRemediationURLUsername: String { get }
 @available(iOS 9.0, *)
 class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
-  func startFilterWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func startFilterWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilterWithReason(reason: NEProviderStopReason, completionHandler: () -> Void)
+  func stopFilterWithReason(_ reason: NEProviderStopReason, completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
-  init()
 }
 @available(iOS 9.0, *)
 class NEFilterVerdict : NSObject, NSSecureCoding, NSCopying {
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
@@ -37,22 +35,18 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
   class func dropVerdict() -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func remediateVerdictWithRemediationURLMapKey(remediationURLMapKey: String, remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
+  class func remediateVerdictWithRemediationURLMapKey(_ remediationURLMapKey: String, remediationButtonTextMapKey remediationButtonTextMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func URLAppendStringVerdictWithMapKey(urlAppendMapKey: String) -> NEFilterNewFlowVerdict
+  class func URLAppendStringVerdictWithMapKey(_ urlAppendMapKey: String) -> NEFilterNewFlowVerdict
   @available(iOS 9.0, *)
-  class func filterDataVerdictWithFilterInbound(filterInbound: Bool, peekInboundBytes: Int, filterOutbound: Bool, peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
+  class func filterDataVerdictWithFilterInbound(_ filterInbound: Bool, peekInboundBytes peekInboundBytes: Int, filterOutbound filterOutbound: Bool, peekOutboundBytes peekOutboundBytes: Int) -> NEFilterNewFlowVerdict
 }
 @available(iOS 9.0, *)
 class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  class func allowVerdictWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func allowVerdictWithUpdateRules(_ updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
-  class func dropVerdictWithUpdateRules(updateRules: Bool) -> NEFilterControlVerdict
+  class func dropVerdictWithUpdateRules(_ updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
-  init()
-  init?(coder aDecoder: NSCoder)
 }

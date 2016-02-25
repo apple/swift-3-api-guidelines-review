@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 enum SKBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Alpha
   case Add
@@ -12,7 +12,6 @@ enum SKBlendMode : Int {
   case Replace
 }
 class SKNode : UIResponder, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   convenience init?(fileNamed filename: String)
   var frame: CGRect { get }
@@ -35,39 +34,39 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   var userData: NSMutableDictionary?
   @NSCopying var reachConstraints: SKReachConstraints?
   var constraints: [SKConstraint]?
-  func setScale(scale: CGFloat)
-  func addChild(node: SKNode)
-  func insertChild(node: SKNode, atIndex index: Int)
-  func removeChildrenInArray(nodes: [SKNode])
+  func setScale(_ scale: CGFloat)
+  func addChild(_ node: SKNode)
+  func insertChild(_ node: SKNode, atIndex index: Int)
+  func removeChildrenInArray(_ nodes: [SKNode])
   func removeAllChildren()
   func removeFromParent()
-  func moveToParent(parent: SKNode)
-  func childNodeWithName(name: String) -> SKNode?
-  func enumerateChildNodesWithName(name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func moveToParent(_ parent: SKNode)
+  func childNodeWithName(_ name: String) -> SKNode?
+  func enumerateChildNodesWithName(_ name: String, usingBlock block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 8.0, *)
-  subscript (name: String) -> [SKNode] { get }
-  func inParentHierarchy(parent: SKNode) -> Bool
-  func runAction(action: SKAction)
-  func runAction(action: SKAction, completion block: () -> Void)
-  func runAction(action: SKAction, withKey key: String)
+  subscript(_ name: String) -> [SKNode] { get }
+  func inParentHierarchy(_ parent: SKNode) -> Bool
+  func runAction(_ action: SKAction)
+  func runAction(_ action: SKAction, completion block: () -> Void)
+  func runAction(_ action: SKAction, withKey key: String)
   func hasActions() -> Bool
-  func actionForKey(key: String) -> SKAction?
-  func removeActionForKey(key: String)
+  func actionForKey(_ key: String) -> SKAction?
+  func removeActionForKey(_ key: String)
   func removeAllActions()
-  func containsPoint(p: CGPoint) -> Bool
-  func nodeAtPoint(p: CGPoint) -> SKNode
-  func nodesAtPoint(p: CGPoint) -> [SKNode]
-  func convertPoint(point: CGPoint, fromNode node: SKNode) -> CGPoint
-  func convertPoint(point: CGPoint, toNode node: SKNode) -> CGPoint
-  func intersectsNode(node: SKNode) -> Bool
-  func isEqualToNode(node: SKNode) -> Bool
-  class func obstaclesFromSpriteTextures(sprites: [SKNode], accuracy: Float) -> [AnyObject]
-  class func obstaclesFromNodeBounds(nodes: [SKNode]) -> [AnyObject]
-  class func obstaclesFromNodePhysicsBodies(nodes: [SKNode]) -> [AnyObject]
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func containsPoint(_ p: CGPoint) -> Bool
+  func nodeAtPoint(_ p: CGPoint) -> SKNode
+  func nodesAtPoint(_ p: CGPoint) -> [SKNode]
+  func convertPoint(_ point: CGPoint, fromNode node: SKNode) -> CGPoint
+  func convertPoint(_ point: CGPoint, toNode node: SKNode) -> CGPoint
+  func intersectsNode(_ node: SKNode) -> Bool
+  func isEqualToNode(_ node: SKNode) -> Bool
+  class func obstaclesFromSpriteTextures(_ sprites: [SKNode], accuracy accuracy: Float) -> [AnyObject]
+  class func obstaclesFromNodeBounds(_ nodes: [SKNode]) -> [AnyObject]
+  class func obstaclesFromNodePhysicsBodies(_ nodes: [SKNode]) -> [AnyObject]
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension UITouch {
-  func locationInNode(node: SKNode) -> CGPoint
-  func previousLocationInNode(node: SKNode) -> CGPoint
+  func locationInNode(_ node: SKNode) -> CGPoint
+  func previousLocationInNode(_ node: SKNode) -> CGPoint
 }

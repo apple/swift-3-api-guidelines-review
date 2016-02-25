@@ -9,10 +9,9 @@ class MKMapItem : NSObject {
   @available(OSX 10.11, *)
   @NSCopying var timeZone: NSTimeZone?
   class func mapItemForCurrentLocation() -> MKMapItem
-  init(placemark: MKPlacemark)
-  func openInMapsWithLaunchOptions(launchOptions: [String : AnyObject]?) -> Bool
-  class func openMapsWithItems(mapItems: [MKMapItem], launchOptions: [String : AnyObject]?) -> Bool
-  init()
+  init(placemark placemark: MKPlacemark)
+  func openInMapsWithLaunchOptions(_ launchOptions: [String : AnyObject]?) -> Bool
+  class func openMapsWithItems(_ mapItems: [MKMapItem], launchOptions launchOptions: [String : AnyObject]?) -> Bool
 }
 @available(OSX 10.9, *)
 let MKLaunchOptionsDirectionsModeKey: String

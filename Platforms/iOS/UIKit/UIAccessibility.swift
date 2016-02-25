@@ -20,49 +20,49 @@ extension NSObject {
   @available(iOS 8.0, *)
   var accessibilityNavigationStyle: UIAccessibilityNavigationStyle
   class func isAccessibilityElement() -> Bool
-  class func setIsAccessibilityElement(isAccessibilityElement: Bool)
+  class func setIsAccessibilityElement(_ isAccessibilityElement: Bool)
   class func accessibilityLabel() -> String?
-  class func setAccessibilityLabel(accessibilityLabel: String?)
+  class func setAccessibilityLabel(_ accessibilityLabel: String?)
   class func accessibilityHint() -> String?
-  class func setAccessibilityHint(accessibilityHint: String?)
+  class func setAccessibilityHint(_ accessibilityHint: String?)
   class func accessibilityValue() -> String?
-  class func setAccessibilityValue(accessibilityValue: String?)
+  class func setAccessibilityValue(_ accessibilityValue: String?)
   class func accessibilityTraits() -> UIAccessibilityTraits
-  class func setAccessibilityTraits(accessibilityTraits: UIAccessibilityTraits)
+  class func setAccessibilityTraits(_ accessibilityTraits: UIAccessibilityTraits)
   class func accessibilityFrame() -> CGRect
-  class func setAccessibilityFrame(accessibilityFrame: CGRect)
+  class func setAccessibilityFrame(_ accessibilityFrame: CGRect)
   class func accessibilityPath() -> UIBezierPath?
-  class func setAccessibilityPath(accessibilityPath: UIBezierPath?)
+  class func setAccessibilityPath(_ accessibilityPath: UIBezierPath?)
   class func accessibilityActivationPoint() -> CGPoint
-  class func setAccessibilityActivationPoint(accessibilityActivationPoint: CGPoint)
+  class func setAccessibilityActivationPoint(_ accessibilityActivationPoint: CGPoint)
   class func accessibilityLanguage() -> String?
-  class func setAccessibilityLanguage(accessibilityLanguage: String?)
+  class func setAccessibilityLanguage(_ accessibilityLanguage: String?)
   class func accessibilityElementsHidden() -> Bool
-  class func setAccessibilityElementsHidden(accessibilityElementsHidden: Bool)
+  class func setAccessibilityElementsHidden(_ accessibilityElementsHidden: Bool)
   class func accessibilityViewIsModal() -> Bool
-  class func setAccessibilityViewIsModal(accessibilityViewIsModal: Bool)
+  class func setAccessibilityViewIsModal(_ accessibilityViewIsModal: Bool)
   class func shouldGroupAccessibilityChildren() -> Bool
-  class func setShouldGroupAccessibilityChildren(shouldGroupAccessibilityChildren: Bool)
+  class func setShouldGroupAccessibilityChildren(_ shouldGroupAccessibilityChildren: Bool)
   class func accessibilityNavigationStyle() -> UIAccessibilityNavigationStyle
-  class func setAccessibilityNavigationStyle(accessibilityNavigationStyle: UIAccessibilityNavigationStyle)
+  class func setAccessibilityNavigationStyle(_ accessibilityNavigationStyle: UIAccessibilityNavigationStyle)
   class func accessibilityHeaderElements() -> [AnyObject]?
-  class func setAccessibilityHeaderElements(accessibilityHeaderElements: [AnyObject]?)
+  class func setAccessibilityHeaderElements(_ accessibilityHeaderElements: [AnyObject]?)
 }
 @available(iOS 7.0, *)
-func UIAccessibilityConvertFrameToScreenCoordinates(rect: CGRect, _ view: UIView) -> CGRect
+func UIAccessibilityConvertFrameToScreenCoordinates(_ rect: CGRect, _ view: UIView) -> CGRect
 @available(iOS 7.0, *)
-func UIAccessibilityConvertPathToScreenCoordinates(path: UIBezierPath, _ view: UIView) -> UIBezierPath
+func UIAccessibilityConvertPathToScreenCoordinates(_ path: UIBezierPath, _ view: UIView) -> UIBezierPath
 extension NSObject {
   class func accessibilityElementCount() -> Int
   func accessibilityElementCount() -> Int
-  class func accessibilityElementAtIndex(index: Int) -> AnyObject?
-  func accessibilityElementAtIndex(index: Int) -> AnyObject?
-  class func indexOfAccessibilityElement(element: AnyObject) -> Int
-  func indexOfAccessibilityElement(element: AnyObject) -> Int
+  class func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
+  func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
+  class func indexOfAccessibilityElement(_ element: AnyObject) -> Int
+  func indexOfAccessibilityElement(_ element: AnyObject) -> Int
   @available(iOS 8.0, *)
   var accessibilityElements: [AnyObject]?
   class func accessibilityElements() -> [AnyObject]?
-  class func setAccessibilityElements(accessibilityElements: [AnyObject]?)
+  class func setAccessibilityElements(_ accessibilityElements: [AnyObject]?)
 }
 extension NSObject {
   @available(iOS 4.0, *)
@@ -83,7 +83,7 @@ extension NSObject {
   func accessibilityAssistiveTechnologyFocusedIdentifiers() -> Set<String>?
 }
 @available(iOS 9.0, *)
-func UIAccessibilityFocusedElement(assistiveTechnologyIdentifier: String?) -> AnyObject?
+func UIAccessibilityFocusedElement(_ assistiveTechnologyIdentifier: String?) -> AnyObject?
 extension NSObject {
   @available(iOS 7.0, *)
   class func accessibilityActivate() -> Bool
@@ -98,9 +98,9 @@ extension NSObject {
   @available(iOS 4.0, *)
   func accessibilityDecrement()
   @available(iOS 4.2, *)
-  class func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  class func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool
   @available(iOS 4.2, *)
-  func accessibilityScroll(direction: UIAccessibilityScrollDirection) -> Bool
+  func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool
   @available(iOS 5.0, *)
   class func accessibilityPerformEscape() -> Bool
   @available(iOS 5.0, *)
@@ -112,10 +112,10 @@ extension NSObject {
   @available(iOS 8.0, *)
   var accessibilityCustomActions: [UIAccessibilityCustomAction]?
   class func accessibilityCustomActions() -> [UIAccessibilityCustomAction]?
-  class func setAccessibilityCustomActions(accessibilityCustomActions: [UIAccessibilityCustomAction]?)
+  class func setAccessibilityCustomActions(_ accessibilityCustomActions: [UIAccessibilityCustomAction]?)
 }
 enum UIAccessibilityScrollDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Right
   case Left
@@ -128,15 +128,15 @@ enum UIAccessibilityScrollDirection : Int {
 }
 protocol UIAccessibilityReadingContent {
   @available(iOS 5.0, *)
-  func accessibilityLineNumberForPoint(point: CGPoint) -> Int
+  func accessibilityLineNumberForPoint(_ point: CGPoint) -> Int
   @available(iOS 5.0, *)
-  func accessibilityContentForLineNumber(lineNumber: Int) -> String?
+  func accessibilityContentForLineNumber(_ lineNumber: Int) -> String?
   @available(iOS 5.0, *)
-  func accessibilityFrameForLineNumber(lineNumber: Int) -> CGRect
+  func accessibilityFrameForLineNumber(_ lineNumber: Int) -> CGRect
   @available(iOS 5.0, *)
   func accessibilityPageContent() -> String?
 }
-func UIAccessibilityPostNotification(notification: UIAccessibilityNotifications, _ argument: AnyObject?)
+func UIAccessibilityPostNotification(_ notification: UIAccessibilityNotifications, _ argument: AnyObject?)
 @available(iOS 4.0, *)
 func UIAccessibilityIsVoiceOverRunning() -> Bool
 @available(iOS 4.0, *)
@@ -194,4 +194,4 @@ func UIAccessibilityIsShakeToUndoEnabled() -> Bool
 @available(iOS 9.0, *)
 let UIAccessibilityShakeToUndoDidChangeNotification: String
 @available(iOS 7.0, *)
-func UIAccessibilityRequestGuidedAccessSession(enable: Bool, _ completionHandler: (Bool) -> Void)
+func UIAccessibilityRequestGuidedAccessSession(_ enable: Bool, _ completionHandler: (Bool) -> Void)

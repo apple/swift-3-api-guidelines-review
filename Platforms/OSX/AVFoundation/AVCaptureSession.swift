@@ -9,7 +9,7 @@ let AVCaptureSessionDidStartRunningNotification: String
 let AVCaptureSessionDidStopRunningNotification: String
 @available(OSX 10.7, *)
 enum AVCaptureVideoOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Portrait
   case PortraitUpsideDown
@@ -40,26 +40,26 @@ let AVCaptureSessionPresetiFrame960x540: String
 let AVCaptureSessionPresetiFrame1280x720: String
 @available(OSX 10.7, *)
 class AVCaptureSession : NSObject {
-  func canSetSessionPreset(preset: String!) -> Bool
+  func canSetSessionPreset(_ preset: String!) -> Bool
   var sessionPreset: String!
   var inputs: [AnyObject]! { get }
-  func canAddInput(input: AVCaptureInput!) -> Bool
-  func addInput(input: AVCaptureInput!)
-  func removeInput(input: AVCaptureInput!)
+  func canAddInput(_ input: AVCaptureInput!) -> Bool
+  func addInput(_ input: AVCaptureInput!)
+  func removeInput(_ input: AVCaptureInput!)
   var outputs: [AnyObject]! { get }
-  func canAddOutput(output: AVCaptureOutput!) -> Bool
-  func addOutput(output: AVCaptureOutput!)
-  func removeOutput(output: AVCaptureOutput!)
+  func canAddOutput(_ output: AVCaptureOutput!) -> Bool
+  func addOutput(_ output: AVCaptureOutput!)
+  func removeOutput(_ output: AVCaptureOutput!)
   @available(OSX 10.7, *)
-  func addInputWithNoConnections(input: AVCaptureInput!)
+  func addInputWithNoConnections(_ input: AVCaptureInput!)
   @available(OSX 10.7, *)
-  func addOutputWithNoConnections(output: AVCaptureOutput!)
+  func addOutputWithNoConnections(_ output: AVCaptureOutput!)
   @available(OSX 10.7, *)
-  func canAddConnection(connection: AVCaptureConnection!) -> Bool
+  func canAddConnection(_ connection: AVCaptureConnection!) -> Bool
   @available(OSX 10.7, *)
-  func addConnection(connection: AVCaptureConnection!)
+  func addConnection(_ connection: AVCaptureConnection!)
   @available(OSX 10.7, *)
-  func removeConnection(connection: AVCaptureConnection!)
+  func removeConnection(_ connection: AVCaptureConnection!)
   func beginConfiguration()
   func commitConfiguration()
   var running: Bool { get }
@@ -67,11 +67,10 @@ class AVCaptureSession : NSObject {
   func stopRunning()
   @available(OSX 10.9, *)
   var masterClock: CMClock! { get }
-  init()
 }
 @available(OSX 10.7, *)
 enum AVVideoFieldMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Both
   case TopOnly
@@ -81,7 +80,7 @@ enum AVVideoFieldMode : Int {
 @available(OSX 10.7, *)
 class AVCaptureConnection : NSObject {
   @available(OSX 10.7, *)
-  init!(inputPorts ports: [AnyObject]!, output: AVCaptureOutput!)
+  init!(inputPorts ports: [AnyObject]!, output output: AVCaptureOutput!)
   @available(OSX 10.7, *)
   init!(inputPort port: AVCaptureInputPort!, videoPreviewLayer layer: AVCaptureVideoPreviewLayer!)
   var inputPorts: [AnyObject]! { get }
@@ -109,7 +108,6 @@ class AVCaptureConnection : NSObject {
   var supportsVideoMaxFrameDuration: Bool { get }
   @available(OSX, introduced=10.9, message="Use AVCaptureDevice's activeVideoMaxFrameDuration instead.")
   var videoMaxFrameDuration: CMTime
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureAudioChannel : NSObject {
@@ -119,5 +117,4 @@ class AVCaptureAudioChannel : NSObject {
   var volume: Float
   @available(OSX 10.7, *)
   var enabled: Bool
-  init()
 }

@@ -1,14 +1,14 @@
 
 @available(iOS 3.0, *)
 class AVAudioRecorder : NSObject {
-  init(URL url: NSURL, settings: [String : AnyObject]) throws
+  init(URL url: NSURL, settings settings: [String : AnyObject]) throws
   func prepareToRecord() -> Bool
   func record() -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: NSTimeInterval) -> Bool
-  func recordForDuration(duration: NSTimeInterval) -> Bool
+  func recordAtTime(_ time: NSTimeInterval) -> Bool
+  func recordForDuration(_ duration: NSTimeInterval) -> Bool
   @available(iOS 6.0, *)
-  func recordAtTime(time: NSTimeInterval, forDuration duration: NSTimeInterval) -> Bool
+  func recordAtTime(_ time: NSTimeInterval, forDuration duration: NSTimeInterval) -> Bool
   func pause()
   func stop()
   func deleteRecording() -> Bool
@@ -21,19 +21,18 @@ class AVAudioRecorder : NSObject {
   var deviceCurrentTime: NSTimeInterval { get }
   var meteringEnabled: Bool
   func updateMeters()
-  func peakPowerForChannel(channelNumber: Int) -> Float
-  func averagePowerForChannel(channelNumber: Int) -> Float
+  func peakPowerForChannel(_ channelNumber: Int) -> Float
+  func averagePowerForChannel(_ channelNumber: Int) -> Float
   @available(iOS 7.0, *)
   var channelAssignments: [NSNumber]?
-  init()
 }
 protocol AVAudioRecorderDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool)
+  optional func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool)
   @available(iOS 3.0, *)
-  optional func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder, error: NSError?)
+  optional func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error error: NSError?)
   @available(iOS, introduced=2.2, deprecated=8.0)
-  optional func audioRecorderBeginInterruption(recorder: AVAudioRecorder)
+  optional func audioRecorderBeginInterruption(_ recorder: AVAudioRecorder)
   @available(iOS, introduced=6.0, deprecated=8.0)
-  optional func audioRecorderEndInterruption(recorder: AVAudioRecorder, withOptions flags: Int)
+  optional func audioRecorderEndInterruption(_ recorder: AVAudioRecorder, withOptions flags: Int)
 }

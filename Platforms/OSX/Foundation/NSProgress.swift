@@ -4,14 +4,14 @@ class NSProgress : NSObject {
   class func currentProgress() -> NSProgress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(OSX 10.11, *)
-  class func discreteProgressWithTotalUnitCount(unitCount: Int64) -> NSProgress
+  class func discreteProgressWithTotalUnitCount(_ unitCount: Int64) -> NSProgress
   @available(OSX 10.11, *)
-  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
+  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]?)
-  func becomeCurrentWithPendingUnitCount(unitCount: Int64)
+  func becomeCurrentWithPendingUnitCount(_ unitCount: Int64)
   func resignCurrent()
   @available(OSX 10.11, *)
-  func addChild(child: NSProgress, withPendingUnitCount inUnitCount: Int64)
+  func addChild(_ child: NSProgress, withPendingUnitCount inUnitCount: Int64)
   var totalUnitCount: Int64
   var completedUnitCount: Int64
   var localizedDescription: String!
@@ -24,7 +24,7 @@ class NSProgress : NSObject {
   var pausingHandler: (() -> Void)?
   @available(OSX 10.11, *)
   var resumingHandler: (() -> Void)?
-  func setUserInfoObject(objectOrNil: AnyObject?, forKey key: String)
+  func setUserInfoObject(_ objectOrNil: AnyObject?, forKey key: String)
   var indeterminate: Bool { get }
   var fractionCompleted: Double { get }
   func cancel()
@@ -38,12 +38,11 @@ class NSProgress : NSObject {
   @available(OSX 10.9, *)
   func unpublish()
   @available(OSX 10.9, *)
-  class func addSubscriberForFileURL(url: NSURL, withPublishingHandler publishingHandler: NSProgressPublishingHandler) -> AnyObject
+  class func addSubscriberForFileURL(_ url: NSURL, withPublishingHandler publishingHandler: NSProgressPublishingHandler) -> AnyObject
   @available(OSX 10.9, *)
-  class func removeSubscriber(subscriber: AnyObject)
+  class func removeSubscriber(_ subscriber: AnyObject)
   @available(OSX 10.9, *)
   var old: Bool { get }
-  convenience init()
 }
 typealias NSProgressUnpublishingHandler = () -> Void
 typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?

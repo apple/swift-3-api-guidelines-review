@@ -1,7 +1,7 @@
 
 class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use NSURLComponents instead, which lets you create a valid URL with any valid combination of URL components and subcomponents (not just scheme, host and path), and lets you set components and subcomponents with either percent-encoded or un-percent-encoded strings.")
-  convenience init?(scheme: String, host: String?, path: String)
+  convenience init?(scheme scheme: String, host host: String?, path path: String)
   @available(tvOS 9.0, *)
   init(fileURLWithPath path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
   @available(tvOS 9.0, *)
@@ -10,16 +10,16 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   init(fileURLWithPath path: String, isDirectory isDir: Bool)
   init(fileURLWithPath path: String)
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(_ path: String, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
-  class func fileURLWithPath(path: String, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithPath(_ path: String, relativeToURL baseURL: NSURL?) -> NSURL
   @available(tvOS 2.0, *)
-  class func fileURLWithPath(path: String, isDirectory isDir: Bool) -> NSURL
-  class func fileURLWithPath(path: String) -> NSURL
+  class func fileURLWithPath(_ path: String, isDirectory isDir: Bool) -> NSURL
+  class func fileURLWithPath(_ path: String) -> NSURL
   @available(tvOS 7.0, *)
   init(fileURLWithFileSystemRepresentation path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?)
   @available(tvOS 7.0, *)
-  class func fileURLWithFileSystemRepresentation(path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
+  class func fileURLWithFileSystemRepresentation(_ path: UnsafePointer<Int8>, isDirectory isDir: Bool, relativeToURL baseURL: NSURL?) -> NSURL
   convenience init?(string URLString: String)
   init?(string URLString: String, relativeToURL baseURL: NSURL?)
   @available(tvOS 9.0, *)
@@ -27,7 +27,7 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 9.0, *)
   init(absoluteURLWithDataRepresentation data: NSData, relativeToURL baseURL: NSURL?)
   @available(tvOS 9.0, *)
-  class func absoluteURLWithDataRepresentation(data: NSData, relativeToURL baseURL: NSURL?) -> NSURL
+  class func absoluteURLWithDataRepresentation(_ data: NSData, relativeToURL baseURL: NSURL?) -> NSURL
   @available(tvOS 9.0, *)
   @NSCopying var dataRepresentation: NSData { get }
   var absoluteString: String { get }
@@ -48,13 +48,13 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 9.0, *)
   var hasDirectoryPath: Bool { get }
   @available(tvOS 7.0, *)
-  func getFileSystemRepresentation(buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
+  func getFileSystemRepresentation(_ buffer: UnsafeMutablePointer<Int8>, maxLength maxBufferLength: Int) -> Bool
   @available(tvOS 7.0, *)
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
   var fileURL: Bool { get }
   @NSCopying var standardizedURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  func checkResourceIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkResourceIsReachableAndReturnError(_ error: NSErrorPointer) -> Bool
   @available(tvOS 4.0, *)
   func isFileReferenceURL() -> Bool
   @available(tvOS 4.0, *)
@@ -62,49 +62,46 @@ class NSURL : NSObject, NSSecureCoding, NSCopying {
   @available(tvOS 4.0, *)
   @NSCopying var filePathURL: NSURL? { get }
   @available(tvOS 4.0, *)
-  func getResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
+  func getResourceValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(tvOS 4.0, *)
-  func resourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
+  func resourceValuesForKeys(_ keys: [String]) throws -> [String : AnyObject]
   @available(tvOS 4.0, *)
-  func setResourceValue(value: AnyObject?, forKey key: String) throws
+  func setResourceValue(_ value: AnyObject?, forKey key: String) throws
   @available(tvOS 4.0, *)
-  func setResourceValues(keyedValues: [String : AnyObject]) throws
+  func setResourceValues(_ keyedValues: [String : AnyObject]) throws
   @available(tvOS 7.0, *)
-  func removeCachedResourceValueForKey(key: String)
+  func removeCachedResourceValueForKey(_ key: String)
   @available(tvOS 7.0, *)
   func removeAllCachedResourceValues()
   @available(tvOS 7.0, *)
-  func setTemporaryResourceValue(value: AnyObject?, forKey key: String)
+  func setTemporaryResourceValue(_ value: AnyObject?, forKey key: String)
   @available(tvOS 4.0, *)
-  func bookmarkDataWithOptions(options: NSURLBookmarkCreationOptions, includingResourceValuesForKeys keys: [String]?, relativeToURL relativeURL: NSURL?) throws -> NSData
+  func bookmarkDataWithOptions(_ options: NSURLBookmarkCreationOptions, includingResourceValuesForKeys keys: [String]?, relativeToURL relativeURL: NSURL?) throws -> NSData
   @available(tvOS 4.0, *)
-  convenience init(byResolvingBookmarkData bookmarkData: NSData, options: NSURLBookmarkResolutionOptions, relativeToURL relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
+  convenience init(byResolvingBookmarkData bookmarkData: NSData, options options: NSURLBookmarkResolutionOptions, relativeToURL relativeURL: NSURL?, bookmarkDataIsStale isStale: UnsafeMutablePointer<ObjCBool>) throws
   @available(tvOS 4.0, *)
-  class func resourceValuesForKeys(keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
+  class func resourceValuesForKeys(_ keys: [String], fromBookmarkData bookmarkData: NSData) -> [String : AnyObject]?
   @available(tvOS 4.0, *)
-  class func writeBookmarkData(bookmarkData: NSData, toURL bookmarkFileURL: NSURL, options: NSURLBookmarkFileCreationOptions) throws
+  class func writeBookmarkData(_ bookmarkData: NSData, toURL bookmarkFileURL: NSURL, options options: NSURLBookmarkFileCreationOptions) throws
   @available(tvOS 4.0, *)
-  class func bookmarkDataWithContentsOfURL(bookmarkFileURL: NSURL) throws -> NSData
+  class func bookmarkDataWithContentsOfURL(_ bookmarkFileURL: NSURL) throws -> NSData
   @available(tvOS 8.0, *)
-  convenience init(byResolvingAliasFileAtURL url: NSURL, options: NSURLBookmarkResolutionOptions) throws
+  convenience init(byResolvingAliasFileAtURL url: NSURL, options options: NSURLBookmarkResolutionOptions) throws
   @available(tvOS 8.0, *)
   func startAccessingSecurityScopedResource() -> Bool
   @available(tvOS 8.0, *)
   func stopAccessingSecurityScopedResource()
-  convenience init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension NSURL : _FileReferenceLiteralConvertible {
   convenience init(failableFileReferenceLiteral path: String)
-  required convenience init(fileReferenceLiteral path: String)
 }
 
 extension NSURL : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 let NSURLFileScheme: String
 @available(tvOS 5.0, *)
@@ -319,14 +316,14 @@ let NSURLUbiquitousItemDownloadingStatusDownloaded: String
 let NSURLUbiquitousItemDownloadingStatusCurrent: String
 @available(tvOS 4.0, *)
 struct NSURLBookmarkCreationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var MinimalBookmark: NSURLBookmarkCreationOptions { get }
   static var SuitableForBookmarkFile: NSURLBookmarkCreationOptions { get }
 }
 @available(tvOS 4.0, *)
 struct NSURLBookmarkResolutionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var WithoutUI: NSURLBookmarkResolutionOptions { get }
   static var WithoutMounting: NSURLBookmarkResolutionOptions { get }
@@ -334,33 +331,31 @@ struct NSURLBookmarkResolutionOptions : OptionSetType {
 typealias NSURLBookmarkFileCreationOptions = Int
 extension NSURL {
   @available(tvOS 8.0, *)
-  func getPromisedItemResourceValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
+  func getPromisedItemResourceValue(_ value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   @available(tvOS 8.0, *)
-  func promisedItemResourceValuesForKeys(keys: [String]) throws -> [String : AnyObject]
+  func promisedItemResourceValuesForKeys(_ keys: [String]) throws -> [String : AnyObject]
   @available(tvOS 8.0, *)
-  func checkPromisedItemIsReachableAndReturnError(error: NSErrorPointer) -> Bool
+  func checkPromisedItemIsReachableAndReturnError(_ error: NSErrorPointer) -> Bool
 }
 @available(tvOS 8.0, *)
 class NSURLQueryItem : NSObject, NSSecureCoding, NSCopying {
-  init(name: String, value: String?)
+  init(name name: String, value value: String?)
   var name: String { get }
   var value: String? { get }
-  convenience init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 7.0, *)
 class NSURLComponents : NSObject, NSCopying {
-  init()
   init?(URL url: NSURL, resolvingAgainstBaseURL resolve: Bool)
   init?(string URLString: String)
   @NSCopying var URL: NSURL? { get }
-  func URLRelativeToURL(baseURL: NSURL?) -> NSURL?
+  func URLRelativeToURL(_ baseURL: NSURL?) -> NSURL?
   @available(tvOS 8.0, *)
   var string: String? { get }
   var scheme: String?
@@ -396,7 +391,7 @@ class NSURLComponents : NSObject, NSCopying {
   @available(tvOS 8.0, *)
   var queryItems: [NSURLQueryItem]?
   @available(tvOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension NSCharacterSet {
   @available(tvOS 7.0, *)
@@ -414,17 +409,17 @@ extension NSCharacterSet {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacters: NSCharacterSet) -> String?
+  func stringByAddingPercentEncodingWithAllowedCharacters(_ allowedCharacters: NSCharacterSet) -> String?
   @available(tvOS 7.0, *)
   var stringByRemovingPercentEncoding: String? { get }
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByAddingPercentEncodingWithAllowedCharacters: instead, which always uses the recommended UTF-8 encoding, and which encodes for a specific URL component or subcomponent since each URL component or subcomponent has different rules for what characters are valid.")
-  func stringByAddingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func stringByAddingPercentEscapesUsingEncoding(_ enc: UInt) -> String?
   @available(tvOS, introduced=2.0, deprecated=9.0, message="Use -stringByRemovingPercentEncoding instead, which always uses the recommended UTF-8 encoding.")
-  func stringByReplacingPercentEscapesUsingEncoding(enc: UInt) -> String?
+  func stringByReplacingPercentEscapesUsingEncoding(_ enc: UInt) -> String?
 }
 extension NSURL {
   @available(tvOS 4.0, *)
-  class func fileURLWithPathComponents(components: [String]) -> NSURL?
+  class func fileURLWithPathComponents(_ components: [String]) -> NSURL?
   @available(tvOS 4.0, *)
   var pathComponents: [String]? { get }
   @available(tvOS 4.0, *)
@@ -432,13 +427,13 @@ extension NSURL {
   @available(tvOS 4.0, *)
   var pathExtension: String? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathComponent(pathComponent: String) -> NSURL
+  func URLByAppendingPathComponent(_ pathComponent: String) -> NSURL
   @available(tvOS 5.0, *)
-  func URLByAppendingPathComponent(pathComponent: String, isDirectory: Bool) -> NSURL
+  func URLByAppendingPathComponent(_ pathComponent: String, isDirectory isDirectory: Bool) -> NSURL
   @available(tvOS 4.0, *)
   @NSCopying var URLByDeletingLastPathComponent: NSURL? { get }
   @available(tvOS 4.0, *)
-  func URLByAppendingPathExtension(pathExtension: String) -> NSURL
+  func URLByAppendingPathExtension(_ pathExtension: String) -> NSURL
   @available(tvOS 4.0, *)
   @NSCopying var URLByDeletingPathExtension: NSURL? { get }
   @available(tvOS 4.0, *)
@@ -449,9 +444,8 @@ extension NSURL {
 @available(tvOS 5.0, *)
 class NSFileSecurity : NSObject, NSCopying, NSCoding {
   init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }

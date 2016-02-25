@@ -1,24 +1,16 @@
 
 extension NSObject {
-  class func validModesForFontPanel(fontPanel: NSFontPanel) -> Int
-  func validModesForFontPanel(fontPanel: NSFontPanel) -> Int
+  class func validModesForFontPanel(_ fontPanel: NSFontPanel) -> Int
+  func validModesForFontPanel(_ fontPanel: NSFontPanel) -> Int
 }
 class NSFontPanel : NSPanel {
   class func sharedFontPanel() -> NSFontPanel
   class func sharedFontPanelExists() -> Bool
   var accessoryView: NSView?
-  func setPanelFont(fontObj: NSFont, isMultiple flag: Bool)
-  func panelConvertFont(fontObj: NSFont) -> NSFont
-  var worksWhenModal: Bool
+  func setPanelFont(_ fontObj: NSFont, isMultiple flag: Bool)
+  func panelConvertFont(_ fontObj: NSFont) -> NSFont
   var enabled: Bool
   func reloadDefaultFontFamilies()
-  init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
-  convenience init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool, screen: NSScreen?)
-  @available(OSX 10.10, *)
-  convenience init(contentViewController: NSViewController)
-  convenience init()
-  init?(coder: NSCoder)
-  convenience init?(windowRef: UnsafeMutablePointer<Void>)
 }
 struct __fpFlags {
   var setFontChange: UInt32
@@ -35,7 +27,7 @@ struct __fpFlags {
   var _miniMode: UInt32
   var _reserved: UInt32
   init()
-  init(setFontChange: UInt32, setFontAttributeChange: UInt32, _delRespFamily: UInt32, _delRespFace: UInt32, _delRespSize: UInt32, _delRespColl: UInt32, _collectionDisabled: UInt32, _sizeDisabled: UInt32, _faceDisabled: UInt32, showEffects: UInt32, _uiMode: UInt32, _miniMode: UInt32, _reserved: UInt32)
+  init(setFontChange setFontChange: UInt32, setFontAttributeChange setFontAttributeChange: UInt32, _delRespFamily _delRespFamily: UInt32, _delRespFace _delRespFace: UInt32, _delRespSize _delRespSize: UInt32, _delRespColl _delRespColl: UInt32, _collectionDisabled _collectionDisabled: UInt32, _sizeDisabled _sizeDisabled: UInt32, _faceDisabled _faceDisabled: UInt32, showEffects showEffects: UInt32, _uiMode _uiMode: UInt32, _miniMode _miniMode: UInt32, _reserved _reserved: UInt32)
 }
 var NSFontPanelFaceModeMask: UInt32 { get }
 var NSFontPanelSizeModeMask: UInt32 { get }

@@ -14,17 +14,10 @@ class NSTableRowView : NSView, NSAccessibilityRow {
   var indentationForDropOperation: CGFloat
   var interiorBackgroundStyle: NSBackgroundStyle { get }
   @NSCopying var backgroundColor: NSColor
-  func drawBackgroundInRect(dirtyRect: NSRect)
-  func drawSelectionInRect(dirtyRect: NSRect)
-  func drawSeparatorInRect(dirtyRect: NSRect)
-  func drawDraggingDestinationFeedbackInRect(dirtyRect: NSRect)
-  func viewAtColumn(column: Int) -> AnyObject?
+  func drawBackgroundInRect(_ dirtyRect: NSRect)
+  func drawSelectionInRect(_ dirtyRect: NSRect)
+  func drawSeparatorInRect(_ dirtyRect: NSRect)
+  func drawDraggingDestinationFeedbackInRect(_ dirtyRect: NSRect)
+  func viewAtColumn(_ column: Int) -> AnyObject?
   var numberOfColumns: Int { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
-  @available(OSX 10.7, *)
-  func accessibilityIndex() -> Int
-  @available(OSX 10.7, *)
-  func accessibilityDisclosureLevel() -> Int
 }

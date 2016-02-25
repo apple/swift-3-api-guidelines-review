@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEFilterManagerError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ConfigurationInvalid
   case ConfigurationDisabled
@@ -17,16 +17,15 @@ class NEFilterManager : NSObject {
   @available(OSX 10.10, *)
   class func sharedManager() -> NEFilterManager
   @available(OSX 10.10, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func loadFromPreferencesWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
-  func removeFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func removeFromPreferencesWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
-  func saveToPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func saveToPreferencesWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(OSX 10.10, *)
   var localizedDescription: String?
   @available(OSX 10.11, *)
   var providerConfiguration: NEFilterProviderConfiguration?
   @available(OSX 10.10, *)
   var enabled: Bool
-  init()
 }

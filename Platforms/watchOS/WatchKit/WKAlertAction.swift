@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum WKAlertActionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Cancel
@@ -11,5 +11,5 @@ enum WKAlertActionStyle : Int {
 typealias WKAlertActionHandler = () -> Void
 @available(watchOS 2.0, *)
 class WKAlertAction : NSObject {
-  convenience init(title: String, style: WKAlertActionStyle, handler: WKAlertActionHandler)
+  convenience init(title title: String, style style: WKAlertActionStyle, handler handler: WKAlertActionHandler)
 }

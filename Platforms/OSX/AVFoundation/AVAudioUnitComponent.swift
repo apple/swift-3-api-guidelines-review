@@ -52,8 +52,7 @@ class AVAudioUnitComponent : NSObject {
   @available(OSX 10.10, *)
   var configurationDictionary: [String : AnyObject] { get }
   @available(OSX 10.10, *)
-  func supportsNumberInputChannels(numInputChannels: Int, outputChannels numOutputChannels: Int) -> Bool
-  init()
+  func supportsNumberInputChannels(_ numInputChannels: Int, outputChannels numOutputChannels: Int) -> Bool
 }
 @available(OSX 10.10, *)
 let AVAudioUnitComponentTagsDidChangeNotification: String
@@ -62,8 +61,7 @@ class AVAudioUnitComponentManager : NSObject {
   var tagNames: [String] { get }
   var standardLocalizedTagNames: [String] { get }
   class func sharedAudioUnitComponentManager() -> Self
-  func componentsMatchingPredicate(predicate: NSPredicate) -> [AVAudioUnitComponent]
-  func componentsPassingTest(testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
-  func componentsMatchingDescription(desc: AudioComponentDescription) -> [AVAudioUnitComponent]
-  init()
+  func componentsMatchingPredicate(_ predicate: NSPredicate) -> [AVAudioUnitComponent]
+  func componentsPassingTest(_ testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
+  func componentsMatchingDescription(_ desc: AudioComponentDescription) -> [AVAudioUnitComponent]
 }

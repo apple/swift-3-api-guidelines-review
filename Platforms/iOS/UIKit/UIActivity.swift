@@ -31,7 +31,7 @@ let UIActivityTypeAirDrop: String
 let UIActivityTypeOpenInIBooks: String
 @available(iOS 7.0, *)
 enum UIActivityCategory : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Action
   case Share
@@ -43,10 +43,9 @@ class UIActivity : NSObject {
   func activityType() -> String?
   func activityTitle() -> String?
   func activityImage() -> UIImage?
-  func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool
-  func prepareWithActivityItems(activityItems: [AnyObject])
+  func canPerformWithActivityItems(_ activityItems: [AnyObject]) -> Bool
+  func prepareWithActivityItems(_ activityItems: [AnyObject])
   func activityViewController() -> UIViewController?
   func performActivity()
-  func activityDidFinish(completed: Bool)
-  init()
+  func activityDidFinish(_ completed: Bool)
 }

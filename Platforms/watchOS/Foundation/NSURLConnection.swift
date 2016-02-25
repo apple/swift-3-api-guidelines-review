@@ -8,38 +8,37 @@ class NSURLConnection : NSObject {
   func start()
   func cancel()
   @available(watchOS 2.0, *)
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleInRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
   @available(watchOS 2.0, *)
-  func unscheduleFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func unscheduleFromRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
   @available(watchOS 2.0, *)
-  func setDelegateQueue(queue: NSOperationQueue?)
-  class func canHandleRequest(request: NSURLRequest) -> Bool
-  init()
+  func setDelegateQueue(_ queue: NSOperationQueue?)
+  class func canHandleRequest(_ request: NSURLRequest) -> Bool
 }
 protocol NSURLConnectionDelegate : NSObjectProtocol {
-  optional func connection(connection: NSURLConnection, didFailWithError error: NSError)
-  optional func connectionShouldUseCredentialStorage(connection: NSURLConnection) -> Bool
-  optional func connection(connection: NSURLConnection, willSendRequestForAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(_ connection: NSURLConnection, didFailWithError error: NSError)
+  optional func connectionShouldUseCredentialStorage(_ connection: NSURLConnection) -> Bool
+  optional func connection(_ connection: NSURLConnection, willSendRequestForAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
+  optional func connection(_ connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(_ connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use -connection:willSendRequestForAuthenticationChallenge: instead.")
-  optional func connection(connection: NSURLConnection, didCancelAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
+  optional func connection(_ connection: NSURLConnection, didCancelAuthenticationChallenge challenge: NSURLAuthenticationChallenge)
 }
 protocol NSURLConnectionDataDelegate : NSURLConnectionDelegate {
-  optional func connection(connection: NSURLConnection, willSendRequest request: NSURLRequest, redirectResponse response: NSURLResponse?) -> NSURLRequest?
-  optional func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse)
-  optional func connection(connection: NSURLConnection, didReceiveData data: NSData)
-  optional func connection(connection: NSURLConnection, needNewBodyStream request: NSURLRequest) -> NSInputStream?
-  optional func connection(connection: NSURLConnection, didSendBodyData bytesWritten: Int, totalBytesWritten: Int, totalBytesExpectedToWrite: Int)
-  optional func connection(connection: NSURLConnection, willCacheResponse cachedResponse: NSCachedURLResponse) -> NSCachedURLResponse?
-  optional func connectionDidFinishLoading(connection: NSURLConnection)
+  optional func connection(_ connection: NSURLConnection, willSendRequest request: NSURLRequest, redirectResponse response: NSURLResponse?) -> NSURLRequest?
+  optional func connection(_ connection: NSURLConnection, didReceiveResponse response: NSURLResponse)
+  optional func connection(_ connection: NSURLConnection, didReceiveData data: NSData)
+  optional func connection(_ connection: NSURLConnection, needNewBodyStream request: NSURLRequest) -> NSInputStream?
+  optional func connection(_ connection: NSURLConnection, didSendBodyData bytesWritten: Int, totalBytesWritten totalBytesWritten: Int, totalBytesExpectedToWrite totalBytesExpectedToWrite: Int)
+  optional func connection(_ connection: NSURLConnection, willCacheResponse cachedResponse: NSCachedURLResponse) -> NSCachedURLResponse?
+  optional func connectionDidFinishLoading(_ connection: NSURLConnection)
 }
 protocol NSURLConnectionDownloadDelegate : NSURLConnectionDelegate {
-  optional func connection(connection: NSURLConnection, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, expectedTotalBytes: Int64)
-  optional func connectionDidResumeDownloading(connection: NSURLConnection, totalBytesWritten: Int64, expectedTotalBytes: Int64)
-  func connectionDidFinishDownloading(connection: NSURLConnection, destinationURL: NSURL)
+  optional func connection(_ connection: NSURLConnection, didWriteData bytesWritten: Int64, totalBytesWritten totalBytesWritten: Int64, expectedTotalBytes expectedTotalBytes: Int64)
+  optional func connectionDidResumeDownloading(_ connection: NSURLConnection, totalBytesWritten totalBytesWritten: Int64, expectedTotalBytes expectedTotalBytes: Int64)
+  func connectionDidFinishDownloading(_ connection: NSURLConnection, destinationURL destinationURL: NSURL)
 }
 extension NSURLConnection {
 }

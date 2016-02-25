@@ -12,7 +12,7 @@ struct CFSetCallBacks {
   var equal: CFSetEqualCallBack!
   var hash: CFSetHashCallBack!
   init()
-  init(version: CFIndex, retain: CFSetRetainCallBack!, release: CFSetReleaseCallBack!, copyDescription: CFSetCopyDescriptionCallBack!, equal: CFSetEqualCallBack!, hash: CFSetHashCallBack!)
+  init(version version: CFIndex, retain retain: CFSetRetainCallBack!, release release: CFSetReleaseCallBack!, copyDescription copyDescription: CFSetCopyDescriptionCallBack!, equal equal: CFSetEqualCallBack!, hash hash: CFSetHashCallBack!)
 }
 let kCFTypeSetCallBacks: CFSetCallBacks
 let kCFCopyStringSetCallBacks: CFSetCallBacks
@@ -26,19 +26,19 @@ class CFMutableSet {
 @available(*, deprecated, renamed="CFMutableSet")
 typealias CFMutableSetRef = CFMutableSet
 func CFSetGetTypeID() -> CFTypeID
-func CFSetCreate(allocator: CFAllocator!, _ values: UnsafeMutablePointer<UnsafePointer<Void>>, _ numValues: CFIndex, _ callBacks: UnsafePointer<CFSetCallBacks>) -> CFSet!
-func CFSetCreateCopy(allocator: CFAllocator!, _ theSet: CFSet!) -> CFSet!
-func CFSetCreateMutable(allocator: CFAllocator!, _ capacity: CFIndex, _ callBacks: UnsafePointer<CFSetCallBacks>) -> CFMutableSet!
-func CFSetCreateMutableCopy(allocator: CFAllocator!, _ capacity: CFIndex, _ theSet: CFSet!) -> CFMutableSet!
-func CFSetGetCount(theSet: CFSet!) -> CFIndex
-func CFSetGetCountOfValue(theSet: CFSet!, _ value: UnsafePointer<Void>) -> CFIndex
-func CFSetContainsValue(theSet: CFSet!, _ value: UnsafePointer<Void>) -> Bool
-func CFSetGetValue(theSet: CFSet!, _ value: UnsafePointer<Void>) -> UnsafePointer<Void>
-func CFSetGetValueIfPresent(theSet: CFSet!, _ candidate: UnsafePointer<Void>, _ value: UnsafeMutablePointer<UnsafePointer<Void>>) -> Bool
-func CFSetGetValues(theSet: CFSet!, _ values: UnsafeMutablePointer<UnsafePointer<Void>>)
-func CFSetApplyFunction(theSet: CFSet!, _ applier: CFSetApplierFunction!, _ context: UnsafeMutablePointer<Void>)
-func CFSetAddValue(theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
-func CFSetReplaceValue(theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
-func CFSetSetValue(theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
-func CFSetRemoveValue(theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
-func CFSetRemoveAllValues(theSet: CFMutableSet!)
+func CFSetCreate(_ allocator: CFAllocator!, _ values: UnsafeMutablePointer<UnsafePointer<Void>>, _ numValues: CFIndex, _ callBacks: UnsafePointer<CFSetCallBacks>) -> CFSet!
+func CFSetCreateCopy(_ allocator: CFAllocator!, _ theSet: CFSet!) -> CFSet!
+func CFSetCreateMutable(_ allocator: CFAllocator!, _ capacity: CFIndex, _ callBacks: UnsafePointer<CFSetCallBacks>) -> CFMutableSet!
+func CFSetCreateMutableCopy(_ allocator: CFAllocator!, _ capacity: CFIndex, _ theSet: CFSet!) -> CFMutableSet!
+func CFSetGetCount(_ theSet: CFSet!) -> CFIndex
+func CFSetGetCountOfValue(_ theSet: CFSet!, _ value: UnsafePointer<Void>) -> CFIndex
+func CFSetContainsValue(_ theSet: CFSet!, _ value: UnsafePointer<Void>) -> Bool
+func CFSetGetValue(_ theSet: CFSet!, _ value: UnsafePointer<Void>) -> UnsafePointer<Void>
+func CFSetGetValueIfPresent(_ theSet: CFSet!, _ candidate: UnsafePointer<Void>, _ value: UnsafeMutablePointer<UnsafePointer<Void>>) -> Bool
+func CFSetGetValues(_ theSet: CFSet!, _ values: UnsafeMutablePointer<UnsafePointer<Void>>)
+func CFSetApplyFunction(_ theSet: CFSet!, _ applier: CFSetApplierFunction!, _ context: UnsafeMutablePointer<Void>)
+func CFSetAddValue(_ theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
+func CFSetReplaceValue(_ theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
+func CFSetSetValue(_ theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
+func CFSetRemoveValue(_ theSet: CFMutableSet!, _ value: UnsafePointer<Void>)
+func CFSetRemoveAllValues(_ theSet: CFMutableSet!)

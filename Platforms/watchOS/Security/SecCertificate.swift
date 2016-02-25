@@ -2,8 +2,8 @@
 @available(watchOS 2.0, *)
 func SecCertificateGetTypeID() -> CFTypeID
 @available(watchOS 2.0, *)
-func SecCertificateCreateWithData(allocator: CFAllocator?, _ data: CFData) -> SecCertificate?
+func SecCertificateCreateWithData(_ allocator: CFAllocator?, _ data: CFData) -> SecCertificate?
 @available(watchOS 2.0, *)
-func SecCertificateCopyData(certificate: SecCertificate) -> CFData
+func SecCertificateCopyData(_ certificate: SecCertificate) -> CFData
 @available(watchOS 2.0, *)
-func SecCertificateCopySubjectSummary(certificate: SecCertificate) -> CFString
+func SecCertificateCopySubjectSummary(_ certificate: SecCertificate) -> CFString

@@ -1,23 +1,22 @@
 
 @available(iOS 6.0, *)
 class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
-  init(options: NSPointerFunctionsOptions)
+  init(options options: NSPointerFunctionsOptions)
   init(pointerFunctions functions: NSPointerFunctions)
   @NSCopying var pointerFunctions: NSPointerFunctions { get }
-  func pointerAtIndex(index: Int) -> UnsafeMutablePointer<Void>
-  func addPointer(pointer: UnsafeMutablePointer<Void>)
-  func removePointerAtIndex(index: Int)
-  func insertPointer(item: UnsafeMutablePointer<Void>, atIndex index: Int)
-  func replacePointerAtIndex(index: Int, withPointer item: UnsafeMutablePointer<Void>)
+  func pointerAtIndex(_ index: Int) -> UnsafeMutablePointer<Void>
+  func addPointer(_ pointer: UnsafeMutablePointer<Void>)
+  func removePointerAtIndex(_ index: Int)
+  func insertPointer(_ item: UnsafeMutablePointer<Void>, atIndex index: Int)
+  func replacePointerAtIndex(_ index: Int, withPointer item: UnsafeMutablePointer<Void>)
   func compact()
   var count: Int
-  convenience init()
   @available(iOS 6.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 6.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSPointerArray {

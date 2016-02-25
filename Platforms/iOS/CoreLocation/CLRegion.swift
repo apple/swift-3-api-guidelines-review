@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum CLRegionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Inside
@@ -9,7 +9,7 @@ enum CLRegionState : Int {
 }
 @available(iOS 7.0, *)
 enum CLProximity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Immediate
@@ -24,12 +24,11 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   var notifyOnEntry: Bool
   @available(iOS 7.0, *)
   var notifyOnExit: Bool
-  init()
   @available(iOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

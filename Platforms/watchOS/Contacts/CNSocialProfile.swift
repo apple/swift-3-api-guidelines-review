@@ -5,16 +5,15 @@ class CNSocialProfile : NSObject, NSCopying, NSSecureCoding {
   var username: String { get }
   var userIdentifier: String { get }
   var service: String { get }
-  init(urlString: String?, username: String?, userIdentifier: String?, service: String?)
-  class func localizedStringForKey(key: String) -> String
-  class func localizedStringForService(service: String) -> String
-  init()
+  init(urlString urlString: String?, username username: String?, userIdentifier userIdentifier: String?, service service: String?)
+  class func localizedStringForKey(_ key: String) -> String
+  class func localizedStringForService(_ service: String) -> String
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)

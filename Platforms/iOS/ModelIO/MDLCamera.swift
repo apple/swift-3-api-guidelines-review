@@ -2,10 +2,10 @@
 @available(iOS 9.0, *)
 class MDLCamera : MDLObject {
   var projectionMatrix: matrix_float4x4 { get }
-  func frameBoundingBox(boundingBox: MDLAxisAlignedBoundingBox, setNearAndFar: Bool)
-  func lookAt(focusPosition: vector_float3)
-  func lookAt(focusPosition: vector_float3, from cameraPosition: vector_float3)
-  func rayTo(pixel: vector_int2, forViewPort size: vector_int2) -> vector_float3
+  func frameBoundingBox(_ boundingBox: MDLAxisAlignedBoundingBox, setNearAndFar setNearAndFar: Bool)
+  func lookAt(_ focusPosition: vector_float3)
+  func lookAt(_ focusPosition: vector_float3, from cameraPosition: vector_float3)
+  func rayTo(_ pixel: vector_int2, forViewPort size: vector_int2) -> vector_float3
   var nearVisibilityDistance: Float
   var farVisibilityDistance: Float
   var worldToMetersConversionScale: Float
@@ -19,7 +19,7 @@ class MDLCamera : MDLObject {
   var fStop: Float
   var apertureBladeCount: Int
   var maximumCircleOfConfusion: Float
-  func bokehKernelWithSize(size: vector_int2) -> MDLTexture
+  func bokehKernelWithSize(_ size: vector_int2) -> MDLTexture
   var shutterOpenInterval: NSTimeInterval
   var sensorVerticalAperture: Float
   var sensorAspect: Float
@@ -28,7 +28,6 @@ class MDLCamera : MDLObject {
   var flash: vector_float3
   var exposureCompression: vector_float2
   var exposure: vector_float3
-  init()
 }
 @available(iOS 9.0, *)
 class MDLStereoscopicCamera : MDLCamera {
@@ -40,5 +39,4 @@ class MDLStereoscopicCamera : MDLCamera {
   var rightViewMatrix: matrix_float4x4 { get }
   var leftProjectionMatrix: matrix_float4x4 { get }
   var rightProjectionMatrix: matrix_float4x4 { get }
-  init()
 }

@@ -12,17 +12,17 @@ class SCNScene : NSObject, NSSecureCoding {
   var rootNode: SCNNode { get }
   @available(OSX 10.10, *)
   var physicsWorld: SCNPhysicsWorld { get }
-  func attributeForKey(key: String) -> AnyObject?
-  func setAttribute(attribute: AnyObject?, forKey key: String)
+  func attributeForKey(_ key: String) -> AnyObject?
+  func setAttribute(_ attribute: AnyObject?, forKey key: String)
   @available(OSX 10.9, *)
   var background: SCNMaterialProperty { get }
   @available(OSX 10.9, *)
   convenience init?(named name: String)
   @available(OSX 10.10, *)
-  convenience init?(named name: String, inDirectory directory: String?, options: [String : AnyObject]?)
-  convenience init(URL url: NSURL, options: [String : AnyObject]?) throws
+  convenience init?(named name: String, inDirectory directory: String?, options options: [String : AnyObject]?)
+  convenience init(URL url: NSURL, options options: [String : AnyObject]?) throws
   @available(OSX 10.9, *)
-  func writeToURL(url: NSURL, options: [String : AnyObject]?, delegate: SCNSceneExportDelegate?, progressHandler: SCNSceneExportProgressHandler?) -> Bool
+  func writeToURL(_ url: NSURL, options options: [String : AnyObject]?, delegate delegate: SCNSceneExportDelegate?, progressHandler progressHandler: SCNSceneExportProgressHandler?) -> Bool
   @available(OSX 10.10, *)
   var fogStartDistance: CGFloat
   @available(OSX 10.10, *)
@@ -33,14 +33,13 @@ class SCNScene : NSObject, NSSecureCoding {
   var fogColor: AnyObject
   @available(OSX 10.10, *)
   var paused: Bool
-  init()
   @available(OSX 10.8, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.8, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 protocol SCNSceneExportDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  optional func writeImage(image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL: NSURL?) -> NSURL?
+  optional func writeImage(_ image: NSImage, withSceneDocumentURL documentURL: NSURL, originalImageURL originalImageURL: NSURL?) -> NSURL?
 }

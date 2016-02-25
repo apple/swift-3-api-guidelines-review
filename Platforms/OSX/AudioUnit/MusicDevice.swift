@@ -5,13 +5,13 @@ struct MusicDeviceStdNoteParams {
   var mPitch: Float32
   var mVelocity: Float32
   init()
-  init(argCount: UInt32, mPitch: Float32, mVelocity: Float32)
+  init(argCount argCount: UInt32, mPitch mPitch: Float32, mVelocity mVelocity: Float32)
 }
 struct NoteParamsControlValue {
   var mID: AudioUnitParameterID
   var mValue: AudioUnitParameterValue
   init()
-  init(mID: AudioUnitParameterID, mValue: AudioUnitParameterValue)
+  init(mID mID: AudioUnitParameterID, mValue mValue: AudioUnitParameterValue)
 }
 struct MusicDeviceNoteParams {
   var argCount: UInt32
@@ -19,7 +19,7 @@ struct MusicDeviceNoteParams {
   var mVelocity: Float32
   var mControls: (NoteParamsControlValue)
   init()
-  init(argCount: UInt32, mPitch: Float32, mVelocity: Float32, mControls: (NoteParamsControlValue))
+  init(argCount argCount: UInt32, mPitch mPitch: Float32, mVelocity mVelocity: Float32, mControls mControls: (NoteParamsControlValue))
 }
 var kMusicNoteEvent_UseGroupInstrument: UInt32 { get }
 var kMusicNoteEvent_Unused: UInt32 { get }
@@ -27,13 +27,13 @@ typealias MusicDeviceGroupID = UInt32
 typealias NoteInstanceID = UInt32
 typealias MusicDeviceComponent = AudioComponentInstance
 @available(OSX 10.0, *)
-func MusicDeviceMIDIEvent(inUnit: MusicDeviceComponent, _ inStatus: UInt32, _ inData1: UInt32, _ inData2: UInt32, _ inOffsetSampleFrame: UInt32) -> OSStatus
+func MusicDeviceMIDIEvent(_ inUnit: MusicDeviceComponent, _ inStatus: UInt32, _ inData1: UInt32, _ inData2: UInt32, _ inOffsetSampleFrame: UInt32) -> OSStatus
 @available(OSX 10.0, *)
-func MusicDeviceSysEx(inUnit: MusicDeviceComponent, _ inData: UnsafePointer<UInt8>, _ inLength: UInt32) -> OSStatus
+func MusicDeviceSysEx(_ inUnit: MusicDeviceComponent, _ inData: UnsafePointer<UInt8>, _ inLength: UInt32) -> OSStatus
 @available(OSX 10.0, *)
-func MusicDeviceStartNote(inUnit: MusicDeviceComponent, _ inInstrument: MusicDeviceInstrumentID, _ inGroupID: MusicDeviceGroupID, _ outNoteInstanceID: UnsafeMutablePointer<NoteInstanceID>, _ inOffsetSampleFrame: UInt32, _ inParams: UnsafePointer<MusicDeviceNoteParams>) -> OSStatus
+func MusicDeviceStartNote(_ inUnit: MusicDeviceComponent, _ inInstrument: MusicDeviceInstrumentID, _ inGroupID: MusicDeviceGroupID, _ outNoteInstanceID: UnsafeMutablePointer<NoteInstanceID>, _ inOffsetSampleFrame: UInt32, _ inParams: UnsafePointer<MusicDeviceNoteParams>) -> OSStatus
 @available(OSX 10.0, *)
-func MusicDeviceStopNote(inUnit: MusicDeviceComponent, _ inGroupID: MusicDeviceGroupID, _ inNoteInstanceID: NoteInstanceID, _ inOffsetSampleFrame: UInt32) -> OSStatus
+func MusicDeviceStopNote(_ inUnit: MusicDeviceComponent, _ inGroupID: MusicDeviceGroupID, _ inNoteInstanceID: NoteInstanceID, _ inOffsetSampleFrame: UInt32) -> OSStatus
 var kMusicDeviceRange: Int { get }
 var kMusicDeviceMIDIEventSelect: Int { get }
 var kMusicDeviceSysExSelect: Int { get }

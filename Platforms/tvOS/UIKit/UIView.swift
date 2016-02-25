@@ -1,6 +1,6 @@
 
 enum UIViewAnimationCurve : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case EaseInOut
   case EaseIn
@@ -8,7 +8,7 @@ enum UIViewAnimationCurve : Int {
   case Linear
 }
 enum UIViewContentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ScaleToFill
   case ScaleAspectFit
@@ -25,7 +25,7 @@ enum UIViewContentMode : Int {
   case BottomRight
 }
 enum UIViewAnimationTransition : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case FlipFromLeft
@@ -34,7 +34,7 @@ enum UIViewAnimationTransition : Int {
   case CurlDown
 }
 struct UIViewAutoresizing : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: UIViewAutoresizing { get }
   static var FlexibleLeftMargin: UIViewAutoresizing { get }
@@ -46,7 +46,7 @@ struct UIViewAutoresizing : OptionSetType {
 }
 @available(tvOS 4.0, *)
 struct UIViewAnimationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var LayoutSubviews: UIViewAnimationOptions { get }
   static var AllowUserInteraction: UIViewAnimationOptions { get }
@@ -73,7 +73,7 @@ struct UIViewAnimationOptions : OptionSetType {
 }
 @available(tvOS 7.0, *)
 struct UIViewKeyframeAnimationOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var LayoutSubviews: UIViewKeyframeAnimationOptions { get }
   static var AllowUserInteraction: UIViewKeyframeAnimationOptions { get }
@@ -90,13 +90,13 @@ struct UIViewKeyframeAnimationOptions : OptionSetType {
 }
 @available(tvOS 7.0, *)
 enum UISystemAnimation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Delete
 }
 @available(tvOS 7.0, *)
 enum UIViewTintAdjustmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Automatic
   case Normal
@@ -104,7 +104,7 @@ enum UIViewTintAdjustmentMode : Int {
 }
 @available(tvOS 9.0, *)
 enum UISemanticContentAttribute : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   case Playback
@@ -114,27 +114,27 @@ enum UISemanticContentAttribute : Int {
 }
 @available(tvOS 5.0, *)
 enum UIUserInterfaceLayoutDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case LeftToRight
   case RightToLeft
 }
 protocol UICoordinateSpace : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convertPoint(_ point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(tvOS 8.0, *)
-  func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convertPoint(_ point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(tvOS 8.0, *)
-  func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convertRect(_ rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
   @available(tvOS 8.0, *)
-  func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convertRect(_ rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
   @available(tvOS 8.0, *)
   var bounds: CGRect { get }
 }
 @available(tvOS 2.0, *)
 class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusEnvironment {
   class func layerClass() -> AnyClass
-  init(frame: CGRect)
+  init(frame frame: CGRect)
   init?(coder aDecoder: NSCoder)
   var userInteractionEnabled: Bool
   var tag: Int
@@ -144,20 +144,19 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(tvOS 9.0, *)
   var focused: Bool { get }
   @available(tvOS 9.0, *)
-  class func userInterfaceLayoutDirectionForSemanticContentAttribute(attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
+  class func userInterfaceLayoutDirectionForSemanticContentAttribute(_ attribute: UISemanticContentAttribute) -> UIUserInterfaceLayoutDirection
   @available(tvOS 9.0, *)
   var semanticContentAttribute: UISemanticContentAttribute
-  convenience init()
   @available(tvOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   @available(tvOS 2.0, *)
   class func appearance() -> Self
   @available(tvOS 9.0, *)
-  class func appearanceWhenContainedInInstancesOfClasses(containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceWhenContainedInInstancesOfClasses(_ containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 8.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection) -> Self
+  class func appearanceForTraitCollection(_ trait: UITraitCollection) -> Self
   @available(tvOS 9.0, *)
-  class func appearanceForTraitCollection(trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
+  class func appearanceForTraitCollection(_ trait: UITraitCollection, whenContainedInInstancesOfClasses containerTypes: [AnyObject.Type]) -> Self
   @available(tvOS 9.0, *)
   var collisionBoundsType: UIDynamicItemCollisionBoundsType { get }
   @available(tvOS 9.0, *)
@@ -165,15 +164,15 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(tvOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(tvOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
   @available(tvOS 8.0, *)
-  func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convertPoint(_ point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(tvOS 8.0, *)
-  func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
+  func convertPoint(_ point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint
   @available(tvOS 8.0, *)
-  func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convertRect(_ rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
   @available(tvOS 8.0, *)
-  func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
+  func convertRect(_ rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect
   @available(tvOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(tvOS 9.0, *)
@@ -181,13 +180,12 @@ class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDyn
   @available(tvOS 9.0, *)
   func updateFocusIfNeeded()
   @available(tvOS 9.0, *)
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusInContext(_ context: UIFocusUpdateContext) -> Bool
   @available(tvOS 9.0, *)
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusInContext(_ context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }
 
 extension UIView : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension UIView {
   var frame: CGRect
@@ -196,15 +194,15 @@ extension UIView {
   var transform: CGAffineTransform
   @available(tvOS 4.0, *)
   var contentScaleFactor: CGFloat
-  func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView?
-  func pointInside(point: CGPoint, withEvent event: UIEvent?) -> Bool
-  func convertPoint(point: CGPoint, toView view: UIView?) -> CGPoint
-  func convertPoint(point: CGPoint, fromView view: UIView?) -> CGPoint
-  func convertRect(rect: CGRect, toView view: UIView?) -> CGRect
-  func convertRect(rect: CGRect, fromView view: UIView?) -> CGRect
+  func hitTest(_ point: CGPoint, withEvent event: UIEvent?) -> UIView?
+  func pointInside(_ point: CGPoint, withEvent event: UIEvent?) -> Bool
+  func convertPoint(_ point: CGPoint, toView view: UIView?) -> CGPoint
+  func convertPoint(_ point: CGPoint, fromView view: UIView?) -> CGPoint
+  func convertRect(_ rect: CGRect, toView view: UIView?) -> CGRect
+  func convertRect(_ rect: CGRect, fromView view: UIView?) -> CGRect
   var autoresizesSubviews: Bool
   var autoresizingMask: UIViewAutoresizing
-  func sizeThatFits(size: CGSize) -> CGSize
+  func sizeThatFits(_ size: CGSize) -> CGSize
   func sizeToFit()
 }
 extension UIView {
@@ -212,21 +210,21 @@ extension UIView {
   var subviews: [UIView] { get }
   var window: UIWindow? { get }
   func removeFromSuperview()
-  func insertSubview(view: UIView, atIndex index: Int)
-  func exchangeSubviewAtIndex(index1: Int, withSubviewAtIndex index2: Int)
-  func addSubview(view: UIView)
-  func insertSubview(view: UIView, belowSubview siblingSubview: UIView)
-  func insertSubview(view: UIView, aboveSubview siblingSubview: UIView)
-  func bringSubviewToFront(view: UIView)
-  func sendSubviewToBack(view: UIView)
-  func didAddSubview(subview: UIView)
-  func willRemoveSubview(subview: UIView)
-  func willMoveToSuperview(newSuperview: UIView?)
+  func insertSubview(_ view: UIView, atIndex index: Int)
+  func exchangeSubviewAtIndex(_ index1: Int, withSubviewAtIndex index2: Int)
+  func addSubview(_ view: UIView)
+  func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView)
+  func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView)
+  func bringSubviewToFront(_ view: UIView)
+  func sendSubviewToBack(_ view: UIView)
+  func didAddSubview(_ subview: UIView)
+  func willRemoveSubview(_ subview: UIView)
+  func willMoveToSuperview(_ newSuperview: UIView?)
   func didMoveToSuperview()
-  func willMoveToWindow(newWindow: UIWindow?)
+  func willMoveToWindow(_ newWindow: UIWindow?)
   func didMoveToWindow()
-  func isDescendantOfView(view: UIView) -> Bool
-  func viewWithTag(tag: Int) -> UIView?
+  func isDescendantOfView(_ view: UIView) -> Bool
+  func viewWithTag(_ tag: Int) -> UIView?
   func setNeedsLayout()
   func layoutIfNeeded()
   func layoutSubviews()
@@ -242,9 +240,9 @@ extension UIView {
   var readableContentGuide: UILayoutGuide { get }
 }
 extension UIView {
-  func drawRect(rect: CGRect)
+  func drawRect(_ rect: CGRect)
   func setNeedsDisplay()
-  func setNeedsDisplayInRect(rect: CGRect)
+  func setNeedsDisplayInRect(_ rect: CGRect)
   var clipsToBounds: Bool
   @NSCopying var backgroundColor: UIColor?
   var alpha: CGFloat
@@ -262,68 +260,68 @@ extension UIView {
   func tintColorDidChange()
 }
 extension UIView {
-  class func beginAnimations(animationID: String?, context: UnsafeMutablePointer<Void>)
+  class func beginAnimations(_ animationID: String?, context context: UnsafeMutablePointer<Void>)
   class func commitAnimations()
-  class func setAnimationDelegate(delegate: AnyObject?)
-  class func setAnimationWillStartSelector(selector: Selector)
-  class func setAnimationDidStopSelector(selector: Selector)
-  class func setAnimationDuration(duration: NSTimeInterval)
-  class func setAnimationDelay(delay: NSTimeInterval)
-  class func setAnimationStartDate(startDate: NSDate)
-  class func setAnimationCurve(curve: UIViewAnimationCurve)
-  class func setAnimationRepeatCount(repeatCount: Float)
-  class func setAnimationRepeatAutoreverses(repeatAutoreverses: Bool)
-  class func setAnimationBeginsFromCurrentState(fromCurrentState: Bool)
-  class func setAnimationTransition(transition: UIViewAnimationTransition, forView view: UIView, cache: Bool)
-  class func setAnimationsEnabled(enabled: Bool)
+  class func setAnimationDelegate(_ delegate: AnyObject?)
+  class func setAnimationWillStartSelector(_ selector: Selector)
+  class func setAnimationDidStopSelector(_ selector: Selector)
+  class func setAnimationDuration(_ duration: NSTimeInterval)
+  class func setAnimationDelay(_ delay: NSTimeInterval)
+  class func setAnimationStartDate(_ startDate: NSDate)
+  class func setAnimationCurve(_ curve: UIViewAnimationCurve)
+  class func setAnimationRepeatCount(_ repeatCount: Float)
+  class func setAnimationRepeatAutoreverses(_ repeatAutoreverses: Bool)
+  class func setAnimationBeginsFromCurrentState(_ fromCurrentState: Bool)
+  class func setAnimationTransition(_ transition: UIViewAnimationTransition, forView view: UIView, cache cache: Bool)
+  class func setAnimationsEnabled(_ enabled: Bool)
   class func areAnimationsEnabled() -> Bool
   @available(tvOS 7.0, *)
-  class func performWithoutAnimation(actionsWithoutAnimation: () -> Void)
+  class func performWithoutAnimation(_ actionsWithoutAnimation: () -> Void)
   @available(tvOS 9.0, *)
   class func inheritedAnimationDuration() -> NSTimeInterval
 }
 extension UIView {
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(_ duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewAnimationOptions, animations animations: () -> Void, completion completion: ((Bool) -> Void)?)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(_ duration: NSTimeInterval, animations animations: () -> Void, completion completion: ((Bool) -> Void)?)
   @available(tvOS 4.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, animations: () -> Void)
+  class func animateWithDuration(_ duration: NSTimeInterval, animations animations: () -> Void)
   @available(tvOS 7.0, *)
-  class func animateWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options: UIViewAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateWithDuration(_ duration: NSTimeInterval, delay delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options options: UIViewAnimationOptions, animations animations: () -> Void, completion completion: ((Bool) -> Void)?)
   @available(tvOS 4.0, *)
-  class func transitionWithView(view: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?)
+  class func transitionWithView(_ view: UIView, duration duration: NSTimeInterval, options options: UIViewAnimationOptions, animations animations: (() -> Void)?, completion completion: ((Bool) -> Void)?)
   @available(tvOS 4.0, *)
-  class func transitionFromView(fromView: UIView, toView: UIView, duration: NSTimeInterval, options: UIViewAnimationOptions, completion: ((Bool) -> Void)?)
+  class func transitionFromView(_ fromView: UIView, toView toView: UIView, duration duration: NSTimeInterval, options options: UIViewAnimationOptions, completion completion: ((Bool) -> Void)?)
   @available(tvOS 7.0, *)
-  class func performSystemAnimation(animation: UISystemAnimation, onViews views: [UIView], options: UIViewAnimationOptions, animations parallelAnimations: (() -> Void)?, completion: ((Bool) -> Void)?)
+  class func performSystemAnimation(_ animation: UISystemAnimation, onViews views: [UIView], options options: UIViewAnimationOptions, animations parallelAnimations: (() -> Void)?, completion completion: ((Bool) -> Void)?)
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  class func animateKeyframesWithDuration(duration: NSTimeInterval, delay: NSTimeInterval, options: UIViewKeyframeAnimationOptions, animations: () -> Void, completion: ((Bool) -> Void)?)
+  class func animateKeyframesWithDuration(_ duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewKeyframeAnimationOptions, animations animations: () -> Void, completion completion: ((Bool) -> Void)?)
   @available(tvOS 7.0, *)
-  class func addKeyframeWithRelativeStartTime(frameStartTime: Double, relativeDuration frameDuration: Double, animations: () -> Void)
+  class func addKeyframeWithRelativeStartTime(_ frameStartTime: Double, relativeDuration frameDuration: Double, animations animations: () -> Void)
 }
 extension UIView {
   @available(tvOS 3.2, *)
   var gestureRecognizers: [UIGestureRecognizer]?
   @available(tvOS 3.2, *)
-  func addGestureRecognizer(gestureRecognizer: UIGestureRecognizer)
+  func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
   @available(tvOS 3.2, *)
-  func removeGestureRecognizer(gestureRecognizer: UIGestureRecognizer)
+  func removeGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
   @available(tvOS 6.0, *)
-  func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  func addMotionEffect(effect: UIMotionEffect)
+  func addMotionEffect(_ effect: UIMotionEffect)
   @available(tvOS 7.0, *)
-  func removeMotionEffect(effect: UIMotionEffect)
+  func removeMotionEffect(_ effect: UIMotionEffect)
   @available(tvOS 7.0, *)
   var motionEffects: [UIMotionEffect]
 }
 enum UILayoutConstraintAxis : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Horizontal
   case Vertical
@@ -332,13 +330,13 @@ extension UIView {
   @available(tvOS 6.0, *)
   var constraints: [NSLayoutConstraint] { get }
   @available(tvOS 6.0, *)
-  func addConstraint(constraint: NSLayoutConstraint)
+  func addConstraint(_ constraint: NSLayoutConstraint)
   @available(tvOS 6.0, *)
-  func addConstraints(constraints: [NSLayoutConstraint])
+  func addConstraints(_ constraints: [NSLayoutConstraint])
   @available(tvOS 6.0, *)
-  func removeConstraint(constraint: NSLayoutConstraint)
+  func removeConstraint(_ constraint: NSLayoutConstraint)
   @available(tvOS 6.0, *)
-  func removeConstraints(constraints: [NSLayoutConstraint])
+  func removeConstraints(_ constraints: [NSLayoutConstraint])
 }
 extension UIView {
   @available(tvOS 6.0, *)
@@ -358,9 +356,9 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 6.0, *)
-  func alignmentRectForFrame(frame: CGRect) -> CGRect
+  func alignmentRectForFrame(_ frame: CGRect) -> CGRect
   @available(tvOS 6.0, *)
-  func frameForAlignmentRect(alignmentRect: CGRect) -> CGRect
+  func frameForAlignmentRect(_ alignmentRect: CGRect) -> CGRect
   @available(tvOS 6.0, *)
   func alignmentRectInsets() -> UIEdgeInsets
   @available(tvOS 9.0, *)
@@ -372,13 +370,13 @@ extension UIView {
   @available(tvOS 6.0, *)
   func invalidateIntrinsicContentSize()
   @available(tvOS 6.0, *)
-  func contentHuggingPriorityForAxis(axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentHuggingPriorityForAxis(_ axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(tvOS 6.0, *)
-  func setContentHuggingPriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
+  func setContentHuggingPriority(_ priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
   @available(tvOS 6.0, *)
-  func contentCompressionResistancePriorityForAxis(axis: UILayoutConstraintAxis) -> UILayoutPriority
+  func contentCompressionResistancePriorityForAxis(_ axis: UILayoutConstraintAxis) -> UILayoutPriority
   @available(tvOS 6.0, *)
-  func setContentCompressionResistancePriority(priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
+  func setContentCompressionResistancePriority(_ priority: UILayoutPriority, forAxis axis: UILayoutConstraintAxis)
 }
 @available(tvOS 6.0, *)
 let UIViewNoIntrinsicMetric: CGFloat
@@ -388,17 +386,17 @@ let UILayoutFittingCompressedSize: CGSize
 let UILayoutFittingExpandedSize: CGSize
 extension UIView {
   @available(tvOS 6.0, *)
-  func systemLayoutSizeFittingSize(targetSize: CGSize) -> CGSize
+  func systemLayoutSizeFittingSize(_ targetSize: CGSize) -> CGSize
   @available(tvOS 8.0, *)
-  func systemLayoutSizeFittingSize(targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize
+  func systemLayoutSizeFittingSize(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority verticalFittingPriority: UILayoutPriority) -> CGSize
 }
 extension UIView {
   @available(tvOS 9.0, *)
   var layoutGuides: [UILayoutGuide] { get }
   @available(tvOS 9.0, *)
-  func addLayoutGuide(layoutGuide: UILayoutGuide)
+  func addLayoutGuide(_ layoutGuide: UILayoutGuide)
   @available(tvOS 9.0, *)
-  func removeLayoutGuide(layoutGuide: UILayoutGuide)
+  func removeLayoutGuide(_ layoutGuide: UILayoutGuide)
 }
 extension UIView {
   @available(tvOS 9.0, *)
@@ -428,7 +426,7 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 6.0, *)
-  func constraintsAffectingLayoutForAxis(axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
+  func constraintsAffectingLayoutForAxis(_ axis: UILayoutConstraintAxis) -> [NSLayoutConstraint]
   @available(tvOS 6.0, *)
   func hasAmbiguousLayout() -> Bool
   @available(tvOS 6.0, *)
@@ -438,15 +436,15 @@ extension UIView {
   @available(tvOS 6.0, *)
   var restorationIdentifier: String?
   @available(tvOS 6.0, *)
-  func encodeRestorableStateWithCoder(coder: NSCoder)
+  func encodeRestorableStateWithCoder(_ coder: NSCoder)
   @available(tvOS 6.0, *)
-  func decodeRestorableStateWithCoder(coder: NSCoder)
+  func decodeRestorableStateWithCoder(_ coder: NSCoder)
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  func snapshotViewAfterScreenUpdates(afterUpdates: Bool) -> UIView
+  func snapshotViewAfterScreenUpdates(_ afterUpdates: Bool) -> UIView
   @available(tvOS 7.0, *)
-  func resizableSnapshotViewFromRect(rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
+  func resizableSnapshotViewFromRect(_ rect: CGRect, afterScreenUpdates afterUpdates: Bool, withCapInsets capInsets: UIEdgeInsets) -> UIView
   @available(tvOS 7.0, *)
-  func drawViewHierarchyInRect(rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
+  func drawViewHierarchyInRect(_ rect: CGRect, afterScreenUpdates afterUpdates: Bool) -> Bool
 }

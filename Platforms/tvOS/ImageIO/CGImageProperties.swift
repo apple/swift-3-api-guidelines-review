@@ -612,7 +612,7 @@ let kCGImagePropertyMakerCanonFirmware: CFString
 @available(tvOS 4.0, *)
 let kCGImagePropertyMakerCanonAspectRatioInfo: CFString
 enum CGImagePropertyOrientation : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Up
   case UpMirrored

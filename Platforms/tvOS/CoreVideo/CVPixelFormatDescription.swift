@@ -63,13 +63,13 @@ struct CVFillExtendedPixelsCallBackData {
   var fillCallBack: CVFillExtendedPixelsCallBack?
   var refCon: UnsafeMutablePointer<Void>
   init()
-  init(version: CFIndex, fillCallBack: CVFillExtendedPixelsCallBack?, refCon: UnsafeMutablePointer<Void>)
+  init(version version: CFIndex, fillCallBack fillCallBack: CVFillExtendedPixelsCallBack?, refCon refCon: UnsafeMutablePointer<Void>)
 }
 @available(tvOS 4.0, *)
 let kCVPixelFormatFillExtendedPixelsCallback: CFString
 @available(tvOS 4.0, *)
-func CVPixelFormatDescriptionCreateWithPixelFormatType(allocator: CFAllocator?, _ pixelFormat: OSType) -> Unmanaged<CFDictionary>?
+func CVPixelFormatDescriptionCreateWithPixelFormatType(_ allocator: CFAllocator?, _ pixelFormat: OSType) -> Unmanaged<CFDictionary>?
 @available(tvOS 4.0, *)
-func CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes(allocator: CFAllocator?) -> Unmanaged<CFArray>?
+func CVPixelFormatDescriptionArrayCreateWithAllPixelFormatTypes(_ allocator: CFAllocator?) -> Unmanaged<CFArray>?
 @available(tvOS 4.0, *)
-func CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType(description: CFDictionary, _ pixelFormat: OSType)
+func CVPixelFormatDescriptionRegisterDescriptionWithPixelFormatType(_ description: CFDictionary, _ pixelFormat: OSType)

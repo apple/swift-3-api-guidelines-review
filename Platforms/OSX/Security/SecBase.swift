@@ -65,7 +65,7 @@ struct SecKeychainAttributeInfo {
   var format: UnsafeMutablePointer<UInt32>
 }
 @available(OSX 10.3, *)
-func SecCopyErrorMessageString(status: OSStatus, _ reserved: UnsafeMutablePointer<Void>) -> CFString?
+func SecCopyErrorMessageString(_ status: OSStatus, _ reserved: UnsafeMutablePointer<Void>) -> CFString?
 var errSecSuccess: OSStatus { get }
 var errSecUnimplemented: OSStatus { get }
 var errSecDskFull: OSStatus { get }

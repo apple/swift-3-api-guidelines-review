@@ -12,14 +12,11 @@ class UIWindow : UIView {
   func makeKeyAndVisible()
   @available(iOS 4.0, *)
   var rootViewController: UIViewController?
-  func sendEvent(event: UIEvent)
-  func convertPoint(point: CGPoint, toWindow window: UIWindow?) -> CGPoint
-  func convertPoint(point: CGPoint, fromWindow window: UIWindow?) -> CGPoint
-  func convertRect(rect: CGRect, toWindow window: UIWindow?) -> CGRect
-  func convertRect(rect: CGRect, fromWindow window: UIWindow?) -> CGRect
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func sendEvent(_ event: UIEvent)
+  func convertPoint(_ point: CGPoint, toWindow window: UIWindow?) -> CGPoint
+  func convertPoint(_ point: CGPoint, fromWindow window: UIWindow?) -> CGPoint
+  func convertRect(_ rect: CGRect, toWindow window: UIWindow?) -> CGRect
+  func convertRect(_ rect: CGRect, fromWindow window: UIWindow?) -> CGRect
 }
 let UIWindowLevelNormal: UIWindowLevel
 let UIWindowLevelAlert: UIWindowLevel

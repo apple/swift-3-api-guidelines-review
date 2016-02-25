@@ -14,16 +14,15 @@ class NSLayoutGuide : NSObject, NSCoding, NSUserInterfaceItemIdentification {
   var heightAnchor: NSLayoutDimension { get }
   var centerXAnchor: NSLayoutXAxisAnchor { get }
   var centerYAnchor: NSLayoutYAxisAnchor { get }
-  init()
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSView {
   @available(OSX 10.11, *)
-  func addLayoutGuide(guide: NSLayoutGuide)
+  func addLayoutGuide(_ guide: NSLayoutGuide)
   @available(OSX 10.11, *)
-  func removeLayoutGuide(guide: NSLayoutGuide)
+  func removeLayoutGuide(_ guide: NSLayoutGuide)
   @available(OSX 10.11, *)
   var layoutGuides: [NSLayoutGuide] { get }
 }

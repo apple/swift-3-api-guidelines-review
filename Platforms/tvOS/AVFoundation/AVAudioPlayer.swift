@@ -2,15 +2,15 @@
 @available(tvOS 2.2, *)
 class AVAudioPlayer : NSObject {
   init(contentsOfURL url: NSURL) throws
-  init(data: NSData) throws
+  init(data data: NSData) throws
   @available(tvOS 7.0, *)
   init(contentsOfURL url: NSURL, fileTypeHint utiString: String?) throws
   @available(tvOS 7.0, *)
-  init(data: NSData, fileTypeHint utiString: String?) throws
+  init(data data: NSData, fileTypeHint utiString: String?) throws
   func prepareToPlay() -> Bool
   func play() -> Bool
   @available(tvOS 4.0, *)
-  func playAtTime(time: NSTimeInterval) -> Bool
+  func playAtTime(_ time: NSTimeInterval) -> Bool
   func pause()
   func stop()
   var playing: Bool { get }
@@ -34,19 +34,18 @@ class AVAudioPlayer : NSObject {
   var settings: [String : AnyObject] { get }
   var meteringEnabled: Bool
   func updateMeters()
-  func peakPowerForChannel(channelNumber: Int) -> Float
-  func averagePowerForChannel(channelNumber: Int) -> Float
+  func peakPowerForChannel(_ channelNumber: Int) -> Float
+  func averagePowerForChannel(_ channelNumber: Int) -> Float
   @available(tvOS 7.0, *)
   var channelAssignments: [NSNumber]?
-  init()
 }
 protocol AVAudioPlayerDelegate : NSObjectProtocol {
   @available(tvOS 2.2, *)
-  optional func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool)
+  optional func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
   @available(tvOS 2.2, *)
-  optional func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?)
+  optional func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error error: NSError?)
   @available(tvOS, introduced=2.2, deprecated=8.0)
-  optional func audioPlayerBeginInterruption(player: AVAudioPlayer)
+  optional func audioPlayerBeginInterruption(_ player: AVAudioPlayer)
   @available(tvOS, introduced=6.0, deprecated=8.0)
-  optional func audioPlayerEndInterruption(player: AVAudioPlayer, withOptions flags: Int)
+  optional func audioPlayerEndInterruption(_ player: AVAudioPlayer, withOptions flags: Int)
 }

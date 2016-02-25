@@ -4,5 +4,5 @@ protocol NSValidatedUserInterfaceItem {
   func tag() -> Int
 }
 protocol NSUserInterfaceValidations {
-  func validateUserInterfaceItem(anItem: NSValidatedUserInterfaceItem) -> Bool
+  func validateUserInterfaceItem(_ anItem: NSValidatedUserInterfaceItem) -> Bool
 }

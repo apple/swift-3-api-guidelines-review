@@ -4,12 +4,12 @@ var NSControlGlyph: Int { get }
 var NSNullGlyph: Int { get }
 var NSFontIdentityMatrix: UnsafePointer<CGFloat>
 enum NSMultibyteGlyphPacking : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NativeShortGlyphPacking
 }
 enum NSFontRenderingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DefaultRenderingMode
   case AntialiasedRenderingMode
@@ -20,29 +20,29 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   /*not inherited*/ init?(name fontName: String, size fontSize: CGFloat)
   /*not inherited*/ init?(name fontName: String, matrix fontMatrix: UnsafePointer<CGFloat>)
   /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, size fontSize: CGFloat)
-  /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, textTransform: NSAffineTransform?)
-  class func userFontOfSize(fontSize: CGFloat) -> NSFont?
-  class func userFixedPitchFontOfSize(fontSize: CGFloat) -> NSFont?
-  class func setUserFont(aFont: NSFont?)
-  class func setUserFixedPitchFont(aFont: NSFont?)
-  class func systemFontOfSize(fontSize: CGFloat) -> NSFont
-  class func boldSystemFontOfSize(fontSize: CGFloat) -> NSFont
-  class func labelFontOfSize(fontSize: CGFloat) -> NSFont
-  class func titleBarFontOfSize(fontSize: CGFloat) -> NSFont
-  class func menuFontOfSize(fontSize: CGFloat) -> NSFont
-  class func menuBarFontOfSize(fontSize: CGFloat) -> NSFont
-  class func messageFontOfSize(fontSize: CGFloat) -> NSFont
-  class func paletteFontOfSize(fontSize: CGFloat) -> NSFont
-  class func toolTipsFontOfSize(fontSize: CGFloat) -> NSFont
-  class func controlContentFontOfSize(fontSize: CGFloat) -> NSFont
+  /*not inherited*/ init?(descriptor fontDescriptor: NSFontDescriptor, textTransform textTransform: NSAffineTransform?)
+  class func userFontOfSize(_ fontSize: CGFloat) -> NSFont?
+  class func userFixedPitchFontOfSize(_ fontSize: CGFloat) -> NSFont?
+  class func setUserFont(_ aFont: NSFont?)
+  class func setUserFixedPitchFont(_ aFont: NSFont?)
+  class func systemFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func boldSystemFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func labelFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func titleBarFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func menuFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func menuBarFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func messageFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func paletteFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func toolTipsFontOfSize(_ fontSize: CGFloat) -> NSFont
+  class func controlContentFontOfSize(_ fontSize: CGFloat) -> NSFont
   @available(OSX 10.11, *)
-  class func systemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> NSFont
+  class func systemFontOfSize(_ fontSize: CGFloat, weight weight: CGFloat) -> NSFont
   @available(OSX 10.11, *)
-  class func monospacedDigitSystemFontOfSize(fontSize: CGFloat, weight: CGFloat) -> NSFont
+  class func monospacedDigitSystemFontOfSize(_ fontSize: CGFloat, weight weight: CGFloat) -> NSFont
   class func systemFontSize() -> CGFloat
   class func smallSystemFontSize() -> CGFloat
   class func labelFontSize() -> CGFloat
-  class func systemFontSizeForControlSize(controlSize: NSControlSize) -> CGFloat
+  class func systemFontSizeForControlSize(_ controlSize: NSControlSize) -> CGFloat
   var fontName: String { get }
   var pointSize: CGFloat { get }
   var matrix: UnsafePointer<CGFloat> { get }
@@ -52,7 +52,7 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var textTransform: NSAffineTransform { get }
   var numberOfGlyphs: Int { get }
   var mostCompatibleStringEncoding: UInt { get }
-  func glyphWithName(aName: String) -> NSGlyph
+  func glyphWithName(_ aName: String) -> NSGlyph
   var coveredCharacterSet: NSCharacterSet { get }
   var boundingRectForFont: NSRect { get }
   var maximumAdvancement: NSSize { get }
@@ -65,25 +65,24 @@ class NSFont : NSObject, NSCopying, NSSecureCoding {
   var capHeight: CGFloat { get }
   var xHeight: CGFloat { get }
   var fixedPitch: Bool { get }
-  func boundingRectForGlyph(aGlyph: NSGlyph) -> NSRect
-  func advancementForGlyph(ag: NSGlyph) -> NSSize
-  func getBoundingRects(bounds: NSRectArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
-  func getAdvancements(advancements: NSSizeArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
-  func getAdvancements(advancements: NSSizeArray, forPackedGlyphs packedGlyphs: UnsafePointer<Void>, length: Int)
+  func boundingRectForGlyph(_ aGlyph: NSGlyph) -> NSRect
+  func advancementForGlyph(_ ag: NSGlyph) -> NSSize
+  func getBoundingRects(_ bounds: NSRectArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
+  func getAdvancements(_ advancements: NSSizeArray, forGlyphs glyphs: UnsafePointer<NSGlyph>, count glyphCount: Int)
+  func getAdvancements(_ advancements: NSSizeArray, forPackedGlyphs packedGlyphs: UnsafePointer<Void>, length length: Int)
   func set()
-  func setInContext(graphicsContext: NSGraphicsContext)
+  func setInContext(_ graphicsContext: NSGraphicsContext)
   @NSCopying var printerFont: NSFont { get }
   @NSCopying var screenFont: NSFont { get }
-  func screenFontWithRenderingMode(renderingMode: NSFontRenderingMode) -> NSFont
+  func screenFontWithRenderingMode(_ renderingMode: NSFontRenderingMode) -> NSFont
   var renderingMode: NSFontRenderingMode { get }
   @available(OSX 10.7, *)
   @NSCopying var verticalFont: NSFont { get }
   @available(OSX 10.7, *)
   var vertical: Bool { get }
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct __fFlags {
@@ -95,8 +94,8 @@ struct __fFlags {
   var _inInstanceCache: UInt32
   var _reserved2: UInt32
   init()
-  init(_isScreenFont: UInt32, _systemFontType: UInt32, _reserved1: UInt32, _matrixIsIdentity: UInt32, _renderingMode: UInt32, _inInstanceCache: UInt32, _reserved2: UInt32)
+  init(_isScreenFont _isScreenFont: UInt32, _systemFontType _systemFontType: UInt32, _reserved1 _reserved1: UInt32, _matrixIsIdentity _matrixIsIdentity: UInt32, _renderingMode _renderingMode: UInt32, _inInstanceCache _inInstanceCache: UInt32, _reserved2 _reserved2: UInt32)
 }
-func NSConvertGlyphsToPackedGlyphs(glBuf: UnsafeMutablePointer<NSGlyph>, _ count: Int, _ packing: NSMultibyteGlyphPacking, _ packedGlyphs: UnsafeMutablePointer<Int8>) -> Int
+func NSConvertGlyphsToPackedGlyphs(_ glBuf: UnsafeMutablePointer<NSGlyph>, _ count: Int, _ packing: NSMultibyteGlyphPacking, _ packedGlyphs: UnsafeMutablePointer<Int8>) -> Int
 let NSAntialiasThresholdChangedNotification: String
 let NSFontSetChangedNotification: String

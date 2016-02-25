@@ -4,10 +4,10 @@ class VTPixelTransferSession {
 @available(*, deprecated, renamed="VTPixelTransferSession")
 typealias VTPixelTransferSessionRef = VTPixelTransferSession
 @available(OSX 10.8, *)
-func VTPixelTransferSessionCreate(allocator: CFAllocator?, _ pixelTransferSessionOut: UnsafeMutablePointer<VTPixelTransferSession?>) -> OSStatus
+func VTPixelTransferSessionCreate(_ allocator: CFAllocator?, _ pixelTransferSessionOut: UnsafeMutablePointer<VTPixelTransferSession?>) -> OSStatus
 @available(OSX 10.8, *)
-func VTPixelTransferSessionInvalidate(session: VTPixelTransferSession)
+func VTPixelTransferSessionInvalidate(_ session: VTPixelTransferSession)
 @available(OSX 10.8, *)
 func VTPixelTransferSessionGetTypeID() -> CFTypeID
 @available(OSX 10.8, *)
-func VTPixelTransferSessionTransferImage(session: VTPixelTransferSession, _ sourceBuffer: CVPixelBuffer, _ destinationBuffer: CVPixelBuffer) -> OSStatus
+func VTPixelTransferSessionTransferImage(_ session: VTPixelTransferSession, _ sourceBuffer: CVPixelBuffer, _ destinationBuffer: CVPixelBuffer) -> OSStatus

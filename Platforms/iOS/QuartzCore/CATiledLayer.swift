@@ -4,7 +4,4 @@ class CATiledLayer : CALayer {
   var levelsOfDetail: Int
   var levelsOfDetailBias: Int
   var tileSize: CGSize
-  init()
-  init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }

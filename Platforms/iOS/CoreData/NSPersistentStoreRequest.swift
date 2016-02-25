@@ -1,6 +1,6 @@
 
 enum NSPersistentStoreRequestType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case FetchRequestType
   case SaveRequestType
@@ -13,9 +13,8 @@ enum NSPersistentStoreRequestType : UInt {
 class NSPersistentStoreRequest : NSObject, NSCopying {
   var affectedStores: [NSPersistentStore]?
   var requestType: NSPersistentStoreRequestType { get }
-  init()
   @available(iOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 typealias NSPersistentStoreAsynchronousFetchResultCompletionBlock = (NSAsynchronousFetchResult) -> Void
 @available(iOS 8.0, *)
@@ -24,5 +23,4 @@ class NSAsynchronousFetchRequest : NSPersistentStoreRequest {
   var completionBlock: NSPersistentStoreAsynchronousFetchResultCompletionBlock? { get }
   var estimatedResultCount: Int
   init(fetchRequest request: NSFetchRequest, completionBlock blk: NSPersistentStoreAsynchronousFetchResultCompletionBlock?)
-  init()
 }

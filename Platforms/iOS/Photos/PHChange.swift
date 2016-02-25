@@ -1,9 +1,8 @@
 
 @available(iOS 8.0, *)
 class PHChange : NSObject {
-  func changeDetailsForObject(object: PHObject) -> PHObjectChangeDetails?
-  func changeDetailsForFetchResult(object: PHFetchResult) -> PHFetchResultChangeDetails?
-  init()
+  func changeDetailsForObject(_ object: PHObject) -> PHObjectChangeDetails?
+  func changeDetailsForFetchResult(_ object: PHFetchResult) -> PHFetchResultChangeDetails?
 }
 @available(iOS 8.0, *)
 class PHObjectChangeDetails : NSObject {
@@ -11,7 +10,6 @@ class PHObjectChangeDetails : NSObject {
   var objectAfterChanges: PHObject? { get }
   var assetContentChanged: Bool { get }
   var objectWasDeleted: Bool { get }
-  init()
 }
 @available(iOS 8.0, *)
 class PHFetchResultChangeDetails : NSObject {
@@ -24,8 +22,7 @@ class PHFetchResultChangeDetails : NSObject {
   var insertedObjects: [PHObject] { get }
   var changedIndexes: NSIndexSet? { get }
   var changedObjects: [PHObject] { get }
-  func enumerateMovesWithBlock(handler: (Int, Int) -> Void)
+  func enumerateMovesWithBlock(_ handler: (Int, Int) -> Void)
   var hasMoves: Bool { get }
-  convenience init(fromFetchResult fromResult: PHFetchResult, toFetchResult toResult: PHFetchResult, changedObjects: [PHObject])
-  init()
+  convenience init(fromFetchResult fromResult: PHFetchResult, toFetchResult toResult: PHFetchResult, changedObjects changedObjects: [PHObject])
 }

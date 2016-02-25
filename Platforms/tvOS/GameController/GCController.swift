@@ -4,12 +4,9 @@ let GCControllerDidDisconnectNotification: String
 @available(tvOS 9.0, *)
 class GCEventViewController : UIViewController {
   var controllerUserInteractionEnabled: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 enum GCControllerPlayerIndex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case IndexUnset
   case Index1
@@ -30,7 +27,6 @@ class GCController : NSObject {
   @available(tvOS 8.0, *)
   var motion: GCMotion? { get }
   class func controllers() -> [GCController]
-  class func startWirelessControllerDiscoveryWithCompletionHandler(completionHandler: (() -> Void)?)
+  class func startWirelessControllerDiscoveryWithCompletionHandler(_ completionHandler: (() -> Void)?)
   class func stopWirelessControllerDiscovery()
-  init()
 }

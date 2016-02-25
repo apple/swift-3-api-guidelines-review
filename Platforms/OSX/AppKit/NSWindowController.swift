@@ -1,20 +1,19 @@
 
 class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
-  init(window: NSWindow?)
-  init?(coder: NSCoder)
-  convenience init(windowNibName: String)
-  convenience init(windowNibName: String, owner: AnyObject)
-  convenience init(windowNibPath: String, owner: AnyObject)
+  init(window window: NSWindow?)
+  convenience init(windowNibName windowNibName: String)
+  convenience init(windowNibName windowNibName: String, owner owner: AnyObject)
+  convenience init(windowNibPath windowNibPath: String, owner owner: AnyObject)
   var windowNibName: String? { get }
   var windowNibPath: String? { get }
   unowned(unsafe) var owner: @sil_unmanaged AnyObject { get }
   var windowFrameAutosaveName: String?
   var shouldCascadeWindows: Bool
   unowned(unsafe) var document: @sil_unmanaged AnyObject?
-  func setDocumentEdited(dirtyFlag: Bool)
+  func setDocumentEdited(_ dirtyFlag: Bool)
   var shouldCloseDocument: Bool
   func synchronizeWindowTitleWithDocumentName()
-  func windowTitleForDocumentDisplayName(displayName: String) -> String
+  func windowTitleForDocumentDisplayName(_ displayName: String) -> String
   @available(OSX 10.10, *)
   var contentViewController: NSViewController?
   var window: NSWindow?
@@ -23,14 +22,13 @@ class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
   func windowDidLoad()
   func loadWindow()
   func close()
-  @IBAction func showWindow(sender: AnyObject?)
-  convenience init()
+  @IBAction func showWindow(_ sender: AnyObject?)
   @available(OSX 10.10, *)
-  func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?)
+  func prepareForSegue(_ segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  func performSegueWithIdentifier(_ identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegueWithIdentifier(_ identifier: String, sender sender: AnyObject?) -> Bool
 }
 struct __wcFlags {
   var shouldCloseDocument: UInt32
@@ -43,7 +41,7 @@ struct __wcFlags {
   var sentWindowWillLoad: UInt32
   var RESERVED: UInt32
   init()
-  init(shouldCloseDocument: UInt32, shouldCascade: UInt32, nibIsLoaded: UInt32, nibNameIsPath: UInt32, settingWindowsContentViewController: UInt32, didInitWithCoder: UInt32, nibIsMakingConnections: UInt32, sentWindowWillLoad: UInt32, RESERVED: UInt32)
+  init(shouldCloseDocument shouldCloseDocument: UInt32, shouldCascade shouldCascade: UInt32, nibIsLoaded nibIsLoaded: UInt32, nibNameIsPath nibNameIsPath: UInt32, settingWindowsContentViewController settingWindowsContentViewController: UInt32, didInitWithCoder didInitWithCoder: UInt32, nibIsMakingConnections nibIsMakingConnections: UInt32, sentWindowWillLoad sentWindowWillLoad: UInt32, RESERVED RESERVED: UInt32)
 }
 extension NSWindowController {
   @available(OSX 10.10, *)
@@ -51,5 +49,5 @@ extension NSWindowController {
 }
 extension NSWindowController {
   @available(OSX 10.10, *)
-  @IBAction func dismissController(sender: AnyObject?)
+  @IBAction func dismissController(_ sender: AnyObject?)
 }

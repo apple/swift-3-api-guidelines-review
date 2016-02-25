@@ -1,7 +1,7 @@
 
 extension CSSearchableItemAttributeSet {
-  func setValue(value: NSSecureCoding?, forCustomKey key: CSCustomAttributeKey)
-  func valueForCustomKey(key: CSCustomAttributeKey) -> NSSecureCoding?
+  func setValue(_ value: NSSecureCoding?, forCustomKey key: CSCustomAttributeKey)
+  func valueForCustomKey(_ key: CSCustomAttributeKey) -> NSSecureCoding?
 }
 extension NSUserActivity {
 }

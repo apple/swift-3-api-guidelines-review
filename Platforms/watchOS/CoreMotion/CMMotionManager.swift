@@ -11,14 +11,14 @@ class CMMotionManager : NSObject {
   var accelerometerActive: Bool { get }
   var accelerometerData: CMAccelerometerData? { get }
   func startAccelerometerUpdates()
-  func startAccelerometerUpdatesToQueue(queue: NSOperationQueue, withHandler handler: CMAccelerometerHandler)
+  func startAccelerometerUpdatesToQueue(_ queue: NSOperationQueue, withHandler handler: CMAccelerometerHandler)
   func stopAccelerometerUpdates()
   var gyroUpdateInterval: NSTimeInterval
   var gyroAvailable: Bool { get }
   var gyroActive: Bool { get }
   var gyroData: CMGyroData? { get }
   func startGyroUpdates()
-  func startGyroUpdatesToQueue(queue: NSOperationQueue, withHandler handler: CMGyroHandler)
+  func startGyroUpdatesToQueue(_ queue: NSOperationQueue, withHandler handler: CMGyroHandler)
   func stopGyroUpdates()
   @available(watchOS 2.0, *)
   var magnetometerUpdateInterval: NSTimeInterval
@@ -31,7 +31,7 @@ class CMMotionManager : NSObject {
   @available(watchOS 2.0, *)
   func startMagnetometerUpdates()
   @available(watchOS 2.0, *)
-  func startMagnetometerUpdatesToQueue(queue: NSOperationQueue, withHandler handler: CMMagnetometerHandler)
+  func startMagnetometerUpdatesToQueue(_ queue: NSOperationQueue, withHandler handler: CMMagnetometerHandler)
   @available(watchOS 2.0, *)
   func stopMagnetometerUpdates()
   var deviceMotionUpdateInterval: NSTimeInterval
@@ -43,13 +43,12 @@ class CMMotionManager : NSObject {
   var deviceMotionActive: Bool { get }
   var deviceMotion: CMDeviceMotion? { get }
   func startDeviceMotionUpdates()
-  func startDeviceMotionUpdatesToQueue(queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdatesToQueue(_ queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
   @available(watchOS 2.0, *)
-  func startDeviceMotionUpdatesUsingReferenceFrame(referenceFrame: CMAttitudeReferenceFrame)
+  func startDeviceMotionUpdatesUsingReferenceFrame(_ referenceFrame: CMAttitudeReferenceFrame)
   @available(watchOS 2.0, *)
-  func startDeviceMotionUpdatesUsingReferenceFrame(referenceFrame: CMAttitudeReferenceFrame, toQueue queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdatesUsingReferenceFrame(_ referenceFrame: CMAttitudeReferenceFrame, toQueue queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
   func stopDeviceMotionUpdates()
   @available(watchOS 2.0, *)
   var showsDeviceMovementDisplay: Bool
-  init()
 }

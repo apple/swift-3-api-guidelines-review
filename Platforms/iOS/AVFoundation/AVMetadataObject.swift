@@ -5,7 +5,6 @@ class AVMetadataObject : NSObject {
   var duration: CMTime { get }
   var bounds: CGRect { get }
   var type: String! { get }
-  init()
 }
 @available(iOS 6.0, *)
 let AVMetadataObjectTypeFace: String
@@ -16,9 +15,8 @@ class AVMetadataFaceObject : AVMetadataObject, NSCopying {
   var rollAngle: CGFloat { get }
   var hasYawAngle: Bool { get }
   var yawAngle: CGFloat { get }
-  init()
   @available(iOS 6.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 7.0, *)
 let AVMetadataObjectTypeUPCECode: String
@@ -50,5 +48,4 @@ let AVMetadataObjectTypeDataMatrixCode: String
 class AVMetadataMachineReadableCodeObject : AVMetadataObject {
   var corners: [AnyObject]! { get }
   var stringValue: String! { get }
-  init()
 }

@@ -4,7 +4,7 @@ class CGGradient {
 @available(*, deprecated, renamed="CGGradient")
 typealias CGGradientRef = CGGradient
 struct CGGradientDrawingOptions : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var DrawsBeforeStartLocation: CGGradientDrawingOptions { get }
   static var DrawsAfterEndLocation: CGGradientDrawingOptions { get }
@@ -12,6 +12,6 @@ struct CGGradientDrawingOptions : OptionSetType {
 @available(watchOS 2.0, *)
 func CGGradientGetTypeID() -> CFTypeID
 @available(watchOS 2.0, *)
-func CGGradientCreateWithColorComponents(space: CGColorSpace?, _ components: UnsafePointer<CGFloat>, _ locations: UnsafePointer<CGFloat>, _ count: Int) -> CGGradient?
+func CGGradientCreateWithColorComponents(_ space: CGColorSpace?, _ components: UnsafePointer<CGFloat>, _ locations: UnsafePointer<CGFloat>, _ count: Int) -> CGGradient?
 @available(watchOS 2.0, *)
-func CGGradientCreateWithColors(space: CGColorSpace?, _ colors: CFArray?, _ locations: UnsafePointer<CGFloat>) -> CGGradient?
+func CGGradientCreateWithColors(_ space: CGColorSpace?, _ colors: CFArray?, _ locations: UnsafePointer<CGFloat>) -> CGGradient?

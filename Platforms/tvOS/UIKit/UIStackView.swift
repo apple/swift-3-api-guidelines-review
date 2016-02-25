@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum UIStackViewDistribution : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Fill
   case FillEqually
@@ -11,7 +11,7 @@ enum UIStackViewDistribution : Int {
 }
 @available(tvOS 9.0, *)
 enum UIStackViewAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Fill
   case Leading
@@ -26,16 +26,13 @@ enum UIStackViewAlignment : Int {
 class UIStackView : UIView {
   init(arrangedSubviews views: [UIView])
   var arrangedSubviews: [UIView] { get }
-  func addArrangedSubview(view: UIView)
-  func removeArrangedSubview(view: UIView)
-  func insertArrangedSubview(view: UIView, atIndex stackIndex: Int)
+  func addArrangedSubview(_ view: UIView)
+  func removeArrangedSubview(_ view: UIView)
+  func insertArrangedSubview(_ view: UIView, atIndex stackIndex: Int)
   var axis: UILayoutConstraintAxis
   var distribution: UIStackViewDistribution
   var alignment: UIStackViewAlignment
   var spacing: CGFloat
   var baselineRelativeArrangement: Bool
   var layoutMarginsRelativeArrangement: Bool
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

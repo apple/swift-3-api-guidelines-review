@@ -1,6 +1,5 @@
 
 @available(iOS 9.0, *)
 class UIFocusAnimationCoordinator : NSObject {
-  func addCoordinatedAnimations(animations: (() -> Void)?, completion: (() -> Void)?)
-  init()
+  func addCoordinatedAnimations(_ animations: (() -> Void)?, completion completion: (() -> Void)?)
 }

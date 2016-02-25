@@ -5,8 +5,7 @@ class PHAssetResource : NSObject {
   var assetLocalIdentifier: String { get }
   var uniformTypeIdentifier: String { get }
   var originalFilename: String { get }
-  class func assetResourcesForAsset(asset: PHAsset) -> [PHAssetResource]
+  class func assetResourcesForAsset(_ asset: PHAsset) -> [PHAssetResource]
   @available(iOS 9.1, *)
-  class func assetResourcesForLivePhoto(livePhoto: PHLivePhoto) -> [PHAssetResource]
-  init()
+  class func assetResourcesForLivePhoto(_ livePhoto: PHLivePhoto) -> [PHAssetResource]
 }

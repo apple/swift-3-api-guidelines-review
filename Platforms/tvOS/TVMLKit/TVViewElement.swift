@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVElementEventType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Play
   case Select
@@ -11,7 +11,7 @@ enum TVElementEventType : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementUpdateType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Subtree
@@ -20,7 +20,7 @@ enum TVElementUpdateType : Int {
 }
 @available(tvOS 9.0, *)
 enum TVElementResettableProperty : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case UpdateType
   case AutoHighlightIdentifier
@@ -37,10 +37,9 @@ class TVViewElement : NSObject, NSCopying {
   var disabled: Bool
   var updateType: TVElementUpdateType { get }
   @available(tvOS 9.0, *)
-  func resetProperty(resettableProperty: TVElementResettableProperty)
-  func dispatchEventOfType(type: TVElementEventType, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)?)
-  func dispatchEventWithName(eventName: String, canBubble: Bool, cancellable isCancellable: Bool, extraInfo: [String : AnyObject]?, completion: ((Bool, Bool) -> Void)?)
-  init()
+  func resetProperty(_ resettableProperty: TVElementResettableProperty)
+  func dispatchEventOfType(_ type: TVElementEventType, canBubble canBubble: Bool, cancellable isCancellable: Bool, extraInfo extraInfo: [String : AnyObject]?, completion completion: ((Bool, Bool) -> Void)?)
+  func dispatchEventWithName(_ eventName: String, canBubble canBubble: Bool, cancellable isCancellable: Bool, extraInfo extraInfo: [String : AnyObject]?, completion completion: ((Bool, Bool) -> Void)?)
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

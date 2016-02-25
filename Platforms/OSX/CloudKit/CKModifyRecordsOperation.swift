@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum CKRecordSavePolicy : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case IfServerRecordUnchanged
   case ChangedKeys
@@ -9,7 +9,6 @@ enum CKRecordSavePolicy : Int {
 }
 @available(OSX 10.10, *)
 class CKModifyRecordsOperation : CKDatabaseOperation {
-  init()
   convenience init(recordsToSave records: [CKRecord]?, recordIDsToDelete recordIDs: [CKRecordID]?)
   var recordsToSave: [CKRecord]?
   var recordIDsToDelete: [CKRecordID]?

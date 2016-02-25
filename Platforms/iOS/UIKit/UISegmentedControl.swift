@@ -1,7 +1,7 @@
 
 var UISegmentedControlNoSegment: Int { get }
 enum UISegmentedControlSegment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Any
   case Left
@@ -11,44 +11,40 @@ enum UISegmentedControlSegment : Int {
 }
 @available(iOS 2.0, *)
 class UISegmentedControl : UIControl, NSCoding {
-  init(items: [AnyObject]?)
+  init(items items: [AnyObject]?)
   var momentary: Bool
   var numberOfSegments: Int { get }
   @available(iOS 5.0, *)
   var apportionsSegmentWidthsByContent: Bool
-  func insertSegmentWithTitle(title: String?, atIndex segment: Int, animated: Bool)
-  func insertSegmentWithImage(image: UIImage?, atIndex segment: Int, animated: Bool)
-  func removeSegmentAtIndex(segment: Int, animated: Bool)
+  func insertSegmentWithTitle(_ title: String?, atIndex segment: Int, animated animated: Bool)
+  func insertSegmentWithImage(_ image: UIImage?, atIndex segment: Int, animated animated: Bool)
+  func removeSegmentAtIndex(_ segment: Int, animated animated: Bool)
   func removeAllSegments()
-  func setTitle(title: String?, forSegmentAtIndex segment: Int)
-  func titleForSegmentAtIndex(segment: Int) -> String?
-  func setImage(image: UIImage?, forSegmentAtIndex segment: Int)
-  func imageForSegmentAtIndex(segment: Int) -> UIImage?
-  func setWidth(width: CGFloat, forSegmentAtIndex segment: Int)
-  func widthForSegmentAtIndex(segment: Int) -> CGFloat
-  func setContentOffset(offset: CGSize, forSegmentAtIndex segment: Int)
-  func contentOffsetForSegmentAtIndex(segment: Int) -> CGSize
-  func setEnabled(enabled: Bool, forSegmentAtIndex segment: Int)
-  func isEnabledForSegmentAtIndex(segment: Int) -> Bool
+  func setTitle(_ title: String?, forSegmentAtIndex segment: Int)
+  func titleForSegmentAtIndex(_ segment: Int) -> String?
+  func setImage(_ image: UIImage?, forSegmentAtIndex segment: Int)
+  func imageForSegmentAtIndex(_ segment: Int) -> UIImage?
+  func setWidth(_ width: CGFloat, forSegmentAtIndex segment: Int)
+  func widthForSegmentAtIndex(_ segment: Int) -> CGFloat
+  func setContentOffset(_ offset: CGSize, forSegmentAtIndex segment: Int)
+  func contentOffsetForSegmentAtIndex(_ segment: Int) -> CGSize
+  func setEnabled(_ enabled: Bool, forSegmentAtIndex segment: Int)
+  func isEnabledForSegmentAtIndex(_ segment: Int) -> Bool
   var selectedSegmentIndex: Int
-  var tintColor: UIColor!
   @available(iOS 5.0, *)
-  func setBackgroundImage(backgroundImage: UIImage?, forState state: UIControlState, barMetrics: UIBarMetrics)
+  func setBackgroundImage(_ backgroundImage: UIImage?, forState state: UIControlState, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func backgroundImageForState(state: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func backgroundImageForState(_ state: UIControlState, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setDividerImage(dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics)
+  func setDividerImage(_ dividerImage: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func dividerImageForLeftSegmentState(leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics: UIBarMetrics) -> UIImage?
+  func dividerImageForLeftSegmentState(_ leftState: UIControlState, rightSegmentState rightState: UIControlState, barMetrics barMetrics: UIBarMetrics) -> UIImage?
   @available(iOS 5.0, *)
-  func setTitleTextAttributes(attributes: [NSObject : AnyObject]?, forState state: UIControlState)
+  func setTitleTextAttributes(_ attributes: [NSObject : AnyObject]?, forState state: UIControlState)
   @available(iOS 5.0, *)
-  func titleTextAttributesForState(state: UIControlState) -> [NSObject : AnyObject]?
+  func titleTextAttributesForState(_ state: UIControlState) -> [NSObject : AnyObject]?
   @available(iOS 5.0, *)
-  func setContentPositionAdjustment(adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics)
+  func setContentPositionAdjustment(_ adjustment: UIOffset, forSegmentType leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics barMetrics: UIBarMetrics)
   @available(iOS 5.0, *)
-  func contentPositionAdjustmentForSegmentType(leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics: UIBarMetrics) -> UIOffset
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func contentPositionAdjustmentForSegmentType(_ leftCenterRightOrAlone: UISegmentedControlSegment, barMetrics barMetrics: UIBarMetrics) -> UIOffset
 }

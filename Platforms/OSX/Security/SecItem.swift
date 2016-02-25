@@ -304,10 +304,10 @@ let kSecUseAuthenticationUIFail: CFString
 @available(OSX 10.11, *)
 let kSecUseAuthenticationUISkip: CFString
 @available(OSX 10.6, *)
-func SecItemCopyMatching(query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
+func SecItemCopyMatching(_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
 @available(OSX 10.6, *)
-func SecItemAdd(attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
+func SecItemAdd(_ attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>) -> OSStatus
 @available(OSX 10.6, *)
-func SecItemUpdate(query: CFDictionary, _ attributesToUpdate: CFDictionary) -> OSStatus
+func SecItemUpdate(_ query: CFDictionary, _ attributesToUpdate: CFDictionary) -> OSStatus
 @available(OSX 10.6, *)
-func SecItemDelete(query: CFDictionary) -> OSStatus
+func SecItemDelete(_ query: CFDictionary) -> OSStatus

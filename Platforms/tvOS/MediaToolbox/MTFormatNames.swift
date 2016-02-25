@@ -1,3 +1,3 @@
 
-func MTCopyLocalizedNameForMediaType(mediaType: CMMediaType) -> Unmanaged<CFString>?
-func MTCopyLocalizedNameForMediaSubType(mediaType: CMMediaType, _ mediaSubType: FourCharCode) -> Unmanaged<CFString>?
+func MTCopyLocalizedNameForMediaType(_ mediaType: CMMediaType) -> Unmanaged<CFString>?
+func MTCopyLocalizedNameForMediaSubType(_ mediaType: CMMediaType, _ mediaSubType: FourCharCode) -> Unmanaged<CFString>?

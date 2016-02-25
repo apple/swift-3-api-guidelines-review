@@ -9,25 +9,25 @@ var kSecCertEncodingItemAttr: Int { get }
 @available(OSX 10.3, *)
 func SecCertificateGetTypeID() -> CFTypeID
 @available(OSX 10.6, *)
-func SecCertificateCreateWithData(allocator: CFAllocator?, _ data: CFData) -> SecCertificate?
+func SecCertificateCreateWithData(_ allocator: CFAllocator?, _ data: CFData) -> SecCertificate?
 @available(OSX 10.3, *)
-func SecCertificateAddToKeychain(certificate: SecCertificate, _ keychain: SecKeychain?) -> OSStatus
+func SecCertificateAddToKeychain(_ certificate: SecCertificate, _ keychain: SecKeychain?) -> OSStatus
 @available(OSX 10.6, *)
-func SecCertificateCopyData(certificate: SecCertificate) -> CFData
+func SecCertificateCopyData(_ certificate: SecCertificate) -> CFData
 @available(OSX 10.3, *)
-func SecCertificateCopyPublicKey(certificate: SecCertificate, _ key: UnsafeMutablePointer<SecKey?>) -> OSStatus
+func SecCertificateCopyPublicKey(_ certificate: SecCertificate, _ key: UnsafeMutablePointer<SecKey?>) -> OSStatus
 @available(OSX 10.5, *)
-func SecCertificateCopyCommonName(certificate: SecCertificate, _ commonName: UnsafeMutablePointer<CFString?>) -> OSStatus
+func SecCertificateCopyCommonName(_ certificate: SecCertificate, _ commonName: UnsafeMutablePointer<CFString?>) -> OSStatus
 @available(OSX 10.6, *)
-func SecCertificateCopySubjectSummary(certificate: SecCertificate) -> CFString
+func SecCertificateCopySubjectSummary(_ certificate: SecCertificate) -> CFString
 @available(OSX 10.5, *)
-func SecCertificateCopyEmailAddresses(certificate: SecCertificate, _ emailAddresses: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SecCertificateCopyEmailAddresses(_ certificate: SecCertificate, _ emailAddresses: UnsafeMutablePointer<CFArray?>) -> OSStatus
 @available(OSX 10.7, *)
-func SecCertificateCopyPreferred(name: CFString, _ keyUsage: CFArray?) -> SecCertificate?
+func SecCertificateCopyPreferred(_ name: CFString, _ keyUsage: CFArray?) -> SecCertificate?
 @available(OSX 10.5, *)
-func SecCertificateSetPreference(certificate: SecCertificate, _ name: CFString, _ keyUsage: uint32, _ date: CFDate?) -> OSStatus
+func SecCertificateSetPreference(_ certificate: SecCertificate, _ name: CFString, _ keyUsage: uint32, _ date: CFDate?) -> OSStatus
 @available(OSX 10.7, *)
-func SecCertificateSetPreferred(certificate: SecCertificate?, _ name: CFString, _ keyUsage: CFArray?) -> OSStatus
+func SecCertificateSetPreferred(_ certificate: SecCertificate?, _ name: CFString, _ keyUsage: CFArray?) -> OSStatus
 @available(OSX 10.7, *)
 let kSecPropertyKeyType: CFString
 @available(OSX 10.7, *)
@@ -51,7 +51,7 @@ let kSecPropertyTypeURL: CFString
 @available(OSX 10.7, *)
 let kSecPropertyTypeDate: CFString
 @available(OSX 10.7, *)
-func SecCertificateCopyValues(certificate: SecCertificate, _ keys: CFArray?, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFDictionary?
+func SecCertificateCopyValues(_ certificate: SecCertificate, _ keys: CFArray?, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFDictionary?
 @available(OSX 10.7, *)
 let kSecCertificateUsageSigning: CFString
 @available(OSX 10.7, *)
@@ -59,12 +59,12 @@ let kSecCertificateUsageSigningAndEncrypting: CFString
 @available(OSX 10.7, *)
 let kSecCertificateUsageDeriveAndSign: CFString
 @available(OSX 10.7, *)
-func SecCertificateCopyLongDescription(alloc: CFAllocator?, _ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFString?
+func SecCertificateCopyLongDescription(_ alloc: CFAllocator?, _ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFString?
 @available(OSX 10.7, *)
-func SecCertificateCopyShortDescription(alloc: CFAllocator?, _ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFString?
+func SecCertificateCopyShortDescription(_ alloc: CFAllocator?, _ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFString?
 @available(OSX 10.7, *)
-func SecCertificateCopySerialNumber(certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
+func SecCertificateCopySerialNumber(_ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
 @available(OSX 10.7, *)
-func SecCertificateCopyNormalizedIssuerContent(certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
+func SecCertificateCopyNormalizedIssuerContent(_ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
 @available(OSX 10.7, *)
-func SecCertificateCopyNormalizedSubjectContent(certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?
+func SecCertificateCopyNormalizedSubjectContent(_ certificate: SecCertificate, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> CFData?

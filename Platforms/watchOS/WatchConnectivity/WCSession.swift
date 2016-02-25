@@ -8,35 +8,35 @@ class WCSession : NSObject {
   var reachable: Bool { get }
   @available(watchOS 2.0, *)
   var iOSDeviceNeedsUnlockAfterRebootForReachability: Bool { get }
-  func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)?)
-  func sendMessageData(data: NSData, replyHandler: ((NSData) -> Void)?, errorHandler: ((NSError) -> Void)?)
+  func sendMessage(_ message: [String : AnyObject], replyHandler replyHandler: (([String : AnyObject]) -> Void)?, errorHandler errorHandler: ((NSError) -> Void)?)
+  func sendMessageData(_ data: NSData, replyHandler replyHandler: ((NSData) -> Void)?, errorHandler errorHandler: ((NSError) -> Void)?)
   var applicationContext: [String : AnyObject] { get }
-  func updateApplicationContext(applicationContext: [String : AnyObject]) throws
+  func updateApplicationContext(_ applicationContext: [String : AnyObject]) throws
   var receivedApplicationContext: [String : AnyObject] { get }
-  func transferUserInfo(userInfo: [String : AnyObject]) -> WCSessionUserInfoTransfer
+  func transferUserInfo(_ userInfo: [String : AnyObject]) -> WCSessionUserInfoTransfer
   var outstandingUserInfoTransfers: [WCSessionUserInfoTransfer] { get }
-  func transferFile(file: NSURL, metadata: [String : AnyObject]?) -> WCSessionFileTransfer
+  func transferFile(_ file: NSURL, metadata metadata: [String : AnyObject]?) -> WCSessionFileTransfer
   var outstandingFileTransfers: [WCSessionFileTransfer] { get }
 }
 protocol WCSessionDelegate : NSObjectProtocol {
   @available(watchOS 2.0, *)
-  optional func sessionReachabilityDidChange(session: WCSession)
+  optional func sessionReachabilityDidChange(_ session: WCSession)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveMessage message: [String : AnyObject])
+  optional func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject])
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void)
+  optional func session(_ session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler replyHandler: ([String : AnyObject]) -> Void)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveMessageData messageData: NSData)
+  optional func session(_ session: WCSession, didReceiveMessageData messageData: NSData)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveMessageData messageData: NSData, replyHandler: (NSData) -> Void)
+  optional func session(_ session: WCSession, didReceiveMessageData messageData: NSData, replyHandler replyHandler: (NSData) -> Void)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject])
+  optional func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject])
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didFinishUserInfoTransfer userInfoTransfer: WCSessionUserInfoTransfer, error: NSError?)
+  optional func session(_ session: WCSession, didFinishUserInfoTransfer userInfoTransfer: WCSessionUserInfoTransfer, error error: NSError?)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject])
+  optional func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject])
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error: NSError?)
+  optional func session(_ session: WCSession, didFinishFileTransfer fileTransfer: WCSessionFileTransfer, error error: NSError?)
   @available(watchOS 2.0, *)
-  optional func session(session: WCSession, didReceiveFile file: WCSessionFile)
+  optional func session(_ session: WCSession, didReceiveFile file: WCSessionFile)
 }

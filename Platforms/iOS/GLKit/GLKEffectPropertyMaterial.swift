@@ -6,5 +6,4 @@ class GLKEffectPropertyMaterial : GLKEffectProperty {
   var specularColor: GLKVector4
   var emissiveColor: GLKVector4
   var shininess: GLfloat
-  init()
 }

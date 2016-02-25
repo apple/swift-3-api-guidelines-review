@@ -9,16 +9,16 @@ let HMCharacteristicKeyPath: String
 let HMCharacteristicValueKeyPath: String
 @available(iOS 9.0, *)
 class HMEventTrigger : HMTrigger {
-  init(name: String, events: [HMEvent], predicate: NSPredicate?)
+  init(name name: String, events events: [HMEvent], predicate predicate: NSPredicate?)
   var events: [HMEvent] { get }
   @NSCopying var predicate: NSPredicate? { get }
-  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringBeforeDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringOnDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringAfterDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerWithCharacteristic(characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
-  func addEvent(event: HMEvent, completionHandler completion: (NSError?) -> Void)
-  func removeEvent(event: HMEvent, completionHandler completion: (NSError?) -> Void)
-  func updatePredicate(predicate: NSPredicate?, completionHandler completion: (NSError?) -> Void)
+  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(_ significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(_ significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringOnDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerWithCharacteristic(_ characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
+  func addEvent(_ event: HMEvent, completionHandler completion: (NSError?) -> Void)
+  func removeEvent(_ event: HMEvent, completionHandler completion: (NSError?) -> Void)
+  func updatePredicate(_ predicate: NSPredicate?, completionHandler completion: (NSError?) -> Void)
 }

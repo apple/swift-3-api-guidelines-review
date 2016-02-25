@@ -4,5 +4,4 @@ class ALAssetsFilter : NSObject {
   class func allPhotos() -> ALAssetsFilter!
   class func allVideos() -> ALAssetsFilter!
   class func allAssets() -> ALAssetsFilter!
-  init()
 }

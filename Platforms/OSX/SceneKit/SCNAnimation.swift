@@ -3,22 +3,21 @@ typealias SCNAnimationEventBlock = (CAAnimation, AnyObject, Bool) -> Void
 @available(OSX 10.9, *)
 class SCNAnimationEvent : NSObject {
   convenience init(keyTime time: CGFloat, block eventBlock: SCNAnimationEventBlock)
-  init()
 }
 protocol SCNAnimatable : NSObjectProtocol {
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   func removeAllAnimations()
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   var animationKeys: [String] { get }
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
 }
 extension CAAnimation {
   var usesSceneTimeBase: Bool

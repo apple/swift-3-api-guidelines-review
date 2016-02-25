@@ -1,14 +1,14 @@
 
 @available(OSX 10.11, *)
 enum MTLSamplerMinMagFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Nearest
   case Linear
 }
 @available(OSX 10.11, *)
 enum MTLSamplerMipFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NotMipmapped
   case Nearest
@@ -16,7 +16,7 @@ enum MTLSamplerMipFilter : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLSamplerAddressMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ClampToEdge
   @available(OSX 10.11, *)
@@ -40,9 +40,8 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
   @available(OSX 10.11, *)
   var compareFunction: MTLCompareFunction
   var label: String?
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 protocol MTLSamplerState : NSObjectProtocol {

@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 class SCNPlane : SCNGeometry {
-  convenience init(width: CGFloat, height: CGFloat)
+  convenience init(width width: CGFloat, height height: CGFloat)
   var width: CGFloat
   var height: CGFloat
   var widthSegmentCount: Int
@@ -10,15 +10,10 @@ class SCNPlane : SCNGeometry {
   var cornerRadius: CGFloat
   @available(iOS 8.0, *)
   var cornerSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNBox : SCNGeometry {
-  convenience init(width: CGFloat, height: CGFloat, length: CGFloat, chamferRadius: CGFloat)
+  convenience init(width width: CGFloat, height height: CGFloat, length length: CGFloat, chamferRadius chamferRadius: CGFloat)
   var width: CGFloat
   var height: CGFloat
   var length: CGFloat
@@ -27,106 +22,66 @@ class SCNBox : SCNGeometry {
   var heightSegmentCount: Int
   var lengthSegmentCount: Int
   var chamferSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNPyramid : SCNGeometry {
-  convenience init(width: CGFloat, height: CGFloat, length: CGFloat)
+  convenience init(width width: CGFloat, height height: CGFloat, length length: CGFloat)
   var width: CGFloat
   var height: CGFloat
   var length: CGFloat
   var widthSegmentCount: Int
   var heightSegmentCount: Int
   var lengthSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNSphere : SCNGeometry {
-  convenience init(radius: CGFloat)
+  convenience init(radius radius: CGFloat)
   var radius: CGFloat
   var geodesic: Bool
   var segmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNCylinder : SCNGeometry {
-  convenience init(radius: CGFloat, height: CGFloat)
+  convenience init(radius radius: CGFloat, height height: CGFloat)
   var radius: CGFloat
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNCone : SCNGeometry {
-  convenience init(topRadius: CGFloat, bottomRadius: CGFloat, height: CGFloat)
+  convenience init(topRadius topRadius: CGFloat, bottomRadius bottomRadius: CGFloat, height height: CGFloat)
   var topRadius: CGFloat
   var bottomRadius: CGFloat
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNTube : SCNGeometry {
-  convenience init(innerRadius: CGFloat, outerRadius: CGFloat, height: CGFloat)
+  convenience init(innerRadius innerRadius: CGFloat, outerRadius outerRadius: CGFloat, height height: CGFloat)
   var innerRadius: CGFloat
   var outerRadius: CGFloat
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNCapsule : SCNGeometry {
-  convenience init(capRadius: CGFloat, height: CGFloat)
+  convenience init(capRadius capRadius: CGFloat, height height: CGFloat)
   var capRadius: CGFloat
   var height: CGFloat
   var radialSegmentCount: Int
   var heightSegmentCount: Int
   var capSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNTorus : SCNGeometry {
-  convenience init(ringRadius: CGFloat, pipeRadius: CGFloat)
+  convenience init(ringRadius ringRadius: CGFloat, pipeRadius pipeRadius: CGFloat)
   var ringRadius: CGFloat
   var pipeRadius: CGFloat
   var ringSegmentCount: Int
   var pipeSegmentCount: Int
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNFloor : SCNGeometry {
@@ -135,15 +90,10 @@ class SCNFloor : SCNGeometry {
   var reflectionFalloffEnd: CGFloat
   @available(iOS 8.0, *)
   var reflectionResolutionScaleFactor: CGFloat
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 class SCNText : SCNGeometry {
-  convenience init(string: AnyObject?, extrusionDepth: CGFloat)
+  convenience init(string string: AnyObject?, extrusionDepth extrusionDepth: CGFloat)
   var extrusionDepth: CGFloat
   @NSCopying var string: AnyObject?
   var font: UIFont!
@@ -155,15 +105,10 @@ class SCNText : SCNGeometry {
   @NSCopying var chamferProfile: UIBezierPath?
   @available(iOS 8.0, *)
   var flatness: CGFloat
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }
 @available(iOS 8.0, *)
 enum SCNChamferMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Both
   case Front
@@ -171,15 +116,10 @@ enum SCNChamferMode : Int {
 }
 @available(iOS 8.0, *)
 class SCNShape : SCNGeometry {
-  convenience init(path: UIBezierPath?, extrusionDepth: CGFloat)
+  convenience init(path path: UIBezierPath?, extrusionDepth extrusionDepth: CGFloat)
   @NSCopying var path: UIBezierPath?
   var extrusionDepth: CGFloat
   var chamferMode: SCNChamferMode
   var chamferRadius: CGFloat
   @NSCopying var chamferProfile: UIBezierPath?
-  convenience init(sources: [SCNGeometrySource], elements: [SCNGeometryElement])
-  init()
-  init?(coder aDecoder: NSCoder)
-  @available(iOS 9.0, *)
-  convenience init(MDLMesh mdlMesh: MDLMesh)
 }

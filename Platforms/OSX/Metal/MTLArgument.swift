@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum MTLDataType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case Struct
@@ -63,7 +63,7 @@ enum MTLDataType : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLArgumentType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Buffer
   case ThreadgroupMemory
@@ -72,7 +72,7 @@ enum MTLArgumentType : UInt {
 }
 @available(OSX 10.11, *)
 enum MTLArgumentAccess : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ReadOnly
   case ReadWrite
@@ -85,13 +85,11 @@ class MTLStructMember : NSObject {
   var dataType: MTLDataType { get }
   func structType() -> MTLStructType?
   func arrayType() -> MTLArrayType?
-  init()
 }
 @available(OSX 10.11, *)
 class MTLStructType : NSObject {
   var members: [MTLStructMember] { get }
-  func memberByName(name: String) -> MTLStructMember?
-  init()
+  func memberByName(_ name: String) -> MTLStructMember?
 }
 @available(OSX 10.11, *)
 class MTLArrayType : NSObject {
@@ -100,7 +98,6 @@ class MTLArrayType : NSObject {
   var stride: Int { get }
   func elementStructType() -> MTLStructType?
   func elementArrayType() -> MTLArrayType?
-  init()
 }
 @available(OSX 10.11, *)
 class MTLArgument : NSObject {
@@ -117,5 +114,4 @@ class MTLArgument : NSObject {
   var threadgroupMemoryDataSize: Int { get }
   var textureType: MTLTextureType { get }
   var textureDataType: MTLDataType { get }
-  init()
 }

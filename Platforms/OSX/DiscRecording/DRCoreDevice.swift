@@ -6,29 +6,29 @@ func DRDeviceGetTypeID() -> CFTypeID
 @available(OSX 10.2, *)
 func DRCopyDeviceArray() -> Unmanaged<CFArray>!
 @available(OSX 10.2, *)
-func DRDeviceCopyDeviceForBSDName(name: CFString!) -> Unmanaged<DRDeviceRef>!
+func DRDeviceCopyDeviceForBSDName(_ name: CFString!) -> Unmanaged<DRDeviceRef>!
 @available(OSX 10.2, *)
-func DRDeviceCopyDeviceForIORegistryEntryPath(path: CFString!) -> Unmanaged<DRDeviceRef>!
+func DRDeviceCopyDeviceForIORegistryEntryPath(_ path: CFString!) -> Unmanaged<DRDeviceRef>!
 @available(OSX 10.2, *)
-func DRDeviceIsValid(device: DRDeviceRef!) -> Bool
+func DRDeviceIsValid(_ device: DRDeviceRef!) -> Bool
 @available(OSX 10.2, *)
-func DRDeviceOpenTray(device: DRDeviceRef!) -> OSStatus
+func DRDeviceOpenTray(_ device: DRDeviceRef!) -> OSStatus
 @available(OSX 10.2, *)
-func DRDeviceCloseTray(device: DRDeviceRef!) -> OSStatus
+func DRDeviceCloseTray(_ device: DRDeviceRef!) -> OSStatus
 @available(OSX 10.2, *)
-func DRDeviceEjectMedia(device: DRDeviceRef!) -> OSStatus
+func DRDeviceEjectMedia(_ device: DRDeviceRef!) -> OSStatus
 @available(OSX 10.2, *)
-func DRDeviceAcquireMediaReservation(device: DRDeviceRef!)
+func DRDeviceAcquireMediaReservation(_ device: DRDeviceRef!)
 @available(OSX 10.2, *)
-func DRDeviceReleaseMediaReservation(device: DRDeviceRef!)
+func DRDeviceReleaseMediaReservation(_ device: DRDeviceRef!)
 @available(OSX 10.2, *)
-func DRDeviceAcquireExclusiveAccess(device: DRDeviceRef!) -> OSStatus
+func DRDeviceAcquireExclusiveAccess(_ device: DRDeviceRef!) -> OSStatus
 @available(OSX 10.2, *)
-func DRDeviceReleaseExclusiveAccess(device: DRDeviceRef!)
+func DRDeviceReleaseExclusiveAccess(_ device: DRDeviceRef!)
 @available(OSX 10.2, *)
-func DRDeviceCopyInfo(device: DRDeviceRef!) -> Unmanaged<CFDictionary>!
+func DRDeviceCopyInfo(_ device: DRDeviceRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.2, *)
-func DRDeviceCopyStatus(device: DRDeviceRef!) -> Unmanaged<CFDictionary>!
+func DRDeviceCopyStatus(_ device: DRDeviceRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.2, *)
 let kDRDeviceAppearedNotification: CFString!
 @available(OSX 10.2, *)
@@ -272,6 +272,6 @@ let kDRDeviceBurnSpeedHDDVD1x: Float
 @available(OSX 10.2, *)
 let kDRDeviceBurnSpeedMax: Float
 @available(OSX 10.5, *)
-func DRDeviceKPSForXFactor(deviceOrMediaType: DRType!, _ xfactor: Float) -> Float
+func DRDeviceKPSForXFactor(_ deviceOrMediaType: DRType!, _ xfactor: Float) -> Float
 @available(OSX 10.5, *)
-func DRDeviceXFactorForKPS(deviceOrMediaType: DRType!, _ kps: Float) -> Float
+func DRDeviceXFactorForKPS(_ deviceOrMediaType: DRType!, _ kps: Float) -> Float

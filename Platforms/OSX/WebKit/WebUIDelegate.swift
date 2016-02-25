@@ -32,7 +32,7 @@ var WebMenuItemPDFContinuous: Int { get }
 var WebMenuItemPDFNextPage: Int { get }
 var WebMenuItemPDFPreviousPage: Int { get }
 struct WebDragDestinationAction : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: WebDragDestinationAction { get }
   static var DHTML: WebDragDestinationAction { get }
@@ -41,7 +41,7 @@ struct WebDragDestinationAction : OptionSetType {
   static var Any: WebDragDestinationAction { get }
 }
 struct WebDragSourceAction : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: WebDragSourceAction { get }
   static var DHTML: WebDragSourceAction { get }
@@ -51,51 +51,51 @@ struct WebDragSourceAction : OptionSetType {
   static var Any: WebDragSourceAction { get }
 }
 protocol WebOpenPanelResultListener : NSObjectProtocol {
-  func chooseFilename(fileName: String!)
+  func chooseFilename(_ fileName: String!)
   @available(OSX 10.6, *)
-  func chooseFilenames(fileNames: [AnyObject]!)
+  func chooseFilenames(_ fileNames: [AnyObject]!)
   func cancel()
 }
 protocol WebUIDelegate : NSObjectProtocol {
-  optional func webView(sender: WebView!, createWebViewWithRequest request: NSURLRequest!) -> WebView!
-  optional func webViewShow(sender: WebView!)
-  optional func webView(sender: WebView!, createWebViewModalDialogWithRequest request: NSURLRequest!) -> WebView!
-  optional func webViewRunModal(sender: WebView!)
-  optional func webViewClose(sender: WebView!)
-  optional func webViewFocus(sender: WebView!)
-  optional func webViewUnfocus(sender: WebView!)
-  optional func webViewFirstResponder(sender: WebView!) -> NSResponder!
-  optional func webView(sender: WebView!, makeFirstResponder responder: NSResponder!)
-  optional func webView(sender: WebView!, setStatusText text: String!)
-  optional func webViewStatusText(sender: WebView!) -> String!
-  optional func webViewAreToolbarsVisible(sender: WebView!) -> Bool
-  optional func webView(sender: WebView!, setToolbarsVisible visible: Bool)
-  optional func webViewIsStatusBarVisible(sender: WebView!) -> Bool
-  optional func webView(sender: WebView!, setStatusBarVisible visible: Bool)
-  optional func webViewIsResizable(sender: WebView!) -> Bool
-  optional func webView(sender: WebView!, setResizable resizable: Bool)
-  optional func webView(sender: WebView!, setFrame frame: NSRect)
-  optional func webViewFrame(sender: WebView!) -> NSRect
-  optional func webView(sender: WebView!, runJavaScriptAlertPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!)
-  optional func webView(sender: WebView!, runJavaScriptConfirmPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!) -> Bool
-  optional func webView(sender: WebView!, runJavaScriptTextInputPanelWithPrompt prompt: String!, defaultText: String!, initiatedByFrame frame: WebFrame!) -> String!
-  optional func webView(sender: WebView!, runBeforeUnloadConfirmPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!) -> Bool
-  optional func webView(sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!)
+  optional func webView(_ sender: WebView!, createWebViewWithRequest request: NSURLRequest!) -> WebView!
+  optional func webViewShow(_ sender: WebView!)
+  optional func webView(_ sender: WebView!, createWebViewModalDialogWithRequest request: NSURLRequest!) -> WebView!
+  optional func webViewRunModal(_ sender: WebView!)
+  optional func webViewClose(_ sender: WebView!)
+  optional func webViewFocus(_ sender: WebView!)
+  optional func webViewUnfocus(_ sender: WebView!)
+  optional func webViewFirstResponder(_ sender: WebView!) -> NSResponder!
+  optional func webView(_ sender: WebView!, makeFirstResponder responder: NSResponder!)
+  optional func webView(_ sender: WebView!, setStatusText text: String!)
+  optional func webViewStatusText(_ sender: WebView!) -> String!
+  optional func webViewAreToolbarsVisible(_ sender: WebView!) -> Bool
+  optional func webView(_ sender: WebView!, setToolbarsVisible visible: Bool)
+  optional func webViewIsStatusBarVisible(_ sender: WebView!) -> Bool
+  optional func webView(_ sender: WebView!, setStatusBarVisible visible: Bool)
+  optional func webViewIsResizable(_ sender: WebView!) -> Bool
+  optional func webView(_ sender: WebView!, setResizable resizable: Bool)
+  optional func webView(_ sender: WebView!, setFrame frame: NSRect)
+  optional func webViewFrame(_ sender: WebView!) -> NSRect
+  optional func webView(_ sender: WebView!, runJavaScriptAlertPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!)
+  optional func webView(_ sender: WebView!, runJavaScriptConfirmPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!) -> Bool
+  optional func webView(_ sender: WebView!, runJavaScriptTextInputPanelWithPrompt prompt: String!, defaultText defaultText: String!, initiatedByFrame frame: WebFrame!) -> String!
+  optional func webView(_ sender: WebView!, runBeforeUnloadConfirmPanelWithMessage message: String!, initiatedByFrame frame: WebFrame!) -> Bool
+  optional func webView(_ sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!)
   @available(OSX 10.6, *)
-  optional func webView(sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!, allowMultipleFiles: Bool)
+  optional func webView(_ sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!, allowMultipleFiles allowMultipleFiles: Bool)
   @available(OSX 10.0, *)
-  optional func webView(sender: WebView!, mouseDidMoveOverElement elementInformation: [NSObject : AnyObject]!, modifierFlags: Int)
+  optional func webView(_ sender: WebView!, mouseDidMoveOverElement elementInformation: [NSObject : AnyObject]!, modifierFlags modifierFlags: Int)
   @available(OSX 10.0, *)
-  optional func webView(sender: WebView!, contextMenuItemsForElement element: [NSObject : AnyObject]!, defaultMenuItems: [AnyObject]!) -> [AnyObject]!
-  optional func webView(webView: WebView!, validateUserInterfaceItem item: NSValidatedUserInterfaceItem!, defaultValidation: Bool) -> Bool
-  optional func webView(webView: WebView!, shouldPerformAction action: Selector, fromSender sender: AnyObject!) -> Bool
-  optional func webView(webView: WebView!, dragDestinationActionMaskForDraggingInfo draggingInfo: NSDraggingInfo!) -> Int
-  optional func webView(webView: WebView!, willPerformDragDestinationAction action: WebDragDestinationAction, forDraggingInfo draggingInfo: NSDraggingInfo!)
-  optional func webView(webView: WebView!, dragSourceActionMaskForPoint point: NSPoint) -> Int
-  optional func webView(webView: WebView!, willPerformDragSourceAction action: WebDragSourceAction, fromPoint point: NSPoint, withPasteboard pasteboard: NSPasteboard!)
-  optional func webView(sender: WebView!, printFrameView frameView: WebFrameView!)
-  optional func webViewHeaderHeight(sender: WebView!) -> Float
-  optional func webViewFooterHeight(sender: WebView!) -> Float
-  optional func webView(sender: WebView!, drawHeaderInRect rect: NSRect)
-  optional func webView(sender: WebView!, drawFooterInRect rect: NSRect)
+  optional func webView(_ sender: WebView!, contextMenuItemsForElement element: [NSObject : AnyObject]!, defaultMenuItems defaultMenuItems: [AnyObject]!) -> [AnyObject]!
+  optional func webView(_ webView: WebView!, validateUserInterfaceItem item: NSValidatedUserInterfaceItem!, defaultValidation defaultValidation: Bool) -> Bool
+  optional func webView(_ webView: WebView!, shouldPerformAction action: Selector, fromSender sender: AnyObject!) -> Bool
+  optional func webView(_ webView: WebView!, dragDestinationActionMaskForDraggingInfo draggingInfo: NSDraggingInfo!) -> Int
+  optional func webView(_ webView: WebView!, willPerformDragDestinationAction action: WebDragDestinationAction, forDraggingInfo draggingInfo: NSDraggingInfo!)
+  optional func webView(_ webView: WebView!, dragSourceActionMaskForPoint point: NSPoint) -> Int
+  optional func webView(_ webView: WebView!, willPerformDragSourceAction action: WebDragSourceAction, fromPoint point: NSPoint, withPasteboard pasteboard: NSPasteboard!)
+  optional func webView(_ sender: WebView!, printFrameView frameView: WebFrameView!)
+  optional func webViewHeaderHeight(_ sender: WebView!) -> Float
+  optional func webViewFooterHeight(_ sender: WebView!) -> Float
+  optional func webView(_ sender: WebView!, drawHeaderInRect rect: NSRect)
+  optional func webView(_ sender: WebView!, drawFooterInRect rect: NSRect)
 }

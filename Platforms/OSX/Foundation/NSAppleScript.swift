@@ -11,12 +11,11 @@ let NSAppleScriptErrorBriefMessage: String
 let NSAppleScriptErrorRange: String
 class NSAppleScript : NSObject, NSCopying {
   init?(contentsOfURL url: NSURL, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>)
-  init?(source: String)
+  init?(source source: String)
   var source: String? { get }
   var compiled: Bool { get }
-  func compileAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
-  func executeAndReturnError(errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor
-  func executeAppleEvent(event: NSAppleEventDescriptor, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func compileAndReturnError(_ errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> Bool
+  func executeAndReturnError(_ errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor
+  func executeAppleEvent(_ event: NSAppleEventDescriptor, error errorInfo: AutoreleasingUnsafeMutablePointer<NSDictionary?>) -> NSAppleEventDescriptor
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

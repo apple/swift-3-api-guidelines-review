@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum MTLCommandBufferStatus : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NotEnqueued
   case Enqueued
@@ -14,7 +14,7 @@ enum MTLCommandBufferStatus : UInt {
 let MTLCommandBufferErrorDomain: String
 @available(iOS 8.0, *)
 enum MTLCommandBufferError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case Internal
@@ -34,16 +34,16 @@ protocol MTLCommandBuffer : NSObjectProtocol {
   var label: String? { get set }
   func enqueue()
   func commit()
-  func addScheduledHandler(block: MTLCommandBufferHandler)
-  func presentDrawable(drawable: MTLDrawable)
-  func presentDrawable(drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
+  func addScheduledHandler(_ block: MTLCommandBufferHandler)
+  func presentDrawable(_ drawable: MTLDrawable)
+  func presentDrawable(_ drawable: MTLDrawable, atTime presentationTime: CFTimeInterval)
   func waitUntilScheduled()
-  func addCompletedHandler(block: MTLCommandBufferHandler)
+  func addCompletedHandler(_ block: MTLCommandBufferHandler)
   func waitUntilCompleted()
   var status: MTLCommandBufferStatus { get }
   var error: NSError? { get }
   func blitCommandEncoder() -> MTLBlitCommandEncoder
-  func renderCommandEncoderWithDescriptor(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
+  func renderCommandEncoderWithDescriptor(_ renderPassDescriptor: MTLRenderPassDescriptor) -> MTLRenderCommandEncoder
   func computeCommandEncoder() -> MTLComputeCommandEncoder
-  func parallelRenderCommandEncoderWithDescriptor(renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
+  func parallelRenderCommandEncoderWithDescriptor(_ renderPassDescriptor: MTLRenderPassDescriptor) -> MTLParallelRenderCommandEncoder
 }

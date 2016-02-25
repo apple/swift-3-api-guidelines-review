@@ -1,6 +1,6 @@
 
 enum CLDeviceOrientation : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Unknown
   case Portrait
@@ -11,7 +11,7 @@ enum CLDeviceOrientation : Int32 {
   case FaceDown
 }
 enum CLAuthorizationStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case NotDetermined
   case Restricted
@@ -22,7 +22,7 @@ enum CLAuthorizationStatus : Int32 {
   case AuthorizedWhenInUse
 }
 enum CLActivityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Other
   case AutomotiveNavigation
@@ -46,5 +46,4 @@ class CLLocationManager : NSObject {
   func stopUpdatingLocation()
   @available(watchOS 2.0, *)
   func requestLocation()
-  init()
 }

@@ -7,11 +7,10 @@ class SKRequest : NSObject {
   func cancel()
   @available(tvOS 3.0, *)
   func start()
-  init()
 }
 protocol SKRequestDelegate : NSObjectProtocol {
   @available(tvOS 3.0, *)
-  optional func requestDidFinish(request: SKRequest)
+  optional func requestDidFinish(_ request: SKRequest)
   @available(tvOS 3.0, *)
-  optional func request(request: SKRequest, didFailWithError error: NSError)
+  optional func request(_ request: SKRequest, didFailWithError error: NSError)
 }

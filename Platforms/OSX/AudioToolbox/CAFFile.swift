@@ -25,22 +25,22 @@ struct CAFFileHeader {
   var mFileVersion: UInt16
   var mFileFlags: UInt16
   init()
-  init(mFileType: UInt32, mFileVersion: UInt16, mFileFlags: UInt16)
+  init(mFileType mFileType: UInt32, mFileVersion mFileVersion: UInt16, mFileFlags mFileFlags: UInt16)
 }
 struct CAFChunkHeader {
   var mChunkType: UInt32
   var mChunkSize: Int64
   init()
-  init(mChunkType: UInt32, mChunkSize: Int64)
+  init(mChunkType mChunkType: UInt32, mChunkSize mChunkSize: Int64)
 }
 struct CAF_UUID_ChunkHeader {
   var mHeader: CAFChunkHeader
   var mUUID: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(mHeader: CAFChunkHeader, mUUID: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(mHeader mHeader: CAFChunkHeader, mUUID mUUID: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 struct CAFFormatFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var LinearPCMFormatFlagIsFloat: CAFFormatFlags { get }
   static var LinearPCMFormatFlagIsLittleEndian: CAFFormatFlags { get }
@@ -54,13 +54,13 @@ struct CAFAudioDescription {
   var mChannelsPerFrame: UInt32
   var mBitsPerChannel: UInt32
   init()
-  init(mSampleRate: Float64, mFormatID: UInt32, mFormatFlags: CAFFormatFlags, mBytesPerPacket: UInt32, mFramesPerPacket: UInt32, mChannelsPerFrame: UInt32, mBitsPerChannel: UInt32)
+  init(mSampleRate mSampleRate: Float64, mFormatID mFormatID: UInt32, mFormatFlags mFormatFlags: CAFFormatFlags, mBytesPerPacket mBytesPerPacket: UInt32, mFramesPerPacket mFramesPerPacket: UInt32, mChannelsPerFrame mChannelsPerFrame: UInt32, mBitsPerChannel mBitsPerChannel: UInt32)
 }
 struct CAFAudioFormatListItem {
   var mFormat: CAFAudioDescription
   var mChannelLayoutTag: UInt32
   init()
-  init(mFormat: CAFAudioDescription, mChannelLayoutTag: UInt32)
+  init(mFormat mFormat: CAFAudioDescription, mChannelLayoutTag mChannelLayoutTag: UInt32)
 }
 struct CAFPacketTableHeader {
   var mNumberPackets: Int64
@@ -69,13 +69,13 @@ struct CAFPacketTableHeader {
   var mRemainderFrames: Int32
   var mPacketDescriptions: (UInt8)
   init()
-  init(mNumberPackets: Int64, mNumberValidFrames: Int64, mPrimingFrames: Int32, mRemainderFrames: Int32, mPacketDescriptions: (UInt8))
+  init(mNumberPackets mNumberPackets: Int64, mNumberValidFrames mNumberValidFrames: Int64, mPrimingFrames mPrimingFrames: Int32, mRemainderFrames mRemainderFrames: Int32, mPacketDescriptions mPacketDescriptions: (UInt8))
 }
 struct CAFDataChunk {
   var mEditCount: UInt32
   var mData: (UInt8)
   init()
-  init(mEditCount: UInt32, mData: (UInt8))
+  init(mEditCount mEditCount: UInt32, mData mData: (UInt8))
 }
 var kCAFMarkerType_Generic: UInt32 { get }
 var kCAFMarkerType_ProgramStart: UInt32 { get }
@@ -120,7 +120,7 @@ struct CAF_SMPTE_Time {
   var mFrames: Int8
   var mSubFrameSampleOffset: UInt32
   init()
-  init(mHours: Int8, mMinutes: Int8, mSeconds: Int8, mFrames: Int8, mSubFrameSampleOffset: UInt32)
+  init(mHours mHours: Int8, mMinutes mMinutes: Int8, mSeconds mSeconds: Int8, mFrames mFrames: Int8, mSubFrameSampleOffset mSubFrameSampleOffset: UInt32)
 }
 struct CAFMarker {
   var mType: UInt32
@@ -129,17 +129,17 @@ struct CAFMarker {
   var mSMPTETime: CAF_SMPTE_Time
   var mChannel: UInt32
   init()
-  init(mType: UInt32, mFramePosition: Float64, mMarkerID: UInt32, mSMPTETime: CAF_SMPTE_Time, mChannel: UInt32)
+  init(mType mType: UInt32, mFramePosition mFramePosition: Float64, mMarkerID mMarkerID: UInt32, mSMPTETime mSMPTETime: CAF_SMPTE_Time, mChannel mChannel: UInt32)
 }
 struct CAFMarkerChunk {
   var mSMPTE_TimeType: UInt32
   var mNumberMarkers: UInt32
   var mMarkers: (CAFMarker)
   init()
-  init(mSMPTE_TimeType: UInt32, mNumberMarkers: UInt32, mMarkers: (CAFMarker))
+  init(mSMPTE_TimeType mSMPTE_TimeType: UInt32, mNumberMarkers mNumberMarkers: UInt32, mMarkers mMarkers: (CAFMarker))
 }
 struct CAFRegionFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var LoopEnable: CAFRegionFlags { get }
   static var PlayForward: CAFRegionFlags { get }
@@ -151,14 +151,14 @@ struct CAFRegion {
   var mNumberMarkers: UInt32
   var mMarkers: (CAFMarker)
   init()
-  init(mRegionID: UInt32, mFlags: CAFRegionFlags, mNumberMarkers: UInt32, mMarkers: (CAFMarker))
+  init(mRegionID mRegionID: UInt32, mFlags mFlags: CAFRegionFlags, mNumberMarkers mNumberMarkers: UInt32, mMarkers mMarkers: (CAFMarker))
 }
 struct CAFRegionChunk {
   var mSMPTE_TimeType: UInt32
   var mNumberRegions: UInt32
   var mRegions: (CAFRegion)
   init()
-  init(mSMPTE_TimeType: UInt32, mNumberRegions: UInt32, mRegions: (CAFRegion))
+  init(mSMPTE_TimeType mSMPTE_TimeType: UInt32, mNumberRegions mNumberRegions: UInt32, mRegions mRegions: (CAFRegion))
 }
 struct CAFInstrumentChunk {
   var mBaseNote: Float32
@@ -172,52 +172,52 @@ struct CAFInstrumentChunk {
   var mReleaseRegionID: UInt32
   var mInstrumentID: UInt32
   init()
-  init(mBaseNote: Float32, mMIDILowNote: UInt8, mMIDIHighNote: UInt8, mMIDILowVelocity: UInt8, mMIDIHighVelocity: UInt8, mdBGain: Float32, mStartRegionID: UInt32, mSustainRegionID: UInt32, mReleaseRegionID: UInt32, mInstrumentID: UInt32)
+  init(mBaseNote mBaseNote: Float32, mMIDILowNote mMIDILowNote: UInt8, mMIDIHighNote mMIDIHighNote: UInt8, mMIDILowVelocity mMIDILowVelocity: UInt8, mMIDIHighVelocity mMIDIHighVelocity: UInt8, mdBGain mdBGain: Float32, mStartRegionID mStartRegionID: UInt32, mSustainRegionID mSustainRegionID: UInt32, mReleaseRegionID mReleaseRegionID: UInt32, mInstrumentID mInstrumentID: UInt32)
 }
 struct CAFStringID {
   var mStringID: UInt32
   var mStringStartByteOffset: Int64
   init()
-  init(mStringID: UInt32, mStringStartByteOffset: Int64)
+  init(mStringID mStringID: UInt32, mStringStartByteOffset mStringStartByteOffset: Int64)
 }
 struct CAFStrings {
   var mNumEntries: UInt32
   var mStringsIDs: (CAFStringID)
   init()
-  init(mNumEntries: UInt32, mStringsIDs: (CAFStringID))
+  init(mNumEntries mNumEntries: UInt32, mStringsIDs mStringsIDs: (CAFStringID))
 }
 struct CAFInfoStrings {
   var mNumEntries: UInt32
   init()
-  init(mNumEntries: UInt32)
+  init(mNumEntries mNumEntries: UInt32)
 }
 struct CAFPositionPeak {
   var mValue: Float32
   var mFrameNumber: UInt64
   init()
-  init(mValue: Float32, mFrameNumber: UInt64)
+  init(mValue mValue: Float32, mFrameNumber mFrameNumber: UInt64)
 }
 struct CAFPeakChunk {
   var mEditCount: UInt32
   var mPeaks: (CAFPositionPeak)
   init()
-  init(mEditCount: UInt32, mPeaks: (CAFPositionPeak))
+  init(mEditCount mEditCount: UInt32, mPeaks mPeaks: (CAFPositionPeak))
 }
 struct CAFOverviewSample {
   var mMinValue: Int16
   var mMaxValue: Int16
   init()
-  init(mMinValue: Int16, mMaxValue: Int16)
+  init(mMinValue mMinValue: Int16, mMaxValue mMaxValue: Int16)
 }
 struct CAFOverviewChunk {
   var mEditCount: UInt32
   var mNumFramesPerOVWSample: UInt32
   var mData: (CAFOverviewSample)
   init()
-  init(mEditCount: UInt32, mNumFramesPerOVWSample: UInt32, mData: (CAFOverviewSample))
+  init(mEditCount mEditCount: UInt32, mNumFramesPerOVWSample mNumFramesPerOVWSample: UInt32, mData mData: (CAFOverviewSample))
 }
 struct CAFUMIDChunk {
   var mBytes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(mBytes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(mBytes mBytes: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }

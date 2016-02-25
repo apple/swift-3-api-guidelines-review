@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(address: String, port: Int)
+  init(address address: String, port port: Int)
   @available(iOS 9.0, *)
   var address: String { get }
   @available(iOS 9.0, *)
@@ -13,14 +13,13 @@ class NEProxyServer : NSObject, NSSecureCoding, NSCopying {
   var username: String?
   @available(iOS 9.0, *)
   var password: String?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
@@ -44,12 +43,11 @@ class NEProxySettings : NSObject, NSSecureCoding, NSCopying {
   var exceptionList: [String]?
   @available(iOS 9.0, *)
   var matchDomains: [String]?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

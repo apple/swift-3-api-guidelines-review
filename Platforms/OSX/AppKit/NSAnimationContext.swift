@@ -2,7 +2,7 @@
 @available(OSX 10.5, *)
 class NSAnimationContext : NSObject {
   @available(OSX 10.7, *)
-  class func runAnimationGroup(changes: (NSAnimationContext) -> Void, completionHandler: (() -> Void)?)
+  class func runAnimationGroup(_ changes: (NSAnimationContext) -> Void, completionHandler completionHandler: (() -> Void)?)
   class func beginGrouping()
   class func endGrouping()
   class func currentContext() -> NSAnimationContext
@@ -13,5 +13,4 @@ class NSAnimationContext : NSObject {
   var completionHandler: (() -> Void)?
   @available(OSX 10.8, *)
   var allowsImplicitAnimation: Bool
-  init()
 }

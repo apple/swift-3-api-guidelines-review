@@ -6,7 +6,7 @@ let AVAssetImageGeneratorApertureModeProductionAperture: String
 @available(tvOS 4.0, *)
 let AVAssetImageGeneratorApertureModeEncodedPixels: String
 enum AVAssetImageGeneratorResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Succeeded
   case Failed
@@ -26,9 +26,9 @@ class AVAssetImageGenerator : NSObject {
   var requestedTimeToleranceBefore: CMTime
   @available(tvOS 5.0, *)
   var requestedTimeToleranceAfter: CMTime
-  init(asset: AVAsset)
-  func copyCGImageAtTime(requestedTime: CMTime, actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
-  func generateCGImagesAsynchronouslyForTimes(requestedTimes: [NSValue], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
+  init(asset asset: AVAsset)
+  func copyCGImageAtTime(_ requestedTime: CMTime, actualTime actualTime: UnsafeMutablePointer<CMTime>) throws -> CGImage
+  func generateCGImagesAsynchronouslyForTimes(_ requestedTimes: [NSValue], completionHandler handler: AVAssetImageGeneratorCompletionHandler)
   func cancelAllCGImageGeneration()
 }
 typealias AVAssetImageGeneratorCompletionHandler = (CMTime, CGImage?, CMTime, AVAssetImageGeneratorResult, NSError?) -> Void

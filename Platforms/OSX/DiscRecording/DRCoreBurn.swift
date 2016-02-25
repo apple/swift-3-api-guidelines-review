@@ -4,19 +4,19 @@ class DRBurnRef {
 @available(OSX 10.2, *)
 func DRBurnGetTypeID() -> CFTypeID
 @available(OSX 10.2, *)
-func DRBurnCreate(device: DRDeviceRef!) -> Unmanaged<DRBurnRef>!
+func DRBurnCreate(_ device: DRDeviceRef!) -> Unmanaged<DRBurnRef>!
 @available(OSX 10.2, *)
-func DRBurnWriteLayout(burn: DRBurnRef!, _ layout: CFTypeRef!) -> OSStatus
+func DRBurnWriteLayout(_ burn: DRBurnRef!, _ layout: CFTypeRef!) -> OSStatus
 @available(OSX 10.2, *)
-func DRBurnAbort(burn: DRBurnRef!)
+func DRBurnAbort(_ burn: DRBurnRef!)
 @available(OSX 10.2, *)
-func DRBurnCopyStatus(burn: DRBurnRef!) -> Unmanaged<CFDictionary>!
+func DRBurnCopyStatus(_ burn: DRBurnRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.2, *)
-func DRBurnGetDevice(burn: DRBurnRef!) -> Unmanaged<DRDeviceRef>!
+func DRBurnGetDevice(_ burn: DRBurnRef!) -> Unmanaged<DRDeviceRef>!
 @available(OSX 10.2, *)
-func DRBurnSetProperties(burn: DRBurnRef!, _ properties: CFDictionary!)
+func DRBurnSetProperties(_ burn: DRBurnRef!, _ properties: CFDictionary!)
 @available(OSX 10.2, *)
-func DRBurnGetProperties(burn: DRBurnRef!) -> Unmanaged<CFDictionary>!
+func DRBurnGetProperties(_ burn: DRBurnRef!) -> Unmanaged<CFDictionary>!
 @available(OSX 10.2, *)
 let kDRBurnStatusChangedNotification: CFString!
 @available(OSX 10.2, *)

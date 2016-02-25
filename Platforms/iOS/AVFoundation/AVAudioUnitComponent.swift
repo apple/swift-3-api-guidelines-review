@@ -35,7 +35,6 @@ class AVAudioUnitComponent : NSObject {
   var audioComponent: AudioComponent { get }
   var allTagNames: [String] { get }
   var audioComponentDescription: AudioComponentDescription { get }
-  init()
 }
 @available(iOS 9.0, *)
 let AVAudioUnitComponentTagsDidChangeNotification: String
@@ -44,8 +43,7 @@ class AVAudioUnitComponentManager : NSObject {
   var tagNames: [String] { get }
   var standardLocalizedTagNames: [String] { get }
   class func sharedAudioUnitComponentManager() -> Self
-  func componentsMatchingPredicate(predicate: NSPredicate) -> [AVAudioUnitComponent]
-  func componentsPassingTest(testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
-  func componentsMatchingDescription(desc: AudioComponentDescription) -> [AVAudioUnitComponent]
-  init()
+  func componentsMatchingPredicate(_ predicate: NSPredicate) -> [AVAudioUnitComponent]
+  func componentsPassingTest(_ testHandler: (AVAudioUnitComponent, UnsafeMutablePointer<ObjCBool>) -> Bool) -> [AVAudioUnitComponent]
+  func componentsMatchingDescription(_ desc: AudioComponentDescription) -> [AVAudioUnitComponent]
 }

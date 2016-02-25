@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum PKPaymentPassActivationState : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Activated
   case RequiresActivation
@@ -16,6 +16,4 @@ class PKPaymentPass : PKPass {
   var deviceAccountIdentifier: String { get }
   var deviceAccountNumberSuffix: String { get }
   var activationState: PKPaymentPassActivationState { get }
-  init(data: NSData, error: NSErrorPointer)
-  init()
 }

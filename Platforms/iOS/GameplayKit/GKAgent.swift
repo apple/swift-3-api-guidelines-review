@@ -1,9 +1,9 @@
 
 protocol GKAgentDelegate : NSObjectProtocol {
   @available(iOS 9.0, *)
-  optional func agentWillUpdate(agent: GKAgent)
+  optional func agentWillUpdate(_ agent: GKAgent)
   @available(iOS 9.0, *)
-  optional func agentDidUpdate(agent: GKAgent)
+  optional func agentDidUpdate(_ agent: GKAgent)
 }
 @available(iOS 9.0, *)
 class GKAgent : GKComponent {
@@ -14,13 +14,10 @@ class GKAgent : GKComponent {
   var speed: Float { get }
   var maxAcceleration: Float
   var maxSpeed: Float
-  init()
 }
 @available(iOS 9.0, *)
 class GKAgent2D : GKAgent {
   var position: vector_float2
   var velocity: vector_float2 { get }
   var rotation: Float
-  func updateWithDeltaTime(seconds: NSTimeInterval)
-  init()
 }

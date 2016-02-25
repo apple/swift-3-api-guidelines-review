@@ -3,8 +3,6 @@
 let WCErrorDomain: String
 @available(iOS 9.0, *)
 enum WCErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case GenericError
   case SessionNotSupported
   case SessionMissingDelegate
@@ -24,6 +22,4 @@ enum WCErrorCode : Int {
 
 @available(iOS 9.0, *)
 extension WCErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

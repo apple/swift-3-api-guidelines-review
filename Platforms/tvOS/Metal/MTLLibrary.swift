@@ -6,11 +6,10 @@ class MTLVertexAttribute : NSObject {
   @available(tvOS 8.3, *)
   var attributeType: MTLDataType { get }
   var active: Bool { get }
-  init()
 }
 @available(tvOS 8.0, *)
 enum MTLFunctionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Vertex
   case Fragment
@@ -25,7 +24,7 @@ protocol MTLFunction : NSObjectProtocol {
 }
 @available(tvOS 9.0, *)
 enum MTLLanguageVersion : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   @available(tvOS 9.0, *)
   case Version1_0
@@ -37,15 +36,14 @@ class MTLCompileOptions : NSObject, NSCopying {
   var fastMathEnabled: Bool
   @available(tvOS 9.0, *)
   var languageVersion: MTLLanguageVersion
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 let MTLLibraryErrorDomain: String
 @available(tvOS 8.0, *)
 enum MTLLibraryError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unsupported
   case Internal
@@ -55,7 +53,7 @@ enum MTLLibraryError : UInt {
 let MTLRenderPipelineErrorDomain: String
 @available(tvOS 8.0, *)
 enum MTLRenderPipelineError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Internal
   case Unsupported
@@ -65,6 +63,6 @@ enum MTLRenderPipelineError : UInt {
 protocol MTLLibrary : NSObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
-  func newFunctionWithName(functionName: String) -> MTLFunction?
+  func newFunctionWithName(_ functionName: String) -> MTLFunction?
   var functionNames: [String] { get }
 }

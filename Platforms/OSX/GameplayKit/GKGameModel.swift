@@ -10,11 +10,11 @@ protocol GKGameModelPlayer : NSObjectProtocol {
 protocol GKGameModel : NSObjectProtocol, NSCopying {
   var players: [GKGameModelPlayer]? { get }
   var activePlayer: GKGameModelPlayer? { get }
-  func setGameModel(gameModel: GKGameModel)
-  func gameModelUpdatesForPlayer(player: GKGameModelPlayer) -> [GKGameModelUpdate]?
-  func applyGameModelUpdate(gameModelUpdate: GKGameModelUpdate)
-  optional func scoreForPlayer(player: GKGameModelPlayer) -> Int
-  optional func isWinForPlayer(player: GKGameModelPlayer) -> Bool
-  optional func isLossForPlayer(player: GKGameModelPlayer) -> Bool
-  optional func unapplyGameModelUpdate(gameModelUpdate: GKGameModelUpdate)
+  func setGameModel(_ gameModel: GKGameModel)
+  func gameModelUpdatesForPlayer(_ player: GKGameModelPlayer) -> [GKGameModelUpdate]?
+  func applyGameModelUpdate(_ gameModelUpdate: GKGameModelUpdate)
+  optional func scoreForPlayer(_ player: GKGameModelPlayer) -> Int
+  optional func isWinForPlayer(_ player: GKGameModelPlayer) -> Bool
+  optional func isLossForPlayer(_ player: GKGameModelPlayer) -> Bool
+  optional func unapplyGameModelUpdate(_ gameModelUpdate: GKGameModelUpdate)
 }

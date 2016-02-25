@@ -95,7 +95,7 @@ class SecRequirement {
 typealias SecGuestRef = UInt32
 var kSecNoGuest: SecGuestRef { get }
 struct SecCSFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var DefaultFlags: SecCSFlags { get }
   static var ConsiderExpiration: SecCSFlags { get }
@@ -105,7 +105,7 @@ struct SecCSFlags : OptionSetType {
   static var CheckTrustedAnchors: SecCSFlags { get }
 }
 struct SecCodeSignatureFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Host: SecCodeSignatureFlags { get }
   static var Adhoc: SecCodeSignatureFlags { get }
@@ -117,14 +117,14 @@ struct SecCodeSignatureFlags : OptionSetType {
   static var LibraryValidation: SecCodeSignatureFlags { get }
 }
 struct SecCodeStatus : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Valid: SecCodeStatus { get }
   static var Hard: SecCodeStatus { get }
   static var Kill: SecCodeStatus { get }
 }
 enum SecRequirementType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case HostRequirementType
   case GuestRequirementType

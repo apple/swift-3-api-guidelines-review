@@ -10,12 +10,6 @@ class ABPeoplePickerNavigationController : UINavigationController {
   @NSCopying var predicateForSelectionOfPerson: NSPredicate?
   @available(iOS 8.0, *)
   @NSCopying var predicateForSelectionOfProperty: NSPredicate?
-  @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 @available(iOS 8.0, *)
 let ABPersonNamePrefixProperty: String
@@ -65,13 +59,13 @@ let ABPersonSocialProfilesProperty: String
 let ABPersonPostalAddressesProperty: String
 protocol ABPeoplePickerNavigationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
+  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord)
   @available(iOS 8.0, *)
-  optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier)
+  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property property: ABPropertyID, identifier identifier: ABMultiValueIdentifier)
   @available(iOS 2.0, *)
-  optional func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController)
+  optional func peoplePickerNavigationControllerDidCancel(_ peoplePicker: ABPeoplePickerNavigationController)
   @available(iOS, introduced=2.0, deprecated=8.0)
-  optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, shouldContinueAfterSelectingPerson person: ABRecord) -> Bool
+  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, shouldContinueAfterSelectingPerson person: ABRecord) -> Bool
   @available(iOS, introduced=2.0, deprecated=8.0)
-  optional func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, shouldContinueAfterSelectingPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) -> Bool
+  optional func peoplePickerNavigationController(_ peoplePicker: ABPeoplePickerNavigationController, shouldContinueAfterSelectingPerson person: ABRecord, property property: ABPropertyID, identifier identifier: ABMultiValueIdentifier) -> Bool
 }

@@ -5,9 +5,8 @@ class CISampler : NSObject, NSCopying {
   init(image im: CIImage, options dict: [NSObject : AnyObject]?)
   var definition: CIFilterShape { get }
   var extent: CGRect { get }
-  convenience init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 let kCISamplerAffineMatrix: String

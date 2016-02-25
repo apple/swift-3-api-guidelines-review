@@ -5,7 +5,6 @@ class NSStatusItem : NSObject {
   var menu: NSMenu?
   @available(OSX 10.10, *)
   var button: NSStatusBarButton? { get }
-  init()
 }
 extension NSStatusItem {
   var action: Selector
@@ -18,8 +17,8 @@ extension NSStatusItem {
   var enabled: Bool
   var highlightMode: Bool
   var toolTip: String?
-  func sendActionOn(mask: Int) -> Int
+  func sendActionOn(_ mask: Int) -> Int
   var view: NSView?
-  func drawStatusBarBackgroundInRect(rect: NSRect, withHighlight highlight: Bool)
-  func popUpStatusItemMenu(menu: NSMenu)
+  func drawStatusBarBackgroundInRect(_ rect: NSRect, withHighlight highlight: Bool)
+  func popUpStatusItemMenu(_ menu: NSMenu)
 }

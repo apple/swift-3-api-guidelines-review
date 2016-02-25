@@ -1,26 +1,26 @@
 
 struct NSFileVersionAddingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var ByMoving: NSFileVersionAddingOptions { get }
 }
 struct NSFileVersionReplacingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var ByMoving: NSFileVersionReplacingOptions { get }
 }
 @available(OSX 10.7, *)
 class NSFileVersion : NSObject {
-  class func currentVersionOfItemAtURL(url: NSURL) -> NSFileVersion?
-  class func otherVersionsOfItemAtURL(url: NSURL) -> [NSFileVersion]?
-  class func unresolvedConflictVersionsOfItemAtURL(url: NSURL) -> [NSFileVersion]?
+  class func currentVersionOfItemAtURL(_ url: NSURL) -> NSFileVersion?
+  class func otherVersionsOfItemAtURL(_ url: NSURL) -> [NSFileVersion]?
+  class func unresolvedConflictVersionsOfItemAtURL(_ url: NSURL) -> [NSFileVersion]?
   @available(OSX 10.10, *)
-  class func getNonlocalVersionsOfItemAtURL(url: NSURL, completionHandler: ([NSFileVersion]?, NSError?) -> Void)
+  class func getNonlocalVersionsOfItemAtURL(_ url: NSURL, completionHandler completionHandler: ([NSFileVersion]?, NSError?) -> Void)
   /*not inherited*/ init?(ofItemAtURL url: NSURL, forPersistentIdentifier persistentIdentifier: AnyObject)
   @available(OSX 10.7, *)
-  class func addVersionOfItemAtURL(url: NSURL, withContentsOfURL contentsURL: NSURL, options: NSFileVersionAddingOptions) throws -> NSFileVersion
+  class func addVersionOfItemAtURL(_ url: NSURL, withContentsOfURL contentsURL: NSURL, options options: NSFileVersionAddingOptions) throws -> NSFileVersion
   @available(OSX 10.7, *)
-  class func temporaryDirectoryURLForNewVersionOfItemAtURL(url: NSURL) -> NSURL
+  class func temporaryDirectoryURLForNewVersionOfItemAtURL(_ url: NSURL) -> NSURL
   @NSCopying var URL: NSURL { get }
   var localizedName: String? { get }
   var localizedNameOfSavingComputer: String? { get }
@@ -34,8 +34,7 @@ class NSFileVersion : NSObject {
   var hasLocalContents: Bool { get }
   @available(OSX 10.10, *)
   var hasThumbnail: Bool { get }
-  func replaceItemAtURL(url: NSURL, options: NSFileVersionReplacingOptions) throws -> NSURL
+  func replaceItemAtURL(_ url: NSURL, options options: NSFileVersionReplacingOptions) throws -> NSURL
   func remove() throws
-  class func removeOtherVersionsOfItemAtURL(url: NSURL) throws
-  init()
+  class func removeOtherVersionsOfItemAtURL(_ url: NSURL) throws
 }

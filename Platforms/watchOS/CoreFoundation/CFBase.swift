@@ -113,7 +113,7 @@ typealias CFPropertyList = CFTypeRef
 @available(*, deprecated, renamed="CFPropertyList")
 typealias CFPropertyListRef = CFPropertyList
 enum CFComparisonResult : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case CompareLessThan
   case CompareEqualTo
@@ -125,10 +125,10 @@ struct CFRange {
   var location: CFIndex
   var length: CFIndex
   init()
-  init(location: CFIndex, length: CFIndex)
+  init(location location: CFIndex, length length: CFIndex)
 }
-func CFRangeMake(loc: CFIndex, _ len: CFIndex) -> CFRange
-func __CFRangeMake(loc: CFIndex, _ len: CFIndex) -> CFRange
+func CFRangeMake(_ loc: CFIndex, _ len: CFIndex) -> CFRange
+func __CFRangeMake(_ loc: CFIndex, _ len: CFIndex) -> CFRange
 class CFNull {
 }
 @available(*, deprecated, renamed="CFNull")
@@ -163,21 +163,21 @@ struct CFAllocatorContext {
   var deallocate: CFAllocatorDeallocateCallBack!
   var preferredSize: CFAllocatorPreferredSizeCallBack!
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: CFAllocatorRetainCallBack!, release: CFAllocatorReleaseCallBack!, copyDescription: CFAllocatorCopyDescriptionCallBack!, allocate: CFAllocatorAllocateCallBack!, reallocate: CFAllocatorReallocateCallBack!, deallocate: CFAllocatorDeallocateCallBack!, preferredSize: CFAllocatorPreferredSizeCallBack!)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: CFAllocatorRetainCallBack!, release release: CFAllocatorReleaseCallBack!, copyDescription copyDescription: CFAllocatorCopyDescriptionCallBack!, allocate allocate: CFAllocatorAllocateCallBack!, reallocate reallocate: CFAllocatorReallocateCallBack!, deallocate deallocate: CFAllocatorDeallocateCallBack!, preferredSize preferredSize: CFAllocatorPreferredSizeCallBack!)
 }
 func CFAllocatorGetTypeID() -> CFTypeID
-func CFAllocatorSetDefault(allocator: CFAllocator!)
+func CFAllocatorSetDefault(_ allocator: CFAllocator!)
 func CFAllocatorGetDefault() -> Unmanaged<CFAllocator>!
-func CFAllocatorCreate(allocator: CFAllocator!, _ context: UnsafeMutablePointer<CFAllocatorContext>) -> Unmanaged<CFAllocator>!
-func CFAllocatorAllocate(allocator: CFAllocator!, _ size: CFIndex, _ hint: CFOptionFlags) -> UnsafeMutablePointer<Void>
-func CFAllocatorReallocate(allocator: CFAllocator!, _ ptr: UnsafeMutablePointer<Void>, _ newsize: CFIndex, _ hint: CFOptionFlags) -> UnsafeMutablePointer<Void>
-func CFAllocatorDeallocate(allocator: CFAllocator!, _ ptr: UnsafeMutablePointer<Void>)
-func CFAllocatorGetPreferredSizeForSize(allocator: CFAllocator!, _ size: CFIndex, _ hint: CFOptionFlags) -> CFIndex
-func CFAllocatorGetContext(allocator: CFAllocator!, _ context: UnsafeMutablePointer<CFAllocatorContext>)
-func CFGetTypeID(cf: CFTypeRef!) -> CFTypeID
-func CFCopyTypeIDDescription(type_id: CFTypeID) -> CFString!
-func CFGetRetainCount(cf: CFTypeRef!) -> CFIndex
-func CFEqual(cf1: CFTypeRef!, _ cf2: CFTypeRef!) -> Bool
-func CFHash(cf: CFTypeRef!) -> CFHashCode
-func CFCopyDescription(cf: CFTypeRef!) -> CFString!
-func CFGetAllocator(cf: CFTypeRef!) -> CFAllocator!
+func CFAllocatorCreate(_ allocator: CFAllocator!, _ context: UnsafeMutablePointer<CFAllocatorContext>) -> Unmanaged<CFAllocator>!
+func CFAllocatorAllocate(_ allocator: CFAllocator!, _ size: CFIndex, _ hint: CFOptionFlags) -> UnsafeMutablePointer<Void>
+func CFAllocatorReallocate(_ allocator: CFAllocator!, _ ptr: UnsafeMutablePointer<Void>, _ newsize: CFIndex, _ hint: CFOptionFlags) -> UnsafeMutablePointer<Void>
+func CFAllocatorDeallocate(_ allocator: CFAllocator!, _ ptr: UnsafeMutablePointer<Void>)
+func CFAllocatorGetPreferredSizeForSize(_ allocator: CFAllocator!, _ size: CFIndex, _ hint: CFOptionFlags) -> CFIndex
+func CFAllocatorGetContext(_ allocator: CFAllocator!, _ context: UnsafeMutablePointer<CFAllocatorContext>)
+func CFGetTypeID(_ cf: CFTypeRef!) -> CFTypeID
+func CFCopyTypeIDDescription(_ type_id: CFTypeID) -> CFString!
+func CFGetRetainCount(_ cf: CFTypeRef!) -> CFIndex
+func CFEqual(_ cf1: CFTypeRef!, _ cf2: CFTypeRef!) -> Bool
+func CFHash(_ cf: CFTypeRef!) -> CFHashCode
+func CFCopyDescription(_ cf: CFTypeRef!) -> CFString!
+func CFGetAllocator(_ cf: CFTypeRef!) -> CFAllocator!

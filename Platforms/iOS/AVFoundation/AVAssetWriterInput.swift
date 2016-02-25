@@ -1,9 +1,9 @@
 
 @available(iOS 4.1, *)
 class AVAssetWriterInput : NSObject {
-  convenience init(mediaType: String, outputSettings: [String : AnyObject]?)
+  convenience init(mediaType mediaType: String, outputSettings outputSettings: [String : AnyObject]?)
   @available(iOS 6.0, *)
-  init(mediaType: String, outputSettings: [String : AnyObject]?, sourceFormatHint: CMFormatDescription?)
+  init(mediaType mediaType: String, outputSettings outputSettings: [String : AnyObject]?, sourceFormatHint sourceFormatHint: CMFormatDescription?)
   var mediaType: String { get }
   var outputSettings: [String : AnyObject]? { get }
   @available(iOS 6.0, *)
@@ -11,8 +11,8 @@ class AVAssetWriterInput : NSObject {
   var metadata: [AVMetadataItem]
   var readyForMoreMediaData: Bool { get }
   var expectsMediaDataInRealTime: Bool
-  func requestMediaDataWhenReadyOnQueue(queue: dispatch_queue_t, usingBlock block: () -> Void)
-  func appendSampleBuffer(sampleBuffer: CMSampleBuffer) -> Bool
+  func requestMediaDataWhenReadyOnQueue(_ queue: dispatch_queue_t, usingBlock block: () -> Void)
+  func appendSampleBuffer(_ sampleBuffer: CMSampleBuffer) -> Bool
   func markAsFinished()
 }
 extension AVAssetWriterInput {
@@ -44,9 +44,9 @@ extension AVAssetWriterInput {
 }
 extension AVAssetWriterInput {
   @available(iOS 7.0, *)
-  func canAddTrackAssociationWithTrackOfInput(input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
+  func canAddTrackAssociationWithTrackOfInput(_ input: AVAssetWriterInput, type trackAssociationType: String) -> Bool
   @available(iOS 7.0, *)
-  func addTrackAssociationWithTrackOfInput(input: AVAssetWriterInput, type trackAssociationType: String)
+  func addTrackAssociationWithTrackOfInput(_ input: AVAssetWriterInput, type trackAssociationType: String)
 }
 extension AVAssetWriterInput {
   @available(iOS 8.0, *)
@@ -56,7 +56,7 @@ extension AVAssetWriterInput {
   @available(iOS 8.0, *)
   var currentPassDescription: AVAssetWriterInputPassDescription? { get }
   @available(iOS 8.0, *)
-  func respondToEachPassDescriptionOnQueue(queue: dispatch_queue_t, usingBlock block: dispatch_block_t)
+  func respondToEachPassDescriptionOnQueue(_ queue: dispatch_queue_t, usingBlock block: dispatch_block_t)
   @available(iOS 8.0, *)
   func markCurrentPassAsFinished()
 }
@@ -66,15 +66,15 @@ class AVAssetWriterInputPassDescription : NSObject {
 }
 @available(iOS 4.1, *)
 class AVAssetWriterInputPixelBufferAdaptor : NSObject {
-  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes: [String : AnyObject]?)
+  init(assetWriterInput input: AVAssetWriterInput, sourcePixelBufferAttributes sourcePixelBufferAttributes: [String : AnyObject]?)
   var assetWriterInput: AVAssetWriterInput { get }
   var sourcePixelBufferAttributes: [String : AnyObject]? { get }
   var pixelBufferPool: CVPixelBufferPool? { get }
-  func appendPixelBuffer(pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
+  func appendPixelBuffer(_ pixelBuffer: CVPixelBuffer, withPresentationTime presentationTime: CMTime) -> Bool
 }
 @available(iOS 8.0, *)
 class AVAssetWriterInputMetadataAdaptor : NSObject {
   init(assetWriterInput input: AVAssetWriterInput)
   var assetWriterInput: AVAssetWriterInput { get }
-  func appendTimedMetadataGroup(timedMetadataGroup: AVTimedMetadataGroup) -> Bool
+  func appendTimedMetadataGroup(_ timedMetadataGroup: AVTimedMetadataGroup) -> Bool
 }

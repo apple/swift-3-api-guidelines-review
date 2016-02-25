@@ -1,8 +1,8 @@
 
 @available(watchOS 2.0, *)
 class WKInterfaceMovie : WKInterfaceObject {
-  func setMovieURL(URL: NSURL)
-  func setVideoGravity(videoGravity: WKVideoGravity)
-  func setLoops(loops: Bool)
-  func setPosterImage(posterImage: WKImage?)
+  func setMovieURL(_ URL: NSURL)
+  func setVideoGravity(_ videoGravity: WKVideoGravity)
+  func setLoops(_ loops: Bool)
+  func setPosterImage(_ posterImage: WKImage?)
 }

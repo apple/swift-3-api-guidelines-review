@@ -11,7 +11,7 @@ let AVCaptureSessionDidStopRunningNotification: String
 let AVCaptureSessionWasInterruptedNotification: String
 @available(iOS 9.0, *)
 enum AVCaptureSessionInterruptionReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case VideoDeviceNotAvailableInBackground
   case AudioDeviceInUseByAnotherClient
@@ -24,7 +24,7 @@ let AVCaptureSessionInterruptionReasonKey: String
 let AVCaptureSessionInterruptionEndedNotification: String
 @available(iOS 4.0, *)
 enum AVCaptureVideoOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Portrait
   case PortraitUpsideDown
@@ -57,26 +57,26 @@ let AVCaptureSessionPresetiFrame1280x720: String
 let AVCaptureSessionPresetInputPriority: String
 @available(iOS 4.0, *)
 class AVCaptureSession : NSObject {
-  func canSetSessionPreset(preset: String!) -> Bool
+  func canSetSessionPreset(_ preset: String!) -> Bool
   var sessionPreset: String!
   var inputs: [AnyObject]! { get }
-  func canAddInput(input: AVCaptureInput!) -> Bool
-  func addInput(input: AVCaptureInput!)
-  func removeInput(input: AVCaptureInput!)
+  func canAddInput(_ input: AVCaptureInput!) -> Bool
+  func addInput(_ input: AVCaptureInput!)
+  func removeInput(_ input: AVCaptureInput!)
   var outputs: [AnyObject]! { get }
-  func canAddOutput(output: AVCaptureOutput!) -> Bool
-  func addOutput(output: AVCaptureOutput!)
-  func removeOutput(output: AVCaptureOutput!)
+  func canAddOutput(_ output: AVCaptureOutput!) -> Bool
+  func addOutput(_ output: AVCaptureOutput!)
+  func removeOutput(_ output: AVCaptureOutput!)
   @available(iOS 8.0, *)
-  func addInputWithNoConnections(input: AVCaptureInput!)
+  func addInputWithNoConnections(_ input: AVCaptureInput!)
   @available(iOS 8.0, *)
-  func addOutputWithNoConnections(output: AVCaptureOutput!)
+  func addOutputWithNoConnections(_ output: AVCaptureOutput!)
   @available(iOS 8.0, *)
-  func canAddConnection(connection: AVCaptureConnection!) -> Bool
+  func canAddConnection(_ connection: AVCaptureConnection!) -> Bool
   @available(iOS 8.0, *)
-  func addConnection(connection: AVCaptureConnection!)
+  func addConnection(_ connection: AVCaptureConnection!)
   @available(iOS 8.0, *)
-  func removeConnection(connection: AVCaptureConnection!)
+  func removeConnection(_ connection: AVCaptureConnection!)
   func beginConfiguration()
   func commitConfiguration()
   var running: Bool { get }
@@ -90,12 +90,11 @@ class AVCaptureSession : NSObject {
   func stopRunning()
   @available(iOS 7.0, *)
   var masterClock: CMClock! { get }
-  init()
 }
 @available(iOS 4.0, *)
 class AVCaptureConnection : NSObject {
   @available(iOS 8.0, *)
-  init!(inputPorts ports: [AnyObject]!, output: AVCaptureOutput!)
+  init!(inputPorts ports: [AnyObject]!, output output: AVCaptureOutput!)
   @available(iOS 8.0, *)
   init!(inputPort port: AVCaptureInputPort!, videoPreviewLayer layer: AVCaptureVideoPreviewLayer!)
   var inputPorts: [AnyObject]! { get }
@@ -125,11 +124,9 @@ class AVCaptureConnection : NSObject {
   var videoStabilizationEnabled: Bool { get }
   @available(iOS, introduced=6.0, deprecated=8.0, message="Use preferredVideoStabilizationMode instead.")
   var enablesVideoStabilizationWhenAvailable: Bool
-  init()
 }
 @available(iOS 4.0, *)
 class AVCaptureAudioChannel : NSObject {
   var averagePowerLevel: Float { get }
   var peakHoldLevel: Float { get }
-  init()
 }

@@ -91,11 +91,11 @@ class IOBluetoothHandsFree : NSObject {
   @available(OSX 10.7, *)
   unowned(unsafe) var delegate: @sil_unmanaged IOBluetoothHandsFreeDelegate!
   @available(OSX 10.7, *)
-  func indicator(indicatorName: String!) -> Int32
+  func indicator(_ indicatorName: String!) -> Int32
   @available(OSX 10.7, *)
-  func setIndicator(indicatorName: String!, value indicatorValue: Int32)
+  func setIndicator(_ indicatorName: String!, value indicatorValue: Int32)
   @available(OSX 10.7, *)
-  init!(device: IOBluetoothDevice!, delegate inDelegate: IOBluetoothHandsFreeDelegate!)
+  init!(device device: IOBluetoothDevice!, delegate inDelegate: IOBluetoothHandsFreeDelegate!)
   @available(OSX 10.7, *)
   func connect()
   @available(OSX 10.7, *)
@@ -108,17 +108,16 @@ class IOBluetoothHandsFree : NSObject {
   func disconnectSCO()
   @available(OSX 10.7, *)
   func isSCOConnected() -> Bool
-  init()
 }
 protocol IOBluetoothHandsFreeDelegate : NSObjectProtocol {
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, connected status: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFree!, connected status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, disconnected status: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFree!, disconnected status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionOpened status: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFree!, scoConnectionOpened status: NSNumber!)
   @available(OSX 10.7, *)
-  optional func handsFree(device: IOBluetoothHandsFree!, scoConnectionClosed status: NSNumber!)
+  optional func handsFree(_ device: IOBluetoothHandsFree!, scoConnectionClosed status: NSNumber!)
 }
 extension IOBluetoothDevice {
   @available(OSX 10.7, *)

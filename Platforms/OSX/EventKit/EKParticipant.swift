@@ -11,8 +11,7 @@ class EKParticipant : EKObject, NSCopying {
   @available(OSX 10.11, *)
   var contactPredicate: NSPredicate { get }
   @available(OSX, introduced=10.8, deprecated=10.11, message="Use contactPredicate instead")
-  func ABPersonInAddressBook(addressBook: ABAddressBook) -> ABPerson?
-  init()
+  func ABPersonInAddressBook(_ addressBook: ABAddressBook) -> ABPerson?
   @available(OSX 10.8, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

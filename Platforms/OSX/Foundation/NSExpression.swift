@@ -1,6 +1,6 @@
 
 enum NSExpressionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ConstantValueExpressionType
   case EvaluatedObjectExpressionType
@@ -43,17 +43,17 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.5, *)
   /*not inherited*/ init(forMinusSet left: NSExpression, with right: NSExpression)
   @available(OSX 10.5, *)
-  /*not inherited*/ init(forSubquery expression: NSExpression, usingIteratorVariable variable: String, predicate: AnyObject)
+  /*not inherited*/ init(forSubquery expression: NSExpression, usingIteratorVariable variable: String, predicate predicate: AnyObject)
   @available(OSX 10.5, *)
   /*not inherited*/ init(forFunction target: NSExpression, selectorName name: String, arguments parameters: [AnyObject]?)
   @available(OSX 10.9, *)
   class func expressionForAnyKey() -> NSExpression
   @available(OSX 10.6, *)
-  /*not inherited*/ init(forBlock block: (AnyObject?, [AnyObject], NSMutableDictionary?) -> AnyObject, arguments: [NSExpression]?)
+  /*not inherited*/ init(forBlock block: (AnyObject?, [AnyObject], NSMutableDictionary?) -> AnyObject, arguments arguments: [NSExpression]?)
   @available(OSX 10.11, *)
-  /*not inherited*/ init(forConditional predicate: NSPredicate, trueExpression: NSExpression, falseExpression: NSExpression)
+  /*not inherited*/ init(forConditional predicate: NSPredicate, trueExpression trueExpression: NSExpression, falseExpression falseExpression: NSExpression)
   init(expressionType type: NSExpressionType)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   var expressionType: NSExpressionType { get }
   var constantValue: AnyObject { get }
   var keyPath: String { get }
@@ -75,16 +75,15 @@ class NSExpression : NSObject, NSSecureCoding, NSCopying {
   @NSCopying var falseExpression: NSExpression { get }
   @available(OSX 10.6, *)
   var expressionBlock: (AnyObject?, [AnyObject], NSMutableDictionary?) -> AnyObject { get }
-  func expressionValueWithObject(object: AnyObject?, context: NSMutableDictionary?) -> AnyObject
+  func expressionValueWithObject(_ object: AnyObject?, context context: NSMutableDictionary?) -> AnyObject
   @available(OSX 10.9, *)
   func allowEvaluation()
-  convenience init()
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension NSExpression {
@@ -94,5 +93,5 @@ struct _expressionFlags {
   var _evaluationBlocked: UInt32
   var _reservedExpressionFlags: UInt32
   init()
-  init(_evaluationBlocked: UInt32, _reservedExpressionFlags: UInt32)
+  init(_evaluationBlocked _evaluationBlocked: UInt32, _reservedExpressionFlags _reservedExpressionFlags: UInt32)
 }

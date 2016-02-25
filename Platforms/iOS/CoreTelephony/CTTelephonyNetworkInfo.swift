@@ -31,5 +31,4 @@ class CTTelephonyNetworkInfo : NSObject {
   var subscriberCellularProviderDidUpdateNotifier: ((CTCarrier) -> Void)?
   @available(iOS 7.0, *)
   var currentRadioAccessTechnology: String? { get }
-  init()
 }

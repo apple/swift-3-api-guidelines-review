@@ -1,7 +1,7 @@
 
 struct SKDownloadState : RawRepresentable, Equatable {
   init(_ rawValue: Int)
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   var rawValue: Int
 }
 var SKDownloadStateWaiting: SKDownloadState { get }
@@ -21,7 +21,6 @@ class SKDownload : NSObject {
   @NSCopying var contentLength: NSNumber { get }
   var contentVersion: String? { get }
   var transaction: SKPaymentTransaction? { get }
-  class func contentURLForProductID(productID: String) -> NSURL?
-  class func deleteContentForProductID(productID: String)
-  init()
+  class func contentURLForProductID(_ productID: String) -> NSURL?
+  class func deleteContentForProductID(_ productID: String)
 }

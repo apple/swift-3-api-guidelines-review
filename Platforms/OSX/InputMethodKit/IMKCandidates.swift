@@ -15,26 +15,26 @@ typealias IMKCandidatesLocationHint = Int
 let IMKCandidatesOpacityAttributeName: String
 let IMKCandidatesSendServerKeyEventFirst: String
 class IMKCandidates : NSResponder {
-  init!(server: IMKServer!, panelType: IMKCandidatePanelType)
-  init!(server: IMKServer!, panelType: IMKCandidatePanelType, styleType style: IMKStyleType)
+  init!(server server: IMKServer!, panelType panelType: IMKCandidatePanelType)
+  init!(server server: IMKServer!, panelType panelType: IMKCandidatePanelType, styleType style: IMKStyleType)
   func panelType() -> IMKCandidatePanelType
-  func setPanelType(panelType: IMKCandidatePanelType)
-  func show(locationHint: IMKCandidatesLocationHint)
+  func setPanelType(_ panelType: IMKCandidatePanelType)
+  func show(_ locationHint: IMKCandidatesLocationHint)
   func hide()
   func isVisible() -> Bool
   func updateCandidates()
-  func showAnnotation(annotationString: NSAttributedString!)
-  func showSublist(candidates: [AnyObject]!, subListDelegate delegate: AnyObject!)
+  func showAnnotation(_ annotationString: NSAttributedString!)
+  func showSublist(_ candidates: [AnyObject]!, subListDelegate delegate: AnyObject!)
   func selectedCandidateString() -> NSAttributedString!
-  func setCandidateFrameTopLeft(point: NSPoint)
+  func setCandidateFrameTopLeft(_ point: NSPoint)
   func candidateFrame() -> NSRect
-  func setSelectionKeys(keyCodes: [AnyObject]!)
+  func setSelectionKeys(_ keyCodes: [AnyObject]!)
   func selectionKeys() -> [AnyObject]!
-  func setSelectionKeysKeylayout(layout: TISInputSource!)
+  func setSelectionKeysKeylayout(_ layout: TISInputSource!)
   func selectionKeysKeylayout() -> Unmanaged<TISInputSource>!
-  func setAttributes(attributes: [NSObject : AnyObject]!)
+  func setAttributes(_ attributes: [NSObject : AnyObject]!)
   func attributes() -> [NSObject : AnyObject]!
-  func setDismissesAutomatically(flag: Bool)
+  func setDismissesAutomatically(_ flag: Bool)
   func dismissesAutomatically() -> Bool
   @available(OSX 10.7, *)
   func selectedCandidate() -> Int
@@ -43,24 +43,22 @@ class IMKCandidates : NSResponder {
   @available(OSX 10.7, *)
   func hideChild()
   @available(OSX 10.7, *)
-  func attachChild(child: IMKCandidates!, toCandidate candidateIdentifier: Int, type theType: IMKStyleType)
+  func attachChild(_ child: IMKCandidates!, toCandidate candidateIdentifier: Int, type theType: IMKStyleType)
   @available(OSX 10.7, *)
-  func detachChild(candidateIdentifier: Int)
+  func detachChild(_ candidateIdentifier: Int)
   @available(OSX 10.7, *)
-  func setCandidateData(candidatesArray: [AnyObject]!)
+  func setCandidateData(_ candidatesArray: [AnyObject]!)
   @available(OSX 10.7, *)
-  func selectCandidateWithIdentifier(candidateIdentifier: Int) -> Bool
-  func selectCandidate(candidateIdentifier: Int)
+  func selectCandidateWithIdentifier(_ candidateIdentifier: Int) -> Bool
+  func selectCandidate(_ candidateIdentifier: Int)
   @available(OSX 10.7, *)
   func showCandidates()
   @available(OSX 10.7, *)
-  func candidateStringIdentifier(candidateString: AnyObject!) -> Int
+  func candidateStringIdentifier(_ candidateString: AnyObject!) -> Int
   @available(OSX 10.7, *)
-  func candidateIdentifierAtLineNumber(lineNumber: Int) -> Int
+  func candidateIdentifierAtLineNumber(_ lineNumber: Int) -> Int
   @available(OSX 10.7, *)
-  func lineNumberForCandidateWithIdentifier(candidateIdentifier: Int) -> Int
+  func lineNumberForCandidateWithIdentifier(_ candidateIdentifier: Int) -> Int
   @available(OSX 10.7, *)
   func clearSelection()
-  init()
-  init?(coder: NSCoder)
 }

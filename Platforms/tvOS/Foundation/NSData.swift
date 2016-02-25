@@ -1,6 +1,6 @@
 
 struct NSDataReadingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var DataReadingMappedIfSafe: NSDataReadingOptions { get }
   static var DataReadingUncached: NSDataReadingOptions { get }
@@ -11,7 +11,7 @@ struct NSDataReadingOptions : OptionSetType {
   static var UncachedRead: NSDataReadingOptions { get }
 }
 struct NSDataWritingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var DataWritingAtomic: NSDataWritingOptions { get }
   @available(tvOS 6.0, *)
@@ -30,14 +30,14 @@ struct NSDataWritingOptions : OptionSetType {
 }
 @available(tvOS 4.0, *)
 struct NSDataSearchOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Backwards: NSDataSearchOptions { get }
   static var Anchored: NSDataSearchOptions { get }
 }
 @available(tvOS 7.0, *)
 struct NSDataBase64EncodingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Encoding64CharacterLineLength: NSDataBase64EncodingOptions { get }
   static var Encoding76CharacterLineLength: NSDataBase64EncodingOptions { get }
@@ -46,122 +46,81 @@ struct NSDataBase64EncodingOptions : OptionSetType {
 }
 @available(tvOS 7.0, *)
 struct NSDataBase64DecodingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var IgnoreUnknownCharacters: NSDataBase64DecodingOptions { get }
 }
 class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var length: Int { get }
   var bytes: UnsafePointer<Void> { get }
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSData {
-  var description: String { get }
-  func getBytes(buffer: UnsafeMutablePointer<Void>, length: Int)
-  func getBytes(buffer: UnsafeMutablePointer<Void>, range: NSRange)
-  func isEqualToData(other: NSData) -> Bool
-  func subdataWithRange(range: NSRange) -> NSData
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func writeToFile(path: String, options writeOptionsMask: NSDataWritingOptions) throws
-  func writeToURL(url: NSURL, options writeOptionsMask: NSDataWritingOptions) throws
+  func getBytes(_ buffer: UnsafeMutablePointer<Void>, length length: Int)
+  func getBytes(_ buffer: UnsafeMutablePointer<Void>, range range: NSRange)
+  func isEqualToData(_ other: NSData) -> Bool
+  func subdataWithRange(_ range: NSRange) -> NSData
+  func writeToFile(_ path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeToURL(_ url: NSURL, atomically atomically: Bool) -> Bool
+  func writeToFile(_ path: String, options writeOptionsMask: NSDataWritingOptions) throws
+  func writeToURL(_ url: NSURL, options writeOptionsMask: NSDataWritingOptions) throws
   @available(tvOS 4.0, *)
-  func rangeOfData(dataToFind: NSData, options mask: NSDataSearchOptions, range searchRange: NSRange) -> NSRange
+  func rangeOfData(_ dataToFind: NSData, options mask: NSDataSearchOptions, range searchRange: NSRange) -> NSRange
   @available(tvOS 7.0, *)
-  func enumerateByteRangesUsingBlock(block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateByteRangesUsingBlock(_ block: (UnsafePointer<Void>, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 extension NSData {
-  init(bytes: UnsafePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
+  init(bytes bytes: UnsafePointer<Void>, length length: Int)
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int)
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, freeWhenDone b: Bool)
   @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
+  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length length: Int, deallocator deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
   init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
   init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
   init?(contentsOfFile path: String)
   init?(contentsOfURL url: NSURL)
-  init(data: NSData)
+  init(data data: NSData)
 }
 extension NSData {
   @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedString base64String: String, options options: NSDataBase64DecodingOptions)
   @available(tvOS 7.0, *)
-  func base64EncodedStringWithOptions(options: NSDataBase64EncodingOptions) -> String
+  func base64EncodedStringWithOptions(_ options: NSDataBase64EncodingOptions) -> String
   @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
+  init?(base64EncodedData base64Data: NSData, options options: NSDataBase64DecodingOptions)
   @available(tvOS 7.0, *)
-  func base64EncodedDataWithOptions(options: NSDataBase64EncodingOptions) -> NSData
+  func base64EncodedDataWithOptions(_ options: NSDataBase64EncodingOptions) -> NSData
 }
 extension NSData {
   @available(tvOS, introduced=2.0, deprecated=8.0, message="This method is unsafe because it could potentially cause buffer overruns. Use -getBytes:length: instead.")
-  func getBytes(buffer: UnsafeMutablePointer<Void>)
+  func getBytes(_ buffer: UnsafeMutablePointer<Void>)
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use +dataWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  class func dataWithContentsOfMappedFile(path: String) -> AnyObject?
+  class func dataWithContentsOfMappedFile(_ path: String) -> AnyObject?
   @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
   init?(contentsOfMappedFile path: String)
 }
 class NSMutableData : NSData {
   var mutableBytes: UnsafeMutablePointer<Void> { get }
-  var length: Int
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes: UnsafePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
-  @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
-  init(data: NSData)
-  @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
-  @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
-  @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
 }
 extension NSMutableData {
-  func appendBytes(bytes: UnsafePointer<Void>, length: Int)
-  func appendData(other: NSData)
-  func increaseLengthBy(extraLength: Int)
-  func replaceBytesInRange(range: NSRange, withBytes bytes: UnsafePointer<Void>)
-  func resetBytesInRange(range: NSRange)
-  func setData(data: NSData)
-  func replaceBytesInRange(range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
+  func appendBytes(_ bytes: UnsafePointer<Void>, length length: Int)
+  func appendData(_ other: NSData)
+  func increaseLengthBy(_ extraLength: Int)
+  func replaceBytesInRange(_ range: NSRange, withBytes bytes: UnsafePointer<Void>)
+  func resetBytesInRange(_ range: NSRange)
+  func setData(_ data: NSData)
+  func replaceBytesInRange(_ range: NSRange, withBytes replacementBytes: UnsafePointer<Void>, length replacementLength: Int)
 }
 extension NSMutableData {
-  init?(capacity: Int)
-  init?(length: Int)
+  init?(capacity capacity: Int)
+  init?(length length: Int)
 }
 @available(tvOS 4.0, *)
 class NSPurgeableData : NSMutableData, NSDiscardableContent {
-  init()
-  init?(coder aDecoder: NSCoder)
-  init(bytes: UnsafePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, freeWhenDone b: Bool)
-  @available(tvOS 7.0, *)
-  init(bytesNoCopy bytes: UnsafeMutablePointer<Void>, length: Int, deallocator: ((UnsafeMutablePointer<Void>, Int) -> Void)?)
-  init(contentsOfFile path: String, options readOptionsMask: NSDataReadingOptions) throws
-  init(contentsOfURL url: NSURL, options readOptionsMask: NSDataReadingOptions) throws
-  init?(contentsOfFile path: String)
-  init?(contentsOfURL url: NSURL)
-  init(data: NSData)
-  @available(tvOS 7.0, *)
-  init?(base64EncodedString base64String: String, options: NSDataBase64DecodingOptions)
-  @available(tvOS 7.0, *)
-  init?(base64EncodedData base64Data: NSData, options: NSDataBase64DecodingOptions)
-  @available(tvOS, introduced=2.0, deprecated=8.0, message="Use -initWithContentsOfURL:options:error: and NSDataReadingMappedIfSafe or NSDataReadingMappedAlways instead.")
-  init?(contentsOfMappedFile path: String)
-  init?(capacity: Int)
-  init?(length: Int)
   @available(tvOS 4.0, *)
   func beginContentAccess() -> Bool
   @available(tvOS 4.0, *)

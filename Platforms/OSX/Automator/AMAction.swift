@@ -1,6 +1,6 @@
 
 enum AMLogLevel : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Debug
   case Info
@@ -23,18 +23,18 @@ class AMAction : NSObject {
   @available(OSX 10.6, *)
   var progressValue: CGFloat
   @available(OSX 10.7, *)
-  func runWithInput(input: AnyObject?) throws -> AnyObject
+  func runWithInput(_ input: AnyObject?) throws -> AnyObject
   @available(OSX 10.5, *)
-  func runAsynchronouslyWithInput(input: AnyObject?)
+  func runAsynchronouslyWithInput(_ input: AnyObject?)
   @available(OSX 10.5, *)
   func willFinishRunning()
   @available(OSX 10.7, *)
-  func finishRunningWithError(error: NSError?)
+  func finishRunningWithError(_ error: NSError?)
   @available(OSX 10.5, *)
   var output: AnyObject?
   func stop()
   func reset()
-  func writeToDictionary(dictionary: NSMutableDictionary)
+  func writeToDictionary(_ dictionary: NSMutableDictionary)
   func opened()
   func activated()
   @available(OSX 10.5, *)
@@ -42,5 +42,4 @@ class AMAction : NSObject {
   func updateParameters()
   func parametersUpdated()
   var stopped: Bool { get }
-  init()
 }

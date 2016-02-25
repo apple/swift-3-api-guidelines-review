@@ -10,41 +10,33 @@ class NSArrayController : NSObjectController {
   var sortDescriptors: [NSSortDescriptor]
   var filterPredicate: NSPredicate?
   var clearsFilterPredicateOnInsertion: Bool
-  func arrangeObjects(objects: [AnyObject]) -> [AnyObject]
+  func arrangeObjects(_ objects: [AnyObject]) -> [AnyObject]
   var arrangedObjects: AnyObject { get }
   var avoidsEmptySelection: Bool
   var preservesSelection: Bool
   var selectsInsertedObjects: Bool
   var alwaysUsesMultipleValuesMarker: Bool
-  func setSelectionIndexes(indexes: NSIndexSet) -> Bool
+  func setSelectionIndexes(_ indexes: NSIndexSet) -> Bool
   @NSCopying var selectionIndexes: NSIndexSet { get }
-  func setSelectionIndex(index: Int) -> Bool
+  func setSelectionIndex(_ index: Int) -> Bool
   var selectionIndex: Int { get }
-  func addSelectionIndexes(indexes: NSIndexSet) -> Bool
-  func removeSelectionIndexes(indexes: NSIndexSet) -> Bool
-  func setSelectedObjects(objects: [AnyObject]) -> Bool
-  var selectedObjects: [AnyObject]! { get }
-  func addSelectedObjects(objects: [AnyObject]) -> Bool
-  func removeSelectedObjects(objects: [AnyObject]) -> Bool
-  func add(sender: AnyObject?)
-  func remove(sender: AnyObject?)
-  func insert(sender: AnyObject?)
+  func addSelectionIndexes(_ indexes: NSIndexSet) -> Bool
+  func removeSelectionIndexes(_ indexes: NSIndexSet) -> Bool
+  func setSelectedObjects(_ objects: [AnyObject]) -> Bool
+  func addSelectedObjects(_ objects: [AnyObject]) -> Bool
+  func removeSelectedObjects(_ objects: [AnyObject]) -> Bool
+  func insert(_ sender: AnyObject?)
   var canInsert: Bool { get }
-  func selectNext(sender: AnyObject?)
-  func selectPrevious(sender: AnyObject?)
+  func selectNext(_ sender: AnyObject?)
+  func selectPrevious(_ sender: AnyObject?)
   var canSelectNext: Bool { get }
   var canSelectPrevious: Bool { get }
-  func addObject(object: AnyObject)
-  func addObjects(objects: [AnyObject])
-  func insertObject(object: AnyObject, atArrangedObjectIndex index: Int)
-  func insertObjects(objects: [AnyObject], atArrangedObjectIndexes indexes: NSIndexSet)
-  func removeObjectAtArrangedObjectIndex(index: Int)
-  func removeObjectsAtArrangedObjectIndexes(indexes: NSIndexSet)
-  func removeObject(object: AnyObject)
-  func removeObjects(objects: [AnyObject])
-  init(content: AnyObject?)
-  init?(coder: NSCoder)
-  convenience init()
+  func addObjects(_ objects: [AnyObject])
+  func insertObject(_ object: AnyObject, atArrangedObjectIndex index: Int)
+  func insertObjects(_ objects: [AnyObject], atArrangedObjectIndexes indexes: NSIndexSet)
+  func removeObjectAtArrangedObjectIndex(_ index: Int)
+  func removeObjectsAtArrangedObjectIndexes(_ indexes: NSIndexSet)
+  func removeObjects(_ objects: [AnyObject])
 }
 struct __arrayControllerFlags {
   var _avoidsEmptySelection: UInt32
@@ -64,5 +56,5 @@ struct __arrayControllerFlags {
   var _automaticallyRearrangesObjects: UInt32
   var _reservedArrayController: UInt32
   init()
-  init(_avoidsEmptySelection: UInt32, _preservesSelection: UInt32, _selectsInsertedObjects: UInt32, _alwaysUsesMultipleValuesMarker: UInt32, _refreshesAllModelObjects: UInt32, _filterRestrictsInsertion: UInt32, _overridesArrangeObjects: UInt32, _overridesDidChangeArrangementCriteria: UInt32, _explicitlyCannotInsert: UInt32, _generatedEmptyArray: UInt32, _isObservingKeyPathsThroughArrangedObjects: UInt32, _arrangedObjectsIsMutable: UInt32, _clearsFilterPredicateOnInsertion: UInt32, _skipSortingAfterFetch: UInt32, _automaticallyRearrangesObjects: UInt32, _reservedArrayController: UInt32)
+  init(_avoidsEmptySelection _avoidsEmptySelection: UInt32, _preservesSelection _preservesSelection: UInt32, _selectsInsertedObjects _selectsInsertedObjects: UInt32, _alwaysUsesMultipleValuesMarker _alwaysUsesMultipleValuesMarker: UInt32, _refreshesAllModelObjects _refreshesAllModelObjects: UInt32, _filterRestrictsInsertion _filterRestrictsInsertion: UInt32, _overridesArrangeObjects _overridesArrangeObjects: UInt32, _overridesDidChangeArrangementCriteria _overridesDidChangeArrangementCriteria: UInt32, _explicitlyCannotInsert _explicitlyCannotInsert: UInt32, _generatedEmptyArray _generatedEmptyArray: UInt32, _isObservingKeyPathsThroughArrangedObjects _isObservingKeyPathsThroughArrangedObjects: UInt32, _arrangedObjectsIsMutable _arrangedObjectsIsMutable: UInt32, _clearsFilterPredicateOnInsertion _clearsFilterPredicateOnInsertion: UInt32, _skipSortingAfterFetch _skipSortingAfterFetch: UInt32, _automaticallyRearrangesObjects _automaticallyRearrangesObjects: UInt32, _reservedArrayController _reservedArrayController: UInt32)
 }

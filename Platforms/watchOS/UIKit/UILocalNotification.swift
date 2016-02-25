@@ -1,7 +1,6 @@
 
 @available(watchOS 2.0, *)
 class UILocalNotification : NSObject, NSCopying, NSCoding {
-  init()
   init?(coder aDecoder: NSCoder)
   @NSCopying var fireDate: NSDate?
   @NSCopying var timeZone: NSTimeZone?
@@ -21,9 +20,9 @@ class UILocalNotification : NSObject, NSCopying, NSCoding {
   @available(watchOS 2.0, *)
   var category: String?
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let UILocalNotificationDefaultSoundName: String

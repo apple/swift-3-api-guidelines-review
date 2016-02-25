@@ -5,5 +5,4 @@ let CTSubscriberTokenRefreshed: String
 class CTSubscriber : NSObject {
   @available(iOS 7.0, *)
   var carrierToken: NSData? { get }
-  init()
 }

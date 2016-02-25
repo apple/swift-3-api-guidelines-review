@@ -4,30 +4,30 @@ class CGPDFDocument {
 @available(*, deprecated, renamed="CGPDFDocument")
 typealias CGPDFDocumentRef = CGPDFDocument
 @available(OSX 10.0, *)
-func CGPDFDocumentCreateWithProvider(provider: CGDataProvider?) -> CGPDFDocument?
+func CGPDFDocumentCreateWithProvider(_ provider: CGDataProvider?) -> CGPDFDocument?
 @available(OSX 10.0, *)
-func CGPDFDocumentCreateWithURL(url: CFURL?) -> CGPDFDocument?
+func CGPDFDocumentCreateWithURL(_ url: CFURL?) -> CGPDFDocument?
 @available(OSX 10.3, *)
-func CGPDFDocumentGetVersion(document: CGPDFDocument?, _ majorVersion: UnsafeMutablePointer<Int32>, _ minorVersion: UnsafeMutablePointer<Int32>)
+func CGPDFDocumentGetVersion(_ document: CGPDFDocument?, _ majorVersion: UnsafeMutablePointer<Int32>, _ minorVersion: UnsafeMutablePointer<Int32>)
 @available(OSX 10.2, *)
-func CGPDFDocumentIsEncrypted(document: CGPDFDocument?) -> Bool
+func CGPDFDocumentIsEncrypted(_ document: CGPDFDocument?) -> Bool
 @available(OSX 10.2, *)
-func CGPDFDocumentUnlockWithPassword(document: CGPDFDocument?, _ password: UnsafePointer<Int8>) -> Bool
+func CGPDFDocumentUnlockWithPassword(_ document: CGPDFDocument?, _ password: UnsafePointer<Int8>) -> Bool
 @available(OSX 10.2, *)
-func CGPDFDocumentIsUnlocked(document: CGPDFDocument?) -> Bool
+func CGPDFDocumentIsUnlocked(_ document: CGPDFDocument?) -> Bool
 @available(OSX 10.2, *)
-func CGPDFDocumentAllowsPrinting(document: CGPDFDocument?) -> Bool
+func CGPDFDocumentAllowsPrinting(_ document: CGPDFDocument?) -> Bool
 @available(OSX 10.2, *)
-func CGPDFDocumentAllowsCopying(document: CGPDFDocument?) -> Bool
+func CGPDFDocumentAllowsCopying(_ document: CGPDFDocument?) -> Bool
 @available(OSX 10.0, *)
-func CGPDFDocumentGetNumberOfPages(document: CGPDFDocument?) -> Int
+func CGPDFDocumentGetNumberOfPages(_ document: CGPDFDocument?) -> Int
 @available(OSX 10.3, *)
-func CGPDFDocumentGetPage(document: CGPDFDocument?, _ pageNumber: Int) -> CGPDFPage?
+func CGPDFDocumentGetPage(_ document: CGPDFDocument?, _ pageNumber: Int) -> CGPDFPage?
 @available(OSX 10.3, *)
-func CGPDFDocumentGetCatalog(document: CGPDFDocument?) -> CGPDFDictionaryRef
+func CGPDFDocumentGetCatalog(_ document: CGPDFDocument?) -> CGPDFDictionaryRef
 @available(OSX 10.4, *)
-func CGPDFDocumentGetInfo(document: CGPDFDocument?) -> CGPDFDictionaryRef
+func CGPDFDocumentGetInfo(_ document: CGPDFDocument?) -> CGPDFDictionaryRef
 @available(OSX 10.4, *)
-func CGPDFDocumentGetID(document: CGPDFDocument?) -> CGPDFArrayRef
+func CGPDFDocumentGetID(_ document: CGPDFDocument?) -> CGPDFArrayRef
 @available(OSX 10.2, *)
 func CGPDFDocumentGetTypeID() -> CFTypeID

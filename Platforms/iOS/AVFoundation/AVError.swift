@@ -22,8 +22,6 @@ let AVErrorPersistentTrackIDKey: String
 @available(iOS 8.0, *)
 let AVErrorFileTypeKey: String
 enum AVError : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case Unknown
   case OutOfMemory
   case SessionNotRunning
@@ -92,6 +90,4 @@ enum AVError : Int {
 }
 
 extension AVError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

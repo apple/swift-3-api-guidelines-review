@@ -1,13 +1,13 @@
 
 enum GKLeaderboardTimeScope : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Today
   case Week
   case AllTime
 }
 enum GKLeaderboardPlayerScope : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Global
   case FriendsOnly
@@ -26,12 +26,11 @@ class GKLeaderboard : NSObject {
   var loading: Bool { get }
   @available(tvOS 6.0, *)
   var groupIdentifier: String? { get }
-  init()
   @available(tvOS 8.0, *)
-  init(players: [GKPlayer])
-  func loadScoresWithCompletionHandler(completionHandler: (([GKScore]?, NSError?) -> Void)?)
+  init(players players: [GKPlayer])
+  func loadScoresWithCompletionHandler(_ completionHandler: (([GKScore]?, NSError?) -> Void)?)
   @available(tvOS 6.0, *)
-  class func loadLeaderboardsWithCompletionHandler(completionHandler: (([GKLeaderboard]?, NSError?) -> Void)?)
+  class func loadLeaderboardsWithCompletionHandler(_ completionHandler: (([GKLeaderboard]?, NSError?) -> Void)?)
 }
 extension GKLeaderboard {
 }

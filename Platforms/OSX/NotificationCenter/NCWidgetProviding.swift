@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NCUpdateResult : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NewData
   case NoData
@@ -9,13 +9,13 @@ enum NCUpdateResult : UInt {
 }
 protocol NCWidgetProviding : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
-  optional func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!)
-  optional func widgetMarginInsetsForProposedMarginInsets(defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets
+  optional func widgetPerformUpdateWithCompletionHandler(_ completionHandler: ((NCUpdateResult) -> Void)!)
+  optional func widgetMarginInsetsForProposedMarginInsets(_ defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets
   optional var widgetAllowsEditing: Bool { get }
   optional func widgetDidBeginEditing()
   optional func widgetDidEndEditing()
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentViewControllerInWidget(viewController: NSViewController!)
+  func presentViewControllerInWidget(_ viewController: NSViewController!)
 }

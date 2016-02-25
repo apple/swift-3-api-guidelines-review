@@ -1,7 +1,7 @@
 
 @available(OSX 10.8, *)
 enum GLKFogMode : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case Exp
   case Exp2
@@ -15,5 +15,4 @@ class GLKEffectPropertyFog : GLKEffectProperty {
   var density: GLfloat
   var start: GLfloat
   var end: GLfloat
-  init()
 }

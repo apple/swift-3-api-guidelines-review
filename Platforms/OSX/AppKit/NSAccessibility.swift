@@ -5,50 +5,50 @@ extension NSObject {
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilityAttributeValue(attribute: String) -> AnyObject?
+  class func accessibilityAttributeValue(_ attribute: String) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilityAttributeValue(attribute: String) -> AnyObject?
+  func accessibilityAttributeValue(_ attribute: String) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilityIsAttributeSettable(attribute: String) -> Bool
+  class func accessibilityIsAttributeSettable(_ attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilityIsAttributeSettable(attribute: String) -> Bool
+  func accessibilityIsAttributeSettable(_ attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
+  class func accessibilitySetValue(_ value: AnyObject?, forAttribute attribute: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilitySetValue(value: AnyObject?, forAttribute attribute: String)
+  func accessibilitySetValue(_ value: AnyObject?, forAttribute attribute: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityParameterizedAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityParameterizedAttributeNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
+  class func accessibilityAttributeValue(_ attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilityAttributeValue(attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
+  func accessibilityAttributeValue(_ attribute: String, forParameter parameter: AnyObject?) -> AnyObject?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   class func accessibilityActionNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
   func accessibilityActionNames() -> [AnyObject]
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilityActionDescription(action: String) -> String?
+  class func accessibilityActionDescription(_ action: String) -> String?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilityActionDescription(action: String) -> String?
+  func accessibilityActionDescription(_ action: String) -> String?
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilityPerformAction(action: String)
+  class func accessibilityPerformAction(_ action: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilityPerformAction(action: String)
+  func accessibilityPerformAction(_ action: String)
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   class func accessibilityIsIgnored() -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use isAccessibilityElement instead")
   func accessibilityIsIgnored() -> Bool
-  class func accessibilityHitTest(point: NSPoint) -> AnyObject?
-  func accessibilityHitTest(point: NSPoint) -> AnyObject?
+  class func accessibilityHitTest(_ point: NSPoint) -> AnyObject?
+  func accessibilityHitTest(_ point: NSPoint) -> AnyObject?
   var accessibilityFocusedUIElement: AnyObject? { get }
-  class func accessibilityIndexOfChild(child: AnyObject) -> Int
-  func accessibilityIndexOfChild(child: AnyObject) -> Int
-  class func accessibilityArrayAttributeCount(attribute: String) -> Int
-  func accessibilityArrayAttributeCount(attribute: String) -> Int
-  class func accessibilityArrayAttributeValues(attribute: String, index: Int, maxCount: Int) -> [AnyObject]
-  func accessibilityArrayAttributeValues(attribute: String, index: Int, maxCount: Int) -> [AnyObject]
+  class func accessibilityIndexOfChild(_ child: AnyObject) -> Int
+  func accessibilityIndexOfChild(_ child: AnyObject) -> Int
+  class func accessibilityArrayAttributeCount(_ attribute: String) -> Int
+  func accessibilityArrayAttributeCount(_ attribute: String) -> Int
+  class func accessibilityArrayAttributeValues(_ attribute: String, index index: Int, maxCount maxCount: Int) -> [AnyObject]
+  func accessibilityArrayAttributeValues(_ attribute: String, index index: Int, maxCount maxCount: Int) -> [AnyObject]
   @available(OSX 10.9, *)
   var accessibilityNotifiesWhenDestroyed: Bool { get }
   class func accessibilityFocusedUIElement() -> AnyObject?
@@ -66,22 +66,22 @@ extension NSWorkspace {
 let NSWorkspaceAccessibilityDisplayOptionsDidChangeNotification: String
 extension NSObject {
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  class func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
+  class func accessibilitySetOverrideValue(_ value: AnyObject?, forAttribute attribute: String) -> Bool
   @available(OSX, introduced=10.1, deprecated=10.10, message="Use the NSAccessibility protocol methods instead (see NSAccessibilityProtocols.h)")
-  func accessibilitySetOverrideValue(value: AnyObject?, forAttribute attribute: String) -> Bool
+  func accessibilitySetOverrideValue(_ value: AnyObject?, forAttribute attribute: String) -> Bool
 }
 @available(OSX 10.10, *)
-func NSAccessibilityFrameInView(parentView: NSView, _ frame: NSRect) -> NSRect
+func NSAccessibilityFrameInView(_ parentView: NSView, _ frame: NSRect) -> NSRect
 @available(OSX 10.10, *)
-func NSAccessibilityPointInView(parentView: NSView, _ point: NSPoint) -> NSPoint
-func NSAccessibilitySetMayContainProtectedContent(flag: Bool) -> Bool
-func NSAccessibilityRoleDescription(role: String, _ subrole: String?) -> String?
-func NSAccessibilityRoleDescriptionForUIElement(element: AnyObject) -> String?
-func NSAccessibilityActionDescription(action: String) -> String?
+func NSAccessibilityPointInView(_ parentView: NSView, _ point: NSPoint) -> NSPoint
+func NSAccessibilitySetMayContainProtectedContent(_ flag: Bool) -> Bool
+func NSAccessibilityRoleDescription(_ role: String, _ subrole: String?) -> String?
+func NSAccessibilityRoleDescriptionForUIElement(_ element: AnyObject) -> String?
+func NSAccessibilityActionDescription(_ action: String) -> String?
 @available(OSX, introduced=10.1, deprecated=10.11, message="Exceptions are no longer appropriate for indicating errors in accessibility API. Unexpected values should be handled through appropriate type checking.")
-func NSAccessibilityRaiseBadArgumentException(element: AnyObject!, _ attribute: String!, _ value: AnyObject!)
-func NSAccessibilityUnignoredAncestor(element: AnyObject) -> AnyObject?
-func NSAccessibilityUnignoredDescendant(element: AnyObject) -> AnyObject?
-func NSAccessibilityUnignoredChildren(originalChildren: [AnyObject]) -> [AnyObject]
-func NSAccessibilityUnignoredChildrenForOnlyChild(originalChild: AnyObject) -> [AnyObject]
-func NSAccessibilityPostNotification(element: AnyObject, _ notification: String)
+func NSAccessibilityRaiseBadArgumentException(_ element: AnyObject!, _ attribute: String!, _ value: AnyObject!)
+func NSAccessibilityUnignoredAncestor(_ element: AnyObject) -> AnyObject?
+func NSAccessibilityUnignoredDescendant(_ element: AnyObject) -> AnyObject?
+func NSAccessibilityUnignoredChildren(_ originalChildren: [AnyObject]) -> [AnyObject]
+func NSAccessibilityUnignoredChildrenForOnlyChild(_ originalChild: AnyObject) -> [AnyObject]
+func NSAccessibilityPostNotification(_ element: AnyObject, _ notification: String)

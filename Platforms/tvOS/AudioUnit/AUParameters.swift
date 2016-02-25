@@ -6,7 +6,7 @@ struct AURecordedParameterEvent {
   var address: AUParameterAddress
   var value: AUValue
   init()
-  init(hostTime: UInt64, address: AUParameterAddress, value: AUValue)
+  init(hostTime hostTime: UInt64, address address: AUParameterAddress, value value: AUValue)
 }
 typealias AUParameterObserver = (AUParameterAddress, AUValue) -> Void
 typealias AUParameterRecordingObserver = (Int, UnsafePointer<AURecordedParameterEvent>) -> Void
@@ -16,29 +16,25 @@ class AUParameterNode : NSObject {
   var identifier: String { get }
   var keyPath: String { get }
   var displayName: String { get }
-  func displayNameWithLength(maximumLength: Int) -> String
-  func tokenByAddingParameterObserver(observer: AUParameterObserver) -> AUParameterObserverToken
-  func tokenByAddingParameterRecordingObserver(observer: AUParameterRecordingObserver) -> AUParameterObserverToken
-  func removeParameterObserver(token: AUParameterObserverToken)
-  init()
+  func displayNameWithLength(_ maximumLength: Int) -> String
+  func tokenByAddingParameterObserver(_ observer: AUParameterObserver) -> AUParameterObserverToken
+  func tokenByAddingParameterRecordingObserver(_ observer: AUParameterRecordingObserver) -> AUParameterObserverToken
+  func removeParameterObserver(_ token: AUParameterObserverToken)
 }
 @available(tvOS 9.0, *)
 class AUParameterGroup : AUParameterNode, NSSecureCoding {
   var children: [AUParameterNode] { get }
   var allParameters: [AUParameter] { get }
-  init()
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 class AUParameterTree : AUParameterGroup, NSSecureCoding {
-  func parameterWithAddress(address: AUParameterAddress) -> AUParameter?
-  func parameterWithID(paramID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement) -> AUParameter?
-  init()
-  init?(coder aDecoder: NSCoder)
+  func parameterWithAddress(_ address: AUParameterAddress) -> AUParameter?
+  func parameterWithID(_ paramID: AudioUnitParameterID, scope scope: AudioUnitScope, element element: AudioUnitElement) -> AUParameter?
 }
 @available(tvOS 9.0, *)
 class AUParameter : AUParameterNode, NSSecureCoding {
@@ -51,14 +47,13 @@ class AUParameter : AUParameterNode, NSSecureCoding {
   var valueStrings: [String]? { get }
   var dependentParameters: [NSNumber]? { get }
   var value: AUValue
-  func setValue(value: AUValue, originator: AUParameterObserverToken)
-  func setValue(value: AUValue, originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
-  func stringFromValue(value: UnsafePointer<AUValue>) -> String
-  func valueFromString(string: String) -> AUValue
-  init()
+  func setValue(_ value: AUValue, originator originator: AUParameterObserverToken)
+  func setValue(_ value: AUValue, originator originator: AUParameterObserverToken, atHostTime hostTime: UInt64)
+  func stringFromValue(_ value: UnsafePointer<AUValue>) -> String
+  func valueFromString(_ string: String) -> AUValue
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

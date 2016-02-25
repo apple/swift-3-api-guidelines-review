@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 struct NSViewControllerTransitionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: NSViewControllerTransitionOptions { get }
   static var Crossfade: NSViewControllerTransitionOptions { get }
@@ -16,16 +16,12 @@ struct NSViewControllerTransitionOptions : OptionSetType {
 @available(OSX 10.5, *)
 class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfaceItemIdentification {
   init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
   var nibName: String? { get }
   var nibBundle: NSBundle? { get }
   var representedObject: AnyObject?
   var title: String?
   var view: NSView
   func loadView()
-  func commitEditingWithDelegate(delegate: AnyObject?, didCommitSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func commitEditing() -> Bool
-  func discardEditing()
   @available(OSX 10.10, *)
   func viewDidLoad()
   @available(OSX 10.10, *)
@@ -46,23 +42,22 @@ class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfa
   func viewWillLayout()
   @available(OSX 10.10, *)
   func viewDidLayout()
-  convenience init()
   @available(OSX 10.10, *)
-  func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?)
+  func prepareForSegue(_ segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+  func performSegueWithIdentifier(_ identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool
+  func shouldPerformSegueWithIdentifier(_ identifier: String, sender sender: AnyObject?) -> Bool
   @available(OSX 10.5, *)
   var identifier: String?
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentViewController(viewController: NSViewController, animator: NSViewControllerPresentationAnimator)
+  func presentViewController(_ viewController: NSViewController, animator animator: NSViewControllerPresentationAnimator)
   @available(OSX 10.10, *)
-  func dismissViewController(viewController: NSViewController)
+  func dismissViewController(_ viewController: NSViewController)
   @available(OSX 10.10, *)
-  @IBAction func dismissController(sender: AnyObject?)
+  @IBAction func dismissController(_ sender: AnyObject?)
   @available(OSX 10.10, *)
   var presentedViewControllers: [NSViewController]? { get }
   @available(OSX 10.10, *)
@@ -70,13 +65,13 @@ extension NSViewController {
 }
 extension NSViewController {
   @available(OSX 10.10, *)
-  func presentViewControllerAsSheet(viewController: NSViewController)
+  func presentViewControllerAsSheet(_ viewController: NSViewController)
   @available(OSX 10.10, *)
-  func presentViewControllerAsModalWindow(viewController: NSViewController)
+  func presentViewControllerAsModalWindow(_ viewController: NSViewController)
   @available(OSX 10.10, *)
-  func presentViewController(viewController: NSViewController, asPopoverRelativeToRect positioningRect: NSRect, ofView positioningView: NSView, preferredEdge: NSRectEdge, behavior: NSPopoverBehavior)
+  func presentViewController(_ viewController: NSViewController, asPopoverRelativeToRect positioningRect: NSRect, ofView positioningView: NSView, preferredEdge preferredEdge: NSRectEdge, behavior behavior: NSPopoverBehavior)
   @available(OSX 10.10, *)
-  func transitionFromViewController(fromViewController: NSViewController, toViewController: NSViewController, options: NSViewControllerTransitionOptions, completionHandler completion: (() -> Void)?)
+  func transitionFromViewController(_ fromViewController: NSViewController, toViewController toViewController: NSViewController, options options: NSViewControllerTransitionOptions, completionHandler completion: (() -> Void)?)
 }
 extension NSViewController {
   @available(OSX 10.10, *)
@@ -84,23 +79,23 @@ extension NSViewController {
   @available(OSX 10.10, *)
   var childViewControllers: [NSViewController]
   @available(OSX 10.10, *)
-  func addChildViewController(childViewController: NSViewController)
+  func addChildViewController(_ childViewController: NSViewController)
   @available(OSX 10.10, *)
   func removeFromParentViewController()
   @available(OSX 10.10, *)
-  func insertChildViewController(childViewController: NSViewController, atIndex index: Int)
+  func insertChildViewController(_ childViewController: NSViewController, atIndex index: Int)
   @available(OSX 10.10, *)
-  func removeChildViewControllerAtIndex(index: Int)
+  func removeChildViewControllerAtIndex(_ index: Int)
   @available(OSX 10.10, *)
-  func preferredContentSizeDidChangeForViewController(viewController: NSViewController)
+  func preferredContentSizeDidChangeForViewController(_ viewController: NSViewController)
   @available(OSX 10.10, *)
-  func viewWillTransitionToSize(newSize: NSSize)
+  func viewWillTransitionToSize(_ newSize: NSSize)
 }
 protocol NSViewControllerPresentationAnimator : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func animatePresentationOfViewController(viewController: NSViewController, fromViewController: NSViewController)
+  func animatePresentationOfViewController(_ viewController: NSViewController, fromViewController fromViewController: NSViewController)
   @available(OSX 10.10, *)
-  func animateDismissalOfViewController(viewController: NSViewController, fromViewController: NSViewController)
+  func animateDismissalOfViewController(_ viewController: NSViewController, fromViewController fromViewController: NSViewController)
 }
 extension NSViewController {
   @available(OSX 10.10, *)
@@ -118,5 +113,5 @@ extension NSViewController : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
   var preferredMaximumSize: NSSize { get }
   @available(OSX 10.10, *)
-  func beginRequestWithExtensionContext(context: NSExtensionContext)
+  func beginRequestWithExtensionContext(_ context: NSExtensionContext)
 }

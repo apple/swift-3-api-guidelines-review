@@ -2,10 +2,9 @@
 @available(tvOS 8.0, *)
 class NSExtensionContext : NSObject {
   var inputItems: [AnyObject] { get }
-  func completeRequestReturningItems(items: [AnyObject]?, completionHandler: ((Bool) -> Void)?)
-  func cancelRequestWithError(error: NSError)
-  func openURL(URL: NSURL, completionHandler: ((Bool) -> Void)?)
-  init()
+  func completeRequestReturningItems(_ items: [AnyObject]?, completionHandler completionHandler: ((Bool) -> Void)?)
+  func cancelRequestWithError(_ error: NSError)
+  func openURL(_ URL: NSURL, completionHandler completionHandler: ((Bool) -> Void)?)
 }
 @available(tvOS 8.0, *)
 let NSExtensionItemsAndErrorsKey: String

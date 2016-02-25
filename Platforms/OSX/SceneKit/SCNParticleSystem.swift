@@ -35,7 +35,7 @@ typealias SCNParticleEventBlock = (UnsafeMutablePointer<UnsafeMutablePointer<Voi
 typealias SCNParticleModifierBlock = (UnsafeMutablePointer<UnsafeMutablePointer<Void>>, UnsafeMutablePointer<Int>, Int, Int, Float) -> Void
 @available(OSX 10.10, *)
 enum SCNParticleSortingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case ProjectedDepth
@@ -45,7 +45,7 @@ enum SCNParticleSortingMode : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Additive
   case Subtract
@@ -56,7 +56,7 @@ enum SCNParticleBlendMode : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleOrientationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case BillboardScreenAligned
   case BillboardViewAligned
@@ -65,7 +65,7 @@ enum SCNParticleOrientationMode : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleBirthLocation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Surface
   case Volume
@@ -73,7 +73,7 @@ enum SCNParticleBirthLocation : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleBirthDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Constant
   case SurfaceNormal
@@ -81,7 +81,7 @@ enum SCNParticleBirthDirection : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleImageSequenceAnimationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Repeat
   case Clamp
@@ -89,7 +89,7 @@ enum SCNParticleImageSequenceAnimationMode : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleInputMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case OverLife
   case OverDistance
@@ -97,7 +97,7 @@ enum SCNParticleInputMode : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleModifierStage : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case PreDynamics
   case PostDynamics
@@ -106,7 +106,7 @@ enum SCNParticleModifierStage : Int {
 }
 @available(OSX 10.10, *)
 enum SCNParticleEvent : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Birth
   case Death
@@ -114,21 +114,20 @@ enum SCNParticleEvent : Int {
 }
 @available(OSX 10.10, *)
 class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
-  convenience init(animation: CAAnimation)
+  convenience init(animation animation: CAAnimation)
   var animation: CAAnimation
   var inputMode: SCNParticleInputMode
   var inputScale: CGFloat
   var inputBias: CGFloat
   weak var inputOrigin: @sil_weak SCNNode?
   var inputProperty: String?
-  init()
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.10, *)
 class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
@@ -194,54 +193,53 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   var fresnelExponent: CGFloat
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
-  func handleEvent(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifierForProperties(properties: [String], atStage stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
-  func removeModifiersOfStage(stage: SCNParticleModifierStage)
+  func handleEvent(_ event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
+  func addModifierForProperties(_ properties: [String], atStage stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func removeModifiersOfStage(_ stage: SCNParticleModifierStage)
   func removeAllModifiers()
-  init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.10, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(OSX 10.10, *)
   func removeAllAnimations()
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(OSX 10.10, *)
   var animationKeys: [String] { get }
   @available(OSX 10.10, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(OSX 10.9, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(OSX 10.9, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(OSX 10.10, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
 }
 extension SCNNode {
   @available(OSX 10.10, *)
-  func addParticleSystem(system: SCNParticleSystem)
+  func addParticleSystem(_ system: SCNParticleSystem)
   @available(OSX 10.10, *)
   func removeAllParticleSystems()
   @available(OSX 10.10, *)
-  func removeParticleSystem(system: SCNParticleSystem)
+  func removeParticleSystem(_ system: SCNParticleSystem)
   @available(OSX 10.10, *)
   var particleSystems: [SCNParticleSystem]? { get }
 }
 extension SCNScene {
   @available(OSX 10.10, *)
-  func addParticleSystem(system: SCNParticleSystem, withTransform transform: SCNMatrix4)
+  func addParticleSystem(_ system: SCNParticleSystem, withTransform transform: SCNMatrix4)
   @available(OSX 10.10, *)
   func removeAllParticleSystems()
   @available(OSX 10.10, *)
-  func removeParticleSystem(system: SCNParticleSystem)
+  func removeParticleSystem(_ system: SCNParticleSystem)
   @available(OSX 10.10, *)
   var particleSystems: [SCNParticleSystem]? { get }
 }

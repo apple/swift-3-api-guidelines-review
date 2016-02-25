@@ -22,25 +22,25 @@ struct PyFileObject {
   var readable: Int32
   var writable: Int32
   init()
-  init(ob_refcnt: Py_ssize_t, ob_type: UnsafeMutablePointer<_typeobject>, f_fp: UnsafeMutablePointer<FILE>, f_name: UnsafeMutablePointer<PyObject>, f_mode: UnsafeMutablePointer<PyObject>, f_close: (@convention(c) (UnsafeMutablePointer<FILE>) -> Int32)!, f_softspace: Int32, f_binary: Int32, f_buf: UnsafeMutablePointer<Int8>, f_bufend: UnsafeMutablePointer<Int8>, f_bufptr: UnsafeMutablePointer<Int8>, f_setbuf: UnsafeMutablePointer<Int8>, f_univ_newline: Int32, f_newlinetypes: Int32, f_skipnextlf: Int32, f_encoding: UnsafeMutablePointer<PyObject>, f_errors: UnsafeMutablePointer<PyObject>, weakreflist: UnsafeMutablePointer<PyObject>, unlocked_count: Int32, readable: Int32, writable: Int32)
+  init(ob_refcnt ob_refcnt: Py_ssize_t, ob_type ob_type: UnsafeMutablePointer<_typeobject>, f_fp f_fp: UnsafeMutablePointer<FILE>, f_name f_name: UnsafeMutablePointer<PyObject>, f_mode f_mode: UnsafeMutablePointer<PyObject>, f_close f_close: (@convention(c) (UnsafeMutablePointer<FILE>) -> Int32)!, f_softspace f_softspace: Int32, f_binary f_binary: Int32, f_buf f_buf: UnsafeMutablePointer<Int8>, f_bufend f_bufend: UnsafeMutablePointer<Int8>, f_bufptr f_bufptr: UnsafeMutablePointer<Int8>, f_setbuf f_setbuf: UnsafeMutablePointer<Int8>, f_univ_newline f_univ_newline: Int32, f_newlinetypes f_newlinetypes: Int32, f_skipnextlf f_skipnextlf: Int32, f_encoding f_encoding: UnsafeMutablePointer<PyObject>, f_errors f_errors: UnsafeMutablePointer<PyObject>, weakreflist weakreflist: UnsafeMutablePointer<PyObject>, unlocked_count unlocked_count: Int32, readable readable: Int32, writable writable: Int32)
 }
 var PyFile_Type: PyTypeObject
-func PyFile_FromString(_: UnsafeMutablePointer<Int8>, _: UnsafeMutablePointer<Int8>) -> UnsafeMutablePointer<PyObject>
-func PyFile_SetBufSize(_: UnsafeMutablePointer<PyObject>, _: Int32)
-func PyFile_SetEncoding(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>) -> Int32
-func PyFile_SetEncodingAndErrors(_: UnsafeMutablePointer<PyObject>, _: UnsafePointer<Int8>, _ errors: UnsafeMutablePointer<Int8>) -> Int32
-func PyFile_FromFile(_: UnsafeMutablePointer<FILE>, _: UnsafeMutablePointer<Int8>, _: UnsafeMutablePointer<Int8>, _: (@convention(c) (UnsafeMutablePointer<FILE>) -> Int32)!) -> UnsafeMutablePointer<PyObject>
-func PyFile_AsFile(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<FILE>
-func PyFile_IncUseCount(_: UnsafeMutablePointer<PyFileObject>)
-func PyFile_DecUseCount(_: UnsafeMutablePointer<PyFileObject>)
-func PyFile_Name(_: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
-func PyFile_GetLine(_: UnsafeMutablePointer<PyObject>, _: Int32) -> UnsafeMutablePointer<PyObject>
-func PyFile_WriteObject(_: UnsafeMutablePointer<PyObject>, _: UnsafeMutablePointer<PyObject>, _: Int32) -> Int32
-func PyFile_SoftSpace(_: UnsafeMutablePointer<PyObject>, _: Int32) -> Int32
-func PyFile_WriteString(_: UnsafePointer<Int8>, _: UnsafeMutablePointer<PyObject>) -> Int32
-func PyObject_AsFileDescriptor(_: UnsafeMutablePointer<PyObject>) -> Int32
+func PyFile_FromString(_ _: UnsafeMutablePointer<Int8>, _ _: UnsafeMutablePointer<Int8>) -> UnsafeMutablePointer<PyObject>
+func PyFile_SetBufSize(_ _: UnsafeMutablePointer<PyObject>, _ _: Int32)
+func PyFile_SetEncoding(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>) -> Int32
+func PyFile_SetEncodingAndErrors(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafePointer<Int8>, _ errors: UnsafeMutablePointer<Int8>) -> Int32
+func PyFile_FromFile(_ _: UnsafeMutablePointer<FILE>, _ _: UnsafeMutablePointer<Int8>, _ _: UnsafeMutablePointer<Int8>, _ _: (@convention(c) (UnsafeMutablePointer<FILE>) -> Int32)!) -> UnsafeMutablePointer<PyObject>
+func PyFile_AsFile(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<FILE>
+func PyFile_IncUseCount(_ _: UnsafeMutablePointer<PyFileObject>)
+func PyFile_DecUseCount(_ _: UnsafeMutablePointer<PyFileObject>)
+func PyFile_Name(_ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<PyObject>
+func PyFile_GetLine(_ _: UnsafeMutablePointer<PyObject>, _ _: Int32) -> UnsafeMutablePointer<PyObject>
+func PyFile_WriteObject(_ _: UnsafeMutablePointer<PyObject>, _ _: UnsafeMutablePointer<PyObject>, _ _: Int32) -> Int32
+func PyFile_SoftSpace(_ _: UnsafeMutablePointer<PyObject>, _ _: Int32) -> Int32
+func PyFile_WriteString(_ _: UnsafePointer<Int8>, _ _: UnsafeMutablePointer<PyObject>) -> Int32
+func PyObject_AsFileDescriptor(_ _: UnsafeMutablePointer<PyObject>) -> Int32
 var Py_FileSystemDefaultEncoding: UnsafePointer<Int8>
 var PY_STDIOTEXTMODE: String { get }
-func Py_UniversalNewlineFgets(_: UnsafeMutablePointer<Int8>, _: Int32, _: UnsafeMutablePointer<FILE>, _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<Int8>
-func Py_UniversalNewlineFread(_: UnsafeMutablePointer<Int8>, _: Int, _: UnsafeMutablePointer<FILE>, _: UnsafeMutablePointer<PyObject>) -> Int
-func _PyFile_SanitizeMode(mode: UnsafeMutablePointer<Int8>) -> Int32
+func Py_UniversalNewlineFgets(_ _: UnsafeMutablePointer<Int8>, _ _: Int32, _ _: UnsafeMutablePointer<FILE>, _ _: UnsafeMutablePointer<PyObject>) -> UnsafeMutablePointer<Int8>
+func Py_UniversalNewlineFread(_ _: UnsafeMutablePointer<Int8>, _ _: Int, _ _: UnsafeMutablePointer<FILE>, _ _: UnsafeMutablePointer<PyObject>) -> Int
+func _PyFile_SanitizeMode(_ mode: UnsafeMutablePointer<Int8>) -> Int32

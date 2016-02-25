@@ -12,15 +12,12 @@ class GLKViewController : UIViewController, NSCoding, GLKViewDelegate {
   var timeSinceLastDraw: NSTimeInterval { get }
   var pauseOnWillResignActive: Bool
   var resumeOnDidBecomeActive: Bool
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(tvOS 5.0, *)
-  func glkView(view: GLKView, drawInRect rect: CGRect)
+  func glkView(_ view: GLKView, drawInRect rect: CGRect)
 }
 protocol GLKViewControllerDelegate : NSObjectProtocol {
   @available(tvOS 5.0, *)
-  func glkViewControllerUpdate(controller: GLKViewController)
+  func glkViewControllerUpdate(_ controller: GLKViewController)
   @available(tvOS 5.0, *)
-  optional func glkViewController(controller: GLKViewController, willPause pause: Bool)
+  optional func glkViewController(_ controller: GLKViewController, willPause pause: Bool)
 }

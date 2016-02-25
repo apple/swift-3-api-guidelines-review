@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum NETunnelProviderError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NetworkSettingsInvalid
   case NetworkSettingsCanceled
@@ -9,7 +9,7 @@ enum NETunnelProviderError : Int {
 }
 @available(iOS 9.0, *)
 enum NETunnelProviderRoutingMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case DestinationIP
   case SourceApplication
@@ -19,9 +19,9 @@ let NETunnelProviderErrorDomain: String
 @available(iOS 9.0, *)
 class NETunnelProvider : NEProvider {
   @available(iOS 9.0, *)
-  func handleAppMessage(messageData: NSData, completionHandler: ((NSData?) -> Void)?)
+  func handleAppMessage(_ messageData: NSData, completionHandler completionHandler: ((NSData?) -> Void)?)
   @available(iOS 9.0, *)
-  func setTunnelNetworkSettings(tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler: ((NSError?) -> Void)?)
+  func setTunnelNetworkSettings(_ tunnelNetworkSettings: NETunnelNetworkSettings?, completionHandler completionHandler: ((NSError?) -> Void)?)
   @available(iOS 9.0, *)
   var protocolConfiguration: NEVPNProtocol { get }
   @available(iOS 9.0, *)
@@ -30,5 +30,4 @@ class NETunnelProvider : NEProvider {
   var routingMethod: NETunnelProviderRoutingMethod { get }
   @available(iOS 9.0, *)
   var reasserting: Bool
-  init()
 }

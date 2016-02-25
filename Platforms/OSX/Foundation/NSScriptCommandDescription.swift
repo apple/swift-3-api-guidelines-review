@@ -1,6 +1,6 @@
 
 class NSScriptCommandDescription : NSObject, NSCoding {
-  init?(suiteName: String, commandName: String, dictionary commandDeclaration: [NSObject : AnyObject]?)
+  init?(suiteName suiteName: String, commandName commandName: String, dictionary commandDeclaration: [NSObject : AnyObject]?)
   init?(coder inCoder: NSCoder)
   var suiteName: String { get }
   var commandName: String { get }
@@ -10,10 +10,10 @@ class NSScriptCommandDescription : NSObject, NSCoding {
   var returnType: String? { get }
   var appleEventCodeForReturnType: FourCharCode { get }
   var argumentNames: [String] { get }
-  func typeForArgumentWithName(argumentName: String) -> String?
-  func appleEventCodeForArgumentWithName(argumentName: String) -> FourCharCode
-  func isOptionalArgumentWithName(argumentName: String) -> Bool
+  func typeForArgumentWithName(_ argumentName: String) -> String?
+  func appleEventCodeForArgumentWithName(_ argumentName: String) -> FourCharCode
+  func isOptionalArgumentWithName(_ argumentName: String) -> Bool
   func createCommandInstance() -> NSScriptCommand
-  func createCommandInstanceWithZone(zone: NSZone) -> NSScriptCommand
-  func encodeWithCoder(aCoder: NSCoder)
+  func createCommandInstanceWithZone(_ zone: NSZone) -> NSScriptCommand
+  func encodeWithCoder(_ aCoder: NSCoder)
 }

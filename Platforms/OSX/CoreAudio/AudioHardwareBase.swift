@@ -9,7 +9,7 @@ struct AudioObjectPropertyAddress {
   var mScope: AudioObjectPropertyScope
   var mElement: AudioObjectPropertyElement
   init()
-  init(mSelector: AudioObjectPropertySelector, mScope: AudioObjectPropertyScope, mElement: AudioObjectPropertyElement)
+  init(mSelector mSelector: AudioObjectPropertySelector, mScope mScope: AudioObjectPropertyScope, mElement mElement: AudioObjectPropertyElement)
 }
 var kAudioHardwareNoError: OSStatus { get }
 var kAudioHardwareNotRunningError: OSStatus { get }
@@ -120,7 +120,7 @@ struct AudioStreamRangedDescription {
   var mFormat: AudioStreamBasicDescription
   var mSampleRateRange: AudioValueRange
   init()
-  init(mFormat: AudioStreamBasicDescription, mSampleRateRange: AudioValueRange)
+  init(mFormat mFormat: AudioStreamBasicDescription, mSampleRateRange mSampleRateRange: AudioValueRange)
 }
 var kAudioStreamClassID: AudioClassID { get }
 var kAudioStreamTerminalTypeUnknown: UInt32 { get }

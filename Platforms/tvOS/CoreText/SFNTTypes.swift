@@ -5,7 +5,7 @@ struct sfntDirectoryEntry {
   var offset: UInt32
   var length: UInt32
   init()
-  init(tableTag: FourCharCode, checkSum: UInt32, offset: UInt32, length: UInt32)
+  init(tableTag tableTag: FourCharCode, checkSum checkSum: UInt32, offset offset: UInt32, length length: UInt32)
 }
 struct sfntDirectory {
   var format: FourCharCode
@@ -15,7 +15,7 @@ struct sfntDirectory {
   var rangeShift: UInt16
   var table: (sfntDirectoryEntry)
   init()
-  init(format: FourCharCode, numOffsets: UInt16, searchRange: UInt16, entrySelector: UInt16, rangeShift: UInt16, table: (sfntDirectoryEntry))
+  init(format format: FourCharCode, numOffsets numOffsets: UInt16, searchRange searchRange: UInt16, entrySelector entrySelector: UInt16, rangeShift rangeShift: UInt16, table table: (sfntDirectoryEntry))
 }
 var sizeof_sfntDirectory: Int { get }
 var cmapFontTableTag: Int { get }
@@ -195,7 +195,7 @@ struct sfntCMapSubHeader {
   var length: UInt16
   var languageID: UInt16
   init()
-  init(format: UInt16, length: UInt16, languageID: UInt16)
+  init(format format: UInt16, length length: UInt16, languageID languageID: UInt16)
 }
 var sizeof_sfntCMapSubHeader: Int { get }
 struct sfntCMapExtendedSubHeader {
@@ -204,7 +204,7 @@ struct sfntCMapExtendedSubHeader {
   var length: UInt32
   var language: UInt32
   init()
-  init(format: UInt16, reserved: UInt16, length: UInt32, language: UInt32)
+  init(format format: UInt16, reserved reserved: UInt16, length length: UInt32, language language: UInt32)
 }
 var sizeof_sfntCMapExtendedSubHeader: Int { get }
 struct sfntCMapEncoding {
@@ -212,7 +212,7 @@ struct sfntCMapEncoding {
   var scriptID: UInt16
   var offset: UInt32
   init()
-  init(platformID: UInt16, scriptID: UInt16, offset: UInt32)
+  init(platformID platformID: UInt16, scriptID scriptID: UInt16, offset offset: UInt32)
 }
 var sizeof_sfntCMapEncoding: Int { get }
 struct sfntCMapHeader {
@@ -220,7 +220,7 @@ struct sfntCMapHeader {
   var numTables: UInt16
   var encoding: (sfntCMapEncoding)
   init()
-  init(version: UInt16, numTables: UInt16, encoding: (sfntCMapEncoding))
+  init(version version: UInt16, numTables numTables: UInt16, encoding encoding: (sfntCMapEncoding))
 }
 var sizeof_sfntCMapHeader: Int { get }
 var nameFontTableTag: Int { get }
@@ -254,7 +254,7 @@ struct sfntNameRecord {
   var length: UInt16
   var offset: UInt16
   init()
-  init(platformID: UInt16, scriptID: UInt16, languageID: UInt16, nameID: UInt16, length: UInt16, offset: UInt16)
+  init(platformID platformID: UInt16, scriptID scriptID: UInt16, languageID languageID: UInt16, nameID nameID: UInt16, length length: UInt16, offset offset: UInt16)
 }
 var sizeof_sfntNameRecord: Int { get }
 struct sfntNameHeader {
@@ -263,7 +263,7 @@ struct sfntNameHeader {
   var stringOffset: UInt16
   var rec: (sfntNameRecord)
   init()
-  init(format: UInt16, count: UInt16, stringOffset: UInt16, rec: (sfntNameRecord))
+  init(format format: UInt16, count count: UInt16, stringOffset stringOffset: UInt16, rec rec: (sfntNameRecord))
 }
 var sizeof_sfntNameHeader: Int { get }
 var variationFontTableTag: Int { get }
@@ -275,7 +275,7 @@ struct sfntVariationAxis {
   var flags: Int16
   var nameID: Int16
   init()
-  init(axisTag: FourCharCode, minValue: Fixed, defaultValue: Fixed, maxValue: Fixed, flags: Int16, nameID: Int16)
+  init(axisTag axisTag: FourCharCode, minValue minValue: Fixed, defaultValue defaultValue: Fixed, maxValue maxValue: Fixed, flags flags: Int16, nameID nameID: Int16)
 }
 var sizeof_sfntVariationAxis: Int { get }
 struct sfntInstance {
@@ -283,7 +283,7 @@ struct sfntInstance {
   var flags: Int16
   var coord: (Fixed)
   init()
-  init(nameID: Int16, flags: Int16, coord: (Fixed))
+  init(nameID nameID: Int16, flags flags: Int16, coord coord: (Fixed))
 }
 var sizeof_sfntInstance: Int { get }
 struct sfntVariationHeader {
@@ -297,7 +297,7 @@ struct sfntVariationHeader {
   var axis: (sfntVariationAxis)
   var instance: (sfntInstance)
   init()
-  init(version: Fixed, offsetToData: UInt16, countSizePairs: UInt16, axisCount: UInt16, axisSize: UInt16, instanceCount: UInt16, instanceSize: UInt16, axis: (sfntVariationAxis), instance: (sfntInstance))
+  init(version version: Fixed, offsetToData offsetToData: UInt16, countSizePairs countSizePairs: UInt16, axisCount axisCount: UInt16, axisSize axisSize: UInt16, instanceCount instanceCount: UInt16, instanceSize instanceSize: UInt16, axis axis: (sfntVariationAxis), instance instance: (sfntInstance))
 }
 var sizeof_sfntVariationHeader: Int { get }
 var descriptorFontTableTag: Int { get }
@@ -305,14 +305,14 @@ struct sfntFontDescriptor {
   var name: FourCharCode
   var value: Fixed
   init()
-  init(name: FourCharCode, value: Fixed)
+  init(name name: FourCharCode, value value: Fixed)
 }
 struct sfntDescriptorHeader {
   var version: Fixed
   var descriptorCount: Int32
   var descriptor: (sfntFontDescriptor)
   init()
-  init(version: Fixed, descriptorCount: Int32, descriptor: (sfntFontDescriptor))
+  init(version version: Fixed, descriptorCount descriptorCount: Int32, descriptor descriptor: (sfntFontDescriptor))
 }
 var sizeof_sfntDescriptorHeader: Int { get }
 var featureFontTableTag: Int { get }
@@ -323,19 +323,19 @@ struct sfntFeatureName {
   var featureFlags: UInt16
   var nameID: Int16
   init()
-  init(featureType: UInt16, settingCount: UInt16, offsetToSettings: Int32, featureFlags: UInt16, nameID: Int16)
+  init(featureType featureType: UInt16, settingCount settingCount: UInt16, offsetToSettings offsetToSettings: Int32, featureFlags featureFlags: UInt16, nameID nameID: Int16)
 }
 struct sfntFontFeatureSetting {
   var setting: UInt16
   var nameID: Int16
   init()
-  init(setting: UInt16, nameID: Int16)
+  init(setting setting: UInt16, nameID nameID: Int16)
 }
 struct sfntFontRunFeature {
   var featureType: UInt16
   var setting: UInt16
   init()
-  init(featureType: UInt16, setting: UInt16)
+  init(featureType featureType: UInt16, setting setting: UInt16)
 }
 struct sfntFeatureHeader {
   var version: Int32
@@ -346,7 +346,7 @@ struct sfntFeatureHeader {
   var settings: (sfntFontFeatureSetting)
   var runs: (sfntFontRunFeature)
   init()
-  init(version: Int32, featureNameCount: UInt16, featureSetCount: UInt16, reserved: Int32, names: (sfntFeatureName), settings: (sfntFontFeatureSetting), runs: (sfntFontRunFeature))
+  init(version version: Int32, featureNameCount featureNameCount: UInt16, featureSetCount featureSetCount: UInt16, reserved reserved: Int32, names names: (sfntFeatureName), settings settings: (sfntFontFeatureSetting), runs runs: (sfntFontRunFeature))
 }
 var os2FontTableTag: Int { get }
 var nonGlyphID: Int { get }
@@ -358,5 +358,5 @@ struct FontVariation {
   var name: FourCharCode
   var value: Fixed
   init()
-  init(name: FourCharCode, value: Fixed)
+  init(name name: FourCharCode, value value: Fixed)
 }

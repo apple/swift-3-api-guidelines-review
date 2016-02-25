@@ -6,41 +6,41 @@ class HKQuery : NSObject {
 }
 @available(iOS 8.0, *)
 struct HKQueryOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: HKQueryOptions { get }
   static var StrictStartDate: HKQueryOptions { get }
   static var StrictEndDate: HKQueryOptions { get }
 }
 extension HKQuery {
-  class func predicateForObjectsWithMetadataKey(key: String) -> NSPredicate
-  class func predicateForObjectsWithMetadataKey(key: String, allowedValues: [AnyObject]) -> NSPredicate
-  class func predicateForObjectsWithMetadataKey(key: String, operatorType: NSPredicateOperatorType, value: AnyObject) -> NSPredicate
-  class func predicateForObjectsFromSource(source: HKSource) -> NSPredicate
-  class func predicateForObjectsFromSources(sources: Set<HKSource>) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(_ key: String) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(_ key: String, allowedValues allowedValues: [AnyObject]) -> NSPredicate
+  class func predicateForObjectsWithMetadataKey(_ key: String, operatorType operatorType: NSPredicateOperatorType, value value: AnyObject) -> NSPredicate
+  class func predicateForObjectsFromSource(_ source: HKSource) -> NSPredicate
+  class func predicateForObjectsFromSources(_ sources: Set<HKSource>) -> NSPredicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsFromSourceRevisions(sourceRevisions: Set<HKSourceRevision>) -> NSPredicate
+  class func predicateForObjectsFromSourceRevisions(_ sourceRevisions: Set<HKSourceRevision>) -> NSPredicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsFromDevices(devices: Set<HKDevice>) -> NSPredicate
+  class func predicateForObjectsFromDevices(_ devices: Set<HKDevice>) -> NSPredicate
   @available(iOS 9.0, *)
-  class func predicateForObjectsWithDeviceProperty(key: String, allowedValues: Set<String>) -> NSPredicate
-  class func predicateForObjectWithUUID(UUID: NSUUID) -> NSPredicate
-  class func predicateForObjectsWithUUIDs(UUIDs: Set<NSUUID>) -> NSPredicate
+  class func predicateForObjectsWithDeviceProperty(_ key: String, allowedValues allowedValues: Set<String>) -> NSPredicate
+  class func predicateForObjectWithUUID(_ UUID: NSUUID) -> NSPredicate
+  class func predicateForObjectsWithUUIDs(_ UUIDs: Set<NSUUID>) -> NSPredicate
   class func predicateForObjectsWithNoCorrelation() -> NSPredicate
-  class func predicateForObjectsFromWorkout(workout: HKWorkout) -> NSPredicate
+  class func predicateForObjectsFromWorkout(_ workout: HKWorkout) -> NSPredicate
 }
 extension HKQuery {
-  class func predicateForSamplesWithStartDate(startDate: NSDate?, endDate: NSDate?, options: HKQueryOptions) -> NSPredicate
+  class func predicateForSamplesWithStartDate(_ startDate: NSDate?, endDate endDate: NSDate?, options options: HKQueryOptions) -> NSPredicate
 }
 extension HKQuery {
-  class func predicateForQuantitySamplesWithOperatorType(operatorType: NSPredicateOperatorType, quantity: HKQuantity) -> NSPredicate
+  class func predicateForQuantitySamplesWithOperatorType(_ operatorType: NSPredicateOperatorType, quantity quantity: HKQuantity) -> NSPredicate
 }
 extension HKQuery {
-  class func predicateForCategorySamplesWithOperatorType(operatorType: NSPredicateOperatorType, value: Int) -> NSPredicate
+  class func predicateForCategorySamplesWithOperatorType(_ operatorType: NSPredicateOperatorType, value value: Int) -> NSPredicate
 }
 extension HKQuery {
-  class func predicateForWorkoutsWithWorkoutActivityType(workoutActivityType: HKWorkoutActivityType) -> NSPredicate
-  class func predicateForWorkoutsWithOperatorType(operatorType: NSPredicateOperatorType, duration: NSTimeInterval) -> NSPredicate
-  class func predicateForWorkoutsWithOperatorType(operatorType: NSPredicateOperatorType, totalEnergyBurned: HKQuantity) -> NSPredicate
-  class func predicateForWorkoutsWithOperatorType(operatorType: NSPredicateOperatorType, totalDistance: HKQuantity) -> NSPredicate
+  class func predicateForWorkoutsWithWorkoutActivityType(_ workoutActivityType: HKWorkoutActivityType) -> NSPredicate
+  class func predicateForWorkoutsWithOperatorType(_ operatorType: NSPredicateOperatorType, duration duration: NSTimeInterval) -> NSPredicate
+  class func predicateForWorkoutsWithOperatorType(_ operatorType: NSPredicateOperatorType, totalEnergyBurned totalEnergyBurned: HKQuantity) -> NSPredicate
+  class func predicateForWorkoutsWithOperatorType(_ operatorType: NSPredicateOperatorType, totalDistance totalDistance: HKQuantity) -> NSPredicate
 }

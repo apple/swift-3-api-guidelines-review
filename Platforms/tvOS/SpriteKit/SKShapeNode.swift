@@ -1,17 +1,17 @@
 
 class SKShapeNode : SKNode {
   @available(tvOS 8.0, *)
-  convenience init(path: CGPath)
+  convenience init(path path: CGPath)
   @available(tvOS 8.0, *)
-  convenience init(path: CGPath, centered: Bool)
+  convenience init(path path: CGPath, centered centered: Bool)
   @available(tvOS 8.0, *)
-  convenience init(rect: CGRect)
+  convenience init(rect rect: CGRect)
   @available(tvOS 8.0, *)
   convenience init(rectOfSize size: CGSize)
   @available(tvOS 8.0, *)
-  convenience init(rect: CGRect, cornerRadius: CGFloat)
+  convenience init(rect rect: CGRect, cornerRadius cornerRadius: CGFloat)
   @available(tvOS 8.0, *)
-  convenience init(rectOfSize size: CGSize, cornerRadius: CGFloat)
+  convenience init(rectOfSize size: CGSize, cornerRadius cornerRadius: CGFloat)
   @available(tvOS 8.0, *)
   convenience init(circleOfRadius radius: CGFloat)
   @available(tvOS 8.0, *)
@@ -19,7 +19,7 @@ class SKShapeNode : SKNode {
   @available(tvOS 8.0, *)
   convenience init(ellipseOfSize size: CGSize)
   @available(tvOS 8.0, *)
-  convenience init(points: UnsafeMutablePointer<CGPoint>, count numPoints: Int)
+  convenience init(points points: UnsafeMutablePointer<CGPoint>, count numPoints: Int)
   @available(tvOS 8.0, *)
   convenience init(splinePoints points: UnsafeMutablePointer<CGPoint>, count numPoints: Int)
   var path: CGPath?
@@ -41,11 +41,7 @@ class SKShapeNode : SKNode {
   var strokeTexture: SKTexture?
   @available(tvOS 8.0, *)
   var strokeShader: SKShader?
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }
 
 extension SKShapeNode : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }

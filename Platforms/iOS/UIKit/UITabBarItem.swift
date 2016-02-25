@@ -1,6 +1,6 @@
 
 enum UITabBarSystemItem : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case More
   case Favorites
@@ -17,12 +17,10 @@ enum UITabBarSystemItem : Int {
 }
 @available(iOS 2.0, *)
 class UITabBarItem : UIBarItem {
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init(title: String?, image: UIImage?, tag: Int)
+  convenience init(title title: String?, image image: UIImage?, tag tag: Int)
   @available(iOS 7.0, *)
-  convenience init(title: String?, image: UIImage?, selectedImage: UIImage?)
-  convenience init(tabBarSystemItem systemItem: UITabBarSystemItem, tag: Int)
+  convenience init(title title: String?, image image: UIImage?, selectedImage selectedImage: UIImage?)
+  convenience init(tabBarSystemItem systemItem: UITabBarSystemItem, tag tag: Int)
   @available(iOS 7.0, *)
   var selectedImage: UIImage?
   var badgeValue: String?

@@ -1,6 +1,6 @@
 
 enum NSAttributeType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case UndefinedAttributeType
   case Integer16AttributeType
@@ -24,13 +24,9 @@ class NSAttributeDescription : NSPropertyDescription {
   var attributeValueClassName: String?
   var defaultValue: AnyObject?
   @available(watchOS 2.0, *)
-  @NSCopying var versionHash: NSData { get }
-  @available(watchOS 2.0, *)
   var valueTransformerName: String?
   @available(watchOS 2.0, *)
   var allowsExternalBinaryDataStorage: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __attributeDescriptionFlags {
   var _hasMaxValueInExtraIvars: UInt32
@@ -38,5 +34,5 @@ struct __attributeDescriptionFlags {
   var _storeBinaryDataExternally: UInt32
   var _reservedAttributeDescription: UInt32
   init()
-  init(_hasMaxValueInExtraIvars: UInt32, _hasMinValueInExtraIvars: UInt32, _storeBinaryDataExternally: UInt32, _reservedAttributeDescription: UInt32)
+  init(_hasMaxValueInExtraIvars _hasMaxValueInExtraIvars: UInt32, _hasMinValueInExtraIvars _hasMinValueInExtraIvars: UInt32, _storeBinaryDataExternally _storeBinaryDataExternally: UInt32, _reservedAttributeDescription _reservedAttributeDescription: UInt32)
 }

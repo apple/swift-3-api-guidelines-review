@@ -59,50 +59,50 @@ struct FSEventStreamContext {
   var release: CFAllocatorReleaseCallBack?
   var copyDescription: CFAllocatorCopyDescriptionCallBack?
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: CFAllocatorRetainCallBack?, release: CFAllocatorReleaseCallBack?, copyDescription: CFAllocatorCopyDescriptionCallBack?)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: CFAllocatorRetainCallBack?, release release: CFAllocatorReleaseCallBack?, copyDescription copyDescription: CFAllocatorCopyDescriptionCallBack?)
 }
 typealias FSEventStreamCallback = @convention(c) (ConstFSEventStreamRef, UnsafeMutablePointer<Void>, Int, UnsafeMutablePointer<Void>, UnsafePointer<FSEventStreamEventFlags>, UnsafePointer<FSEventStreamEventId>) -> Void
 @available(OSX 10.5, *)
-func FSEventStreamCreate(allocator: CFAllocator?, _ callback: FSEventStreamCallback, _ context: UnsafeMutablePointer<FSEventStreamContext>, _ pathsToWatch: CFArray, _ sinceWhen: FSEventStreamEventId, _ latency: CFTimeInterval, _ flags: FSEventStreamCreateFlags) -> FSEventStreamRef
+func FSEventStreamCreate(_ allocator: CFAllocator?, _ callback: FSEventStreamCallback, _ context: UnsafeMutablePointer<FSEventStreamContext>, _ pathsToWatch: CFArray, _ sinceWhen: FSEventStreamEventId, _ latency: CFTimeInterval, _ flags: FSEventStreamCreateFlags) -> FSEventStreamRef
 @available(OSX 10.5, *)
-func FSEventStreamCreateRelativeToDevice(allocator: CFAllocator?, _ callback: FSEventStreamCallback, _ context: UnsafeMutablePointer<FSEventStreamContext>, _ deviceToWatch: dev_t, _ pathsToWatchRelativeToDevice: CFArray, _ sinceWhen: FSEventStreamEventId, _ latency: CFTimeInterval, _ flags: FSEventStreamCreateFlags) -> FSEventStreamRef
+func FSEventStreamCreateRelativeToDevice(_ allocator: CFAllocator?, _ callback: FSEventStreamCallback, _ context: UnsafeMutablePointer<FSEventStreamContext>, _ deviceToWatch: dev_t, _ pathsToWatchRelativeToDevice: CFArray, _ sinceWhen: FSEventStreamEventId, _ latency: CFTimeInterval, _ flags: FSEventStreamCreateFlags) -> FSEventStreamRef
 @available(OSX 10.5, *)
-func FSEventStreamGetLatestEventId(streamRef: ConstFSEventStreamRef) -> FSEventStreamEventId
+func FSEventStreamGetLatestEventId(_ streamRef: ConstFSEventStreamRef) -> FSEventStreamEventId
 @available(OSX 10.5, *)
-func FSEventStreamGetDeviceBeingWatched(streamRef: ConstFSEventStreamRef) -> dev_t
+func FSEventStreamGetDeviceBeingWatched(_ streamRef: ConstFSEventStreamRef) -> dev_t
 @available(OSX 10.5, *)
-func FSEventStreamCopyPathsBeingWatched(streamRef: ConstFSEventStreamRef) -> CFArray
+func FSEventStreamCopyPathsBeingWatched(_ streamRef: ConstFSEventStreamRef) -> CFArray
 @available(OSX 10.5, *)
 func FSEventsGetCurrentEventId() -> FSEventStreamEventId
 @available(OSX 10.5, *)
-func FSEventsCopyUUIDForDevice(dev: dev_t) -> CFUUID?
+func FSEventsCopyUUIDForDevice(_ dev: dev_t) -> CFUUID?
 @available(OSX 10.5, *)
-func FSEventsGetLastEventIdForDeviceBeforeTime(dev: dev_t, _ time: CFAbsoluteTime) -> FSEventStreamEventId
+func FSEventsGetLastEventIdForDeviceBeforeTime(_ dev: dev_t, _ time: CFAbsoluteTime) -> FSEventStreamEventId
 @available(OSX 10.5, *)
-func FSEventsPurgeEventsForDeviceUpToEventId(dev: dev_t, _ eventId: FSEventStreamEventId) -> Bool
+func FSEventsPurgeEventsForDeviceUpToEventId(_ dev: dev_t, _ eventId: FSEventStreamEventId) -> Bool
 @available(OSX 10.5, *)
-func FSEventStreamRetain(streamRef: FSEventStreamRef)
+func FSEventStreamRetain(_ streamRef: FSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamRelease(streamRef: FSEventStreamRef)
+func FSEventStreamRelease(_ streamRef: FSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamScheduleWithRunLoop(streamRef: FSEventStreamRef, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
+func FSEventStreamScheduleWithRunLoop(_ streamRef: FSEventStreamRef, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
 @available(OSX 10.5, *)
-func FSEventStreamUnscheduleFromRunLoop(streamRef: FSEventStreamRef, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
+func FSEventStreamUnscheduleFromRunLoop(_ streamRef: FSEventStreamRef, _ runLoop: CFRunLoop, _ runLoopMode: CFString)
 @available(OSX 10.6, *)
-func FSEventStreamSetDispatchQueue(streamRef: FSEventStreamRef, _ q: dispatch_queue_t?)
+func FSEventStreamSetDispatchQueue(_ streamRef: FSEventStreamRef, _ q: dispatch_queue_t?)
 @available(OSX 10.5, *)
-func FSEventStreamInvalidate(streamRef: FSEventStreamRef)
+func FSEventStreamInvalidate(_ streamRef: FSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamStart(streamRef: FSEventStreamRef) -> Bool
+func FSEventStreamStart(_ streamRef: FSEventStreamRef) -> Bool
 @available(OSX 10.5, *)
-func FSEventStreamFlushAsync(streamRef: FSEventStreamRef) -> FSEventStreamEventId
+func FSEventStreamFlushAsync(_ streamRef: FSEventStreamRef) -> FSEventStreamEventId
 @available(OSX 10.5, *)
-func FSEventStreamFlushSync(streamRef: FSEventStreamRef)
+func FSEventStreamFlushSync(_ streamRef: FSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamStop(streamRef: FSEventStreamRef)
+func FSEventStreamStop(_ streamRef: FSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamShow(streamRef: ConstFSEventStreamRef)
+func FSEventStreamShow(_ streamRef: ConstFSEventStreamRef)
 @available(OSX 10.5, *)
-func FSEventStreamCopyDescription(streamRef: ConstFSEventStreamRef) -> CFString
+func FSEventStreamCopyDescription(_ streamRef: ConstFSEventStreamRef) -> CFString
 @available(OSX 10.9, *)
-func FSEventStreamSetExclusionPaths(streamRef: FSEventStreamRef, _ pathsToExclude: CFArray) -> Bool
+func FSEventStreamSetExclusionPaths(_ streamRef: FSEventStreamRef, _ pathsToExclude: CFArray) -> Bool

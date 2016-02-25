@@ -2,16 +2,16 @@
 var NSOPENGL_CURRENT_VERSION: Int32 { get }
 struct NSOpenGLGlobalOption : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var NSOpenGLGOFormatCacheSize: NSOpenGLGlobalOption { get }
 var NSOpenGLGOClearFormatCache: NSOpenGLGlobalOption { get }
 var NSOpenGLGORetainRenderers: NSOpenGLGlobalOption { get }
 var NSOpenGLGOUseBuildCache: NSOpenGLGlobalOption { get }
-func NSOpenGLSetOption(pname: NSOpenGLGlobalOption, _ param: GLint)
-func NSOpenGLGetOption(pname: NSOpenGLGlobalOption, _ param: UnsafeMutablePointer<GLint>)
-func NSOpenGLGetVersion(major: UnsafeMutablePointer<GLint>, _ minor: UnsafeMutablePointer<GLint>)
+func NSOpenGLSetOption(_ pname: NSOpenGLGlobalOption, _ param: GLint)
+func NSOpenGLGetOption(_ pname: NSOpenGLGlobalOption, _ param: UnsafeMutablePointer<GLint>)
+func NSOpenGLGetVersion(_ major: UnsafeMutablePointer<GLint>, _ minor: UnsafeMutablePointer<GLint>)
 var NSOpenGLPFAAllRenderers: Int { get }
 var NSOpenGLPFATripleBuffer: Int { get }
 var NSOpenGLPFADoubleBuffer: Int { get }
@@ -54,15 +54,14 @@ class NSOpenGLPixelFormat : NSObject, NSCoding {
   init?(attributes attribs: UnsafePointer<NSOpenGLPixelFormatAttribute>)
   @available(OSX 10.6, *)
   init?(CGLPixelFormatObj format: COpaquePointer)
-  func getValues(vals: UnsafeMutablePointer<GLint>, forAttribute attrib: NSOpenGLPixelFormatAttribute, forVirtualScreen screen: GLint)
+  func getValues(_ vals: UnsafeMutablePointer<GLint>, forAttribute attrib: NSOpenGLPixelFormatAttribute, forVirtualScreen screen: GLint)
   var numberOfVirtualScreens: GLint { get }
   var CGLPixelFormatObj: COpaquePointer { get }
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 enum NSOpenGLContextParameter : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case GLCPSwapInterval
   case GLCPSurfaceOrder
@@ -82,7 +81,7 @@ enum NSOpenGLContextParameter : Int {
 }
 typealias NSOpenGLContextAuxiliary = _CGLContextObject
 class NSOpenGLContext : NSObject, NSLocking {
-  init?(format: NSOpenGLPixelFormat, shareContext share: NSOpenGLContext?)
+  init?(format format: NSOpenGLPixelFormat, shareContext share: NSOpenGLContext?)
   @available(OSX 10.6, *)
   init?(CGLContextObj context: UnsafeMutablePointer<_CGLContextObject>)
   @available(OSX 10.10, *)
@@ -94,11 +93,10 @@ class NSOpenGLContext : NSObject, NSLocking {
   func makeCurrentContext()
   class func clearCurrentContext()
   class func currentContext() -> NSOpenGLContext?
-  func setValues(vals: UnsafePointer<GLint>, forParameter param: NSOpenGLContextParameter)
-  func getValues(vals: UnsafeMutablePointer<GLint>, forParameter param: NSOpenGLContextParameter)
+  func setValues(_ vals: UnsafePointer<GLint>, forParameter param: NSOpenGLContextParameter)
+  func getValues(_ vals: UnsafeMutablePointer<GLint>, forParameter param: NSOpenGLContextParameter)
   var currentVirtualScreen: GLint
   var CGLContextObj: UnsafeMutablePointer<_CGLContextObject> { get }
-  init()
   func lock()
   func unlock()
 }

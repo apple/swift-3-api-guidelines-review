@@ -6,11 +6,10 @@ class MTLVertexAttribute : NSObject {
   @available(OSX 10.11, *)
   var attributeType: MTLDataType { get }
   var active: Bool { get }
-  init()
 }
 @available(OSX 10.11, *)
 enum MTLFunctionType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Vertex
   case Fragment
@@ -25,7 +24,7 @@ protocol MTLFunction : NSObjectProtocol {
 }
 @available(OSX 10.11, *)
 enum MTLLanguageVersion : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Version1_1
 }
@@ -35,15 +34,14 @@ class MTLCompileOptions : NSObject, NSCopying {
   var fastMathEnabled: Bool
   @available(OSX 10.11, *)
   var languageVersion: MTLLanguageVersion
-  init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 let MTLLibraryErrorDomain: String
 @available(OSX 10.11, *)
 enum MTLLibraryError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unsupported
   case Internal
@@ -53,7 +51,7 @@ enum MTLLibraryError : UInt {
 let MTLRenderPipelineErrorDomain: String
 @available(OSX 10.11, *)
 enum MTLRenderPipelineError : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Internal
   case Unsupported
@@ -63,6 +61,6 @@ enum MTLRenderPipelineError : UInt {
 protocol MTLLibrary : NSObjectProtocol {
   var label: String? { get set }
   var device: MTLDevice { get }
-  func newFunctionWithName(functionName: String) -> MTLFunction?
+  func newFunctionWithName(_ functionName: String) -> MTLFunction?
   var functionNames: [String] { get }
 }

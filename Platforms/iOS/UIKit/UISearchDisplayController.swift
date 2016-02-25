@@ -1,10 +1,10 @@
 
 @available(iOS, introduced=3.0, deprecated=8.0, message="UISearchDisplayController has been replaced with UISearchController")
 class UISearchDisplayController : NSObject {
-  init(searchBar: UISearchBar, contentsController viewController: UIViewController)
+  init(searchBar searchBar: UISearchBar, contentsController viewController: UIViewController)
   unowned(unsafe) var delegate: @sil_unmanaged UISearchDisplayDelegate?
   var active: Bool
-  func setActive(visible: Bool, animated: Bool)
+  func setActive(_ visible: Bool, animated animated: Bool)
   var searchBar: UISearchBar { get }
   var searchContentsController: UIViewController { get }
   var searchResultsTableView: UITableView { get }
@@ -16,31 +16,30 @@ class UISearchDisplayController : NSObject {
   var displaysSearchBarInNavigationBar: Bool
   @available(iOS 7.0, *)
   var navigationItem: UINavigationItem? { get }
-  init()
 }
 protocol UISearchDisplayDelegate : NSObjectProtocol {
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayControllerWillBeginSearch(controller: UISearchDisplayController)
+  optional func searchDisplayControllerWillBeginSearch(_ controller: UISearchDisplayController)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayControllerDidBeginSearch(controller: UISearchDisplayController)
+  optional func searchDisplayControllerDidBeginSearch(_ controller: UISearchDisplayController)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayControllerWillEndSearch(controller: UISearchDisplayController)
+  optional func searchDisplayControllerWillEndSearch(_ controller: UISearchDisplayController)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayControllerDidEndSearch(controller: UISearchDisplayController)
+  optional func searchDisplayControllerDidEndSearch(_ controller: UISearchDisplayController)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, didLoadSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, didLoadSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, willUnloadSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, willShowSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, willShowSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, didShowSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, didShowSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, willHideSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, didHideSearchResultsTableView tableView: UITableView)
+  optional func searchDisplayController(_ controller: UISearchDisplayController, didHideSearchResultsTableView tableView: UITableView)
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool
+  optional func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool
   @available(iOS, introduced=3.0, deprecated=8.0)
-  optional func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool
+  optional func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool
 }

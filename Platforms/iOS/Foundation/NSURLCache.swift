@@ -1,45 +1,43 @@
 
 enum NSURLCacheStoragePolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Allowed
   case AllowedInMemoryOnly
   case NotAllowed
 }
 class NSCachedURLResponse : NSObject, NSSecureCoding, NSCopying {
-  init(response: NSURLResponse, data: NSData)
-  init(response: NSURLResponse, data: NSData, userInfo: [NSObject : AnyObject]?, storagePolicy: NSURLCacheStoragePolicy)
+  init(response response: NSURLResponse, data data: NSData)
+  init(response response: NSURLResponse, data data: NSData, userInfo userInfo: [NSObject : AnyObject]?, storagePolicy storagePolicy: NSURLCacheStoragePolicy)
   @NSCopying var response: NSURLResponse { get }
   @NSCopying var data: NSData { get }
   var userInfo: [NSObject : AnyObject]? { get }
   var storagePolicy: NSURLCacheStoragePolicy { get }
-  init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 class NSURLCache : NSObject {
   class func sharedURLCache() -> NSURLCache
-  class func setSharedURLCache(cache: NSURLCache)
-  init(memoryCapacity: Int, diskCapacity: Int, diskPath path: String?)
-  func cachedResponseForRequest(request: NSURLRequest) -> NSCachedURLResponse?
-  func storeCachedResponse(cachedResponse: NSCachedURLResponse, forRequest request: NSURLRequest)
-  func removeCachedResponseForRequest(request: NSURLRequest)
+  class func setSharedURLCache(_ cache: NSURLCache)
+  init(memoryCapacity memoryCapacity: Int, diskCapacity diskCapacity: Int, diskPath path: String?)
+  func cachedResponseForRequest(_ request: NSURLRequest) -> NSCachedURLResponse?
+  func storeCachedResponse(_ cachedResponse: NSCachedURLResponse, forRequest request: NSURLRequest)
+  func removeCachedResponseForRequest(_ request: NSURLRequest)
   func removeAllCachedResponses()
   @available(iOS 8.0, *)
-  func removeCachedResponsesSinceDate(date: NSDate)
+  func removeCachedResponsesSinceDate(_ date: NSDate)
   var memoryCapacity: Int
   var diskCapacity: Int
   var currentMemoryUsage: Int { get }
   var currentDiskUsage: Int { get }
-  init()
 }
 extension NSURLCache {
   @available(iOS 8.0, *)
-  func storeCachedResponse(cachedResponse: NSCachedURLResponse, forDataTask dataTask: NSURLSessionDataTask)
+  func storeCachedResponse(_ cachedResponse: NSCachedURLResponse, forDataTask dataTask: NSURLSessionDataTask)
   @available(iOS 8.0, *)
-  func getCachedResponseForDataTask(dataTask: NSURLSessionDataTask, completionHandler: (NSCachedURLResponse?) -> Void)
+  func getCachedResponseForDataTask(_ dataTask: NSURLSessionDataTask, completionHandler completionHandler: (NSCachedURLResponse?) -> Void)
   @available(iOS 8.0, *)
-  func removeCachedResponseForDataTask(dataTask: NSURLSessionDataTask)
+  func removeCachedResponseForDataTask(_ dataTask: NSURLSessionDataTask)
 }

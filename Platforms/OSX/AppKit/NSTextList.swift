@@ -1,6 +1,6 @@
 
 struct NSTextListOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var PrependEnclosingMarker: NSTextListOptions { get }
 }
@@ -8,11 +8,10 @@ class NSTextList : NSObject, NSCoding, NSCopying {
   init(markerFormat format: String, options mask: Int)
   var markerFormat: String { get }
   var listOptions: NSTextListOptions { get }
-  func markerForItemNumber(itemNum: Int) -> String
+  func markerForItemNumber(_ itemNum: Int) -> String
   @available(OSX 10.6, *)
   var startingItemNumber: Int
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

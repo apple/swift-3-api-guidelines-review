@@ -1,7 +1,7 @@
 
 @available(iOS 3.0, *)
 struct MPMediaType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Music: MPMediaType { get }
   static var Podcast: MPMediaType { get }
@@ -27,8 +27,6 @@ struct MPMediaType : OptionSetType {
 }
 @available(iOS 3.0, *)
 class MPMediaItem : MPMediaEntity {
-  @available(iOS 5.0, *)
-  var persistentID: MPMediaEntityPersistentID { get }
   @available(iOS 7.0, *)
   var mediaType: MPMediaType { get }
   @available(iOS 7.0, *)
@@ -97,8 +95,6 @@ class MPMediaItem : MPMediaEntity {
   var userGrouping: String? { get }
   @available(iOS 7.0, *)
   var bookmarkTime: NSTimeInterval { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 4.2, *)
 let MPMediaItemPropertyPersistentID: String
@@ -153,9 +149,8 @@ let MPMediaItemPropertyBookmarkTime: String
 @available(iOS 3.0, *)
 class MPMediaItemArtwork : NSObject {
   @available(iOS 5.0, *)
-  init(image: UIImage)
-  func imageWithSize(size: CGSize) -> UIImage?
+  init(image image: UIImage)
+  func imageWithSize(_ size: CGSize) -> UIImage?
   var bounds: CGRect { get }
   var imageCropRect: CGRect { get }
-  convenience init()
 }

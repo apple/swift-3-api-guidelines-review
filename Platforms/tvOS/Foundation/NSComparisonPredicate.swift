@@ -1,6 +1,6 @@
 
 struct NSComparisonPredicateOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var CaseInsensitivePredicateOption: NSComparisonPredicateOptions { get }
   static var DiacriticInsensitivePredicateOption: NSComparisonPredicateOptions { get }
@@ -8,14 +8,14 @@ struct NSComparisonPredicateOptions : OptionSetType {
   static var NormalizedPredicateOption: NSComparisonPredicateOptions { get }
 }
 enum NSComparisonPredicateModifier : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DirectPredicateModifier
   case AllPredicateModifier
   case AnyPredicateModifier
 }
 enum NSPredicateOperatorType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case LessThanPredicateOperatorType
   case LessThanOrEqualToPredicateOperatorType
@@ -36,14 +36,12 @@ enum NSPredicateOperatorType : UInt {
 }
 @available(tvOS 3.0, *)
 class NSComparisonPredicate : NSPredicate {
-  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier: NSComparisonPredicateModifier, type: NSPredicateOperatorType, options: NSComparisonPredicateOptions)
+  init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, modifier modifier: NSComparisonPredicateModifier, type type: NSPredicateOperatorType, options options: NSComparisonPredicateOptions)
   init(leftExpression lhs: NSExpression, rightExpression rhs: NSExpression, customSelector selector: Selector)
-  init?(coder: NSCoder)
   var predicateOperatorType: NSPredicateOperatorType { get }
   var comparisonPredicateModifier: NSComparisonPredicateModifier { get }
   var leftExpression: NSExpression { get }
   var rightExpression: NSExpression { get }
   var customSelector: Selector { get }
   var options: NSComparisonPredicateOptions { get }
-  convenience init()
 }

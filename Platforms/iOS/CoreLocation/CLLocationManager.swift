@@ -1,6 +1,6 @@
 
 enum CLDeviceOrientation : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Unknown
   case Portrait
@@ -11,7 +11,7 @@ enum CLDeviceOrientation : Int32 {
   case FaceDown
 }
 enum CLAuthorizationStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case NotDetermined
   case Restricted
@@ -24,7 +24,7 @@ enum CLAuthorizationStatus : Int32 {
   static var Authorized: CLAuthorizationStatus { get }
 }
 enum CLActivityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Other
   case AutomotiveNavigation
@@ -40,7 +40,7 @@ class CLLocationManager : NSObject {
   @available(iOS 4.0, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(iOS 7.0, *)
-  class func isMonitoringAvailableForClass(regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailableForClass(_ regionClass: AnyClass) -> Bool
   @available(iOS 7.0, *)
   class func isRangingAvailable() -> Bool
   @available(iOS 4.2, *)
@@ -86,20 +86,19 @@ class CLLocationManager : NSObject {
   @available(iOS 4.0, *)
   func stopMonitoringSignificantLocationChanges()
   @available(iOS 4.0, *)
-  func stopMonitoringForRegion(region: CLRegion)
+  func stopMonitoringForRegion(_ region: CLRegion)
   @available(iOS 5.0, *)
-  func startMonitoringForRegion(region: CLRegion)
+  func startMonitoringForRegion(_ region: CLRegion)
   @available(iOS 7.0, *)
-  func requestStateForRegion(region: CLRegion)
+  func requestStateForRegion(_ region: CLRegion)
   @available(iOS 7.0, *)
-  func startRangingBeaconsInRegion(region: CLBeaconRegion)
+  func startRangingBeaconsInRegion(_ region: CLBeaconRegion)
   @available(iOS 7.0, *)
-  func stopRangingBeaconsInRegion(region: CLBeaconRegion)
+  func stopRangingBeaconsInRegion(_ region: CLBeaconRegion)
   @available(iOS 6.0, *)
-  func allowDeferredLocationUpdatesUntilTraveled(distance: CLLocationDistance, timeout: NSTimeInterval)
+  func allowDeferredLocationUpdatesUntilTraveled(_ distance: CLLocationDistance, timeout timeout: NSTimeInterval)
   @available(iOS 6.0, *)
   func disallowDeferredLocationUpdates()
   @available(iOS 6.0, *)
   class func deferredLocationUpdatesAvailable() -> Bool
-  init()
 }

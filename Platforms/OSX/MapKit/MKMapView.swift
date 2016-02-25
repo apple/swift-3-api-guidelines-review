@@ -4,24 +4,24 @@ class MKMapView : NSView, NSCoding {
   weak var delegate: @sil_weak MKMapViewDelegate?
   var mapType: MKMapType
   var region: MKCoordinateRegion
-  func setRegion(region: MKCoordinateRegion, animated: Bool)
+  func setRegion(_ region: MKCoordinateRegion, animated animated: Bool)
   var centerCoordinate: CLLocationCoordinate2D
-  func setCenterCoordinate(coordinate: CLLocationCoordinate2D, animated: Bool)
-  func regionThatFits(region: MKCoordinateRegion) -> MKCoordinateRegion
+  func setCenterCoordinate(_ coordinate: CLLocationCoordinate2D, animated animated: Bool)
+  func regionThatFits(_ region: MKCoordinateRegion) -> MKCoordinateRegion
   var visibleMapRect: MKMapRect
-  func setVisibleMapRect(mapRect: MKMapRect, animated animate: Bool)
-  func mapRectThatFits(mapRect: MKMapRect) -> MKMapRect
-  func _handleSelectionAtPoint(locationInView: CGPoint)
-  func setVisibleMapRect(mapRect: MKMapRect, edgePadding insets: NSEdgeInsets, animated animate: Bool)
-  func mapRectThatFits(mapRect: MKMapRect, edgePadding insets: NSEdgeInsets) -> MKMapRect
+  func setVisibleMapRect(_ mapRect: MKMapRect, animated animate: Bool)
+  func mapRectThatFits(_ mapRect: MKMapRect) -> MKMapRect
+  func _handleSelectionAtPoint(_ locationInView: CGPoint)
+  func setVisibleMapRect(_ mapRect: MKMapRect, edgePadding insets: NSEdgeInsets, animated animate: Bool)
+  func mapRectThatFits(_ mapRect: MKMapRect, edgePadding insets: NSEdgeInsets) -> MKMapRect
   @available(OSX 10.9, *)
   @NSCopying var camera: MKMapCamera
   @available(OSX 10.9, *)
-  func setCamera(camera: MKMapCamera, animated: Bool)
-  func convertCoordinate(coordinate: CLLocationCoordinate2D, toPointToView view: NSView?) -> CGPoint
-  func convertPoint(point: CGPoint, toCoordinateFromView view: NSView?) -> CLLocationCoordinate2D
-  func convertRegion(region: MKCoordinateRegion, toRectToView view: NSView?) -> CGRect
-  func convertRect(rect: CGRect, toRegionFromView view: NSView?) -> MKCoordinateRegion
+  func setCamera(_ camera: MKMapCamera, animated animated: Bool)
+  func convertCoordinate(_ coordinate: CLLocationCoordinate2D, toPointToView view: NSView?) -> CGPoint
+  func convertPoint(_ point: CGPoint, toCoordinateFromView view: NSView?) -> CLLocationCoordinate2D
+  func convertRegion(_ region: MKCoordinateRegion, toRectToView view: NSView?) -> CGRect
+  func convertRect(_ rect: CGRect, toRegionFromView view: NSView?) -> MKCoordinateRegion
   var zoomEnabled: Bool
   var scrollEnabled: Bool
   @available(OSX 10.9, *)
@@ -43,99 +43,96 @@ class MKMapView : NSView, NSCoding {
   var showsUserLocation: Bool
   var userLocation: MKUserLocation { get }
   var userLocationVisible: Bool { get }
-  func addAnnotation(annotation: MKAnnotation)
-  func addAnnotations(annotations: [MKAnnotation])
-  func removeAnnotation(annotation: MKAnnotation)
-  func removeAnnotations(annotations: [MKAnnotation])
+  func addAnnotation(_ annotation: MKAnnotation)
+  func addAnnotations(_ annotations: [MKAnnotation])
+  func removeAnnotation(_ annotation: MKAnnotation)
+  func removeAnnotations(_ annotations: [MKAnnotation])
   var annotations: [MKAnnotation] { get }
   @available(OSX 10.9, *)
-  func annotationsInMapRect(mapRect: MKMapRect) -> Set<NSObject>
-  func viewForAnnotation(annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationViewWithIdentifier(identifier: String) -> MKAnnotationView?
-  func selectAnnotation(annotation: MKAnnotation, animated: Bool)
-  func deselectAnnotation(annotation: MKAnnotation?, animated: Bool)
+  func annotationsInMapRect(_ mapRect: MKMapRect) -> Set<NSObject>
+  func viewForAnnotation(_ annotation: MKAnnotation) -> MKAnnotationView?
+  func dequeueReusableAnnotationViewWithIdentifier(_ identifier: String) -> MKAnnotationView?
+  func selectAnnotation(_ annotation: MKAnnotation, animated animated: Bool)
+  func deselectAnnotation(_ annotation: MKAnnotation?, animated animated: Bool)
   var selectedAnnotations: [MKAnnotation]
   var annotationVisibleRect: CGRect { get }
   @available(OSX 10.9, *)
-  func showAnnotations(annotations: [MKAnnotation], animated: Bool)
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
+  func showAnnotations(_ annotations: [MKAnnotation], animated animated: Bool)
 }
 @available(OSX 10.9, *)
 enum MKOverlayLevel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AboveRoads
   case AboveLabels
 }
 extension MKMapView {
   @available(OSX 10.9, *)
-  func addOverlay(overlay: MKOverlay, level: MKOverlayLevel)
+  func addOverlay(_ overlay: MKOverlay, level level: MKOverlayLevel)
   @available(OSX 10.9, *)
-  func addOverlays(overlays: [MKOverlay], level: MKOverlayLevel)
+  func addOverlays(_ overlays: [MKOverlay], level level: MKOverlayLevel)
   @available(OSX 10.9, *)
-  func removeOverlay(overlay: MKOverlay)
+  func removeOverlay(_ overlay: MKOverlay)
   @available(OSX 10.9, *)
-  func removeOverlays(overlays: [MKOverlay])
+  func removeOverlays(_ overlays: [MKOverlay])
   @available(OSX 10.9, *)
-  func insertOverlay(overlay: MKOverlay, atIndex index: Int, level: MKOverlayLevel)
+  func insertOverlay(_ overlay: MKOverlay, atIndex index: Int, level level: MKOverlayLevel)
   @available(OSX 10.9, *)
-  func insertOverlay(overlay: MKOverlay, aboveOverlay sibling: MKOverlay)
+  func insertOverlay(_ overlay: MKOverlay, aboveOverlay sibling: MKOverlay)
   @available(OSX 10.9, *)
-  func insertOverlay(overlay: MKOverlay, belowOverlay sibling: MKOverlay)
+  func insertOverlay(_ overlay: MKOverlay, belowOverlay sibling: MKOverlay)
   @available(OSX 10.9, *)
-  func exchangeOverlay(overlay1: MKOverlay, withOverlay overlay2: MKOverlay)
+  func exchangeOverlay(_ overlay1: MKOverlay, withOverlay overlay2: MKOverlay)
   @available(OSX 10.9, *)
   var overlays: [MKOverlay] { get }
   @available(OSX 10.9, *)
-  func overlaysInLevel(level: MKOverlayLevel) -> [MKOverlay]
+  func overlaysInLevel(_ level: MKOverlayLevel) -> [MKOverlay]
   @available(OSX 10.9, *)
-  func rendererForOverlay(overlay: MKOverlay) -> MKOverlayRenderer?
+  func rendererForOverlay(_ overlay: MKOverlay) -> MKOverlayRenderer?
   @available(OSX 10.9, *)
-  func addOverlay(overlay: MKOverlay)
+  func addOverlay(_ overlay: MKOverlay)
   @available(OSX 10.9, *)
-  func addOverlays(overlays: [MKOverlay])
+  func addOverlays(_ overlays: [MKOverlay])
   @available(OSX 10.9, *)
-  func insertOverlay(overlay: MKOverlay, atIndex index: Int)
+  func insertOverlay(_ overlay: MKOverlay, atIndex index: Int)
   @available(OSX 10.9, *)
-  func exchangeOverlayAtIndex(index1: Int, withOverlayAtIndex index2: Int)
+  func exchangeOverlayAtIndex(_ index1: Int, withOverlayAtIndex index2: Int)
 }
 protocol MKMapViewDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, regionWillChangeAnimated animated: Bool)
+  optional func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool)
+  optional func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool)
   @available(OSX 10.9, *)
-  optional func mapViewWillStartLoadingMap(mapView: MKMapView)
+  optional func mapViewWillStartLoadingMap(_ mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapViewDidFinishLoadingMap(mapView: MKMapView)
+  optional func mapViewDidFinishLoadingMap(_ mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: NSError)
+  optional func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: NSError)
   @available(OSX 10.9, *)
-  optional func mapViewWillStartRenderingMap(mapView: MKMapView)
+  optional func mapViewWillStartRenderingMap(_ mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapViewDidFinishRenderingMap(mapView: MKMapView, fullyRendered: Bool)
+  optional func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered fullyRendered: Bool)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
+  optional func mapView(_ mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView])
+  optional func mapView(_ mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView])
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
+  optional func mapView(_ mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView)
+  optional func mapView(_ mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView)
   @available(OSX 10.9, *)
-  optional func mapViewWillStartLocatingUser(mapView: MKMapView)
+  optional func mapViewWillStartLocatingUser(_ mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapViewDidStopLocatingUser(mapView: MKMapView)
+  optional func mapViewDidStopLocatingUser(_ mapView: MKMapView)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
+  optional func mapView(_ mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError)
+  optional func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: NSError)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState)
+  optional func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState)
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
+  optional func mapView(_ mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer
   @available(OSX 10.9, *)
-  optional func mapView(mapView: MKMapView, didAddOverlayRenderers renderers: [MKOverlayRenderer])
+  optional func mapView(_ mapView: MKMapView, didAddOverlayRenderers renderers: [MKOverlayRenderer])
 }

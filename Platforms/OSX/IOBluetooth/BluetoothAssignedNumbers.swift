@@ -1,7 +1,7 @@
 
 struct BluetoothCompanyIdentifers : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothCompanyIdentiferEricssonTechnologyLicensing: BluetoothCompanyIdentifers { get }
@@ -268,7 +268,7 @@ var kBluetoothSDPUUID16MCAPDataChannel: Int { get }
 var kBluetoothSDPUUID16L2CAP: Int { get }
 struct SDPServiceClasses : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothSDPUUID16ServiceClassServiceDiscoveryServer: SDPServiceClasses { get }
@@ -341,7 +341,7 @@ var kBluetoothSDPUUID16ServiceClassHealthDeviceSource: SDPServiceClasses { get }
 var kBluetoothSDPUUID16ServiceClassHealthDeviceSink: SDPServiceClasses { get }
 struct SDPAttributeIdentifierCodes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothSDPAttributeIdentifierServiceRecordHandle: SDPAttributeIdentifierCodes { get }
@@ -405,7 +405,7 @@ var kBluetoothSDPAttributeIdentifierServiceDescription: SDPAttributeIdentifierCo
 var kBluetoothSDPAttributeIdentifierProviderName: SDPAttributeIdentifierCodes { get }
 struct SDPAttributeDeviceIdentificationRecord : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothSDPAttributeDeviceIdentifierServiceDescription: SDPAttributeDeviceIdentificationRecord { get }
@@ -421,7 +421,7 @@ var kBluetoothSDPAttributeDeviceIdentifierReservedRangeStart: SDPAttributeDevice
 var kBluetoothSDPAttributeDeviceIdentifierReservedRangeEnd: SDPAttributeDeviceIdentificationRecord { get }
 struct ProtocolParameters : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothSDPProtocolParameterL2CAPPSM: ProtocolParameters { get }
@@ -432,7 +432,7 @@ var kBluetoothSDPProtocolParameterBNEPVersion: ProtocolParameters { get }
 var kBluetoothSDPProtocolParameterBNEPSupportedNetworkPacketTypeList: ProtocolParameters { get }
 struct BluetoothHCIExtendedInquiryResponseDataTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIExtendedInquiryResponseDataTypeFlags: BluetoothHCIExtendedInquiryResponseDataTypes { get }
@@ -461,7 +461,7 @@ var kBluetoothHCIExtendedInquiryResponseDataTypeAppearance: BluetoothHCIExtended
 var kBluetoothHCIExtendedInquiryResponseDataTypeManufacturerSpecificData: BluetoothHCIExtendedInquiryResponseDataTypes { get }
 struct BluetoothHCIVersions : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothHCIVersionCoreSpecification1_0b: BluetoothHCIVersions { get }
@@ -474,7 +474,7 @@ var kBluetoothHCIVersionCoreSpecification4_0: BluetoothHCIVersions { get }
 var kBluetoothHCIVersionCoreSpecification4_1: BluetoothHCIVersions { get }
 struct BluetoothLMPVersions : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothLMPVersionCoreSpecification1_0b: BluetoothLMPVersions { get }

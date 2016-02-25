@@ -12,7 +12,7 @@ struct AudioValueRange {
   var mMinimum: Float64
   var mMaximum: Float64
   init()
-  init(mMinimum: Float64, mMaximum: Float64)
+  init(mMinimum mMinimum: Float64, mMaximum mMaximum: Float64)
 }
 struct AudioValueTranslation {
   var mInputData: UnsafeMutablePointer<Void>
@@ -25,17 +25,17 @@ struct AudioBuffer {
   var mDataByteSize: UInt32
   var mData: UnsafeMutablePointer<Void>
   init()
-  init(mNumberChannels: UInt32, mDataByteSize: UInt32, mData: UnsafeMutablePointer<Void>)
+  init(mNumberChannels mNumberChannels: UInt32, mDataByteSize mDataByteSize: UInt32, mData mData: UnsafeMutablePointer<Void>)
 }
 
 extension AudioBuffer {
-  init<Element>(_ typedBuffer: UnsafeMutableBufferPointer<Element>, numberOfChannels: Int)
+  init<Element>(_ typedBuffer: UnsafeMutableBufferPointer<Element>, numberOfChannels numberOfChannels: Int)
 }
 struct AudioBufferList {
   var mNumberBuffers: UInt32
   var mBuffers: (AudioBuffer)
   init()
-  init(mNumberBuffers: UInt32, mBuffers: (AudioBuffer))
+  init(mNumberBuffers mNumberBuffers: UInt32, mBuffers mBuffers: (AudioBuffer))
 }
 
 extension AudioBufferList {
@@ -59,7 +59,7 @@ struct AudioStreamBasicDescription {
   var mBitsPerChannel: UInt32
   var mReserved: UInt32
   init()
-  init(mSampleRate: Float64, mFormatID: AudioFormatID, mFormatFlags: AudioFormatFlags, mBytesPerPacket: UInt32, mFramesPerPacket: UInt32, mBytesPerFrame: UInt32, mChannelsPerFrame: UInt32, mBitsPerChannel: UInt32, mReserved: UInt32)
+  init(mSampleRate mSampleRate: Float64, mFormatID mFormatID: AudioFormatID, mFormatFlags mFormatFlags: AudioFormatFlags, mBytesPerPacket mBytesPerPacket: UInt32, mFramesPerPacket mFramesPerPacket: UInt32, mBytesPerFrame mBytesPerFrame: UInt32, mChannelsPerFrame mChannelsPerFrame: UInt32, mBitsPerChannel mBitsPerChannel: UInt32, mReserved mReserved: UInt32)
 }
 let kAudioStreamAnyRate: Float64
 var kAudioFormatLinearPCM: AudioFormatID { get }
@@ -132,10 +132,10 @@ struct AudioStreamPacketDescription {
   var mVariableFramesInPacket: UInt32
   var mDataByteSize: UInt32
   init()
-  init(mStartOffset: Int64, mVariableFramesInPacket: UInt32, mDataByteSize: UInt32)
+  init(mStartOffset mStartOffset: Int64, mVariableFramesInPacket mVariableFramesInPacket: UInt32, mDataByteSize mDataByteSize: UInt32)
 }
 enum SMPTETimeType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Type24
   case Type25
@@ -151,7 +151,7 @@ enum SMPTETimeType : UInt32 {
   case Type2398
 }
 struct SMPTETimeFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Unknown: SMPTETimeFlags { get }
   static var Valid: SMPTETimeFlags { get }
@@ -168,10 +168,10 @@ struct SMPTETime {
   var mSeconds: Int16
   var mFrames: Int16
   init()
-  init(mSubframes: Int16, mSubframeDivisor: Int16, mCounter: UInt32, mType: SMPTETimeType, mFlags: SMPTETimeFlags, mHours: Int16, mMinutes: Int16, mSeconds: Int16, mFrames: Int16)
+  init(mSubframes mSubframes: Int16, mSubframeDivisor mSubframeDivisor: Int16, mCounter mCounter: UInt32, mType mType: SMPTETimeType, mFlags mFlags: SMPTETimeFlags, mHours mHours: Int16, mMinutes mMinutes: Int16, mSeconds mSeconds: Int16, mFrames mFrames: Int16)
 }
 struct AudioTimeStampFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var NothingValid: AudioTimeStampFlags { get }
   static var SampleTimeValid: AudioTimeStampFlags { get }
@@ -190,14 +190,14 @@ struct AudioTimeStamp {
   var mFlags: AudioTimeStampFlags
   var mReserved: UInt32
   init()
-  init(mSampleTime: Float64, mHostTime: UInt64, mRateScalar: Float64, mWordClockTime: UInt64, mSMPTETime: SMPTETime, mFlags: AudioTimeStampFlags, mReserved: UInt32)
+  init(mSampleTime mSampleTime: Float64, mHostTime mHostTime: UInt64, mRateScalar mRateScalar: Float64, mWordClockTime mWordClockTime: UInt64, mSMPTETime mSMPTETime: SMPTETime, mFlags mFlags: AudioTimeStampFlags, mReserved mReserved: UInt32)
 }
 struct AudioClassDescription {
   var mType: OSType
   var mSubType: OSType
   var mManufacturer: OSType
   init()
-  init(mType: OSType, mSubType: OSType, mManufacturer: OSType)
+  init(mType mType: OSType, mSubType mSubType: OSType, mManufacturer mManufacturer: OSType)
 }
 typealias AudioChannelLabel = UInt32
 typealias AudioChannelLayoutTag = UInt32
@@ -266,7 +266,7 @@ var kAudioChannelLabel_Discrete_14: AudioChannelLabel { get }
 var kAudioChannelLabel_Discrete_15: AudioChannelLabel { get }
 var kAudioChannelLabel_Discrete_65535: AudioChannelLabel { get }
 struct AudioChannelBitmap : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Bit_Left: AudioChannelBitmap { get }
   static var Bit_Right: AudioChannelBitmap { get }
@@ -288,7 +288,7 @@ struct AudioChannelBitmap : OptionSetType {
   static var Bit_TopBackRight: AudioChannelBitmap { get }
 }
 struct AudioChannelFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var AllOff: AudioChannelFlags { get }
   static var RectangularCoordinates: AudioChannelFlags { get }
@@ -296,7 +296,7 @@ struct AudioChannelFlags : OptionSetType {
   static var Meters: AudioChannelFlags { get }
 }
 enum AudioChannelCoordinateIndex : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Coordinates_LeftRight
   case Coordinates_BackFront
@@ -437,7 +437,7 @@ struct AudioChannelDescription {
   var mChannelFlags: AudioChannelFlags
   var mCoordinates: (Float32, Float32, Float32)
   init()
-  init(mChannelLabel: AudioChannelLabel, mChannelFlags: AudioChannelFlags, mCoordinates: (Float32, Float32, Float32))
+  init(mChannelLabel mChannelLabel: AudioChannelLabel, mChannelFlags mChannelFlags: AudioChannelFlags, mCoordinates mCoordinates: (Float32, Float32, Float32))
 }
 struct AudioChannelLayout {
   var mChannelLayoutTag: AudioChannelLayoutTag
@@ -445,11 +445,11 @@ struct AudioChannelLayout {
   var mNumberChannelDescriptions: UInt32
   var mChannelDescriptions: (AudioChannelDescription)
   init()
-  init(mChannelLayoutTag: AudioChannelLayoutTag, mChannelBitmap: AudioChannelBitmap, mNumberChannelDescriptions: UInt32, mChannelDescriptions: (AudioChannelDescription))
+  init(mChannelLayoutTag mChannelLayoutTag: AudioChannelLayoutTag, mChannelBitmap mChannelBitmap: AudioChannelBitmap, mNumberChannelDescriptions mNumberChannelDescriptions: UInt32, mChannelDescriptions mChannelDescriptions: (AudioChannelDescription))
 }
-func AudioChannelLayoutTag_GetNumberOfChannels(inLayoutTag: AudioChannelLayoutTag) -> UInt32
+func AudioChannelLayoutTag_GetNumberOfChannels(_ inLayoutTag: AudioChannelLayoutTag) -> UInt32
 enum MPEG4ObjectID : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AAC_Main
   case AAC_LC

@@ -34,13 +34,13 @@ var kAudioFileEndOfFileError: OSStatus { get }
 var kAudioFilePositionError: OSStatus { get }
 var kAudioFileFileNotFoundError: OSStatus { get }
 struct AudioFileFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var EraseFile: AudioFileFlags { get }
   static var DontPageAlignAudioData: AudioFileFlags { get }
 }
 enum AudioFilePermissions : Int8 {
-  init?(rawValue: Int8)
+  init?(rawValue rawValue: Int8)
   var rawValue: Int8 { get }
   case ReadPermission
   case WritePermission
@@ -59,7 +59,7 @@ struct AudioFile_SMPTE_Time {
   var mFrames: UInt8
   var mSubFrameSampleOffset: UInt32
   init()
-  init(mHours: Int8, mMinutes: UInt8, mSeconds: UInt8, mFrames: UInt8, mSubFrameSampleOffset: UInt32)
+  init(mHours mHours: Int8, mMinutes mMinutes: UInt8, mSeconds mSeconds: UInt8, mFrames mFrames: UInt8, mSubFrameSampleOffset mSubFrameSampleOffset: UInt32)
 }
 var kAudioFileMarkerType_Generic: UInt32 { get }
 struct AudioFileMarker {
@@ -71,19 +71,19 @@ struct AudioFileMarker {
   var mReserved: UInt16
   var mChannel: UInt16
   init()
-  init(mFramePosition: Float64, mName: Unmanaged<CFString>?, mMarkerID: Int32, mSMPTETime: AudioFile_SMPTE_Time, mType: UInt32, mReserved: UInt16, mChannel: UInt16)
+  init(mFramePosition mFramePosition: Float64, mName mName: Unmanaged<CFString>?, mMarkerID mMarkerID: Int32, mSMPTETime mSMPTETime: AudioFile_SMPTE_Time, mType mType: UInt32, mReserved mReserved: UInt16, mChannel mChannel: UInt16)
 }
 struct AudioFileMarkerList {
   var mSMPTE_TimeType: UInt32
   var mNumberMarkers: UInt32
   var mMarkers: (AudioFileMarker)
   init()
-  init(mSMPTE_TimeType: UInt32, mNumberMarkers: UInt32, mMarkers: (AudioFileMarker))
+  init(mSMPTE_TimeType mSMPTE_TimeType: UInt32, mNumberMarkers mNumberMarkers: UInt32, mMarkers mMarkers: (AudioFileMarker))
 }
-func NumBytesToNumAudioFileMarkers(inNumBytes: Int) -> Int
-func NumAudioFileMarkersToNumBytes(inNumMarkers: Int) -> Int
+func NumBytesToNumAudioFileMarkers(_ inNumBytes: Int) -> Int
+func NumAudioFileMarkersToNumBytes(_ inNumMarkers: Int) -> Int
 struct AudioFileRegionFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var LoopEnable: AudioFileRegionFlags { get }
   static var PlayForward: AudioFileRegionFlags { get }
@@ -101,18 +101,18 @@ struct AudioFileRegionList {
   var mNumberRegions: UInt32
   var mRegions: (AudioFileRegion)
   init()
-  init(mSMPTE_TimeType: UInt32, mNumberRegions: UInt32, mRegions: (AudioFileRegion))
+  init(mSMPTE_TimeType mSMPTE_TimeType: UInt32, mNumberRegions mNumberRegions: UInt32, mRegions mRegions: (AudioFileRegion))
 }
-func NextAudioFileRegion(inAFRegionPtr: UnsafePointer<AudioFileRegion>) -> UnsafeMutablePointer<AudioFileRegion>
+func NextAudioFileRegion(_ inAFRegionPtr: UnsafePointer<AudioFileRegion>) -> UnsafeMutablePointer<AudioFileRegion>
 struct AudioFramePacketTranslation {
   var mFrame: Int64
   var mPacket: Int64
   var mFrameOffsetInPacket: UInt32
   init()
-  init(mFrame: Int64, mPacket: Int64, mFrameOffsetInPacket: UInt32)
+  init(mFrame mFrame: Int64, mPacket mPacket: Int64, mFrameOffsetInPacket mFrameOffsetInPacket: UInt32)
 }
 struct AudioBytePacketTranslationFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var BytePacketTranslationFlag_IsEstimate: AudioBytePacketTranslationFlags { get }
 }
@@ -122,14 +122,14 @@ struct AudioBytePacketTranslation {
   var mByteOffsetInPacket: UInt32
   var mFlags: AudioBytePacketTranslationFlags
   init()
-  init(mByte: Int64, mPacket: Int64, mByteOffsetInPacket: UInt32, mFlags: AudioBytePacketTranslationFlags)
+  init(mByte mByte: Int64, mPacket mPacket: Int64, mByteOffsetInPacket mByteOffsetInPacket: UInt32, mFlags mFlags: AudioBytePacketTranslationFlags)
 }
 struct AudioFilePacketTableInfo {
   var mNumberValidFrames: Int64
   var mPrimingFrames: Int32
   var mRemainderFrames: Int32
   init()
-  init(mNumberValidFrames: Int64, mPrimingFrames: Int32, mRemainderFrames: Int32)
+  init(mNumberValidFrames mNumberValidFrames: Int64, mPrimingFrames mPrimingFrames: Int32, mRemainderFrames mRemainderFrames: Int32)
 }
 var kAFInfoDictionary_Artist: String { get }
 var kAFInfoDictionary_Album: String { get }
@@ -154,41 +154,41 @@ var kAFInfoDictionary_SourceBitDepth: String { get }
 var kAFInfoDictionary_ISRC: String { get }
 var kAFInfoDictionary_SubTitle: String { get }
 @available(iOS 2.0, *)
-func AudioFileCreateWithURL(inFileRef: CFURL, _ inFileType: AudioFileTypeID, _ inFormat: UnsafePointer<AudioStreamBasicDescription>, _ inFlags: AudioFileFlags, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
+func AudioFileCreateWithURL(_ inFileRef: CFURL, _ inFileType: AudioFileTypeID, _ inFormat: UnsafePointer<AudioStreamBasicDescription>, _ inFlags: AudioFileFlags, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileOpenURL(inFileRef: CFURL, _ inPermissions: AudioFilePermissions, _ inFileTypeHint: AudioFileTypeID, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
+func AudioFileOpenURL(_ inFileRef: CFURL, _ inPermissions: AudioFilePermissions, _ inFileTypeHint: AudioFileTypeID, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
 typealias AudioFile_ReadProc = @convention(c) (UnsafeMutablePointer<Void>, Int64, UInt32, UnsafeMutablePointer<Void>, UnsafeMutablePointer<UInt32>) -> OSStatus
 typealias AudioFile_WriteProc = @convention(c) (UnsafeMutablePointer<Void>, Int64, UInt32, UnsafePointer<Void>, UnsafeMutablePointer<UInt32>) -> OSStatus
 typealias AudioFile_GetSizeProc = @convention(c) (UnsafeMutablePointer<Void>) -> Int64
 typealias AudioFile_SetSizeProc = @convention(c) (UnsafeMutablePointer<Void>, Int64) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileInitializeWithCallbacks(inClientData: UnsafeMutablePointer<Void>, _ inReadFunc: AudioFile_ReadProc, _ inWriteFunc: AudioFile_WriteProc, _ inGetSizeFunc: AudioFile_GetSizeProc, _ inSetSizeFunc: AudioFile_SetSizeProc, _ inFileType: AudioFileTypeID, _ inFormat: UnsafePointer<AudioStreamBasicDescription>, _ inFlags: AudioFileFlags, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
+func AudioFileInitializeWithCallbacks(_ inClientData: UnsafeMutablePointer<Void>, _ inReadFunc: AudioFile_ReadProc, _ inWriteFunc: AudioFile_WriteProc, _ inGetSizeFunc: AudioFile_GetSizeProc, _ inSetSizeFunc: AudioFile_SetSizeProc, _ inFileType: AudioFileTypeID, _ inFormat: UnsafePointer<AudioStreamBasicDescription>, _ inFlags: AudioFileFlags, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileOpenWithCallbacks(inClientData: UnsafeMutablePointer<Void>, _ inReadFunc: AudioFile_ReadProc, _ inWriteFunc: AudioFile_WriteProc?, _ inGetSizeFunc: AudioFile_GetSizeProc, _ inSetSizeFunc: AudioFile_SetSizeProc?, _ inFileTypeHint: AudioFileTypeID, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
+func AudioFileOpenWithCallbacks(_ inClientData: UnsafeMutablePointer<Void>, _ inReadFunc: AudioFile_ReadProc, _ inWriteFunc: AudioFile_WriteProc?, _ inGetSizeFunc: AudioFile_GetSizeProc, _ inSetSizeFunc: AudioFile_SetSizeProc?, _ inFileTypeHint: AudioFileTypeID, _ outAudioFile: UnsafeMutablePointer<AudioFileID>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileClose(inAudioFile: AudioFileID) -> OSStatus
+func AudioFileClose(_ inAudioFile: AudioFileID) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileOptimize(inAudioFile: AudioFileID) -> OSStatus
+func AudioFileOptimize(_ inAudioFile: AudioFileID) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileReadBytes(inAudioFile: AudioFileID, _ inUseCache: Bool, _ inStartingByte: Int64, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileReadBytes(_ inAudioFile: AudioFileID, _ inUseCache: Bool, _ inStartingByte: Int64, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileWriteBytes(inAudioFile: AudioFileID, _ inUseCache: Bool, _ inStartingByte: Int64, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ inBuffer: UnsafePointer<Void>) -> OSStatus
+func AudioFileWriteBytes(_ inAudioFile: AudioFileID, _ inUseCache: Bool, _ inStartingByte: Int64, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ inBuffer: UnsafePointer<Void>) -> OSStatus
 @available(iOS 2.2, *)
-func AudioFileReadPacketData(inAudioFile: AudioFileID, _ inUseCache: Bool, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ outPacketDescriptions: UnsafeMutablePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileReadPacketData(_ inAudioFile: AudioFileID, _ inUseCache: Bool, _ ioNumBytes: UnsafeMutablePointer<UInt32>, _ outPacketDescriptions: UnsafeMutablePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS, introduced=2.0, deprecated=8.0)
-func AudioFileReadPackets(inAudioFile: AudioFileID, _ inUseCache: Bool, _ outNumBytes: UnsafeMutablePointer<UInt32>, _ outPacketDescriptions: UnsafeMutablePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileReadPackets(_ inAudioFile: AudioFileID, _ inUseCache: Bool, _ outNumBytes: UnsafeMutablePointer<UInt32>, _ outPacketDescriptions: UnsafeMutablePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ outBuffer: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileWritePackets(inAudioFile: AudioFileID, _ inUseCache: Bool, _ inNumBytes: UInt32, _ inPacketDescriptions: UnsafePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ inBuffer: UnsafePointer<Void>) -> OSStatus
+func AudioFileWritePackets(_ inAudioFile: AudioFileID, _ inUseCache: Bool, _ inNumBytes: UInt32, _ inPacketDescriptions: UnsafePointer<AudioStreamPacketDescription>, _ inStartingPacket: Int64, _ ioNumPackets: UnsafeMutablePointer<UInt32>, _ inBuffer: UnsafePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileCountUserData(inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ outNumberItems: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioFileCountUserData(_ inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ outNumberItems: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileGetUserDataSize(inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ outUserDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioFileGetUserDataSize(_ inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ outUserDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileGetUserData(inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ ioUserDataSize: UnsafeMutablePointer<UInt32>, _ outUserData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileGetUserData(_ inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ ioUserDataSize: UnsafeMutablePointer<UInt32>, _ outUserData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileSetUserData(inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ inUserDataSize: UInt32, _ inUserData: UnsafePointer<Void>) -> OSStatus
+func AudioFileSetUserData(_ inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32, _ inUserDataSize: UInt32, _ inUserData: UnsafePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileRemoveUserData(inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32) -> OSStatus
+func AudioFileRemoveUserData(_ inAudioFile: AudioFileID, _ inUserDataID: UInt32, _ inIndex: UInt32) -> OSStatus
 var kAudioFilePropertyFileFormat: AudioFilePropertyID { get }
 var kAudioFilePropertyDataFormat: AudioFilePropertyID { get }
 var kAudioFilePropertyIsOptimized: AudioFilePropertyID { get }
@@ -220,11 +220,11 @@ var kAudioFilePropertyAlbumArtwork: AudioFilePropertyID { get }
 var kAudioFilePropertyAudioTrackCount: AudioFilePropertyID { get }
 var kAudioFilePropertyUseAudioTrack: AudioFilePropertyID { get }
 @available(iOS 2.0, *)
-func AudioFileGetPropertyInfo(inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ outDataSize: UnsafeMutablePointer<UInt32>, _ isWritable: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioFileGetPropertyInfo(_ inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ outDataSize: UnsafeMutablePointer<UInt32>, _ isWritable: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileGetProperty(inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ ioDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileGetProperty(_ inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ ioDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileSetProperty(inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ inDataSize: UInt32, _ inPropertyData: UnsafePointer<Void>) -> OSStatus
+func AudioFileSetProperty(_ inAudioFile: AudioFileID, _ inPropertyID: AudioFilePropertyID, _ inDataSize: UInt32, _ inPropertyData: UnsafePointer<Void>) -> OSStatus
 var kAudioFileGlobalInfo_ReadableTypes: AudioFilePropertyID { get }
 var kAudioFileGlobalInfo_WritableTypes: AudioFilePropertyID { get }
 var kAudioFileGlobalInfo_FileTypeName: AudioFilePropertyID { get }
@@ -246,9 +246,9 @@ struct AudioFileTypeAndFormatID {
   var mFileType: AudioFileTypeID
   var mFormatID: UInt32
   init()
-  init(mFileType: AudioFileTypeID, mFormatID: UInt32)
+  init(mFileType mFileType: AudioFileTypeID, mFormatID mFormatID: UInt32)
 }
 @available(iOS 2.0, *)
-func AudioFileGetGlobalInfoSize(inPropertyID: AudioFilePropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafeMutablePointer<Void>, _ outDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AudioFileGetGlobalInfoSize(_ inPropertyID: AudioFilePropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafeMutablePointer<Void>, _ outDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(iOS 2.0, *)
-func AudioFileGetGlobalInfo(inPropertyID: AudioFilePropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafeMutablePointer<Void>, _ ioDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus
+func AudioFileGetGlobalInfo(_ inPropertyID: AudioFilePropertyID, _ inSpecifierSize: UInt32, _ inSpecifier: UnsafeMutablePointer<Void>, _ ioDataSize: UnsafeMutablePointer<UInt32>, _ outPropertyData: UnsafeMutablePointer<Void>) -> OSStatus

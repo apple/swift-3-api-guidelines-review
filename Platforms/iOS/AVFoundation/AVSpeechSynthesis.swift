@@ -1,14 +1,14 @@
 
 @available(iOS 7.0, *)
 enum AVSpeechBoundary : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Immediate
   case Word
 }
 @available(iOS 9.0, *)
 enum AVSpeechSynthesisVoiceQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Enhanced
@@ -27,7 +27,7 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   class func currentLanguageCode() -> String
   /*not inherited*/ init?(language languageCode: String?)
   @available(iOS 9.0, *)
-  /*not inherited*/ init?(identifier: String)
+  /*not inherited*/ init?(identifier identifier: String)
   var language: String { get }
   @available(iOS 9.0, *)
   var identifier: String { get }
@@ -35,16 +35,15 @@ class AVSpeechSynthesisVoice : NSObject, NSSecureCoding {
   var name: String { get }
   @available(iOS 9.0, *)
   var quality: AVSpeechSynthesisVoiceQuality { get }
-  init()
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 7.0, *)
 class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
-  init(string: String)
+  init(string string: String)
   var voice: AVSpeechSynthesisVoice?
   var speechString: String { get }
   var rate: Float
@@ -52,13 +51,12 @@ class AVSpeechUtterance : NSObject, NSCopying, NSSecureCoding {
   var volume: Float
   var preUtteranceDelay: NSTimeInterval
   var postUtteranceDelay: NSTimeInterval
-  init()
   @available(iOS 7.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 7.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(iOS 7.0, *)
@@ -66,23 +64,22 @@ class AVSpeechSynthesizer : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged AVSpeechSynthesizerDelegate?
   var speaking: Bool { get }
   var paused: Bool { get }
-  func speakUtterance(utterance: AVSpeechUtterance)
-  func stopSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool
-  func pauseSpeakingAtBoundary(boundary: AVSpeechBoundary) -> Bool
+  func speakUtterance(_ utterance: AVSpeechUtterance)
+  func stopSpeakingAtBoundary(_ boundary: AVSpeechBoundary) -> Bool
+  func pauseSpeakingAtBoundary(_ boundary: AVSpeechBoundary) -> Bool
   func continueSpeaking() -> Bool
-  init()
 }
 protocol AVSpeechSynthesizerDelegate : NSObjectProtocol {
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didPauseSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPauseSpeechUtterance utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didContinueSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinueSpeechUtterance utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didCancelSpeechUtterance utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancelSpeechUtterance utterance: AVSpeechUtterance)
   @available(iOS 7.0, *)
-  optional func speechSynthesizer(synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance)
+  optional func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance utterance: AVSpeechUtterance)
 }

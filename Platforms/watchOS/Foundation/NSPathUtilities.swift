@@ -1,34 +1,34 @@
 
 extension NSString {
-  class func pathWithComponents(components: [String]) -> String
+  class func pathWithComponents(_ components: [String]) -> String
   var pathComponents: [String] { get }
   var absolutePath: Bool { get }
   var lastPathComponent: String { get }
   var stringByDeletingLastPathComponent: String { get }
-  func stringByAppendingPathComponent(str: String) -> String
+  func stringByAppendingPathComponent(_ str: String) -> String
   var pathExtension: String { get }
   var stringByDeletingPathExtension: String { get }
-  func stringByAppendingPathExtension(str: String) -> String?
+  func stringByAppendingPathExtension(_ str: String) -> String?
   var stringByAbbreviatingWithTildeInPath: String { get }
   var stringByExpandingTildeInPath: String { get }
   var stringByStandardizingPath: String { get }
   var stringByResolvingSymlinksInPath: String { get }
-  func stringsByAppendingPaths(paths: [String]) -> [String]
-  func completePathIntoString(outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesIntoArray outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes: [String]?) -> Int
+  func stringsByAppendingPaths(_ paths: [String]) -> [String]
+  func completePathIntoString(_ outputName: AutoreleasingUnsafeMutablePointer<NSString?>, caseSensitive flag: Bool, matchesIntoArray outputArray: AutoreleasingUnsafeMutablePointer<NSArray?>, filterTypes filterTypes: [String]?) -> Int
   var fileSystemRepresentation: UnsafePointer<Int8> { get }
-  func getFileSystemRepresentation(cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
+  func getFileSystemRepresentation(_ cname: UnsafeMutablePointer<Int8>, maxLength max: Int) -> Bool
 }
 extension NSArray {
-  func pathsMatchingExtensions(filterTypes: [String]) -> [String]
+  func pathsMatchingExtensions(_ filterTypes: [String]) -> [String]
 }
 func NSUserName() -> String
 func NSFullUserName() -> String
 func NSHomeDirectory() -> String
-func NSHomeDirectoryForUser(userName: String?) -> String?
+func NSHomeDirectoryForUser(_ userName: String?) -> String?
 func NSTemporaryDirectory() -> String
 func NSOpenStepRootDirectory() -> String
 enum NSSearchPathDirectory : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ApplicationDirectory
   case DemoApplicationDirectory
@@ -67,7 +67,7 @@ enum NSSearchPathDirectory : UInt {
   case AllLibrariesDirectory
 }
 struct NSSearchPathDomainMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var UserDomainMask: NSSearchPathDomainMask { get }
   static var LocalDomainMask: NSSearchPathDomainMask { get }
@@ -75,4 +75,4 @@ struct NSSearchPathDomainMask : OptionSetType {
   static var SystemDomainMask: NSSearchPathDomainMask { get }
   static var AllDomainsMask: NSSearchPathDomainMask { get }
 }
-func NSSearchPathForDirectoriesInDomains(directory: NSSearchPathDirectory, _ domainMask: NSSearchPathDomainMask, _ expandTilde: Bool) -> [String]
+func NSSearchPathForDirectoriesInDomains(_ directory: NSSearchPathDirectory, _ domainMask: NSSearchPathDomainMask, _ expandTilde: Bool) -> [String]

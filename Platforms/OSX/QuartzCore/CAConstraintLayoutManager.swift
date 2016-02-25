@@ -1,6 +1,6 @@
 
 enum CAConstraintAttribute : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case MinX
   case MidX
@@ -13,10 +13,9 @@ enum CAConstraintAttribute : Int32 {
 }
 extension CALayer {
   var constraints: [CAConstraint]?
-  func addConstraint(c: CAConstraint)
+  func addConstraint(_ c: CAConstraint)
 }
 class CAConstraintLayoutManager : NSObject {
-  init()
 }
 class CAConstraint : NSObject, NSCoding {
   convenience init(attribute attr: CAConstraintAttribute, relativeTo srcId: String, attribute srcAttr: CAConstraintAttribute, offset c: CGFloat)
@@ -27,7 +26,6 @@ class CAConstraint : NSObject, NSCoding {
   var sourceAttribute: CAConstraintAttribute { get }
   var scale: CGFloat { get }
   var offset: CGFloat { get }
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

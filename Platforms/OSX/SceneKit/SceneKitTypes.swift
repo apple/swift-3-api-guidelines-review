@@ -5,7 +5,7 @@ struct SCNVector3 {
   var y: CGFloat
   var z: CGFloat
   init()
-  init(x: CGFloat, y: CGFloat, z: CGFloat)
+  init(x x: CGFloat, y y: CGFloat, z z: CGFloat)
 }
 
 extension SCNVector3 {
@@ -22,7 +22,7 @@ struct SCNVector4 {
   var z: CGFloat
   var w: CGFloat
   init()
-  init(x: CGFloat, y: CGFloat, z: CGFloat, w: CGFloat)
+  init(x x: CGFloat, y y: CGFloat, z z: CGFloat, w w: CGFloat)
 }
 
 extension SCNVector4 {
@@ -40,35 +40,35 @@ let SCNMatrix4Identity: SCNMatrix4
 let SCNVector3Zero: SCNVector3
 @available(OSX 10.10, *)
 let SCNVector4Zero: SCNVector4
-func SCNVector3EqualToVector3(a: SCNVector3, _ b: SCNVector3) -> Bool
-func SCNVector4EqualToVector4(a: SCNVector4, _ b: SCNVector4) -> Bool
-func SCNVector3Make(x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNVector3
-func SCNVector4Make(x: CGFloat, _ y: CGFloat, _ z: CGFloat, _ w: CGFloat) -> SCNVector4
-func SCNMatrix4MakeTranslation(x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
-func SCNMatrix4MakeScale(sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> SCNMatrix4
-func SCNMatrix4Translate(mat: SCNMatrix4, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
+func SCNVector3EqualToVector3(_ a: SCNVector3, _ b: SCNVector3) -> Bool
+func SCNVector4EqualToVector4(_ a: SCNVector4, _ b: SCNVector4) -> Bool
+func SCNVector3Make(_ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNVector3
+func SCNVector4Make(_ x: CGFloat, _ y: CGFloat, _ z: CGFloat, _ w: CGFloat) -> SCNVector4
+func SCNMatrix4MakeTranslation(_ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
+func SCNMatrix4MakeScale(_ sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> SCNMatrix4
+func SCNMatrix4Translate(_ mat: SCNMatrix4, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4MakeRotation(angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
+func SCNMatrix4MakeRotation(_ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4Scale(mat: SCNMatrix4, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
+func SCNMatrix4Scale(_ mat: SCNMatrix4, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4Rotate(mat: SCNMatrix4, _ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
+func SCNMatrix4Rotate(_ mat: SCNMatrix4, _ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4Invert(mat: SCNMatrix4) -> SCNMatrix4
+func SCNMatrix4Invert(_ mat: SCNMatrix4) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4Mult(matA: SCNMatrix4, _ matB: SCNMatrix4) -> SCNMatrix4
+func SCNMatrix4Mult(_ matA: SCNMatrix4, _ matB: SCNMatrix4) -> SCNMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4IsIdentity(mat: SCNMatrix4) -> Bool
+func SCNMatrix4IsIdentity(_ mat: SCNMatrix4) -> Bool
 @available(OSX 10.10, *)
-func SCNMatrix4EqualToMatrix4(matA: SCNMatrix4, _ matB: SCNMatrix4) -> Bool
-func SCNVector3FromGLKVector3(vector: GLKVector3) -> SCNVector3
-func SCNVector3ToGLKVector3(vector: SCNVector3) -> GLKVector3
-func SCNVector4FromGLKVector4(vector: GLKVector4) -> SCNVector4
-func SCNVector4ToGLKVector4(vector: SCNVector4) -> GLKVector4
+func SCNMatrix4EqualToMatrix4(_ matA: SCNMatrix4, _ matB: SCNMatrix4) -> Bool
+func SCNVector3FromGLKVector3(_ vector: GLKVector3) -> SCNVector3
+func SCNVector3ToGLKVector3(_ vector: SCNVector3) -> GLKVector3
+func SCNVector4FromGLKVector4(_ vector: GLKVector4) -> SCNVector4
+func SCNVector4ToGLKVector4(_ vector: SCNVector4) -> GLKVector4
 @available(OSX 10.10, *)
-func SCNMatrix4ToGLKMatrix4(mat: SCNMatrix4) -> GLKMatrix4
+func SCNMatrix4ToGLKMatrix4(_ mat: SCNMatrix4) -> GLKMatrix4
 @available(OSX 10.10, *)
-func SCNMatrix4FromGLKMatrix4(mat: GLKMatrix4) -> SCNMatrix4
+func SCNMatrix4FromGLKMatrix4(_ mat: GLKMatrix4) -> SCNMatrix4
 extension NSValue {
   /*not inherited*/ init(SCNVector3 v: SCNVector3)
   /*not inherited*/ init(SCNVector4 v: SCNVector4)

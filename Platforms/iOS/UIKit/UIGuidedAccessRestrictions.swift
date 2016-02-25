@@ -1,6 +1,6 @@
 
 enum UIGuidedAccessRestrictionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Allow
   case Deny
@@ -8,9 +8,9 @@ enum UIGuidedAccessRestrictionState : Int {
 @available(iOS 7.0, *)
 protocol UIGuidedAccessRestrictionDelegate : NSObjectProtocol {
   func guidedAccessRestrictionIdentifiers() -> [String]?
-  func guidedAccessRestrictionWithIdentifier(restrictionIdentifier: String, didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
-  func textForGuidedAccessRestrictionWithIdentifier(restrictionIdentifier: String) -> String?
-  optional func detailTextForGuidedAccessRestrictionWithIdentifier(restrictionIdentifier: String) -> String?
+  func guidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String, didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
+  func textForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
+  optional func detailTextForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
 }
 @available(iOS 7.0, *)
-func UIGuidedAccessRestrictionStateForIdentifier(restrictionIdentifier: String) -> UIGuidedAccessRestrictionState
+func UIGuidedAccessRestrictionStateForIdentifier(_ restrictionIdentifier: String) -> UIGuidedAccessRestrictionState

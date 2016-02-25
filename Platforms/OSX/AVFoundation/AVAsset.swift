@@ -1,18 +1,17 @@
 
 @available(OSX 10.7, *)
 class AVAsset : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
-  convenience init(URL: NSURL)
+  convenience init(URL URL: NSURL)
   var duration: CMTime { get }
   var preferredRate: Float { get }
   var preferredVolume: Float { get }
   var preferredTransform: CGAffineTransform { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.7, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(_ key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(_ keys: [String], completionHandler handler: (() -> Void)?)
 }
 extension AVAsset {
   var providesPreciseDurationAndTiming: Bool { get }
@@ -23,7 +22,7 @@ extension AVAsset {
   var referenceRestrictions: AVAssetReferenceRestrictions { get }
 }
 struct AVAssetReferenceRestrictions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var ForbidNone: AVAssetReferenceRestrictions { get }
   static var ForbidRemoteReferenceToLocal: AVAssetReferenceRestrictions { get }
@@ -34,9 +33,9 @@ struct AVAssetReferenceRestrictions : OptionSetType {
 }
 extension AVAsset {
   var tracks: [AVAssetTrack] { get }
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVAssetTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVAssetTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVAssetTrack]
+  func trackWithTrackID(_ trackID: CMPersistentTrackID) -> AVAssetTrack?
+  func tracksWithMediaType(_ mediaType: String) -> [AVAssetTrack]
+  func tracksWithMediaCharacteristic(_ mediaCharacteristic: String) -> [AVAssetTrack]
   @available(OSX 10.9, *)
   var trackGroups: [AVAssetTrackGroup] { get }
 }
@@ -48,21 +47,21 @@ extension AVAsset {
   @available(OSX 10.10, *)
   var metadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataForFormat(_ format: String) -> [AVMetadataItem]
 }
 extension AVAsset {
   @available(OSX 10.7, *)
   var availableChapterLocales: [NSLocale] { get }
   @available(OSX 10.7, *)
-  func chapterMetadataGroupsWithTitleLocale(locale: NSLocale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroupsWithTitleLocale(_ locale: NSLocale, containingItemsWithCommonKeys commonKeys: [String]?) -> [AVTimedMetadataGroup]
   @available(OSX 10.8, *)
-  func chapterMetadataGroupsBestMatchingPreferredLanguages(preferredLanguages: [String]) -> [AVTimedMetadataGroup]
+  func chapterMetadataGroupsBestMatchingPreferredLanguages(_ preferredLanguages: [String]) -> [AVTimedMetadataGroup]
 }
 extension AVAsset {
   @available(OSX 10.8, *)
   var availableMediaCharacteristicsWithMediaSelectionOptions: [String] { get }
   @available(OSX 10.8, *)
-  func mediaSelectionGroupForMediaCharacteristic(mediaCharacteristic: String) -> AVMediaSelectionGroup?
+  func mediaSelectionGroupForMediaCharacteristic(_ mediaCharacteristic: String) -> AVMediaSelectionGroup?
   @available(OSX 10.11, *)
   var preferredMediaSelection: AVMediaSelection { get }
 }
@@ -99,17 +98,16 @@ class AVURLAsset : AVAsset {
   @available(OSX 10.7, *)
   class func audiovisualMIMETypes() -> [String]
   @available(OSX 10.7, *)
-  class func isPlayableExtendedMIMEType(extendedMIMEType: String) -> Bool
-  init(URL: NSURL, options: [String : AnyObject]?)
+  class func isPlayableExtendedMIMEType(_ extendedMIMEType: String) -> Bool
+  init(URL URL: NSURL, options options: [String : AnyObject]?)
   @NSCopying var URL: NSURL { get }
-  convenience init(URL: NSURL)
 }
 extension AVURLAsset {
   @available(OSX 10.9, *)
   var resourceLoader: AVAssetResourceLoader { get }
 }
 extension AVURLAsset {
-  func compatibleTrackForCompositionTrack(compositionTrack: AVCompositionTrack) -> AVAssetTrack?
+  func compatibleTrackForCompositionTrack(_ compositionTrack: AVCompositionTrack) -> AVAssetTrack?
 }
 @available(OSX 10.11, *)
 let AVAssetDurationDidChangeNotification: String
@@ -127,23 +125,16 @@ protocol AVFragmentMinding {
 }
 @available(OSX 10.11, *)
 class AVFragmentedAsset : AVURLAsset, AVFragmentMinding {
-  var tracks: [AVFragmentedAssetTrack] { get }
-  init(URL: NSURL, options: [String : AnyObject]?)
-  convenience init(URL: NSURL)
   @available(OSX 10.11, *)
   var associatedWithFragmentMinder: Bool { get }
 }
 extension AVFragmentedAsset {
-  func trackWithTrackID(trackID: CMPersistentTrackID) -> AVFragmentedAssetTrack?
-  func tracksWithMediaType(mediaType: String) -> [AVFragmentedAssetTrack]
-  func tracksWithMediaCharacteristic(mediaCharacteristic: String) -> [AVFragmentedAssetTrack]
 }
 @available(OSX 10.11, *)
 class AVFragmentedAssetMinder : NSObject {
-  convenience init(asset: AVAsset, mindingInterval: NSTimeInterval)
+  convenience init(asset asset: AVAsset, mindingInterval mindingInterval: NSTimeInterval)
   var mindingInterval: NSTimeInterval
   var assets: [AVAsset] { get }
-  func addFragmentedAsset(asset: AVAsset)
-  func removeFragmentedAsset(asset: AVAsset)
-  init()
+  func addFragmentedAsset(_ asset: AVAsset)
+  func removeFragmentedAsset(_ asset: AVAsset)
 }

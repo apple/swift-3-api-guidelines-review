@@ -1,15 +1,15 @@
 
 protocol NSWindowRestoration : NSObjectProtocol {
   @available(OSX 10.7, *)
-  static func restoreWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void)
+  static func restoreWindowWithIdentifier(_ identifier: String, state state: NSCoder, completionHandler completionHandler: (NSWindow?, NSError?) -> Void)
 }
 extension NSDocumentController : NSWindowRestoration {
   @available(OSX 10.7, *)
-  class func restoreWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void)
+  class func restoreWindowWithIdentifier(_ identifier: String, state state: NSCoder, completionHandler completionHandler: (NSWindow?, NSError?) -> Void)
 }
 extension NSApplication {
   @available(OSX 10.7, *)
-  func restoreWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void) -> Bool
+  func restoreWindowWithIdentifier(_ identifier: String, state state: NSCoder, completionHandler completionHandler: (NSWindow?, NSError?) -> Void) -> Bool
 }
 @available(OSX 10.7, *)
 let NSApplicationDidFinishRestoringWindowsNotification: String
@@ -23,9 +23,9 @@ extension NSWindow {
 }
 extension NSResponder {
   @available(OSX 10.7, *)
-  func encodeRestorableStateWithCoder(coder: NSCoder)
+  func encodeRestorableStateWithCoder(_ coder: NSCoder)
   @available(OSX 10.7, *)
-  func restoreStateWithCoder(coder: NSCoder)
+  func restoreStateWithCoder(_ coder: NSCoder)
   @available(OSX 10.7, *)
   func invalidateRestorableState()
   @available(OSX 10.7, *)
@@ -39,11 +39,11 @@ extension NSApplication {
 }
 extension NSDocument {
   @available(OSX 10.7, *)
-  func restoreDocumentWindowWithIdentifier(identifier: String, state: NSCoder, completionHandler: (NSWindow?, NSError?) -> Void)
+  func restoreDocumentWindowWithIdentifier(_ identifier: String, state state: NSCoder, completionHandler completionHandler: (NSWindow?, NSError?) -> Void)
   @available(OSX 10.7, *)
-  func encodeRestorableStateWithCoder(coder: NSCoder)
+  func encodeRestorableStateWithCoder(_ coder: NSCoder)
   @available(OSX 10.7, *)
-  func restoreStateWithCoder(coder: NSCoder)
+  func restoreStateWithCoder(_ coder: NSCoder)
   @available(OSX 10.7, *)
   func invalidateRestorableState()
   @available(OSX 10.7, *)

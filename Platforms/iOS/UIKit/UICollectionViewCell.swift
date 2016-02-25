@@ -3,14 +3,11 @@
 class UICollectionReusableView : UIView {
   var reuseIdentifier: String? { get }
   func prepareForReuse()
-  func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes)
-  func willTransitionFromLayout(oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
-  func didTransitionFromLayout(oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
+  func applyLayoutAttributes(_ layoutAttributes: UICollectionViewLayoutAttributes)
+  func willTransitionFromLayout(_ oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
+  func didTransitionFromLayout(_ oldLayout: UICollectionViewLayout, toLayout newLayout: UICollectionViewLayout)
   @available(iOS 8.0, *)
-  func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func preferredLayoutAttributesFittingAttributes(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes
 }
 @available(iOS 6.0, *)
 class UICollectionViewCell : UICollectionReusableView {
@@ -19,7 +16,4 @@ class UICollectionViewCell : UICollectionReusableView {
   var highlighted: Bool
   var backgroundView: UIView?
   var selectedBackgroundView: UIView?
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }

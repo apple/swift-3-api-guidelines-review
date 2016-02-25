@@ -13,55 +13,52 @@ class SLComposeServiceViewController : UIViewController, UITextViewDelegate {
   var charactersRemaining: NSNumber!
   func configurationItems() -> [AnyObject]!
   func reloadConfigurationItems()
-  func pushConfigurationViewController(viewController: UIViewController!)
+  func pushConfigurationViewController(_ viewController: UIViewController!)
   func popConfigurationViewController()
   func loadPreviewView() -> UIView!
   var autoCompletionViewController: UIViewController!
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 8.0, *)
-  func textViewShouldBeginEditing(textView: UITextView) -> Bool
+  func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
   @available(iOS 8.0, *)
-  func textViewShouldEndEditing(textView: UITextView) -> Bool
+  func textViewShouldEndEditing(_ textView: UITextView) -> Bool
   @available(iOS 8.0, *)
-  func textViewDidBeginEditing(textView: UITextView)
+  func textViewDidBeginEditing(_ textView: UITextView)
   @available(iOS 8.0, *)
-  func textViewDidEndEditing(textView: UITextView)
+  func textViewDidEndEditing(_ textView: UITextView)
   @available(iOS 8.0, *)
-  func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
+  func textView(_ textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool
   @available(iOS 8.0, *)
-  func textViewDidChange(textView: UITextView)
+  func textViewDidChange(_ textView: UITextView)
   @available(iOS 8.0, *)
-  func textViewDidChangeSelection(textView: UITextView)
+  func textViewDidChangeSelection(_ textView: UITextView)
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
+  func textView(_ textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool
   @available(iOS 7.0, *)
-  func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
+  func textView(_ textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool
   @available(iOS 8.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 8.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 8.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 8.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 8.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 8.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
   @available(iOS 8.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollToTop(_ scrollView: UIScrollView)
 }

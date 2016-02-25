@@ -4,7 +4,7 @@ let kCTFontManagerErrorDomain: CFString
 @available(tvOS 3.2, *)
 let kCTFontManagerErrorFontURLsKey: CFString
 enum CTFontManagerError : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case FileNotFound
   case InsufficientPermissions

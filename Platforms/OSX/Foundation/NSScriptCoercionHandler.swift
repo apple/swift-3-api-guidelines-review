@@ -1,7 +1,6 @@
 
 class NSScriptCoercionHandler : NSObject {
   class func sharedCoercionHandler() -> NSScriptCoercionHandler
-  func coerceValue(value: AnyObject, toClass: AnyClass) -> AnyObject?
-  func registerCoercer(coercer: AnyObject, selector: Selector, toConvertFromClass fromClass: AnyClass, toClass: AnyClass)
-  init()
+  func coerceValue(_ value: AnyObject, toClass toClass: AnyClass) -> AnyObject?
+  func registerCoercer(_ coercer: AnyObject, selector selector: Selector, toConvertFromClass fromClass: AnyClass, toClass toClass: AnyClass)
 }

@@ -1,6 +1,6 @@
 
 enum UITouchPhase : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Began
   case Moved
@@ -9,7 +9,7 @@ enum UITouchPhase : Int {
   case Cancelled
 }
 enum UIForceTouchCapability : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Unavailable
@@ -17,7 +17,7 @@ enum UIForceTouchCapability : Int {
 }
 @available(iOS 9.0, *)
 enum UITouchType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Direct
   case Indirect
@@ -26,7 +26,7 @@ enum UITouchType : Int {
 }
 @available(iOS 9.1, *)
 struct UITouchProperties : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var Force: UITouchProperties { get }
   static var Azimuth: UITouchProperties { get }
@@ -48,20 +48,20 @@ class UITouch : NSObject {
   var view: UIView? { get }
   @available(iOS 3.2, *)
   var gestureRecognizers: [UIGestureRecognizer]? { get }
-  func locationInView(view: UIView?) -> CGPoint
-  func previousLocationInView(view: UIView?) -> CGPoint
+  func locationInView(_ view: UIView?) -> CGPoint
+  func previousLocationInView(_ view: UIView?) -> CGPoint
   @available(iOS 9.1, *)
-  func preciseLocationInView(view: UIView?) -> CGPoint
+  func preciseLocationInView(_ view: UIView?) -> CGPoint
   @available(iOS 9.1, *)
-  func precisePreviousLocationInView(view: UIView?) -> CGPoint
+  func precisePreviousLocationInView(_ view: UIView?) -> CGPoint
   @available(iOS 9.0, *)
   var force: CGFloat { get }
   @available(iOS 9.0, *)
   var maximumPossibleForce: CGFloat { get }
   @available(iOS 9.1, *)
-  func azimuthAngleInView(view: UIView?) -> CGFloat
+  func azimuthAngleInView(_ view: UIView?) -> CGFloat
   @available(iOS 9.1, *)
-  func azimuthUnitVectorInView(view: UIView?) -> CGVector
+  func azimuthUnitVectorInView(_ view: UIView?) -> CGVector
   @available(iOS 9.1, *)
   var altitudeAngle: CGFloat { get }
   @available(iOS 9.1, *)
@@ -70,5 +70,4 @@ class UITouch : NSObject {
   var estimatedProperties: UITouchProperties { get }
   @available(iOS 9.1, *)
   var estimatedPropertiesExpectingUpdates: UITouchProperties { get }
-  init()
 }

@@ -16,17 +16,17 @@ class TVContentItem : NSObject, NSCopying, NSSecureCoding {
   @NSCopying var displayURL: NSURL?
   var topShelfItems: [TVContentItem]?
   init?(contentIdentifier ident: TVContentIdentifier)
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 @available(tvOS 9.0, *)
 enum TVContentItemImageShape : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Poster

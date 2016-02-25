@@ -8,13 +8,12 @@ class NSTextInputContext : NSObject {
   var allowedInputSourceLocales: [String]?
   func activate()
   func deactivate()
-  func handleEvent(theEvent: NSEvent) -> Bool
+  func handleEvent(_ theEvent: NSEvent) -> Bool
   func discardMarkedText()
   func invalidateCharacterCoordinates()
   var keyboardInputSources: [String]? { get }
   var selectedKeyboardInputSource: String?
-  class func localizedNameForInputSource(inputSourceIdentifier: String) -> String?
-  convenience init()
+  class func localizedNameForInputSource(_ inputSourceIdentifier: String) -> String?
 }
 @available(OSX 10.6, *)
 let NSTextInputContextKeyboardSelectionDidChangeNotification: String

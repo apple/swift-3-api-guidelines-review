@@ -1,6 +1,6 @@
 
 enum SecTransformMetaAttributeType : CFIndex {
-  init?(rawValue: CFIndex)
+  init?(rawValue rawValue: CFIndex)
   var rawValue: CFIndex { get }
   case Value
   case Name
@@ -25,12 +25,12 @@ typealias SecTransformAttributeActionBlock = (SecTransformAttribute, CFTypeRef) 
 typealias SecTransformDataBlock = (CFTypeRef) -> Unmanaged<CFTypeRef>?
 typealias SecTransformInstanceBlock = () -> Unmanaged<CFError>?
 typealias SecTransformImplementationRef = COpaquePointer
-func SecTransformSetAttributeAction(ref: SecTransformImplementationRef, _ action: CFString, _ attribute: SecTransformStringOrAttribute?, _ newAction: SecTransformAttributeActionBlock) -> CFError?
-func SecTransformSetDataAction(ref: SecTransformImplementationRef, _ action: CFString, _ newAction: SecTransformDataBlock) -> CFError?
-func SecTransformSetTransformAction(ref: SecTransformImplementationRef, _ action: CFString, _ newAction: SecTransformActionBlock) -> CFError?
-func SecTransformCustomGetAttribute(ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ type: SecTransformMetaAttributeType) -> CFTypeRef?
-func SecTransformCustomSetAttribute(ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ type: SecTransformMetaAttributeType, _ value: CFTypeRef?) -> CFTypeRef?
-func SecTransformPushbackAttribute(ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ value: CFTypeRef) -> CFTypeRef?
+func SecTransformSetAttributeAction(_ ref: SecTransformImplementationRef, _ action: CFString, _ attribute: SecTransformStringOrAttribute?, _ newAction: SecTransformAttributeActionBlock) -> CFError?
+func SecTransformSetDataAction(_ ref: SecTransformImplementationRef, _ action: CFString, _ newAction: SecTransformDataBlock) -> CFError?
+func SecTransformSetTransformAction(_ ref: SecTransformImplementationRef, _ action: CFString, _ newAction: SecTransformActionBlock) -> CFError?
+func SecTransformCustomGetAttribute(_ ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ type: SecTransformMetaAttributeType) -> CFTypeRef?
+func SecTransformCustomSetAttribute(_ ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ type: SecTransformMetaAttributeType, _ value: CFTypeRef?) -> CFTypeRef?
+func SecTransformPushbackAttribute(_ ref: SecTransformImplementationRef, _ attribute: SecTransformStringOrAttribute, _ value: CFTypeRef) -> CFTypeRef?
 typealias SecTransformCreateFP = @convention(c) (CFString, SecTransform, SecTransformImplementationRef) -> SecTransformInstanceBlock
 let kSecTransformActionCanExecute: CFString
 let kSecTransformActionStartingExecution: CFString
@@ -41,7 +41,7 @@ let kSecTransformActionInternalizeExtraData: CFString
 let kSecTransformActionAttributeNotification: CFString
 let kSecTransformActionAttributeValidation: CFString
 @available(OSX 10.7, *)
-func SecTransformRegister(uniqueName: CFString, _ createTransformFunction: SecTransformCreateFP, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
+func SecTransformRegister(_ uniqueName: CFString, _ createTransformFunction: SecTransformCreateFP, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> Bool
 @available(OSX 10.7, *)
-func SecTransformCreate(name: CFString, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?
+func SecTransformCreate(_ name: CFString, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform?
 func SecTransformNoData() -> CFTypeRef

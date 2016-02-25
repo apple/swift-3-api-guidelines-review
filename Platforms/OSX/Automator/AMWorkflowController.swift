@@ -5,14 +5,12 @@ class AMWorkflowController : NSController {
   unowned(unsafe) var delegate: @sil_unmanaged AnyObject?
   var canRun: Bool { get }
   var running: Bool { get }
-  @IBAction func run(sender: AnyObject)
-  @IBAction func stop(sender: AnyObject)
+  @IBAction func run(_ sender: AnyObject)
+  @IBAction func stop(_ sender: AnyObject)
   var paused: Bool { get }
-  @IBAction func pause(sender: AnyObject)
-  @IBAction func step(sender: AnyObject)
-  @IBAction func reset(sender: AnyObject)
-  init()
-  init?(coder: NSCoder)
+  @IBAction func pause(_ sender: AnyObject)
+  @IBAction func step(_ sender: AnyObject)
+  @IBAction func reset(_ sender: AnyObject)
 }
 struct __AMWorkflowControllerFlags {
   var shouldRunLocally: Int
@@ -20,7 +18,7 @@ struct __AMWorkflowControllerFlags {
   var shouldDisplayProgressInMenuBar: Int
   var reserved: Int
   init()
-  init(shouldRunLocally: Int, isRunningLocally: Int, shouldDisplayProgressInMenuBar: Int, reserved: Int)
+  init(shouldRunLocally shouldRunLocally: Int, isRunningLocally isRunningLocally: Int, shouldDisplayProgressInMenuBar shouldDisplayProgressInMenuBar: Int, reserved reserved: Int)
 }
 struct __AMWorkflowControllerDelegateRespondTo {
   var workflowControllerDidAddWorkflow: Int
@@ -42,21 +40,21 @@ struct __AMWorkflowControllerDelegateRespondTo {
   var workflowControllerDidResumeWithAction: Int
   var reserved: Int
   init()
-  init(workflowControllerDidAddWorkflow: Int, workflowControllerDidRemoveWorkflow: Int, workflowControllerWillRun: Int, workflowControllerWillStep: Int, workflowControllerWillStop: Int, workflowControllerWillPause: Int, workflowControllerDidRun: Int, workflowControllerDidStep: Int, workflowControllerDidStop: Int, workflowControllerDidPause: Int, workflowControllerWillRunAction: Int, workflowControllerDidRunAction: Int, workflowControllerDidError: Int, workflowControllerDidLogMessageOfTypeFromAction: Int, workflowControllerWillRunConversion: Int, workflowControllerDidRunConversion: Int, workflowControllerDidResumeWithAction: Int, reserved: Int)
+  init(workflowControllerDidAddWorkflow workflowControllerDidAddWorkflow: Int, workflowControllerDidRemoveWorkflow workflowControllerDidRemoveWorkflow: Int, workflowControllerWillRun workflowControllerWillRun: Int, workflowControllerWillStep workflowControllerWillStep: Int, workflowControllerWillStop workflowControllerWillStop: Int, workflowControllerWillPause workflowControllerWillPause: Int, workflowControllerDidRun workflowControllerDidRun: Int, workflowControllerDidStep workflowControllerDidStep: Int, workflowControllerDidStop workflowControllerDidStop: Int, workflowControllerDidPause workflowControllerDidPause: Int, workflowControllerWillRunAction workflowControllerWillRunAction: Int, workflowControllerDidRunAction workflowControllerDidRunAction: Int, workflowControllerDidError workflowControllerDidError: Int, workflowControllerDidLogMessageOfTypeFromAction workflowControllerDidLogMessageOfTypeFromAction: Int, workflowControllerWillRunConversion workflowControllerWillRunConversion: Int, workflowControllerDidRunConversion workflowControllerDidRunConversion: Int, workflowControllerDidResumeWithAction workflowControllerDidResumeWithAction: Int, reserved reserved: Int)
 }
 extension NSObject {
-  class func workflowControllerWillRun(controller: AMWorkflowController)
-  func workflowControllerWillRun(controller: AMWorkflowController)
-  class func workflowControllerWillStop(controller: AMWorkflowController)
-  func workflowControllerWillStop(controller: AMWorkflowController)
-  class func workflowControllerDidRun(controller: AMWorkflowController)
-  func workflowControllerDidRun(controller: AMWorkflowController)
-  class func workflowControllerDidStop(controller: AMWorkflowController)
-  func workflowControllerDidStop(controller: AMWorkflowController)
-  class func workflowController(controller: AMWorkflowController, willRunAction action: AMAction)
-  func workflowController(controller: AMWorkflowController, willRunAction action: AMAction)
-  class func workflowController(controller: AMWorkflowController, didRunAction action: AMAction)
-  func workflowController(controller: AMWorkflowController, didRunAction action: AMAction)
-  class func workflowController(controller: AMWorkflowController, didError error: NSError)
-  func workflowController(controller: AMWorkflowController, didError error: NSError)
+  class func workflowControllerWillRun(_ controller: AMWorkflowController)
+  func workflowControllerWillRun(_ controller: AMWorkflowController)
+  class func workflowControllerWillStop(_ controller: AMWorkflowController)
+  func workflowControllerWillStop(_ controller: AMWorkflowController)
+  class func workflowControllerDidRun(_ controller: AMWorkflowController)
+  func workflowControllerDidRun(_ controller: AMWorkflowController)
+  class func workflowControllerDidStop(_ controller: AMWorkflowController)
+  func workflowControllerDidStop(_ controller: AMWorkflowController)
+  class func workflowController(_ controller: AMWorkflowController, willRunAction action: AMAction)
+  func workflowController(_ controller: AMWorkflowController, willRunAction action: AMAction)
+  class func workflowController(_ controller: AMWorkflowController, didRunAction action: AMAction)
+  func workflowController(_ controller: AMWorkflowController, didRunAction action: AMAction)
+  class func workflowController(_ controller: AMWorkflowController, didError error: NSError)
+  func workflowController(_ controller: AMWorkflowController, didError error: NSError)
 }

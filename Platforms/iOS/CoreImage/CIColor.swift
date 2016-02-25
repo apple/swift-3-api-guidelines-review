@@ -13,12 +13,11 @@ class CIColor : NSObject, NSSecureCoding, NSCopying {
   var green: CGFloat { get }
   var blue: CGFloat { get }
   var stringRepresentation: String { get }
-  convenience init()
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

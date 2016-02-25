@@ -8,7 +8,5 @@ class CBService : CBAttribute {
 }
 @available(iOS 6.0, *)
 class CBMutableService : CBService {
-  var includedServices: [CBService]?
-  var characteristics: [CBCharacteristic]?
   init(type UUID: CBUUID, primary isPrimary: Bool)
 }

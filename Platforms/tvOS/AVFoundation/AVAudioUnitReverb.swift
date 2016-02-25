@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum AVAudioUnitReverbPreset : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case SmallRoom
   case MediumRoom
@@ -19,8 +19,6 @@ enum AVAudioUnitReverbPreset : Int {
 }
 @available(tvOS 8.0, *)
 class AVAudioUnitReverb : AVAudioUnitEffect {
-  func loadFactoryPreset(preset: AVAudioUnitReverbPreset)
+  func loadFactoryPreset(_ preset: AVAudioUnitReverbPreset)
   var wetDryMix: Float
-  init(audioComponentDescription: AudioComponentDescription)
-  init()
 }

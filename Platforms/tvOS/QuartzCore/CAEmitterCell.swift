@@ -1,7 +1,7 @@
 
 class CAEmitterCell : NSObject, NSCoding, CAMediaTiming {
-  class func defaultValueForKey(key: String) -> AnyObject?
-  func shouldArchiveValueForKey(key: String) -> Bool
+  class func defaultValueForKey(_ key: String) -> AnyObject?
+  func shouldArchiveValueForKey(_ key: String) -> Bool
   var name: String?
   var enabled: Bool
   var birthRate: Float
@@ -37,8 +37,7 @@ class CAEmitterCell : NSObject, NSCoding, CAMediaTiming {
   var minificationFilterBias: Float
   var emitterCells: [CAEmitterCell]?
   var style: [NSObject : AnyObject]?
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval

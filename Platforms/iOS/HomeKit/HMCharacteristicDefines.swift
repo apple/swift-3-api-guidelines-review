@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum HMCharacteristicValueDoorState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Open
   case Closed
@@ -11,7 +11,7 @@ enum HMCharacteristicValueDoorState : Int {
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueHeatingCooling : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Off
   case Heat
@@ -20,21 +20,21 @@ enum HMCharacteristicValueHeatingCooling : Int {
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueRotationDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Clockwise
   case CounterClockwise
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueTemperatureUnit : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Celsius
   case Fahrenheit
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueLockMechanismState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unsecured
   case Secured
@@ -43,7 +43,7 @@ enum HMCharacteristicValueLockMechanismState : Int {
 }
 @available(iOS 8.0, *)
 enum HMCharacteristicValueLockMechanismLastKnownAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case SecuredUsingPhysicalMovementInterior
   case UnsecuredUsingPhysicalMovementInterior
@@ -59,14 +59,14 @@ enum HMCharacteristicValueLockMechanismLastKnownAction : Int {
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueAirParticulateSize : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Size2_5
   case Size10
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueAirQuality : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Excellent
@@ -77,7 +77,7 @@ enum HMCharacteristicValueAirQuality : Int {
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValuePositionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Closing
   case Opening
@@ -85,7 +85,7 @@ enum HMCharacteristicValuePositionState : Int {
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueCurrentSecuritySystemState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case StayArm
   case AwayArm
@@ -95,7 +95,7 @@ enum HMCharacteristicValueCurrentSecuritySystemState : Int {
 }
 @available(iOS 9.0, *)
 enum HMCharacteristicValueTargetSecuritySystemState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case StayArm
   case AwayArm

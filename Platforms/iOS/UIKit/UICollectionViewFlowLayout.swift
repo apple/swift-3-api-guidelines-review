@@ -4,7 +4,7 @@ let UICollectionElementKindSectionHeader: String
 @available(iOS 6.0, *)
 let UICollectionElementKindSectionFooter: String
 enum UICollectionViewScrollDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Vertical
   case Horizontal
@@ -13,21 +13,20 @@ enum UICollectionViewScrollDirection : Int {
 class UICollectionViewFlowLayoutInvalidationContext : UICollectionViewLayoutInvalidationContext {
   var invalidateFlowLayoutDelegateMetrics: Bool
   var invalidateFlowLayoutAttributes: Bool
-  init()
 }
 protocol UICollectionViewDelegateFlowLayout : UICollectionViewDelegate {
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
   @available(iOS 6.0, *)
-  optional func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
+  optional func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
 }
 @available(iOS 6.0, *)
 class UICollectionViewFlowLayout : UICollectionViewLayout {
@@ -44,6 +43,4 @@ class UICollectionViewFlowLayout : UICollectionViewLayout {
   var sectionHeadersPinToVisibleBounds: Bool
   @available(iOS 9.0, *)
   var sectionFootersPinToVisibleBounds: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

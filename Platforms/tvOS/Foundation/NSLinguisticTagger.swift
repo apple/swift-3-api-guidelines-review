@@ -76,7 +76,7 @@ let NSLinguisticTagPlaceName: String
 @available(tvOS 5.0, *)
 let NSLinguisticTagOrganizationName: String
 struct NSLinguisticTaggerOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var OmitWords: NSLinguisticTaggerOptions { get }
   static var OmitPunctuation: NSLinguisticTaggerOptions { get }
@@ -87,34 +87,33 @@ struct NSLinguisticTaggerOptions : OptionSetType {
 @available(tvOS 5.0, *)
 class NSLinguisticTagger : NSObject {
   @available(tvOS 5.0, *)
-  init(tagSchemes: [String], options opts: Int)
+  init(tagSchemes tagSchemes: [String], options opts: Int)
   @available(tvOS 5.0, *)
   var tagSchemes: [String] { get }
   @available(tvOS 5.0, *)
   var string: String?
   @available(tvOS 5.0, *)
-  class func availableTagSchemesForLanguage(language: String) -> [String]
+  class func availableTagSchemesForLanguage(_ language: String) -> [String]
   @available(tvOS 5.0, *)
-  func setOrthography(orthography: NSOrthography?, range: NSRange)
+  func setOrthography(_ orthography: NSOrthography?, range range: NSRange)
   @available(tvOS 5.0, *)
-  func orthographyAtIndex(charIndex: Int, effectiveRange: NSRangePointer) -> NSOrthography?
+  func orthographyAtIndex(_ charIndex: Int, effectiveRange effectiveRange: NSRangePointer) -> NSOrthography?
   @available(tvOS 5.0, *)
-  func stringEditedInRange(newRange: NSRange, changeInLength delta: Int)
+  func stringEditedInRange(_ newRange: NSRange, changeInLength delta: Int)
   @available(tvOS 5.0, *)
-  func enumerateTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateTagsInRange(_ range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(tvOS 5.0, *)
-  func sentenceRangeForRange(range: NSRange) -> NSRange
+  func sentenceRangeForRange(_ range: NSRange) -> NSRange
   @available(tvOS 5.0, *)
-  func tagAtIndex(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer) -> String?
+  func tagAtIndex(_ charIndex: Int, scheme tagScheme: String, tokenRange tokenRange: NSRangePointer, sentenceRange sentenceRange: NSRangePointer) -> String?
   @available(tvOS 5.0, *)
-  func tagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func tagsInRange(_ range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, tokenRanges tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func possibleTagsAtIndex(charIndex: Int, scheme tagScheme: String, tokenRange: NSRangePointer, sentenceRange: NSRangePointer, scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
-  convenience init()
+  func possibleTagsAtIndex(_ charIndex: Int, scheme tagScheme: String, tokenRange tokenRange: NSRangePointer, sentenceRange sentenceRange: NSRangePointer, scores scores: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]?
 }
 extension NSString {
   @available(tvOS 5.0, *)
-  func linguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
+  func linguisticTagsInRange(_ range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography orthography: NSOrthography?, tokenRanges tokenRanges: AutoreleasingUnsafeMutablePointer<NSArray?>) -> [String]
   @available(tvOS 5.0, *)
-  func enumerateLinguisticTagsInRange(range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateLinguisticTagsInRange(_ range: NSRange, scheme tagScheme: String, options opts: NSLinguisticTaggerOptions, orthography orthography: NSOrthography?, usingBlock block: (String, NSRange, NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
 }

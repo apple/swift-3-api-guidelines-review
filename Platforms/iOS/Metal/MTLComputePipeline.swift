@@ -2,7 +2,6 @@
 @available(iOS 8.0, *)
 class MTLComputePipelineReflection : NSObject {
   var arguments: [MTLArgument] { get }
-  init()
 }
 @available(iOS 9.0, *)
 class MTLComputePipelineDescriptor : NSObject, NSCopying {
@@ -10,9 +9,8 @@ class MTLComputePipelineDescriptor : NSObject, NSCopying {
   var computeFunction: MTLFunction?
   var threadGroupSizeIsMultipleOfThreadExecutionWidth: Bool
   func reset()
-  init()
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLComputePipelineState : NSObjectProtocol {

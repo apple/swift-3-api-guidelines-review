@@ -7,12 +7,11 @@ class CLRegion : NSObject, NSCopying, NSSecureCoding {
   var notifyOnEntry: Bool
   @available(tvOS 7.0, *)
   var notifyOnExit: Bool
-  init()
   @available(tvOS 4.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 4.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 4.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

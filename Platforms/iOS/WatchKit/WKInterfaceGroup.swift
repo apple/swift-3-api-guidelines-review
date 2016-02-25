@@ -1,15 +1,15 @@
 
 @available(iOS 8.2, *)
 class WKInterfaceGroup : WKInterfaceObject, WKImageAnimatable {
-  func setCornerRadius(cornerRadius: CGFloat)
-  func setBackgroundColor(color: UIColor?)
-  func setBackgroundImage(image: UIImage?)
-  func setBackgroundImageData(imageData: NSData?)
-  func setBackgroundImageNamed(imageName: String?)
+  func setCornerRadius(_ cornerRadius: CGFloat)
+  func setBackgroundColor(_ color: UIColor?)
+  func setBackgroundImage(_ image: UIImage?)
+  func setBackgroundImageData(_ imageData: NSData?)
+  func setBackgroundImageNamed(_ imageName: String?)
   @available(iOS 8.2, *)
   func startAnimating()
   @available(iOS 8.2, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesInRange(_ imageRange: NSRange, duration duration: NSTimeInterval, repeatCount repeatCount: Int)
   @available(iOS 8.2, *)
   func stopAnimating()
 }

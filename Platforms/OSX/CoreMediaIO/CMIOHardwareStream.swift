@@ -6,7 +6,7 @@ struct CMIOStreamDeck {
   var mState: UInt32
   var mState2: UInt32
   init()
-  init(mStatus: UInt32, mState: UInt32, mState2: UInt32)
+  init(mStatus mStatus: UInt32, mState mState: UInt32, mState2 mState2: UInt32)
 }
 var kCMIOStreamClassID: Int { get }
 var kCMIOStreamUnknown: Int { get }
@@ -81,27 +81,27 @@ var kCMIOStreamPropertyScheduledOutputNotificationProc: Int { get }
 var kCMIOStreamPropertyPreferredFormatDescription: Int { get }
 var kCMIOStreamPropertyPreferredFrameRate: Int { get }
 @available(OSX 10.7, *)
-func CMIOStreamCopyBufferQueue(streamID: CMIOStreamID, _ queueAlteredProc: CMIODeviceStreamQueueAlteredProc!, _ queueAlteredRefCon: UnsafeMutablePointer<Void>, _ queue: UnsafeMutablePointer<Unmanaged<CMSimpleQueue>?>) -> OSStatus
+func CMIOStreamCopyBufferQueue(_ streamID: CMIOStreamID, _ queueAlteredProc: CMIODeviceStreamQueueAlteredProc!, _ queueAlteredRefCon: UnsafeMutablePointer<Void>, _ queue: UnsafeMutablePointer<Unmanaged<CMSimpleQueue>?>) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamDeckPlay(streamID: CMIOStreamID) -> OSStatus
+func CMIOStreamDeckPlay(_ streamID: CMIOStreamID) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamDeckStop(streamID: CMIOStreamID) -> OSStatus
+func CMIOStreamDeckStop(_ streamID: CMIOStreamID) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamDeckJog(streamID: CMIOStreamID, _ speed: Int32) -> OSStatus
+func CMIOStreamDeckJog(_ streamID: CMIOStreamID, _ speed: Int32) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamDeckCueTo(streamID: CMIOStreamID, _ frameNumber: UInt64, _ playOnCue: Bool) -> OSStatus
+func CMIOStreamDeckCueTo(_ streamID: CMIOStreamID, _ frameNumber: UInt64, _ playOnCue: Bool) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamClockCreate(allocator: CFAllocator!, _ clockName: CFString!, _ sourceIdentifier: UnsafePointer<Void>, _ getTimeCallMinimumInterval: CMTime, _ numberOfEventsForRateSmoothing: UInt32, _ numberOfAveragesForRateSmoothing: UInt32, _ clock: UnsafeMutablePointer<Unmanaged<CFTypeRef>?>) -> OSStatus
+func CMIOStreamClockCreate(_ allocator: CFAllocator!, _ clockName: CFString!, _ sourceIdentifier: UnsafePointer<Void>, _ getTimeCallMinimumInterval: CMTime, _ numberOfEventsForRateSmoothing: UInt32, _ numberOfAveragesForRateSmoothing: UInt32, _ clock: UnsafeMutablePointer<Unmanaged<CFTypeRef>?>) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamClockPostTimingEvent(eventTime: CMTime, _ hostTime: UInt64, _ resynchronize: Bool, _ clock: CFTypeRef!) -> OSStatus
+func CMIOStreamClockPostTimingEvent(_ eventTime: CMTime, _ hostTime: UInt64, _ resynchronize: Bool, _ clock: CFTypeRef!) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamClockInvalidate(clock: CFTypeRef!) -> OSStatus
+func CMIOStreamClockInvalidate(_ clock: CFTypeRef!) -> OSStatus
 @available(OSX 10.7, *)
-func CMIOStreamClockConvertHostTimeToDeviceTime(hostTime: UInt64, _ clock: CFTypeRef!) -> CMTime
+func CMIOStreamClockConvertHostTimeToDeviceTime(_ hostTime: UInt64, _ clock: CFTypeRef!) -> CMTime
 typealias CMIOStreamScheduledOutputNotificationProc = @convention(c) (UInt64, UInt64, UnsafeMutablePointer<Void>) -> Void
 struct CMIOStreamScheduledOutputNotificationProcAndRefCon {
   var scheduledOutputNotificationProc: CMIOStreamScheduledOutputNotificationProc!
   var scheduledOutputNotificationRefCon: UnsafeMutablePointer<Void>
   init()
-  init(scheduledOutputNotificationProc: CMIOStreamScheduledOutputNotificationProc!, scheduledOutputNotificationRefCon: UnsafeMutablePointer<Void>)
+  init(scheduledOutputNotificationProc scheduledOutputNotificationProc: CMIOStreamScheduledOutputNotificationProc!, scheduledOutputNotificationRefCon scheduledOutputNotificationRefCon: UnsafeMutablePointer<Void>)
 }

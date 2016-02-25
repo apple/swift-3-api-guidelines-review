@@ -1,20 +1,19 @@
 
 @available(OSX 10.10, *)
 class MCNearbyServiceBrowser : NSObject {
-  init(peer myPeerID: MCPeerID, serviceType: String)
+  init(peer myPeerID: MCPeerID, serviceType serviceType: String)
   func startBrowsingForPeers()
   func stopBrowsingForPeers()
-  func invitePeer(peerID: MCPeerID, toSession session: MCSession, withContext context: NSData?, timeout: NSTimeInterval)
+  func invitePeer(_ peerID: MCPeerID, toSession session: MCSession, withContext context: NSData?, timeout timeout: NSTimeInterval)
   weak var delegate: @sil_weak MCNearbyServiceBrowserDelegate?
   var myPeerID: MCPeerID { get }
   var serviceType: String { get }
-  convenience init()
 }
 protocol MCNearbyServiceBrowserDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
+  func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?)
   @available(OSX 10.10, *)
-  func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
+  func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID)
   @available(OSX 10.10, *)
-  optional func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError)
+  optional func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError)
 }

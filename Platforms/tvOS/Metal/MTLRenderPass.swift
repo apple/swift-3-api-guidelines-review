@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum MTLLoadAction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DontCare
   case Load
@@ -9,7 +9,7 @@ enum MTLLoadAction : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLStoreAction : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DontCare
   case Store
@@ -21,7 +21,7 @@ struct MTLClearColor {
   var blue: Double
   var alpha: Double
   init()
-  init(red: Double, green: Double, blue: Double, alpha: Double)
+  init(red red: Double, green green: Double, blue blue: Double, alpha alpha: Double)
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
@@ -35,18 +35,16 @@ class MTLRenderPassAttachmentDescriptor : NSObject, NSCopying {
   var resolveDepthPlane: Int
   var loadAction: MTLLoadAction
   var storeAction: MTLStoreAction
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearColor: MTLClearColor
-  init()
 }
 @available(tvOS 9.0, *)
 enum MTLMultisampleDepthResolveFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Sample0
   case Min
@@ -57,17 +55,14 @@ class MTLRenderPassDepthAttachmentDescriptor : MTLRenderPassAttachmentDescriptor
   var clearDepth: Double
   @available(tvOS 9.0, *)
   var depthResolveFilter: MTLMultisampleDepthResolveFilter
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDescriptor {
   var clearStencil: UInt32
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassColorAttachmentDescriptorArray : NSObject {
-  subscript (attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
-  init()
+  subscript(_ attachmentIndex: Int) -> MTLRenderPassColorAttachmentDescriptor!
 }
 @available(tvOS 8.0, *)
 class MTLRenderPassDescriptor : NSObject, NSCopying {
@@ -75,8 +70,7 @@ class MTLRenderPassDescriptor : NSObject, NSCopying {
   @NSCopying var depthAttachment: MTLRenderPassDepthAttachmentDescriptor!
   @NSCopying var stencilAttachment: MTLRenderPassStencilAttachmentDescriptor!
   var visibilityResultBuffer: MTLBuffer?
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
-func MTLClearColorMake(red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor
+func MTLClearColorMake(_ red: Double, _ green: Double, _ blue: Double, _ alpha: Double) -> MTLClearColor

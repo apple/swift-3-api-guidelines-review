@@ -1,46 +1,41 @@
 
 class NSPopUpButton : NSButton {
   init(frame buttonFrame: NSRect, pullsDown flag: Bool)
-  var menu: NSMenu?
   var pullsDown: Bool
   var autoenablesItems: Bool
   var preferredEdge: NSRectEdge
-  func addItemWithTitle(title: String)
-  func addItemsWithTitles(itemTitles: [String])
-  func insertItemWithTitle(title: String, atIndex index: Int)
-  func removeItemWithTitle(title: String)
-  func removeItemAtIndex(index: Int)
+  func addItemWithTitle(_ title: String)
+  func addItemsWithTitles(_ itemTitles: [String])
+  func insertItemWithTitle(_ title: String, atIndex index: Int)
+  func removeItemWithTitle(_ title: String)
+  func removeItemAtIndex(_ index: Int)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
   var numberOfItems: Int { get }
-  func indexOfItem(item: NSMenuItem) -> Int
-  func indexOfItemWithTitle(title: String) -> Int
-  func indexOfItemWithTag(tag: Int) -> Int
-  func indexOfItemWithRepresentedObject(obj: AnyObject?) -> Int
-  func indexOfItemWithTarget(target: AnyObject?, andAction actionSelector: Selector) -> Int
-  func itemAtIndex(index: Int) -> NSMenuItem?
-  func itemWithTitle(title: String) -> NSMenuItem?
+  func indexOfItem(_ item: NSMenuItem) -> Int
+  func indexOfItemWithTitle(_ title: String) -> Int
+  func indexOfItemWithTag(_ tag: Int) -> Int
+  func indexOfItemWithRepresentedObject(_ obj: AnyObject?) -> Int
+  func indexOfItemWithTarget(_ target: AnyObject?, andAction actionSelector: Selector) -> Int
+  func itemAtIndex(_ index: Int) -> NSMenuItem?
+  func itemWithTitle(_ title: String) -> NSMenuItem?
   var lastItem: NSMenuItem? { get }
-  func selectItem(item: NSMenuItem?)
-  func selectItemAtIndex(index: Int)
-  func selectItemWithTitle(title: String)
-  func selectItemWithTag(tag: Int) -> Bool
-  func setTitle(aString: String)
+  func selectItem(_ item: NSMenuItem?)
+  func selectItemAtIndex(_ index: Int)
+  func selectItemWithTitle(_ title: String)
+  func selectItemWithTag(_ tag: Int) -> Bool
+  func setTitle(_ aString: String)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }
   func synchronizeTitleAndSelectedItem()
-  func itemTitleAtIndex(index: Int) -> String
+  func itemTitleAtIndex(_ index: Int) -> String
   var itemTitles: [String] { get }
   var titleOfSelectedItem: String? { get }
-  func selectedTag() -> Int
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }
 struct __pbFlags {
   var needsPullsDownFromTemplate: UInt32
   var RESERVED: UInt32
   init()
-  init(needsPullsDownFromTemplate: UInt32, RESERVED: UInt32)
+  init(needsPullsDownFromTemplate needsPullsDownFromTemplate: UInt32, RESERVED RESERVED: UInt32)
 }
 let NSPopUpButtonWillPopUpNotification: String

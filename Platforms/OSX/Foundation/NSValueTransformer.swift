@@ -11,12 +11,11 @@ let NSUnarchiveFromDataTransformerName: String
 let NSKeyedUnarchiveFromDataTransformerName: String
 @available(OSX 10.3, *)
 class NSValueTransformer : NSObject {
-  class func setValueTransformer(transformer: NSValueTransformer?, forName name: String)
+  class func setValueTransformer(_ transformer: NSValueTransformer?, forName name: String)
   /*not inherited*/ init?(forName name: String)
   class func valueTransformerNames() -> [String]
   class func transformedValueClass() -> AnyClass
   class func allowsReverseTransformation() -> Bool
-  func transformedValue(value: AnyObject?) -> AnyObject?
-  func reverseTransformedValue(value: AnyObject?) -> AnyObject?
-  init()
+  func transformedValue(_ value: AnyObject?) -> AnyObject?
+  func reverseTransformedValue(_ value: AnyObject?) -> AnyObject?
 }

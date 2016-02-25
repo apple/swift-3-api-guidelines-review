@@ -3,8 +3,6 @@
 let WKErrorDomain: String
 @available(iOS 8.0, *)
 enum WKErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case Unknown
   case WebContentProcessTerminated
   case WebViewInvalidated
@@ -15,6 +13,4 @@ enum WKErrorCode : Int {
 
 @available(OSX 10.10, iOS 8.0, *)
 extension WKErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

@@ -1,32 +1,28 @@
 
 @available(OSX 10.11, *)
 class NSLayoutAnchor : NSObject {
-  func constraintEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
-  init()
+  func constraintEqualToAnchor(_ anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualToAnchor(_ anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualToAnchor(_ anchor: NSLayoutAnchor!) -> NSLayoutConstraint!
+  func constraintEqualToAnchor(_ anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualToAnchor(_ anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualToAnchor(_ anchor: NSLayoutAnchor!, constant c: CGFloat) -> NSLayoutConstraint!
 }
 @available(OSX 10.11, *)
 class NSLayoutXAxisAnchor : NSLayoutAnchor {
-  init()
 }
 @available(OSX 10.11, *)
 class NSLayoutYAxisAnchor : NSLayoutAnchor {
-  init()
 }
 @available(OSX 10.11, *)
 class NSLayoutDimension : NSLayoutAnchor {
-  func constraintEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToConstant(c: CGFloat) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
-  func constraintEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintGreaterThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
-  func constraintLessThanOrEqualToAnchor(anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
-  init()
+  func constraintEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualToConstant(_ c: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat) -> NSLayoutConstraint!
+  func constraintEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintGreaterThanOrEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
+  func constraintLessThanOrEqualToAnchor(_ anchor: NSLayoutDimension!, multiplier m: CGFloat, constant c: CGFloat) -> NSLayoutConstraint!
 }

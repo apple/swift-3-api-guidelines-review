@@ -4,20 +4,20 @@ let SCNLightingModelBlinn: String
 let SCNLightingModelLambert: String
 let SCNLightingModelConstant: String
 enum SCNCullMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Back
   case Front
 }
 enum SCNTransparencyMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AOne
   case RGBZero
 }
 @available(tvOS 9.0, *)
 enum SCNBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Alpha
   case Add
@@ -56,38 +56,37 @@ class SCNMaterial : NSObject, SCNAnimatable, SCNShadable, NSCopying, NSSecureCod
   var fresnelExponent: CGFloat
   @available(tvOS 9.0, *)
   var blendMode: SCNBlendMode
-  init()
   @available(tvOS 8.0, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
   var animationKeys: [String] { get }
   @available(tvOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(tvOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
   @available(tvOS 8.0, *)
   var program: SCNProgram?
   @available(tvOS 8.0, *)
-  func handleBindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  func handleBindingOfSymbol(_ symbol: String, usingBlock block: SCNBindingBlock?)
   @available(tvOS 8.0, *)
-  func handleUnbindingOfSymbol(symbol: String, usingBlock block: SCNBindingBlock?)
+  func handleUnbindingOfSymbol(_ symbol: String, usingBlock block: SCNBindingBlock?)
   @available(tvOS 8.0, *)
   var shaderModifiers: [String : String]?
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

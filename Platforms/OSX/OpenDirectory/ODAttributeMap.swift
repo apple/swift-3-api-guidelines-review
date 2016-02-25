@@ -9,11 +9,10 @@ class ODAttributeMap : NSObject {
   var customAttributes: [AnyObject]!
   @available(OSX 10.9, *)
   var value: String!
-  convenience init!(value: String!)
-  convenience init!(staticValue: String!)
+  convenience init!(value value: String!)
+  convenience init!(staticValue staticValue: String!)
   @available(OSX 10.9, *)
-  func setStaticValue(staticValue: String!)
+  func setStaticValue(_ staticValue: String!)
   @available(OSX 10.9, *)
-  func setVariableSubstitution(variableSubstitution: String!)
-  init()
+  func setVariableSubstitution(_ variableSubstitution: String!)
 }

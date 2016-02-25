@@ -1,6 +1,6 @@
 
 enum UITableViewCellStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Value1
@@ -8,14 +8,14 @@ enum UITableViewCellStyle : Int {
   case Subtitle
 }
 enum UITableViewCellSeparatorStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case SingleLine
   case SingleLineEtched
 }
 enum UITableViewCellSelectionStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Blue
@@ -25,20 +25,20 @@ enum UITableViewCellSelectionStyle : Int {
 }
 @available(iOS 9.0, *)
 enum UITableViewCellFocusStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Custom
 }
 enum UITableViewCellEditingStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Delete
   case Insert
 }
 enum UITableViewCellAccessoryType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case DisclosureIndicator
@@ -48,7 +48,7 @@ enum UITableViewCellAccessoryType : Int {
   case DetailButton
 }
 struct UITableViewCellStateMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var DefaultMask: UITableViewCellStateMask { get }
   static var ShowingEditControlMask: UITableViewCellStateMask { get }
@@ -57,8 +57,7 @@ struct UITableViewCellStateMask : OptionSetType {
 @available(iOS 2.0, *)
 class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(iOS 3.0, *)
-  init(style: UITableViewCellStyle, reuseIdentifier: String?)
-  init?(coder aDecoder: NSCoder)
+  init(style style: UITableViewCellStyle, reuseIdentifier reuseIdentifier: String?)
   @available(iOS 3.0, *)
   var imageView: UIImageView? { get }
   @available(iOS 3.0, *)
@@ -75,8 +74,8 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   var selectionStyle: UITableViewCellSelectionStyle
   var selected: Bool
   var highlighted: Bool
-  func setSelected(selected: Bool, animated: Bool)
-  func setHighlighted(highlighted: Bool, animated: Bool)
+  func setSelected(_ selected: Bool, animated animated: Bool)
+  func setHighlighted(_ highlighted: Bool, animated animated: Bool)
   var editingStyle: UITableViewCellEditingStyle { get }
   var showsReorderControl: Bool
   var shouldIndentWhileEditing: Bool
@@ -89,28 +88,24 @@ class UITableViewCell : UIView, NSCoding, UIGestureRecognizerDelegate {
   @available(iOS 7.0, *)
   var separatorInset: UIEdgeInsets
   var editing: Bool
-  func setEditing(editing: Bool, animated: Bool)
+  func setEditing(_ editing: Bool, animated animated: Bool)
   var showingDeleteConfirmation: Bool { get }
   @available(iOS 9.0, *)
   var focusStyle: UITableViewCellFocusStyle
   @available(iOS 3.0, *)
-  func willTransitionToState(state: UITableViewCellStateMask)
+  func willTransitionToState(_ state: UITableViewCellStateMask)
   @available(iOS 3.0, *)
-  func didTransitionToState(state: UITableViewCellStateMask)
-  convenience init(frame: CGRect)
-  convenience init()
+  func didTransitionToState(_ state: UITableViewCellStateMask)
   @available(iOS 3.2, *)
-  func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
-  @available(iOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 7.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool
   @available(iOS 3.2, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool
   @available(iOS 9.0, *)
-  func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceivePress press: UIPress) -> Bool
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceivePress press: UIPress) -> Bool
 }
 extension UITableViewCell {
 }

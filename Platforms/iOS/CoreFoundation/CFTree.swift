@@ -9,7 +9,7 @@ struct CFTreeContext {
   var release: CFTreeReleaseCallBack!
   var copyDescription: CFTreeCopyDescriptionCallBack!
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: CFTreeRetainCallBack!, release: CFTreeReleaseCallBack!, copyDescription: CFTreeCopyDescriptionCallBack!)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: CFTreeRetainCallBack!, release release: CFTreeReleaseCallBack!, copyDescription copyDescription: CFTreeCopyDescriptionCallBack!)
 }
 typealias CFTreeApplierFunction = @convention(c) (UnsafePointer<Void>, UnsafeMutablePointer<Void>) -> Void
 class CFTree {
@@ -17,20 +17,20 @@ class CFTree {
 @available(*, deprecated, renamed="CFTree")
 typealias CFTreeRef = CFTree
 func CFTreeGetTypeID() -> CFTypeID
-func CFTreeCreate(allocator: CFAllocator!, _ context: UnsafePointer<CFTreeContext>) -> CFTree!
-func CFTreeGetParent(tree: CFTree!) -> CFTree!
-func CFTreeGetNextSibling(tree: CFTree!) -> CFTree!
-func CFTreeGetFirstChild(tree: CFTree!) -> CFTree!
-func CFTreeGetContext(tree: CFTree!, _ context: UnsafeMutablePointer<CFTreeContext>)
-func CFTreeGetChildCount(tree: CFTree!) -> CFIndex
-func CFTreeGetChildAtIndex(tree: CFTree!, _ idx: CFIndex) -> CFTree!
-func CFTreeGetChildren(tree: CFTree!, _ children: UnsafeMutablePointer<Unmanaged<CFTree>?>)
-func CFTreeApplyFunctionToChildren(tree: CFTree!, _ applier: CFTreeApplierFunction!, _ context: UnsafeMutablePointer<Void>)
-func CFTreeFindRoot(tree: CFTree!) -> CFTree!
-func CFTreeSetContext(tree: CFTree!, _ context: UnsafePointer<CFTreeContext>)
-func CFTreePrependChild(tree: CFTree!, _ newChild: CFTree!)
-func CFTreeAppendChild(tree: CFTree!, _ newChild: CFTree!)
-func CFTreeInsertSibling(tree: CFTree!, _ newSibling: CFTree!)
-func CFTreeRemove(tree: CFTree!)
-func CFTreeRemoveAllChildren(tree: CFTree!)
-func CFTreeSortChildren(tree: CFTree!, _ comparator: CFComparatorFunction!, _ context: UnsafeMutablePointer<Void>)
+func CFTreeCreate(_ allocator: CFAllocator!, _ context: UnsafePointer<CFTreeContext>) -> CFTree!
+func CFTreeGetParent(_ tree: CFTree!) -> CFTree!
+func CFTreeGetNextSibling(_ tree: CFTree!) -> CFTree!
+func CFTreeGetFirstChild(_ tree: CFTree!) -> CFTree!
+func CFTreeGetContext(_ tree: CFTree!, _ context: UnsafeMutablePointer<CFTreeContext>)
+func CFTreeGetChildCount(_ tree: CFTree!) -> CFIndex
+func CFTreeGetChildAtIndex(_ tree: CFTree!, _ idx: CFIndex) -> CFTree!
+func CFTreeGetChildren(_ tree: CFTree!, _ children: UnsafeMutablePointer<Unmanaged<CFTree>?>)
+func CFTreeApplyFunctionToChildren(_ tree: CFTree!, _ applier: CFTreeApplierFunction!, _ context: UnsafeMutablePointer<Void>)
+func CFTreeFindRoot(_ tree: CFTree!) -> CFTree!
+func CFTreeSetContext(_ tree: CFTree!, _ context: UnsafePointer<CFTreeContext>)
+func CFTreePrependChild(_ tree: CFTree!, _ newChild: CFTree!)
+func CFTreeAppendChild(_ tree: CFTree!, _ newChild: CFTree!)
+func CFTreeInsertSibling(_ tree: CFTree!, _ newSibling: CFTree!)
+func CFTreeRemove(_ tree: CFTree!)
+func CFTreeRemoveAllChildren(_ tree: CFTree!)
+func CFTreeSortChildren(_ tree: CFTree!, _ comparator: CFComparatorFunction!, _ context: UnsafeMutablePointer<Void>)

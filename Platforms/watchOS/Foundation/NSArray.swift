@@ -1,26 +1,20 @@
 
 class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
   var count: Int { get }
-  func objectAtIndex(index: Int) -> AnyObject
-  init()
-  init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
+  func objectAtIndex(_ index: Int) -> AnyObject
+  init(objects objects: UnsafePointer<AnyObject?>, count cnt: Int)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func encodeWithCoder(_ aCoder: NSCoder)
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSArray : ArrayLiteralConvertible {
-  required convenience init(arrayLiteral elements: AnyObject...)
-  typealias Element = AnyObject
 }
 
 extension NSArray : SequenceType {
-  final func generate() -> NSFastGenerator
-  typealias Generator = NSFastGenerator
-  typealias SubSequence = AnySequence<AnyObject>
 }
 
 extension NSArray {
@@ -32,65 +26,63 @@ extension NSArray {
 }
 
 extension NSArray : CustomReflectable {
-  func customMirror() -> Mirror
 }
 extension NSArray {
-  func arrayByAddingObject(anObject: AnyObject) -> [AnyObject]
-  func arrayByAddingObjectsFromArray(otherArray: [AnyObject]) -> [AnyObject]
-  func componentsJoinedByString(separator: String) -> String
-  func containsObject(anObject: AnyObject) -> Bool
-  var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
-  func descriptionWithLocale(locale: AnyObject?, indent level: Int) -> String
-  func firstObjectCommonWithArray(otherArray: [AnyObject]) -> AnyObject?
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range: NSRange)
-  func indexOfObject(anObject: AnyObject) -> Int
-  func indexOfObject(anObject: AnyObject, inRange range: NSRange) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject) -> Int
-  func indexOfObjectIdenticalTo(anObject: AnyObject, inRange range: NSRange) -> Int
-  func isEqualToArray(otherArray: [AnyObject]) -> Bool
+  func arrayByAddingObject(_ anObject: AnyObject) -> [AnyObject]
+  func arrayByAddingObjectsFromArray(_ otherArray: [AnyObject]) -> [AnyObject]
+  func componentsJoinedByString(_ separator: String) -> String
+  func containsObject(_ anObject: AnyObject) -> Bool
+  func descriptionWithLocale(_ locale: AnyObject?) -> String
+  func descriptionWithLocale(_ locale: AnyObject?, indent level: Int) -> String
+  func firstObjectCommonWithArray(_ otherArray: [AnyObject]) -> AnyObject?
+  func getObjects(_ objects: AutoreleasingUnsafeMutablePointer<AnyObject?>, range range: NSRange)
+  func indexOfObject(_ anObject: AnyObject) -> Int
+  func indexOfObject(_ anObject: AnyObject, inRange range: NSRange) -> Int
+  func indexOfObjectIdenticalTo(_ anObject: AnyObject) -> Int
+  func indexOfObjectIdenticalTo(_ anObject: AnyObject, inRange range: NSRange) -> Int
+  func isEqualToArray(_ otherArray: [AnyObject]) -> Bool
   @available(watchOS 2.0, *)
   var firstObject: AnyObject? { get }
   var lastObject: AnyObject? { get }
   func objectEnumerator() -> NSEnumerator
   func reverseObjectEnumerator() -> NSEnumerator
   @NSCopying var sortedArrayHint: NSData { get }
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>) -> [AnyObject]
-  func sortedArrayUsingFunction(comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>, hint: NSData?) -> [AnyObject]
-  func sortedArrayUsingSelector(comparator: Selector) -> [AnyObject]
-  func subarrayWithRange(range: NSRange) -> [AnyObject]
-  func writeToFile(path: String, atomically useAuxiliaryFile: Bool) -> Bool
-  func writeToURL(url: NSURL, atomically: Bool) -> Bool
-  func objectsAtIndexes(indexes: NSIndexSet) -> [AnyObject]
+  func sortedArrayUsingFunction(_ comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context context: UnsafeMutablePointer<Void>) -> [AnyObject]
+  func sortedArrayUsingFunction(_ comparator: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context context: UnsafeMutablePointer<Void>, hint hint: NSData?) -> [AnyObject]
+  func sortedArrayUsingSelector(_ comparator: Selector) -> [AnyObject]
+  func subarrayWithRange(_ range: NSRange) -> [AnyObject]
+  func writeToFile(_ path: String, atomically useAuxiliaryFile: Bool) -> Bool
+  func writeToURL(_ url: NSURL, atomically atomically: Bool) -> Bool
+  func objectsAtIndexes(_ indexes: NSIndexSet) -> [AnyObject]
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject { get }
+  subscript(_ idx: Int) -> AnyObject { get }
   @available(watchOS 2.0, *)
-  func enumerateObjectsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsUsingBlock(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateObjectsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateObjectsAtIndexes(_ s: NSIndexSet, options opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func indexOfObjectPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectPassingTest(_ predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
-  func indexOfObjectWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectWithOptions(_ opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
-  func indexOfObjectAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexOfObjectAtIndexes(_ s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(watchOS 2.0, *)
-  func indexesOfObjectsPassingTest(predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsPassingTest(_ predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(watchOS 2.0, *)
-  func indexesOfObjectsWithOptions(opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsWithOptions(_ opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(watchOS 2.0, *)
-  func indexesOfObjectsAtIndexes(s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesOfObjectsAtIndexes(_ s: NSIndexSet, options opts: NSEnumerationOptions, passingTest predicate: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(watchOS 2.0, *)
-  func sortedArrayUsingComparator(cmptr: NSComparator) -> [AnyObject]
+  func sortedArrayUsingComparator(_ cmptr: NSComparator) -> [AnyObject]
   @available(watchOS 2.0, *)
-  func sortedArrayWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
+  func sortedArrayWithOptions(_ opts: NSSortOptions, usingComparator cmptr: NSComparator) -> [AnyObject]
   @available(watchOS 2.0, *)
-  func indexOfObject(obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions, usingComparator cmp: NSComparator) -> Int
+  func indexOfObject(_ obj: AnyObject, inSortedRange r: NSRange, options opts: NSBinarySearchingOptions, usingComparator cmp: NSComparator) -> Int
 }
 struct NSBinarySearchingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var FirstEqual: NSBinarySearchingOptions { get }
   static var LastEqual: NSBinarySearchingOptions { get }
@@ -98,56 +90,46 @@ struct NSBinarySearchingOptions : OptionSetType {
 }
 extension NSArray {
   convenience init(object anObject: AnyObject)
-  convenience init(array: [AnyObject])
-  convenience init(array: [AnyObject], copyItems flag: Bool)
+  convenience init(array array: [AnyObject])
+  convenience init(array array: [AnyObject], copyItems flag: Bool)
   convenience init?(contentsOfFile path: String)
   convenience init?(contentsOfURL url: NSURL)
 }
 extension NSArray {
-  func getObjects(objects: AutoreleasingUnsafeMutablePointer<AnyObject?>)
+  func getObjects(_ objects: AutoreleasingUnsafeMutablePointer<AnyObject?>)
 }
 class NSMutableArray : NSArray {
-  func addObject(anObject: AnyObject)
-  func insertObject(anObject: AnyObject, atIndex index: Int)
+  func addObject(_ anObject: AnyObject)
+  func insertObject(_ anObject: AnyObject, atIndex index: Int)
   func removeLastObject()
-  func removeObjectAtIndex(index: Int)
-  func replaceObjectAtIndex(index: Int, withObject anObject: AnyObject)
-  init()
+  func removeObjectAtIndex(_ index: Int)
+  func replaceObjectAtIndex(_ index: Int, withObject anObject: AnyObject)
   init(capacity numItems: Int)
-  init?(coder aDecoder: NSCoder)
-  convenience init(objects: UnsafePointer<AnyObject?>, count cnt: Int)
-  convenience init(object anObject: AnyObject)
-  convenience init(array: [AnyObject])
-  convenience init(array: [AnyObject], copyItems flag: Bool)
 }
 extension NSMutableArray {
-  func addObjectsFromArray(otherArray: [AnyObject])
-  func exchangeObjectAtIndex(idx1: Int, withObjectAtIndex idx2: Int)
+  func addObjectsFromArray(_ otherArray: [AnyObject])
+  func exchangeObjectAtIndex(_ idx1: Int, withObjectAtIndex idx2: Int)
   func removeAllObjects()
-  func removeObject(anObject: AnyObject, inRange range: NSRange)
-  func removeObject(anObject: AnyObject)
-  func removeObjectIdenticalTo(anObject: AnyObject, inRange range: NSRange)
-  func removeObjectIdenticalTo(anObject: AnyObject)
+  func removeObject(_ anObject: AnyObject, inRange range: NSRange)
+  func removeObject(_ anObject: AnyObject)
+  func removeObjectIdenticalTo(_ anObject: AnyObject, inRange range: NSRange)
+  func removeObjectIdenticalTo(_ anObject: AnyObject)
   @available(watchOS, introduced=2.0, deprecated=2.0)
-  func removeObjectsFromIndices(indices: UnsafeMutablePointer<Int>, numIndices cnt: Int)
-  func removeObjectsInArray(otherArray: [AnyObject])
-  func removeObjectsInRange(range: NSRange)
-  func replaceObjectsInRange(range: NSRange, withObjectsFromArray otherArray: [AnyObject], range otherRange: NSRange)
-  func replaceObjectsInRange(range: NSRange, withObjectsFromArray otherArray: [AnyObject])
-  func setArray(otherArray: [AnyObject])
-  func sortUsingFunction(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
-  func sortUsingSelector(comparator: Selector)
-  func insertObjects(objects: [AnyObject], atIndexes indexes: NSIndexSet)
-  func removeObjectsAtIndexes(indexes: NSIndexSet)
-  func replaceObjectsAtIndexes(indexes: NSIndexSet, withObjects objects: [AnyObject])
+  func removeObjectsFromIndices(_ indices: UnsafeMutablePointer<Int>, numIndices cnt: Int)
+  func removeObjectsInArray(_ otherArray: [AnyObject])
+  func removeObjectsInRange(_ range: NSRange)
+  func replaceObjectsInRange(_ range: NSRange, withObjectsFromArray otherArray: [AnyObject], range otherRange: NSRange)
+  func replaceObjectsInRange(_ range: NSRange, withObjectsFromArray otherArray: [AnyObject])
+  func setArray(_ otherArray: [AnyObject])
+  func sortUsingFunction(_ compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context context: UnsafeMutablePointer<Void>)
+  func sortUsingSelector(_ comparator: Selector)
+  func insertObjects(_ objects: [AnyObject], atIndexes indexes: NSIndexSet)
+  func removeObjectsAtIndexes(_ indexes: NSIndexSet)
+  func replaceObjectsAtIndexes(_ indexes: NSIndexSet, withObjects objects: [AnyObject])
   @available(watchOS 2.0, *)
-  subscript (idx: Int) -> AnyObject
+  func sortUsingComparator(_ cmptr: NSComparator)
   @available(watchOS 2.0, *)
-  func sortUsingComparator(cmptr: NSComparator)
-  @available(watchOS 2.0, *)
-  func sortWithOptions(opts: NSSortOptions, usingComparator cmptr: NSComparator)
+  func sortWithOptions(_ opts: NSSortOptions, usingComparator cmptr: NSComparator)
 }
 extension NSMutableArray {
-  convenience init?(contentsOfFile path: String)
-  convenience init?(contentsOfURL url: NSURL)
 }

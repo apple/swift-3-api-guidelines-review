@@ -2,11 +2,11 @@
 class WKInterfaceDevice : NSObject {
   class func currentDevice() -> WKInterfaceDevice
   @available(iOS 8.2, *)
-  func addCachedImage(image: UIImage, name: String) -> Bool
+  func addCachedImage(_ image: UIImage, name name: String) -> Bool
   @available(iOS 8.2, *)
-  func addCachedImageWithData(imageData: NSData, name: String) -> Bool
+  func addCachedImageWithData(_ imageData: NSData, name name: String) -> Bool
   @available(iOS 8.2, *)
-  func removeCachedImageWithName(name: String)
+  func removeCachedImageWithName(_ name: String)
   @available(iOS 8.2, *)
   func removeAllCachedImages()
   @available(iOS 8.2, *)
@@ -24,5 +24,4 @@ class WKInterfaceDevice : NSObject {
   var localizedModel: String { get }
   @available(iOS 9.0, *)
   var systemName: String { get }
-  init()
 }

@@ -1,6 +1,6 @@
 
 enum OSAScriptState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Stopped
   case Running
@@ -13,10 +13,8 @@ class OSAScriptController : NSController {
   var language: OSALanguage?
   var scriptState: OSAScriptState { get }
   var compiling: Bool { get }
-  @IBAction func compileScript(sender: AnyObject?)
-  @IBAction func recordScript(sender: AnyObject?)
-  @IBAction func runScript(sender: AnyObject?)
-  @IBAction func stopScript(sender: AnyObject?)
-  init()
-  init?(coder: NSCoder)
+  @IBAction func compileScript(_ sender: AnyObject?)
+  @IBAction func recordScript(_ sender: AnyObject?)
+  @IBAction func runScript(_ sender: AnyObject?)
+  @IBAction func stopScript(_ sender: AnyObject?)
 }

@@ -9,8 +9,4 @@ class NEPacketTunnelNetworkSettings : NETunnelNetworkSettings {
   @NSCopying var tunnelOverheadBytes: NSNumber?
   @available(iOS 9.0, *)
   @NSCopying var MTU: NSNumber?
-  @available(iOS 9.0, *)
-  init(tunnelRemoteAddress address: String)
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -6,6 +6,5 @@ class GCControllerButtonInput : GCControllerElement {
   var pressedChangedHandler: GCControllerButtonValueChangedHandler?
   var value: Float { get }
   var pressed: Bool { get }
-  init()
 }
 typealias GCControllerButtonValueChangedHandler = (GCControllerButtonInput, Float, Bool) -> Void

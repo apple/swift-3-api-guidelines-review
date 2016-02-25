@@ -1,14 +1,14 @@
 
 @available(OSX 10.9, *)
 enum CBPeripheralState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Disconnected
   case Connecting
   case Connected
 }
 enum CBCharacteristicWriteType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case WithResponse
   case WithoutResponse
@@ -22,42 +22,41 @@ class CBPeripheral : NSObject, NSCopying {
   var state: CBPeripheralState { get }
   var services: [CBService]? { get }
   func readRSSI()
-  func discoverServices(serviceUUIDs: [CBUUID]?)
-  func discoverIncludedServices(includedServiceUUIDs: [CBUUID]?, forService service: CBService)
-  func discoverCharacteristics(characteristicUUIDs: [CBUUID]?, forService service: CBService)
-  func readValueForCharacteristic(characteristic: CBCharacteristic)
-  func writeValue(data: NSData, forCharacteristic characteristic: CBCharacteristic, type: CBCharacteristicWriteType)
-  func setNotifyValue(enabled: Bool, forCharacteristic characteristic: CBCharacteristic)
-  func discoverDescriptorsForCharacteristic(characteristic: CBCharacteristic)
-  func readValueForDescriptor(descriptor: CBDescriptor)
-  func writeValue(data: NSData, forDescriptor descriptor: CBDescriptor)
-  init()
+  func discoverServices(_ serviceUUIDs: [CBUUID]?)
+  func discoverIncludedServices(_ includedServiceUUIDs: [CBUUID]?, forService service: CBService)
+  func discoverCharacteristics(_ characteristicUUIDs: [CBUUID]?, forService service: CBService)
+  func readValueForCharacteristic(_ characteristic: CBCharacteristic)
+  func writeValue(_ data: NSData, forCharacteristic characteristic: CBCharacteristic, type type: CBCharacteristicWriteType)
+  func setNotifyValue(_ enabled: Bool, forCharacteristic characteristic: CBCharacteristic)
+  func discoverDescriptorsForCharacteristic(_ characteristic: CBCharacteristic)
+  func readValueForDescriptor(_ descriptor: CBDescriptor)
+  func writeValue(_ data: NSData, forDescriptor descriptor: CBDescriptor)
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 protocol CBPeripheralDelegate : NSObjectProtocol {
   @available(OSX 10.9, *)
-  optional func peripheralDidUpdateName(peripheral: CBPeripheral)
+  optional func peripheralDidUpdateName(_ peripheral: CBPeripheral)
   @available(OSX 10.9, *)
-  optional func peripheral(peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService])
+  optional func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService])
   @available(OSX 10.7, *)
-  optional func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: NSError?)
+  optional func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverIncludedServicesForService service: CBService, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesForService service: CBService, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didDiscoverDescriptorsForCharacteristic characteristic: CBCharacteristic, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsForCharacteristic characteristic: CBCharacteristic, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didUpdateValueForDescriptor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didUpdateValueForDescriptor descriptor: CBDescriptor, error error: NSError?)
   @available(OSX 10.7, *)
-  optional func peripheral(peripheral: CBPeripheral, didWriteValueForDescriptor descriptor: CBDescriptor, error: NSError?)
+  optional func peripheral(_ peripheral: CBPeripheral, didWriteValueForDescriptor descriptor: CBDescriptor, error error: NSError?)
 }

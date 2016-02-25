@@ -8,30 +8,26 @@ class NSComboBoxCell : NSTextFieldCell {
   func reloadData()
   func noteNumberOfItemsChanged()
   var usesDataSource: Bool
-  func scrollItemAtIndexToTop(index: Int)
-  func scrollItemAtIndexToVisible(index: Int)
-  func selectItemAtIndex(index: Int)
-  func deselectItemAtIndex(index: Int)
+  func scrollItemAtIndexToTop(_ index: Int)
+  func scrollItemAtIndexToVisible(_ index: Int)
+  func selectItemAtIndex(_ index: Int)
+  func deselectItemAtIndex(_ index: Int)
   var indexOfSelectedItem: Int { get }
   var numberOfItems: Int { get }
   var completes: Bool
-  func completedString(string: String) -> String?
+  func completedString(_ string: String) -> String?
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxCellDataSource?
-  func addItemWithObjectValue(object: AnyObject)
-  func addItemsWithObjectValues(objects: [AnyObject])
-  func insertItemWithObjectValue(object: AnyObject, atIndex index: Int)
-  func removeItemWithObjectValue(object: AnyObject)
-  func removeItemAtIndex(index: Int)
+  func addItemWithObjectValue(_ object: AnyObject)
+  func addItemsWithObjectValues(_ objects: [AnyObject])
+  func insertItemWithObjectValue(_ object: AnyObject, atIndex index: Int)
+  func removeItemWithObjectValue(_ object: AnyObject)
+  func removeItemAtIndex(_ index: Int)
   func removeAllItems()
-  func selectItemWithObjectValue(object: AnyObject?)
-  func itemObjectValueAtIndex(index: Int) -> AnyObject
+  func selectItemWithObjectValue(_ object: AnyObject?)
+  func itemObjectValueAtIndex(_ index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItemWithObjectValue(object: AnyObject) -> Int
+  func indexOfItemWithObjectValue(_ object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __cbcFlags {
   var usesDataSource: UInt32
@@ -44,11 +40,11 @@ struct __cbcFlags {
   var reserved: UInt32
   var visibleItems: UInt32
   init()
-  init(usesDataSource: UInt32, completes: UInt32, buttonBordered: UInt32, popUpIsUp: UInt32, filteringEvents: UInt32, drawing: UInt32, synchronizingSelection: UInt32, reserved: UInt32, visibleItems: UInt32)
+  init(usesDataSource usesDataSource: UInt32, completes completes: UInt32, buttonBordered buttonBordered: UInt32, popUpIsUp popUpIsUp: UInt32, filteringEvents filteringEvents: UInt32, drawing drawing: UInt32, synchronizingSelection synchronizingSelection: UInt32, reserved reserved: UInt32, visibleItems visibleItems: UInt32)
 }
 protocol NSComboBoxCellDataSource : NSObjectProtocol {
-  optional func numberOfItemsInComboBoxCell(comboBoxCell: NSComboBoxCell) -> Int
-  optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, objectValueForItemAtIndex index: Int) -> AnyObject
-  optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, indexOfItemWithStringValue string: String) -> Int
-  optional func comboBoxCell(aComboBoxCell: NSComboBoxCell, completedString uncompletedString: String) -> String?
+  optional func numberOfItemsInComboBoxCell(_ comboBoxCell: NSComboBoxCell) -> Int
+  optional func comboBoxCell(_ aComboBoxCell: NSComboBoxCell, objectValueForItemAtIndex index: Int) -> AnyObject
+  optional func comboBoxCell(_ aComboBoxCell: NSComboBoxCell, indexOfItemWithStringValue string: String) -> Int
+  optional func comboBoxCell(_ aComboBoxCell: NSComboBoxCell, completedString uncompletedString: String) -> String?
 }

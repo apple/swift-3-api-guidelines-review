@@ -1,7 +1,7 @@
 
 @available(iOS 5.0, *)
 enum GLKTextureTarget : GLenum {
-  init?(rawValue: GLenum)
+  init?(rawValue rawValue: GLenum)
   var rawValue: GLenum { get }
   case Target2D
   case TargetCubeMap
@@ -9,7 +9,7 @@ enum GLKTextureTarget : GLenum {
 }
 @available(iOS 5.0, *)
 enum GLKTextureEnvMode : GLint {
-  init?(rawValue: GLint)
+  init?(rawValue rawValue: GLint)
   var rawValue: GLint { get }
   case Replace
   case Modulate
@@ -21,5 +21,4 @@ class GLKEffectPropertyTexture : GLKEffectProperty {
   var name: GLuint
   var target: GLKTextureTarget
   var envMode: GLKTextureEnvMode
-  init()
 }

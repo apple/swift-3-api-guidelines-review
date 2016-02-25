@@ -1,14 +1,12 @@
 
 @available(OSX 10.9, *)
 class MKCircle : MKShape, MKOverlay {
-  convenience init(centerCoordinate coord: CLLocationCoordinate2D, radius: CLLocationDistance)
-  convenience init(mapRect: MKMapRect)
-  var coordinate: CLLocationCoordinate2D { get }
+  convenience init(centerCoordinate coord: CLLocationCoordinate2D, radius radius: CLLocationDistance)
+  convenience init(mapRect mapRect: MKMapRect)
   var radius: CLLocationDistance { get }
   var boundingMapRect: MKMapRect { get }
-  init()
   @available(OSX 10.9, *)
-  func intersectsMapRect(mapRect: MKMapRect) -> Bool
+  func intersectsMapRect(_ mapRect: MKMapRect) -> Bool
   @available(OSX 10.9, *)
   func canReplaceMapContent() -> Bool
 }

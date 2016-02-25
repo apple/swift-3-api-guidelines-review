@@ -1,6 +1,5 @@
 
 class NSSpeechRecognizer : NSObject {
-  init?()
   func startListening()
   func stopListening()
   unowned(unsafe) var delegate: @sil_unmanaged NSSpeechRecognizerDelegate?
@@ -10,5 +9,5 @@ class NSSpeechRecognizer : NSObject {
   var blocksOtherRecognizers: Bool
 }
 protocol NSSpeechRecognizerDelegate : NSObjectProtocol {
-  optional func speechRecognizer(sender: NSSpeechRecognizer, didRecognizeCommand command: String)
+  optional func speechRecognizer(_ sender: NSSpeechRecognizer, didRecognizeCommand command: String)
 }

@@ -6,15 +6,12 @@ class NCWidgetSearchViewController : NSViewController {
   var searchDescription: String!
   var searchResultsPlaceholderString: String!
   var searchResultKeyPath: String!
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
-  convenience init()
 }
 protocol NCWidgetSearchViewDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  func widgetSearch(controller: NCWidgetSearchViewController!, searchForTerm searchTerm: String!, maxResults max: Int)
+  func widgetSearch(_ controller: NCWidgetSearchViewController!, searchForTerm searchTerm: String!, maxResults max: Int)
   @available(OSX 10.10, *)
-  func widgetSearchTermCleared(controller: NCWidgetSearchViewController!)
+  func widgetSearchTermCleared(_ controller: NCWidgetSearchViewController!)
   @available(OSX 10.10, *)
-  func widgetSearch(controller: NCWidgetSearchViewController!, resultSelected object: AnyObject!)
+  func widgetSearch(_ controller: NCWidgetSearchViewController!, resultSelected object: AnyObject!)
 }

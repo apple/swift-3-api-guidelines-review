@@ -1,12 +1,12 @@
 
 protocol NSCopying {
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 protocol NSMutableCopying {
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
 }
 protocol NSCoding {
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 protocol NSSecureCoding : NSCoding {
@@ -14,12 +14,12 @@ protocol NSSecureCoding : NSCoding {
 }
 extension NSObject {
   class func version() -> Int
-  class func setVersion(aVersion: Int)
+  class func setVersion(_ aVersion: Int)
   var classForCoder: AnyClass { get }
-  class func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject?
-  func replacementObjectForCoder(aCoder: NSCoder) -> AnyObject?
-  class func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject?
-  func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject?
+  class func replacementObjectForCoder(_ aCoder: NSCoder) -> AnyObject?
+  func replacementObjectForCoder(_ aCoder: NSCoder) -> AnyObject?
+  class func awakeAfterUsingCoder(_ aDecoder: NSCoder) -> AnyObject?
+  func awakeAfterUsingCoder(_ aDecoder: NSCoder) -> AnyObject?
   class func classForCoder() -> AnyClass
 }
 protocol NSDiscardableContent {
@@ -33,4 +33,4 @@ extension NSObject {
   var autoContentAccessingProxy: AnyObject { get }
   class func autoContentAccessingProxy() -> AnyObject
 }
-func CFBridgingRetain(X: AnyObject?) -> CFTypeRef?
+func CFBridgingRetain(_ X: AnyObject?) -> CFTypeRef?

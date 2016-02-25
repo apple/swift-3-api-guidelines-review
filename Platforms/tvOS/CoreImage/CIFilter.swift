@@ -140,40 +140,39 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   var outputKeys: [String] { get }
   func setDefaults()
   var attributes: [String : AnyObject] { get }
-  init()
   @available(tvOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension CIFilter {
   @available(iOS 8.0, OSX 10.10, *)
-  convenience init?(name: String!, elements: (String, AnyObject)...)
+  convenience init?(name name: String!, elements elements: (String, AnyObject)...)
 }
 extension CIFilter {
-  /*not inherited*/ init?(name: String)
+  /*not inherited*/ init?(name name: String)
   @available(tvOS 8.0, *)
-  /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
-  class func filterNamesInCategory(category: String?) -> [String]
-  class func filterNamesInCategories(categories: [String]?) -> [String]
+  /*not inherited*/ init?(name name: String, withInputParameters params: [String : AnyObject]?)
+  class func filterNamesInCategory(_ category: String?) -> [String]
+  class func filterNamesInCategories(_ categories: [String]?) -> [String]
   @available(tvOS 9.0, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
+  class func registerFilterName(_ name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
   @available(tvOS 9.0, *)
-  class func localizedNameForFilterName(filterName: String) -> String?
+  class func localizedNameForFilterName(_ filterName: String) -> String?
   @available(tvOS 9.0, *)
-  class func localizedNameForCategory(category: String) -> String
+  class func localizedNameForCategory(_ category: String) -> String
   @available(tvOS 9.0, *)
-  class func localizedDescriptionForFilterName(filterName: String) -> String?
+  class func localizedDescriptionForFilterName(_ filterName: String) -> String?
   @available(tvOS 9.0, *)
-  class func localizedReferenceDocumentationForFilterName(filterName: String) -> NSURL?
+  class func localizedReferenceDocumentationForFilterName(_ filterName: String) -> NSURL?
 }
 extension CIFilter {
   @available(tvOS 6.0, *)
-  class func serializedXMPFromFilters(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
+  class func serializedXMPFromFilters(_ filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
   @available(tvOS 6.0, *)
-  class func filterArrayFromSerializedXMP(xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
+  class func filterArrayFromSerializedXMP(_ xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
 }

@@ -1,9 +1,9 @@
 
 @available(watchOS 2.0, *)
 class UIColor : NSObject, NSSecureCoding, NSCopying {
-  init(white: CGFloat, alpha: CGFloat)
-  init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)
-  init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+  init(white white: CGFloat, alpha alpha: CGFloat)
+  init(hue hue: CGFloat, saturation saturation: CGFloat, brightness brightness: CGFloat, alpha alpha: CGFloat)
+  init(red red: CGFloat, green green: CGFloat, blue blue: CGFloat, alpha alpha: CGFloat)
   init(CGColor cgColor: CGColor)
   init(patternImage image: UIImage)
   class func blackColor() -> UIColor
@@ -25,23 +25,21 @@ class UIColor : NSObject, NSSecureCoding, NSCopying {
   func setFill()
   func setStroke()
   @available(watchOS 2.0, *)
-  func getWhite(white: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>) -> Bool
+  func getWhite(_ white: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>) -> Bool
   @available(watchOS 2.0, *)
-  func getHue(hue: UnsafeMutablePointer<CGFloat>, saturation: UnsafeMutablePointer<CGFloat>, brightness: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>) -> Bool
+  func getHue(_ hue: UnsafeMutablePointer<CGFloat>, saturation saturation: UnsafeMutablePointer<CGFloat>, brightness brightness: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>) -> Bool
   @available(watchOS 2.0, *)
-  func getRed(red: UnsafeMutablePointer<CGFloat>, green: UnsafeMutablePointer<CGFloat>, blue: UnsafeMutablePointer<CGFloat>, alpha: UnsafeMutablePointer<CGFloat>) -> Bool
-  func colorWithAlphaComponent(alpha: CGFloat) -> UIColor
+  func getRed(_ red: UnsafeMutablePointer<CGFloat>, green green: UnsafeMutablePointer<CGFloat>, blue blue: UnsafeMutablePointer<CGFloat>, alpha alpha: UnsafeMutablePointer<CGFloat>) -> Bool
+  func colorWithAlphaComponent(_ alpha: CGFloat) -> UIColor
   var CGColor: CGColor { get }
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension UIColor : _ColorLiteralConvertible {
-  required convenience init(colorLiteralRed red: Float, green: Float, blue: Float, alpha: Float)
 }

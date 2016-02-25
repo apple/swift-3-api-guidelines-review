@@ -56,11 +56,11 @@ var kNetFSMountAtMountDirKey: String { get }
 var kNetFSMountedURLKey: String { get }
 typealias AsyncRequestID = UnsafeMutablePointer<Void>
 @available(OSX 10.8, *)
-func NetFSMountURLSync(url: CFURL!, _ mountpath: CFURL!, _ user: CFString!, _ passwd: CFString!, _ open_options: CFMutableDictionary!, _ mount_options: CFMutableDictionary!, _ mountpoints: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Int32
+func NetFSMountURLSync(_ url: CFURL!, _ mountpath: CFURL!, _ user: CFString!, _ passwd: CFString!, _ open_options: CFMutableDictionary!, _ mount_options: CFMutableDictionary!, _ mountpoints: UnsafeMutablePointer<Unmanaged<CFArray>?>) -> Int32
 typealias NetFSMountURLBlock = (Int32, AsyncRequestID, CFArray!) -> Void
 @available(OSX 10.8, *)
-func NetFSMountURLAsync(url: CFURL!, _ mountpath: CFURL!, _ user: CFString!, _ passwd: CFString!, _ open_options: CFMutableDictionary!, _ mount_options: CFMutableDictionary!, _ requestID: UnsafeMutablePointer<AsyncRequestID>, _ dispatchq: dispatch_queue_t!, _ mount_report: NetFSMountURLBlock!) -> Int32
+func NetFSMountURLAsync(_ url: CFURL!, _ mountpath: CFURL!, _ user: CFString!, _ passwd: CFString!, _ open_options: CFMutableDictionary!, _ mount_options: CFMutableDictionary!, _ requestID: UnsafeMutablePointer<AsyncRequestID>, _ dispatchq: dispatch_queue_t!, _ mount_report: NetFSMountURLBlock!) -> Int32
 @available(OSX 10.8, *)
-func NetFSMountURLCancel(requestID: AsyncRequestID) -> Int32
-func NetFSMountURLProbe(hostname: CFString!) -> Unmanaged<CFString>!
-func NetFSCopyURLForRemountingVolume(localPathURL: CFURL!) -> Unmanaged<CFURL>!
+func NetFSMountURLCancel(_ requestID: AsyncRequestID) -> Int32
+func NetFSMountURLProbe(_ hostname: CFString!) -> Unmanaged<CFString>!
+func NetFSCopyURLForRemountingVolume(_ localPathURL: CFURL!) -> Unmanaged<CFURL>!

@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum MTLTextureType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Type1D
   case Type1DArray
@@ -13,7 +13,7 @@ enum MTLTextureType : UInt {
 }
 @available(iOS 9.0, *)
 struct MTLTextureUsage : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Unknown: MTLTextureUsage { get }
   static var ShaderRead: MTLTextureUsage { get }
@@ -23,8 +23,8 @@ struct MTLTextureUsage : OptionSetType {
 }
 @available(iOS 8.0, *)
 class MTLTextureDescriptor : NSObject, NSCopying {
-  class func texture2DDescriptorWithPixelFormat(pixelFormat: MTLPixelFormat, width: Int, height: Int, mipmapped: Bool) -> MTLTextureDescriptor
-  class func textureCubeDescriptorWithPixelFormat(pixelFormat: MTLPixelFormat, size: Int, mipmapped: Bool) -> MTLTextureDescriptor
+  class func texture2DDescriptorWithPixelFormat(_ pixelFormat: MTLPixelFormat, width width: Int, height height: Int, mipmapped mipmapped: Bool) -> MTLTextureDescriptor
+  class func textureCubeDescriptorWithPixelFormat(_ pixelFormat: MTLPixelFormat, size size: Int, mipmapped mipmapped: Bool) -> MTLTextureDescriptor
   var textureType: MTLTextureType
   var pixelFormat: MTLPixelFormat
   var width: Int
@@ -40,9 +40,8 @@ class MTLTextureDescriptor : NSObject, NSCopying {
   var storageMode: MTLStorageMode
   @available(iOS 9.0, *)
   var usage: MTLTextureUsage
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 protocol MTLTexture : MTLResource {
@@ -69,10 +68,10 @@ protocol MTLTexture : MTLResource {
   var arrayLength: Int { get }
   var usage: MTLTextureUsage { get }
   var framebufferOnly: Bool { get }
-  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, bytesPerImage: Int, fromRegion region: MTLRegion, mipmapLevel level: Int, slice: Int)
-  func replaceRegion(region: MTLRegion, mipmapLevel level: Int, slice: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int, bytesPerImage: Int)
-  func getBytes(pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow: Int, fromRegion region: MTLRegion, mipmapLevel level: Int)
-  func replaceRegion(region: MTLRegion, mipmapLevel level: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow: Int)
-  func newTextureViewWithPixelFormat(pixelFormat: MTLPixelFormat) -> MTLTexture
-  func newTextureViewWithPixelFormat(pixelFormat: MTLPixelFormat, textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
+  func getBytes(_ pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow bytesPerRow: Int, bytesPerImage bytesPerImage: Int, fromRegion region: MTLRegion, mipmapLevel level: Int, slice slice: Int)
+  func replaceRegion(_ region: MTLRegion, mipmapLevel level: Int, slice slice: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow bytesPerRow: Int, bytesPerImage bytesPerImage: Int)
+  func getBytes(_ pixelBytes: UnsafeMutablePointer<Void>, bytesPerRow bytesPerRow: Int, fromRegion region: MTLRegion, mipmapLevel level: Int)
+  func replaceRegion(_ region: MTLRegion, mipmapLevel level: Int, withBytes pixelBytes: UnsafePointer<Void>, bytesPerRow bytesPerRow: Int)
+  func newTextureViewWithPixelFormat(_ pixelFormat: MTLPixelFormat) -> MTLTexture
+  func newTextureViewWithPixelFormat(_ pixelFormat: MTLPixelFormat, textureType textureType: MTLTextureType, levels levelRange: NSRange, slices sliceRange: NSRange) -> MTLTexture
 }

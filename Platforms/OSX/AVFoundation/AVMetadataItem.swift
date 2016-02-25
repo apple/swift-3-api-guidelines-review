@@ -13,11 +13,10 @@ class AVMetadataItem : NSObject, AVAsynchronousKeyValueLoading, NSCopying, NSMut
   var dataType: String? { get }
   @NSCopying var value: protocol<NSCopying, NSObjectProtocol>? { get }
   var extraAttributes: [String : AnyObject]? { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.7, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension AVMetadataItem {
   @available(OSX 10.11, *)
@@ -31,52 +30,35 @@ extension AVMetadataItem {
 }
 extension AVMetadataItem {
   @available(OSX 10.7, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(_ key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(_ keys: [String], completionHandler handler: (() -> Void)?)
 }
 extension AVMetadataItem {
   @available(OSX 10.8, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMetadataItem]
+  class func metadataItemsFromArray(_ metadataItems: [AVMetadataItem], filteredAndSortedAccordingToPreferredLanguages preferredLanguages: [String]) -> [AVMetadataItem]
   @available(OSX 10.10, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredByIdentifier identifier: String) -> [AVMetadataItem]
+  class func metadataItemsFromArray(_ metadataItems: [AVMetadataItem], filteredByIdentifier identifier: String) -> [AVMetadataItem]
   @available(OSX 10.9, *)
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], filteredByMetadataItemFilter metadataItemFilter: AVMetadataItemFilter) -> [AVMetadataItem]
+  class func metadataItemsFromArray(_ metadataItems: [AVMetadataItem], filteredByMetadataItemFilter metadataItemFilter: AVMetadataItemFilter) -> [AVMetadataItem]
 }
 extension AVMetadataItem {
   @available(OSX 10.10, *)
-  class func identifierForKey(key: AnyObject, keySpace: String) -> String?
+  class func identifierForKey(_ key: AnyObject, keySpace keySpace: String) -> String?
   @available(OSX 10.10, *)
-  class func keySpaceForIdentifier(identifier: String) -> String?
+  class func keySpaceForIdentifier(_ identifier: String) -> String?
   @available(OSX 10.10, *)
-  class func keyForIdentifier(identifier: String) -> AnyObject?
+  class func keyForIdentifier(_ identifier: String) -> AnyObject?
   @NSCopying var key: protocol<NSCopying, NSObjectProtocol>? { get }
   var commonKey: String? { get }
   var keySpace: String? { get }
 }
 @available(OSX 10.7, *)
 class AVMutableMetadataItem : AVMetadataItem {
-  @available(OSX 10.10, *)
-  var identifier: String?
-  @available(OSX 10.10, *)
-  var extendedLanguageTag: String?
-  @NSCopying var locale: NSLocale?
-  var time: CMTime
-  @available(OSX 10.7, *)
-  var duration: CMTime
-  @available(OSX 10.10, *)
-  var dataType: String?
-  @NSCopying var value: protocol<NSCopying, NSObjectProtocol>?
-  var extraAttributes: [String : AnyObject]?
-  init()
 }
 extension AVMutableMetadataItem {
-  @available(OSX 10.11, *)
-  @NSCopying var startDate: NSDate?
 }
 extension AVMutableMetadataItem {
-  var keySpace: String?
-  @NSCopying var key: protocol<NSCopying, NSObjectProtocol>?
 }
 extension AVMetadataItem {
   @available(OSX 10.11, *)
@@ -85,16 +67,14 @@ extension AVMetadataItem {
 @available(OSX 10.11, *)
 class AVMetadataItemValueRequest : NSObject {
   weak var metadataItem: @sil_weak AVMetadataItem? { get }
-  func respondWithValue(value: protocol<NSCopying, NSObjectProtocol>)
-  func respondWithError(error: NSError)
-  init()
+  func respondWithValue(_ value: protocol<NSCopying, NSObjectProtocol>)
+  func respondWithError(_ error: NSError)
 }
 @available(OSX 10.9, *)
 class AVMetadataItemFilter : NSObject {
   class func metadataItemFilterForSharing() -> AVMetadataItemFilter
-  init()
 }
 extension AVMetadataItem {
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], withLocale locale: NSLocale) -> [AVMetadataItem]
-  class func metadataItemsFromArray(metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace: String?) -> [AVMetadataItem]
+  class func metadataItemsFromArray(_ metadataItems: [AVMetadataItem], withLocale locale: NSLocale) -> [AVMetadataItem]
+  class func metadataItemsFromArray(_ metadataItems: [AVMetadataItem], withKey key: AnyObject?, keySpace keySpace: String?) -> [AVMetadataItem]
 }

@@ -1,135 +1,132 @@
 
 @available(iOS 2.0, *)
 class UITableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
-  init(style: UITableViewStyle)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
+  init(style style: UITableViewStyle)
   var tableView: UITableView!
   @available(iOS 3.2, *)
   var clearsSelectionOnViewWillAppear: Bool
   @available(iOS 6.0, *)
   var refreshControl: UIRefreshControl?
-  convenience init()
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
+  func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
+  func tableView(_ tableView: UITableView, didEndDisplayingHeaderView view: UIView, forSection section: Int)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
+  func tableView(_ tableView: UITableView, didEndDisplayingFooterView view: UIView, forSection section: Int)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
-  func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
   @available(iOS 7.0, *)
-  func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
+  func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat
   @available(iOS 7.0, *)
-  func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
+  func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 6.0, *)
-  func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(_ tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
+  func tableView(_ tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
+  func tableView(_ tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle
   @available(iOS 3.0, *)
-  func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String?
+  func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String?
   @available(iOS 8.0, *)
-  func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
+  func tableView(_ tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
+  func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAtIndexPath sourceIndexPath: NSIndexPath, toProposedIndexPath proposedDestinationIndexPath: NSIndexPath) -> NSIndexPath
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int
+  func tableView(_ tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
+  func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
-  func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
+  func tableView(_ tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?)
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, canFocusRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, shouldUpdateFocusInContext context: UITableViewFocusUpdateContext) -> Bool
+  func tableView(_ tableView: UITableView, shouldUpdateFocusInContext context: UITableViewFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func tableView(_ tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
   @available(iOS 9.0, *)
-  func indexPathForPreferredFocusedViewInTableView(tableView: UITableView) -> NSIndexPath?
+  func indexPathForPreferredFocusedViewInTableView(_ tableView: UITableView) -> NSIndexPath?
   @available(iOS 2.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollToTop(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+  func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   @available(iOS 2.0, *)
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int
+  func numberOfSectionsInTableView(_ tableView: UITableView) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
+  func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
+  func tableView(_ tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool
   @available(iOS 2.0, *)
-  func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
+  func sectionIndexTitlesForTableView(_ tableView: UITableView) -> [String]?
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
+  func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
   @available(iOS 2.0, *)
-  func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
+  func tableView(_ tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath)
 }

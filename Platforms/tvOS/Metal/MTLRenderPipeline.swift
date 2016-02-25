@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum MTLBlendFactor : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Zero
   case One
@@ -21,7 +21,7 @@ enum MTLBlendFactor : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLBlendOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Add
   case Subtract
@@ -31,7 +31,7 @@ enum MTLBlendOperation : UInt {
 }
 @available(tvOS 8.0, *)
 struct MTLColorWriteMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: MTLColorWriteMask { get }
   static var Red: MTLColorWriteMask { get }
@@ -51,15 +51,13 @@ class MTLRenderPipelineColorAttachmentDescriptor : NSObject, NSCopying {
   var destinationAlphaBlendFactor: MTLBlendFactor
   var alphaBlendOperation: MTLBlendOperation
   var writeMask: MTLColorWriteMask
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class MTLRenderPipelineReflection : NSObject {
   var vertexArguments: [MTLArgument]? { get }
   var fragmentArguments: [MTLArgument]? { get }
-  init()
 }
 @available(tvOS 8.0, *)
 class MTLRenderPipelineDescriptor : NSObject, NSCopying {
@@ -75,9 +73,8 @@ class MTLRenderPipelineDescriptor : NSObject, NSCopying {
   var depthAttachmentPixelFormat: MTLPixelFormat
   var stencilAttachmentPixelFormat: MTLPixelFormat
   func reset()
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLRenderPipelineState : NSObjectProtocol {
@@ -86,6 +83,5 @@ protocol MTLRenderPipelineState : NSObjectProtocol {
 }
 @available(tvOS 8.0, *)
 class MTLRenderPipelineColorAttachmentDescriptorArray : NSObject {
-  subscript (attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
-  init()
+  subscript(_ attachmentIndex: Int) -> MTLRenderPipelineColorAttachmentDescriptor!
 }

@@ -1,6 +1,6 @@
 
 struct NSSnapshotEventType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var UndoInsertion: NSSnapshotEventType { get }
   static var UndoDeletion: NSSnapshotEventType { get }
@@ -13,7 +13,7 @@ struct NSSnapshotEventType : OptionSetType {
 class NSManagedObject : NSObject {
   @available(iOS 3.0, *)
   class func contextShouldIgnoreUnmodeledPropertyChanges() -> Bool
-  init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?)
+  init(entity entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?)
   unowned(unsafe) var managedObjectContext: @sil_unmanaged NSManagedObjectContext? { get }
   var entity: NSEntityDescription { get }
   var objectID: NSManagedObjectID { get }
@@ -26,21 +26,17 @@ class NSManagedObject : NSObject {
   var hasPersistentChangedValues: Bool { get }
   var fault: Bool { get }
   @available(iOS 3.0, *)
-  func hasFaultForRelationshipNamed(key: String) -> Bool
+  func hasFaultForRelationshipNamed(_ key: String) -> Bool
   @available(iOS 8.3, *)
-  func objectIDsForRelationshipNamed(key: String) -> [NSManagedObjectID]
+  func objectIDsForRelationshipNamed(_ key: String) -> [NSManagedObjectID]
   @available(iOS 3.0, *)
   var faultingState: Int { get }
-  func willAccessValueForKey(key: String?)
-  func didAccessValueForKey(key: String?)
-  func willChangeValueForKey(key: String)
-  func didChangeValueForKey(key: String)
-  func willChangeValueForKey(inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, usingObjects inObjects: Set<NSObject>)
-  func didChangeValueForKey(inKey: String, withSetMutation inMutationKind: NSKeyValueSetMutationKind, usingObjects inObjects: Set<NSObject>)
+  func willAccessValueForKey(_ key: String?)
+  func didAccessValueForKey(_ key: String?)
   func awakeFromFetch()
   func awakeFromInsert()
   @available(iOS 3.0, *)
-  func awakeFromSnapshotEvents(flags: NSSnapshotEventType)
+  func awakeFromSnapshotEvents(_ flags: NSSnapshotEventType)
   @available(iOS 3.0, *)
   func prepareForDeletion()
   func willSave()
@@ -48,17 +44,13 @@ class NSManagedObject : NSObject {
   @available(iOS 3.0, *)
   func willTurnIntoFault()
   func didTurnIntoFault()
-  func valueForKey(key: String) -> AnyObject?
-  func setValue(value: AnyObject?, forKey key: String)
-  func primitiveValueForKey(key: String) -> AnyObject?
-  func setPrimitiveValue(value: AnyObject?, forKey key: String)
-  func committedValuesForKeys(keys: [String]?) -> [String : AnyObject]
+  func primitiveValueForKey(_ key: String) -> AnyObject?
+  func setPrimitiveValue(_ value: AnyObject?, forKey key: String)
+  func committedValuesForKeys(_ keys: [String]?) -> [String : AnyObject]
   func changedValues() -> [String : AnyObject]
   @available(iOS 5.0, *)
   func changedValuesForCurrentEvent() -> [String : AnyObject]
-  func validateValue(value: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey key: String) throws
   func validateForDelete() throws
   func validateForInsert() throws
   func validateForUpdate() throws
-  convenience init()
 }

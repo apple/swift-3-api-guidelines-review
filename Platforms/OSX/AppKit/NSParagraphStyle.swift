@@ -4,21 +4,20 @@ let NSTabColumnTerminatorsAttributeName: String
 @available(OSX 10.0, *)
 class NSTextTab : NSObject, NSCopying, NSCoding {
   @available(OSX 10.11, *)
-  class func columnTerminatorsForLocale(aLocale: NSLocale?) -> NSCharacterSet
-  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options: [String : AnyObject])
+  class func columnTerminatorsForLocale(_ aLocale: NSLocale?) -> NSCharacterSet
+  init(textAlignment alignment: NSTextAlignment, location loc: CGFloat, options options: [String : AnyObject])
   var alignment: NSTextAlignment { get }
   var location: CGFloat { get }
   var options: [String : AnyObject] { get }
-  convenience init()
   @available(OSX 10.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.0, *)
 enum NSLineBreakMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ByWordWrapping
   case ByCharWrapping
@@ -30,7 +29,7 @@ enum NSLineBreakMode : UInt {
 @available(OSX 10.0, *)
 class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   class func defaultParagraphStyle() -> NSParagraphStyle
-  class func defaultWritingDirectionForLanguage(languageName: String?) -> NSWritingDirection
+  class func defaultWritingDirectionForLanguage(_ languageName: String?) -> NSWritingDirection
   var lineSpacing: CGFloat { get }
   var paragraphSpacing: CGFloat { get }
   var alignment: NSTextAlignment { get }
@@ -54,53 +53,27 @@ class NSParagraphStyle : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   var textBlocks: [NSTextBlock] { get }
   var textLists: [NSTextList] { get }
   var headerLevel: Int { get }
-  init()
   @available(OSX 10.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.0, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.0, *)
 class NSMutableParagraphStyle : NSParagraphStyle {
-  var lineSpacing: CGFloat
-  var paragraphSpacing: CGFloat
-  var alignment: NSTextAlignment
-  var firstLineHeadIndent: CGFloat
-  var headIndent: CGFloat
-  var tailIndent: CGFloat
-  var lineBreakMode: NSLineBreakMode
-  var minimumLineHeight: CGFloat
-  var maximumLineHeight: CGFloat
-  var baseWritingDirection: NSWritingDirection
-  var lineHeightMultiple: CGFloat
-  var paragraphSpacingBefore: CGFloat
-  var hyphenationFactor: Float
   @available(OSX 10.0, *)
-  var tabStops: [NSTextTab]!
+  func addTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
-  var defaultTabInterval: CGFloat
-  @available(OSX 10.11, *)
-  var allowsDefaultTighteningForTruncation: Bool
+  func removeTabStop(_ anObject: NSTextTab)
   @available(OSX 10.0, *)
-  func addTabStop(anObject: NSTextTab)
-  @available(OSX 10.0, *)
-  func removeTabStop(anObject: NSTextTab)
-  @available(OSX 10.0, *)
-  func setParagraphStyle(obj: NSParagraphStyle)
-  var tighteningFactorForTruncation: Float
-  var textBlocks: [NSTextBlock]
-  var textLists: [NSTextList]
-  var headerLevel: Int
-  init()
-  init?(coder aDecoder: NSCoder)
+  func setParagraphStyle(_ obj: NSParagraphStyle)
 }
 enum NSTextTabType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case LeftTabStopType
   case RightTabStopType
@@ -108,6 +81,6 @@ enum NSTextTabType : UInt {
   case DecimalTabStopType
 }
 extension NSTextTab {
-  convenience init(type: NSTextTabType, location loc: CGFloat)
+  convenience init(type type: NSTextTabType, location loc: CGFloat)
   var tabStopType: NSTextTabType { get }
 }

@@ -51,7 +51,7 @@ struct _cl_image_format {
   var image_channel_order: cl_channel_order
   var image_channel_data_type: cl_channel_type
   init()
-  init(image_channel_order: cl_channel_order, image_channel_data_type: cl_channel_type)
+  init(image_channel_order image_channel_order: cl_channel_order, image_channel_data_type image_channel_data_type: cl_channel_type)
 }
 typealias cl_image_format = _cl_image_format
 struct _cl_image_desc {
@@ -66,14 +66,14 @@ struct _cl_image_desc {
   var num_samples: cl_uint
   var buffer: cl_mem
   init()
-  init(image_type: cl_mem_object_type, image_width: Int, image_height: Int, image_depth: Int, image_array_size: Int, image_row_pitch: Int, image_slice_pitch: Int, num_mip_levels: cl_uint, num_samples: cl_uint, buffer: cl_mem)
+  init(image_type image_type: cl_mem_object_type, image_width image_width: Int, image_height image_height: Int, image_depth image_depth: Int, image_array_size image_array_size: Int, image_row_pitch image_row_pitch: Int, image_slice_pitch image_slice_pitch: Int, num_mip_levels num_mip_levels: cl_uint, num_samples num_samples: cl_uint, buffer buffer: cl_mem)
 }
 typealias cl_image_desc = _cl_image_desc
 struct _cl_buffer_region {
   var origin: Int
   var size: Int
   init()
-  init(origin: Int, size: Int)
+  init(origin origin: Int, size size: Int)
 }
 typealias cl_buffer_region = _cl_buffer_region
 var CL_SUCCESS: Int32 { get }
@@ -438,164 +438,164 @@ var CL_PROFILING_COMMAND_SUBMIT: Int32 { get }
 var CL_PROFILING_COMMAND_START: Int32 { get }
 var CL_PROFILING_COMMAND_END: Int32 { get }
 @available(OSX 10.6, *)
-func clGetPlatformIDs(_: cl_uint, _: UnsafeMutablePointer<cl_platform_id>, _: UnsafeMutablePointer<cl_uint>) -> cl_int
+func clGetPlatformIDs(_ _: cl_uint, _ _: UnsafeMutablePointer<cl_platform_id>, _ _: UnsafeMutablePointer<cl_uint>) -> cl_int
 @available(OSX 10.6, *)
-func clGetPlatformInfo(_: cl_platform_id, _: cl_platform_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetPlatformInfo(_ _: cl_platform_id, _ _: cl_platform_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clGetDeviceIDs(_: cl_platform_id, _: cl_device_type, _: cl_uint, _: UnsafeMutablePointer<cl_device_id>, _: UnsafeMutablePointer<cl_uint>) -> cl_int
+func clGetDeviceIDs(_ _: cl_platform_id, _ _: cl_device_type, _ _: cl_uint, _ _: UnsafeMutablePointer<cl_device_id>, _ _: UnsafeMutablePointer<cl_uint>) -> cl_int
 @available(OSX 10.6, *)
-func clGetDeviceInfo(_: cl_device_id, _: cl_device_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetDeviceInfo(_ _: cl_device_id, _ _: cl_device_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.8, *)
-func clCreateSubDevices(_: cl_device_id, _: UnsafePointer<cl_device_partition_property>, _: cl_uint, _: UnsafeMutablePointer<cl_device_id>, _: UnsafeMutablePointer<cl_uint>) -> cl_int
+func clCreateSubDevices(_ _: cl_device_id, _ _: UnsafePointer<cl_device_partition_property>, _ _: cl_uint, _ _: UnsafeMutablePointer<cl_device_id>, _ _: UnsafeMutablePointer<cl_uint>) -> cl_int
 @available(OSX 10.8, *)
-func clRetainDevice(_: cl_device_id) -> cl_int
+func clRetainDevice(_ _: cl_device_id) -> cl_int
 @available(OSX 10.8, *)
-func clReleaseDevice(_: cl_device_id) -> cl_int
+func clReleaseDevice(_ _: cl_device_id) -> cl_int
 @available(OSX 10.6, *)
-func clCreateContext(_: UnsafePointer<cl_context_properties>, _: cl_uint, _: UnsafePointer<cl_device_id>, _: (@convention(c) (UnsafePointer<Int8>, UnsafePointer<Void>, Int, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_context
+func clCreateContext(_ _: UnsafePointer<cl_context_properties>, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: (@convention(c) (UnsafePointer<Int8>, UnsafePointer<Void>, Int, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_context
 @available(OSX 10.6, *)
-func clCreateContextFromType(_: UnsafePointer<cl_context_properties>, _: cl_device_type, _: (@convention(c) (UnsafePointer<Int8>, UnsafePointer<Void>, Int, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_context
+func clCreateContextFromType(_ _: UnsafePointer<cl_context_properties>, _ _: cl_device_type, _ _: (@convention(c) (UnsafePointer<Int8>, UnsafePointer<Void>, Int, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_context
 @available(OSX 10.6, *)
-func clRetainContext(_: cl_context) -> cl_int
+func clRetainContext(_ _: cl_context) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseContext(_: cl_context) -> cl_int
+func clReleaseContext(_ _: cl_context) -> cl_int
 @available(OSX 10.6, *)
-func clGetContextInfo(_: cl_context, _: cl_context_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetContextInfo(_ _: cl_context, _ _: cl_context_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clCreateCommandQueue(_: cl_context, _: cl_device_id, _: cl_command_queue_properties, _: UnsafeMutablePointer<cl_int>) -> cl_command_queue
+func clCreateCommandQueue(_ _: cl_context, _ _: cl_device_id, _ _: cl_command_queue_properties, _ _: UnsafeMutablePointer<cl_int>) -> cl_command_queue
 @available(OSX 10.6, *)
-func clRetainCommandQueue(_: cl_command_queue) -> cl_int
+func clRetainCommandQueue(_ _: cl_command_queue) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseCommandQueue(_: cl_command_queue) -> cl_int
+func clReleaseCommandQueue(_ _: cl_command_queue) -> cl_int
 @available(OSX 10.6, *)
-func clGetCommandQueueInfo(_: cl_command_queue, _: cl_command_queue_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetCommandQueueInfo(_ _: cl_command_queue, _ _: cl_command_queue_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clCreateBuffer(_: cl_context, _: cl_mem_flags, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_mem
+func clCreateBuffer(_ _: cl_context, _ _: cl_mem_flags, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_mem
 @available(OSX 10.7, *)
-func clCreateSubBuffer(_: cl_mem, _: cl_mem_flags, _: cl_buffer_create_type, _: UnsafePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_mem
+func clCreateSubBuffer(_ _: cl_mem, _ _: cl_mem_flags, _ _: cl_buffer_create_type, _ _: UnsafePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_mem
 @available(OSX 10.8, *)
-func clCreateImage(_: cl_context, _: cl_mem_flags, _: UnsafePointer<cl_image_format>, _: UnsafePointer<cl_image_desc>, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_mem
+func clCreateImage(_ _: cl_context, _ _: cl_mem_flags, _ _: UnsafePointer<cl_image_format>, _ _: UnsafePointer<cl_image_desc>, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_mem
 @available(OSX 10.6, *)
-func clRetainMemObject(_: cl_mem) -> cl_int
+func clRetainMemObject(_ _: cl_mem) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseMemObject(_: cl_mem) -> cl_int
+func clReleaseMemObject(_ _: cl_mem) -> cl_int
 @available(OSX 10.6, *)
-func clGetSupportedImageFormats(_: cl_context, _: cl_mem_flags, _: cl_mem_object_type, _: cl_uint, _: UnsafeMutablePointer<cl_image_format>, _: UnsafeMutablePointer<cl_uint>) -> cl_int
+func clGetSupportedImageFormats(_ _: cl_context, _ _: cl_mem_flags, _ _: cl_mem_object_type, _ _: cl_uint, _ _: UnsafeMutablePointer<cl_image_format>, _ _: UnsafeMutablePointer<cl_uint>) -> cl_int
 @available(OSX 10.6, *)
-func clGetMemObjectInfo(_: cl_mem, _: cl_mem_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetMemObjectInfo(_ _: cl_mem, _ _: cl_mem_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clGetImageInfo(_: cl_mem, _: cl_image_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetImageInfo(_ _: cl_mem, _ _: cl_image_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.7, *)
-func clSetMemObjectDestructorCallback(_: cl_mem, _: (@convention(c) (cl_mem, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>) -> cl_int
+func clSetMemObjectDestructorCallback(_ _: cl_mem, _ _: (@convention(c) (cl_mem, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>) -> cl_int
 @available(OSX 10.6, *)
-func clCreateSampler(_: cl_context, _: cl_bool, _: cl_addressing_mode, _: cl_filter_mode, _: UnsafeMutablePointer<cl_int>) -> cl_sampler
+func clCreateSampler(_ _: cl_context, _ _: cl_bool, _ _: cl_addressing_mode, _ _: cl_filter_mode, _ _: UnsafeMutablePointer<cl_int>) -> cl_sampler
 @available(OSX 10.6, *)
-func clRetainSampler(_: cl_sampler) -> cl_int
+func clRetainSampler(_ _: cl_sampler) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseSampler(_: cl_sampler) -> cl_int
+func clReleaseSampler(_ _: cl_sampler) -> cl_int
 @available(OSX 10.6, *)
-func clGetSamplerInfo(_: cl_sampler, _: cl_sampler_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetSamplerInfo(_ _: cl_sampler, _ _: cl_sampler_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clCreateProgramWithSource(_: cl_context, _: cl_uint, _: UnsafeMutablePointer<UnsafePointer<Int8>>, _: UnsafePointer<Int>, _: UnsafeMutablePointer<cl_int>) -> cl_program
+func clCreateProgramWithSource(_ _: cl_context, _ _: cl_uint, _ _: UnsafeMutablePointer<UnsafePointer<Int8>>, _ _: UnsafePointer<Int>, _ _: UnsafeMutablePointer<cl_int>) -> cl_program
 @available(OSX 10.6, *)
-func clCreateProgramWithBinary(_: cl_context, _: cl_uint, _: UnsafePointer<cl_device_id>, _: UnsafePointer<Int>, _: UnsafeMutablePointer<UnsafePointer<UInt8>>, _: UnsafeMutablePointer<cl_int>, _: UnsafeMutablePointer<cl_int>) -> cl_program
+func clCreateProgramWithBinary(_ _: cl_context, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: UnsafePointer<Int>, _ _: UnsafeMutablePointer<UnsafePointer<UInt8>>, _ _: UnsafeMutablePointer<cl_int>, _ _: UnsafeMutablePointer<cl_int>) -> cl_program
 @available(OSX 10.8, *)
-func clCreateProgramWithBuiltInKernels(_: cl_context, _: cl_uint, _: UnsafePointer<cl_device_id>, _: UnsafePointer<Int8>, _: UnsafeMutablePointer<cl_int>) -> cl_program
+func clCreateProgramWithBuiltInKernels(_ _: cl_context, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: UnsafePointer<Int8>, _ _: UnsafeMutablePointer<cl_int>) -> cl_program
 @available(OSX 10.6, *)
-func clRetainProgram(_: cl_program) -> cl_int
+func clRetainProgram(_ _: cl_program) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseProgram(_: cl_program) -> cl_int
+func clReleaseProgram(_ _: cl_program) -> cl_int
 @available(OSX 10.6, *)
-func clBuildProgram(_: cl_program, _: cl_uint, _: UnsafePointer<cl_device_id>, _: UnsafePointer<Int8>, _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>) -> cl_int
+func clBuildProgram(_ _: cl_program, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: UnsafePointer<Int8>, _ _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>) -> cl_int
 @available(OSX 10.8, *)
-func clCompileProgram(_: cl_program, _: cl_uint, _: UnsafePointer<cl_device_id>, _: UnsafePointer<Int8>, _: cl_uint, _: UnsafePointer<cl_program>, _: UnsafeMutablePointer<UnsafePointer<Int8>>, _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>) -> cl_int
+func clCompileProgram(_ _: cl_program, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: UnsafePointer<Int8>, _ _: cl_uint, _ _: UnsafePointer<cl_program>, _ _: UnsafeMutablePointer<UnsafePointer<Int8>>, _ _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>) -> cl_int
 @available(OSX 10.8, *)
-func clLinkProgram(_: cl_context, _: cl_uint, _: UnsafePointer<cl_device_id>, _: UnsafePointer<Int8>, _: cl_uint, _: UnsafePointer<cl_program>, _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<cl_int>) -> cl_program
+func clLinkProgram(_ _: cl_context, _ _: cl_uint, _ _: UnsafePointer<cl_device_id>, _ _: UnsafePointer<Int8>, _ _: cl_uint, _ _: UnsafePointer<cl_program>, _ _: (@convention(c) (cl_program, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<cl_int>) -> cl_program
 @available(OSX 10.8, *)
-func clUnloadPlatformCompiler(_: cl_platform_id) -> cl_int
+func clUnloadPlatformCompiler(_ _: cl_platform_id) -> cl_int
 @available(OSX 10.6, *)
-func clGetProgramInfo(_: cl_program, _: cl_program_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetProgramInfo(_ _: cl_program, _ _: cl_program_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clGetProgramBuildInfo(_: cl_program, _: cl_device_id, _: cl_program_build_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetProgramBuildInfo(_ _: cl_program, _ _: cl_device_id, _ _: cl_program_build_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clCreateKernel(_: cl_program, _: UnsafePointer<Int8>, _: UnsafeMutablePointer<cl_int>) -> cl_kernel
+func clCreateKernel(_ _: cl_program, _ _: UnsafePointer<Int8>, _ _: UnsafeMutablePointer<cl_int>) -> cl_kernel
 @available(OSX 10.6, *)
-func clCreateKernelsInProgram(_: cl_program, _: cl_uint, _: UnsafeMutablePointer<cl_kernel>, _: UnsafeMutablePointer<cl_uint>) -> cl_int
+func clCreateKernelsInProgram(_ _: cl_program, _ _: cl_uint, _ _: UnsafeMutablePointer<cl_kernel>, _ _: UnsafeMutablePointer<cl_uint>) -> cl_int
 @available(OSX 10.6, *)
-func clRetainKernel(_: cl_kernel) -> cl_int
+func clRetainKernel(_ _: cl_kernel) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseKernel(_: cl_kernel) -> cl_int
+func clReleaseKernel(_ _: cl_kernel) -> cl_int
 @available(OSX 10.6, *)
-func clSetKernelArg(_: cl_kernel, _: cl_uint, _: Int, _: UnsafePointer<Void>) -> cl_int
+func clSetKernelArg(_ _: cl_kernel, _ _: cl_uint, _ _: Int, _ _: UnsafePointer<Void>) -> cl_int
 @available(OSX 10.6, *)
-func clGetKernelInfo(_: cl_kernel, _: cl_kernel_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetKernelInfo(_ _: cl_kernel, _ _: cl_kernel_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.8, *)
-func clGetKernelArgInfo(_: cl_kernel, _: cl_uint, _: cl_kernel_arg_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetKernelArgInfo(_ _: cl_kernel, _ _: cl_uint, _ _: cl_kernel_arg_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clGetKernelWorkGroupInfo(_: cl_kernel, _: cl_device_id, _: cl_kernel_work_group_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetKernelWorkGroupInfo(_ _: cl_kernel, _ _: cl_device_id, _ _: cl_kernel_work_group_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clWaitForEvents(_: cl_uint, _: UnsafePointer<cl_event>) -> cl_int
+func clWaitForEvents(_ _: cl_uint, _ _: UnsafePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clGetEventInfo(_: cl_event, _: cl_event_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetEventInfo(_ _: cl_event, _ _: cl_event_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.7, *)
-func clCreateUserEvent(_: cl_context, _: UnsafeMutablePointer<cl_int>) -> cl_event
+func clCreateUserEvent(_ _: cl_context, _ _: UnsafeMutablePointer<cl_int>) -> cl_event
 @available(OSX 10.6, *)
-func clRetainEvent(_: cl_event) -> cl_int
+func clRetainEvent(_ _: cl_event) -> cl_int
 @available(OSX 10.6, *)
-func clReleaseEvent(_: cl_event) -> cl_int
+func clReleaseEvent(_ _: cl_event) -> cl_int
 @available(OSX 10.7, *)
-func clSetUserEventStatus(_: cl_event, _: cl_int) -> cl_int
+func clSetUserEventStatus(_ _: cl_event, _ _: cl_int) -> cl_int
 @available(OSX 10.7, *)
-func clSetEventCallback(_: cl_event, _: cl_int, _: (@convention(c) (cl_event, cl_int, UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>) -> cl_int
+func clSetEventCallback(_ _: cl_event, _ _: cl_int, _ _: (@convention(c) (cl_event, cl_int, UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>) -> cl_int
 @available(OSX 10.6, *)
-func clGetEventProfilingInfo(_: cl_event, _: cl_profiling_info, _: Int, _: UnsafeMutablePointer<Void>, _: UnsafeMutablePointer<Int>) -> cl_int
+func clGetEventProfilingInfo(_ _: cl_event, _ _: cl_profiling_info, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: UnsafeMutablePointer<Int>) -> cl_int
 @available(OSX 10.6, *)
-func clFlush(_: cl_command_queue) -> cl_int
+func clFlush(_ _: cl_command_queue) -> cl_int
 @available(OSX 10.6, *)
-func clFinish(_: cl_command_queue) -> cl_int
+func clFinish(_ _: cl_command_queue) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueReadBuffer(_: cl_command_queue, _: cl_mem, _: cl_bool, _: Int, _: Int, _: UnsafeMutablePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueReadBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: Int, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.7, *)
-func clEnqueueReadBufferRect(_: cl_command_queue, _: cl_mem, _: cl_bool, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: Int, _: Int, _: Int, _: UnsafeMutablePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueReadBufferRect(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: Int, _ _: Int, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueWriteBuffer(_: cl_command_queue, _: cl_mem, _: cl_bool, _: Int, _: Int, _: UnsafePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueWriteBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: Int, _ _: Int, _ _: UnsafePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.7, *)
-func clEnqueueWriteBufferRect(_: cl_command_queue, _: cl_mem, _: cl_bool, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: Int, _: Int, _: Int, _: UnsafePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueWriteBufferRect(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: Int, _ _: Int, _ _: Int, _ _: UnsafePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clEnqueueFillBuffer(_: cl_command_queue, _: cl_mem, _: UnsafePointer<Void>, _: Int, _: Int, _: Int, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueFillBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: UnsafePointer<Void>, _ _: Int, _ _: Int, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueCopyBuffer(_: cl_command_queue, _: cl_mem, _: cl_mem, _: Int, _: Int, _: Int, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueCopyBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_mem, _ _: Int, _ _: Int, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.7, *)
-func clEnqueueCopyBufferRect(_: cl_command_queue, _: cl_mem, _: cl_mem, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: Int, _: Int, _: Int, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueCopyBufferRect(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_mem, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: Int, _ _: Int, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueReadImage(_: cl_command_queue, _: cl_mem, _: cl_bool, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: Int, _: UnsafeMutablePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueReadImage(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: Int, _ _: UnsafeMutablePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueWriteImage(_: cl_command_queue, _: cl_mem, _: cl_bool, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: Int, _: UnsafePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueWriteImage(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: Int, _ _: UnsafePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clEnqueueFillImage(_: cl_command_queue, _: cl_mem, _: UnsafePointer<Void>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueFillImage(_ _: cl_command_queue, _ _: cl_mem, _ _: UnsafePointer<Void>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueCopyImage(_: cl_command_queue, _: cl_mem, _: cl_mem, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueCopyImage(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_mem, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueCopyImageToBuffer(_: cl_command_queue, _: cl_mem, _: cl_mem, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: Int, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueCopyImageToBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_mem, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueCopyBufferToImage(_: cl_command_queue, _: cl_mem, _: cl_mem, _: Int, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueCopyBufferToImage(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_mem, _ _: Int, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueMapBuffer(_: cl_command_queue, _: cl_mem, _: cl_bool, _: cl_map_flags, _: Int, _: Int, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>, _: UnsafeMutablePointer<cl_int>) -> UnsafeMutablePointer<Void>
+func clEnqueueMapBuffer(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: cl_map_flags, _ _: Int, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>, _ _: UnsafeMutablePointer<cl_int>) -> UnsafeMutablePointer<Void>
 @available(OSX 10.6, *)
-func clEnqueueMapImage(_: cl_command_queue, _: cl_mem, _: cl_bool, _: cl_map_flags, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafeMutablePointer<Int>, _: UnsafeMutablePointer<Int>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>, _: UnsafeMutablePointer<cl_int>) -> UnsafeMutablePointer<Void>
+func clEnqueueMapImage(_ _: cl_command_queue, _ _: cl_mem, _ _: cl_bool, _ _: cl_map_flags, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafeMutablePointer<Int>, _ _: UnsafeMutablePointer<Int>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>, _ _: UnsafeMutablePointer<cl_int>) -> UnsafeMutablePointer<Void>
 @available(OSX 10.6, *)
-func clEnqueueUnmapMemObject(_: cl_command_queue, _: cl_mem, _: UnsafeMutablePointer<Void>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueUnmapMemObject(_ _: cl_command_queue, _ _: cl_mem, _ _: UnsafeMutablePointer<Void>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clEnqueueMigrateMemObjects(_: cl_command_queue, _: cl_uint, _: UnsafePointer<cl_mem>, _: cl_mem_migration_flags, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueMigrateMemObjects(_ _: cl_command_queue, _ _: cl_uint, _ _: UnsafePointer<cl_mem>, _ _: cl_mem_migration_flags, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueNDRangeKernel(_: cl_command_queue, _: cl_kernel, _: cl_uint, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: UnsafePointer<Int>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueNDRangeKernel(_ _: cl_command_queue, _ _: cl_kernel, _ _: cl_uint, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: UnsafePointer<Int>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueTask(_: cl_command_queue, _: cl_kernel, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueTask(_ _: cl_command_queue, _ _: cl_kernel, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.6, *)
-func clEnqueueNativeKernel(_: cl_command_queue, _: (@convention(c) (UnsafeMutablePointer<Void>) -> Void)!, _: UnsafeMutablePointer<Void>, _: Int, _: cl_uint, _: UnsafePointer<cl_mem>, _: UnsafeMutablePointer<UnsafePointer<Void>>, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueNativeKernel(_ _: cl_command_queue, _ _: (@convention(c) (UnsafeMutablePointer<Void>) -> Void)!, _ _: UnsafeMutablePointer<Void>, _ _: Int, _ _: cl_uint, _ _: UnsafePointer<cl_mem>, _ _: UnsafeMutablePointer<UnsafePointer<Void>>, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clEnqueueMarkerWithWaitList(_: cl_command_queue, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueMarkerWithWaitList(_ _: cl_command_queue, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clEnqueueBarrierWithWaitList(_: cl_command_queue, _: cl_uint, _: UnsafePointer<cl_event>, _: UnsafeMutablePointer<cl_event>) -> cl_int
+func clEnqueueBarrierWithWaitList(_ _: cl_command_queue, _ _: cl_uint, _ _: UnsafePointer<cl_event>, _ _: UnsafeMutablePointer<cl_event>) -> cl_int
 @available(OSX 10.8, *)
-func clGetExtensionFunctionAddressForPlatform(_: cl_platform_id, _: UnsafePointer<Int8>) -> UnsafeMutablePointer<Void>
+func clGetExtensionFunctionAddressForPlatform(_ _: cl_platform_id, _ _: UnsafePointer<Int8>) -> UnsafeMutablePointer<Void>

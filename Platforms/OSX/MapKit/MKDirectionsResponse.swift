@@ -4,7 +4,6 @@ class MKDirectionsResponse : NSObject {
   var source: MKMapItem { get }
   var destination: MKMapItem { get }
   var routes: [MKRoute] { get }
-  init()
 }
 @available(OSX 10.9, *)
 class MKRoute : NSObject {
@@ -15,7 +14,6 @@ class MKRoute : NSObject {
   var transportType: MKDirectionsTransportType { get }
   var polyline: MKPolyline { get }
   var steps: [MKRouteStep] { get }
-  init()
 }
 @available(OSX 10.9, *)
 class MKRouteStep : NSObject {
@@ -24,7 +22,6 @@ class MKRouteStep : NSObject {
   var polyline: MKPolyline { get }
   var distance: CLLocationDistance { get }
   var transportType: MKDirectionsTransportType { get }
-  init()
 }
 @available(OSX 10.9, *)
 class MKETAResponse : NSObject {
@@ -39,5 +36,4 @@ class MKETAResponse : NSObject {
   var expectedDepartureDate: NSDate { get }
   @available(OSX 10.11, *)
   var transportType: MKDirectionsTransportType { get }
-  init()
 }

@@ -13,21 +13,18 @@ class UISlider : UIControl, NSCoding {
   var maximumTrackTintColor: UIColor?
   @available(iOS 5.0, *)
   var thumbTintColor: UIColor?
-  func setValue(value: Float, animated: Bool)
-  func setThumbImage(image: UIImage?, forState state: UIControlState)
-  func setMinimumTrackImage(image: UIImage?, forState state: UIControlState)
-  func setMaximumTrackImage(image: UIImage?, forState state: UIControlState)
-  func thumbImageForState(state: UIControlState) -> UIImage?
-  func minimumTrackImageForState(state: UIControlState) -> UIImage?
-  func maximumTrackImageForState(state: UIControlState) -> UIImage?
+  func setValue(_ value: Float, animated animated: Bool)
+  func setThumbImage(_ image: UIImage?, forState state: UIControlState)
+  func setMinimumTrackImage(_ image: UIImage?, forState state: UIControlState)
+  func setMaximumTrackImage(_ image: UIImage?, forState state: UIControlState)
+  func thumbImageForState(_ state: UIControlState) -> UIImage?
+  func minimumTrackImageForState(_ state: UIControlState) -> UIImage?
+  func maximumTrackImageForState(_ state: UIControlState) -> UIImage?
   var currentThumbImage: UIImage? { get }
   var currentMinimumTrackImage: UIImage? { get }
   var currentMaximumTrackImage: UIImage? { get }
-  func minimumValueImageRectForBounds(bounds: CGRect) -> CGRect
-  func maximumValueImageRectForBounds(bounds: CGRect) -> CGRect
-  func trackRectForBounds(bounds: CGRect) -> CGRect
-  func thumbRectForBounds(bounds: CGRect, trackRect rect: CGRect, value: Float) -> CGRect
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func minimumValueImageRectForBounds(_ bounds: CGRect) -> CGRect
+  func maximumValueImageRectForBounds(_ bounds: CGRect) -> CGRect
+  func trackRectForBounds(_ bounds: CGRect) -> CGRect
+  func thumbRectForBounds(_ bounds: CGRect, trackRect rect: CGRect, value value: Float) -> CGRect
 }

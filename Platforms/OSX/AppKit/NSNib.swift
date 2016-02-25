@@ -1,12 +1,11 @@
 
 class NSNib : NSObject, NSCoding {
-  init?(nibNamed nibName: String, bundle: NSBundle?)
+  init?(nibNamed nibName: String, bundle bundle: NSBundle?)
   @available(OSX 10.8, *)
-  init(nibData: NSData, bundle: NSBundle?)
+  init(nibData nibData: NSData, bundle bundle: NSBundle?)
   @available(OSX 10.8, *)
-  func instantiateWithOwner(owner: AnyObject?, topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func instantiateWithOwner(_ owner: AnyObject?, topLevelObjects topLevelObjects: AutoreleasingUnsafeMutablePointer<NSArray?>) -> Bool
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct _NSNibFlags {
@@ -15,7 +14,7 @@ struct _NSNibFlags {
   var _inheritsDecodeTimePath: UInt32
   var _reserved: UInt32
   init()
-  init(_isKeyed: UInt32, _inheritsDecodeTimeBundle: UInt32, _inheritsDecodeTimePath: UInt32, _reserved: UInt32)
+  init(_isKeyed _isKeyed: UInt32, _inheritsDecodeTimeBundle _inheritsDecodeTimeBundle: UInt32, _inheritsDecodeTimePath _inheritsDecodeTimePath: UInt32, _reserved _reserved: UInt32)
 }
 extension NSNib {
 }

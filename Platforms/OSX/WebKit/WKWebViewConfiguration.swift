@@ -11,9 +11,8 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var applicationNameForUserAgent: String?
   @available(OSX 10.11, *)
   var allowsAirPlayForMediaPlayback: Bool
-  init()
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension WKWebViewConfiguration {
 }

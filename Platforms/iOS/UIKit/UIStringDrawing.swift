@@ -1,6 +1,6 @@
 
 enum UIBaselineAdjustment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AlignBaselines
   case AlignCenters

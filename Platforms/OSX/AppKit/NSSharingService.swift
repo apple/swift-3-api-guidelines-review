@@ -57,15 +57,15 @@ class NSSharingService : NSObject {
   var accountName: String? { get }
   @available(OSX 10.9, *)
   var attachmentFileURLs: [NSURL]? { get }
-  class func sharingServicesForItems(items: [AnyObject]) -> [NSSharingService]
+  class func sharingServicesForItems(_ items: [AnyObject]) -> [NSSharingService]
   /*not inherited*/ init?(named serviceName: String)
-  init(title: String, image: NSImage, alternateImage: NSImage?, handler block: () -> Void)
-  func canPerformWithItems(items: [AnyObject]?) -> Bool
-  func performWithItems(items: [AnyObject])
+  init(title title: String, image image: NSImage, alternateImage alternateImage: NSImage?, handler block: () -> Void)
+  func canPerformWithItems(_ items: [AnyObject]?) -> Bool
+  func performWithItems(_ items: [AnyObject])
 }
 @available(OSX 10.8, *)
 enum NSSharingContentScope : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Item
   case Partial
@@ -73,29 +73,29 @@ enum NSSharingContentScope : Int {
 }
 protocol NSSharingServiceDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, willShareItems items: [AnyObject])
+  optional func sharingService(_ sharingService: NSSharingService, willShareItems items: [AnyObject])
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, didFailToShareItems items: [AnyObject], error: NSError)
+  optional func sharingService(_ sharingService: NSSharingService, didFailToShareItems items: [AnyObject], error error: NSError)
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, didShareItems items: [AnyObject])
+  optional func sharingService(_ sharingService: NSSharingService, didShareItems items: [AnyObject])
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: AnyObject) -> NSRect
+  optional func sharingService(_ sharingService: NSSharingService, sourceFrameOnScreenForShareItem item: AnyObject) -> NSRect
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, transitionImageForShareItem item: AnyObject, contentRect: UnsafeMutablePointer<NSRect>) -> NSImage
+  optional func sharingService(_ sharingService: NSSharingService, transitionImageForShareItem item: AnyObject, contentRect contentRect: UnsafeMutablePointer<NSRect>) -> NSImage
   @available(OSX 10.8, *)
-  optional func sharingService(sharingService: NSSharingService, sourceWindowForShareItems items: [AnyObject], sharingContentScope: UnsafeMutablePointer<NSSharingContentScope>) -> NSWindow?
+  optional func sharingService(_ sharingService: NSSharingService, sourceWindowForShareItems items: [AnyObject], sharingContentScope sharingContentScope: UnsafeMutablePointer<NSSharingContentScope>) -> NSWindow?
 }
 @available(OSX 10.8, *)
 class NSSharingServicePicker : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged NSSharingServicePickerDelegate?
-  init(items: [AnyObject])
-  func showRelativeToRect(rect: NSRect, ofView view: NSView, preferredEdge: NSRectEdge)
+  init(items items: [AnyObject])
+  func showRelativeToRect(_ rect: NSRect, ofView view: NSView, preferredEdge preferredEdge: NSRectEdge)
 }
 protocol NSSharingServicePickerDelegate : NSObjectProtocol {
   @available(OSX 10.8, *)
-  optional func sharingServicePicker(sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [AnyObject], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService]
+  optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [AnyObject], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService]
   @available(OSX 10.8, *)
-  optional func sharingServicePicker(sharingServicePicker: NSSharingServicePicker, delegateForSharingService sharingService: NSSharingService) -> NSSharingServiceDelegate?
+  optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, delegateForSharingService sharingService: NSSharingService) -> NSSharingServiceDelegate?
   @available(OSX 10.8, *)
-  optional func sharingServicePicker(sharingServicePicker: NSSharingServicePicker, didChooseSharingService service: NSSharingService?)
+  optional func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChooseSharingService service: NSSharingService?)
 }

@@ -29,7 +29,7 @@ var kVTFrameSiloInvalidTimeRangeErr: OSStatus { get }
 var kVTCouldNotFindTemporalFilterErr: OSStatus { get }
 var kVTPixelTransferNotPermittedErr: OSStatus { get }
 struct VTDecodeFrameFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var _EnableAsynchronousDecompression: VTDecodeFrameFlags { get }
   static var _DoNotOutputFrame: VTDecodeFrameFlags { get }
@@ -37,14 +37,14 @@ struct VTDecodeFrameFlags : OptionSetType {
   static var _EnableTemporalProcessing: VTDecodeFrameFlags { get }
 }
 struct VTDecodeInfoFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Asynchronous: VTDecodeInfoFlags { get }
   static var FrameDropped: VTDecodeInfoFlags { get }
   static var ImageBufferModifiable: VTDecodeInfoFlags { get }
 }
 struct VTEncodeInfoFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Asynchronous: VTEncodeInfoFlags { get }
   static var FrameDropped: VTEncodeInfoFlags { get }

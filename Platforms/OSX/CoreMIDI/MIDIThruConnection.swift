@@ -3,10 +3,10 @@ typealias MIDIThruConnectionRef = MIDIObjectRef
 struct MIDIValueMap {
   var value: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8)
   init()
-  init(value: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
+  init(value value: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8))
 }
 enum MIDITransformType : UInt16 {
-  init?(rawValue: UInt16)
+  init?(rawValue rawValue: UInt16)
   var rawValue: UInt16 { get }
   case None
   case FilterOut
@@ -19,7 +19,7 @@ enum MIDITransformType : UInt16 {
 }
 var kMIDIThruConnection_MaxEndpoints: Int { get }
 enum MIDITransformControlType : UInt8 {
-  init?(rawValue: UInt8)
+  init?(rawValue rawValue: UInt8)
   var rawValue: UInt8 { get }
   case ControlType_7Bit
   case ControlType_14Bit
@@ -32,7 +32,7 @@ struct MIDITransform {
   var transform: MIDITransformType
   var param: Int16
   init()
-  init(transform: MIDITransformType, param: Int16)
+  init(transform transform: MIDITransformType, param param: Int16)
 }
 struct MIDIControlTransform {
   var controlType: MIDITransformControlType
@@ -41,13 +41,13 @@ struct MIDIControlTransform {
   var transform: MIDITransformType
   var param: Int16
   init()
-  init(controlType: MIDITransformControlType, remappedControlType: MIDITransformControlType, controlNumber: UInt16, transform: MIDITransformType, param: Int16)
+  init(controlType controlType: MIDITransformControlType, remappedControlType remappedControlType: MIDITransformControlType, controlNumber controlNumber: UInt16, transform transform: MIDITransformType, param param: Int16)
 }
 struct MIDIThruConnectionEndpoint {
   var endpointRef: MIDIEndpointRef
   var uniqueID: MIDIUniqueID
   init()
-  init(endpointRef: MIDIEndpointRef, uniqueID: MIDIUniqueID)
+  init(endpointRef endpointRef: MIDIEndpointRef, uniqueID uniqueID: MIDIUniqueID)
 }
 struct MIDIThruConnectionParams {
   var version: UInt32
@@ -76,18 +76,18 @@ struct MIDIThruConnectionParams {
   var numMaps: UInt16
   var reserved3: (UInt16, UInt16, UInt16, UInt16)
   init()
-  init(version: UInt32, numSources: UInt32, sources: (MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint), numDestinations: UInt32, destinations: (MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint), channelMap: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), lowVelocity: UInt8, highVelocity: UInt8, lowNote: UInt8, highNote: UInt8, noteNumber: MIDITransform, velocity: MIDITransform, keyPressure: MIDITransform, channelPressure: MIDITransform, programChange: MIDITransform, pitchBend: MIDITransform, filterOutSysEx: UInt8, filterOutMTC: UInt8, filterOutBeatClock: UInt8, filterOutTuneRequest: UInt8, reserved2: (UInt8, UInt8, UInt8), filterOutAllControls: UInt8, numControlTransforms: UInt16, numMaps: UInt16, reserved3: (UInt16, UInt16, UInt16, UInt16))
+  init(version version: UInt32, numSources numSources: UInt32, sources sources: (MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint), numDestinations numDestinations: UInt32, destinations destinations: (MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint, MIDIThruConnectionEndpoint), channelMap channelMap: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), lowVelocity lowVelocity: UInt8, highVelocity highVelocity: UInt8, lowNote lowNote: UInt8, highNote highNote: UInt8, noteNumber noteNumber: MIDITransform, velocity velocity: MIDITransform, keyPressure keyPressure: MIDITransform, channelPressure channelPressure: MIDITransform, programChange programChange: MIDITransform, pitchBend pitchBend: MIDITransform, filterOutSysEx filterOutSysEx: UInt8, filterOutMTC filterOutMTC: UInt8, filterOutBeatClock filterOutBeatClock: UInt8, filterOutTuneRequest filterOutTuneRequest: UInt8, reserved2 reserved2: (UInt8, UInt8, UInt8), filterOutAllControls filterOutAllControls: UInt8, numControlTransforms numControlTransforms: UInt16, numMaps numMaps: UInt16, reserved3 reserved3: (UInt16, UInt16, UInt16, UInt16))
 }
-func MIDIThruConnectionParamsSize(ptr: UnsafePointer<MIDIThruConnectionParams>) -> Int
+func MIDIThruConnectionParamsSize(_ ptr: UnsafePointer<MIDIThruConnectionParams>) -> Int
 @available(OSX 10.2, *)
-func MIDIThruConnectionParamsInitialize(inConnectionParams: UnsafeMutablePointer<MIDIThruConnectionParams>)
+func MIDIThruConnectionParamsInitialize(_ inConnectionParams: UnsafeMutablePointer<MIDIThruConnectionParams>)
 @available(OSX 10.2, *)
-func MIDIThruConnectionCreate(inPersistentOwnerID: CFString?, _ inConnectionParams: CFData, _ outConnection: UnsafeMutablePointer<MIDIThruConnectionRef>) -> OSStatus
+func MIDIThruConnectionCreate(_ inPersistentOwnerID: CFString?, _ inConnectionParams: CFData, _ outConnection: UnsafeMutablePointer<MIDIThruConnectionRef>) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIThruConnectionDispose(connection: MIDIThruConnectionRef) -> OSStatus
+func MIDIThruConnectionDispose(_ connection: MIDIThruConnectionRef) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIThruConnectionGetParams(connection: MIDIThruConnectionRef, _ outConnectionParams: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
+func MIDIThruConnectionGetParams(_ connection: MIDIThruConnectionRef, _ outConnectionParams: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIThruConnectionSetParams(connection: MIDIThruConnectionRef, _ inConnectionParams: CFData) -> OSStatus
+func MIDIThruConnectionSetParams(_ connection: MIDIThruConnectionRef, _ inConnectionParams: CFData) -> OSStatus
 @available(OSX 10.2, *)
-func MIDIThruConnectionFind(inPersistentOwnerID: CFString, _ outConnectionList: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
+func MIDIThruConnectionFind(_ inPersistentOwnerID: CFString, _ outConnectionList: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus

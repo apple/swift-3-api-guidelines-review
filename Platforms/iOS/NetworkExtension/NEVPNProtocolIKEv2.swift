@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEVPNIKEv2EncryptionAlgorithm : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AlgorithmDES
   case Algorithm3DES
@@ -14,7 +14,7 @@ enum NEVPNIKEv2EncryptionAlgorithm : Int {
 }
 @available(iOS 8.0, *)
 enum NEVPNIKEv2IntegrityAlgorithm : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case SHA96
   case SHA160
@@ -24,7 +24,7 @@ enum NEVPNIKEv2IntegrityAlgorithm : Int {
 }
 @available(iOS 8.0, *)
 enum NEVPNIKEv2DeadPeerDetectionRate : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Low
@@ -33,7 +33,7 @@ enum NEVPNIKEv2DeadPeerDetectionRate : Int {
 }
 @available(iOS 8.0, *)
 enum NEVPNIKEv2DiffieHellmanGroup : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Group0
   case Group1
@@ -50,7 +50,7 @@ enum NEVPNIKEv2DiffieHellmanGroup : Int {
 }
 @available(iOS 8.3, *)
 enum NEVPNIKEv2CertificateType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case RSA
   case ECDSA256
@@ -67,14 +67,13 @@ class NEVPNIKEv2SecurityAssociationParameters : NSObject, NSSecureCoding, NSCopy
   var diffieHellmanGroup: NEVPNIKEv2DiffieHellmanGroup
   @available(iOS 8.0, *)
   var lifetimeMinutes: Int32
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
@@ -102,6 +101,4 @@ class NEVPNProtocolIKEv2 : NEVPNProtocolIPSec {
   var enableRevocationCheck: Bool
   @available(iOS 9.0, *)
   var strictRevocationCheck: Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

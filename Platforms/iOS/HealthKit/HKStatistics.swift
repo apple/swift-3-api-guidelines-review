@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 struct HKStatisticsOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: HKStatisticsOptions { get }
   static var SeparateBySource: HKStatisticsOptions { get }
@@ -16,19 +16,19 @@ class HKStatistics : NSObject, NSSecureCoding, NSCopying {
   var startDate: NSDate { get }
   var endDate: NSDate { get }
   var sources: [HKSource]? { get }
-  func averageQuantityForSource(source: HKSource) -> HKQuantity?
+  func averageQuantityForSource(_ source: HKSource) -> HKQuantity?
   func averageQuantity() -> HKQuantity?
-  func minimumQuantityForSource(source: HKSource) -> HKQuantity?
+  func minimumQuantityForSource(_ source: HKSource) -> HKQuantity?
   func minimumQuantity() -> HKQuantity?
-  func maximumQuantityForSource(source: HKSource) -> HKQuantity?
+  func maximumQuantityForSource(_ source: HKSource) -> HKQuantity?
   func maximumQuantity() -> HKQuantity?
-  func sumQuantityForSource(source: HKSource) -> HKQuantity?
+  func sumQuantityForSource(_ source: HKSource) -> HKQuantity?
   func sumQuantity() -> HKQuantity?
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

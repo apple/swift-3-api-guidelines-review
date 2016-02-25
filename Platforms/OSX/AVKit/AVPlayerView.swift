@@ -10,13 +10,10 @@ class AVPlayerView : NSView {
   var videoBounds: NSRect { get }
   @available(OSX 10.10, *)
   var contentOverlayView: NSView? { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }
 @available(OSX 10.9, *)
 enum AVPlayerViewControlsStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Inline
@@ -32,15 +29,15 @@ extension AVPlayerView {
 }
 extension AVPlayerView {
   var canBeginTrimming: Bool { get }
-  func beginTrimmingWithCompletionHandler(handler: ((AVPlayerViewTrimResult) -> Void)?)
+  func beginTrimmingWithCompletionHandler(_ handler: ((AVPlayerViewTrimResult) -> Void)?)
 }
 @available(OSX 10.9, *)
 enum AVPlayerViewTrimResult : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case OKButton
   case CancelButton
 }
 extension AVPlayerView {
-  func flashChapterNumber(chapterNumber: Int, chapterTitle: String)
+  func flashChapterNumber(_ chapterNumber: Int, chapterTitle chapterTitle: String)
 }

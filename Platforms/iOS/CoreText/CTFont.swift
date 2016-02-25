@@ -42,22 +42,22 @@ let kCTFontSampleTextNameKey: CFString
 @available(iOS 3.2, *)
 let kCTFontPostScriptCIDNameKey: CFString
 @available(iOS 3.2, *)
-func CTFontCreateWithName(name: CFString?, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>) -> CTFont
+func CTFontCreateWithName(_ name: CFString?, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>) -> CTFont
 @available(iOS 3.2, *)
-func CTFontCreateWithFontDescriptor(descriptor: CTFontDescriptor, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>) -> CTFont
+func CTFontCreateWithFontDescriptor(_ descriptor: CTFontDescriptor, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>) -> CTFont
 struct CTFontOptions : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   static var Default: CTFontOptions { get }
   static var PreventAutoActivation: CTFontOptions { get }
   static var PreferSystemFont: CTFontOptions { get }
 }
 @available(iOS 3.2, *)
-func CTFontCreateWithNameAndOptions(name: CFString, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
+func CTFontCreateWithNameAndOptions(_ name: CFString, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
 @available(iOS 3.2, *)
-func CTFontCreateWithFontDescriptorAndOptions(descriptor: CTFontDescriptor, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
+func CTFontCreateWithFontDescriptorAndOptions(_ descriptor: CTFontDescriptor, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ options: CTFontOptions) -> CTFont
 enum CTFontUIFontType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   @available(iOS 6.0, *)
   case None
@@ -173,81 +173,81 @@ enum CTFontUIFontType : UInt32 {
   static var kCTFontControlContentFontType: CTFontUIFontType { get }
 }
 @available(iOS 3.2, *)
-func CTFontCreateUIFontForLanguage(uiType: CTFontUIFontType, _ size: CGFloat, _ language: CFString?) -> CTFont?
+func CTFontCreateUIFontForLanguage(_ uiType: CTFontUIFontType, _ size: CGFloat, _ language: CFString?) -> CTFont?
 @available(iOS 3.2, *)
-func CTFontCreateCopyWithAttributes(font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ attributes: CTFontDescriptor?) -> CTFont
+func CTFontCreateCopyWithAttributes(_ font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ attributes: CTFontDescriptor?) -> CTFont
 @available(iOS 3.2, *)
-func CTFontCreateCopyWithSymbolicTraits(font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ symTraitValue: CTFontSymbolicTraits, _ symTraitMask: CTFontSymbolicTraits) -> CTFont?
+func CTFontCreateCopyWithSymbolicTraits(_ font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ symTraitValue: CTFontSymbolicTraits, _ symTraitMask: CTFontSymbolicTraits) -> CTFont?
 @available(iOS 3.2, *)
-func CTFontCreateCopyWithFamily(font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ family: CFString) -> CTFont?
+func CTFontCreateCopyWithFamily(_ font: CTFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ family: CFString) -> CTFont?
 @available(iOS 3.2, *)
-func CTFontCreateForString(currentFont: CTFont, _ string: CFString, _ range: CFRange) -> CTFont
+func CTFontCreateForString(_ currentFont: CTFont, _ string: CFString, _ range: CFRange) -> CTFont
 @available(iOS 3.2, *)
-func CTFontCopyFontDescriptor(font: CTFont) -> CTFontDescriptor
+func CTFontCopyFontDescriptor(_ font: CTFont) -> CTFontDescriptor
 @available(iOS 3.2, *)
-func CTFontCopyAttribute(font: CTFont, _ attribute: CFString) -> CFTypeRef?
+func CTFontCopyAttribute(_ font: CTFont, _ attribute: CFString) -> CFTypeRef?
 @available(iOS 3.2, *)
-func CTFontGetSize(font: CTFont) -> CGFloat
+func CTFontGetSize(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetMatrix(font: CTFont) -> CGAffineTransform
+func CTFontGetMatrix(_ font: CTFont) -> CGAffineTransform
 @available(iOS 3.2, *)
-func CTFontGetSymbolicTraits(font: CTFont) -> CTFontSymbolicTraits
+func CTFontGetSymbolicTraits(_ font: CTFont) -> CTFontSymbolicTraits
 @available(iOS 3.2, *)
-func CTFontCopyTraits(font: CTFont) -> CFDictionary
+func CTFontCopyTraits(_ font: CTFont) -> CFDictionary
 @available(iOS 3.2, *)
-func CTFontCopyPostScriptName(font: CTFont) -> CFString
+func CTFontCopyPostScriptName(_ font: CTFont) -> CFString
 @available(iOS 3.2, *)
-func CTFontCopyFamilyName(font: CTFont) -> CFString
+func CTFontCopyFamilyName(_ font: CTFont) -> CFString
 @available(iOS 3.2, *)
-func CTFontCopyFullName(font: CTFont) -> CFString
+func CTFontCopyFullName(_ font: CTFont) -> CFString
 @available(iOS 3.2, *)
-func CTFontCopyDisplayName(font: CTFont) -> CFString
+func CTFontCopyDisplayName(_ font: CTFont) -> CFString
 @available(iOS 3.2, *)
-func CTFontCopyName(font: CTFont, _ nameKey: CFString) -> CFString?
+func CTFontCopyName(_ font: CTFont, _ nameKey: CFString) -> CFString?
 @available(iOS 3.2, *)
-func CTFontCopyLocalizedName(font: CTFont, _ nameKey: CFString, _ actualLanguage: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFString?
+func CTFontCopyLocalizedName(_ font: CTFont, _ nameKey: CFString, _ actualLanguage: UnsafeMutablePointer<Unmanaged<CFString>?>) -> CFString?
 @available(iOS 3.2, *)
-func CTFontCopyCharacterSet(font: CTFont) -> CFCharacterSet
+func CTFontCopyCharacterSet(_ font: CTFont) -> CFCharacterSet
 @available(iOS 3.2, *)
-func CTFontGetStringEncoding(font: CTFont) -> CFStringEncoding
+func CTFontGetStringEncoding(_ font: CTFont) -> CFStringEncoding
 @available(iOS 3.2, *)
-func CTFontCopySupportedLanguages(font: CTFont) -> CFArray
+func CTFontCopySupportedLanguages(_ font: CTFont) -> CFArray
 @available(iOS 3.2, *)
-func CTFontGetGlyphsForCharacters(font: CTFont, _ characters: UnsafePointer<UniChar>, _ glyphs: UnsafeMutablePointer<CGGlyph>, _ count: CFIndex) -> Bool
+func CTFontGetGlyphsForCharacters(_ font: CTFont, _ characters: UnsafePointer<UniChar>, _ glyphs: UnsafeMutablePointer<CGGlyph>, _ count: CFIndex) -> Bool
 @available(iOS 3.2, *)
-func CTFontGetAscent(font: CTFont) -> CGFloat
+func CTFontGetAscent(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetDescent(font: CTFont) -> CGFloat
+func CTFontGetDescent(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetLeading(font: CTFont) -> CGFloat
+func CTFontGetLeading(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetUnitsPerEm(font: CTFont) -> UInt32
+func CTFontGetUnitsPerEm(_ font: CTFont) -> UInt32
 @available(iOS 3.2, *)
-func CTFontGetGlyphCount(font: CTFont) -> CFIndex
+func CTFontGetGlyphCount(_ font: CTFont) -> CFIndex
 @available(iOS 3.2, *)
-func CTFontGetBoundingBox(font: CTFont) -> CGRect
+func CTFontGetBoundingBox(_ font: CTFont) -> CGRect
 @available(iOS 3.2, *)
-func CTFontGetUnderlinePosition(font: CTFont) -> CGFloat
+func CTFontGetUnderlinePosition(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetUnderlineThickness(font: CTFont) -> CGFloat
+func CTFontGetUnderlineThickness(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetSlantAngle(font: CTFont) -> CGFloat
+func CTFontGetSlantAngle(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetCapHeight(font: CTFont) -> CGFloat
+func CTFontGetCapHeight(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetXHeight(font: CTFont) -> CGFloat
+func CTFontGetXHeight(_ font: CTFont) -> CGFloat
 @available(iOS 3.2, *)
-func CTFontGetGlyphWithName(font: CTFont, _ glyphName: CFString) -> CGGlyph
+func CTFontGetGlyphWithName(_ font: CTFont, _ glyphName: CFString) -> CGGlyph
 @available(iOS 3.2, *)
-func CTFontGetBoundingRectsForGlyphs(font: CTFont, _ orientation: CTFontOrientation, _ glyphs: UnsafePointer<CGGlyph>, _ boundingRects: UnsafeMutablePointer<CGRect>, _ count: CFIndex) -> CGRect
+func CTFontGetBoundingRectsForGlyphs(_ font: CTFont, _ orientation: CTFontOrientation, _ glyphs: UnsafePointer<CGGlyph>, _ boundingRects: UnsafeMutablePointer<CGRect>, _ count: CFIndex) -> CGRect
 @available(iOS 6.0, *)
-func CTFontGetOpticalBoundsForGlyphs(font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ boundingRects: UnsafeMutablePointer<CGRect>, _ count: CFIndex, _ options: CFOptionFlags) -> CGRect
+func CTFontGetOpticalBoundsForGlyphs(_ font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ boundingRects: UnsafeMutablePointer<CGRect>, _ count: CFIndex, _ options: CFOptionFlags) -> CGRect
 @available(iOS 3.2, *)
-func CTFontGetAdvancesForGlyphs(font: CTFont, _ orientation: CTFontOrientation, _ glyphs: UnsafePointer<CGGlyph>, _ advances: UnsafeMutablePointer<CGSize>, _ count: CFIndex) -> Double
+func CTFontGetAdvancesForGlyphs(_ font: CTFont, _ orientation: CTFontOrientation, _ glyphs: UnsafePointer<CGGlyph>, _ advances: UnsafeMutablePointer<CGSize>, _ count: CFIndex) -> Double
 @available(iOS 3.2, *)
-func CTFontGetVerticalTranslationsForGlyphs(font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ translations: UnsafeMutablePointer<CGSize>, _ count: CFIndex)
+func CTFontGetVerticalTranslationsForGlyphs(_ font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ translations: UnsafeMutablePointer<CGSize>, _ count: CFIndex)
 @available(iOS 3.2, *)
-func CTFontCreatePathForGlyph(font: CTFont, _ glyph: CGGlyph, _ matrix: UnsafePointer<CGAffineTransform>) -> CGPath?
+func CTFontCreatePathForGlyph(_ font: CTFont, _ glyph: CGGlyph, _ matrix: UnsafePointer<CGAffineTransform>) -> CGPath?
 @available(iOS 3.2, *)
 let kCTFontVariationAxisIdentifierKey: CFString
 @available(iOS 3.2, *)
@@ -259,9 +259,9 @@ let kCTFontVariationAxisDefaultValueKey: CFString
 @available(iOS 3.2, *)
 let kCTFontVariationAxisNameKey: CFString
 @available(iOS 3.2, *)
-func CTFontCopyVariationAxes(font: CTFont) -> CFArray?
+func CTFontCopyVariationAxes(_ font: CTFont) -> CFArray?
 @available(iOS 3.2, *)
-func CTFontCopyVariation(font: CTFont) -> CFDictionary?
+func CTFontCopyVariation(_ font: CTFont) -> CFDictionary?
 @available(iOS 8.0, *)
 let kCTFontOpenTypeFeatureTag: CFString
 @available(iOS 8.0, *)
@@ -283,13 +283,13 @@ let kCTFontFeatureSelectorDefaultKey: CFString
 @available(iOS 3.2, *)
 let kCTFontFeatureSelectorSettingKey: CFString
 @available(iOS 3.2, *)
-func CTFontCopyFeatures(font: CTFont) -> CFArray?
+func CTFontCopyFeatures(_ font: CTFont) -> CFArray?
 @available(iOS 3.2, *)
-func CTFontCopyFeatureSettings(font: CTFont) -> CFArray?
+func CTFontCopyFeatureSettings(_ font: CTFont) -> CFArray?
 @available(iOS 3.2, *)
-func CTFontCopyGraphicsFont(font: CTFont, _ attributes: UnsafeMutablePointer<Unmanaged<CTFontDescriptor>?>) -> CGFont
+func CTFontCopyGraphicsFont(_ font: CTFont, _ attributes: UnsafeMutablePointer<Unmanaged<CTFontDescriptor>?>) -> CGFont
 @available(iOS 3.2, *)
-func CTFontCreateWithGraphicsFont(graphicsFont: CGFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ attributes: CTFontDescriptor?) -> CTFont
+func CTFontCreateWithGraphicsFont(_ graphicsFont: CGFont, _ size: CGFloat, _ matrix: UnsafePointer<CGAffineTransform>, _ attributes: CTFontDescriptor?) -> CTFont
 typealias ATSFontRef = UInt32
 var ATSFONTREF_DEFINED: Int32 { get }
 var kCTFontTableBASE: Int { get }
@@ -353,19 +353,19 @@ var kCTFontTableVhea: Int { get }
 var kCTFontTableVmtx: Int { get }
 typealias CTFontTableTag = FourCharCode
 struct CTFontTableOptions : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   @available(iOS 3.2, *)
   static var NoOptions: CTFontTableOptions { get }
 }
 @available(iOS 3.2, *)
-func CTFontCopyAvailableTables(font: CTFont, _ options: CTFontTableOptions) -> CFArray?
+func CTFontCopyAvailableTables(_ font: CTFont, _ options: CTFontTableOptions) -> CFArray?
 @available(iOS 3.2, *)
-func CTFontCopyTable(font: CTFont, _ table: CTFontTableTag, _ options: CTFontTableOptions) -> CFData?
+func CTFontCopyTable(_ font: CTFont, _ table: CTFontTableTag, _ options: CTFontTableOptions) -> CFData?
 @available(iOS 4.2, *)
-func CTFontDrawGlyphs(font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ positions: UnsafePointer<CGPoint>, _ count: Int, _ context: CGContext)
+func CTFontDrawGlyphs(_ font: CTFont, _ glyphs: UnsafePointer<CGGlyph>, _ positions: UnsafePointer<CGPoint>, _ count: Int, _ context: CGContext)
 @available(iOS 3.2, *)
-func CTFontGetLigatureCaretPositions(font: CTFont, _ glyph: CGGlyph, _ positions: UnsafeMutablePointer<CGFloat>, _ maxPositions: CFIndex) -> CFIndex
+func CTFontGetLigatureCaretPositions(_ font: CTFont, _ glyph: CGGlyph, _ positions: UnsafeMutablePointer<CGFloat>, _ maxPositions: CFIndex) -> CFIndex
 @available(iOS 6.0, *)
 let kCTBaselineClassRoman: CFString
 @available(iOS 6.0, *)
@@ -383,4 +383,4 @@ let kCTBaselineReferenceFont: CFString
 @available(iOS 6.0, *)
 let kCTBaselineOriginalFont: CFString
 @available(iOS 6.0, *)
-func CTFontCopyDefaultCascadeListForLanguages(font: CTFont, _ languagePrefList: CFArray?) -> CFArray?
+func CTFontCopyDefaultCascadeListForLanguages(_ font: CTFont, _ languagePrefList: CFArray?) -> CFArray?

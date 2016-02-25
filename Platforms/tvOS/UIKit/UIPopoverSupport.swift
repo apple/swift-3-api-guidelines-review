@@ -1,6 +1,6 @@
 
 struct UIPopoverArrowDirection : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Up: UIPopoverArrowDirection { get }
   static var Down: UIPopoverArrowDirection { get }

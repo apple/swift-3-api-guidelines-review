@@ -9,7 +9,7 @@ struct gss_OID_desc_struct {
   var length: OM_uint32
   var elements: UnsafeMutablePointer<Void>
   init()
-  init(length: OM_uint32, elements: UnsafeMutablePointer<Void>)
+  init(length length: OM_uint32, elements elements: UnsafeMutablePointer<Void>)
 }
 typealias gss_OID_desc = gss_OID_desc_struct
 typealias gss_OID = UnsafeMutablePointer<gss_OID_desc_struct>
@@ -18,7 +18,7 @@ struct gss_OID_set_desc_struct {
   var count: Int
   var elements: gss_OID
   init()
-  init(count: Int, elements: gss_OID)
+  init(count count: Int, elements elements: gss_OID)
 }
 typealias gss_OID_set_desc = gss_OID_set_desc_struct
 typealias gss_OID_set = UnsafeMutablePointer<gss_OID_set_desc_struct>
@@ -30,7 +30,7 @@ struct gss_buffer_desc_struct {
   var length: Int
   var value: UnsafeMutablePointer<Void>
   init()
-  init(length: Int, value: UnsafeMutablePointer<Void>)
+  init(length length: Int, value value: UnsafeMutablePointer<Void>)
 }
 typealias gss_buffer_desc = gss_buffer_desc_struct
 typealias gss_buffer_t = UnsafeMutablePointer<gss_buffer_desc_struct>
@@ -42,7 +42,7 @@ struct gss_channel_bindings_struct {
   var acceptor_address: gss_buffer_desc
   var application_data: gss_buffer_desc
   init()
-  init(initiator_addrtype: OM_uint32, initiator_address: gss_buffer_desc, acceptor_addrtype: OM_uint32, acceptor_address: gss_buffer_desc, application_data: gss_buffer_desc)
+  init(initiator_addrtype initiator_addrtype: OM_uint32, initiator_address initiator_address: gss_buffer_desc, acceptor_addrtype acceptor_addrtype: OM_uint32, acceptor_address acceptor_address: gss_buffer_desc, application_data application_data: gss_buffer_desc)
 }
 typealias gss_channel_bindings_t = UnsafeMutablePointer<gss_channel_bindings_struct>
 typealias gss_const_channel_bindings_t = UnsafePointer<gss_channel_bindings_struct>
@@ -50,7 +50,7 @@ struct gss_buffer_set_desc_struct {
   var count: Int
   var elements: UnsafeMutablePointer<gss_buffer_desc>
   init()
-  init(count: Int, elements: UnsafeMutablePointer<gss_buffer_desc>)
+  init(count count: Int, elements elements: UnsafeMutablePointer<gss_buffer_desc>)
 }
 typealias gss_buffer_set_desc = gss_buffer_set_desc_struct
 typealias gss_buffer_set_t = UnsafeMutablePointer<gss_buffer_set_desc_struct>
@@ -58,7 +58,7 @@ struct gss_iov_buffer_desc_struct {
   var type: OM_uint32
   var buffer: gss_buffer_desc
   init()
-  init(type: OM_uint32, buffer: gss_buffer_desc)
+  init(type type: OM_uint32, buffer buffer: gss_buffer_desc)
 }
 typealias gss_iov_buffer_desc = gss_iov_buffer_desc_struct
 typealias gss_iov_buffer_t = UnsafeMutablePointer<gss_iov_buffer_desc_struct>

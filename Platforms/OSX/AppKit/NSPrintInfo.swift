@@ -1,13 +1,13 @@
 
 @available(OSX 10.9, *)
 enum NSPaperOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Portrait
   case Landscape
 }
 enum NSPrintingPaginationMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case AutoPagination
   case FitPagination
@@ -51,7 +51,7 @@ let NSPrintJobSavingURL: String
 let NSPrintJobSavingFileNameExtensionHidden: String
 let NSPrintHeaderAndFooter: String
 class NSPrintInfo : NSObject, NSCopying, NSCoding {
-  class func setSharedPrintInfo(printInfo: NSPrintInfo)
+  class func setSharedPrintInfo(_ printInfo: NSPrintInfo)
   class func sharedPrintInfo() -> NSPrintInfo
   init(dictionary attributes: [String : AnyObject])
   func dictionary() -> NSMutableDictionary
@@ -89,16 +89,15 @@ class NSPrintInfo : NSObject, NSCopying, NSCoding {
   @available(OSX 10.6, *)
   var selectionOnly: Bool
   @available(OSX 10.9, *)
-  func takeSettingsFromPDFInfo(inPDFInfo: NSPDFInfo)
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func takeSettingsFromPDFInfo(_ inPDFInfo: NSPDFInfo)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSPrintInfo {
 }
 enum NSPrintingOrientation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case PortraitOrientation
   case LandscapeOrientation

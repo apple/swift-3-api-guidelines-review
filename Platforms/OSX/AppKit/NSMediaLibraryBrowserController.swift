@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 struct NSMediaLibrary : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Audio: NSMediaLibrary { get }
   static var Image: NSMediaLibrary { get }
@@ -13,6 +13,5 @@ class NSMediaLibraryBrowserController : NSObject {
   var frame: NSRect
   var mediaLibraries: NSMediaLibrary
   class func sharedMediaLibraryBrowserController() -> NSMediaLibraryBrowserController
-  @IBAction func togglePanel(sender: AnyObject?)
-  init()
+  @IBAction func togglePanel(_ sender: AnyObject?)
 }

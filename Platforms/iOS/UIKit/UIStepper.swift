@@ -9,24 +9,19 @@ class UIStepper : UIControl {
   var maximumValue: Double
   var stepValue: Double
   @available(iOS 6.0, *)
-  var tintColor: UIColor!
+  func setBackgroundImage(_ image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func setBackgroundImage(image: UIImage?, forState state: UIControlState)
+  func backgroundImageForState(_ state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func backgroundImageForState(state: UIControlState) -> UIImage?
+  func setDividerImage(_ image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
   @available(iOS 6.0, *)
-  func setDividerImage(image: UIImage?, forLeftSegmentState leftState: UIControlState, rightSegmentState rightState: UIControlState)
+  func dividerImageForLeftSegmentState(_ state: UIControlState, rightSegmentState state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func dividerImageForLeftSegmentState(state: UIControlState, rightSegmentState state: UIControlState) -> UIImage?
+  func setIncrementImage(_ image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func setIncrementImage(image: UIImage?, forState state: UIControlState)
+  func incrementImageForState(_ state: UIControlState) -> UIImage?
   @available(iOS 6.0, *)
-  func incrementImageForState(state: UIControlState) -> UIImage?
+  func setDecrementImage(_ image: UIImage?, forState state: UIControlState)
   @available(iOS 6.0, *)
-  func setDecrementImage(image: UIImage?, forState state: UIControlState)
-  @available(iOS 6.0, *)
-  func decrementImageForState(state: UIControlState) -> UIImage?
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func decrementImageForState(_ state: UIControlState) -> UIImage?
 }

@@ -1,14 +1,14 @@
 
 typealias CGWindowID = UInt32
 enum CGWindowSharingType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case None
   case ReadOnly
   case ReadWrite
 }
 enum CGWindowBackingType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case BackingStoreRetained
   case BackingStoreNonretained
@@ -39,7 +39,7 @@ let kCGWindowIsOnscreen: CFString
 @available(OSX 10.5, *)
 let kCGWindowBackingLocationVideoMemory: CFString
 struct CGWindowListOption : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var OptionAll: CGWindowListOption { get }
   static var OptionOnScreenOnly: CGWindowListOption { get }
@@ -49,11 +49,11 @@ struct CGWindowListOption : OptionSetType {
   static var ExcludeDesktopElements: CGWindowListOption { get }
 }
 @available(OSX 10.5, *)
-func CGWindowListCopyWindowInfo(option: CGWindowListOption, _ relativeToWindow: CGWindowID) -> CFArray?
+func CGWindowListCopyWindowInfo(_ option: CGWindowListOption, _ relativeToWindow: CGWindowID) -> CFArray?
 @available(OSX 10.5, *)
-func CGWindowListCreateDescriptionFromArray(windowArray: CFArray?) -> CFArray?
+func CGWindowListCreateDescriptionFromArray(_ windowArray: CFArray?) -> CFArray?
 struct CGWindowImageOption : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Default: CGWindowImageOption { get }
   static var BoundsIgnoreFraming: CGWindowImageOption { get }
@@ -63,6 +63,6 @@ struct CGWindowImageOption : OptionSetType {
   static var NominalResolution: CGWindowImageOption { get }
 }
 @available(OSX 10.5, *)
-func CGWindowListCreateImage(screenBounds: CGRect, _ listOption: CGWindowListOption, _ windowID: CGWindowID, _ imageOption: CGWindowImageOption) -> CGImage?
+func CGWindowListCreateImage(_ screenBounds: CGRect, _ listOption: CGWindowListOption, _ windowID: CGWindowID, _ imageOption: CGWindowImageOption) -> CGImage?
 @available(OSX 10.5, *)
-func CGWindowListCreateImageFromArray(screenBounds: CGRect, _ windowArray: CFArray, _ imageOption: CGWindowImageOption) -> CGImage?
+func CGWindowListCreateImageFromArray(_ screenBounds: CGRect, _ windowArray: CFArray, _ imageOption: CGWindowImageOption) -> CGImage?

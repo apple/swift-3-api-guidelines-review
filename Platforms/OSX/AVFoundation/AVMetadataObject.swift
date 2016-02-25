@@ -16,5 +16,5 @@ class AVMetadataFaceObject : AVMetadataObject, NSCopying {
   var hasYawAngle: Bool { get }
   var yawAngle: CGFloat { get }
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

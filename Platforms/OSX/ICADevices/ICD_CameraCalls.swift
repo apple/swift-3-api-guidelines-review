@@ -29,7 +29,7 @@ struct ObjectInfo {
   var tag: UInt32
   var dataSize64: UInt64
   init()
-  init(icaObject: ICAObject, reserved: UInt, icaObjectInfo: ICAObjectInfo, uniqueID: UInt32, thumbnailSize: UInt32, dataSize: UInt32, dataWidth: UInt32, dataHeight: UInt32, name: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), creationDate: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), flags: UInt32, privateData: Ptr, uniqueIDFireWire: UInt64, tag: UInt32, dataSize64: UInt64)
+  init(icaObject icaObject: ICAObject, reserved reserved: UInt, icaObjectInfo icaObjectInfo: ICAObjectInfo, uniqueID uniqueID: UInt32, thumbnailSize thumbnailSize: UInt32, dataSize dataSize: UInt32, dataWidth dataWidth: UInt32, dataHeight dataHeight: UInt32, name name: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), creationDate creationDate: (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8), flags flags: UInt32, privateData privateData: Ptr, uniqueIDFireWire uniqueIDFireWire: UInt64, tag tag: UInt32, dataSize64 dataSize64: UInt64)
 }
 struct ICD_ObjectSendMessagePB {
   var header: ICDHeader
@@ -40,7 +40,7 @@ struct ICD_ObjectSendMessagePB {
   var totalDataSize: UInt32
   var result: UInt32
   init()
-  init(header: ICDHeader, object: ICAObject, objectInfo: ICAObjectInfo, connectionID: ICAConnectionID, message: ICAMessage, totalDataSize: UInt32, result: UInt32)
+  init(header header: ICDHeader, object object: ICAObject, objectInfo objectInfo: ICAObjectInfo, connectionID connectionID: ICAConnectionID, message message: ICAMessage, totalDataSize totalDataSize: UInt32, result result: UInt32)
 }
 typealias __ICD_OpenUSBDevice = @convention(c) (UInt32, UnsafeMutablePointer<ObjectInfo>) -> ICAError
 typealias __ICD_OpenUSBDeviceWithIORegPath = @convention(c) (UInt32, UnsafeMutablePointer<Int8>, UnsafeMutablePointer<ObjectInfo>) -> ICAError
@@ -62,25 +62,25 @@ typealias __ICD_AddPropertiesToCFDictionary = @convention(c) (UnsafeMutablePoint
 typealias __ICD_WriteDataToFile = @convention(c) (UnsafePointer<ObjectInfo>, UnsafeMutablePointer<FILE>, UInt32, UnsafeMutablePointer<Int>) -> ICAError
 typealias __ICD_WriteDataToFileDescriptor = @convention(c) (UnsafePointer<ObjectInfo>, Int32, UInt32, UnsafeMutablePointer<Int>) -> ICAError
 typealias __ICD_WriteDataToFileDescriptor64 = @convention(c) (UnsafePointer<ObjectInfo>, Int32) -> ICAError
-func ICD_main(argc: Int32, _ argv: UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32
-func ICDGetStandardPropertyData(objectInfo: UnsafePointer<ObjectInfo>, _ pb: UnsafeMutablePointer<Void>) -> ICAError
-func ICDNewObjectInfoCreated(parentInfo: UnsafePointer<ObjectInfo>, _ index: UInt32, _ newICAObject: UnsafeMutablePointer<ICAObject>) -> ICAError
+func ICD_main(_ argc: Int32, _ argv: UnsafeMutablePointer<UnsafePointer<Int8>>) -> Int32
+func ICDGetStandardPropertyData(_ objectInfo: UnsafePointer<ObjectInfo>, _ pb: UnsafeMutablePointer<Void>) -> ICAError
+func ICDNewObjectInfoCreated(_ parentInfo: UnsafePointer<ObjectInfo>, _ index: UInt32, _ newICAObject: UnsafeMutablePointer<ICAObject>) -> ICAError
 typealias ICDNewObjectCreatedCompletion = @convention(c) (UnsafePointer<ObjectInfo>) -> Void
-func ICDNewObjectCreated(parentInfo: UnsafePointer<ObjectInfo>, _ objectInfo: UnsafePointer<ObjectInfo>, _ completion: ICDNewObjectCreatedCompletion!) -> ICAError
-func ICDCopyDeviceInfoDictionary(deviceName: UnsafePointer<Int8>, _ theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> ICAError
-func ICDCreateEventDataCookie(object: ICAObject, _ cookie: UnsafeMutablePointer<ICAEventDataCookie>) -> ICAError
-func ICDConnectUSBDevice(locationID: UInt32) -> ICAError
-func ICDConnectUSBDeviceWithIORegPath(locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDDisconnectUSBDevice(locationID: UInt32) -> ICAError
-func ICDDisconnectUSBDeviceWithIORegPath(locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDConnectFWDevice(guid: UInt64) -> ICAError
-func ICDConnectFWDeviceWithIORegPath(guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDDisconnectFWDevice(guid: UInt64) -> ICAError
-func ICDDisconnectFWDeviceWithIORegPath(guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
-func ICDConnectBluetoothDevice(params: CFDictionary!) -> ICAError
-func ICDDisconnectBluetoothDevice(params: CFDictionary!) -> ICAError
-func ICDConnectTCPIPDevice(params: CFDictionary!) -> ICAError
-func ICDDisconnectTCPIPDevice(params: CFDictionary!) -> ICAError
+func ICDNewObjectCreated(_ parentInfo: UnsafePointer<ObjectInfo>, _ objectInfo: UnsafePointer<ObjectInfo>, _ completion: ICDNewObjectCreatedCompletion!) -> ICAError
+func ICDCopyDeviceInfoDictionary(_ deviceName: UnsafePointer<Int8>, _ theDict: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> ICAError
+func ICDCreateEventDataCookie(_ object: ICAObject, _ cookie: UnsafeMutablePointer<ICAEventDataCookie>) -> ICAError
+func ICDConnectUSBDevice(_ locationID: UInt32) -> ICAError
+func ICDConnectUSBDeviceWithIORegPath(_ locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDDisconnectUSBDevice(_ locationID: UInt32) -> ICAError
+func ICDDisconnectUSBDeviceWithIORegPath(_ locationID: UInt32, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDConnectFWDevice(_ guid: UInt64) -> ICAError
+func ICDConnectFWDeviceWithIORegPath(_ guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDDisconnectFWDevice(_ guid: UInt64) -> ICAError
+func ICDDisconnectFWDeviceWithIORegPath(_ guid: UInt64, _ ioregPath: UnsafeMutablePointer<Int8>) -> ICAError
+func ICDConnectBluetoothDevice(_ params: CFDictionary!) -> ICAError
+func ICDDisconnectBluetoothDevice(_ params: CFDictionary!) -> ICAError
+func ICDConnectTCPIPDevice(_ params: CFDictionary!) -> ICAError
+func ICDDisconnectTCPIPDevice(_ params: CFDictionary!) -> ICAError
 struct ICD_callback_functions {
   var f_ICD_OpenUSBDevice: __ICD_OpenUSBDevice!
   var f_ICD_CloseDevice: __ICD_CloseDevice!
@@ -103,6 +103,6 @@ struct ICD_callback_functions {
   var f_ICD_WriteDataToFileDescriptor: __ICD_WriteDataToFileDescriptor!
   var f_ICD_WriteDataToFileDescriptor64: __ICD_WriteDataToFileDescriptor64!
   init()
-  init(f_ICD_OpenUSBDevice: __ICD_OpenUSBDevice!, f_ICD_CloseDevice: __ICD_CloseDevice!, f_ICD_PeriodicTask: __ICD_PeriodicTask!, f_ICD_GetObjectInfo: __ICD_GetObjectInfo!, f_ICD_Cleanup: __ICD_Cleanup!, f_ICD_GetPropertyData: __ICD_GetPropertyData!, f_ICD_SetPropertyData: __ICD_SetPropertyData!, f_ICD_ReadFileData: __ICD_ReadFileData!, f_ICD_WriteFileData: __ICD_WriteFileData!, f_ICD_SendMessage: __ICD_SendMessage!, f_ICD_AddPropertiesToCFDictionary: __ICD_AddPropertiesToCFDictionary!, f_ICD_OpenFireWireDevice: __ICD_OpenFireWireDevice!, f_ICD_OpenUSBDeviceWithIORegPath: __ICD_OpenUSBDeviceWithIORegPath!, f_ICD_OpenFireWireDeviceWithIORegPath: __ICD_OpenFireWireDeviceWithIORegPath!, f_ICD_OpenBluetoothDevice: __ICD_OpenBluetoothDevice!, f_ICD_OpenTCPIPDevice: __ICD_OpenTCPIPDevice!, f_ICD_WriteDataToFile: __ICD_WriteDataToFile!, f_ICD_OpenMassStorageDevice: __ICD_OpenMassStorageDevice!, f_ICD_WriteDataToFileDescriptor: __ICD_WriteDataToFileDescriptor!, f_ICD_WriteDataToFileDescriptor64: __ICD_WriteDataToFileDescriptor64!)
+  init(f_ICD_OpenUSBDevice f_ICD_OpenUSBDevice: __ICD_OpenUSBDevice!, f_ICD_CloseDevice f_ICD_CloseDevice: __ICD_CloseDevice!, f_ICD_PeriodicTask f_ICD_PeriodicTask: __ICD_PeriodicTask!, f_ICD_GetObjectInfo f_ICD_GetObjectInfo: __ICD_GetObjectInfo!, f_ICD_Cleanup f_ICD_Cleanup: __ICD_Cleanup!, f_ICD_GetPropertyData f_ICD_GetPropertyData: __ICD_GetPropertyData!, f_ICD_SetPropertyData f_ICD_SetPropertyData: __ICD_SetPropertyData!, f_ICD_ReadFileData f_ICD_ReadFileData: __ICD_ReadFileData!, f_ICD_WriteFileData f_ICD_WriteFileData: __ICD_WriteFileData!, f_ICD_SendMessage f_ICD_SendMessage: __ICD_SendMessage!, f_ICD_AddPropertiesToCFDictionary f_ICD_AddPropertiesToCFDictionary: __ICD_AddPropertiesToCFDictionary!, f_ICD_OpenFireWireDevice f_ICD_OpenFireWireDevice: __ICD_OpenFireWireDevice!, f_ICD_OpenUSBDeviceWithIORegPath f_ICD_OpenUSBDeviceWithIORegPath: __ICD_OpenUSBDeviceWithIORegPath!, f_ICD_OpenFireWireDeviceWithIORegPath f_ICD_OpenFireWireDeviceWithIORegPath: __ICD_OpenFireWireDeviceWithIORegPath!, f_ICD_OpenBluetoothDevice f_ICD_OpenBluetoothDevice: __ICD_OpenBluetoothDevice!, f_ICD_OpenTCPIPDevice f_ICD_OpenTCPIPDevice: __ICD_OpenTCPIPDevice!, f_ICD_WriteDataToFile f_ICD_WriteDataToFile: __ICD_WriteDataToFile!, f_ICD_OpenMassStorageDevice f_ICD_OpenMassStorageDevice: __ICD_OpenMassStorageDevice!, f_ICD_WriteDataToFileDescriptor f_ICD_WriteDataToFileDescriptor: __ICD_WriteDataToFileDescriptor!, f_ICD_WriteDataToFileDescriptor64 f_ICD_WriteDataToFileDescriptor64: __ICD_WriteDataToFileDescriptor64!)
 }
 var gICDCallbackFunctions: ICD_callback_functions

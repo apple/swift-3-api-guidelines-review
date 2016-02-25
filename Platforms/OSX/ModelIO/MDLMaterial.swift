@@ -1,6 +1,6 @@
 
 enum MDLMaterialSemantic : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case BaseColor
   case Subsurface
@@ -30,7 +30,7 @@ enum MDLMaterialSemantic : UInt {
   case UserDefined
 }
 enum MDLMaterialPropertyType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case String
@@ -44,20 +44,20 @@ enum MDLMaterialPropertyType : UInt {
   case Matrix44
 }
 enum MDLMaterialTextureWrapMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Clamp
   case Repeat
   case Mirror
 }
 enum MDLMaterialTextureFilterMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Nearest
   case Linear
 }
 enum MDLMaterialMipMapFilterMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Nearest
   case Linear
@@ -70,28 +70,26 @@ class MDLTextureFilter : NSObject {
   var minFilter: MDLMaterialTextureFilterMode
   var magFilter: MDLMaterialTextureFilterMode
   var mipFilter: MDLMaterialMipMapFilterMode
-  init()
 }
 @available(OSX 10.11, *)
 class MDLTextureSampler : NSObject {
   var texture: MDLTexture?
   var hardwareFilter: MDLTextureFilter?
   var transform: MDLTransform?
-  init()
 }
 @available(OSX 10.11, *)
 class MDLMaterialProperty : NSObject, MDLNamed {
-  init(name: String, semantic: MDLMaterialSemantic)
-  convenience init(name: String, semantic: MDLMaterialSemantic, float value: Float)
-  convenience init(name: String, semantic: MDLMaterialSemantic, float2 value: vector_float2)
-  convenience init(name: String, semantic: MDLMaterialSemantic, float3 value: vector_float3)
-  convenience init(name: String, semantic: MDLMaterialSemantic, float4 value: vector_float4)
-  convenience init(name: String, semantic: MDLMaterialSemantic, matrix4x4 value: matrix_float4x4)
-  convenience init(name: String, semantic: MDLMaterialSemantic, URL: NSURL?)
-  convenience init(name: String, semantic: MDLMaterialSemantic, string: String?)
-  convenience init(name: String, semantic: MDLMaterialSemantic, textureSampler: MDLTextureSampler?)
-  convenience init(name: String, semantic: MDLMaterialSemantic, color: CGColor)
-  func setProperties(property: MDLMaterialProperty)
+  init(name name: String, semantic semantic: MDLMaterialSemantic)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, float value: Float)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, float2 value: vector_float2)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, float3 value: vector_float3)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, float4 value: vector_float4)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, matrix4x4 value: matrix_float4x4)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, URL URL: NSURL?)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, string string: String?)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, textureSampler textureSampler: MDLTextureSampler?)
+  convenience init(name name: String, semantic semantic: MDLMaterialSemantic, color color: CGColor)
+  func setProperties(_ property: MDLMaterialProperty)
   var semantic: MDLMaterialSemantic
   var type: MDLMaterialPropertyType { get }
   var name: String
@@ -116,7 +114,6 @@ class MDLScatteringFunction : NSObject, MDLNamed {
   var normal: MDLMaterialProperty { get }
   var ambientOcclusion: MDLMaterialProperty { get }
   var ambientOcclusionScale: MDLMaterialProperty { get }
-  init()
 }
 @available(OSX 10.11, *)
 class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
@@ -132,23 +129,21 @@ class MDLPhysicallyPlausibleScatteringFunction : MDLScatteringFunction {
   var sheenTint: MDLMaterialProperty { get }
   var clearcoat: MDLMaterialProperty { get }
   var clearcoatGloss: MDLMaterialProperty { get }
-  init()
 }
 @available(OSX 10.11, *)
 class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
-  init(name: String, scatteringFunction: MDLScatteringFunction)
-  func setProperty(property: MDLMaterialProperty)
-  func removeProperty(property: MDLMaterialProperty)
-  func propertyNamed(name: String) -> MDLMaterialProperty?
-  func propertyWithSemantic(semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
+  init(name name: String, scatteringFunction scatteringFunction: MDLScatteringFunction)
+  func setProperty(_ property: MDLMaterialProperty)
+  func removeProperty(_ property: MDLMaterialProperty)
+  func propertyNamed(_ name: String) -> MDLMaterialProperty?
+  func propertyWithSemantic(_ semantic: MDLMaterialSemantic) -> MDLMaterialProperty?
   func removeAllProperties()
   var scatteringFunction: MDLScatteringFunction { get }
   var name: String
   var baseMaterial: MDLMaterial?
-  subscript (idx: Int) -> MDLMaterialProperty? { get }
-  subscript (name: String) -> MDLMaterialProperty? { get }
+  subscript(_ idx: Int) -> MDLMaterialProperty? { get }
+  subscript(_ name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
-  init()
   @available(OSX 10.11, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

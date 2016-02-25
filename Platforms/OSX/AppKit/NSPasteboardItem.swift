@@ -2,29 +2,28 @@
 @available(OSX 10.6, *)
 class NSPasteboardItem : NSObject, NSPasteboardWriting, NSPasteboardReading {
   var types: [String] { get }
-  func availableTypeFromArray(types: [String]) -> String?
-  func setDataProvider(dataProvider: NSPasteboardItemDataProvider, forTypes types: [AnyObject]) -> Bool
-  func setData(data: NSData?, forType type: String) -> Bool
-  func setString(string: String?, forType type: String) -> Bool
-  func setPropertyList(propertyList: AnyObject?, forType type: String) -> Bool
-  func dataForType(type: String) -> NSData?
-  func stringForType(type: String) -> String?
-  func propertyListForType(type: String) -> AnyObject?
-  init()
+  func availableTypeFromArray(_ types: [String]) -> String?
+  func setDataProvider(_ dataProvider: NSPasteboardItemDataProvider, forTypes types: [AnyObject]) -> Bool
+  func setData(_ data: NSData?, forType type: String) -> Bool
+  func setString(_ string: String?, forType type: String) -> Bool
+  func setPropertyList(_ propertyList: AnyObject?, forType type: String) -> Bool
+  func dataForType(_ type: String) -> NSData?
+  func stringForType(_ type: String) -> String?
+  func propertyListForType(_ type: String) -> AnyObject?
   @available(OSX 10.6, *)
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
   @available(OSX 10.6, *)
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
   @available(OSX 10.6, *)
-  class func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  class func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
 protocol NSPasteboardItemDataProvider : NSObjectProtocol {
   @available(OSX 10.6, *)
-  func pasteboard(pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String)
-  optional func pasteboardFinishedWithDataProvider(pasteboard: NSPasteboard)
+  func pasteboard(_ pasteboard: NSPasteboard?, item item: NSPasteboardItem, provideDataForType type: String)
+  optional func pasteboardFinishedWithDataProvider(_ pasteboard: NSPasteboard)
 }

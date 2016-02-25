@@ -1,13 +1,12 @@
 
 class SKSpriteNode : SKNode {
-  convenience init(texture: SKTexture?, size: CGSize)
-  convenience init(texture: SKTexture?, normalMap: SKTexture?)
+  convenience init(texture texture: SKTexture?, size size: CGSize)
+  convenience init(texture texture: SKTexture?, normalMap normalMap: SKTexture?)
   convenience init(imageNamed name: String, normalMapped generateNormalMap: Bool)
-  init(texture: SKTexture?, color: UIColor, size: CGSize)
-  convenience init(texture: SKTexture?)
+  init(texture texture: SKTexture?, color color: UIColor, size size: CGSize)
+  convenience init(texture texture: SKTexture?)
   convenience init(imageNamed name: String)
-  convenience init(color: UIColor, size: CGSize)
-  init?(coder aDecoder: NSCoder)
+  convenience init(color color: UIColor, size size: CGSize)
   var texture: SKTexture?
   @available(tvOS 8.0, *)
   var normalTexture: SKTexture?
@@ -25,10 +24,7 @@ class SKSpriteNode : SKNode {
   var size: CGSize
   @available(tvOS 8.0, *)
   var shader: SKShader?
-  convenience init()
-  convenience init?(fileNamed filename: String)
 }
 
 extension SKSpriteNode : CustomPlaygroundQuickLookable {
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }

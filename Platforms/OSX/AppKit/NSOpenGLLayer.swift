@@ -4,11 +4,8 @@ class NSOpenGLLayer : CAOpenGLLayer {
   unowned(unsafe) var view: @sil_unmanaged NSView?
   var openGLPixelFormat: NSOpenGLPixelFormat?
   var openGLContext: NSOpenGLContext?
-  func openGLPixelFormatForDisplayMask(mask: UInt32) -> NSOpenGLPixelFormat
-  func openGLContextForPixelFormat(pixelFormat: NSOpenGLPixelFormat) -> NSOpenGLContext
-  func canDrawInOpenGLContext(context: NSOpenGLContext, pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>) -> Bool
-  func drawInOpenGLContext(context: NSOpenGLContext, pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>)
-  init()
-  init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
+  func openGLPixelFormatForDisplayMask(_ mask: UInt32) -> NSOpenGLPixelFormat
+  func openGLContextForPixelFormat(_ pixelFormat: NSOpenGLPixelFormat) -> NSOpenGLContext
+  func canDrawInOpenGLContext(_ context: NSOpenGLContext, pixelFormat pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>) -> Bool
+  func drawInOpenGLContext(_ context: NSOpenGLContext, pixelFormat pixelFormat: NSOpenGLPixelFormat, forLayerTime t: CFTimeInterval, displayTime ts: UnsafePointer<CVTimeStamp>)
 }

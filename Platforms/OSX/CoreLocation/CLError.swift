@@ -1,7 +1,5 @@
 
 enum CLError : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case LocationUnknown
   case Denied
   case Network
@@ -23,8 +21,6 @@ enum CLError : Int {
 }
 
 extension CLError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }
 @available(OSX 10.7, *)
 let kCLErrorUserInfoAlternateRegionKey: String

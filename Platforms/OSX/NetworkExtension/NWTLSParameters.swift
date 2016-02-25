@@ -8,5 +8,4 @@ class NWTLSParameters : NSObject {
   var minimumSSLProtocolVersion: Int
   @available(OSX 10.11, *)
   var maximumSSLProtocolVersion: Int
-  init()
 }

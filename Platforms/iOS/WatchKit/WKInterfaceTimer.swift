@@ -1,8 +1,8 @@
 
 @available(iOS 8.2, *)
 class WKInterfaceTimer : WKInterfaceObject {
-  func setTextColor(color: UIColor?)
-  func setDate(date: NSDate)
+  func setTextColor(_ color: UIColor?)
+  func setDate(_ date: NSDate)
   func start()
   func stop()
 }

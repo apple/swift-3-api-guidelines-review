@@ -2,7 +2,7 @@
 let NSNetServicesErrorCode: String
 let NSNetServicesErrorDomain: String
 enum NSNetServicesError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case UnknownError
   case CollisionError
@@ -14,17 +14,17 @@ enum NSNetServicesError : Int {
   case TimeoutError
 }
 struct NSNetServiceOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var NoAutoRename: NSNetServiceOptions { get }
   @available(OSX 10.9, *)
   static var ListenForConnections: NSNetServiceOptions { get }
 }
 class NSNetService : NSObject {
-  init(domain: String, type: String, name: String, port: Int32)
-  convenience init(domain: String, type: String, name: String)
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  init(domain domain: String, type type: String, name name: String, port port: Int32)
+  convenience init(domain domain: String, type type: String, name name: String)
+  func scheduleInRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
+  func removeFromRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
   unowned(unsafe) var delegate: @sil_unmanaged NSNetServiceDelegate?
   @available(OSX 10.10, *)
   var includesPeerToPeer: Bool
@@ -37,48 +37,46 @@ class NSNetService : NSObject {
   var port: Int { get }
   func publish()
   @available(OSX 10.5, *)
-  func publishWithOptions(options: NSNetServiceOptions)
+  func publishWithOptions(_ options: NSNetServiceOptions)
   func stop()
-  class func dictionaryFromTXTRecordData(txtData: NSData) -> [String : NSData]
-  class func dataFromTXTRecordDictionary(txtDictionary: [String : NSData]) -> NSData
-  func resolveWithTimeout(timeout: NSTimeInterval)
-  func getInputStream(inputStream: UnsafeMutablePointer<NSInputStream?>, outputStream: UnsafeMutablePointer<NSOutputStream?>) -> Bool
-  func setTXTRecordData(recordData: NSData?) -> Bool
+  class func dictionaryFromTXTRecordData(_ txtData: NSData) -> [String : NSData]
+  class func dataFromTXTRecordDictionary(_ txtDictionary: [String : NSData]) -> NSData
+  func resolveWithTimeout(_ timeout: NSTimeInterval)
+  func getInputStream(_ inputStream: UnsafeMutablePointer<NSInputStream?>, outputStream outputStream: UnsafeMutablePointer<NSOutputStream?>) -> Bool
+  func setTXTRecordData(_ recordData: NSData?) -> Bool
   func TXTRecordData() -> NSData?
   func startMonitoring()
   func stopMonitoring()
-  convenience init()
 }
 class NSNetServiceBrowser : NSObject {
-  init()
   unowned(unsafe) var delegate: @sil_unmanaged NSNetServiceBrowserDelegate?
   @available(OSX 10.10, *)
   var includesPeerToPeer: Bool
-  func scheduleInRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
-  func removeFromRunLoop(aRunLoop: NSRunLoop, forMode mode: String)
+  func scheduleInRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
+  func removeFromRunLoop(_ aRunLoop: NSRunLoop, forMode mode: String)
   func searchForBrowsableDomains()
   func searchForRegistrationDomains()
-  func searchForServicesOfType(type: String, inDomain domainString: String)
+  func searchForServicesOfType(_ type: String, inDomain domainString: String)
   func stop()
 }
 protocol NSNetServiceDelegate : NSObjectProtocol {
-  optional func netServiceWillPublish(sender: NSNetService)
-  optional func netServiceDidPublish(sender: NSNetService)
-  optional func netService(sender: NSNetService, didNotPublish errorDict: [String : NSNumber])
-  optional func netServiceWillResolve(sender: NSNetService)
-  optional func netServiceDidResolveAddress(sender: NSNetService)
-  optional func netService(sender: NSNetService, didNotResolve errorDict: [String : NSNumber])
-  optional func netServiceDidStop(sender: NSNetService)
-  optional func netService(sender: NSNetService, didUpdateTXTRecordData data: NSData)
+  optional func netServiceWillPublish(_ sender: NSNetService)
+  optional func netServiceDidPublish(_ sender: NSNetService)
+  optional func netService(_ sender: NSNetService, didNotPublish errorDict: [String : NSNumber])
+  optional func netServiceWillResolve(_ sender: NSNetService)
+  optional func netServiceDidResolveAddress(_ sender: NSNetService)
+  optional func netService(_ sender: NSNetService, didNotResolve errorDict: [String : NSNumber])
+  optional func netServiceDidStop(_ sender: NSNetService)
+  optional func netService(_ sender: NSNetService, didUpdateTXTRecordData data: NSData)
   @available(OSX 10.9, *)
-  optional func netService(sender: NSNetService, didAcceptConnectionWithInputStream inputStream: NSInputStream, outputStream: NSOutputStream)
+  optional func netService(_ sender: NSNetService, didAcceptConnectionWithInputStream inputStream: NSInputStream, outputStream outputStream: NSOutputStream)
 }
 protocol NSNetServiceBrowserDelegate : NSObjectProtocol {
-  optional func netServiceBrowserWillSearch(browser: NSNetServiceBrowser)
-  optional func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber])
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing: Bool)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing: Bool)
-  optional func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool)
+  optional func netServiceBrowserWillSearch(_ browser: NSNetServiceBrowser)
+  optional func netServiceBrowserDidStopSearch(_ browser: NSNetServiceBrowser)
+  optional func netServiceBrowser(_ browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber])
+  optional func netServiceBrowser(_ browser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing moreComing: Bool)
+  optional func netServiceBrowser(_ browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing moreComing: Bool)
+  optional func netServiceBrowser(_ browser: NSNetServiceBrowser, didRemoveDomain domainString: String, moreComing moreComing: Bool)
+  optional func netServiceBrowser(_ browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing moreComing: Bool)
 }

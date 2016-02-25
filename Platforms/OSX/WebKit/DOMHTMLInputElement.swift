@@ -37,6 +37,5 @@ class DOMHTMLInputElement : DOMHTMLElement {
   @NSCopying var absoluteImageURL: NSURL! { get }
   func select()
   @available(OSX 10.5, *)
-  func setSelectionRange(start: Int32, end: Int32)
-  func click()
+  func setSelectionRange(_ start: Int32, end end: Int32)
 }

@@ -151,42 +151,41 @@ class CIFilter : NSObject, NSSecureCoding, NSCopying {
   func setDefaults()
   var attributes: [String : AnyObject] { get }
   @available(OSX 10.4, *)
-  func apply(k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]?) -> CIImage?
-  init()
+  func apply(_ k: CIKernel, arguments args: [AnyObject]?, options dict: [String : AnyObject]?) -> CIImage?
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 
 extension CIFilter {
-  func apply(k: CIKernel, args: [AnyObject], options: (String, AnyObject)...) -> CIImage?
+  func apply(_ k: CIKernel, args args: [AnyObject], options options: (String, AnyObject)...) -> CIImage?
   @available(iOS 8.0, OSX 10.10, *)
-  convenience init?(name: String!, elements: (String, AnyObject)...)
+  convenience init?(name name: String!, elements elements: (String, AnyObject)...)
 }
 extension CIFilter {
-  /*not inherited*/ init?(name: String)
+  /*not inherited*/ init?(name name: String)
   @available(OSX 10.10, *)
-  /*not inherited*/ init?(name: String, withInputParameters params: [String : AnyObject]?)
-  class func filterNamesInCategory(category: String?) -> [String]
-  class func filterNamesInCategories(categories: [String]?) -> [String]
+  /*not inherited*/ init?(name name: String, withInputParameters params: [String : AnyObject]?)
+  class func filterNamesInCategory(_ category: String?) -> [String]
+  class func filterNamesInCategories(_ categories: [String]?) -> [String]
   @available(OSX 10.4, *)
-  class func registerFilterName(name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
+  class func registerFilterName(_ name: String, constructor anObject: CIFilterConstructor, classAttributes attributes: [String : AnyObject])
   @available(OSX 10.4, *)
-  class func localizedNameForFilterName(filterName: String) -> String?
+  class func localizedNameForFilterName(_ filterName: String) -> String?
   @available(OSX 10.4, *)
-  class func localizedNameForCategory(category: String) -> String
+  class func localizedNameForCategory(_ category: String) -> String
   @available(OSX 10.4, *)
-  class func localizedDescriptionForFilterName(filterName: String) -> String?
+  class func localizedDescriptionForFilterName(_ filterName: String) -> String?
   @available(OSX 10.4, *)
-  class func localizedReferenceDocumentationForFilterName(filterName: String) -> NSURL?
+  class func localizedReferenceDocumentationForFilterName(_ filterName: String) -> NSURL?
 }
 extension CIFilter {
   @available(OSX 10.9, *)
-  class func serializedXMPFromFilters(filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
+  class func serializedXMPFromFilters(_ filters: [CIFilter], inputImageExtent extent: CGRect) -> NSData
   @available(OSX 10.9, *)
-  class func filterArrayFromSerializedXMP(xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
+  class func filterArrayFromSerializedXMP(_ xmpData: NSData, inputImageExtent extent: CGRect, error outError: NSErrorPointer) -> [CIFilter]
 }

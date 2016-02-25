@@ -1,6 +1,6 @@
 
 enum UIUserInterfaceIdiom : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   @available(tvOS 3.2, *)
@@ -30,7 +30,6 @@ class UIDevice : NSObject {
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   @available(tvOS 4.2, *)
   func playInputClick()
-  init()
 }
 protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }

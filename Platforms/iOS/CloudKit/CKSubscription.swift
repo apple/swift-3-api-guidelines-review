@@ -1,14 +1,14 @@
 
 @available(iOS 8.0, *)
 enum CKSubscriptionType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Query
   case RecordZone
 }
 @available(iOS 8.0, *)
 struct CKSubscriptionOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var FiresOnRecordCreation: CKSubscriptionOptions { get }
   static var FiresOnRecordUpdate: CKSubscriptionOptions { get }
@@ -18,10 +18,10 @@ struct CKSubscriptionOptions : OptionSetType {
 @available(iOS 8.0, *)
 class CKSubscription : NSObject, NSSecureCoding, NSCopying {
   init(coder aDecoder: NSCoder)
-  convenience init(recordType: String, predicate: NSPredicate, options subscriptionOptions: CKSubscriptionOptions)
-  init(recordType: String, predicate: NSPredicate, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions)
-  convenience init(zoneID: CKRecordZoneID, options subscriptionOptions: CKSubscriptionOptions)
-  init(zoneID: CKRecordZoneID, subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions)
+  convenience init(recordType recordType: String, predicate predicate: NSPredicate, options subscriptionOptions: CKSubscriptionOptions)
+  init(recordType recordType: String, predicate predicate: NSPredicate, subscriptionID subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions)
+  convenience init(zoneID zoneID: CKRecordZoneID, options subscriptionOptions: CKSubscriptionOptions)
+  init(zoneID zoneID: CKRecordZoneID, subscriptionID subscriptionID: String, options subscriptionOptions: CKSubscriptionOptions)
   var subscriptionID: String { get }
   var subscriptionType: CKSubscriptionType { get }
   var recordType: String? { get }
@@ -32,9 +32,9 @@ class CKSubscription : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
@@ -49,12 +49,11 @@ class CKNotificationInfo : NSObject, NSSecureCoding, NSCopying {
   var shouldSendContentAvailable: Bool
   @available(iOS 9.0, *)
   var category: String?
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

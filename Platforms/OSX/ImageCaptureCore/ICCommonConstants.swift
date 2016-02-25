@@ -1,6 +1,6 @@
 
 enum ICEXIFOrientationType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Orientation1
   case Orientation2
@@ -12,7 +12,7 @@ enum ICEXIFOrientationType : UInt {
   case Orientation8
 }
 enum ICReturnCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Success
   case InvalidParam

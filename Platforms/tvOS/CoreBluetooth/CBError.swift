@@ -1,8 +1,6 @@
 
 let CBErrorDomain: String
 enum CBError : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case Unknown
   @available(tvOS 6.0, *)
   case InvalidParameters
@@ -29,13 +27,9 @@ enum CBError : Int {
 }
 
 extension CBError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }
 let CBATTErrorDomain: String
 enum CBATTError : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   @available(tvOS 6.0, *)
   case Success
   case InvalidHandle
@@ -58,6 +52,4 @@ enum CBATTError : Int {
 }
 
 extension CBATTError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

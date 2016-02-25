@@ -1,7 +1,7 @@
 
 struct hv_x86_reg_t : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var HV_X86_RIP: hv_x86_reg_t { get }

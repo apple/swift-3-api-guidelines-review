@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum WKSelectionGranularity : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Dynamic
   case Character
@@ -24,9 +24,8 @@ class WKWebViewConfiguration : NSObject, NSCopying {
   var selectionGranularity: WKSelectionGranularity
   @available(iOS 9.0, *)
   var allowsPictureInPictureMediaPlayback: Bool
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension WKWebViewConfiguration {
   @available(iOS, introduced=8.0, deprecated=9.0, message="Please use requiresUserActionForMediaPlayback")

@@ -15,6 +15,5 @@ class GCExtendedGamepad : NSObject {
   var rightShoulder: GCControllerButtonInput { get }
   var leftTrigger: GCControllerButtonInput { get }
   var rightTrigger: GCControllerButtonInput { get }
-  init()
 }
 typealias GCExtendedGamepadValueChangedHandler = (GCExtendedGamepad, GCControllerElement) -> Void

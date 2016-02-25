@@ -9,37 +9,33 @@ class UIPrintFormatter : NSObject, NSCopying {
   var perPageContentInsets: UIEdgeInsets
   var startPage: Int
   var pageCount: Int { get }
-  func rectForPageAtIndex(pageIndex: Int) -> CGRect
-  func drawInRect(rect: CGRect, forPageAtIndex pageIndex: Int)
-  init()
+  func rectForPageAtIndex(_ pageIndex: Int) -> CGRect
+  func drawInRect(_ rect: CGRect, forPageAtIndex pageIndex: Int)
   @available(iOS 4.2, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 4.2, *)
 class UISimpleTextPrintFormatter : UIPrintFormatter {
-  init(text: String)
+  init(text text: String)
   @available(iOS 7.0, *)
-  init(attributedText: NSAttributedString)
+  init(attributedText attributedText: NSAttributedString)
   var text: String?
   @available(iOS 7.0, *)
   @NSCopying var attributedText: NSAttributedString?
   var font: UIFont?
   var color: UIColor?
   var textAlignment: NSTextAlignment
-  init()
 }
 @available(iOS 4.2, *)
 class UIMarkupTextPrintFormatter : UIPrintFormatter {
-  init(markupText: String)
+  init(markupText markupText: String)
   var markupText: String?
-  init()
 }
 @available(iOS 4.2, *)
 class UIViewPrintFormatter : UIPrintFormatter {
   var view: UIView { get }
-  init()
 }
 extension UIView {
   func viewPrintFormatter() -> UIViewPrintFormatter
-  func drawRect(rect: CGRect, forViewPrintFormatter formatter: UIViewPrintFormatter)
+  func drawRect(_ rect: CGRect, forViewPrintFormatter formatter: UIViewPrintFormatter)
 }

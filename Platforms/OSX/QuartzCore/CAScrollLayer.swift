@@ -1,15 +1,12 @@
 
 class CAScrollLayer : CALayer {
-  func scrollToPoint(p: CGPoint)
-  func scrollToRect(r: CGRect)
+  func scrollToPoint(_ p: CGPoint)
+  func scrollToRect(_ r: CGRect)
   var scrollMode: String
-  init()
-  init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }
 extension CALayer {
-  func scrollPoint(p: CGPoint)
-  func scrollRectToVisible(r: CGRect)
+  func scrollPoint(_ p: CGPoint)
+  func scrollRectToVisible(_ r: CGRect)
   var visibleRect: CGRect { get }
 }
 @available(OSX 10.5, *)

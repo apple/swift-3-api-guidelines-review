@@ -10,14 +10,14 @@ let SCNHitTestRootNodeKey: String
 let SCNHitTestIgnoreHiddenNodesKey: String
 @available(iOS 9.0, *)
 enum SCNRenderingAPI : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Metal
   case OpenGLES2
 }
 @available(iOS 9.0, *)
 struct SCNDebugOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: SCNDebugOptions { get }
   static var ShowPhysicsShapes: SCNDebugOptions { get }
@@ -37,8 +37,7 @@ class SCNHitTestResult : NSObject {
   var localNormal: SCNVector3 { get }
   var worldNormal: SCNVector3 { get }
   var modelTransform: SCNMatrix4 { get }
-  func textureCoordinatesWithMappingChannel(channel: Int) -> CGPoint
-  init()
+  func textureCoordinatesWithMappingChannel(_ channel: Int) -> CGPoint
 }
 protocol SCNSceneRenderer : NSObjectProtocol {
   @available(iOS 8.0, *)
@@ -47,15 +46,15 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var sceneTime: NSTimeInterval { get set }
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate? { get set }
   @available(iOS 8.0, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]?) -> [SCNHitTestResult]
   @available(iOS 8.0, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInsideFrustum(_ node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(iOS 9.0, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOfView(_ pointOfView: SCNNode) -> [SCNNode]
   @available(iOS 8.0, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(iOS 8.0, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   var playing: Bool { get set }
   var loops: Bool { get set }
   @available(iOS 8.0, *)
@@ -63,9 +62,9 @@ protocol SCNSceneRenderer : NSObjectProtocol {
   var autoenablesDefaultLighting: Bool { get set }
   var jitteringEnabled: Bool { get set }
   @available(iOS 8.0, *)
-  func prepareObject(object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
+  func prepareObject(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
   @available(iOS 8.0, *)
-  func prepareObjects(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
+  func prepareObjects(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
   @available(iOS 8.0, *)
   var showsStatistics: Bool { get set }
   @available(iOS 9.0, *)
@@ -90,13 +89,13 @@ protocol SCNSceneRenderer : NSObjectProtocol {
 }
 protocol SCNSceneRendererDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval)
   @available(iOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval)
   @available(iOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval)
   @available(iOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval)
   @available(iOS 8.0, *)
-  optional func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
+  optional func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval)
 }

@@ -6,7 +6,7 @@ class CKContainer : NSObject {
   class func defaultContainer() -> CKContainer
   /*not inherited*/ init(identifier containerIdentifier: String)
   var containerIdentifier: String? { get }
-  func addOperation(operation: CKOperation)
+  func addOperation(_ operation: CKOperation)
 }
 extension CKContainer {
   var privateCloudDatabase: CKDatabase { get }
@@ -14,7 +14,7 @@ extension CKContainer {
 }
 @available(iOS 8.0, *)
 enum CKAccountStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case CouldNotDetermine
   case Available
@@ -24,17 +24,17 @@ enum CKAccountStatus : Int {
 @available(iOS 9.0, *)
 let CKAccountChangedNotification: String
 extension CKContainer {
-  func accountStatusWithCompletionHandler(completionHandler: (CKAccountStatus, NSError?) -> Void)
+  func accountStatusWithCompletionHandler(_ completionHandler: (CKAccountStatus, NSError?) -> Void)
 }
 @available(iOS 8.0, *)
 struct CKApplicationPermissions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var UserDiscoverability: CKApplicationPermissions { get }
 }
 @available(iOS 8.0, *)
 enum CKApplicationPermissionStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case InitialState
   case CouldNotComplete
@@ -43,12 +43,12 @@ enum CKApplicationPermissionStatus : Int {
 }
 typealias CKApplicationPermissionBlock = (CKApplicationPermissionStatus, NSError?) -> Void
 extension CKContainer {
-  func statusForApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
-  func requestApplicationPermission(applicationPermission: CKApplicationPermissions, completionHandler: CKApplicationPermissionBlock)
+  func statusForApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler completionHandler: CKApplicationPermissionBlock)
+  func requestApplicationPermission(_ applicationPermission: CKApplicationPermissions, completionHandler completionHandler: CKApplicationPermissionBlock)
 }
 extension CKContainer {
-  func fetchUserRecordIDWithCompletionHandler(completionHandler: (CKRecordID?, NSError?) -> Void)
-  func discoverAllContactUserInfosWithCompletionHandler(completionHandler: ([CKDiscoveredUserInfo]?, NSError?) -> Void)
-  func discoverUserInfoWithEmailAddress(email: String, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
-  func discoverUserInfoWithUserRecordID(userRecordID: CKRecordID, completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func fetchUserRecordIDWithCompletionHandler(_ completionHandler: (CKRecordID?, NSError?) -> Void)
+  func discoverAllContactUserInfosWithCompletionHandler(_ completionHandler: ([CKDiscoveredUserInfo]?, NSError?) -> Void)
+  func discoverUserInfoWithEmailAddress(_ email: String, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func discoverUserInfoWithUserRecordID(_ userRecordID: CKRecordID, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
 }

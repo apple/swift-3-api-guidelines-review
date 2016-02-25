@@ -1,14 +1,14 @@
 
 protocol WebDocumentView : NSObjectProtocol {
-  func setDataSource(dataSource: WebDataSource!)
-  func dataSourceUpdated(dataSource: WebDataSource!)
-  func setNeedsLayout(flag: Bool)
+  func setDataSource(_ dataSource: WebDataSource!)
+  func dataSourceUpdated(_ dataSource: WebDataSource!)
+  func setNeedsLayout(_ flag: Bool)
   func layout()
-  func viewWillMoveToHostWindow(hostWindow: NSWindow!)
+  func viewWillMoveToHostWindow(_ hostWindow: NSWindow!)
   func viewDidMoveToHostWindow()
 }
 protocol WebDocumentSearching : NSObjectProtocol {
-  func searchFor(string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
+  func searchFor(_ string: String!, direction forward: Bool, caseSensitive caseFlag: Bool, wrap wrapFlag: Bool) -> Bool
 }
 protocol WebDocumentText : NSObjectProtocol {
   func supportsTextEncoding() -> Bool
@@ -22,10 +22,10 @@ protocol WebDocumentText : NSObjectProtocol {
   func deselectAll()
 }
 protocol WebDocumentRepresentation : NSObjectProtocol {
-  func setDataSource(dataSource: WebDataSource!)
-  func receivedData(data: NSData!, withDataSource dataSource: WebDataSource!)
-  func receivedError(error: NSError!, withDataSource dataSource: WebDataSource!)
-  func finishedLoadingWithDataSource(dataSource: WebDataSource!)
+  func setDataSource(_ dataSource: WebDataSource!)
+  func receivedData(_ data: NSData!, withDataSource dataSource: WebDataSource!)
+  func receivedError(_ error: NSError!, withDataSource dataSource: WebDataSource!)
+  func finishedLoadingWithDataSource(_ dataSource: WebDataSource!)
   func canProvideDocumentSource() -> Bool
   func documentSource() -> String!
   func title() -> String!

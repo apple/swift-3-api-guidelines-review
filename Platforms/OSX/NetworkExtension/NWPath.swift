@@ -1,7 +1,7 @@
 
 @available(OSX 10.11, *)
 enum NWPathStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Invalid
   case Satisfied
@@ -15,6 +15,5 @@ class NWPath : NSObject {
   @available(OSX 10.11, *)
   var expensive: Bool { get }
   @available(OSX 10.11, *)
-  func isEqualToPath(path: NWPath) -> Bool
-  init()
+  func isEqualToPath(_ path: NWPath) -> Bool
 }

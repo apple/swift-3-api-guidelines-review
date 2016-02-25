@@ -3,7 +3,6 @@
 class MKDirectionsRequest : NSObject {
   var source: MKMapItem?
   var destination: MKMapItem?
-  init()
 }
 extension MKDirectionsRequest {
   @available(iOS 7.0, *)
@@ -19,5 +18,5 @@ extension MKDirectionsRequest {
   @available(iOS 6.0, *)
   init(contentsOfURL url: NSURL)
   @available(iOS 6.0, *)
-  class func isDirectionsRequestURL(url: NSURL) -> Bool
+  class func isDirectionsRequestURL(_ url: NSURL) -> Bool
 }

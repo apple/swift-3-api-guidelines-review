@@ -3,24 +3,24 @@ class NSSpellChecker : NSObject {
   class func sharedSpellChecker() -> NSSpellChecker
   class func sharedSpellCheckerExists() -> Bool
   class func uniqueSpellDocumentTag() -> Int
-  func checkSpellingOfString(stringToCheck: String, startingAt startingOffset: Int, language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, wordCount: UnsafeMutablePointer<Int>) -> NSRange
-  func checkSpellingOfString(stringToCheck: String, startingAt startingOffset: Int) -> NSRange
-  func countWordsInString(stringToCount: String, language: String?) -> Int
+  func checkSpellingOfString(_ stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, wordCount wordCount: UnsafeMutablePointer<Int>) -> NSRange
+  func checkSpellingOfString(_ stringToCheck: String, startingAt startingOffset: Int) -> NSRange
+  func countWordsInString(_ stringToCount: String, language language: String?) -> Int
   @available(OSX 10.5, *)
-  func checkGrammarOfString(stringToCheck: String, startingAt startingOffset: Int, language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
+  func checkGrammarOfString(_ stringToCheck: String, startingAt startingOffset: Int, language language: String?, wrap wrapFlag: Bool, inSpellDocumentWithTag tag: Int, details details: AutoreleasingUnsafeMutablePointer<NSArray?>) -> NSRange
   @available(OSX 10.6, *)
-  func checkString(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
+  func checkString(_ stringToCheck: String, range range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, orthography orthography: AutoreleasingUnsafeMutablePointer<NSOrthography?>, wordCount wordCount: UnsafeMutablePointer<Int>) -> [NSTextCheckingResult]
   @available(OSX 10.6, *)
-  func requestCheckingOfString(stringToCheck: String, range: NSRange, types checkingTypes: NSTextCheckingTypes, options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)?) -> Int
+  func requestCheckingOfString(_ stringToCheck: String, range range: NSRange, types checkingTypes: NSTextCheckingTypes, options options: [String : AnyObject]?, inSpellDocumentWithTag tag: Int, completionHandler completionHandler: ((Int, [NSTextCheckingResult], NSOrthography, Int) -> Void)?) -> Int
   @available(OSX 10.6, *)
-  func menuForResult(result: NSTextCheckingResult, string checkedString: String, options: [String : AnyObject]?, atLocation location: NSPoint, inView view: NSView) -> NSMenu?
+  func menuForResult(_ result: NSTextCheckingResult, string checkedString: String, options options: [String : AnyObject]?, atLocation location: NSPoint, inView view: NSView) -> NSMenu?
   @available(OSX 10.6, *)
-  func userQuotesArrayForLanguage(language: String) -> [String]
+  func userQuotesArrayForLanguage(_ language: String) -> [String]
   @available(OSX 10.6, *)
   var userReplacementsDictionary: [String : String] { get }
-  func updateSpellingPanelWithMisspelledWord(word: String)
+  func updateSpellingPanelWithMisspelledWord(_ word: String)
   @available(OSX 10.5, *)
-  func updateSpellingPanelWithGrammarString(string: String, detail: [String : AnyObject])
+  func updateSpellingPanelWithGrammarString(_ string: String, detail detail: [String : AnyObject])
   var spellingPanel: NSPanel { get }
   var accessoryView: NSView?
   @available(OSX 10.6, *)
@@ -29,35 +29,35 @@ class NSSpellChecker : NSObject {
   var substitutionsPanelAccessoryViewController: NSViewController?
   @available(OSX 10.6, *)
   func updatePanels()
-  func ignoreWord(wordToIgnore: String, inSpellDocumentWithTag tag: Int)
-  func ignoredWordsInSpellDocumentWithTag(tag: Int) -> [String]?
-  func setIgnoredWords(words: [String], inSpellDocumentWithTag tag: Int)
+  func ignoreWord(_ wordToIgnore: String, inSpellDocumentWithTag tag: Int)
+  func ignoredWordsInSpellDocumentWithTag(_ tag: Int) -> [String]?
+  func setIgnoredWords(_ words: [String], inSpellDocumentWithTag tag: Int)
   @available(OSX 10.6, *)
-  func guessesForWordRange(range: NSRange, inString string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func guessesForWordRange(_ range: NSRange, inString string: String, language language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func correctionForWordRange(range: NSRange, inString string: String, language: String, inSpellDocumentWithTag tag: Int) -> String?
-  func completionsForPartialWordRange(range: NSRange, inString string: String, language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
+  func correctionForWordRange(_ range: NSRange, inString string: String, language language: String, inSpellDocumentWithTag tag: Int) -> String?
+  func completionsForPartialWordRange(_ range: NSRange, inString string: String, language language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
-  func languageForWordRange(range: NSRange, inString string: String, orthography: NSOrthography?) -> String?
-  func closeSpellDocumentWithTag(tag: Int)
+  func languageForWordRange(_ range: NSRange, inString string: String, orthography orthography: NSOrthography?) -> String?
+  func closeSpellDocumentWithTag(_ tag: Int)
   @available(OSX 10.7, *)
-  func recordResponse(response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language: String?, inSpellDocumentWithTag tag: Int)
+  func recordResponse(_ response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)
-  func showCorrectionIndicatorOfType(type: NSCorrectionIndicatorType, primaryString: String, alternativeStrings: [String], forStringInRect rectOfTypedString: NSRect, view: NSView, completionHandler completionBlock: ((String!) -> Void)?)
+  func showCorrectionIndicatorOfType(_ type: NSCorrectionIndicatorType, primaryString primaryString: String, alternativeStrings alternativeStrings: [String], forStringInRect rectOfTypedString: NSRect, view view: NSView, completionHandler completionBlock: ((String!) -> Void)?)
   @available(OSX 10.7, *)
-  func dismissCorrectionIndicatorForView(view: NSView)
+  func dismissCorrectionIndicatorForView(_ view: NSView)
   @available(OSX 10.5, *)
   var availableLanguages: [String] { get }
   @available(OSX 10.6, *)
   var userPreferredLanguages: [String] { get }
   @available(OSX 10.6, *)
   var automaticallyIdentifiesLanguages: Bool
-  func setWordFieldStringValue(aString: String)
-  func learnWord(word: String)
+  func setWordFieldStringValue(_ aString: String)
+  func learnWord(_ word: String)
   @available(OSX 10.5, *)
-  func hasLearnedWord(word: String) -> Bool
+  func hasLearnedWord(_ word: String) -> Bool
   @available(OSX 10.5, *)
-  func unlearnWord(word: String)
+  func unlearnWord(_ word: String)
   @available(OSX 10.7, *)
   class func isAutomaticTextReplacementEnabled() -> Bool
   @available(OSX 10.7, *)
@@ -67,8 +67,7 @@ class NSSpellChecker : NSObject {
   @available(OSX 10.9, *)
   class func isAutomaticDashSubstitutionEnabled() -> Bool
   func language() -> String
-  func setLanguage(language: String) -> Bool
-  init()
+  func setLanguage(_ language: String) -> Bool
 }
 struct __scFlags {
   var autoShowGuesses: UInt32
@@ -84,7 +83,7 @@ struct __scFlags {
   var quotesByLanguage: UInt32
   var _reserved: UInt32
   init()
-  init(autoShowGuesses: UInt32, needDelayedGuess: UInt32, unignoreInProgress: UInt32, wordFieldEdited: UInt32, inSpelling: UInt32, reconnectSpelling: UInt32, inGrammar: UInt32, reconnectGrammar: UInt32, languageIdentification: UInt32, languagesHidden: UInt32, quotesByLanguage: UInt32, _reserved: UInt32)
+  init(autoShowGuesses autoShowGuesses: UInt32, needDelayedGuess needDelayedGuess: UInt32, unignoreInProgress unignoreInProgress: UInt32, wordFieldEdited wordFieldEdited: UInt32, inSpelling inSpelling: UInt32, reconnectSpelling reconnectSpelling: UInt32, inGrammar inGrammar: UInt32, reconnectGrammar reconnectGrammar: UInt32, languageIdentification languageIdentification: UInt32, languagesHidden languagesHidden: UInt32, quotesByLanguage quotesByLanguage: UInt32, _reserved _reserved: UInt32)
 }
 @available(OSX 10.6, *)
 let NSTextCheckingOrthographyKey: String
@@ -105,7 +104,7 @@ let NSTextCheckingDocumentAuthorKey: String
 @available(OSX 10.7, *)
 let NSTextCheckingRegularExpressionsKey: String
 enum NSCorrectionResponse : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Accepted
@@ -115,7 +114,7 @@ enum NSCorrectionResponse : Int {
   case Reverted
 }
 enum NSCorrectionIndicatorType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Reversion

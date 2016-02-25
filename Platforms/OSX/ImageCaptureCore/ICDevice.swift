@@ -1,12 +1,12 @@
 
 enum ICDeviceType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Camera
   case Scanner
 }
 enum ICDeviceLocationType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Local
   case Shared
@@ -14,13 +14,13 @@ enum ICDeviceLocationType : UInt {
   case Bluetooth
 }
 enum ICDeviceTypeMask : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Camera
   case Scanner
 }
 enum ICDeviceLocationTypeMask : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Local
   case Shared
@@ -48,16 +48,16 @@ let ICStatusCodeKey: String
 let ICLocalizedStatusNotificationKey: String
 let ICDeviceCanEjectOrDisconnect: String
 protocol ICDeviceDelegate : NSObjectProtocol {
-  func didRemoveDevice(device: ICDevice)
-  optional func device(device: ICDevice, didOpenSessionWithError error: NSError?)
-  optional func deviceDidBecomeReady(device: ICDevice)
-  optional func device(device: ICDevice, didCloseSessionWithError error: NSError?)
-  optional func deviceDidChangeName(device: ICDevice)
-  optional func deviceDidChangeSharingState(device: ICDevice)
-  optional func device(device: ICDevice, didReceiveStatusInformation status: [String : AnyObject])
-  optional func device(device: ICDevice, didEncounterError error: NSError?)
-  optional func device(device: ICDevice, didReceiveButtonPress buttonType: String)
-  optional func device(device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data: NSData)
+  func didRemoveDevice(_ device: ICDevice)
+  optional func device(_ device: ICDevice, didOpenSessionWithError error: NSError?)
+  optional func deviceDidBecomeReady(_ device: ICDevice)
+  optional func device(_ device: ICDevice, didCloseSessionWithError error: NSError?)
+  optional func deviceDidChangeName(_ device: ICDevice)
+  optional func deviceDidChangeSharingState(_ device: ICDevice)
+  optional func device(_ device: ICDevice, didReceiveStatusInformation status: [String : AnyObject])
+  optional func device(_ device: ICDevice, didEncounterError error: NSError?)
+  optional func device(_ device: ICDevice, didReceiveButtonPress buttonType: String)
+  optional func device(_ device: ICDevice, didReceiveCustomNotification notification: [String : AnyObject], data data: NSData)
 }
 class ICDevice : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged ICDeviceDelegate?
@@ -87,7 +87,6 @@ class ICDevice : NSObject {
   func requestOpenSession()
   func requestCloseSession()
   func requestYield()
-  func requestSendMessage(messageCode: UInt32, outData data: NSData, maxReturnedDataSize: UInt32, sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func requestSendMessage(_ messageCode: UInt32, outData data: NSData, maxReturnedDataSize maxReturnedDataSize: UInt32, sendMessageDelegate sendMessageDelegate: AnyObject, didSendMessageSelector selector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func requestEjectOrDisconnect()
-  init()
 }

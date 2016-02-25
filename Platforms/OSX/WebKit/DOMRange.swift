@@ -18,36 +18,36 @@ class DOMRange : DOMObject {
   @available(OSX 10.5, *)
   var text: String! { get }
   @available(OSX 10.5, *)
-  func setStart(refNode: DOMNode!, offset: Int32)
+  func setStart(_ refNode: DOMNode!, offset offset: Int32)
   @available(OSX 10.5, *)
-  func setEnd(refNode: DOMNode!, offset: Int32)
-  func setStartBefore(refNode: DOMNode!)
-  func setStartAfter(refNode: DOMNode!)
-  func setEndBefore(refNode: DOMNode!)
-  func setEndAfter(refNode: DOMNode!)
-  func collapse(toStart: Bool)
-  func selectNode(refNode: DOMNode!)
-  func selectNodeContents(refNode: DOMNode!)
+  func setEnd(_ refNode: DOMNode!, offset offset: Int32)
+  func setStartBefore(_ refNode: DOMNode!)
+  func setStartAfter(_ refNode: DOMNode!)
+  func setEndBefore(_ refNode: DOMNode!)
+  func setEndAfter(_ refNode: DOMNode!)
+  func collapse(_ toStart: Bool)
+  func selectNode(_ refNode: DOMNode!)
+  func selectNodeContents(_ refNode: DOMNode!)
   @available(OSX 10.5, *)
-  func compareBoundaryPoints(how: UInt16, sourceRange: DOMRange!) -> Int16
+  func compareBoundaryPoints(_ how: UInt16, sourceRange sourceRange: DOMRange!) -> Int16
   func deleteContents()
   func extractContents() -> DOMDocumentFragment!
   func cloneContents() -> DOMDocumentFragment!
-  func insertNode(newNode: DOMNode!)
-  func surroundContents(newParent: DOMNode!)
+  func insertNode(_ newNode: DOMNode!)
+  func surroundContents(_ newParent: DOMNode!)
   func cloneRange() -> DOMRange!
   func toString() -> String!
   func detach()
   @available(OSX 10.5, *)
-  func createContextualFragment(html: String!) -> DOMDocumentFragment!
+  func createContextualFragment(_ html: String!) -> DOMDocumentFragment!
   @available(OSX 10.5, *)
-  func intersectsNode(refNode: DOMNode!) -> Bool
+  func intersectsNode(_ refNode: DOMNode!) -> Bool
   @available(OSX 10.5, *)
-  func compareNode(refNode: DOMNode!) -> Int16
+  func compareNode(_ refNode: DOMNode!) -> Int16
   @available(OSX 10.5, *)
-  func comparePoint(refNode: DOMNode!, offset: Int32) -> Int16
+  func comparePoint(_ refNode: DOMNode!, offset offset: Int32) -> Int16
   @available(OSX 10.5, *)
-  func isPointInRange(refNode: DOMNode!, offset: Int32) -> Bool
+  func isPointInRange(_ refNode: DOMNode!, offset offset: Int32) -> Bool
 }
 extension DOMRange {
 }

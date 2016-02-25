@@ -1,15 +1,15 @@
 
 protocol NSUserInterfaceItemSearching : NSObjectProtocol {
-  func searchForItemsWithSearchString(searchString: String, resultLimit: Int, matchedItemHandler handleMatchedItems: ([AnyObject]) -> Void)
-  func localizedTitlesForItem(item: AnyObject) -> [String]
-  optional func performActionForItem(item: AnyObject)
-  optional func showAllHelpTopicsForSearchString(searchString: String)
+  func searchForItemsWithSearchString(_ searchString: String, resultLimit resultLimit: Int, matchedItemHandler handleMatchedItems: ([AnyObject]) -> Void)
+  func localizedTitlesForItem(_ item: AnyObject) -> [String]
+  optional func performActionForItem(_ item: AnyObject)
+  optional func showAllHelpTopicsForSearchString(_ searchString: String)
 }
 extension NSApplication {
   @available(OSX 10.6, *)
-  func registerUserInterfaceItemSearchHandler(handler: NSUserInterfaceItemSearching)
+  func registerUserInterfaceItemSearchHandler(_ handler: NSUserInterfaceItemSearching)
   @available(OSX 10.6, *)
-  func unregisterUserInterfaceItemSearchHandler(handler: NSUserInterfaceItemSearching)
+  func unregisterUserInterfaceItemSearchHandler(_ handler: NSUserInterfaceItemSearching)
   @available(OSX 10.6, *)
-  func searchString(searchString: String, inUserInterfaceItemString stringToSearch: String, searchRange: NSRange, foundRange: UnsafeMutablePointer<NSRange>) -> Bool
+  func searchString(_ searchString: String, inUserInterfaceItemString stringToSearch: String, searchRange searchRange: NSRange, foundRange foundRange: UnsafeMutablePointer<NSRange>) -> Bool
 }

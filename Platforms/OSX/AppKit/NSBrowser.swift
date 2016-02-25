@@ -30,11 +30,11 @@ struct __Brflags {
   var allowsBranchSelection: UInt32
   var allowsMultipleSelection: UInt32
   init()
-  init(firstVisibleCalculationDisabled: UInt32, prefersAllColumnUserResizing: UInt32, usesSmallScrollers: UInt32, usesSmallSizeTitleFont: UInt32, actionNeedsToBeSent: UInt32, acceptsFirstMouse: UInt32, refusesFirstResponder: UInt32, disableCompositing: UInt32, delegateSelectsCellsByRow: UInt32, allowsIncrementalSearching: UInt32, time: UInt32, hasHorizontalScroller: UInt32, prohibitEmptySel: UInt32, sendActionOnArrowKeys: UInt32, dontDrawTitles: UInt32, acceptArrowKeys: UInt32, delegateValidatesColumns: UInt32, delegateDoesNotCreateRowsInMatrix: UInt32, delegateSelectsCellsByString: UInt32, delegateSetsTitles: UInt32, delegateImplementsWillDisplayCell: UInt32, separateColumns: UInt32, titleFromPrevious: UInt32, isTitled: UInt32, reuseColumns: UInt32, allowsBranchSelection: UInt32, allowsMultipleSelection: UInt32)
+  init(firstVisibleCalculationDisabled firstVisibleCalculationDisabled: UInt32, prefersAllColumnUserResizing prefersAllColumnUserResizing: UInt32, usesSmallScrollers usesSmallScrollers: UInt32, usesSmallSizeTitleFont usesSmallSizeTitleFont: UInt32, actionNeedsToBeSent actionNeedsToBeSent: UInt32, acceptsFirstMouse acceptsFirstMouse: UInt32, refusesFirstResponder refusesFirstResponder: UInt32, disableCompositing disableCompositing: UInt32, delegateSelectsCellsByRow delegateSelectsCellsByRow: UInt32, allowsIncrementalSearching allowsIncrementalSearching: UInt32, time time: UInt32, hasHorizontalScroller hasHorizontalScroller: UInt32, prohibitEmptySel prohibitEmptySel: UInt32, sendActionOnArrowKeys sendActionOnArrowKeys: UInt32, dontDrawTitles dontDrawTitles: UInt32, acceptArrowKeys acceptArrowKeys: UInt32, delegateValidatesColumns delegateValidatesColumns: UInt32, delegateDoesNotCreateRowsInMatrix delegateDoesNotCreateRowsInMatrix: UInt32, delegateSelectsCellsByString delegateSelectsCellsByString: UInt32, delegateSetsTitles delegateSetsTitles: UInt32, delegateImplementsWillDisplayCell delegateImplementsWillDisplayCell: UInt32, separateColumns separateColumns: UInt32, titleFromPrevious titleFromPrevious: UInt32, isTitled isTitled: UInt32, reuseColumns reuseColumns: UInt32, allowsBranchSelection allowsBranchSelection: UInt32, allowsMultipleSelection allowsMultipleSelection: UInt32)
 }
 typealias _Brflags = __Brflags
 enum NSBrowserColumnResizingType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NoColumnResizing
   case AutoColumnResizing
@@ -42,17 +42,16 @@ enum NSBrowserColumnResizingType : UInt {
 }
 @available(OSX 10.5, *)
 enum NSBrowserDropOperation : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case On
   case Above
 }
 class NSBrowser : NSControl {
-  class func cellClass() -> AnyClass
   func loadColumnZero()
   var loaded: Bool { get }
   var doubleAction: Selector
-  func setCellClass(factoryId: AnyClass)
+  func setCellClass(_ factoryId: AnyClass)
   var cellPrototype: AnyObject!
   unowned(unsafe) var delegate: @sil_unmanaged NSBrowserDelegate?
   var reusesColumns: Bool
@@ -69,165 +68,160 @@ class NSBrowser : NSControl {
   var takesTitleFromPreviousColumn: Bool
   var sendsActionOnArrowKeys: Bool
   @available(OSX 10.6, *)
-  func itemAtIndexPath(indexPath: NSIndexPath) -> AnyObject?
+  func itemAtIndexPath(_ indexPath: NSIndexPath) -> AnyObject?
   @available(OSX 10.6, *)
-  func itemAtRow(row: Int, inColumn column: Int) -> AnyObject?
+  func itemAtRow(_ row: Int, inColumn column: Int) -> AnyObject?
   @available(OSX 10.6, *)
-  func indexPathForColumn(column: Int) -> NSIndexPath
+  func indexPathForColumn(_ column: Int) -> NSIndexPath
   @available(OSX 10.6, *)
-  func isLeafItem(item: AnyObject?) -> Bool
+  func isLeafItem(_ item: AnyObject?) -> Bool
   @available(OSX 10.6, *)
-  func reloadDataForRowIndexes(rowIndexes: NSIndexSet, inColumn column: Int)
+  func reloadDataForRowIndexes(_ rowIndexes: NSIndexSet, inColumn column: Int)
   @available(OSX 10.6, *)
-  func parentForItemsInColumn(column: Int) -> AnyObject?
+  func parentForItemsInColumn(_ column: Int) -> AnyObject?
   @available(OSX 10.6, *)
-  func scrollRowToVisible(row: Int, inColumn column: Int)
-  func setTitle(aString: String, ofColumn column: Int)
-  func titleOfColumn(column: Int) -> String?
+  func scrollRowToVisible(_ row: Int, inColumn column: Int)
+  func setTitle(_ aString: String, ofColumn column: Int)
+  func titleOfColumn(_ column: Int) -> String?
   var pathSeparator: String
-  func setPath(path: String) -> Bool
+  func setPath(_ path: String) -> Bool
   func path() -> String
-  func pathToColumn(column: Int) -> String
+  func pathToColumn(_ column: Int) -> String
   @available(OSX 10.6, *)
   var clickedColumn: Int { get }
   @available(OSX 10.6, *)
   var clickedRow: Int { get }
   var selectedColumn: Int { get }
-  func selectedCellInColumn(column: Int) -> AnyObject?
+  func selectedCellInColumn(_ column: Int) -> AnyObject?
   var selectedCells: [NSCell]? { get }
-  func selectRow(row: Int, inColumn column: Int)
-  func selectedRowInColumn(column: Int) -> Int
+  func selectRow(_ row: Int, inColumn column: Int)
+  func selectedRowInColumn(_ column: Int) -> Int
   @available(OSX 10.6, *)
   @NSCopying var selectionIndexPath: NSIndexPath
   @available(OSX 10.6, *)
   var selectionIndexPaths: [NSIndexPath]
   @available(OSX 10.5, *)
-  func selectRowIndexes(indexes: NSIndexSet, inColumn column: Int)
+  func selectRowIndexes(_ indexes: NSIndexSet, inColumn column: Int)
   @available(OSX 10.5, *)
-  func selectedRowIndexesInColumn(column: Int) -> NSIndexSet?
-  func reloadColumn(column: Int)
+  func selectedRowIndexesInColumn(_ column: Int) -> NSIndexSet?
+  func reloadColumn(_ column: Int)
   func validateVisibleColumns()
-  func scrollColumnsRightBy(shiftAmount: Int)
-  func scrollColumnsLeftBy(shiftAmount: Int)
-  func scrollColumnToVisible(column: Int)
+  func scrollColumnsRightBy(_ shiftAmount: Int)
+  func scrollColumnsLeftBy(_ shiftAmount: Int)
+  func scrollColumnToVisible(_ column: Int)
   var lastColumn: Int
   func addColumn()
   var numberOfVisibleColumns: Int { get }
   var firstVisibleColumn: Int { get }
   var lastVisibleColumn: Int { get }
-  func loadedCellAtRow(row: Int, column col: Int) -> AnyObject?
-  func selectAll(sender: AnyObject?)
+  func loadedCellAtRow(_ row: Int, column col: Int) -> AnyObject?
   func tile()
-  func doClick(sender: AnyObject?)
-  func doDoubleClick(sender: AnyObject?)
+  func doClick(_ sender: AnyObject?)
+  func doDoubleClick(_ sender: AnyObject?)
   func sendAction() -> Bool
-  func titleFrameOfColumn(column: Int) -> NSRect
-  func drawTitleOfColumn(column: Int, inRect aRect: NSRect)
+  func titleFrameOfColumn(_ column: Int) -> NSRect
+  func drawTitleOfColumn(_ column: Int, inRect aRect: NSRect)
   var titleHeight: CGFloat { get }
-  func frameOfColumn(column: Int) -> NSRect
-  func frameOfInsideOfColumn(column: Int) -> NSRect
+  func frameOfColumn(_ column: Int) -> NSRect
+  func frameOfInsideOfColumn(_ column: Int) -> NSRect
   @available(OSX 10.6, *)
-  func frameOfRow(row: Int, inColumn column: Int) -> NSRect
+  func frameOfRow(_ row: Int, inColumn column: Int) -> NSRect
   @available(OSX 10.6, *)
-  func getRow(row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, forPoint point: NSPoint) -> Bool
-  func columnWidthForColumnContentWidth(columnContentWidth: CGFloat) -> CGFloat
-  func columnContentWidthForColumnWidth(columnWidth: CGFloat) -> CGFloat
+  func getRow(_ row: UnsafeMutablePointer<Int>, column column: UnsafeMutablePointer<Int>, forPoint point: NSPoint) -> Bool
+  func columnWidthForColumnContentWidth(_ columnContentWidth: CGFloat) -> CGFloat
+  func columnContentWidthForColumnWidth(_ columnWidth: CGFloat) -> CGFloat
   var columnResizingType: NSBrowserColumnResizingType
   var prefersAllColumnUserResizing: Bool
-  func setWidth(columnWidth: CGFloat, ofColumn columnIndex: Int)
-  func widthOfColumn(column: Int) -> CGFloat
+  func setWidth(_ columnWidth: CGFloat, ofColumn columnIndex: Int)
+  func widthOfColumn(_ column: Int) -> CGFloat
   @available(OSX 10.6, *)
   var rowHeight: CGFloat
   @available(OSX 10.6, *)
-  func noteHeightOfRowsWithIndexesChanged(indexSet: NSIndexSet, inColumn columnIndex: Int)
+  func noteHeightOfRowsWithIndexesChanged(_ indexSet: NSIndexSet, inColumn columnIndex: Int)
   @available(OSX 10.6, *)
-  func setDefaultColumnWidth(columnWidth: CGFloat)
+  func setDefaultColumnWidth(_ columnWidth: CGFloat)
   @available(OSX 10.6, *)
   func defaultColumnWidth() -> CGFloat
   var columnsAutosaveName: String
-  class func removeSavedColumnsWithAutosaveName(name: String)
+  class func removeSavedColumnsWithAutosaveName(_ name: String)
   @available(OSX 10.5, *)
-  func canDragRowsWithIndexes(rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
+  func canDragRowsWithIndexes(_ rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  func draggingImageForRowsWithIndexes(rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage?
+  func draggingImageForRowsWithIndexes(_ rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage?
   @available(OSX 10.5, *)
-  func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
+  func setDraggingSourceOperationMask(_ mask: NSDragOperation, forLocal isLocal: Bool)
   @available(OSX 10.5, *)
   var allowsTypeSelect: Bool
   @available(OSX 10.5, *)
   var backgroundColor: NSColor
   @available(OSX 10.6, *)
-  func editItemAtIndexPath(indexPath: NSIndexPath, withEvent theEvent: NSEvent, select: Bool)
-  func selectedCell() -> AnyObject?
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
+  func editItemAtIndexPath(_ indexPath: NSIndexPath, withEvent theEvent: NSEvent, select select: Bool)
 }
 let NSBrowserColumnConfigurationDidChangeNotification: String
 protocol NSBrowserDelegate : NSObjectProtocol {
-  optional func browser(sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int
-  optional func browser(sender: NSBrowser, createRowsForColumn column: Int, inMatrix matrix: NSMatrix)
+  optional func browser(_ sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int
+  optional func browser(_ sender: NSBrowser, createRowsForColumn column: Int, inMatrix matrix: NSMatrix)
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, numberOfChildrenOfItem item: AnyObject?) -> Int
+  optional func browser(_ browser: NSBrowser, numberOfChildrenOfItem item: AnyObject?) -> Int
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, child index: Int, ofItem item: AnyObject?) -> AnyObject
+  optional func browser(_ browser: NSBrowser, child index: Int, ofItem item: AnyObject?) -> AnyObject
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, isLeafItem item: AnyObject?) -> Bool
+  optional func browser(_ browser: NSBrowser, isLeafItem item: AnyObject?) -> Bool
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, objectValueForItem item: AnyObject?) -> AnyObject?
+  optional func browser(_ browser: NSBrowser, objectValueForItem item: AnyObject?) -> AnyObject?
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, heightOfRow row: Int, inColumn columnIndex: Int) -> CGFloat
+  optional func browser(_ browser: NSBrowser, heightOfRow row: Int, inColumn columnIndex: Int) -> CGFloat
   @available(OSX 10.6, *)
-  optional func rootItemForBrowser(browser: NSBrowser) -> AnyObject?
+  optional func rootItemForBrowser(_ browser: NSBrowser) -> AnyObject?
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, setObjectValue object: AnyObject?, forItem item: AnyObject?)
+  optional func browser(_ browser: NSBrowser, setObjectValue object: AnyObject?, forItem item: AnyObject?)
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, shouldEditItem item: AnyObject?) -> Bool
-  optional func browser(sender: NSBrowser, willDisplayCell cell: AnyObject, atRow row: Int, column: Int)
-  optional func browser(sender: NSBrowser, titleOfColumn column: Int) -> String?
-  optional func browser(sender: NSBrowser, selectCellWithString title: String, inColumn column: Int) -> Bool
-  optional func browser(sender: NSBrowser, selectRow row: Int, inColumn column: Int) -> Bool
-  optional func browser(sender: NSBrowser, isColumnValid column: Int) -> Bool
-  optional func browserWillScroll(sender: NSBrowser)
-  optional func browserDidScroll(sender: NSBrowser)
-  optional func browser(browser: NSBrowser, shouldSizeColumn columnIndex: Int, forUserResize: Bool, toWidth suggestedWidth: CGFloat) -> CGFloat
-  optional func browser(browser: NSBrowser, sizeToFitWidthOfColumn columnIndex: Int) -> CGFloat
-  optional func browserColumnConfigurationDidChange(notification: NSNotification)
+  optional func browser(_ browser: NSBrowser, shouldEditItem item: AnyObject?) -> Bool
+  optional func browser(_ sender: NSBrowser, willDisplayCell cell: AnyObject, atRow row: Int, column column: Int)
+  optional func browser(_ sender: NSBrowser, titleOfColumn column: Int) -> String?
+  optional func browser(_ sender: NSBrowser, selectCellWithString title: String, inColumn column: Int) -> Bool
+  optional func browser(_ sender: NSBrowser, selectRow row: Int, inColumn column: Int) -> Bool
+  optional func browser(_ sender: NSBrowser, isColumnValid column: Int) -> Bool
+  optional func browserWillScroll(_ sender: NSBrowser)
+  optional func browserDidScroll(_ sender: NSBrowser)
+  optional func browser(_ browser: NSBrowser, shouldSizeColumn columnIndex: Int, forUserResize forUserResize: Bool, toWidth suggestedWidth: CGFloat) -> CGFloat
+  optional func browser(_ browser: NSBrowser, sizeToFitWidthOfColumn columnIndex: Int) -> CGFloat
+  optional func browserColumnConfigurationDidChange(_ notification: NSNotification)
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, shouldShowCellExpansionForRow row: Int, column: Int) -> Bool
+  optional func browser(_ browser: NSBrowser, shouldShowCellExpansionForRow row: Int, column column: Int) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, writeRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, toPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func browser(_ browser: NSBrowser, writeRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, toPasteboard pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int) -> [String]
+  optional func browser(_ browser: NSBrowser, namesOfPromisedFilesDroppedAtDestination dropDestination: NSURL, forDraggedRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int) -> [String]
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, canDragRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
+  optional func browser(_ browser: NSBrowser, canDragRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, draggingImageForRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage?
+  optional func browser(_ browser: NSBrowser, draggingImageForRowsWithIndexes rowIndexes: NSIndexSet, inColumn column: Int, withEvent event: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage?
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, validateDrop info: NSDraggingInfo, proposedRow row: UnsafeMutablePointer<Int>, column: UnsafeMutablePointer<Int>, dropOperation: UnsafeMutablePointer<NSBrowserDropOperation>) -> NSDragOperation
+  optional func browser(_ browser: NSBrowser, validateDrop info: NSDraggingInfo, proposedRow row: UnsafeMutablePointer<Int>, column column: UnsafeMutablePointer<Int>, dropOperation dropOperation: UnsafeMutablePointer<NSBrowserDropOperation>) -> NSDragOperation
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, acceptDrop info: NSDraggingInfo, atRow row: Int, column: Int, dropOperation: NSBrowserDropOperation) -> Bool
+  optional func browser(_ browser: NSBrowser, acceptDrop info: NSDraggingInfo, atRow row: Int, column column: Int, dropOperation dropOperation: NSBrowserDropOperation) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, typeSelectStringForRow row: Int, inColumn column: Int) -> String
+  optional func browser(_ browser: NSBrowser, typeSelectStringForRow row: Int, inColumn column: Int) -> String
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, shouldTypeSelectForEvent event: NSEvent, withCurrentSearchString searchString: String?) -> Bool
+  optional func browser(_ browser: NSBrowser, shouldTypeSelectForEvent event: NSEvent, withCurrentSearchString searchString: String?) -> Bool
   @available(OSX 10.5, *)
-  optional func browser(browser: NSBrowser, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, inColumn column: Int, forString searchString: String?) -> Int
+  optional func browser(_ browser: NSBrowser, nextTypeSelectMatchFromRow startRow: Int, toRow endRow: Int, inColumn column: Int, forString searchString: String?) -> Int
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, previewViewControllerForLeafItem item: AnyObject) -> NSViewController?
+  optional func browser(_ browser: NSBrowser, previewViewControllerForLeafItem item: AnyObject) -> NSViewController?
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, headerViewControllerForItem item: AnyObject?) -> NSViewController?
-  optional func browser(browser: NSBrowser, didChangeLastColumn oldLastColumn: Int, toColumn column: Int)
+  optional func browser(_ browser: NSBrowser, headerViewControllerForItem item: AnyObject?) -> NSViewController?
+  optional func browser(_ browser: NSBrowser, didChangeLastColumn oldLastColumn: Int, toColumn column: Int)
   @available(OSX 10.6, *)
-  optional func browser(browser: NSBrowser, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet, inColumn column: Int) -> NSIndexSet
+  optional func browser(_ browser: NSBrowser, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet, inColumn column: Int) -> NSIndexSet
 }
 extension NSBrowser {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func setMatrixClass(factoryId: AnyClass)
+  func setMatrixClass(_ factoryId: AnyClass)
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
   func matrixClass() -> AnyClass
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func columnOfMatrix(matrix: NSMatrix) -> Int
+  func columnOfMatrix(_ matrix: NSMatrix) -> Int
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use the item based NSBrowser instead")
-  func matrixInColumn(column: Int) -> NSMatrix?
+  func matrixInColumn(_ column: Int) -> NSMatrix?
 }

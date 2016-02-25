@@ -2,10 +2,9 @@
 typealias MKMapSnapshotCompletionHandler = (MKMapSnapshot?, NSError?) -> Void
 @available(iOS 7.0, *)
 class MKMapSnapshotter : NSObject {
-  init(options: MKMapSnapshotOptions)
-  func startWithCompletionHandler(completionHandler: MKMapSnapshotCompletionHandler)
-  func startWithQueue(queue: dispatch_queue_t, completionHandler: MKMapSnapshotCompletionHandler)
+  init(options options: MKMapSnapshotOptions)
+  func startWithCompletionHandler(_ completionHandler: MKMapSnapshotCompletionHandler)
+  func startWithQueue(_ queue: dispatch_queue_t, completionHandler completionHandler: MKMapSnapshotCompletionHandler)
   func cancel()
   var loading: Bool { get }
-  convenience init()
 }

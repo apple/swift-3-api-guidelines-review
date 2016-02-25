@@ -2,7 +2,7 @@
 let ADErrorDomain: String
 @available(iOS 4.0, *)
 enum ADError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case ServerFailure
@@ -15,7 +15,7 @@ enum ADError : Int {
 }
 @available(iOS 6.0, *)
 enum ADAdType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Banner
   case MediumRectangle
@@ -31,19 +31,16 @@ class ADBannerView : UIView {
   var bannerViewActionInProgress: Bool { get }
   func cancelBannerViewAction()
   var advertisingSection: String!
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol ADBannerViewDelegate : NSObjectProtocol {
   @available(iOS 5.0, *)
-  optional func bannerViewWillLoadAd(banner: ADBannerView!)
+  optional func bannerViewWillLoadAd(_ banner: ADBannerView!)
   @available(iOS 4.0, *)
-  optional func bannerViewDidLoadAd(banner: ADBannerView!)
+  optional func bannerViewDidLoadAd(_ banner: ADBannerView!)
   @available(iOS 4.0, *)
-  optional func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
+  optional func bannerView(_ banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!)
   @available(iOS 4.0, *)
-  optional func bannerViewActionShouldBegin(banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool
+  optional func bannerViewActionShouldBegin(_ banner: ADBannerView!, willLeaveApplication willLeave: Bool) -> Bool
   @available(iOS 4.0, *)
-  optional func bannerViewActionDidFinish(banner: ADBannerView!)
+  optional func bannerViewActionDidFinish(_ banner: ADBannerView!)
 }

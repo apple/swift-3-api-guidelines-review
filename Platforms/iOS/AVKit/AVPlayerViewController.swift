@@ -10,23 +10,20 @@ class AVPlayerViewController : UIViewController {
   var allowsPictureInPicturePlayback: Bool
   @available(iOS 9.0, *)
   weak var delegate: @sil_weak AVPlayerViewControllerDelegate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol AVPlayerViewControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func playerViewControllerWillStartPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerWillStartPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewControllerDidStartPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerDidStartPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, failedToStartPictureInPictureWithError error: NSError)
   @available(iOS 8.0, *)
-  optional func playerViewControllerWillStopPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerWillStopPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewControllerDidStopPictureInPicture(playerViewController: AVPlayerViewController)
+  optional func playerViewControllerDidStopPictureInPicture(_ playerViewController: AVPlayerViewController)
   @available(iOS 8.0, *)
-  optional func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(playerViewController: AVPlayerViewController) -> Bool
+  optional func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(_ playerViewController: AVPlayerViewController) -> Bool
   @available(iOS 8.0, *)
-  optional func playerViewController(playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
+  optional func playerViewController(_ playerViewController: AVPlayerViewController, restoreUserInterfaceForPictureInPictureStopWithCompletionHandler completionHandler: (Bool) -> Void)
 }

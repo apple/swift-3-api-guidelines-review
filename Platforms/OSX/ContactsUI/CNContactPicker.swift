@@ -3,7 +3,6 @@
 class CNContactPicker : NSObject {
   var displayedKeys: [String]
   weak var delegate: @sil_weak CNContactPickerDelegate?
-  func showRelativeToRect(positioningRect: NSRect, ofView positioningView: NSView, preferredEdge: NSRectEdge)
+  func showRelativeToRect(_ positioningRect: NSRect, ofView positioningView: NSView, preferredEdge preferredEdge: NSRectEdge)
   func close()
-  init()
 }

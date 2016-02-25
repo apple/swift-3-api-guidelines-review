@@ -4,11 +4,11 @@ class AVAssetTrack : NSObject, NSCopying, AVAsynchronousKeyValueLoading {
   weak var asset: @sil_weak AVAsset? { get }
   var trackID: CMPersistentTrackID { get }
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.7, *)
-  func statusOfValueForKey(key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
+  func statusOfValueForKey(_ key: String, error outError: NSErrorPointer) -> AVKeyValueStatus
   @available(OSX 10.7, *)
-  func loadValuesAsynchronouslyForKeys(keys: [String], completionHandler handler: (() -> Void)?)
+  func loadValuesAsynchronouslyForKeys(_ keys: [String], completionHandler handler: (() -> Void)?)
 }
 extension AVAssetTrack {
   var mediaType: String { get }
@@ -18,7 +18,7 @@ extension AVAssetTrack {
   var enabled: Bool { get }
   var selfContained: Bool { get }
   var totalSampleDataLength: Int64 { get }
-  func hasMediaCharacteristic(mediaCharacteristic: String) -> Bool
+  func hasMediaCharacteristic(_ mediaCharacteristic: String) -> Bool
 }
 extension AVAssetTrack {
   var timeRange: CMTimeRange { get }
@@ -45,21 +45,21 @@ extension AVAssetTrack {
 }
 extension AVAssetTrack {
   var segments: [AVAssetTrackSegment] { get }
-  func segmentForTrackTime(trackTime: CMTime) -> AVAssetTrackSegment?
-  func samplePresentationTimeForTrackTime(trackTime: CMTime) -> CMTime
+  func segmentForTrackTime(_ trackTime: CMTime) -> AVAssetTrackSegment?
+  func samplePresentationTimeForTrackTime(_ trackTime: CMTime) -> CMTime
 }
 extension AVAssetTrack {
   var commonMetadata: [AVMetadataItem] { get }
   @available(OSX 10.10, *)
   var metadata: [AVMetadataItem] { get }
   var availableMetadataFormats: [String] { get }
-  func metadataForFormat(format: String) -> [AVMetadataItem]
+  func metadataForFormat(_ format: String) -> [AVMetadataItem]
 }
 extension AVAssetTrack {
   @available(OSX 10.9, *)
   var availableTrackAssociationTypes: [String] { get }
   @available(OSX 10.9, *)
-  func associatedTracksOfType(trackAssociationType: String) -> [AVAssetTrack]
+  func associatedTracksOfType(_ trackAssociationType: String) -> [AVAssetTrack]
 }
 @available(OSX 10.9, *)
 let AVTrackAssociationTypeAudioFallback: String
@@ -77,7 +77,7 @@ extension AVAssetTrack {
   @available(OSX 10.10, *)
   var canProvideSampleCursors: Bool { get }
   @available(OSX 10.10, *)
-  func makeSampleCursorWithPresentationTimeStamp(presentationTimeStamp: CMTime) -> AVSampleCursor?
+  func makeSampleCursorWithPresentationTimeStamp(_ presentationTimeStamp: CMTime) -> AVSampleCursor?
   @available(OSX 10.10, *)
   func makeSampleCursorAtFirstSampleInDecodeOrder() -> AVSampleCursor?
   @available(OSX 10.10, *)

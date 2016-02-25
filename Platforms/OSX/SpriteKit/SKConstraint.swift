@@ -5,35 +5,33 @@ class SKRange : NSObject, NSCoding, NSCopying {
   convenience init(lowerLimit lower: CGFloat)
   convenience init(upperLimit upper: CGFloat)
   convenience init(constantValue value: CGFloat)
-  convenience init(value: CGFloat, variance: CGFloat)
+  convenience init(value value: CGFloat, variance variance: CGFloat)
   class func rangeWithNoLimits() -> Self
   var lowerLimit: CGFloat
   var upperLimit: CGFloat
-  convenience init()
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.10, *)
 class SKConstraint : NSObject, NSCoding, NSCopying {
   var enabled: Bool
   var referenceNode: SKNode?
-  class func positionX(range: SKRange) -> Self
-  class func positionY(range: SKRange) -> Self
-  class func positionX(xRange: SKRange, y yRange: SKRange) -> Self
-  class func distance(range: SKRange, toNode node: SKNode) -> Self
-  class func distance(range: SKRange, toPoint point: CGPoint) -> Self
-  class func distance(range: SKRange, toPoint point: CGPoint, inNode node: SKNode) -> Self
-  class func zRotation(zRange: SKRange) -> Self
-  class func orientToNode(node: SKNode, offset radians: SKRange) -> Self
-  class func orientToPoint(point: CGPoint, offset radians: SKRange) -> Self
-  class func orientToPoint(point: CGPoint, inNode node: SKNode, offset radians: SKRange) -> Self
-  init()
+  class func positionX(_ range: SKRange) -> Self
+  class func positionY(_ range: SKRange) -> Self
+  class func positionX(_ xRange: SKRange, y yRange: SKRange) -> Self
+  class func distance(_ range: SKRange, toNode node: SKNode) -> Self
+  class func distance(_ range: SKRange, toPoint point: CGPoint) -> Self
+  class func distance(_ range: SKRange, toPoint point: CGPoint, inNode node: SKNode) -> Self
+  class func zRotation(_ zRange: SKRange) -> Self
+  class func orientToNode(_ node: SKNode, offset radians: SKRange) -> Self
+  class func orientToPoint(_ point: CGPoint, offset radians: SKRange) -> Self
+  class func orientToPoint(_ point: CGPoint, inNode node: SKNode, offset radians: SKRange) -> Self
   @available(OSX 10.10, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

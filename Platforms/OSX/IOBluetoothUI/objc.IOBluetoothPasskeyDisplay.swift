@@ -1,7 +1,7 @@
 
 struct BluetoothKeyboardReturnType : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kBluetoothKeyboardANSIReturn: BluetoothKeyboardReturnType { get }
@@ -17,23 +17,12 @@ class IOBluetoothPasskeyDisplay : NSView {
   @IBOutlet unowned(unsafe) var centeredView: @sil_unmanaged NSView!
   @IBOutlet unowned(unsafe) var backgroundImageConstraint: @sil_unmanaged NSLayoutConstraint!
   class func sharedDisplayView() -> IOBluetoothPasskeyDisplay!
-  func setPasskey(inString: String!, forDevice device: IOBluetoothDevice!, usingSSP isSSP: Bool)
+  func setPasskey(_ inString: String!, forDevice device: IOBluetoothDevice!, usingSSP isSSP: Bool)
   func advancePasskeyIndicator()
   func retreatPasskeyIndicator()
   func resetPasskeyIndicator()
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }
 class IOBluetoothAccessibilityIgnoredTextFieldCell : NSTextFieldCell {
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 class IOBluetoothAccessibilityIgnoredImageCell : NSImageCell {
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }

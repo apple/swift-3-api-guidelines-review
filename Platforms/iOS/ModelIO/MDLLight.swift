@@ -1,6 +1,6 @@
 
 enum MDLLightType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unknown
   case Ambient
@@ -17,49 +17,44 @@ enum MDLLightType : UInt {
 }
 @available(iOS 9.0, *)
 class MDLLight : MDLObject {
-  func irradianceAtPoint(point: vector_float3) -> Unmanaged<CGColor>
-  func irradianceAtPoint(point: vector_float3, colorSpace: CGColorSpace) -> Unmanaged<CGColor>
+  func irradianceAtPoint(_ point: vector_float3) -> Unmanaged<CGColor>
+  func irradianceAtPoint(_ point: vector_float3, colorSpace colorSpace: CGColorSpace) -> Unmanaged<CGColor>
   var lightType: MDLLightType
-  init()
 }
 @available(iOS 9.0, *)
 class MDLPhysicallyPlausibleLight : MDLLight {
-  func setColorByTemperature(temperature: Float)
+  func setColorByTemperature(_ temperature: Float)
   var color: CGColor?
   var lumens: Float
   var innerConeAngle: Float
   var outerConeAngle: Float
   var attenuationStartDistance: Float
   var attenuationEndDistance: Float
-  init()
 }
 @available(iOS 9.0, *)
 class MDLAreaLight : MDLPhysicallyPlausibleLight {
   var areaRadius: Float
   var superEllipticPower: vector_float2
   var aspect: Float
-  init()
 }
 @available(iOS 9.0, *)
 class MDLPhotometricLight : MDLPhysicallyPlausibleLight {
   init?(IESProfile URL: NSURL)
-  func generateSphericalHarmonicsFromLight(sphericalHarmonicsLevel: Int)
-  func generateCubemapFromLight(textureSize: Int)
+  func generateSphericalHarmonicsFromLight(_ sphericalHarmonicsLevel: Int)
+  func generateCubemapFromLight(_ textureSize: Int)
   var lightCubeMap: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
-  init()
 }
 @available(iOS 9.0, *)
 class MDLLightProbe : MDLLight {
-  init(reflectiveTexture: MDLTexture?, irradianceTexture: MDLTexture?)
-  func generateSphericalHarmonicsFromIrradiance(sphericalHarmonicsLevel: Int)
+  init(reflectiveTexture reflectiveTexture: MDLTexture?, irradianceTexture irradianceTexture: MDLTexture?)
+  func generateSphericalHarmonicsFromIrradiance(_ sphericalHarmonicsLevel: Int)
   var reflectiveTexture: MDLTexture? { get }
   var irradianceTexture: MDLTexture? { get }
   var sphericalHarmonicsLevel: Int { get }
   @NSCopying var sphericalHarmonicsCoefficients: NSData? { get }
-  init()
 }
 extension MDLLightProbe {
-  /*not inherited*/ init?(textureSize: Int, forLocation transform: MDLTransform, lightsToConsider: [MDLLight], objectsToConsider: [MDLObject], reflectiveCubemap: MDLTexture?, irradianceCubemap: MDLTexture?)
+  /*not inherited*/ init?(textureSize textureSize: Int, forLocation transform: MDLTransform, lightsToConsider lightsToConsider: [MDLLight], objectsToConsider objectsToConsider: [MDLObject], reflectiveCubemap reflectiveCubemap: MDLTexture?, irradianceCubemap irradianceCubemap: MDLTexture?)
 }

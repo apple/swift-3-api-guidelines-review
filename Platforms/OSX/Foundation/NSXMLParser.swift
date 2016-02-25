@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 enum NSXMLParserExternalEntityResolvingPolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ResolveExternalEntitiesNever
   case ResolveExternalEntitiesNoNetwork
@@ -10,9 +10,9 @@ enum NSXMLParserExternalEntityResolvingPolicy : UInt {
 }
 class NSXMLParser : NSObject {
   convenience init?(contentsOfURL url: NSURL)
-  init(data: NSData)
+  init(data data: NSData)
   @available(OSX 10.7, *)
-  convenience init(stream: NSInputStream)
+  convenience init(stream stream: NSInputStream)
   unowned(unsafe) var delegate: @sil_unmanaged NSXMLParserDelegate?
   var shouldProcessNamespaces: Bool
   var shouldReportNamespacePrefixes: Bool
@@ -24,7 +24,6 @@ class NSXMLParser : NSObject {
   func abortParsing()
   @NSCopying var parserError: NSError? { get }
   var shouldResolveExternalEntities: Bool
-  convenience init()
 }
 extension NSXMLParser {
   var publicID: String? { get }
@@ -33,31 +32,31 @@ extension NSXMLParser {
   var columnNumber: Int { get }
 }
 protocol NSXMLParserDelegate : NSObjectProtocol {
-  optional func parserDidStartDocument(parser: NSXMLParser)
-  optional func parserDidEndDocument(parser: NSXMLParser)
-  optional func parser(parser: NSXMLParser, foundNotationDeclarationWithName name: String, publicID: String?, systemID: String?)
-  optional func parser(parser: NSXMLParser, foundUnparsedEntityDeclarationWithName name: String, publicID: String?, systemID: String?, notationName: String?)
-  optional func parser(parser: NSXMLParser, foundAttributeDeclarationWithName attributeName: String, forElement elementName: String, type: String?, defaultValue: String?)
-  optional func parser(parser: NSXMLParser, foundElementDeclarationWithName elementName: String, model: String)
-  optional func parser(parser: NSXMLParser, foundInternalEntityDeclarationWithName name: String, value: String?)
-  optional func parser(parser: NSXMLParser, foundExternalEntityDeclarationWithName name: String, publicID: String?, systemID: String?)
-  optional func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
-  optional func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
-  optional func parser(parser: NSXMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String)
-  optional func parser(parser: NSXMLParser, didEndMappingPrefix prefix: String)
-  optional func parser(parser: NSXMLParser, foundCharacters string: String)
-  optional func parser(parser: NSXMLParser, foundIgnorableWhitespace whitespaceString: String)
-  optional func parser(parser: NSXMLParser, foundProcessingInstructionWithTarget target: String, data: String?)
-  optional func parser(parser: NSXMLParser, foundComment comment: String)
-  optional func parser(parser: NSXMLParser, foundCDATA CDATABlock: NSData)
-  optional func parser(parser: NSXMLParser, resolveExternalEntityName name: String, systemID: String?) -> NSData?
-  optional func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError)
-  optional func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError)
+  optional func parserDidStartDocument(_ parser: NSXMLParser)
+  optional func parserDidEndDocument(_ parser: NSXMLParser)
+  optional func parser(_ parser: NSXMLParser, foundNotationDeclarationWithName name: String, publicID publicID: String?, systemID systemID: String?)
+  optional func parser(_ parser: NSXMLParser, foundUnparsedEntityDeclarationWithName name: String, publicID publicID: String?, systemID systemID: String?, notationName notationName: String?)
+  optional func parser(_ parser: NSXMLParser, foundAttributeDeclarationWithName attributeName: String, forElement elementName: String, type type: String?, defaultValue defaultValue: String?)
+  optional func parser(_ parser: NSXMLParser, foundElementDeclarationWithName elementName: String, model model: String)
+  optional func parser(_ parser: NSXMLParser, foundInternalEntityDeclarationWithName name: String, value value: String?)
+  optional func parser(_ parser: NSXMLParser, foundExternalEntityDeclarationWithName name: String, publicID publicID: String?, systemID systemID: String?)
+  optional func parser(_ parser: NSXMLParser, didStartElement elementName: String, namespaceURI namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
+  optional func parser(_ parser: NSXMLParser, didEndElement elementName: String, namespaceURI namespaceURI: String?, qualifiedName qName: String?)
+  optional func parser(_ parser: NSXMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String)
+  optional func parser(_ parser: NSXMLParser, didEndMappingPrefix prefix: String)
+  optional func parser(_ parser: NSXMLParser, foundCharacters string: String)
+  optional func parser(_ parser: NSXMLParser, foundIgnorableWhitespace whitespaceString: String)
+  optional func parser(_ parser: NSXMLParser, foundProcessingInstructionWithTarget target: String, data data: String?)
+  optional func parser(_ parser: NSXMLParser, foundComment comment: String)
+  optional func parser(_ parser: NSXMLParser, foundCDATA CDATABlock: NSData)
+  optional func parser(_ parser: NSXMLParser, resolveExternalEntityName name: String, systemID systemID: String?) -> NSData?
+  optional func parser(_ parser: NSXMLParser, parseErrorOccurred parseError: NSError)
+  optional func parser(_ parser: NSXMLParser, validationErrorOccurred validationError: NSError)
 }
 @available(OSX 10.3, *)
 let NSXMLParserErrorDomain: String
 enum NSXMLParserError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case InternalError
   case OutOfMemoryError

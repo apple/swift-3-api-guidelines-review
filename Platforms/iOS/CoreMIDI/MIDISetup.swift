@@ -1,18 +1,18 @@
 
 typealias MIDISetupRef = MIDIObjectRef
 @available(iOS 4.2, *)
-func MIDIDeviceAddEntity(device: MIDIDeviceRef, _ name: CFString, _ embedded: Bool, _ numSourceEndpoints: Int, _ numDestinationEndpoints: Int, _ newEntity: UnsafeMutablePointer<MIDIEntityRef>) -> OSStatus
+func MIDIDeviceAddEntity(_ device: MIDIDeviceRef, _ name: CFString, _ embedded: Bool, _ numSourceEndpoints: Int, _ numDestinationEndpoints: Int, _ newEntity: UnsafeMutablePointer<MIDIEntityRef>) -> OSStatus
 @available(iOS 4.2, *)
-func MIDIDeviceRemoveEntity(device: MIDIDeviceRef, _ entity: MIDIEntityRef) -> OSStatus
+func MIDIDeviceRemoveEntity(_ device: MIDIDeviceRef, _ entity: MIDIEntityRef) -> OSStatus
 @available(iOS 4.2, *)
-func MIDIEntityAddOrRemoveEndpoints(entity: MIDIEntityRef, _ numSourceEndpoints: Int, _ numDestinationEndpoints: Int) -> OSStatus
+func MIDIEntityAddOrRemoveEndpoints(_ entity: MIDIEntityRef, _ numSourceEndpoints: Int, _ numDestinationEndpoints: Int) -> OSStatus
 @available(iOS 4.2, *)
-func MIDISetupAddDevice(device: MIDIDeviceRef) -> OSStatus
+func MIDISetupAddDevice(_ device: MIDIDeviceRef) -> OSStatus
 @available(iOS 4.2, *)
-func MIDISetupRemoveDevice(device: MIDIDeviceRef) -> OSStatus
+func MIDISetupRemoveDevice(_ device: MIDIDeviceRef) -> OSStatus
 @available(iOS 4.2, *)
-func MIDISetupAddExternalDevice(device: MIDIDeviceRef) -> OSStatus
+func MIDISetupAddExternalDevice(_ device: MIDIDeviceRef) -> OSStatus
 @available(iOS 4.2, *)
-func MIDISetupRemoveExternalDevice(device: MIDIDeviceRef) -> OSStatus
+func MIDISetupRemoveExternalDevice(_ device: MIDIDeviceRef) -> OSStatus
 @available(iOS 4.2, *)
-func MIDIExternalDeviceCreate(name: CFString, _ manufacturer: CFString, _ model: CFString, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus
+func MIDIExternalDeviceCreate(_ name: CFString, _ manufacturer: CFString, _ model: CFString, _ outDevice: UnsafeMutablePointer<MIDIDeviceRef>) -> OSStatus

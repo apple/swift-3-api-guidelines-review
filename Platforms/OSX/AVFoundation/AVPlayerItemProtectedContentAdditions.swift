@@ -1,6 +1,6 @@
 
 enum AVContentAuthorizationStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Completed
@@ -18,7 +18,7 @@ extension AVPlayerItem {
   @available(OSX 10.7, *)
   var contentAuthorizedForPlayback: Bool { get }
   @available(OSX 10.7, *)
-  func requestContentAuthorizationAsynchronouslyWithTimeoutInterval(timeoutInterval: NSTimeInterval, completionHandler handler: () -> Void)
+  func requestContentAuthorizationAsynchronouslyWithTimeoutInterval(_ timeoutInterval: NSTimeInterval, completionHandler handler: () -> Void)
   @available(OSX 10.7, *)
   func cancelContentAuthorizationRequest()
   @available(OSX 10.7, *)

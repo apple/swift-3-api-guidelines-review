@@ -8,10 +8,10 @@ func CTTextTabGetTypeID() -> CFTypeID
 @available(OSX 10.5, *)
 let kCTTabColumnTerminatorsAttributeName: CFString
 @available(OSX 10.5, *)
-func CTTextTabCreate(alignment: CTTextAlignment, _ location: Double, _ options: CFDictionary?) -> CTTextTab
+func CTTextTabCreate(_ alignment: CTTextAlignment, _ location: Double, _ options: CFDictionary?) -> CTTextTab
 @available(OSX 10.5, *)
-func CTTextTabGetAlignment(tab: CTTextTab) -> CTTextAlignment
+func CTTextTabGetAlignment(_ tab: CTTextTab) -> CTTextAlignment
 @available(OSX 10.5, *)
-func CTTextTabGetLocation(tab: CTTextTab) -> Double
+func CTTextTabGetLocation(_ tab: CTTextTab) -> Double
 @available(OSX 10.5, *)
-func CTTextTabGetOptions(tab: CTTextTab) -> CFDictionary?
+func CTTextTabGetOptions(_ tab: CTTextTab) -> CFDictionary?

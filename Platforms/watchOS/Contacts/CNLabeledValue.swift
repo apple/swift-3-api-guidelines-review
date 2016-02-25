@@ -4,18 +4,17 @@ class CNLabeledValue : NSObject, NSCopying, NSSecureCoding {
   var identifier: String { get }
   var label: String { get }
   @NSCopying var value: protocol<NSCopying, NSSecureCoding> { get }
-  init(label: String?, value: protocol<NSCopying, NSSecureCoding>)
-  func labeledValueBySettingLabel(label: String?) -> Self
-  func labeledValueBySettingValue(value: protocol<NSCopying, NSSecureCoding>) -> Self
-  func labeledValueBySettingLabel(label: String?, value: protocol<NSCopying, NSSecureCoding>) -> Self
-  class func localizedStringForLabel(label: String) -> String
-  init()
+  init(label label: String?, value value: protocol<NSCopying, NSSecureCoding>)
+  func labeledValueBySettingLabel(_ label: String?) -> Self
+  func labeledValueBySettingValue(_ value: protocol<NSCopying, NSSecureCoding>) -> Self
+  func labeledValueBySettingLabel(_ label: String?, value value: protocol<NSCopying, NSSecureCoding>) -> Self
+  class func localizedStringForLabel(_ label: String) -> String
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(watchOS 2.0, *)

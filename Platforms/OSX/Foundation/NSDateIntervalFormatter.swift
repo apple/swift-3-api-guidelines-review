@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NSDateIntervalFormatterStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NoStyle
   case ShortStyle
@@ -17,7 +17,5 @@ class NSDateIntervalFormatter : NSFormatter {
   var dateTemplate: String!
   var dateStyle: NSDateIntervalFormatterStyle
   var timeStyle: NSDateIntervalFormatterStyle
-  func stringFromDate(fromDate: NSDate, toDate: NSDate) -> String
-  init()
-  init?(coder aDecoder: NSCoder)
+  func stringFromDate(_ fromDate: NSDate, toDate toDate: NSDate) -> String
 }

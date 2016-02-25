@@ -1,6 +1,6 @@
 
 struct UIDataDetectorTypes : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var PhoneNumber: UIDataDetectorTypes { get }
   static var Link: UIDataDetectorTypes { get }

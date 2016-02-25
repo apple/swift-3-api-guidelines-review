@@ -2,38 +2,34 @@
 @available(iOS 8.0, *)
 class HKObjectType : NSObject, NSSecureCoding, NSCopying {
   var identifier: String { get }
-  class func quantityTypeForIdentifier(identifier: String) -> HKQuantityType?
-  class func categoryTypeForIdentifier(identifier: String) -> HKCategoryType?
-  class func characteristicTypeForIdentifier(identifier: String) -> HKCharacteristicType?
-  class func correlationTypeForIdentifier(identifier: String) -> HKCorrelationType?
+  class func quantityTypeForIdentifier(_ identifier: String) -> HKQuantityType?
+  class func categoryTypeForIdentifier(_ identifier: String) -> HKCategoryType?
+  class func characteristicTypeForIdentifier(_ identifier: String) -> HKCharacteristicType?
+  class func correlationTypeForIdentifier(_ identifier: String) -> HKCorrelationType?
   class func workoutType() -> HKWorkoutType
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 class HKCharacteristicType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKSampleType : HKObjectType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKCategoryType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class HKCorrelationType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 enum HKQuantityAggregationStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Cumulative
   case Discrete
@@ -41,10 +37,8 @@ enum HKQuantityAggregationStyle : Int {
 @available(iOS 8.0, *)
 class HKQuantityType : HKSampleType {
   var aggregationStyle: HKQuantityAggregationStyle { get }
-  func isCompatibleWithUnit(unit: HKUnit) -> Bool
-  init?(coder aDecoder: NSCoder)
+  func isCompatibleWithUnit(_ unit: HKUnit) -> Bool
 }
 @available(iOS 8.0, *)
 class HKWorkoutType : HKSampleType {
-  init?(coder aDecoder: NSCoder)
 }

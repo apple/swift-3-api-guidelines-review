@@ -1,7 +1,7 @@
 
 let TKErrorDomain: String
 enum TKErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NotImplemented
   case CommunicationError

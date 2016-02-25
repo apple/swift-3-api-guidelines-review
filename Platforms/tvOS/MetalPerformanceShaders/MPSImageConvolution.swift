@@ -4,31 +4,23 @@ class MPSImageConvolution : MPSUnaryImageKernel {
   var kernelHeight: Int { get }
   var kernelWidth: Int { get }
   var bias: Float
-  init(device: MTLDevice, kernelWidth: Int, kernelHeight: Int, weights kernelWeights: UnsafePointer<Float>)
-  convenience init(device: MTLDevice)
-  convenience init()
+  init(device device: MTLDevice, kernelWidth kernelWidth: Int, kernelHeight kernelHeight: Int, weights kernelWeights: UnsafePointer<Float>)
 }
 @available(tvOS 9.0, *)
 class MPSImageBox : MPSUnaryImageKernel {
   var kernelHeight: Int { get }
   var kernelWidth: Int { get }
-  init(device: MTLDevice, kernelWidth: Int, kernelHeight: Int)
-  convenience init()
+  init(device device: MTLDevice, kernelWidth kernelWidth: Int, kernelHeight kernelHeight: Int)
 }
 class MPSImageTent : MPSImageBox {
-  init(device: MTLDevice, kernelWidth: Int, kernelHeight: Int)
-  convenience init()
 }
 @available(tvOS 9.0, *)
 class MPSImageGaussianBlur : MPSUnaryImageKernel {
-  init(device: MTLDevice, sigma: Float)
+  init(device device: MTLDevice, sigma sigma: Float)
   var sigma: Float { get }
-  convenience init()
 }
 @available(tvOS 9.0, *)
 class MPSImageSobel : MPSUnaryImageKernel {
-  convenience init(device: MTLDevice)
-  init(device: MTLDevice, linearGrayColorTransform transform: UnsafePointer<Float>)
+  init(device device: MTLDevice, linearGrayColorTransform transform: UnsafePointer<Float>)
   var colorTransform: UnsafePointer<Float> { get }
-  convenience init()
 }

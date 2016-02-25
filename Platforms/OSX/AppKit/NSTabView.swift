@@ -1,7 +1,7 @@
 
 var NSAppKitVersionNumberWithDirectionalTabs: Double { get }
 enum NSTabViewType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case TopTabsBezelBorder
   case LeftTabsBezelBorder
@@ -12,14 +12,14 @@ enum NSTabViewType : UInt {
   case NoTabsNoBorder
 }
 class NSTabView : NSView {
-  func selectTabViewItem(tabViewItem: NSTabViewItem?)
-  func selectTabViewItemAtIndex(index: Int)
-  func selectTabViewItemWithIdentifier(identifier: AnyObject)
-  func takeSelectedTabViewItemFromSender(sender: AnyObject?)
-  func selectFirstTabViewItem(sender: AnyObject?)
-  func selectLastTabViewItem(sender: AnyObject?)
-  func selectNextTabViewItem(sender: AnyObject?)
-  func selectPreviousTabViewItem(sender: AnyObject?)
+  func selectTabViewItem(_ tabViewItem: NSTabViewItem?)
+  func selectTabViewItemAtIndex(_ index: Int)
+  func selectTabViewItemWithIdentifier(_ identifier: AnyObject)
+  func takeSelectedTabViewItemFromSender(_ sender: AnyObject?)
+  func selectFirstTabViewItem(_ sender: AnyObject?)
+  func selectLastTabViewItem(_ sender: AnyObject?)
+  func selectNextTabViewItem(_ sender: AnyObject?)
+  func selectPreviousTabViewItem(_ sender: AnyObject?)
   var selectedTabViewItem: NSTabViewItem? { get }
   var font: NSFont
   var tabViewType: NSTabViewType
@@ -29,19 +29,16 @@ class NSTabView : NSView {
   var drawsBackground: Bool
   var controlTint: NSControlTint
   var controlSize: NSControlSize
-  func addTabViewItem(tabViewItem: NSTabViewItem)
-  func insertTabViewItem(tabViewItem: NSTabViewItem, atIndex index: Int)
-  func removeTabViewItem(tabViewItem: NSTabViewItem)
+  func addTabViewItem(_ tabViewItem: NSTabViewItem)
+  func insertTabViewItem(_ tabViewItem: NSTabViewItem, atIndex index: Int)
+  func removeTabViewItem(_ tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
-  func tabViewItemAtPoint(point: NSPoint) -> NSTabViewItem?
+  func tabViewItemAtPoint(_ point: NSPoint) -> NSTabViewItem?
   var contentRect: NSRect { get }
   var numberOfTabViewItems: Int { get }
-  func indexOfTabViewItem(tabViewItem: NSTabViewItem) -> Int
-  func tabViewItemAtIndex(index: Int) -> NSTabViewItem
-  func indexOfTabViewItemWithIdentifier(identifier: AnyObject) -> Int
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
+  func indexOfTabViewItem(_ tabViewItem: NSTabViewItem) -> Int
+  func tabViewItemAtIndex(_ index: Int) -> NSTabViewItem
+  func indexOfTabViewItemWithIdentifier(_ identifier: AnyObject) -> Int
 }
 struct __NSTabViewDelegateRespondTo {
   var shouldSelectTabViewItem: UInt32
@@ -50,7 +47,7 @@ struct __NSTabViewDelegateRespondTo {
   var didChangeNumberOfTabViewItems: UInt32
   var reserved: UInt32
   init()
-  init(shouldSelectTabViewItem: UInt32, willSelectTabViewItem: UInt32, didSelectTabViewItem: UInt32, didChangeNumberOfTabViewItems: UInt32, reserved: UInt32)
+  init(shouldSelectTabViewItem shouldSelectTabViewItem: UInt32, willSelectTabViewItem willSelectTabViewItem: UInt32, didSelectTabViewItem didSelectTabViewItem: UInt32, didChangeNumberOfTabViewItems didChangeNumberOfTabViewItems: UInt32, reserved reserved: UInt32)
 }
 struct __NSTabViewFlags {
   var needsLayout: UInt32
@@ -65,11 +62,11 @@ struct __NSTabViewFlags {
   var ownedByTabViewController: UInt32
   var reserved: UInt32
   init()
-  init(needsLayout: UInt32, controlTint: UInt32, controlSize: UInt32, wiringNibConnections: UInt32, wiringInteriorLastKeyView: UInt32, originalNextKeyViewChanged: UInt32, liveResizeSkippedResetToolTips: UInt32, subviewsAddedForTabs: UInt32, allowsPropertyChange: UInt32, ownedByTabViewController: UInt32, reserved: UInt32)
+  init(needsLayout needsLayout: UInt32, controlTint controlTint: UInt32, controlSize controlSize: UInt32, wiringNibConnections wiringNibConnections: UInt32, wiringInteriorLastKeyView wiringInteriorLastKeyView: UInt32, originalNextKeyViewChanged originalNextKeyViewChanged: UInt32, liveResizeSkippedResetToolTips liveResizeSkippedResetToolTips: UInt32, subviewsAddedForTabs subviewsAddedForTabs: UInt32, allowsPropertyChange allowsPropertyChange: UInt32, ownedByTabViewController ownedByTabViewController: UInt32, reserved reserved: UInt32)
 }
 protocol NSTabViewDelegate : NSObjectProtocol {
-  optional func tabView(tabView: NSTabView, shouldSelectTabViewItem tabViewItem: NSTabViewItem?) -> Bool
-  optional func tabView(tabView: NSTabView, willSelectTabViewItem tabViewItem: NSTabViewItem?)
-  optional func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?)
-  optional func tabViewDidChangeNumberOfTabViewItems(tabView: NSTabView)
+  optional func tabView(_ tabView: NSTabView, shouldSelectTabViewItem tabViewItem: NSTabViewItem?) -> Bool
+  optional func tabView(_ tabView: NSTabView, willSelectTabViewItem tabViewItem: NSTabViewItem?)
+  optional func tabView(_ tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?)
+  optional func tabViewDidChangeNumberOfTabViewItems(_ tabView: NSTabView)
 }

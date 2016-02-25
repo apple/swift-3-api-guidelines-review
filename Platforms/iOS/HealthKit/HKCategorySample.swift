@@ -3,11 +3,10 @@
 class HKCategorySample : HKSample {
   var categoryType: HKCategoryType { get }
   var value: Int { get }
-  convenience init(type: HKCategoryType, value: Int, startDate: NSDate, endDate: NSDate, metadata: [String : AnyObject]?)
-  convenience init(type: HKCategoryType, value: Int, startDate: NSDate, endDate: NSDate)
+  convenience init(type type: HKCategoryType, value value: Int, startDate startDate: NSDate, endDate endDate: NSDate, metadata metadata: [String : AnyObject]?)
+  convenience init(type type: HKCategoryType, value value: Int, startDate startDate: NSDate, endDate endDate: NSDate)
   @available(iOS 9.0, *)
-  convenience init(type: HKCategoryType, value: Int, startDate: NSDate, endDate: NSDate, device: HKDevice?, metadata: [String : AnyObject]?)
-  init?(coder aDecoder: NSCoder)
+  convenience init(type type: HKCategoryType, value value: Int, startDate startDate: NSDate, endDate endDate: NSDate, device device: HKDevice?, metadata metadata: [String : AnyObject]?)
 }
 @available(iOS 8.0, *)
 let HKPredicateKeyPathCategoryValue: String

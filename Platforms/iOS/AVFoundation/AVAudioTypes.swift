@@ -10,23 +10,23 @@ struct AVAudio3DPoint {
   var y: Float
   var z: Float
   init()
-  init(x: Float, y: Float, z: Float)
+  init(x x: Float, y y: Float, z z: Float)
 }
-func AVAudioMake3DPoint(x: Float, _ y: Float, _ z: Float) -> AVAudio3DPoint
+func AVAudioMake3DPoint(_ x: Float, _ y: Float, _ z: Float) -> AVAudio3DPoint
 typealias AVAudio3DVector = AVAudio3DPoint
-func AVAudioMake3DVector(x: Float, _ y: Float, _ z: Float) -> AVAudio3DVector
+func AVAudioMake3DVector(_ x: Float, _ y: Float, _ z: Float) -> AVAudio3DVector
 struct AVAudio3DVectorOrientation {
   var forward: AVAudio3DVector
   var up: AVAudio3DVector
   init()
-  init(forward: AVAudio3DVector, up: AVAudio3DVector)
+  init(forward forward: AVAudio3DVector, up up: AVAudio3DVector)
 }
-func AVAudioMake3DVectorOrientation(forward: AVAudio3DVector, _ up: AVAudio3DVector) -> AVAudio3DVectorOrientation
+func AVAudioMake3DVectorOrientation(_ forward: AVAudio3DVector, _ up: AVAudio3DVector) -> AVAudio3DVectorOrientation
 struct AVAudio3DAngularOrientation {
   var yaw: Float
   var pitch: Float
   var roll: Float
   init()
-  init(yaw: Float, pitch: Float, roll: Float)
+  init(yaw yaw: Float, pitch pitch: Float, roll roll: Float)
 }
-func AVAudioMake3DAngularOrientation(yaw: Float, _ pitch: Float, _ roll: Float) -> AVAudio3DAngularOrientation
+func AVAudioMake3DAngularOrientation(_ yaw: Float, _ pitch: Float, _ roll: Float) -> AVAudio3DAngularOrientation

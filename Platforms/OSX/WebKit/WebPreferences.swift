@@ -1,6 +1,6 @@
 
 enum WebCacheModel : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case DocumentViewer
   case DocumentBrowser
@@ -39,7 +39,6 @@ class WebPreferences : NSObject, NSCoding {
   var cacheModel: WebCacheModel
   var suppressesIncrementalRendering: Bool
   var allowsAirPlayForMediaPlayback: Bool
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

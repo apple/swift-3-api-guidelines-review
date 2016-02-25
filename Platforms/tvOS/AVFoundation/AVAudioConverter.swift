@@ -1,6 +1,6 @@
 
 enum AVAudioConverterPrimeMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Pre
   case Normal
@@ -10,11 +10,11 @@ struct AVAudioConverterPrimeInfo {
   var leadingFrames: AVAudioFrameCount
   var trailingFrames: AVAudioFrameCount
   init()
-  init(leadingFrames: AVAudioFrameCount, trailingFrames: AVAudioFrameCount)
+  init(leadingFrames leadingFrames: AVAudioFrameCount, trailingFrames trailingFrames: AVAudioFrameCount)
 }
 @available(tvOS 9.0, *)
 enum AVAudioConverterInputStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case HaveData
   case NoDataNow
@@ -22,7 +22,7 @@ enum AVAudioConverterInputStatus : Int {
 }
 @available(tvOS 9.0, *)
 enum AVAudioConverterOutputStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case HaveData
   case InputRanDry
@@ -32,7 +32,7 @@ enum AVAudioConverterOutputStatus : Int {
 typealias AVAudioConverterInputBlock = (AVAudioPacketCount, UnsafeMutablePointer<AVAudioConverterInputStatus>) -> AVAudioBuffer?
 @available(tvOS 9.0, *)
 class AVAudioConverter : NSObject {
-  init(fromFormat: AVAudioFormat, toFormat: AVAudioFormat)
+  init(fromFormat fromFormat: AVAudioFormat, toFormat toFormat: AVAudioFormat)
   func reset()
   var inputFormat: AVAudioFormat { get }
   var outputFormat: AVAudioFormat { get }
@@ -44,9 +44,8 @@ class AVAudioConverter : NSObject {
   var sampleRateConverterAlgorithm: String
   var primeMethod: AVAudioConverterPrimeMethod
   var primeInfo: AVAudioConverterPrimeInfo
-  func convertToBuffer(outputBuffer: AVAudioPCMBuffer, fromBuffer inputBuffer: AVAudioPCMBuffer) throws
-  func convertToBuffer(outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFromBlock inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
-  init()
+  func convertToBuffer(_ outputBuffer: AVAudioPCMBuffer, fromBuffer inputBuffer: AVAudioPCMBuffer) throws
+  func convertToBuffer(_ outputBuffer: AVAudioBuffer, error outError: NSErrorPointer, withInputFromBlock inputBlock: AVAudioConverterInputBlock) -> AVAudioConverterOutputStatus
 }
 extension AVAudioConverter {
   var bitRate: Int

@@ -9,7 +9,7 @@ let kCTFontWidthTrait: CFString
 let kCTFontSlantTrait: CFString
 var kCTFontClassMaskShift: Int { get }
 struct CTFontSymbolicTraits : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var TraitItalic: CTFontSymbolicTraits { get }
   static var TraitBold: CTFontSymbolicTraits { get }
@@ -33,7 +33,7 @@ struct CTFontSymbolicTraits : OptionSetType {
   static var ClassMaskTrait: CTFontSymbolicTraits { get }
 }
 struct CTFontStylisticClass : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var ClassUnknown: CTFontStylisticClass { get }
   static var ClassOldStyleSerifs: CTFontStylisticClass { get }

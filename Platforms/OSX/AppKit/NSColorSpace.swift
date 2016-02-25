@@ -1,6 +1,6 @@
 
 enum NSColorSpaceModel : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NSUnknownColorSpaceModel
   case NSGrayColorSpaceModel
@@ -36,9 +36,8 @@ class NSColorSpace : NSObject, NSSecureCoding {
   @available(OSX 10.5, *)
   class func adobeRGB1998ColorSpace() -> NSColorSpace
   @available(OSX 10.6, *)
-  class func availableColorSpacesWithModel(model: NSColorSpaceModel) -> [NSColorSpace]
-  init()
+  class func availableColorSpacesWithModel(_ model: NSColorSpaceModel) -> [NSColorSpace]
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

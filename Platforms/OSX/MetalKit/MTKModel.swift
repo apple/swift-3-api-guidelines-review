@@ -5,20 +5,20 @@ let MTKModelErrorDomain: String
 let MTKModelErrorKey: String
 @available(OSX 10.11, *)
 class MTKMeshBufferAllocator : NSObject, MDLMeshBufferAllocator {
-  init(device: MTLDevice)
+  init(device device: MTLDevice)
   var device: MTLDevice { get }
   @available(OSX 10.11, *)
-  func newZone(capacity: Int) -> MDLMeshBufferZone
+  func newZone(_ capacity: Int) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newZoneForBuffersWithSize(sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
+  func newZoneForBuffersWithSize(_ sizes: [NSNumber], andType types: [NSNumber]) -> MDLMeshBufferZone
   @available(OSX 10.11, *)
-  func newBuffer(length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBuffer(_ length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferWithData(data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer
+  func newBufferWithData(_ data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, length: Int, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, length length: Int, type type: MDLMeshBufferType) -> MDLMeshBuffer?
   @available(OSX 10.11, *)
-  func newBufferFromZone(zone: MDLMeshBufferZone?, data: NSData, type: MDLMeshBufferType) -> MDLMeshBuffer?
+  func newBufferFromZone(_ zone: MDLMeshBufferZone?, data data: NSData, type type: MDLMeshBufferType) -> MDLMeshBuffer?
 }
 @available(OSX 10.11, *)
 class MTKMeshBuffer : NSObject, MDLMeshBuffer {
@@ -27,13 +27,12 @@ class MTKMeshBuffer : NSObject, MDLMeshBuffer {
   var buffer: MTLBuffer { get }
   var offset: Int { get }
   var type: MDLMeshBufferType { get }
-  func zone() -> MDLMeshBufferZone?
   @available(OSX 10.11, *)
-  func fillData(data: NSData, offset: Int)
+  func fillData(_ data: NSData, offset offset: Int)
   @available(OSX 10.11, *)
   func map() -> MDLMeshBufferMap
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.11, *)
 class MTKSubmesh : NSObject {
@@ -46,15 +45,15 @@ class MTKSubmesh : NSObject {
 }
 @available(OSX 10.11, *)
 class MTKMesh : NSObject {
-  init(mesh: MDLMesh, device: MTLDevice) throws
-  class func newMeshesFromAsset(asset: MDLAsset, device: MTLDevice, sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
+  init(mesh mesh: MDLMesh, device device: MTLDevice) throws
+  class func newMeshesFromAsset(_ asset: MDLAsset, device device: MTLDevice, sourceMeshes sourceMeshes: AutoreleasingUnsafeMutablePointer<NSArray?>) throws -> [MTKMesh]
   var vertexBuffers: [MTKMeshBuffer] { get }
   var vertexDescriptor: MDLVertexDescriptor { get }
   var submeshes: [MTKSubmesh] { get }
   var vertexCount: Int { get }
   var name: String
 }
-func MTKModelIOVertexDescriptorFromMetal(metalDescriptor: MTLVertexDescriptor) -> MDLVertexDescriptor
-func MTKMetalVertexDescriptorFromModelIO(modelIODescriptor: MDLVertexDescriptor) -> MTLVertexDescriptor
-func MTKModelIOVertexFormatFromMetal(vertexFormat: MTLVertexFormat) -> MDLVertexFormat
-func MTKMetalVertexFormatFromModelIO(vertexFormat: MDLVertexFormat) -> MTLVertexFormat
+func MTKModelIOVertexDescriptorFromMetal(_ metalDescriptor: MTLVertexDescriptor) -> MDLVertexDescriptor
+func MTKMetalVertexDescriptorFromModelIO(_ modelIODescriptor: MDLVertexDescriptor) -> MTLVertexDescriptor
+func MTKModelIOVertexFormatFromMetal(_ vertexFormat: MTLVertexFormat) -> MDLVertexFormat
+func MTKMetalVertexFormatFromModelIO(_ vertexFormat: MDLVertexFormat) -> MTLVertexFormat

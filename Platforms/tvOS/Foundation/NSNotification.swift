@@ -4,24 +4,22 @@ class NSNotification : NSObject, NSCopying, NSCoding {
   var object: AnyObject? { get }
   var userInfo: [NSObject : AnyObject]? { get }
   @available(tvOS 4.0, *)
-  init(name: String, object: AnyObject?, userInfo: [NSObject : AnyObject]?)
+  init(name name: String, object object: AnyObject?, userInfo userInfo: [NSObject : AnyObject]?)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSNotification {
   convenience init(name aName: String, object anObject: AnyObject?)
-  convenience init()
 }
 class NSNotificationCenter : NSObject {
   class func defaultCenter() -> NSNotificationCenter
-  func addObserver(observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: AnyObject?)
-  func postNotification(notification: NSNotification)
-  func postNotificationName(aName: String, object anObject: AnyObject?)
-  func postNotificationName(aName: String, object anObject: AnyObject?, userInfo aUserInfo: [NSObject : AnyObject]?)
-  func removeObserver(observer: AnyObject)
-  func removeObserver(observer: AnyObject, name aName: String?, object anObject: AnyObject?)
+  func addObserver(_ observer: AnyObject, selector aSelector: Selector, name aName: String?, object anObject: AnyObject?)
+  func postNotification(_ notification: NSNotification)
+  func postNotificationName(_ aName: String, object anObject: AnyObject?)
+  func postNotificationName(_ aName: String, object anObject: AnyObject?, userInfo aUserInfo: [NSObject : AnyObject]?)
+  func removeObserver(_ observer: AnyObject)
+  func removeObserver(_ observer: AnyObject, name aName: String?, object anObject: AnyObject?)
   @available(tvOS 4.0, *)
-  func addObserverForName(name: String?, object obj: AnyObject?, queue: NSOperationQueue?, usingBlock block: (NSNotification) -> Void) -> NSObjectProtocol
-  init()
+  func addObserverForName(_ name: String?, object obj: AnyObject?, queue queue: NSOperationQueue?, usingBlock block: (NSNotification) -> Void) -> NSObjectProtocol
 }

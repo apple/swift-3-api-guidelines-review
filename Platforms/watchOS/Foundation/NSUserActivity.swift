@@ -1,12 +1,11 @@
 
 @available(watchOS 2.0, *)
 class NSUserActivity : NSObject {
-  init(activityType: String)
-  init()
+  init(activityType activityType: String)
   var activityType: String { get }
   var title: String?
   var userInfo: [NSObject : AnyObject]?
-  func addUserInfoEntriesFromDictionary(otherDictionary: [NSObject : AnyObject])
+  func addUserInfoEntriesFromDictionary(_ otherDictionary: [NSObject : AnyObject])
   @available(watchOS 2.0, *)
   var requiredUserInfoKeys: Set<String>
   var needsSave: Bool
@@ -21,7 +20,7 @@ class NSUserActivity : NSObject {
   @available(watchOS 2.0, *)
   func resignCurrent()
   func invalidate()
-  func getContinuationStreamsWithCompletionHandler(completionHandler: (NSInputStream?, NSOutputStream?, NSError?) -> Void)
+  func getContinuationStreamsWithCompletionHandler(_ completionHandler: (NSInputStream?, NSOutputStream?, NSError?) -> Void)
   @available(watchOS 2.0, *)
   var eligibleForHandoff: Bool
   @available(watchOS 2.0, *)
@@ -33,7 +32,7 @@ class NSUserActivity : NSObject {
 let NSUserActivityTypeBrowsingWeb: String
 @available(watchOS 2.0, *)
 protocol NSUserActivityDelegate : NSObjectProtocol {
-  optional func userActivityWillSave(userActivity: NSUserActivity)
-  optional func userActivityWasContinued(userActivity: NSUserActivity)
-  optional func userActivity(userActivity: NSUserActivity?, didReceiveInputStream inputStream: NSInputStream, outputStream: NSOutputStream)
+  optional func userActivityWillSave(_ userActivity: NSUserActivity)
+  optional func userActivityWasContinued(_ userActivity: NSUserActivity)
+  optional func userActivity(_ userActivity: NSUserActivity?, didReceiveInputStream inputStream: NSInputStream, outputStream outputStream: NSOutputStream)
 }

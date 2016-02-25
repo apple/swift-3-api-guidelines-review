@@ -11,8 +11,7 @@ class HMCharacteristic : NSObject {
   var notificationEnabled: Bool { get }
   @available(watchOS 2.0, *)
   @NSCopying var uniqueIdentifier: NSUUID { get }
-  func writeValue(value: AnyObject?, completionHandler completion: (NSError?) -> Void)
-  func readValueWithCompletionHandler(completion: (NSError?) -> Void)
-  func enableNotification(enable: Bool, completionHandler completion: (NSError?) -> Void)
-  init()
+  func writeValue(_ value: AnyObject?, completionHandler completion: (NSError?) -> Void)
+  func readValueWithCompletionHandler(_ completion: (NSError?) -> Void)
+  func enableNotification(_ enable: Bool, completionHandler completion: (NSError?) -> Void)
 }

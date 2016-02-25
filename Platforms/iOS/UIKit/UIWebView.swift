@@ -1,6 +1,6 @@
 
 enum UIWebViewNavigationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case LinkClicked
   case FormSubmitted
@@ -10,7 +10,7 @@ enum UIWebViewNavigationType : Int {
   case Other
 }
 enum UIWebPaginationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unpaginated
   case LeftToRight
@@ -19,7 +19,7 @@ enum UIWebPaginationMode : Int {
   case RightToLeft
 }
 enum UIWebPaginationBreakingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Page
   case Column
@@ -29,9 +29,9 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   unowned(unsafe) var delegate: @sil_unmanaged UIWebViewDelegate?
   @available(iOS 5.0, *)
   var scrollView: UIScrollView { get }
-  func loadRequest(request: NSURLRequest)
-  func loadHTMLString(string: String, baseURL: NSURL?)
-  func loadData(data: NSData, MIMEType: String, textEncodingName: String, baseURL: NSURL)
+  func loadRequest(_ request: NSURLRequest)
+  func loadHTMLString(_ string: String, baseURL baseURL: NSURL?)
+  func loadData(_ data: NSData, MIMEType MIMEType: String, textEncodingName textEncodingName: String, baseURL baseURL: NSURL)
   var request: NSURLRequest? { get }
   func reload()
   func stopLoading()
@@ -40,7 +40,7 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   var canGoBack: Bool { get }
   var canGoForward: Bool { get }
   var loading: Bool { get }
-  func stringByEvaluatingJavaScriptFromString(script: String) -> String?
+  func stringByEvaluatingJavaScriptFromString(_ script: String) -> String?
   var scalesPageToFit: Bool
   @available(iOS 3.0, *)
   var dataDetectorTypes: UIDataDetectorTypes
@@ -68,43 +68,40 @@ class UIWebView : UIView, NSCoding, UIScrollViewDelegate {
   var allowsPictureInPictureMediaPlayback: Bool
   @available(iOS 9.0, *)
   var allowsLinkPreview: Bool
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 2.0, *)
-  func scrollViewDidScroll(scrollView: UIScrollView)
+  func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  func scrollViewDidZoom(scrollView: UIScrollView)
+  func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 2.0, *)
-  func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  func scrollViewWillBeginZooming(_ scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
-  func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  func scrollViewDidEndZooming(_ scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
-  func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
-  func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  func scrollViewDidScrollToTop(_ scrollView: UIScrollView)
 }
 protocol UIWebViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
+  optional func webView(_ webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType navigationType: UIWebViewNavigationType) -> Bool
   @available(iOS 2.0, *)
-  optional func webViewDidStartLoad(webView: UIWebView)
+  optional func webViewDidStartLoad(_ webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webViewDidFinishLoad(webView: UIWebView)
+  optional func webViewDidFinishLoad(_ webView: UIWebView)
   @available(iOS 2.0, *)
-  optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
+  optional func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?)
 }

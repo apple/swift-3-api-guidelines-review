@@ -20,5 +20,4 @@ class MPRemoteCommandCenter : NSObject {
   var bookmarkCommand: MPFeedbackCommand { get }
   var changePlaybackPositionCommand: MPChangePlaybackPositionCommand { get }
   class func sharedCommandCenter() -> MPRemoteCommandCenter
-  init()
 }

@@ -1,8 +1,6 @@
 
 @available(OSX 10.10, *)
 enum LAError : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case AuthenticationFailed
   case UserCancel
   case UserFallback
@@ -19,8 +17,6 @@ enum LAError : Int {
 }
 
 extension LAError : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }
 @available(OSX 10.10, *)
 let LAErrorDomain: String

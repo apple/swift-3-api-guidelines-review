@@ -1,9 +1,5 @@
 
 class NSTableHeaderCell : NSTextFieldCell {
-  func drawSortIndicatorWithFrame(cellFrame: NSRect, inView controlView: NSView, ascending: Bool, priority: Int)
-  func sortIndicatorRectForBounds(theRect: NSRect) -> NSRect
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
+  func drawSortIndicatorWithFrame(_ cellFrame: NSRect, inView controlView: NSView, ascending ascending: Bool, priority priority: Int)
+  func sortIndicatorRectForBounds(_ theRect: NSRect) -> NSRect
 }

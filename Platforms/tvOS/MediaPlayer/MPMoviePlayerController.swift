@@ -57,7 +57,7 @@ let MPMovieDurationAvailableNotification: String
 let MPMovieNaturalSizeAvailableNotification: String
 extension MPMoviePlayerController {
   @available(tvOS, introduced=3.2, deprecated=9.0)
-  func requestThumbnailImagesAtTimes(playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
+  func requestThumbnailImagesAtTimes(_ playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
   @available(tvOS, introduced=3.2, deprecated=9.0)
   func cancelAllThumbnailImageRequests()
 }

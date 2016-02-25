@@ -15,15 +15,15 @@ extension NSValue {
 }
 extension NSCoder {
   @available(tvOS 4.0, *)
-  func encodeCMTime(time: CMTime, forKey key: String)
+  func encodeCMTime(_ time: CMTime, forKey key: String)
   @available(tvOS 4.0, *)
-  func decodeCMTimeForKey(key: String) -> CMTime
+  func decodeCMTimeForKey(_ key: String) -> CMTime
   @available(tvOS 4.0, *)
-  func encodeCMTimeRange(timeRange: CMTimeRange, forKey key: String)
+  func encodeCMTimeRange(_ timeRange: CMTimeRange, forKey key: String)
   @available(tvOS 4.0, *)
-  func decodeCMTimeRangeForKey(key: String) -> CMTimeRange
+  func decodeCMTimeRangeForKey(_ key: String) -> CMTimeRange
   @available(tvOS 4.0, *)
-  func encodeCMTimeMapping(timeMapping: CMTimeMapping, forKey key: String)
+  func encodeCMTimeMapping(_ timeMapping: CMTimeMapping, forKey key: String)
   @available(tvOS 4.0, *)
-  func decodeCMTimeMappingForKey(key: String) -> CMTimeMapping
+  func decodeCMTimeMappingForKey(_ key: String) -> CMTimeMapping
 }

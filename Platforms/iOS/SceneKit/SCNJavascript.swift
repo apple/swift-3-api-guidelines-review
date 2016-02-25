@@ -1,3 +1,3 @@
 
 @available(iOS 8.0, *)
-func SCNExportJavaScriptModule(context: JSContext)
+func SCNExportJavaScriptModule(_ context: JSContext)

@@ -3,22 +3,19 @@ struct CGPoint {
   var x: CGFloat
   var y: CGFloat
   init()
-  init(x: CGFloat, y: CGFloat)
+  init(x x: CGFloat, y y: CGFloat)
 }
 
 extension CGPoint {
   static var zero: CGPoint { get }
-  @_transparent init(x: Int, y: Int)
-  @_transparent init(x: Double, y: Double)
+  @_transparent init(x x: Int, y y: Int)
+  @_transparent init(x x: Double, y y: Double)
 }
 
 extension CGPoint : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGPoint : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGPoint : Equatable {
@@ -27,22 +24,19 @@ struct CGSize {
   var width: CGFloat
   var height: CGFloat
   init()
-  init(width: CGFloat, height: CGFloat)
+  init(width width: CGFloat, height height: CGFloat)
 }
 
 extension CGSize {
   static var zero: CGSize { get }
-  @_transparent init(width: Int, height: Int)
-  @_transparent init(width: Double, height: Double)
+  @_transparent init(width width: Int, height height: Int)
+  @_transparent init(width width: Double, height height: Double)
 }
 
 extension CGSize : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGSize : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGSize : Equatable {
@@ -51,13 +45,13 @@ struct CGVector {
   var dx: CGFloat
   var dy: CGFloat
   init()
-  init(dx: CGFloat, dy: CGFloat)
+  init(dx dx: CGFloat, dy dy: CGFloat)
 }
 
 extension CGVector {
   static var zero: CGVector { get }
-  @_transparent init(dx: Int, dy: Int)
-  @_transparent init(dx: Double, dy: Double)
+  @_transparent init(dx dx: Int, dy dy: Int)
+  @_transparent init(dx dx: Double, dy dy: Double)
 }
 
 extension CGVector : Equatable {
@@ -66,16 +60,16 @@ struct CGRect {
   var origin: CGPoint
   var size: CGSize
   init()
-  init(origin: CGPoint, size: CGSize)
+  init(origin origin: CGPoint, size size: CGSize)
 }
 
 extension CGRect {
   static var zero: CGRect { get }
   static var null: CGRect { get }
   static var infinite: CGRect { get }
-  @_transparent init(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
-  @_transparent init(x: Double, y: Double, width: Double, height: Double)
-  @_transparent init(x: Int, y: Int, width: Int, height: Int)
+  @_transparent init(x x: CGFloat, y y: CGFloat, width width: CGFloat, height height: CGFloat)
+  @_transparent init(x x: Double, y y: Double, width width: Double, height height: Double)
+  @_transparent init(x x: Int, y y: Int, width width: Int, height height: Int)
   var width: CGFloat { get }
   var height: CGFloat { get }
   var minX: CGFloat { get }
@@ -92,40 +86,37 @@ extension CGRect {
   @_transparent mutating func standardizeInPlace()
   @_transparent mutating func makeIntegralInPlace()
   @warn_unused_result(mutable_variant="insetInPlace")
-  @_transparent func insetBy(dx dx: CGFloat, dy: CGFloat) -> CGRect
-  @_transparent mutating func insetInPlace(dx dx: CGFloat, dy: CGFloat)
+  @_transparent func insetBy(dx dx: CGFloat, dy dy: CGFloat) -> CGRect
+  @_transparent mutating func insetInPlace(dx dx: CGFloat, dy dy: CGFloat)
   @warn_unused_result(mutable_variant="offsetInPlace")
-  @_transparent func offsetBy(dx dx: CGFloat, dy: CGFloat) -> CGRect
-  @_transparent mutating func offsetInPlace(dx dx: CGFloat, dy: CGFloat)
+  @_transparent func offsetBy(dx dx: CGFloat, dy dy: CGFloat) -> CGRect
+  @_transparent mutating func offsetInPlace(dx dx: CGFloat, dy dy: CGFloat)
   @warn_unused_result(mutable_variant="unionInPlace")
-  @_transparent func union(rect: CGRect) -> CGRect
-  @_transparent mutating func unionInPlace(rect: CGRect)
+  @_transparent func union(_ rect: CGRect) -> CGRect
+  @_transparent mutating func unionInPlace(_ rect: CGRect)
   @warn_unused_result(mutable_variant="intersectInPlace")
-  @_transparent func intersect(rect: CGRect) -> CGRect
-  @_transparent mutating func intersectInPlace(rect: CGRect)
+  @_transparent func intersect(_ rect: CGRect) -> CGRect
+  @_transparent mutating func intersectInPlace(_ rect: CGRect)
   @warn_unused_result
-  @_transparent func divide(atDistance: CGFloat, fromEdge: CGRectEdge) -> (slice: CGRect, remainder: CGRect)
+  @_transparent func divide(_ atDistance: CGFloat, fromEdge fromEdge: CGRectEdge) -> (slice: CGRect, remainder: CGRect)
   @warn_unused_result
-  @_transparent func contains(rect: CGRect) -> Bool
+  @_transparent func contains(_ rect: CGRect) -> Bool
   @warn_unused_result
-  @_transparent func contains(point: CGPoint) -> Bool
+  @_transparent func contains(_ point: CGPoint) -> Bool
   @warn_unused_result
-  @_transparent func intersects(rect: CGRect) -> Bool
+  @_transparent func intersects(_ rect: CGRect) -> Bool
 }
 
 extension CGRect : CustomReflectable, CustomPlaygroundQuickLookable {
-  func customMirror() -> Mirror
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 
 extension CGRect : CustomDebugStringConvertible {
-  var debugDescription: String { get }
 }
 
 extension CGRect : Equatable {
 }
 enum CGRectEdge : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case MinXEdge
   case MinYEdge
@@ -143,68 +134,68 @@ let CGRectNull: CGRect
 @available(tvOS 2.0, *)
 let CGRectInfinite: CGRect
 @available(tvOS 2.0, *)
-func CGRectGetMinX(rect: CGRect) -> CGFloat
+func CGRectGetMinX(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetMidX(rect: CGRect) -> CGFloat
+func CGRectGetMidX(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetMaxX(rect: CGRect) -> CGFloat
+func CGRectGetMaxX(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetMinY(rect: CGRect) -> CGFloat
+func CGRectGetMinY(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetMidY(rect: CGRect) -> CGFloat
+func CGRectGetMidY(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetMaxY(rect: CGRect) -> CGFloat
+func CGRectGetMaxY(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetWidth(rect: CGRect) -> CGFloat
+func CGRectGetWidth(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGRectGetHeight(rect: CGRect) -> CGFloat
+func CGRectGetHeight(_ rect: CGRect) -> CGFloat
 @available(tvOS 2.0, *)
-func CGPointEqualToPoint(point1: CGPoint, _ point2: CGPoint) -> Bool
+func CGPointEqualToPoint(_ point1: CGPoint, _ point2: CGPoint) -> Bool
 @available(tvOS 2.0, *)
-func CGSizeEqualToSize(size1: CGSize, _ size2: CGSize) -> Bool
+func CGSizeEqualToSize(_ size1: CGSize, _ size2: CGSize) -> Bool
 @available(tvOS 2.0, *)
-func CGRectEqualToRect(rect1: CGRect, _ rect2: CGRect) -> Bool
+func CGRectEqualToRect(_ rect1: CGRect, _ rect2: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGRectStandardize(rect: CGRect) -> CGRect
+func CGRectStandardize(_ rect: CGRect) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectIsEmpty(rect: CGRect) -> Bool
+func CGRectIsEmpty(_ rect: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGRectIsNull(rect: CGRect) -> Bool
+func CGRectIsNull(_ rect: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGRectIsInfinite(rect: CGRect) -> Bool
+func CGRectIsInfinite(_ rect: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGRectInset(rect: CGRect, _ dx: CGFloat, _ dy: CGFloat) -> CGRect
+func CGRectInset(_ rect: CGRect, _ dx: CGFloat, _ dy: CGFloat) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectIntegral(rect: CGRect) -> CGRect
+func CGRectIntegral(_ rect: CGRect) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectUnion(r1: CGRect, _ r2: CGRect) -> CGRect
+func CGRectUnion(_ r1: CGRect, _ r2: CGRect) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectIntersection(r1: CGRect, _ r2: CGRect) -> CGRect
+func CGRectIntersection(_ r1: CGRect, _ r2: CGRect) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectOffset(rect: CGRect, _ dx: CGFloat, _ dy: CGFloat) -> CGRect
+func CGRectOffset(_ rect: CGRect, _ dx: CGFloat, _ dy: CGFloat) -> CGRect
 @available(tvOS 2.0, *)
-func CGRectDivide(rect: CGRect, _ slice: UnsafeMutablePointer<CGRect>, _ remainder: UnsafeMutablePointer<CGRect>, _ amount: CGFloat, _ edge: CGRectEdge)
+func CGRectDivide(_ rect: CGRect, _ slice: UnsafeMutablePointer<CGRect>, _ remainder: UnsafeMutablePointer<CGRect>, _ amount: CGFloat, _ edge: CGRectEdge)
 @available(tvOS 2.0, *)
-func CGRectContainsPoint(rect: CGRect, _ point: CGPoint) -> Bool
+func CGRectContainsPoint(_ rect: CGRect, _ point: CGPoint) -> Bool
 @available(tvOS 2.0, *)
-func CGRectContainsRect(rect1: CGRect, _ rect2: CGRect) -> Bool
+func CGRectContainsRect(_ rect1: CGRect, _ rect2: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGRectIntersectsRect(rect1: CGRect, _ rect2: CGRect) -> Bool
+func CGRectIntersectsRect(_ rect1: CGRect, _ rect2: CGRect) -> Bool
 @available(tvOS 2.0, *)
-func CGPointCreateDictionaryRepresentation(point: CGPoint) -> CFDictionary
+func CGPointCreateDictionaryRepresentation(_ point: CGPoint) -> CFDictionary
 @available(tvOS 2.0, *)
-func CGPointMakeWithDictionaryRepresentation(dict: CFDictionary?, _ point: UnsafeMutablePointer<CGPoint>) -> Bool
+func CGPointMakeWithDictionaryRepresentation(_ dict: CFDictionary?, _ point: UnsafeMutablePointer<CGPoint>) -> Bool
 @available(tvOS 2.0, *)
-func CGSizeCreateDictionaryRepresentation(size: CGSize) -> CFDictionary
+func CGSizeCreateDictionaryRepresentation(_ size: CGSize) -> CFDictionary
 @available(tvOS 2.0, *)
-func CGSizeMakeWithDictionaryRepresentation(dict: CFDictionary?, _ size: UnsafeMutablePointer<CGSize>) -> Bool
+func CGSizeMakeWithDictionaryRepresentation(_ dict: CFDictionary?, _ size: UnsafeMutablePointer<CGSize>) -> Bool
 @available(tvOS 2.0, *)
-func CGRectCreateDictionaryRepresentation(_: CGRect) -> CFDictionary
+func CGRectCreateDictionaryRepresentation(_ _: CGRect) -> CFDictionary
 @available(tvOS 2.0, *)
-func CGRectMakeWithDictionaryRepresentation(dict: CFDictionary?, _ rect: UnsafeMutablePointer<CGRect>) -> Bool
-func CGPointMake(x: CGFloat, _ y: CGFloat) -> CGPoint
-func CGSizeMake(width: CGFloat, _ height: CGFloat) -> CGSize
-func CGVectorMake(dx: CGFloat, _ dy: CGFloat) -> CGVector
-func CGRectMake(x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect
-func __CGPointEqualToPoint(point1: CGPoint, _ point2: CGPoint) -> Bool
-func __CGSizeEqualToSize(size1: CGSize, _ size2: CGSize) -> Bool
+func CGRectMakeWithDictionaryRepresentation(_ dict: CFDictionary?, _ rect: UnsafeMutablePointer<CGRect>) -> Bool
+func CGPointMake(_ x: CGFloat, _ y: CGFloat) -> CGPoint
+func CGSizeMake(_ width: CGFloat, _ height: CGFloat) -> CGSize
+func CGVectorMake(_ dx: CGFloat, _ dy: CGFloat) -> CGVector
+func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect
+func __CGPointEqualToPoint(_ point1: CGPoint, _ point2: CGPoint) -> Bool
+func __CGSizeEqualToSize(_ size1: CGSize, _ size2: CGSize) -> Bool

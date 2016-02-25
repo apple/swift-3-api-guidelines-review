@@ -5,6 +5,4 @@ class NETunnelProviderProtocol : NEVPNProtocol {
   var providerConfiguration: [String : AnyObject]?
   @available(OSX 10.11, *)
   var providerBundleIdentifier: String?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

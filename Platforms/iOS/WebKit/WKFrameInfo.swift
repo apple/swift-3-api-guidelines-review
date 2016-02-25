@@ -5,7 +5,6 @@ class WKFrameInfo : NSObject, NSCopying {
   @NSCopying var request: NSURLRequest { get }
   @available(iOS 9.0, *)
   var securityOrigin: WKSecurityOrigin { get }
-  init()
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

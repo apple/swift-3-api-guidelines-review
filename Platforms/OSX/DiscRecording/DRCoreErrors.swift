@@ -40,9 +40,9 @@ var kDRDeviceCantWriteIndexPointsErr: UInt32 { get }
 var kDRDeviceCantWriteISRCErr: UInt32 { get }
 var kDRDeviceCantWriteSCMSErr: UInt32 { get }
 var kDRDevicePreGapLengthNotValidErr: UInt32 { get }
-func DRCopyLocalizedStringForDiscRecordingError(osError: OSStatus) -> Unmanaged<CFString>!
-func DRCopyLocalizedStringForSenseCode(senseCode: UInt8) -> Unmanaged<CFString>!
-func DRCopyLocalizedStringForAdditionalSense(ASC: UInt8, _ ASCQ: UInt8) -> Unmanaged<CFString>!
+func DRCopyLocalizedStringForDiscRecordingError(_ osError: OSStatus) -> Unmanaged<CFString>!
+func DRCopyLocalizedStringForSenseCode(_ senseCode: UInt8) -> Unmanaged<CFString>!
+func DRCopyLocalizedStringForAdditionalSense(_ ASC: UInt8, _ ASCQ: UInt8) -> Unmanaged<CFString>!
 @available(OSX 10.2, *)
 let kDRErrorStatusKey: CFString!
 @available(OSX 10.2, *)

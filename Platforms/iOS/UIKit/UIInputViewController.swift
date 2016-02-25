@@ -2,25 +2,21 @@
 protocol UITextDocumentProxy : UIKeyInput {
   var documentContextBeforeInput: String? { get }
   var documentContextAfterInput: String? { get }
-  func adjustTextPositionByCharacterOffset(offset: Int)
+  func adjustTextPositionByCharacterOffset(_ offset: Int)
 }
 @available(iOS 8.0, *)
 class UIInputViewController : UIViewController, UITextInputDelegate {
-  var inputView: UIInputView?
   var textDocumentProxy: UITextDocumentProxy { get }
   var primaryLanguage: String?
   func dismissKeyboard()
   func advanceToNextInputMode()
-  func requestSupplementaryLexiconWithCompletion(completionHandler: (UILexicon) -> Void)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func requestSupplementaryLexiconWithCompletion(_ completionHandler: (UILexicon) -> Void)
   @available(iOS 8.0, *)
-  func selectionWillChange(textInput: UITextInput?)
+  func selectionWillChange(_ textInput: UITextInput?)
   @available(iOS 8.0, *)
-  func selectionDidChange(textInput: UITextInput?)
+  func selectionDidChange(_ textInput: UITextInput?)
   @available(iOS 8.0, *)
-  func textWillChange(textInput: UITextInput?)
+  func textWillChange(_ textInput: UITextInput?)
   @available(iOS 8.0, *)
-  func textDidChange(textInput: UITextInput?)
+  func textDidChange(_ textInput: UITextInput?)
 }

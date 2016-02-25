@@ -24,14 +24,14 @@ struct JSStaticValue {
   var setProperty: JSObjectSetPropertyCallback!
   var attributes: JSPropertyAttributes
   init()
-  init(name: UnsafePointer<Int8>, getProperty: JSObjectGetPropertyCallback!, setProperty: JSObjectSetPropertyCallback!, attributes: JSPropertyAttributes)
+  init(name name: UnsafePointer<Int8>, getProperty getProperty: JSObjectGetPropertyCallback!, setProperty setProperty: JSObjectSetPropertyCallback!, attributes attributes: JSPropertyAttributes)
 }
 struct JSStaticFunction {
   var name: UnsafePointer<Int8>
   var callAsFunction: JSObjectCallAsFunctionCallback!
   var attributes: JSPropertyAttributes
   init()
-  init(name: UnsafePointer<Int8>, callAsFunction: JSObjectCallAsFunctionCallback!, attributes: JSPropertyAttributes)
+  init(name name: UnsafePointer<Int8>, callAsFunction callAsFunction: JSObjectCallAsFunctionCallback!, attributes attributes: JSPropertyAttributes)
 }
 struct JSClassDefinition {
   var version: Int32
@@ -52,41 +52,41 @@ struct JSClassDefinition {
   var hasInstance: JSObjectHasInstanceCallback!
   var convertToType: JSObjectConvertToTypeCallback!
   init()
-  init(version: Int32, attributes: JSClassAttributes, className: UnsafePointer<Int8>, parentClass: JSClassRef, staticValues: UnsafePointer<JSStaticValue>, staticFunctions: UnsafePointer<JSStaticFunction>, initialize: JSObjectInitializeCallback!, finalize: JSObjectFinalizeCallback!, hasProperty: JSObjectHasPropertyCallback!, getProperty: JSObjectGetPropertyCallback!, setProperty: JSObjectSetPropertyCallback!, deleteProperty: JSObjectDeletePropertyCallback!, getPropertyNames: JSObjectGetPropertyNamesCallback!, callAsFunction: JSObjectCallAsFunctionCallback!, callAsConstructor: JSObjectCallAsConstructorCallback!, hasInstance: JSObjectHasInstanceCallback!, convertToType: JSObjectConvertToTypeCallback!)
+  init(version version: Int32, attributes attributes: JSClassAttributes, className className: UnsafePointer<Int8>, parentClass parentClass: JSClassRef, staticValues staticValues: UnsafePointer<JSStaticValue>, staticFunctions staticFunctions: UnsafePointer<JSStaticFunction>, initialize initialize: JSObjectInitializeCallback!, finalize finalize: JSObjectFinalizeCallback!, hasProperty hasProperty: JSObjectHasPropertyCallback!, getProperty getProperty: JSObjectGetPropertyCallback!, setProperty setProperty: JSObjectSetPropertyCallback!, deleteProperty deleteProperty: JSObjectDeletePropertyCallback!, getPropertyNames getPropertyNames: JSObjectGetPropertyNamesCallback!, callAsFunction callAsFunction: JSObjectCallAsFunctionCallback!, callAsConstructor callAsConstructor: JSObjectCallAsConstructorCallback!, hasInstance hasInstance: JSObjectHasInstanceCallback!, convertToType convertToType: JSObjectConvertToTypeCallback!)
 }
 let kJSClassDefinitionEmpty: JSClassDefinition
-func JSClassCreate(definition: UnsafePointer<JSClassDefinition>) -> JSClassRef
-func JSClassRetain(jsClass: JSClassRef) -> JSClassRef
-func JSClassRelease(jsClass: JSClassRef)
-func JSObjectMake(ctx: JSContextRef, _ jsClass: JSClassRef, _ data: UnsafeMutablePointer<Void>) -> JSObjectRef
-func JSObjectMakeFunctionWithCallback(ctx: JSContextRef, _ name: JSStringRef, _ callAsFunction: JSObjectCallAsFunctionCallback!) -> JSObjectRef
-func JSObjectMakeConstructor(ctx: JSContextRef, _ jsClass: JSClassRef, _ callAsConstructor: JSObjectCallAsConstructorCallback!) -> JSObjectRef
+func JSClassCreate(_ definition: UnsafePointer<JSClassDefinition>) -> JSClassRef
+func JSClassRetain(_ jsClass: JSClassRef) -> JSClassRef
+func JSClassRelease(_ jsClass: JSClassRef)
+func JSObjectMake(_ ctx: JSContextRef, _ jsClass: JSClassRef, _ data: UnsafeMutablePointer<Void>) -> JSObjectRef
+func JSObjectMakeFunctionWithCallback(_ ctx: JSContextRef, _ name: JSStringRef, _ callAsFunction: JSObjectCallAsFunctionCallback!) -> JSObjectRef
+func JSObjectMakeConstructor(_ ctx: JSContextRef, _ jsClass: JSClassRef, _ callAsConstructor: JSObjectCallAsConstructorCallback!) -> JSObjectRef
 @available(OSX 10.6, *)
-func JSObjectMakeArray(ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectMakeArray(_ ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
 @available(OSX 10.6, *)
-func JSObjectMakeDate(ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectMakeDate(_ ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
 @available(OSX 10.6, *)
-func JSObjectMakeError(ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectMakeError(_ ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
 @available(OSX 10.6, *)
-func JSObjectMakeRegExp(ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
-func JSObjectMakeFunction(ctx: JSContextRef, _ name: JSStringRef, _ parameterCount: UInt32, _ parameterNames: UnsafePointer<JSStringRef>, _ body: JSStringRef, _ sourceURL: JSStringRef, _ startingLineNumber: Int32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
-func JSObjectGetPrototype(ctx: JSContextRef, _ object: JSObjectRef) -> JSValueRef
-func JSObjectSetPrototype(ctx: JSContextRef, _ object: JSObjectRef, _ value: JSValueRef)
-func JSObjectHasProperty(ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef) -> Bool
-func JSObjectGetProperty(ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
-func JSObjectSetProperty(ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ value: JSValueRef, _ attributes: JSPropertyAttributes, _ exception: UnsafeMutablePointer<JSValueRef>)
-func JSObjectDeleteProperty(ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
-func JSObjectGetPropertyAtIndex(ctx: JSContextRef, _ object: JSObjectRef, _ propertyIndex: UInt32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
-func JSObjectSetPropertyAtIndex(ctx: JSContextRef, _ object: JSObjectRef, _ propertyIndex: UInt32, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>)
-func JSObjectGetPrivate(object: JSObjectRef) -> UnsafeMutablePointer<Void>
-func JSObjectSetPrivate(object: JSObjectRef, _ data: UnsafeMutablePointer<Void>) -> Bool
-func JSObjectIsFunction(ctx: JSContextRef, _ object: JSObjectRef) -> Bool
-func JSObjectCallAsFunction(ctx: JSContextRef, _ object: JSObjectRef, _ thisObject: JSObjectRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
-func JSObjectIsConstructor(ctx: JSContextRef, _ object: JSObjectRef) -> Bool
-func JSObjectCallAsConstructor(ctx: JSContextRef, _ object: JSObjectRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
-func JSObjectCopyPropertyNames(ctx: JSContextRef, _ object: JSObjectRef) -> JSPropertyNameArrayRef
-func JSPropertyNameArrayRetain(array: JSPropertyNameArrayRef) -> JSPropertyNameArrayRef
-func JSPropertyNameArrayRelease(array: JSPropertyNameArrayRef)
-func JSPropertyNameArrayGetCount(array: JSPropertyNameArrayRef) -> Int
-func JSPropertyNameArrayGetNameAtIndex(array: JSPropertyNameArrayRef, _ index: Int) -> JSStringRef
-func JSPropertyNameAccumulatorAddName(accumulator: JSPropertyNameAccumulatorRef, _ propertyName: JSStringRef)
+func JSObjectMakeRegExp(_ ctx: JSContextRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectMakeFunction(_ ctx: JSContextRef, _ name: JSStringRef, _ parameterCount: UInt32, _ parameterNames: UnsafePointer<JSStringRef>, _ body: JSStringRef, _ sourceURL: JSStringRef, _ startingLineNumber: Int32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectGetPrototype(_ ctx: JSContextRef, _ object: JSObjectRef) -> JSValueRef
+func JSObjectSetPrototype(_ ctx: JSContextRef, _ object: JSObjectRef, _ value: JSValueRef)
+func JSObjectHasProperty(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef) -> Bool
+func JSObjectGetProperty(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
+func JSObjectSetProperty(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ value: JSValueRef, _ attributes: JSPropertyAttributes, _ exception: UnsafeMutablePointer<JSValueRef>)
+func JSObjectDeleteProperty(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyName: JSStringRef, _ exception: UnsafeMutablePointer<JSValueRef>) -> Bool
+func JSObjectGetPropertyAtIndex(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyIndex: UInt32, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
+func JSObjectSetPropertyAtIndex(_ ctx: JSContextRef, _ object: JSObjectRef, _ propertyIndex: UInt32, _ value: JSValueRef, _ exception: UnsafeMutablePointer<JSValueRef>)
+func JSObjectGetPrivate(_ object: JSObjectRef) -> UnsafeMutablePointer<Void>
+func JSObjectSetPrivate(_ object: JSObjectRef, _ data: UnsafeMutablePointer<Void>) -> Bool
+func JSObjectIsFunction(_ ctx: JSContextRef, _ object: JSObjectRef) -> Bool
+func JSObjectCallAsFunction(_ ctx: JSContextRef, _ object: JSObjectRef, _ thisObject: JSObjectRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSValueRef
+func JSObjectIsConstructor(_ ctx: JSContextRef, _ object: JSObjectRef) -> Bool
+func JSObjectCallAsConstructor(_ ctx: JSContextRef, _ object: JSObjectRef, _ argumentCount: Int, _ arguments: UnsafePointer<JSValueRef>, _ exception: UnsafeMutablePointer<JSValueRef>) -> JSObjectRef
+func JSObjectCopyPropertyNames(_ ctx: JSContextRef, _ object: JSObjectRef) -> JSPropertyNameArrayRef
+func JSPropertyNameArrayRetain(_ array: JSPropertyNameArrayRef) -> JSPropertyNameArrayRef
+func JSPropertyNameArrayRelease(_ array: JSPropertyNameArrayRef)
+func JSPropertyNameArrayGetCount(_ array: JSPropertyNameArrayRef) -> Int
+func JSPropertyNameArrayGetNameAtIndex(_ array: JSPropertyNameArrayRef, _ index: Int) -> JSStringRef
+func JSPropertyNameAccumulatorAddName(_ accumulator: JSPropertyNameAccumulatorRef, _ propertyName: JSStringRef)

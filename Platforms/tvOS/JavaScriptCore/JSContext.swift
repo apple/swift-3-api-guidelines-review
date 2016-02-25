@@ -1,11 +1,10 @@
 
 @available(tvOS 7.0, *)
 class JSContext : NSObject {
-  init!()
-  init!(virtualMachine: JSVirtualMachine!)
-  func evaluateScript(script: String!) -> JSValue!
+  init!(virtualMachine virtualMachine: JSVirtualMachine!)
+  func evaluateScript(_ script: String!) -> JSValue!
   @available(tvOS 8.0, *)
-  func evaluateScript(script: String!, withSourceURL sourceURL: NSURL!) -> JSValue!
+  func evaluateScript(_ script: String!, withSourceURL sourceURL: NSURL!) -> JSValue!
   class func currentContext() -> JSContext!
   @available(tvOS 8.0, *)
   class func currentCallee() -> JSValue!
@@ -19,8 +18,8 @@ class JSContext : NSObject {
   var name: String!
 }
 extension JSContext {
-  func objectForKeyedSubscript(key: AnyObject!) -> JSValue!
-  func setObject(object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
+  func objectForKeyedSubscript(_ key: AnyObject!) -> JSValue!
+  func setObject(_ object: AnyObject!, forKeyedSubscript key: protocol<NSCopying, NSObjectProtocol>!)
 }
 extension JSContext {
   /*not inherited*/ init!(JSGlobalContextRef jsGlobalContextRef: JSGlobalContextRef)

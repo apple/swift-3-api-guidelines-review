@@ -1,15 +1,13 @@
 
 @available(watchOS 2.0, *)
 class NSIncrementalStore : NSPersistentStore {
-  func loadMetadata() throws
-  func executeRequest(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext?) throws -> AnyObject
-  func newValuesForObjectWithID(objectID: NSManagedObjectID, withContext context: NSManagedObjectContext) throws -> NSIncrementalStoreNode
-  func newValueForRelationship(relationship: NSRelationshipDescription, forObjectWithID objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject
-  class func identifierForNewStoreAtURL(storeURL: NSURL) -> AnyObject
-  func obtainPermanentIDsForObjects(array: [NSManagedObject]) throws -> [NSManagedObjectID]
-  func managedObjectContextDidRegisterObjectsWithIDs(objectIDs: [NSManagedObjectID])
-  func managedObjectContextDidUnregisterObjectsWithIDs(objectIDs: [NSManagedObjectID])
-  func newObjectIDForEntity(entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
-  func referenceObjectForObjectID(objectID: NSManagedObjectID) -> AnyObject
-  init(persistentStoreCoordinator root: NSPersistentStoreCoordinator?, configurationName name: String?, URL url: NSURL, options: [NSObject : AnyObject]?)
+  func executeRequest(_ request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext?) throws -> AnyObject
+  func newValuesForObjectWithID(_ objectID: NSManagedObjectID, withContext context: NSManagedObjectContext) throws -> NSIncrementalStoreNode
+  func newValueForRelationship(_ relationship: NSRelationshipDescription, forObjectWithID objectID: NSManagedObjectID, withContext context: NSManagedObjectContext?) throws -> AnyObject
+  class func identifierForNewStoreAtURL(_ storeURL: NSURL) -> AnyObject
+  func obtainPermanentIDsForObjects(_ array: [NSManagedObject]) throws -> [NSManagedObjectID]
+  func managedObjectContextDidRegisterObjectsWithIDs(_ objectIDs: [NSManagedObjectID])
+  func managedObjectContextDidUnregisterObjectsWithIDs(_ objectIDs: [NSManagedObjectID])
+  func newObjectIDForEntity(_ entity: NSEntityDescription, referenceObject data: AnyObject) -> NSManagedObjectID
+  func referenceObjectForObjectID(_ objectID: NSManagedObjectID) -> AnyObject
 }

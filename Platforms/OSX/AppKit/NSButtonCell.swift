@@ -1,6 +1,6 @@
 
 enum NSButtonType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case MomentaryLightButton
   case PushOnPushOffButton
@@ -16,7 +16,7 @@ enum NSButtonType : UInt {
   case MultiLevelAcceleratorButton
 }
 enum NSBezelStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case RoundedBezelStyle
   case RegularSquareBezelStyle
@@ -63,7 +63,7 @@ struct __BCFlags {
   var changeContents: UInt32
   var pushIn: UInt32
   init()
-  init(__reserved: UInt32, allowTitleTightening: UInt32, isDrawingFocus: UInt32, useButtonImageSource: UInt32, hasTitleTextField: UInt32, isDrawingDisclosure: UInt32, suppressAXValueChangeNote: UInt32, doesNotDimImage: UInt32, inset: UInt32, transparent: UInt32, inIntermediateDisclosure: UInt32, hasKeyEquivalentInsteadOfImage: UInt32, imageSizeDiff: UInt32, imageAndText: UInt32, bottomOrLeft: UInt32, horizontal: UInt32, imageOverlaps: UInt32, bordered: UInt32, drawing: UInt32, lightByGray: UInt32, lightByBackground: UInt32, lightByContents: UInt32, changeGray: UInt32, changeBackground: UInt32, changeContents: UInt32, pushIn: UInt32)
+  init(__reserved __reserved: UInt32, allowTitleTightening allowTitleTightening: UInt32, isDrawingFocus isDrawingFocus: UInt32, useButtonImageSource useButtonImageSource: UInt32, hasTitleTextField hasTitleTextField: UInt32, isDrawingDisclosure isDrawingDisclosure: UInt32, suppressAXValueChangeNote suppressAXValueChangeNote: UInt32, doesNotDimImage doesNotDimImage: UInt32, inset inset: UInt32, transparent transparent: UInt32, inIntermediateDisclosure inIntermediateDisclosure: UInt32, hasKeyEquivalentInsteadOfImage hasKeyEquivalentInsteadOfImage: UInt32, imageSizeDiff imageSizeDiff: UInt32, imageAndText imageAndText: UInt32, bottomOrLeft bottomOrLeft: UInt32, horizontal horizontal: UInt32, imageOverlaps imageOverlaps: UInt32, bordered bordered: UInt32, drawing drawing: UInt32, lightByGray lightByGray: UInt32, lightByBackground lightByBackground: UInt32, lightByContents lightByContents: UInt32, changeGray changeGray: UInt32, changeBackground changeBackground: UInt32, changeContents changeContents: UInt32, pushIn pushIn: UInt32)
 }
 typealias _BCFlags = __BCFlags
 struct __BCFlags2 {
@@ -74,11 +74,10 @@ struct __BCFlags2 {
   var imageScaling: UInt32
   var keyEquivalentModifierMask: UInt32
   init()
-  init(bezelStyle: UInt32, showsBorderOnlyWhileMouseInside: UInt32, mouseInside: UInt32, bezelStyle2: UInt32, imageScaling: UInt32, keyEquivalentModifierMask: UInt32)
+  init(bezelStyle bezelStyle: UInt32, showsBorderOnlyWhileMouseInside showsBorderOnlyWhileMouseInside: UInt32, mouseInside mouseInside: UInt32, bezelStyle2 bezelStyle2: UInt32, imageScaling imageScaling: UInt32, keyEquivalentModifierMask keyEquivalentModifierMask: UInt32)
 }
 typealias _BCFlags2 = __BCFlags2
 class NSButtonCell : NSActionCell {
-  var title: String!
   var alternateTitle: String
   var alternateImage: NSImage?
   var imagePosition: NSCellImagePosition
@@ -86,26 +85,18 @@ class NSButtonCell : NSActionCell {
   var imageScaling: NSImageScaling
   var highlightsBy: NSCellStyleMask
   var showsStateBy: NSCellStyleMask
-  func setButtonType(aType: NSButtonType)
-  var opaque: Bool { get }
+  func setButtonType(_ aType: NSButtonType)
   var transparent: Bool
-  func setPeriodicDelay(delay: Float, interval: Float)
-  func getPeriodicDelay(delay: UnsafeMutablePointer<Float>, interval: UnsafeMutablePointer<Float>)
-  var keyEquivalent: String
+  func setPeriodicDelay(_ delay: Float, interval interval: Float)
   var keyEquivalentModifierMask: Int
   var keyEquivalentFont: NSFont?
-  func setKeyEquivalentFont(fontName: String, size fontSize: CGFloat)
-  func performClick(sender: AnyObject?)
-  func drawImage(image: NSImage, withFrame frame: NSRect, inView controlView: NSView)
-  func drawTitle(title: NSAttributedString, withFrame frame: NSRect, inView controlView: NSView) -> NSRect
-  func drawBezelWithFrame(frame: NSRect, inView controlView: NSView)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
+  func setKeyEquivalentFont(_ fontName: String, size fontSize: CGFloat)
+  func drawImage(_ image: NSImage, withFrame frame: NSRect, inView controlView: NSView)
+  func drawTitle(_ title: NSAttributedString, withFrame frame: NSRect, inView controlView: NSView) -> NSRect
+  func drawBezelWithFrame(_ frame: NSRect, inView controlView: NSView)
 }
 enum NSGradientType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case ConcaveWeak
@@ -117,8 +108,8 @@ extension NSButtonCell {
   var gradientType: NSGradientType
   var imageDimsWhenDisabled: Bool
   var showsBorderOnlyWhileMouseInside: Bool
-  func mouseEntered(event: NSEvent)
-  func mouseExited(event: NSEvent)
+  func mouseEntered(_ event: NSEvent)
+  func mouseExited(_ event: NSEvent)
   @NSCopying var backgroundColor: NSColor?
 }
 extension NSButtonCell {

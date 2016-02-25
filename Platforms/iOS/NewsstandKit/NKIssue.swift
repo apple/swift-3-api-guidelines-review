@@ -3,7 +3,7 @@
 let NKIssueDownloadCompletedNotification: String
 @available(iOS 5.0, *)
 enum NKIssueContentStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Downloading
@@ -16,6 +16,5 @@ class NKIssue : NSObject {
   var status: NKIssueContentStatus { get }
   var name: String { get }
   @NSCopying var date: NSDate { get }
-  func addAssetWithRequest(request: NSURLRequest) -> NKAssetDownload
-  init()
+  func addAssetWithRequest(_ request: NSURLRequest) -> NKAssetDownload
 }

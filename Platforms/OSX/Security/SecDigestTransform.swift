@@ -11,6 +11,6 @@ let kSecDigestTypeAttribute: CFString
 let kSecDigestLengthAttribute: CFString
 let kSecDigestHMACKeyAttribute: CFString
 @available(OSX 10.7, *)
-func SecDigestTransformCreate(digestType: CFTypeRef?, _ digestLength: CFIndex, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
+func SecDigestTransformCreate(_ digestType: CFTypeRef?, _ digestLength: CFIndex, _ error: UnsafeMutablePointer<Unmanaged<CFError>?>) -> SecTransform
 @available(OSX 10.7, *)
 func SecDigestTransformGetTypeID() -> CFTypeID

@@ -15,8 +15,8 @@ typealias CVOpenGLBuffer = CVImageBuffer
 @available(OSX 10.4, *)
 func CVOpenGLBufferGetTypeID() -> CFTypeID
 @available(OSX 10.4, *)
-func CVOpenGLBufferCreate(allocator: CFAllocator?, _ width: Int, _ height: Int, _ attributes: CFDictionary?, _ bufferOut: UnsafeMutablePointer<CVOpenGLBuffer?>) -> CVReturn
+func CVOpenGLBufferCreate(_ allocator: CFAllocator?, _ width: Int, _ height: Int, _ attributes: CFDictionary?, _ bufferOut: UnsafeMutablePointer<CVOpenGLBuffer?>) -> CVReturn
 @available(OSX 10.4, *)
-func CVOpenGLBufferGetAttributes(openGLBuffer: CVOpenGLBuffer) -> Unmanaged<CFDictionary>?
+func CVOpenGLBufferGetAttributes(_ openGLBuffer: CVOpenGLBuffer) -> Unmanaged<CFDictionary>?
 @available(OSX 10.4, *)
-func CVOpenGLBufferAttach(openGLBuffer: CVOpenGLBuffer, _ cglContext: CGLContextObj, _ face: GLenum, _ level: GLint, _ screen: GLint) -> CVReturn
+func CVOpenGLBufferAttach(_ openGLBuffer: CVOpenGLBuffer, _ cglContext: CGLContextObj, _ face: GLenum, _ level: GLint, _ screen: GLint) -> CVReturn

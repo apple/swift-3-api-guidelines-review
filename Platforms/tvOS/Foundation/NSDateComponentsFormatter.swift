@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum NSDateComponentsFormatterUnitsStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Positional
   case Abbreviated
@@ -11,7 +11,7 @@ enum NSDateComponentsFormatterUnitsStyle : Int {
 }
 @available(tvOS 8.0, *)
 struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: NSDateComponentsFormatterZeroFormattingBehavior { get }
   static var Default: NSDateComponentsFormatterZeroFormattingBehavior { get }
@@ -23,11 +23,10 @@ struct NSDateComponentsFormatterZeroFormattingBehavior : OptionSetType {
 }
 @available(tvOS 8.0, *)
 class NSDateComponentsFormatter : NSFormatter {
-  func stringForObjectValue(obj: AnyObject) -> String?
-  func stringFromDateComponents(components: NSDateComponents) -> String?
-  func stringFromDate(startDate: NSDate, toDate endDate: NSDate) -> String?
-  func stringFromTimeInterval(ti: NSTimeInterval) -> String?
-  class func localizedStringFromDateComponents(components: NSDateComponents, unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
+  func stringFromDateComponents(_ components: NSDateComponents) -> String?
+  func stringFromDate(_ startDate: NSDate, toDate endDate: NSDate) -> String?
+  func stringFromTimeInterval(_ ti: NSTimeInterval) -> String?
+  class func localizedStringFromDateComponents(_ components: NSDateComponents, unitsStyle unitsStyle: NSDateComponentsFormatterUnitsStyle) -> String?
   var unitsStyle: NSDateComponentsFormatterUnitsStyle
   var allowedUnits: NSCalendarUnit
   var zeroFormattingBehavior: NSDateComponentsFormatterZeroFormattingBehavior
@@ -38,7 +37,4 @@ class NSDateComponentsFormatter : NSFormatter {
   var includesApproximationPhrase: Bool
   var includesTimeRemainingPhrase: Bool
   var formattingContext: NSFormattingContext
-  func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -5,7 +5,7 @@ class SSLContext {
 }
 typealias SSLConnectionRef = UnsafePointer<Void>
 enum SSLProtocol : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case SSLProtocolUnknown
   case SSLProtocol3
@@ -19,7 +19,7 @@ enum SSLProtocol : Int32 {
   case SSLProtocolAll
 }
 enum SSLSessionOption : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case BreakOnServerAuth
   case BreakOnCertRequested
@@ -31,7 +31,7 @@ enum SSLSessionOption : Int32 {
   case BreakOnClientHello
 }
 enum SSLSessionState : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Idle
   case Handshake
@@ -40,7 +40,7 @@ enum SSLSessionState : Int32 {
   case Aborted
 }
 enum SSLClientCertificateState : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case CertNone
   case CertRequested
@@ -102,13 +102,13 @@ var errSSLUnexpectedRecord: OSStatus { get }
 var errSSLWeakPeerEphemeralDHKey: OSStatus { get }
 var errSSLClientHelloReceived: OSStatus { get }
 enum SSLProtocolSide : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case ServerSide
   case ClientSide
 }
 enum SSLConnectionType : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case StreamType
   case DatagramType
@@ -116,103 +116,103 @@ enum SSLConnectionType : Int32 {
 @available(OSX 10.8, *)
 func SSLContextGetTypeID() -> CFTypeID
 @available(OSX 10.8, *)
-func SSLCreateContext(alloc: CFAllocator?, _ protocolSide: SSLProtocolSide, _ connectionType: SSLConnectionType) -> SSLContext?
+func SSLCreateContext(_ alloc: CFAllocator?, _ protocolSide: SSLProtocolSide, _ connectionType: SSLConnectionType) -> SSLContext?
 @available(OSX 10.2, *)
-func SSLGetSessionState(context: SSLContext, _ state: UnsafeMutablePointer<SSLSessionState>) -> OSStatus
+func SSLGetSessionState(_ context: SSLContext, _ state: UnsafeMutablePointer<SSLSessionState>) -> OSStatus
 @available(OSX 10.6, *)
-func SSLSetSessionOption(context: SSLContext, _ option: SSLSessionOption, _ value: Bool) -> OSStatus
+func SSLSetSessionOption(_ context: SSLContext, _ option: SSLSessionOption, _ value: Bool) -> OSStatus
 @available(OSX 10.6, *)
-func SSLGetSessionOption(context: SSLContext, _ option: SSLSessionOption, _ value: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func SSLGetSessionOption(_ context: SSLContext, _ option: SSLSessionOption, _ value: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetIOFuncs(context: SSLContext, _ readFunc: SSLReadFunc, _ writeFunc: SSLWriteFunc) -> OSStatus
+func SSLSetIOFuncs(_ context: SSLContext, _ readFunc: SSLReadFunc, _ writeFunc: SSLWriteFunc) -> OSStatus
 @available(OSX 10.8, *)
-func SSLSetProtocolVersionMin(context: SSLContext, _ minVersion: SSLProtocol) -> OSStatus
+func SSLSetProtocolVersionMin(_ context: SSLContext, _ minVersion: SSLProtocol) -> OSStatus
 @available(OSX 10.8, *)
-func SSLGetProtocolVersionMin(context: SSLContext, _ minVersion: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
+func SSLGetProtocolVersionMin(_ context: SSLContext, _ minVersion: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
 @available(OSX 10.8, *)
-func SSLSetProtocolVersionMax(context: SSLContext, _ maxVersion: SSLProtocol) -> OSStatus
+func SSLSetProtocolVersionMax(_ context: SSLContext, _ maxVersion: SSLProtocol) -> OSStatus
 @available(OSX 10.8, *)
-func SSLGetProtocolVersionMax(context: SSLContext, _ maxVersion: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
+func SSLGetProtocolVersionMax(_ context: SSLContext, _ maxVersion: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetCertificate(context: SSLContext, _ certRefs: CFArray) -> OSStatus
+func SSLSetCertificate(_ context: SSLContext, _ certRefs: CFArray) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetConnection(context: SSLContext, _ connection: SSLConnectionRef) -> OSStatus
+func SSLSetConnection(_ context: SSLContext, _ connection: SSLConnectionRef) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetConnection(context: SSLContext, _ connection: UnsafeMutablePointer<SSLConnectionRef>) -> OSStatus
+func SSLGetConnection(_ context: SSLContext, _ connection: UnsafeMutablePointer<SSLConnectionRef>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetPeerDomainName(context: SSLContext, _ peerName: UnsafePointer<Int8>, _ peerNameLen: Int) -> OSStatus
+func SSLSetPeerDomainName(_ context: SSLContext, _ peerName: UnsafePointer<Int8>, _ peerNameLen: Int) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetPeerDomainNameLength(context: SSLContext, _ peerNameLen: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetPeerDomainNameLength(_ context: SSLContext, _ peerNameLen: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetPeerDomainName(context: SSLContext, _ peerName: UnsafeMutablePointer<Int8>, _ peerNameLen: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetPeerDomainName(_ context: SSLContext, _ peerName: UnsafeMutablePointer<Int8>, _ peerNameLen: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.8, *)
-func SSLSetDatagramHelloCookie(dtlsContext: SSLContext, _ cookie: UnsafePointer<Void>, _ cookieLen: Int) -> OSStatus
+func SSLSetDatagramHelloCookie(_ dtlsContext: SSLContext, _ cookie: UnsafePointer<Void>, _ cookieLen: Int) -> OSStatus
 @available(OSX 10.8, *)
-func SSLSetMaxDatagramRecordSize(dtlsContext: SSLContext, _ maxSize: Int) -> OSStatus
+func SSLSetMaxDatagramRecordSize(_ dtlsContext: SSLContext, _ maxSize: Int) -> OSStatus
 @available(OSX 10.8, *)
-func SSLGetMaxDatagramRecordSize(dtlsContext: SSLContext, _ maxSize: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetMaxDatagramRecordSize(_ dtlsContext: SSLContext, _ maxSize: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetNegotiatedProtocolVersion(context: SSLContext, _ protocol: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
+func SSLGetNegotiatedProtocolVersion(_ context: SSLContext, _ protocol: UnsafeMutablePointer<SSLProtocol>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetNumberSupportedCiphers(context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetNumberSupportedCiphers(_ context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetSupportedCiphers(context: SSLContext, _ ciphers: UnsafeMutablePointer<SSLCipherSuite>, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetSupportedCiphers(_ context: SSLContext, _ ciphers: UnsafeMutablePointer<SSLCipherSuite>, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetEnabledCiphers(context: SSLContext, _ ciphers: UnsafePointer<SSLCipherSuite>, _ numCiphers: Int) -> OSStatus
+func SSLSetEnabledCiphers(_ context: SSLContext, _ ciphers: UnsafePointer<SSLCipherSuite>, _ numCiphers: Int) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetNumberEnabledCiphers(context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetNumberEnabledCiphers(_ context: SSLContext, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetEnabledCiphers(context: SSLContext, _ ciphers: UnsafeMutablePointer<SSLCipherSuite>, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetEnabledCiphers(_ context: SSLContext, _ ciphers: UnsafeMutablePointer<SSLCipherSuite>, _ numCiphers: UnsafeMutablePointer<Int>) -> OSStatus
 enum SSLSessionStrengthPolicy : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Default
   case ATSv1
   case ATSv1_noPFS
 }
-func SSLSetSessionStrengthPolicy(context: SSLContext, _ policyStrength: SSLSessionStrengthPolicy) -> OSStatus
+func SSLSetSessionStrengthPolicy(_ context: SSLContext, _ policyStrength: SSLSessionStrengthPolicy) -> OSStatus
 @available(OSX 10.6, *)
-func SSLCopyPeerTrust(context: SSLContext, _ trust: UnsafeMutablePointer<SecTrust?>) -> OSStatus
+func SSLCopyPeerTrust(_ context: SSLContext, _ trust: UnsafeMutablePointer<SecTrust?>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetPeerID(context: SSLContext, _ peerID: UnsafePointer<Void>, _ peerIDLen: Int) -> OSStatus
+func SSLSetPeerID(_ context: SSLContext, _ peerID: UnsafePointer<Void>, _ peerIDLen: Int) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetPeerID(context: SSLContext, _ peerID: UnsafeMutablePointer<UnsafePointer<Void>>, _ peerIDLen: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetPeerID(_ context: SSLContext, _ peerID: UnsafeMutablePointer<UnsafePointer<Void>>, _ peerIDLen: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetNegotiatedCipher(context: SSLContext, _ cipherSuite: UnsafeMutablePointer<SSLCipherSuite>) -> OSStatus
+func SSLGetNegotiatedCipher(_ context: SSLContext, _ cipherSuite: UnsafeMutablePointer<SSLCipherSuite>) -> OSStatus
 @available(OSX, introduced=10.2, deprecated=10.11)
-func SSLSetEncryptionCertificate(context: SSLContext, _ certRefs: CFArray) -> OSStatus
+func SSLSetEncryptionCertificate(_ context: SSLContext, _ certRefs: CFArray) -> OSStatus
 enum SSLAuthenticate : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case NeverAuthenticate
   case AlwaysAuthenticate
   case TryAuthenticate
 }
 @available(OSX 10.2, *)
-func SSLSetClientSideAuthenticate(context: SSLContext, _ auth: SSLAuthenticate) -> OSStatus
+func SSLSetClientSideAuthenticate(_ context: SSLContext, _ auth: SSLAuthenticate) -> OSStatus
 @available(OSX 10.4, *)
-func SSLAddDistinguishedName(context: SSLContext, _ derDN: UnsafePointer<Void>, _ derDNLen: Int) -> OSStatus
+func SSLAddDistinguishedName(_ context: SSLContext, _ derDN: UnsafePointer<Void>, _ derDNLen: Int) -> OSStatus
 @available(OSX 10.5, *)
-func SSLSetCertificateAuthorities(context: SSLContext, _ certificateOrArray: CFTypeRef, _ replaceExisting: Bool) -> OSStatus
+func SSLSetCertificateAuthorities(_ context: SSLContext, _ certificateOrArray: CFTypeRef, _ replaceExisting: Bool) -> OSStatus
 @available(OSX 10.5, *)
-func SSLCopyCertificateAuthorities(context: SSLContext, _ certificates: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SSLCopyCertificateAuthorities(_ context: SSLContext, _ certificates: UnsafeMutablePointer<CFArray?>) -> OSStatus
 @available(OSX 10.5, *)
-func SSLCopyDistinguishedNames(context: SSLContext, _ names: UnsafeMutablePointer<CFArray?>) -> OSStatus
+func SSLCopyDistinguishedNames(_ context: SSLContext, _ names: UnsafeMutablePointer<CFArray?>) -> OSStatus
 @available(OSX 10.3, *)
-func SSLGetClientCertificateState(context: SSLContext, _ clientState: UnsafeMutablePointer<SSLClientCertificateState>) -> OSStatus
+func SSLGetClientCertificateState(_ context: SSLContext, _ clientState: UnsafeMutablePointer<SSLClientCertificateState>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLSetDiffieHellmanParams(context: SSLContext, _ dhParams: UnsafePointer<Void>, _ dhParamsLen: Int) -> OSStatus
+func SSLSetDiffieHellmanParams(_ context: SSLContext, _ dhParams: UnsafePointer<Void>, _ dhParamsLen: Int) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetDiffieHellmanParams(context: SSLContext, _ dhParams: UnsafeMutablePointer<UnsafePointer<Void>>, _ dhParamsLen: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetDiffieHellmanParams(_ context: SSLContext, _ dhParams: UnsafeMutablePointer<UnsafePointer<Void>>, _ dhParamsLen: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLHandshake(context: SSLContext) -> OSStatus
+func SSLHandshake(_ context: SSLContext) -> OSStatus
 @available(OSX 10.2, *)
-func SSLWrite(context: SSLContext, _ data: UnsafePointer<Void>, _ dataLength: Int, _ processed: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLWrite(_ context: SSLContext, _ data: UnsafePointer<Void>, _ dataLength: Int, _ processed: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLRead(context: SSLContext, _ data: UnsafeMutablePointer<Void>, _ dataLength: Int, _ processed: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLRead(_ context: SSLContext, _ data: UnsafeMutablePointer<Void>, _ dataLength: Int, _ processed: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLGetBufferedReadSize(context: SSLContext, _ bufSize: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetBufferedReadSize(_ context: SSLContext, _ bufSize: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.8, *)
-func SSLGetDatagramWriteSize(dtlsContext: SSLContext, _ bufSize: UnsafeMutablePointer<Int>) -> OSStatus
+func SSLGetDatagramWriteSize(_ dtlsContext: SSLContext, _ bufSize: UnsafeMutablePointer<Int>) -> OSStatus
 @available(OSX 10.2, *)
-func SSLClose(context: SSLContext) -> OSStatus
+func SSLClose(_ context: SSLContext) -> OSStatus

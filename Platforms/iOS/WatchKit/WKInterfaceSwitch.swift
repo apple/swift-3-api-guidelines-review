@@ -1,9 +1,9 @@
 
 @available(iOS 8.2, *)
 class WKInterfaceSwitch : WKInterfaceObject {
-  func setTitle(title: String?)
-  func setAttributedTitle(attributedTitle: NSAttributedString?)
-  func setEnabled(enabled: Bool)
-  func setOn(on: Bool)
-  func setColor(color: UIColor?)
+  func setTitle(_ title: String?)
+  func setAttributedTitle(_ attributedTitle: NSAttributedString?)
+  func setEnabled(_ enabled: Bool)
+  func setOn(_ on: Bool)
+  func setColor(_ color: UIColor?)
 }

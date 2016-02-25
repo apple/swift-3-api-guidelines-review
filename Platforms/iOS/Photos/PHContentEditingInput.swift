@@ -14,5 +14,4 @@ class PHContentEditingInput : NSObject {
   var avAsset: AVAsset? { get }
   @available(iOS 9.0, *)
   var audiovisualAsset: AVAsset? { get }
-  init()
 }

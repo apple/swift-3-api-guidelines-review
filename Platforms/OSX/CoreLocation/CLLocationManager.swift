@@ -1,6 +1,6 @@
 
 enum CLDeviceOrientation : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Unknown
   case Portrait
@@ -11,7 +11,7 @@ enum CLDeviceOrientation : Int32 {
   case FaceDown
 }
 enum CLAuthorizationStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case NotDetermined
   case Restricted
@@ -19,7 +19,7 @@ enum CLAuthorizationStatus : Int32 {
   case Authorized
 }
 enum CLActivityType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Other
   case AutomotiveNavigation
@@ -35,7 +35,7 @@ class CLLocationManager : NSObject {
   @available(OSX 10.7, *)
   class func significantLocationChangeMonitoringAvailable() -> Bool
   @available(OSX 10.10, *)
-  class func isMonitoringAvailableForClass(regionClass: AnyClass) -> Bool
+  class func isMonitoringAvailableForClass(_ regionClass: AnyClass) -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
   class func regionMonitoringAvailable() -> Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
@@ -59,12 +59,11 @@ class CLLocationManager : NSObject {
   @available(OSX 10.7, *)
   func stopMonitoringSignificantLocationChanges()
   @available(OSX 10.8, *)
-  func stopMonitoringForRegion(region: CLRegion)
+  func stopMonitoringForRegion(_ region: CLRegion)
   @available(OSX 10.8, *)
-  func startMonitoringForRegion(region: CLRegion)
+  func startMonitoringForRegion(_ region: CLRegion)
   @available(OSX 10.10, *)
-  func requestStateForRegion(region: CLRegion)
+  func requestStateForRegion(_ region: CLRegion)
   @available(OSX 10.9, *)
   class func deferredLocationUpdatesAvailable() -> Bool
-  init()
 }

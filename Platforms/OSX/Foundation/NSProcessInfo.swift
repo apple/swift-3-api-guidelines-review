@@ -11,7 +11,7 @@ struct NSOperatingSystemVersion {
   var minorVersion: Int
   var patchVersion: Int
   init()
-  init(majorVersion: Int, minorVersion: Int, patchVersion: Int)
+  init(majorVersion majorVersion: Int, minorVersion minorVersion: Int, patchVersion patchVersion: Int)
 }
 class NSProcessInfo : NSObject {
   class func processInfo() -> NSProcessInfo
@@ -35,7 +35,7 @@ class NSProcessInfo : NSObject {
   @available(OSX 10.5, *)
   var physicalMemory: UInt64 { get }
   @available(OSX 10.10, *)
-  func isOperatingSystemAtLeastVersion(version: NSOperatingSystemVersion) -> Bool
+  func isOperatingSystemAtLeastVersion(_ version: NSOperatingSystemVersion) -> Bool
   @available(OSX 10.6, *)
   var systemUptime: NSTimeInterval { get }
   @available(OSX 10.6, *)
@@ -43,16 +43,15 @@ class NSProcessInfo : NSObject {
   @available(OSX 10.6, *)
   func enableSuddenTermination()
   @available(OSX 10.7, *)
-  func disableAutomaticTermination(reason: String)
+  func disableAutomaticTermination(_ reason: String)
   @available(OSX 10.7, *)
-  func enableAutomaticTermination(reason: String)
+  func enableAutomaticTermination(_ reason: String)
   @available(OSX 10.7, *)
   var automaticTerminationSupportEnabled: Bool
-  init()
 }
 @available(OSX 10.9, *)
 struct NSActivityOptions : OptionSetType {
-  init(rawValue: UInt64)
+  init(rawValue rawValue: UInt64)
   let rawValue: UInt64
   static var IdleDisplaySleepDisabled: NSActivityOptions { get }
   static var IdleSystemSleepDisabled: NSActivityOptions { get }
@@ -65,15 +64,15 @@ struct NSActivityOptions : OptionSetType {
 }
 extension NSProcessInfo {
   @available(OSX 10.9, *)
-  func beginActivityWithOptions(options: NSActivityOptions, reason: String) -> NSObjectProtocol
+  func beginActivityWithOptions(_ options: NSActivityOptions, reason reason: String) -> NSObjectProtocol
   @available(OSX 10.9, *)
-  func endActivity(activity: NSObjectProtocol)
+  func endActivity(_ activity: NSObjectProtocol)
   @available(OSX 10.9, *)
-  func performActivityWithOptions(options: NSActivityOptions, reason: String, usingBlock block: () -> Void)
+  func performActivityWithOptions(_ options: NSActivityOptions, reason reason: String, usingBlock block: () -> Void)
 }
 @available(OSX 10.10.3, *)
 enum NSProcessInfoThermalState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Nominal
   case Fair

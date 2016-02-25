@@ -13,8 +13,6 @@ let CKRecordChangedErrorClientRecordKey: String
 let CKErrorRetryAfterKey: String
 @available(OSX 10.10, *)
 enum CKErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case InternalError
   case PartialFailure
   case NetworkUnavailable
@@ -47,6 +45,4 @@ enum CKErrorCode : Int {
 
 @available(OSX 10.10, iOS 8.0, *)
 extension CKErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }

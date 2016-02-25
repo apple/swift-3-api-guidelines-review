@@ -3,15 +3,14 @@ typealias AVAudioNodeTapBlock = (AVAudioPCMBuffer, AVAudioTime) -> Void
 @available(iOS 8.0, *)
 class AVAudioNode : NSObject {
   func reset()
-  func inputFormatForBus(bus: AVAudioNodeBus) -> AVAudioFormat
-  func outputFormatForBus(bus: AVAudioNodeBus) -> AVAudioFormat
-  func nameForInputBus(bus: AVAudioNodeBus) -> String
-  func nameForOutputBus(bus: AVAudioNodeBus) -> String
-  func installTapOnBus(bus: AVAudioNodeBus, bufferSize: AVAudioFrameCount, format: AVAudioFormat?, block tapBlock: AVAudioNodeTapBlock)
-  func removeTapOnBus(bus: AVAudioNodeBus)
+  func inputFormatForBus(_ bus: AVAudioNodeBus) -> AVAudioFormat
+  func outputFormatForBus(_ bus: AVAudioNodeBus) -> AVAudioFormat
+  func nameForInputBus(_ bus: AVAudioNodeBus) -> String
+  func nameForOutputBus(_ bus: AVAudioNodeBus) -> String
+  func installTapOnBus(_ bus: AVAudioNodeBus, bufferSize bufferSize: AVAudioFrameCount, format format: AVAudioFormat?, block tapBlock: AVAudioNodeTapBlock)
+  func removeTapOnBus(_ bus: AVAudioNodeBus)
   var engine: AVAudioEngine? { get }
   var numberOfInputs: Int { get }
   var numberOfOutputs: Int { get }
   var lastRenderTime: AVAudioTime? { get }
-  init()
 }

@@ -79,79 +79,79 @@ var AL_LINEAR_DISTANCE: Int32 { get }
 var AL_LINEAR_DISTANCE_CLAMPED: Int32 { get }
 var AL_EXPONENT_DISTANCE: Int32 { get }
 var AL_EXPONENT_DISTANCE_CLAMPED: Int32 { get }
-func alEnable(capability: ALenum)
-func alDisable(capability: ALenum)
-func alIsEnabled(capability: ALenum) -> ALboolean
-func alGetString(param: ALenum) -> UnsafePointer<ALchar>
-func alGetBooleanv(param: ALenum, _ data: UnsafeMutablePointer<ALboolean>)
-func alGetIntegerv(param: ALenum, _ data: UnsafeMutablePointer<ALint>)
-func alGetFloatv(param: ALenum, _ data: UnsafeMutablePointer<ALfloat>)
-func alGetDoublev(param: ALenum, _ data: UnsafeMutablePointer<ALdouble>)
-func alGetBoolean(param: ALenum) -> ALboolean
-func alGetInteger(param: ALenum) -> ALint
-func alGetFloat(param: ALenum) -> ALfloat
-func alGetDouble(param: ALenum) -> ALdouble
+func alEnable(_ capability: ALenum)
+func alDisable(_ capability: ALenum)
+func alIsEnabled(_ capability: ALenum) -> ALboolean
+func alGetString(_ param: ALenum) -> UnsafePointer<ALchar>
+func alGetBooleanv(_ param: ALenum, _ data: UnsafeMutablePointer<ALboolean>)
+func alGetIntegerv(_ param: ALenum, _ data: UnsafeMutablePointer<ALint>)
+func alGetFloatv(_ param: ALenum, _ data: UnsafeMutablePointer<ALfloat>)
+func alGetDoublev(_ param: ALenum, _ data: UnsafeMutablePointer<ALdouble>)
+func alGetBoolean(_ param: ALenum) -> ALboolean
+func alGetInteger(_ param: ALenum) -> ALint
+func alGetFloat(_ param: ALenum) -> ALfloat
+func alGetDouble(_ param: ALenum) -> ALdouble
 func alGetError() -> ALenum
-func alIsExtensionPresent(extname: UnsafePointer<ALchar>) -> ALboolean
-func alGetProcAddress(fname: UnsafePointer<ALchar>) -> UnsafeMutablePointer<Void>
-func alGetEnumValue(ename: UnsafePointer<ALchar>) -> ALenum
-func alListenerf(param: ALenum, _ value: ALfloat)
-func alListener3f(param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
-func alListenerfv(param: ALenum, _ values: UnsafePointer<ALfloat>)
-func alListeneri(param: ALenum, _ value: ALint)
-func alListener3i(param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
-func alListeneriv(param: ALenum, _ values: UnsafePointer<ALint>)
-func alGetListenerf(param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
-func alGetListener3f(param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
-func alGetListenerfv(param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
-func alGetListeneri(param: ALenum, _ value: UnsafeMutablePointer<ALint>)
-func alGetListener3i(param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
-func alGetListeneriv(param: ALenum, _ values: UnsafeMutablePointer<ALint>)
-func alGenSources(n: ALsizei, _ sources: UnsafeMutablePointer<ALuint>)
-func alDeleteSources(n: ALsizei, _ sources: UnsafePointer<ALuint>)
-func alIsSource(sid: ALuint) -> ALboolean
-func alSourcef(sid: ALuint, _ param: ALenum, _ value: ALfloat)
-func alSource3f(sid: ALuint, _ param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
-func alSourcefv(sid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALfloat>)
-func alSourcei(sid: ALuint, _ param: ALenum, _ value: ALint)
-func alSource3i(sid: ALuint, _ param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
-func alSourceiv(sid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALint>)
-func alGetSourcef(sid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
-func alGetSource3f(sid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
-func alGetSourcefv(sid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
-func alGetSourcei(sid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALint>)
-func alGetSource3i(sid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
-func alGetSourceiv(sid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALint>)
-func alSourcePlayv(ns: ALsizei, _ sids: UnsafePointer<ALuint>)
-func alSourceStopv(ns: ALsizei, _ sids: UnsafePointer<ALuint>)
-func alSourceRewindv(ns: ALsizei, _ sids: UnsafePointer<ALuint>)
-func alSourcePausev(ns: ALsizei, _ sids: UnsafePointer<ALuint>)
-func alSourcePlay(sid: ALuint)
-func alSourceStop(sid: ALuint)
-func alSourceRewind(sid: ALuint)
-func alSourcePause(sid: ALuint)
-func alSourceQueueBuffers(sid: ALuint, _ numEntries: ALsizei, _ bids: UnsafePointer<ALuint>)
-func alSourceUnqueueBuffers(sid: ALuint, _ numEntries: ALsizei, _ bids: UnsafeMutablePointer<ALuint>)
-func alGenBuffers(n: ALsizei, _ buffers: UnsafeMutablePointer<ALuint>)
-func alDeleteBuffers(n: ALsizei, _ buffers: UnsafePointer<ALuint>)
-func alIsBuffer(bid: ALuint) -> ALboolean
-func alBufferData(bid: ALuint, _ format: ALenum, _ data: UnsafePointer<Void>, _ size: ALsizei, _ freq: ALsizei)
-func alBufferf(bid: ALuint, _ param: ALenum, _ value: ALfloat)
-func alBuffer3f(bid: ALuint, _ param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
-func alBufferfv(bid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALfloat>)
-func alBufferi(bid: ALuint, _ param: ALenum, _ value: ALint)
-func alBuffer3i(bid: ALuint, _ param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
-func alBufferiv(bid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALint>)
-func alGetBufferf(bid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
-func alGetBuffer3f(bid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
-func alGetBufferfv(bid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
-func alGetBufferi(bid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALint>)
-func alGetBuffer3i(bid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
-func alGetBufferiv(bid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALint>)
-func alDopplerFactor(value: ALfloat)
-func alDopplerVelocity(value: ALfloat)
-func alSpeedOfSound(value: ALfloat)
-func alDistanceModel(distanceModel: ALenum)
+func alIsExtensionPresent(_ extname: UnsafePointer<ALchar>) -> ALboolean
+func alGetProcAddress(_ fname: UnsafePointer<ALchar>) -> UnsafeMutablePointer<Void>
+func alGetEnumValue(_ ename: UnsafePointer<ALchar>) -> ALenum
+func alListenerf(_ param: ALenum, _ value: ALfloat)
+func alListener3f(_ param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
+func alListenerfv(_ param: ALenum, _ values: UnsafePointer<ALfloat>)
+func alListeneri(_ param: ALenum, _ value: ALint)
+func alListener3i(_ param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
+func alListeneriv(_ param: ALenum, _ values: UnsafePointer<ALint>)
+func alGetListenerf(_ param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
+func alGetListener3f(_ param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
+func alGetListenerfv(_ param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
+func alGetListeneri(_ param: ALenum, _ value: UnsafeMutablePointer<ALint>)
+func alGetListener3i(_ param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
+func alGetListeneriv(_ param: ALenum, _ values: UnsafeMutablePointer<ALint>)
+func alGenSources(_ n: ALsizei, _ sources: UnsafeMutablePointer<ALuint>)
+func alDeleteSources(_ n: ALsizei, _ sources: UnsafePointer<ALuint>)
+func alIsSource(_ sid: ALuint) -> ALboolean
+func alSourcef(_ sid: ALuint, _ param: ALenum, _ value: ALfloat)
+func alSource3f(_ sid: ALuint, _ param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
+func alSourcefv(_ sid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALfloat>)
+func alSourcei(_ sid: ALuint, _ param: ALenum, _ value: ALint)
+func alSource3i(_ sid: ALuint, _ param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
+func alSourceiv(_ sid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALint>)
+func alGetSourcef(_ sid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
+func alGetSource3f(_ sid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
+func alGetSourcefv(_ sid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
+func alGetSourcei(_ sid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALint>)
+func alGetSource3i(_ sid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
+func alGetSourceiv(_ sid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALint>)
+func alSourcePlayv(_ ns: ALsizei, _ sids: UnsafePointer<ALuint>)
+func alSourceStopv(_ ns: ALsizei, _ sids: UnsafePointer<ALuint>)
+func alSourceRewindv(_ ns: ALsizei, _ sids: UnsafePointer<ALuint>)
+func alSourcePausev(_ ns: ALsizei, _ sids: UnsafePointer<ALuint>)
+func alSourcePlay(_ sid: ALuint)
+func alSourceStop(_ sid: ALuint)
+func alSourceRewind(_ sid: ALuint)
+func alSourcePause(_ sid: ALuint)
+func alSourceQueueBuffers(_ sid: ALuint, _ numEntries: ALsizei, _ bids: UnsafePointer<ALuint>)
+func alSourceUnqueueBuffers(_ sid: ALuint, _ numEntries: ALsizei, _ bids: UnsafeMutablePointer<ALuint>)
+func alGenBuffers(_ n: ALsizei, _ buffers: UnsafeMutablePointer<ALuint>)
+func alDeleteBuffers(_ n: ALsizei, _ buffers: UnsafePointer<ALuint>)
+func alIsBuffer(_ bid: ALuint) -> ALboolean
+func alBufferData(_ bid: ALuint, _ format: ALenum, _ data: UnsafePointer<Void>, _ size: ALsizei, _ freq: ALsizei)
+func alBufferf(_ bid: ALuint, _ param: ALenum, _ value: ALfloat)
+func alBuffer3f(_ bid: ALuint, _ param: ALenum, _ value1: ALfloat, _ value2: ALfloat, _ value3: ALfloat)
+func alBufferfv(_ bid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALfloat>)
+func alBufferi(_ bid: ALuint, _ param: ALenum, _ value: ALint)
+func alBuffer3i(_ bid: ALuint, _ param: ALenum, _ value1: ALint, _ value2: ALint, _ value3: ALint)
+func alBufferiv(_ bid: ALuint, _ param: ALenum, _ values: UnsafePointer<ALint>)
+func alGetBufferf(_ bid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALfloat>)
+func alGetBuffer3f(_ bid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALfloat>, _ value2: UnsafeMutablePointer<ALfloat>, _ value3: UnsafeMutablePointer<ALfloat>)
+func alGetBufferfv(_ bid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALfloat>)
+func alGetBufferi(_ bid: ALuint, _ param: ALenum, _ value: UnsafeMutablePointer<ALint>)
+func alGetBuffer3i(_ bid: ALuint, _ param: ALenum, _ value1: UnsafeMutablePointer<ALint>, _ value2: UnsafeMutablePointer<ALint>, _ value3: UnsafeMutablePointer<ALint>)
+func alGetBufferiv(_ bid: ALuint, _ param: ALenum, _ values: UnsafeMutablePointer<ALint>)
+func alDopplerFactor(_ value: ALfloat)
+func alDopplerVelocity(_ value: ALfloat)
+func alSpeedOfSound(_ value: ALfloat)
+func alDistanceModel(_ distanceModel: ALenum)
 typealias LPALENABLE = @convention(c) (ALenum) -> Void
 typealias LPALDISABLE = @convention(c) (ALenum) -> Void
 typealias LPALISENABLED = @convention(c) (ALenum) -> ALboolean

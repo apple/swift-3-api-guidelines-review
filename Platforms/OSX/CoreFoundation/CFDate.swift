@@ -9,10 +9,10 @@ typealias CFDateRef = CFDate
 class CFDate {
 }
 func CFDateGetTypeID() -> CFTypeID
-func CFDateCreate(allocator: CFAllocator!, _ at: CFAbsoluteTime) -> CFDate!
-func CFDateGetAbsoluteTime(theDate: CFDate!) -> CFAbsoluteTime
-func CFDateGetTimeIntervalSinceDate(theDate: CFDate!, _ otherDate: CFDate!) -> CFTimeInterval
-func CFDateCompare(theDate: CFDate!, _ otherDate: CFDate!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
+func CFDateCreate(_ allocator: CFAllocator!, _ at: CFAbsoluteTime) -> CFDate!
+func CFDateGetAbsoluteTime(_ theDate: CFDate!) -> CFAbsoluteTime
+func CFDateGetTimeIntervalSinceDate(_ theDate: CFDate!, _ otherDate: CFDate!) -> CFTimeInterval
+func CFDateCompare(_ theDate: CFDate!, _ otherDate: CFDate!, _ context: UnsafeMutablePointer<Void>) -> CFComparisonResult
 @available(*, deprecated, renamed="CFTimeZone")
 typealias CFTimeZoneRef = CFTimeZone
 class CFTimeZone {
@@ -26,7 +26,7 @@ struct CFGregorianDate {
   var minute: Int8
   var second: Double
   init()
-  init(year: Int32, month: Int8, day: Int8, hour: Int8, minute: Int8, second: Double)
+  init(year year: Int32, month month: Int8, day day: Int8, hour hour: Int8, minute minute: Int8, second second: Double)
 }
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
 struct CFGregorianUnits {
@@ -37,10 +37,10 @@ struct CFGregorianUnits {
   var minutes: Int32
   var seconds: Double
   init()
-  init(years: Int32, months: Int32, days: Int32, hours: Int32, minutes: Int32, seconds: Double)
+  init(years years: Int32, months months: Int32, days days: Int32, hours hours: Int32, minutes minutes: Int32, seconds seconds: Double)
 }
 struct CFGregorianUnitFlags : OptionSetType {
-  init(rawValue: CFOptionFlags)
+  init(rawValue rawValue: CFOptionFlags)
   let rawValue: CFOptionFlags
   @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
   static var UnitsYears: CFGregorianUnitFlags { get }
@@ -58,18 +58,18 @@ struct CFGregorianUnitFlags : OptionSetType {
   static var AllUnits: CFGregorianUnitFlags { get }
 }
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFGregorianDateIsValid(gdate: CFGregorianDate, _ unitFlags: CFOptionFlags) -> Bool
+func CFGregorianDateIsValid(_ gdate: CFGregorianDate, _ unitFlags: CFOptionFlags) -> Bool
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFGregorianDateGetAbsoluteTime(gdate: CFGregorianDate, _ tz: CFTimeZone!) -> CFAbsoluteTime
+func CFGregorianDateGetAbsoluteTime(_ gdate: CFGregorianDate, _ tz: CFTimeZone!) -> CFAbsoluteTime
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeGetGregorianDate(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> CFGregorianDate
+func CFAbsoluteTimeGetGregorianDate(_ at: CFAbsoluteTime, _ tz: CFTimeZone!) -> CFGregorianDate
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeAddGregorianUnits(at: CFAbsoluteTime, _ tz: CFTimeZone!, _ units: CFGregorianUnits) -> CFAbsoluteTime
+func CFAbsoluteTimeAddGregorianUnits(_ at: CFAbsoluteTime, _ tz: CFTimeZone!, _ units: CFGregorianUnits) -> CFAbsoluteTime
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeGetDifferenceAsGregorianUnits(at1: CFAbsoluteTime, _ at2: CFAbsoluteTime, _ tz: CFTimeZone!, _ unitFlags: CFOptionFlags) -> CFGregorianUnits
+func CFAbsoluteTimeGetDifferenceAsGregorianUnits(_ at1: CFAbsoluteTime, _ at2: CFAbsoluteTime, _ tz: CFTimeZone!, _ unitFlags: CFOptionFlags) -> CFGregorianUnits
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeGetDayOfWeek(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
+func CFAbsoluteTimeGetDayOfWeek(_ at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeGetDayOfYear(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
+func CFAbsoluteTimeGetDayOfYear(_ at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
 @available(OSX, introduced=10.4, deprecated=10.10, message="Use CFCalendar or NSCalendar API instead")
-func CFAbsoluteTimeGetWeekOfYear(at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32
+func CFAbsoluteTimeGetWeekOfYear(_ at: CFAbsoluteTime, _ tz: CFTimeZone!) -> Int32

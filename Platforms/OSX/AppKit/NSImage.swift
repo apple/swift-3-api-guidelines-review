@@ -1,6 +1,6 @@
 
 enum NSImageLoadStatus : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Completed
   case Cancelled
@@ -9,7 +9,7 @@ enum NSImageLoadStatus : UInt {
   case ReadError
 }
 enum NSImageCacheMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Default
   case Always
@@ -18,7 +18,7 @@ enum NSImageCacheMode : UInt {
 }
 @available(OSX 10.10, *)
 enum NSImageResizingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Stretch
   case Tile
@@ -26,20 +26,20 @@ enum NSImageResizingMode : Int {
 class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReading, NSPasteboardWriting {
   /*not inherited*/ init?(named name: String)
   init(size aSize: NSSize)
-  init?(data: NSData)
+  init?(data data: NSData)
   init?(contentsOfFile fileName: String)
   init?(contentsOfURL url: NSURL)
   init?(byReferencingFile fileName: String)
   init(byReferencingURL url: NSURL)
   @available(OSX 10.5, *)
-  init(iconRef: IconRef)
-  init?(pasteboard: NSPasteboard)
+  init(iconRef iconRef: IconRef)
+  init?(pasteboard pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
   init?(dataIgnoringOrientation data: NSData)
   @available(OSX 10.8, *)
-  /*not inherited*/ init(size: NSSize, flipped drawingHandlerShouldBeCalledWithFlippedContext: Bool, drawingHandler: (NSRect) -> Bool)
+  /*not inherited*/ init(size size: NSSize, flipped drawingHandlerShouldBeCalledWithFlippedContext: Bool, drawingHandler drawingHandler: (NSRect) -> Bool)
   var size: NSSize
-  func setName(string: String?) -> Bool
+  func setName(_ string: String?) -> Bool
   func name() -> String?
   @NSCopying var backgroundColor: NSColor
   var usesEPSOnResolutionMismatch: Bool
@@ -47,24 +47,24 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
   var matchesOnMultipleResolution: Bool
   @available(OSX 10.7, *)
   var matchesOnlyOnBestFittingAxis: Bool
-  func drawAtPoint(point: NSPoint, fromRect: NSRect, operation op: NSCompositingOperation, fraction delta: CGFloat)
-  func drawInRect(rect: NSRect, fromRect: NSRect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func drawAtPoint(_ point: NSPoint, fromRect fromRect: NSRect, operation op: NSCompositingOperation, fraction delta: CGFloat)
+  func drawInRect(_ rect: NSRect, fromRect fromRect: NSRect, operation op: NSCompositingOperation, fraction delta: CGFloat)
   @available(OSX 10.6, *)
-  func drawInRect(dstSpacePortionRect: NSRect, fromRect srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?)
-  func drawRepresentation(imageRep: NSImageRep, inRect rect: NSRect) -> Bool
+  func drawInRect(_ dstSpacePortionRect: NSRect, fromRect srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints hints: [String : AnyObject]?)
+  func drawRepresentation(_ imageRep: NSImageRep, inRect rect: NSRect) -> Bool
   @available(OSX 10.9, *)
-  func drawInRect(rect: NSRect)
+  func drawInRect(_ rect: NSRect)
   func recache()
   var TIFFRepresentation: NSData? { get }
-  func TIFFRepresentationUsingCompression(comp: NSTIFFCompression, factor aFloat: Float) -> NSData?
+  func TIFFRepresentationUsingCompression(_ comp: NSTIFFCompression, factor aFloat: Float) -> NSData?
   var representations: [NSImageRep] { get }
-  func addRepresentations(imageReps: [NSImageRep])
-  func addRepresentation(imageRep: NSImageRep)
-  func removeRepresentation(imageRep: NSImageRep)
+  func addRepresentations(_ imageReps: [NSImageRep])
+  func addRepresentation(_ imageRep: NSImageRep)
+  func removeRepresentation(_ imageRep: NSImageRep)
   var valid: Bool { get }
   func lockFocus()
   @available(OSX 10.6, *)
-  func lockFocusFlipped(flipped: Bool)
+  func lockFocusFlipped(_ flipped: Bool)
   func unlockFocus()
   unowned(unsafe) var delegate: @sil_unmanaged NSImageDelegate?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -79,7 +79,7 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
   class func imageTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageUnfilteredTypes() -> [String]
-  class func canInitWithPasteboard(pasteboard: NSPasteboard) -> Bool
+  class func canInitWithPasteboard(_ pasteboard: NSPasteboard) -> Bool
   func cancelIncrementalLoad()
   var cacheMode: NSImageCacheMode
   @available(OSX 10.5, *)
@@ -88,39 +88,37 @@ class NSImage : NSObject, NSCopying, NSCoding, NSSecureCoding, NSPasteboardReadi
   @available(OSX 10.6, *)
   var accessibilityDescription: String?
   @available(OSX 10.6, *)
-  init(CGImage cgImage: CGImage, size: NSSize)
+  init(CGImage cgImage: CGImage, size size: NSSize)
   @available(OSX 10.6, *)
-  func CGImageForProposedRect(proposedDestRect: UnsafeMutablePointer<NSRect>, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
+  func CGImageForProposedRect(_ proposedDestRect: UnsafeMutablePointer<NSRect>, context referenceContext: NSGraphicsContext?, hints hints: [String : AnyObject]?) -> CGImage?
   @available(OSX 10.6, *)
-  func bestRepresentationForRect(rect: NSRect, context referenceContext: NSGraphicsContext?, hints: [String : AnyObject]?) -> NSImageRep?
+  func bestRepresentationForRect(_ rect: NSRect, context referenceContext: NSGraphicsContext?, hints hints: [String : AnyObject]?) -> NSImageRep?
   @available(OSX 10.6, *)
-  func hitTestRect(testRectDestSpace: NSRect, withImageDestinationRect imageRectDestSpace: NSRect, context: NSGraphicsContext?, hints: [String : AnyObject]?, flipped: Bool) -> Bool
+  func hitTestRect(_ testRectDestSpace: NSRect, withImageDestinationRect imageRectDestSpace: NSRect, context context: NSGraphicsContext?, hints hints: [String : AnyObject]?, flipped flipped: Bool) -> Bool
   @available(OSX 10.7, *)
-  func recommendedLayerContentsScale(preferredContentsScale: CGFloat) -> CGFloat
+  func recommendedLayerContentsScale(_ preferredContentsScale: CGFloat) -> CGFloat
   @available(OSX 10.7, *)
-  func layerContentsForContentsScale(layerContentsScale: CGFloat) -> AnyObject
+  func layerContentsForContentsScale(_ layerContentsScale: CGFloat) -> AnyObject
   @available(OSX 10.10, *)
   var capInsets: NSEdgeInsets
   @available(OSX 10.10, *)
   var resizingMode: NSImageResizingMode
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   class func supportsSecureCoding() -> Bool
-  class func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  class func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
 }
 
 extension NSImage : _ImageLiteralConvertible {
   convenience init!(failableImageLiteral name: String)
-  required convenience init(imageLiteral name: String)
 }
 struct __imageFlags {
   var scalable: UInt32
@@ -146,25 +144,25 @@ struct __imageFlags {
   var failedToExpand: UInt32
   var reserved1: UInt32
   init()
-  init(scalable: UInt32, dataRetained: UInt32, uniqueWindow: UInt32, sizeWasExplicitlySet: UInt32, builtIn: UInt32, needsToExpand: UInt32, useEPSOnResolutionMismatch: UInt32, matchesOnlyOnBestFittingAxis: UInt32, colorMatchPreferred: UInt32, multipleResolutionMatching: UInt32, focusedWhilePrinting: UInt32, archiveByName: UInt32, unboundedCacheDepth: UInt32, flipped: UInt32, aliased: UInt32, dirtied: UInt32, cacheMode: UInt32, sampleMode: UInt32, resMatchPreferred: UInt32, isTemplate: UInt32, failedToExpand: UInt32, reserved1: UInt32)
+  init(scalable scalable: UInt32, dataRetained dataRetained: UInt32, uniqueWindow uniqueWindow: UInt32, sizeWasExplicitlySet sizeWasExplicitlySet: UInt32, builtIn builtIn: UInt32, needsToExpand needsToExpand: UInt32, useEPSOnResolutionMismatch useEPSOnResolutionMismatch: UInt32, matchesOnlyOnBestFittingAxis matchesOnlyOnBestFittingAxis: UInt32, colorMatchPreferred colorMatchPreferred: UInt32, multipleResolutionMatching multipleResolutionMatching: UInt32, focusedWhilePrinting focusedWhilePrinting: UInt32, archiveByName archiveByName: UInt32, unboundedCacheDepth unboundedCacheDepth: UInt32, flipped flipped: UInt32, aliased aliased: UInt32, dirtied dirtied: UInt32, cacheMode cacheMode: UInt32, sampleMode sampleMode: UInt32, resMatchPreferred resMatchPreferred: UInt32, isTemplate isTemplate: UInt32, failedToExpand failedToExpand: UInt32, reserved1 reserved1: UInt32)
 }
 @available(OSX 10.6, *)
 let NSImageHintCTM: String
 @available(OSX 10.6, *)
 let NSImageHintInterpolation: String
 protocol NSImageDelegate : NSObjectProtocol {
-  optional func imageDidNotDraw(sender: NSImage, inRect aRect: NSRect) -> NSImage?
-  optional func image(image: NSImage, willLoadRepresentation rep: NSImageRep)
-  optional func image(image: NSImage, didLoadRepresentationHeader rep: NSImageRep)
-  optional func image(image: NSImage, didLoadPartOfRepresentation rep: NSImageRep, withValidRows rows: Int)
-  optional func image(image: NSImage, didLoadRepresentation rep: NSImageRep, withStatus status: NSImageLoadStatus)
+  optional func imageDidNotDraw(_ sender: NSImage, inRect aRect: NSRect) -> NSImage?
+  optional func image(_ image: NSImage, willLoadRepresentation rep: NSImageRep)
+  optional func image(_ image: NSImage, didLoadRepresentationHeader rep: NSImageRep)
+  optional func image(_ image: NSImage, didLoadPartOfRepresentation rep: NSImageRep, withValidRows rows: Int)
+  optional func image(_ image: NSImage, didLoadRepresentation rep: NSImageRep, withStatus status: NSImageLoadStatus)
 }
 extension NSBundle {
   @available(OSX 10.7, *)
-  func imageForResource(name: String) -> NSImage?
-  func pathForImageResource(name: String) -> String?
+  func imageForResource(_ name: String) -> NSImage?
+  func pathForImageResource(_ name: String) -> String?
   @available(OSX 10.6, *)
-  func URLForImageResource(name: String) -> NSURL?
+  func URLForImageResource(_ name: String) -> NSURL?
 }
 extension NSImage {
 }

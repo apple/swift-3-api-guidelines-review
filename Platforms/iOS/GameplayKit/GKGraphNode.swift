@@ -2,24 +2,21 @@
 @available(iOS 9.0, *)
 class GKGraphNode : NSObject {
   var connectedNodes: [GKGraphNode] { get }
-  func addConnectionsToNodes(nodes: [GKGraphNode], bidirectional: Bool)
-  func removeConnectionsToNodes(nodes: [GKGraphNode], bidirectional: Bool)
-  func estimatedCostToNode(node: GKGraphNode) -> Float
-  func costToNode(node: GKGraphNode) -> Float
-  func findPathToNode(goalNode: GKGraphNode) -> [GKGraphNode]
-  func findPathFromNode(startNode: GKGraphNode) -> [GKGraphNode]
-  init()
+  func addConnectionsToNodes(_ nodes: [GKGraphNode], bidirectional bidirectional: Bool)
+  func removeConnectionsToNodes(_ nodes: [GKGraphNode], bidirectional bidirectional: Bool)
+  func estimatedCostToNode(_ node: GKGraphNode) -> Float
+  func costToNode(_ node: GKGraphNode) -> Float
+  func findPathToNode(_ goalNode: GKGraphNode) -> [GKGraphNode]
+  func findPathFromNode(_ startNode: GKGraphNode) -> [GKGraphNode]
 }
 @available(iOS 9.0, *)
 class GKGraphNode2D : GKGraphNode {
   var position: vector_float2
-  class func nodeWithPoint(point: vector_float2) -> Self
-  init(point: vector_float2)
-  convenience init()
+  class func nodeWithPoint(_ point: vector_float2) -> Self
+  init(point point: vector_float2)
 }
 @available(iOS 9.0, *)
 class GKGridGraphNode : GKGraphNode {
   var gridPosition: vector_int2
-  init(gridPosition: vector_int2)
-  convenience init()
+  init(gridPosition gridPosition: vector_int2)
 }

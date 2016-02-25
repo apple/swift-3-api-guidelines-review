@@ -4,14 +4,14 @@ class NSProgress : NSObject {
   class func currentProgress() -> NSProgress?
   /*not inherited*/ init(totalUnitCount unitCount: Int64)
   @available(iOS 9.0, *)
-  class func discreteProgressWithTotalUnitCount(unitCount: Int64) -> NSProgress
+  class func discreteProgressWithTotalUnitCount(_ unitCount: Int64) -> NSProgress
   @available(iOS 9.0, *)
-  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
+  /*not inherited*/ init(totalUnitCount unitCount: Int64, parent parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]?)
-  func becomeCurrentWithPendingUnitCount(unitCount: Int64)
+  func becomeCurrentWithPendingUnitCount(_ unitCount: Int64)
   func resignCurrent()
   @available(iOS 9.0, *)
-  func addChild(child: NSProgress, withPendingUnitCount inUnitCount: Int64)
+  func addChild(_ child: NSProgress, withPendingUnitCount inUnitCount: Int64)
   var totalUnitCount: Int64
   var completedUnitCount: Int64
   var localizedDescription: String!
@@ -24,7 +24,7 @@ class NSProgress : NSObject {
   var pausingHandler: (() -> Void)?
   @available(iOS 9.0, *)
   var resumingHandler: (() -> Void)?
-  func setUserInfoObject(objectOrNil: AnyObject?, forKey key: String)
+  func setUserInfoObject(_ objectOrNil: AnyObject?, forKey key: String)
   var indeterminate: Bool { get }
   var fractionCompleted: Double { get }
   func cancel()
@@ -33,7 +33,6 @@ class NSProgress : NSObject {
   func resume()
   var userInfo: [NSObject : AnyObject] { get }
   var kind: String?
-  convenience init()
 }
 typealias NSProgressUnpublishingHandler = () -> Void
 typealias NSProgressPublishingHandler = (NSProgress) -> NSProgressUnpublishingHandler?

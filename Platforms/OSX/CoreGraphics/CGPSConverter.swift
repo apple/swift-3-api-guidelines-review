@@ -20,15 +20,15 @@ struct CGPSConverterCallbacks {
   var noteMessage: CGPSConverterMessageCallback?
   var releaseInfo: CGPSConverterReleaseInfoCallback?
   init()
-  init(version: UInt32, beginDocument: CGPSConverterBeginDocumentCallback?, endDocument: CGPSConverterEndDocumentCallback?, beginPage: CGPSConverterBeginPageCallback?, endPage: CGPSConverterEndPageCallback?, noteProgress: CGPSConverterProgressCallback?, noteMessage: CGPSConverterMessageCallback?, releaseInfo: CGPSConverterReleaseInfoCallback?)
+  init(version version: UInt32, beginDocument beginDocument: CGPSConverterBeginDocumentCallback?, endDocument endDocument: CGPSConverterEndDocumentCallback?, beginPage beginPage: CGPSConverterBeginPageCallback?, endPage endPage: CGPSConverterEndPageCallback?, noteProgress noteProgress: CGPSConverterProgressCallback?, noteMessage noteMessage: CGPSConverterMessageCallback?, releaseInfo releaseInfo: CGPSConverterReleaseInfoCallback?)
 }
 @available(OSX 10.3, *)
-func CGPSConverterCreate(info: UnsafeMutablePointer<Void>, _ callbacks: UnsafePointer<CGPSConverterCallbacks>, _ options: CFDictionary?) -> CGPSConverter?
+func CGPSConverterCreate(_ info: UnsafeMutablePointer<Void>, _ callbacks: UnsafePointer<CGPSConverterCallbacks>, _ options: CFDictionary?) -> CGPSConverter?
 @available(OSX 10.3, *)
-func CGPSConverterConvert(converter: CGPSConverter, _ provider: CGDataProvider, _ consumer: CGDataConsumer, _ options: CFDictionary?) -> Bool
+func CGPSConverterConvert(_ converter: CGPSConverter, _ provider: CGDataProvider, _ consumer: CGDataConsumer, _ options: CFDictionary?) -> Bool
 @available(OSX 10.3, *)
-func CGPSConverterAbort(converter: CGPSConverter) -> Bool
+func CGPSConverterAbort(_ converter: CGPSConverter) -> Bool
 @available(OSX 10.3, *)
-func CGPSConverterIsConverting(converter: CGPSConverter) -> Bool
+func CGPSConverterIsConverting(_ converter: CGPSConverter) -> Bool
 @available(OSX 10.3, *)
 func CGPSConverterGetTypeID() -> CFTypeID

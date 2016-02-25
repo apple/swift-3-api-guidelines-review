@@ -10,10 +10,10 @@ struct SCNetworkConnectionContext {
   var release: (@convention(c) (UnsafePointer<Void>) -> Void)?
   var copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?
   init()
-  init(version: CFIndex, info: UnsafeMutablePointer<Void>, retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
+  init(version version: CFIndex, info info: UnsafeMutablePointer<Void>, retain retain: (@convention(c) (UnsafePointer<Void>) -> UnsafePointer<Void>)?, release release: (@convention(c) (UnsafePointer<Void>) -> Void)?, copyDescription copyDescription: (@convention(c) (UnsafePointer<Void>) -> Unmanaged<CFString>)?)
 }
 enum SCNetworkConnectionStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Invalid
   case Disconnected
@@ -22,7 +22,7 @@ enum SCNetworkConnectionStatus : Int32 {
   case Disconnecting
 }
 enum SCNetworkConnectionPPPStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Disconnected
   case Initializing
@@ -51,26 +51,26 @@ var kSCNetworkConnectionSelectionOptionOnDemandRetry: String { get }
 @available(OSX 10.3, *)
 func SCNetworkConnectionGetTypeID() -> CFTypeID
 @available(OSX 10.3, *)
-func SCNetworkConnectionCopyUserPreferences(selectionOptions: CFDictionary?, _ serviceID: UnsafeMutablePointer<Unmanaged<CFString>?>, _ userOptions: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> Bool
+func SCNetworkConnectionCopyUserPreferences(_ selectionOptions: CFDictionary?, _ serviceID: UnsafeMutablePointer<Unmanaged<CFString>?>, _ userOptions: UnsafeMutablePointer<Unmanaged<CFDictionary>?>) -> Bool
 @available(OSX 10.3, *)
-func SCNetworkConnectionCreateWithServiceID(allocator: CFAllocator?, _ serviceID: CFString, _ callout: SCNetworkConnectionCallBack?, _ context: UnsafeMutablePointer<SCNetworkConnectionContext>) -> SCNetworkConnection?
+func SCNetworkConnectionCreateWithServiceID(_ allocator: CFAllocator?, _ serviceID: CFString, _ callout: SCNetworkConnectionCallBack?, _ context: UnsafeMutablePointer<SCNetworkConnectionContext>) -> SCNetworkConnection?
 @available(OSX 10.3, *)
-func SCNetworkConnectionCopyServiceID(connection: SCNetworkConnection) -> CFString?
+func SCNetworkConnectionCopyServiceID(_ connection: SCNetworkConnection) -> CFString?
 @available(OSX 10.3, *)
-func SCNetworkConnectionGetStatus(connection: SCNetworkConnection) -> SCNetworkConnectionStatus
+func SCNetworkConnectionGetStatus(_ connection: SCNetworkConnection) -> SCNetworkConnectionStatus
 @available(OSX 10.3, *)
-func SCNetworkConnectionCopyExtendedStatus(connection: SCNetworkConnection) -> CFDictionary?
+func SCNetworkConnectionCopyExtendedStatus(_ connection: SCNetworkConnection) -> CFDictionary?
 @available(OSX 10.3, *)
-func SCNetworkConnectionCopyStatistics(connection: SCNetworkConnection) -> CFDictionary?
+func SCNetworkConnectionCopyStatistics(_ connection: SCNetworkConnection) -> CFDictionary?
 @available(OSX 10.3, *)
-func SCNetworkConnectionStart(connection: SCNetworkConnection, _ userOptions: CFDictionary?, _ linger: Bool) -> Bool
+func SCNetworkConnectionStart(_ connection: SCNetworkConnection, _ userOptions: CFDictionary?, _ linger: Bool) -> Bool
 @available(OSX 10.3, *)
-func SCNetworkConnectionStop(connection: SCNetworkConnection, _ forceDisconnect: Bool) -> Bool
+func SCNetworkConnectionStop(_ connection: SCNetworkConnection, _ forceDisconnect: Bool) -> Bool
 @available(OSX 10.3, *)
-func SCNetworkConnectionCopyUserOptions(connection: SCNetworkConnection) -> CFDictionary?
+func SCNetworkConnectionCopyUserOptions(_ connection: SCNetworkConnection) -> CFDictionary?
 @available(OSX 10.3, *)
-func SCNetworkConnectionScheduleWithRunLoop(connection: SCNetworkConnection, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
+func SCNetworkConnectionScheduleWithRunLoop(_ connection: SCNetworkConnection, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
 @available(OSX 10.3, *)
-func SCNetworkConnectionUnscheduleFromRunLoop(connection: SCNetworkConnection, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
+func SCNetworkConnectionUnscheduleFromRunLoop(_ connection: SCNetworkConnection, _ runLoop: CFRunLoop, _ runLoopMode: CFString) -> Bool
 @available(OSX 10.6, *)
-func SCNetworkConnectionSetDispatchQueue(connection: SCNetworkConnection, _ queue: dispatch_queue_t?) -> Bool
+func SCNetworkConnectionSetDispatchQueue(_ connection: SCNetworkConnection, _ queue: dispatch_queue_t?) -> Bool

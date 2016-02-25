@@ -7,14 +7,13 @@ class NSTreeNode : NSObject {
   var leaf: Bool { get }
   var childNodes: [NSTreeNode]? { get }
   var mutableChildNodes: NSMutableArray { get }
-  func descendantNodeAtIndexPath(indexPath: NSIndexPath) -> NSTreeNode?
+  func descendantNodeAtIndexPath(_ indexPath: NSIndexPath) -> NSTreeNode?
   unowned(unsafe) var parentNode: @sil_unmanaged NSTreeNode? { get }
-  func sortWithSortDescriptors(sortDescriptors: [NSSortDescriptor], recursively: Bool)
-  init()
+  func sortWithSortDescriptors(_ sortDescriptors: [NSSortDescriptor], recursively recursively: Bool)
 }
 struct __NSTreeNodeFlags {
   var ignoreObserving: UInt32
   var reserved: UInt32
   init()
-  init(ignoreObserving: UInt32, reserved: UInt32)
+  init(ignoreObserving ignoreObserving: UInt32, reserved reserved: UInt32)
 }

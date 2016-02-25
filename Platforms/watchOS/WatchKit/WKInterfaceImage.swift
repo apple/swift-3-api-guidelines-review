@@ -1,19 +1,19 @@
 
 protocol WKImageAnimatable : NSObjectProtocol {
   func startAnimating()
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesInRange(_ imageRange: NSRange, duration duration: NSTimeInterval, repeatCount repeatCount: Int)
   func stopAnimating()
 }
 @available(watchOS 2.0, *)
 class WKInterfaceImage : WKInterfaceObject, WKImageAnimatable {
-  func setImage(image: UIImage?)
-  func setImageData(imageData: NSData?)
-  func setImageNamed(imageName: String?)
-  func setTintColor(tintColor: UIColor?)
+  func setImage(_ image: UIImage?)
+  func setImageData(_ imageData: NSData?)
+  func setImageNamed(_ imageName: String?)
+  func setTintColor(_ tintColor: UIColor?)
   @available(watchOS 2.0, *)
   func startAnimating()
   @available(watchOS 2.0, *)
-  func startAnimatingWithImagesInRange(imageRange: NSRange, duration: NSTimeInterval, repeatCount: Int)
+  func startAnimatingWithImagesInRange(_ imageRange: NSRange, duration duration: NSTimeInterval, repeatCount repeatCount: Int)
   @available(watchOS 2.0, *)
   func stopAnimating()
 }

@@ -7,15 +7,14 @@ let PKPushTypeComplication: String
 class PKPushRegistry : NSObject {
   weak var delegate: @sil_weak PKPushRegistryDelegate!
   var desiredPushTypes: Set<NSObject>!
-  func pushTokenForType(type: String!) -> NSData!
-  init!(queue: dispatch_queue_t!)
-  init()
+  func pushTokenForType(_ type: String!) -> NSData!
+  init!(queue queue: dispatch_queue_t!)
 }
 protocol PKPushRegistryDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  func pushRegistry(registry: PKPushRegistry!, didUpdatePushCredentials credentials: PKPushCredentials!, forType type: String!)
+  func pushRegistry(_ registry: PKPushRegistry!, didUpdatePushCredentials credentials: PKPushCredentials!, forType type: String!)
   @available(iOS 8.0, *)
-  func pushRegistry(registry: PKPushRegistry!, didReceiveIncomingPushWithPayload payload: PKPushPayload!, forType type: String!)
+  func pushRegistry(_ registry: PKPushRegistry!, didReceiveIncomingPushWithPayload payload: PKPushPayload!, forType type: String!)
   @available(iOS 8.0, *)
-  optional func pushRegistry(registry: PKPushRegistry!, didInvalidatePushTokenForType type: String!)
+  optional func pushRegistry(_ registry: PKPushRegistry!, didInvalidatePushTokenForType type: String!)
 }

@@ -3,13 +3,11 @@
 class AVAudioIONode : AVAudioNode {
   var presentationLatency: NSTimeInterval { get }
   var audioUnit: AudioUnit { get }
-  init()
 }
 @available(OSX 10.10, *)
 class AVAudioInputNode : AVAudioIONode, AVAudioMixing {
-  init()
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationForMixer(_ mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)
@@ -29,5 +27,4 @@ class AVAudioInputNode : AVAudioIONode, AVAudioMixing {
 }
 @available(OSX 10.10, *)
 class AVAudioOutputNode : AVAudioIONode {
-  init()
 }

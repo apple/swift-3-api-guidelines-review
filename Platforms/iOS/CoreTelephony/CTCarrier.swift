@@ -11,5 +11,4 @@ class CTCarrier : NSObject {
   var isoCountryCode: String? { get }
   @available(iOS 4.0, *)
   var allowsVOIP: Bool { get }
-  init()
 }

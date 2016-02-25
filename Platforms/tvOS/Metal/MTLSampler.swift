@@ -1,14 +1,14 @@
 
 @available(tvOS 8.0, *)
 enum MTLSamplerMinMagFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Nearest
   case Linear
 }
 @available(tvOS 8.0, *)
 enum MTLSamplerMipFilter : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NotMipmapped
   case Nearest
@@ -16,7 +16,7 @@ enum MTLSamplerMipFilter : UInt {
 }
 @available(tvOS 8.0, *)
 enum MTLSamplerAddressMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ClampToEdge
   case Repeat
@@ -40,9 +40,8 @@ class MTLSamplerDescriptor : NSObject, NSCopying {
   @available(tvOS 9.0, *)
   var compareFunction: MTLCompareFunction
   var label: String?
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLSamplerState : NSObjectProtocol {

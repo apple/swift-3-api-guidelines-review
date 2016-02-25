@@ -8,9 +8,6 @@ class CATextLayer : CALayer {
   var truncationMode: String
   var alignmentMode: String
   var allowsFontSubpixelQuantization: Bool
-  init()
-  init(layer: AnyObject)
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 3.2, *)
 let kCATruncationNone: String

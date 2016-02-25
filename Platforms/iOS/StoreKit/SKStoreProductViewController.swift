@@ -4,14 +4,11 @@ class SKStoreProductViewController : UIViewController {
   @available(iOS 6.0, *)
   unowned(unsafe) var delegate: @sil_unmanaged SKStoreProductViewControllerDelegate?
   @available(iOS 6.0, *)
-  func loadProductWithParameters(parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)?)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func loadProductWithParameters(_ parameters: [String : AnyObject], completionBlock block: ((Bool, NSError?) -> Void)?)
 }
 protocol SKStoreProductViewControllerDelegate : NSObjectProtocol {
   @available(iOS 6.0, *)
-  optional func productViewControllerDidFinish(viewController: SKStoreProductViewController)
+  optional func productViewControllerDidFinish(_ viewController: SKStoreProductViewController)
 }
 @available(iOS 6.0, *)
 let SKStoreProductParameterITunesItemIdentifier: String

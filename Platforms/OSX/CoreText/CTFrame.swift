@@ -6,7 +6,7 @@ typealias CTFrameRef = CTFrame
 @available(OSX 10.5, *)
 func CTFrameGetTypeID() -> CFTypeID
 enum CTFrameProgression : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case TopToBottom
   case RightToLeft
@@ -15,7 +15,7 @@ enum CTFrameProgression : UInt32 {
 @available(OSX 10.5, *)
 let kCTFrameProgressionAttributeName: CFString
 enum CTFramePathFillRule : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case EvenOdd
   case WindingNumber
@@ -29,16 +29,16 @@ let kCTFrameClippingPathsAttributeName: CFString
 @available(OSX 10.7, *)
 let kCTFramePathClippingPathAttributeName: CFString
 @available(OSX 10.5, *)
-func CTFrameGetStringRange(frame: CTFrame) -> CFRange
+func CTFrameGetStringRange(_ frame: CTFrame) -> CFRange
 @available(OSX 10.5, *)
-func CTFrameGetVisibleStringRange(frame: CTFrame) -> CFRange
+func CTFrameGetVisibleStringRange(_ frame: CTFrame) -> CFRange
 @available(OSX 10.5, *)
-func CTFrameGetPath(frame: CTFrame) -> CGPath
+func CTFrameGetPath(_ frame: CTFrame) -> CGPath
 @available(OSX 10.5, *)
-func CTFrameGetFrameAttributes(frame: CTFrame) -> CFDictionary?
+func CTFrameGetFrameAttributes(_ frame: CTFrame) -> CFDictionary?
 @available(OSX 10.5, *)
-func CTFrameGetLines(frame: CTFrame) -> CFArray
+func CTFrameGetLines(_ frame: CTFrame) -> CFArray
 @available(OSX 10.5, *)
-func CTFrameGetLineOrigins(frame: CTFrame, _ range: CFRange, _ origins: UnsafeMutablePointer<CGPoint>)
+func CTFrameGetLineOrigins(_ frame: CTFrame, _ range: CFRange, _ origins: UnsafeMutablePointer<CGPoint>)
 @available(OSX 10.5, *)
-func CTFrameDraw(frame: CTFrame, _ context: CGContext)
+func CTFrameDraw(_ frame: CTFrame, _ context: CGContext)

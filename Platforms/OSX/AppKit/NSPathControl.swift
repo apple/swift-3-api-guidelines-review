@@ -18,28 +18,24 @@ class NSPathControl : NSControl {
   var pathItems: [NSPathControlItem]
   @NSCopying var backgroundColor: NSColor?
   weak var delegate: @sil_weak NSPathControlDelegate?
-  func setDraggingSourceOperationMask(mask: NSDragOperation, forLocal isLocal: Bool)
-  var menu: NSMenu?
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
+  func setDraggingSourceOperationMask(_ mask: NSDragOperation, forLocal isLocal: Bool)
 }
 protocol NSPathControlDelegate : NSObjectProtocol {
   @available(OSX 10.10, *)
-  optional func pathControl(pathControl: NSPathControl, shouldDragItem pathItem: NSPathControlItem, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func pathControl(_ pathControl: NSPathControl, shouldDragItem pathItem: NSPathControlItem, withPasteboard pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, shouldDragPathComponentCell pathComponentCell: NSPathComponentCell, withPasteboard pasteboard: NSPasteboard) -> Bool
+  optional func pathControl(_ pathControl: NSPathControl, shouldDragPathComponentCell pathComponentCell: NSPathComponentCell, withPasteboard pasteboard: NSPasteboard) -> Bool
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, validateDrop info: NSDraggingInfo) -> NSDragOperation
+  optional func pathControl(_ pathControl: NSPathControl, validateDrop info: NSDraggingInfo) -> NSDragOperation
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, acceptDrop info: NSDraggingInfo) -> Bool
+  optional func pathControl(_ pathControl: NSPathControl, acceptDrop info: NSDraggingInfo) -> Bool
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, willDisplayOpenPanel openPanel: NSOpenPanel)
+  optional func pathControl(_ pathControl: NSPathControl, willDisplayOpenPanel openPanel: NSOpenPanel)
   @available(OSX 10.5, *)
-  optional func pathControl(pathControl: NSPathControl, willPopUpMenu menu: NSMenu)
+  optional func pathControl(_ pathControl: NSPathControl, willPopUpMenu menu: NSMenu)
 }
 extension NSPathControl {
   func clickedPathComponentCell() -> NSPathComponentCell?
   func pathComponentCells() -> [NSPathComponentCell]
-  func setPathComponentCells(cells: [NSPathComponentCell])
+  func setPathComponentCells(_ cells: [NSPathComponentCell])
 }

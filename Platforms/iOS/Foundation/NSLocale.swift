@@ -1,12 +1,12 @@
 
 class NSLocale : NSObject, NSCopying, NSSecureCoding {
-  func objectForKey(key: AnyObject) -> AnyObject?
-  func displayNameForKey(key: AnyObject, value: AnyObject) -> String?
+  func objectForKey(_ key: AnyObject) -> AnyObject?
+  func displayNameForKey(_ key: AnyObject, value value: AnyObject) -> String?
   init(localeIdentifier string: String)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSLocale {
   var localeIdentifier: String { get }
@@ -26,21 +26,21 @@ extension NSLocale {
   class func commonISOCurrencyCodes() -> [String]
   @available(iOS 2.0, *)
   class func preferredLanguages() -> [String]
-  class func componentsFromLocaleIdentifier(string: String) -> [String : String]
-  class func localeIdentifierFromComponents(dict: [String : String]) -> String
-  class func canonicalLocaleIdentifierFromString(string: String) -> String
-  class func canonicalLanguageIdentifierFromString(string: String) -> String
+  class func componentsFromLocaleIdentifier(_ string: String) -> [String : String]
+  class func localeIdentifierFromComponents(_ dict: [String : String]) -> String
+  class func canonicalLocaleIdentifierFromString(_ string: String) -> String
+  class func canonicalLanguageIdentifierFromString(_ string: String) -> String
   @available(iOS 4.0, *)
-  class func localeIdentifierFromWindowsLocaleCode(lcid: UInt32) -> String?
+  class func localeIdentifierFromWindowsLocaleCode(_ lcid: UInt32) -> String?
   @available(iOS 4.0, *)
-  class func windowsLocaleCodeFromLocaleIdentifier(localeIdentifier: String) -> UInt32
+  class func windowsLocaleCodeFromLocaleIdentifier(_ localeIdentifier: String) -> UInt32
   @available(iOS 4.0, *)
-  class func characterDirectionForLanguage(isoLangCode: String) -> NSLocaleLanguageDirection
+  class func characterDirectionForLanguage(_ isoLangCode: String) -> NSLocaleLanguageDirection
   @available(iOS 4.0, *)
-  class func lineDirectionForLanguage(isoLangCode: String) -> NSLocaleLanguageDirection
+  class func lineDirectionForLanguage(_ isoLangCode: String) -> NSLocaleLanguageDirection
 }
 enum NSLocaleLanguageDirection : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Unknown
   case LeftToRight

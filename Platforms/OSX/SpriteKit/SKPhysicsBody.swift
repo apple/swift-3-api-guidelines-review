@@ -1,19 +1,19 @@
 
 class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   /*not inherited*/ init(circleOfRadius r: CGFloat)
-  /*not inherited*/ init(circleOfRadius r: CGFloat, center: CGPoint)
+  /*not inherited*/ init(circleOfRadius r: CGFloat, center center: CGPoint)
   /*not inherited*/ init(rectangleOfSize s: CGSize)
-  /*not inherited*/ init(rectangleOfSize s: CGSize, center: CGPoint)
+  /*not inherited*/ init(rectangleOfSize s: CGSize, center center: CGPoint)
   /*not inherited*/ init(polygonFromPath path: CGPath)
   /*not inherited*/ init(edgeFromPoint p1: CGPoint, toPoint p2: CGPoint)
   /*not inherited*/ init(edgeChainFromPath path: CGPath)
   /*not inherited*/ init(edgeLoopFromPath path: CGPath)
   /*not inherited*/ init(edgeLoopFromRect rect: CGRect)
   @available(OSX 10.10, *)
-  /*not inherited*/ init(texture: SKTexture, size: CGSize)
+  /*not inherited*/ init(texture texture: SKTexture, size size: CGSize)
   @available(OSX 10.10, *)
-  /*not inherited*/ init(texture: SKTexture, alphaThreshold: Float, size: CGSize)
-  /*not inherited*/ init(bodies: [SKPhysicsBody])
+  /*not inherited*/ init(texture texture: SKTexture, alphaThreshold alphaThreshold: Float, size size: CGSize)
+  /*not inherited*/ init(bodies bodies: [SKPhysicsBody])
   var dynamic: Bool
   var usesPreciseCollisionDetection: Bool
   var allowsRotation: Bool
@@ -39,15 +39,14 @@ class SKPhysicsBody : NSObject, NSCopying, NSCoding {
   weak var node: @sil_weak SKNode? { get }
   var velocity: CGVector
   var angularVelocity: CGFloat
-  func applyForce(force: CGVector)
-  func applyForce(force: CGVector, atPoint point: CGPoint)
-  func applyTorque(torque: CGFloat)
-  func applyImpulse(impulse: CGVector)
-  func applyImpulse(impulse: CGVector, atPoint point: CGPoint)
-  func applyAngularImpulse(impulse: CGFloat)
+  func applyForce(_ force: CGVector)
+  func applyForce(_ force: CGVector, atPoint point: CGPoint)
+  func applyTorque(_ torque: CGFloat)
+  func applyImpulse(_ impulse: CGVector)
+  func applyImpulse(_ impulse: CGVector, atPoint point: CGPoint)
+  func applyAngularImpulse(_ impulse: CGFloat)
   func allContactedBodies() -> [SKPhysicsBody]
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

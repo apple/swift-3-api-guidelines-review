@@ -1,6 +1,6 @@
 
 enum NSMatrixMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case RadioModeMatrix
   case HighlightModeMatrix
@@ -40,91 +40,82 @@ struct __MFlags {
   var radioMode: UInt32
   var highlightMode: UInt32
   init()
-  init(reservedMatrix: UInt32, cellSizeNeedsAutorecalc: UInt32, autorecalculatesCellSize: UInt32, drawingContextMenuHighlightOnAllSelectedRows: UInt32, drawingContextMenuHighlight: UInt32, browserOptimizationsEnabled: UInt32, needsRedrawBeforeFirstLiveResizeCache: UInt32, tmpAllowNonVisibleCellsToBecomeFirstResponder: UInt32, subclassIsSafeForLiveResize: UInt32, hasCachedSubclassIsSafeForLiveResize: UInt32, liveResizeImageCacheingEnabled: UInt32, checkForSimpleTrackingMode: UInt32, useSimpleTrackingMode: UInt32, refusesFirstResponder: UInt32, dontScroll: UInt32, changingSelectionWithKeyboard: UInt32, onlySetKeyCell: UInt32, currentlySelectingCell: UInt32, allowsIncrementalSearching: UInt32, tabKeyTraversesCellsExplicitlySet: UInt32, tabKeyTraversesCells: UInt32, drawingAncestor: UInt32, autosizeCells: UInt32, drawsBackground: UInt32, drawsCellBackground: UInt32, selectionByRect: UInt32, autoscroll: UInt32, allowEmptySel: UInt32, listMode: UInt32, radioMode: UInt32, highlightMode: UInt32)
+  init(reservedMatrix reservedMatrix: UInt32, cellSizeNeedsAutorecalc cellSizeNeedsAutorecalc: UInt32, autorecalculatesCellSize autorecalculatesCellSize: UInt32, drawingContextMenuHighlightOnAllSelectedRows drawingContextMenuHighlightOnAllSelectedRows: UInt32, drawingContextMenuHighlight drawingContextMenuHighlight: UInt32, browserOptimizationsEnabled browserOptimizationsEnabled: UInt32, needsRedrawBeforeFirstLiveResizeCache needsRedrawBeforeFirstLiveResizeCache: UInt32, tmpAllowNonVisibleCellsToBecomeFirstResponder tmpAllowNonVisibleCellsToBecomeFirstResponder: UInt32, subclassIsSafeForLiveResize subclassIsSafeForLiveResize: UInt32, hasCachedSubclassIsSafeForLiveResize hasCachedSubclassIsSafeForLiveResize: UInt32, liveResizeImageCacheingEnabled liveResizeImageCacheingEnabled: UInt32, checkForSimpleTrackingMode checkForSimpleTrackingMode: UInt32, useSimpleTrackingMode useSimpleTrackingMode: UInt32, refusesFirstResponder refusesFirstResponder: UInt32, dontScroll dontScroll: UInt32, changingSelectionWithKeyboard changingSelectionWithKeyboard: UInt32, onlySetKeyCell onlySetKeyCell: UInt32, currentlySelectingCell currentlySelectingCell: UInt32, allowsIncrementalSearching allowsIncrementalSearching: UInt32, tabKeyTraversesCellsExplicitlySet tabKeyTraversesCellsExplicitlySet: UInt32, tabKeyTraversesCells tabKeyTraversesCells: UInt32, drawingAncestor drawingAncestor: UInt32, autosizeCells autosizeCells: UInt32, drawsBackground drawsBackground: UInt32, drawsCellBackground drawsCellBackground: UInt32, selectionByRect selectionByRect: UInt32, autoscroll autoscroll: UInt32, allowEmptySel allowEmptySel: UInt32, listMode listMode: UInt32, radioMode radioMode: UInt32, highlightMode highlightMode: UInt32)
 }
 typealias _MFlags = __MFlags
 class NSMatrix : NSControl, NSUserInterfaceValidations {
-  convenience init(frame frameRect: NSRect)
   init(frame frameRect: NSRect, mode aMode: NSMatrixMode, prototype aCell: NSCell, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   init(frame frameRect: NSRect, mode aMode: NSMatrixMode, cellClass factoryId: AnyClass?, numberOfRows rowsHigh: Int, numberOfColumns colsWide: Int)
   var cellClass: AnyClass
   @NSCopying var prototype: NSCell?
-  func makeCellAtRow(row: Int, column col: Int) -> NSCell
+  func makeCellAtRow(_ row: Int, column col: Int) -> NSCell
   var mode: NSMatrixMode
   var allowsEmptySelection: Bool
-  func sendAction(aSelector: Selector, to anObject: AnyObject, forAllCells flag: Bool)
+  func sendAction(_ aSelector: Selector, to anObject: AnyObject, forAllCells flag: Bool)
   var cells: [NSCell] { get }
-  func sortUsingSelector(comparator: Selector)
-  func sortUsingFunction(compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context: UnsafeMutablePointer<Void>)
+  func sortUsingSelector(_ comparator: Selector)
+  func sortUsingFunction(_ compare: @convention(c) (AnyObject, AnyObject, UnsafeMutablePointer<Void>) -> Int, context context: UnsafeMutablePointer<Void>)
   var selectedCells: [NSCell] { get }
   var selectedRow: Int { get }
   var selectedColumn: Int { get }
   var selectionByRect: Bool
-  func setSelectionFrom(startPos: Int, to endPos: Int, anchor anchorPos: Int, highlight lit: Bool)
+  func setSelectionFrom(_ startPos: Int, to endPos: Int, anchor anchorPos: Int, highlight lit: Bool)
   func deselectSelectedCell()
   func deselectAllCells()
-  func selectCellAtRow(row: Int, column col: Int)
-  func selectAll(sender: AnyObject?)
-  func selectCellWithTag(anInt: Int) -> Bool
+  func selectCellAtRow(_ row: Int, column col: Int)
+  func selectCellWithTag(_ anInt: Int) -> Bool
   var cellSize: NSSize
   var intercellSpacing: NSSize
-  func setScrollable(flag: Bool)
+  func setScrollable(_ flag: Bool)
   @NSCopying var backgroundColor: NSColor
   @NSCopying var cellBackgroundColor: NSColor?
   var drawsCellBackground: Bool
   var drawsBackground: Bool
-  func setState(value: Int, atRow row: Int, column col: Int)
-  func getNumberOfRows(rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
+  func setState(_ value: Int, atRow row: Int, column col: Int)
+  func getNumberOfRows(_ rowCount: UnsafeMutablePointer<Int>, columns colCount: UnsafeMutablePointer<Int>)
   var numberOfRows: Int { get }
   var numberOfColumns: Int { get }
-  func cellAtRow(row: Int, column col: Int) -> NSCell?
-  func cellFrameAtRow(row: Int, column col: Int) -> NSRect
-  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, ofCell aCell: NSCell) -> Bool
-  func getRow(row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, forPoint aPoint: NSPoint) -> Bool
-  func renewRows(newRows: Int, columns newCols: Int)
-  func putCell(newCell: NSCell, atRow row: Int, column col: Int)
+  func cellAtRow(_ row: Int, column col: Int) -> NSCell?
+  func cellFrameAtRow(_ row: Int, column col: Int) -> NSRect
+  func getRow(_ row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, ofCell aCell: NSCell) -> Bool
+  func getRow(_ row: UnsafeMutablePointer<Int>, column col: UnsafeMutablePointer<Int>, forPoint aPoint: NSPoint) -> Bool
+  func renewRows(_ newRows: Int, columns newCols: Int)
+  func putCell(_ newCell: NSCell, atRow row: Int, column col: Int)
   func addRow()
-  func addRowWithCells(newCells: [NSCell])
-  func insertRow(row: Int)
-  func insertRow(row: Int, withCells newCells: [NSCell])
-  func removeRow(row: Int)
+  func addRowWithCells(_ newCells: [NSCell])
+  func insertRow(_ row: Int)
+  func insertRow(_ row: Int, withCells newCells: [NSCell])
+  func removeRow(_ row: Int)
   func addColumn()
-  func addColumnWithCells(newCells: [NSCell])
-  func insertColumn(column: Int)
-  func insertColumn(column: Int, withCells newCells: [NSCell])
-  func removeColumn(col: Int)
-  func cellWithTag(anInt: Int) -> NSCell?
+  func addColumnWithCells(_ newCells: [NSCell])
+  func insertColumn(_ column: Int)
+  func insertColumn(_ column: Int, withCells newCells: [NSCell])
+  func removeColumn(_ col: Int)
+  func cellWithTag(_ anInt: Int) -> NSCell?
   var doubleAction: Selector
   var autosizesCells: Bool
   func sizeToCells()
-  func setValidateSize(flag: Bool)
-  func drawCellAtRow(row: Int, column col: Int)
-  func highlightCell(flag: Bool, atRow row: Int, column col: Int)
+  func setValidateSize(_ flag: Bool)
+  func drawCellAtRow(_ row: Int, column col: Int)
+  func highlightCell(_ flag: Bool, atRow row: Int, column col: Int)
   var autoscroll: Bool
-  func scrollCellToVisibleAtRow(row: Int, column col: Int)
+  func scrollCellToVisibleAtRow(_ row: Int, column col: Int)
   var mouseDownFlags: Int { get }
-  func mouseDown(theEvent: NSEvent)
-  func performKeyEquivalent(theEvent: NSEvent) -> Bool
   func sendAction() -> Bool
   func sendDoubleAction()
   unowned(unsafe) var delegate: @sil_unmanaged NSMatrixDelegate?
-  func textShouldBeginEditing(textObject: NSText) -> Bool
-  func textShouldEndEditing(textObject: NSText) -> Bool
-  func textDidBeginEditing(notification: NSNotification)
-  func textDidEndEditing(notification: NSNotification)
-  func textDidChange(notification: NSNotification)
-  func selectText(sender: AnyObject?)
-  func selectTextAtRow(row: Int, column col: Int) -> NSCell?
-  func acceptsFirstMouse(theEvent: NSEvent?) -> Bool
-  func resetCursorRects()
-  func setToolTip(toolTipString: String?, forCell cell: NSCell)
-  func toolTipForCell(cell: NSCell) -> String?
+  func textShouldBeginEditing(_ textObject: NSText) -> Bool
+  func textShouldEndEditing(_ textObject: NSText) -> Bool
+  func textDidBeginEditing(_ notification: NSNotification)
+  func textDidEndEditing(_ notification: NSNotification)
+  func textDidChange(_ notification: NSNotification)
+  func selectText(_ sender: AnyObject?)
+  func selectTextAtRow(_ row: Int, column col: Int) -> NSCell?
+  func setToolTip(_ toolTipString: String?, forCell cell: NSCell)
+  func toolTipForCell(_ cell: NSCell) -> String?
   @available(OSX 10.8, *)
   var autorecalculatesCellSize: Bool
-  func selectedCell() -> NSCell?
-  init?(coder: NSCoder)
-  convenience init()
-  func validateUserInterfaceItem(anItem: NSValidatedUserInterfaceItem) -> Bool
+  func validateUserInterfaceItem(_ anItem: NSValidatedUserInterfaceItem) -> Bool
 }
 extension NSMatrix {
   var tabKeyTraversesCells: Bool

@@ -1,6 +1,6 @@
 
 struct NSFetchRequestResultType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var ManagedObjectResultType: NSFetchRequestResultType { get }
   static var ManagedObjectIDResultType: NSFetchRequestResultType { get }
@@ -11,16 +11,14 @@ struct NSFetchRequestResultType : OptionSetType {
 }
 @available(iOS 3.0, *)
 class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
-  init()
   @available(iOS 4.0, *)
-  convenience init(entityName: String)
+  convenience init(entityName entityName: String)
   var entity: NSEntityDescription?
   @available(iOS 4.0, *)
   var entityName: String? { get }
   var predicate: NSPredicate?
   var sortDescriptors: [NSSortDescriptor]?
   var fetchLimit: Int
-  var affectedStores: [NSPersistentStore]?
   @available(iOS 3.0, *)
   var resultType: NSFetchRequestResultType
   @available(iOS 3.0, *)
@@ -48,7 +46,7 @@ class NSFetchRequest : NSPersistentStoreRequest, NSCoding {
   @available(iOS 5.0, *)
   var havingPredicate: NSPredicate?
   @available(iOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct _fetchRequestFlags {
@@ -65,5 +63,5 @@ struct _fetchRequestFlags {
   var disableCaching: UInt32
   var _RESERVED: UInt32
   init()
-  init(distinctValuesOnly: UInt32, includesSubentities: UInt32, includesPropertyValues: UInt32, resultType: UInt32, returnsObjectsAsFaults: UInt32, excludePendingChanges: UInt32, isInUse: UInt32, entityIsName: UInt32, refreshesRefetched: UInt32, propertiesValidated: UInt32, disableCaching: UInt32, _RESERVED: UInt32)
+  init(distinctValuesOnly distinctValuesOnly: UInt32, includesSubentities includesSubentities: UInt32, includesPropertyValues includesPropertyValues: UInt32, resultType resultType: UInt32, returnsObjectsAsFaults returnsObjectsAsFaults: UInt32, excludePendingChanges excludePendingChanges: UInt32, isInUse isInUse: UInt32, entityIsName entityIsName: UInt32, refreshesRefetched refreshesRefetched: UInt32, propertiesValidated propertiesValidated: UInt32, disableCaching disableCaching: UInt32, _RESERVED _RESERVED: UInt32)
 }

@@ -2,7 +2,7 @@
 @available(iOS 9.0, *)
 class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(addresses: [String], subnetMasks: [String])
+  init(addresses addresses: [String], subnetMasks subnetMasks: [String])
   @available(iOS 9.0, *)
   var addresses: [String] { get }
   @available(iOS 9.0, *)
@@ -11,19 +11,18 @@ class NEIPv4Settings : NSObject, NSSecureCoding, NSCopying {
   var includedRoutes: [NEIPv4Route]?
   @available(iOS 9.0, *)
   var excludedRoutes: [NEIPv4Route]?
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  init(destinationAddress address: String, subnetMask: String)
+  init(destinationAddress address: String, subnetMask subnetMask: String)
   @available(iOS 9.0, *)
   var destinationAddress: String { get }
   @available(iOS 9.0, *)
@@ -32,12 +31,11 @@ class NEIPv4Route : NSObject, NSSecureCoding, NSCopying {
   var gatewayAddress: String?
   @available(iOS 9.0, *)
   class func defaultRoute() -> NEIPv4Route
-  init()
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

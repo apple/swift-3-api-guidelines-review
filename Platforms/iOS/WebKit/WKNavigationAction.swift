@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum WKNavigationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case LinkActivated
   case FormSubmitted
@@ -16,5 +16,4 @@ class WKNavigationAction : NSObject {
   @NSCopying var targetFrame: WKFrameInfo? { get }
   var navigationType: WKNavigationType { get }
   @NSCopying var request: NSURLRequest { get }
-  init()
 }

@@ -1,14 +1,13 @@
 
 class CAAnimation : NSObject, NSCoding, NSCopying, CAMediaTiming, CAAction {
-  class func defaultValueForKey(key: String) -> AnyObject?
-  func shouldArchiveValueForKey(key: String) -> Bool
+  class func defaultValueForKey(_ key: String) -> AnyObject?
+  func shouldArchiveValueForKey(_ key: String) -> Bool
   var timingFunction: CAMediaTimingFunction?
   var delegate: AnyObject?
   var removedOnCompletion: Bool
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   var beginTime: CFTimeInterval
   var duration: CFTimeInterval
   var speed: Float
@@ -18,13 +17,13 @@ class CAAnimation : NSObject, NSCoding, NSCopying, CAMediaTiming, CAAction {
   var autoreverses: Bool
   var fillMode: String
   @available(tvOS 2.0, *)
-  func runActionForKey(event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
+  func runActionForKey(_ event: String, object anObject: AnyObject, arguments dict: [NSObject : AnyObject]?)
 }
 extension NSObject {
-  class func animationDidStart(anim: CAAnimation)
-  func animationDidStart(anim: CAAnimation)
-  class func animationDidStop(anim: CAAnimation, finished flag: Bool)
-  func animationDidStop(anim: CAAnimation, finished flag: Bool)
+  class func animationDidStart(_ anim: CAAnimation)
+  func animationDidStart(_ anim: CAAnimation)
+  class func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
 }
 class CAPropertyAnimation : CAAnimation {
   convenience init(keyPath path: String?)
@@ -32,16 +31,11 @@ class CAPropertyAnimation : CAAnimation {
   var additive: Bool
   var cumulative: Bool
   var valueFunction: CAValueFunction?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CABasicAnimation : CAPropertyAnimation {
   var fromValue: AnyObject?
   var toValue: AnyObject?
   var byValue: AnyObject?
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CAKeyframeAnimation : CAPropertyAnimation {
   var values: [AnyObject]?
@@ -53,9 +47,6 @@ class CAKeyframeAnimation : CAPropertyAnimation {
   var continuityValues: [NSNumber]?
   var biasValues: [NSNumber]?
   var rotationMode: String?
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
 let kCAAnimationLinear: String
@@ -77,9 +68,6 @@ class CASpringAnimation : CABasicAnimation {
   var damping: CGFloat
   var initialVelocity: CGFloat
   var settlingDuration: CFTimeInterval { get }
-  convenience init(keyPath path: String?)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 class CATransition : CAAnimation {
   var type: String
@@ -87,8 +75,6 @@ class CATransition : CAAnimation {
   var startProgress: Float
   var endProgress: Float
   var filter: AnyObject?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(tvOS 2.0, *)
 let kCATransitionFade: String
@@ -108,6 +94,4 @@ let kCATransitionFromTop: String
 let kCATransitionFromBottom: String
 class CAAnimationGroup : CAAnimation {
   var animations: [CAAnimation]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

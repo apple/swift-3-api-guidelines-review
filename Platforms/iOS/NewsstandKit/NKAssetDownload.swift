@@ -5,6 +5,5 @@ class NKAssetDownload : NSObject {
   var identifier: String { get }
   var userInfo: [NSObject : AnyObject]?
   @NSCopying var URLRequest: NSURLRequest { get }
-  func downloadWithDelegate(delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
-  init()
+  func downloadWithDelegate(_ delegate: NSURLConnectionDownloadDelegate) -> NSURLConnection
 }

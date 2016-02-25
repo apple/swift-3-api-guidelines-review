@@ -2,29 +2,23 @@
 class IOBluetoothDeviceSelectorController : NSWindowController {
   class func deviceSelector() -> IOBluetoothDeviceSelectorController!
   func runModal() -> Int32
-  func beginSheetModalForWindow(sheetWindow: NSWindow!, modalDelegate: AnyObject!, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
+  func beginSheetModalForWindow(_ sheetWindow: NSWindow!, modalDelegate modalDelegate: AnyObject!, didEndSelector didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>) -> IOReturn
   func getResults() -> [AnyObject]!
-  func setOptions(options: IOBluetoothServiceBrowserControllerOptions)
+  func setOptions(_ options: IOBluetoothServiceBrowserControllerOptions)
   func getOptions() -> IOBluetoothServiceBrowserControllerOptions
-  func setSearchAttributes(searchAttributes: UnsafePointer<IOBluetoothDeviceSearchAttributes>)
+  func setSearchAttributes(_ searchAttributes: UnsafePointer<IOBluetoothDeviceSearchAttributes>)
   func getSearchAttributes() -> UnsafePointer<IOBluetoothDeviceSearchAttributes>
-  func addAllowedUUID(allowedUUID: IOBluetoothSDPUUID!)
-  func addAllowedUUIDArray(allowedUUIDArray: [AnyObject]!)
+  func addAllowedUUID(_ allowedUUID: IOBluetoothSDPUUID!)
+  func addAllowedUUIDArray(_ allowedUUIDArray: [AnyObject]!)
   func clearAllowedUUIDs()
-  func setTitle(windowTitle: String!)
+  func setTitle(_ windowTitle: String!)
   func getTitle() -> String!
-  func setHeader(headerText: String!)
+  func setHeader(_ headerText: String!)
   func getHeader() -> String!
-  func setDescriptionText(descriptionText: String!)
+  func setDescriptionText(_ descriptionText: String!)
   func getDescriptionText() -> String!
-  func setPrompt(prompt: String!)
+  func setPrompt(_ prompt: String!)
   func getPrompt() -> String!
-  func setCancel(prompt: String!)
+  func setCancel(_ prompt: String!)
   func getCancel() -> String!
-  init(window: NSWindow?)
-  init?(coder: NSCoder)
-  convenience init(windowNibName: String)
-  convenience init(windowNibName: String, owner: AnyObject)
-  convenience init(windowNibPath: String, owner: AnyObject)
-  convenience init()
 }

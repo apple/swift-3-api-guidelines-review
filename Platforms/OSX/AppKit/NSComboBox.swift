@@ -12,40 +12,37 @@ class NSComboBox : NSTextField {
   func reloadData()
   func noteNumberOfItemsChanged()
   var usesDataSource: Bool
-  func scrollItemAtIndexToTop(index: Int)
-  func scrollItemAtIndexToVisible(index: Int)
-  func selectItemAtIndex(index: Int)
-  func deselectItemAtIndex(index: Int)
+  func scrollItemAtIndexToTop(_ index: Int)
+  func scrollItemAtIndexToVisible(_ index: Int)
+  func selectItemAtIndex(_ index: Int)
+  func deselectItemAtIndex(_ index: Int)
   var indexOfSelectedItem: Int { get }
   var numberOfItems: Int { get }
   var completes: Bool
   func delegate() -> NSComboBoxDelegate?
-  func setDelegate(anObject: NSComboBoxDelegate?)
+  func setDelegate(_ anObject: NSComboBoxDelegate?)
   unowned(unsafe) var dataSource: @sil_unmanaged NSComboBoxDataSource?
-  func addItemWithObjectValue(object: AnyObject)
-  func addItemsWithObjectValues(objects: [AnyObject])
-  func insertItemWithObjectValue(object: AnyObject, atIndex index: Int)
-  func removeItemWithObjectValue(object: AnyObject)
-  func removeItemAtIndex(index: Int)
+  func addItemWithObjectValue(_ object: AnyObject)
+  func addItemsWithObjectValues(_ objects: [AnyObject])
+  func insertItemWithObjectValue(_ object: AnyObject, atIndex index: Int)
+  func removeItemWithObjectValue(_ object: AnyObject)
+  func removeItemAtIndex(_ index: Int)
   func removeAllItems()
-  func selectItemWithObjectValue(object: AnyObject?)
-  func itemObjectValueAtIndex(index: Int) -> AnyObject
+  func selectItemWithObjectValue(_ object: AnyObject?)
+  func itemObjectValueAtIndex(_ index: Int) -> AnyObject
   var objectValueOfSelectedItem: AnyObject? { get }
-  func indexOfItemWithObjectValue(object: AnyObject) -> Int
+  func indexOfItemWithObjectValue(_ object: AnyObject) -> Int
   var objectValues: [AnyObject] { get }
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
 }
 protocol NSComboBoxDataSource : NSObjectProtocol {
-  optional func numberOfItemsInComboBox(aComboBox: NSComboBox) -> Int
-  optional func comboBox(aComboBox: NSComboBox, objectValueForItemAtIndex index: Int) -> AnyObject
-  optional func comboBox(aComboBox: NSComboBox, indexOfItemWithStringValue string: String) -> Int
-  optional func comboBox(aComboBox: NSComboBox, completedString string: String) -> String?
+  optional func numberOfItemsInComboBox(_ aComboBox: NSComboBox) -> Int
+  optional func comboBox(_ aComboBox: NSComboBox, objectValueForItemAtIndex index: Int) -> AnyObject
+  optional func comboBox(_ aComboBox: NSComboBox, indexOfItemWithStringValue string: String) -> Int
+  optional func comboBox(_ aComboBox: NSComboBox, completedString string: String) -> String?
 }
 protocol NSComboBoxDelegate : NSTextFieldDelegate {
-  optional func comboBoxWillPopUp(notification: NSNotification)
-  optional func comboBoxWillDismiss(notification: NSNotification)
-  optional func comboBoxSelectionDidChange(notification: NSNotification)
-  optional func comboBoxSelectionIsChanging(notification: NSNotification)
+  optional func comboBoxWillPopUp(_ notification: NSNotification)
+  optional func comboBoxWillDismiss(_ notification: NSNotification)
+  optional func comboBoxSelectionDidChange(_ notification: NSNotification)
+  optional func comboBoxSelectionIsChanging(_ notification: NSNotification)
 }

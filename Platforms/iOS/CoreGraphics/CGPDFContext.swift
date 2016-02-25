@@ -1,22 +1,22 @@
 
 @available(iOS 2.0, *)
-func CGPDFContextCreate(consumer: CGDataConsumer?, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary?) -> CGContext?
+func CGPDFContextCreate(_ consumer: CGDataConsumer?, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary?) -> CGContext?
 @available(iOS 2.0, *)
-func CGPDFContextCreateWithURL(url: CFURL?, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary?) -> CGContext?
+func CGPDFContextCreateWithURL(_ url: CFURL?, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary?) -> CGContext?
 @available(iOS 2.0, *)
-func CGPDFContextClose(context: CGContext?)
+func CGPDFContextClose(_ context: CGContext?)
 @available(iOS 2.0, *)
-func CGPDFContextBeginPage(context: CGContext?, _ pageInfo: CFDictionary?)
+func CGPDFContextBeginPage(_ context: CGContext?, _ pageInfo: CFDictionary?)
 @available(iOS 2.0, *)
-func CGPDFContextEndPage(context: CGContext?)
+func CGPDFContextEndPage(_ context: CGContext?)
 @available(iOS 4.0, *)
-func CGPDFContextAddDocumentMetadata(context: CGContext?, _ metadata: CFData?)
+func CGPDFContextAddDocumentMetadata(_ context: CGContext?, _ metadata: CFData?)
 @available(iOS 2.0, *)
-func CGPDFContextSetURLForRect(context: CGContext?, _ url: CFURL, _ rect: CGRect)
+func CGPDFContextSetURLForRect(_ context: CGContext?, _ url: CFURL, _ rect: CGRect)
 @available(iOS 2.0, *)
-func CGPDFContextAddDestinationAtPoint(context: CGContext?, _ name: CFString, _ point: CGPoint)
+func CGPDFContextAddDestinationAtPoint(_ context: CGContext?, _ name: CFString, _ point: CGPoint)
 @available(iOS 2.0, *)
-func CGPDFContextSetDestinationForRect(context: CGContext?, _ name: CFString, _ rect: CGRect)
+func CGPDFContextSetDestinationForRect(_ context: CGContext?, _ name: CFString, _ rect: CGRect)
 @available(iOS 2.0, *)
 let kCGPDFContextMediaBox: CFString
 @available(iOS 2.0, *)

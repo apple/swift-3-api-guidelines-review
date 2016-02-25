@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEVPNIKEAuthenticationMethod : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Certificate
@@ -19,6 +19,4 @@ class NEVPNProtocolIPSec : NEVPNProtocol {
   var localIdentifier: String?
   @available(OSX 10.10, *)
   var remoteIdentifier: String?
-  init()
-  init?(coder aDecoder: NSCoder)
 }

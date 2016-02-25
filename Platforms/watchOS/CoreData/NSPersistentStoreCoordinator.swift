@@ -54,43 +54,42 @@ class NSPersistentStoreCoordinator : NSObject {
   var persistentStores: [NSPersistentStore] { get }
   @available(watchOS 2.0, *)
   var name: String?
-  func persistentStoreForURL(URL: NSURL) -> NSPersistentStore?
-  func URLForPersistentStore(store: NSPersistentStore) -> NSURL
+  func persistentStoreForURL(_ URL: NSURL) -> NSPersistentStore?
+  func URLForPersistentStore(_ store: NSPersistentStore) -> NSURL
   @available(watchOS 2.0, *)
-  func setURL(url: NSURL, forPersistentStore store: NSPersistentStore) -> Bool
-  func addPersistentStoreWithType(storeType: String, configuration: String?, URL storeURL: NSURL?, options: [NSObject : AnyObject]?) throws -> NSPersistentStore
-  func removePersistentStore(store: NSPersistentStore) throws
-  func setMetadata(metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
-  func metadataForPersistentStore(store: NSPersistentStore) -> [String : AnyObject]
-  func managedObjectIDForURIRepresentation(url: NSURL) -> NSManagedObjectID?
+  func setURL(_ url: NSURL, forPersistentStore store: NSPersistentStore) -> Bool
+  func addPersistentStoreWithType(_ storeType: String, configuration configuration: String?, URL storeURL: NSURL?, options options: [NSObject : AnyObject]?) throws -> NSPersistentStore
+  func removePersistentStore(_ store: NSPersistentStore) throws
+  func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStore store: NSPersistentStore)
+  func metadataForPersistentStore(_ store: NSPersistentStore) -> [String : AnyObject]
+  func managedObjectIDForURIRepresentation(_ url: NSURL) -> NSManagedObjectID?
   @available(watchOS 2.0, *)
-  func executeRequest(request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
+  func executeRequest(_ request: NSPersistentStoreRequest, withContext context: NSManagedObjectContext) throws -> AnyObject
   @available(watchOS 2.0, *)
   class func registeredStoreTypes() -> [String : NSValue]
   @available(watchOS 2.0, *)
-  class func registerStoreClass(storeClass: AnyClass, forStoreType storeType: String)
+  class func registerStoreClass(_ storeClass: AnyClass, forStoreType storeType: String)
   @available(watchOS 2.0, *)
-  class func metadataForPersistentStoreOfType(storeType: String, URL url: NSURL, options: [NSObject : AnyObject]?) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOfType(_ storeType: String, URL url: NSURL, options options: [NSObject : AnyObject]?) throws -> [String : AnyObject]
   @available(watchOS 2.0, *)
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, URL url: NSURL, options: [NSObject : AnyObject]?) throws
+  class func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String, URL url: NSURL, options options: [NSObject : AnyObject]?) throws
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use a -metadataForPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func metadataForPersistentStoreOfType(storeType: String?, URL url: NSURL) throws -> [String : AnyObject]
+  class func metadataForPersistentStoreOfType(_ storeType: String?, URL url: NSURL) throws -> [String : AnyObject]
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use a -setMetadata:forPersistentStoreOfType:URL:options:error: and pass in an options dictionary matching addPersistentStoreWithType")
-  class func setMetadata(metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, URL url: NSURL) throws
-  func migratePersistentStore(store: NSPersistentStore, toURL URL: NSURL, options: [NSObject : AnyObject]?, withType storeType: String) throws -> NSPersistentStore
+  class func setMetadata(_ metadata: [String : AnyObject]?, forPersistentStoreOfType storeType: String?, URL url: NSURL) throws
+  func migratePersistentStore(_ store: NSPersistentStore, toURL URL: NSURL, options options: [NSObject : AnyObject]?, withType storeType: String) throws -> NSPersistentStore
   @available(watchOS 2.0, *)
-  func destroyPersistentStoreAtURL(url: NSURL, withType storeType: String, options: [NSObject : AnyObject]?) throws
+  func destroyPersistentStoreAtURL(_ url: NSURL, withType storeType: String, options options: [NSObject : AnyObject]?) throws
   @available(watchOS 2.0, *)
-  func replacePersistentStoreAtURL(destinationURL: NSURL, destinationOptions: [NSObject : AnyObject]?, withPersistentStoreFromURL sourceURL: NSURL, sourceOptions: [NSObject : AnyObject]?, storeType: String) throws
+  func replacePersistentStoreAtURL(_ destinationURL: NSURL, destinationOptions destinationOptions: [NSObject : AnyObject]?, withPersistentStoreFromURL sourceURL: NSURL, sourceOptions sourceOptions: [NSObject : AnyObject]?, storeType storeType: String) throws
   @available(watchOS 2.0, *)
-  func performBlock(block: () -> Void)
+  func performBlock(_ block: () -> Void)
   @available(watchOS 2.0, *)
-  func performBlockAndWait(block: () -> Void)
-  convenience init()
+  func performBlockAndWait(_ block: () -> Void)
 }
 struct _persistentStoreCoordinatorFlags {
   var _isRegistered: UInt32
   var _reservedFlags: UInt32
   init()
-  init(_isRegistered: UInt32, _reservedFlags: UInt32)
+  init(_isRegistered _isRegistered: UInt32, _reservedFlags _reservedFlags: UInt32)
 }

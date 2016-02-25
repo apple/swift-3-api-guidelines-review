@@ -10,7 +10,7 @@ struct CMRotationMatrix {
   var m32: Double
   var m33: Double
   init()
-  init(m11: Double, m12: Double, m13: Double, m21: Double, m22: Double, m23: Double, m31: Double, m32: Double, m33: Double)
+  init(m11 m11: Double, m12 m12: Double, m13 m13: Double, m21 m21: Double, m22 m22: Double, m23 m23: Double, m31 m31: Double, m32 m32: Double, m33 m33: Double)
 }
 struct CMQuaternion {
   var x: Double
@@ -18,10 +18,10 @@ struct CMQuaternion {
   var z: Double
   var w: Double
   init()
-  init(x: Double, y: Double, z: Double, w: Double)
+  init(x x: Double, y y: Double, z z: Double, w w: Double)
 }
 struct CMAttitudeReferenceFrame : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var XArbitraryZVertical: CMAttitudeReferenceFrame { get }
   static var XArbitraryCorrectedZVertical: CMAttitudeReferenceFrame { get }
@@ -35,13 +35,12 @@ class CMAttitude : NSObject, NSCopying, NSSecureCoding {
   var yaw: Double { get }
   var rotationMatrix: CMRotationMatrix { get }
   var quaternion: CMQuaternion { get }
-  func multiplyByInverseOfAttitude(attitude: CMAttitude)
-  init()
+  func multiplyByInverseOfAttitude(_ attitude: CMAttitude)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -7,7 +7,7 @@ extension AVCaptureStillImageOutput {
   @available(tvOS 9.0, *)
   var lensStabilizationDuringBracketedCaptureEnabled: Bool
   @available(tvOS 8.0, *)
-  func prepareToCaptureStillImageBracketFromConnection(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, NSError!) -> Void)!)
+  func prepareToCaptureStillImageBracketFromConnection(_ connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((Bool, NSError!) -> Void)!)
   @available(tvOS 8.0, *)
-  func captureStillImageBracketAsynchronouslyFromConnection(connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, NSError!) -> Void)!)
+  func captureStillImageBracketAsynchronouslyFromConnection(_ connection: AVCaptureConnection!, withSettingsArray settings: [AnyObject]!, completionHandler handler: ((CMSampleBuffer!, AVCaptureBracketedStillImageSettings!, NSError!) -> Void)!)
 }

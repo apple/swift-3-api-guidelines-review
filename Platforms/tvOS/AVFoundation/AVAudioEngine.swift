@@ -1,26 +1,25 @@
 
 @available(tvOS 8.0, *)
 class AVAudioEngine : NSObject {
-  init()
-  func attachNode(node: AVAudioNode)
-  func detachNode(node: AVAudioNode)
-  func connect(node1: AVAudioNode, to node2: AVAudioNode, fromBus bus1: AVAudioNodeBus, toBus bus2: AVAudioNodeBus, format: AVAudioFormat?)
-  func connect(node1: AVAudioNode, to node2: AVAudioNode, format: AVAudioFormat?)
+  func attachNode(_ node: AVAudioNode)
+  func detachNode(_ node: AVAudioNode)
+  func connect(_ node1: AVAudioNode, to node2: AVAudioNode, fromBus bus1: AVAudioNodeBus, toBus bus2: AVAudioNodeBus, format format: AVAudioFormat?)
+  func connect(_ node1: AVAudioNode, to node2: AVAudioNode, format format: AVAudioFormat?)
   @available(tvOS 9.0, *)
-  func connect(sourceNode: AVAudioNode, toConnectionPoints destNodes: [AVAudioConnectionPoint], fromBus sourceBus: AVAudioNodeBus, format: AVAudioFormat?)
-  func disconnectNodeInput(node: AVAudioNode, bus: AVAudioNodeBus)
-  func disconnectNodeInput(node: AVAudioNode)
-  func disconnectNodeOutput(node: AVAudioNode, bus: AVAudioNodeBus)
-  func disconnectNodeOutput(node: AVAudioNode)
+  func connect(_ sourceNode: AVAudioNode, toConnectionPoints destNodes: [AVAudioConnectionPoint], fromBus sourceBus: AVAudioNodeBus, format format: AVAudioFormat?)
+  func disconnectNodeInput(_ node: AVAudioNode, bus bus: AVAudioNodeBus)
+  func disconnectNodeInput(_ node: AVAudioNode)
+  func disconnectNodeOutput(_ node: AVAudioNode, bus bus: AVAudioNodeBus)
+  func disconnectNodeOutput(_ node: AVAudioNode)
   func prepare()
   func start() throws
   func pause()
   func reset()
   func stop()
   @available(tvOS 9.0, *)
-  func inputConnectionPointForNode(node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
+  func inputConnectionPointForNode(_ node: AVAudioNode, inputBus bus: AVAudioNodeBus) -> AVAudioConnectionPoint?
   @available(tvOS 9.0, *)
-  func outputConnectionPointsForNode(node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
+  func outputConnectionPointsForNode(_ node: AVAudioNode, outputBus bus: AVAudioNodeBus) -> [AVAudioConnectionPoint]
   var musicSequence: MusicSequence
   var outputNode: AVAudioOutputNode { get }
   var mainMixerNode: AVAudioMixerNode { get }

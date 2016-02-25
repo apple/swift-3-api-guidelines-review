@@ -15,54 +15,53 @@ let NSVoiceGenderMale: String
 let NSVoiceGenderFemale: String
 @available(OSX 10.5, *)
 enum NSSpeechBoundary : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ImmediateBoundary
   case WordBoundary
   case SentenceBoundary
 }
 class NSSpeechSynthesizer : NSObject {
-  init?(voice: String?)
-  func startSpeakingString(string: String) -> Bool
-  func startSpeakingString(string: String, toURL url: NSURL) -> Bool
+  init?(voice voice: String?)
+  func startSpeakingString(_ string: String) -> Bool
+  func startSpeakingString(_ string: String, toURL url: NSURL) -> Bool
   var speaking: Bool { get }
   func stopSpeaking()
   @available(OSX 10.5, *)
-  func stopSpeakingAtBoundary(boundary: NSSpeechBoundary)
+  func stopSpeakingAtBoundary(_ boundary: NSSpeechBoundary)
   @available(OSX 10.5, *)
-  func pauseSpeakingAtBoundary(boundary: NSSpeechBoundary)
+  func pauseSpeakingAtBoundary(_ boundary: NSSpeechBoundary)
   @available(OSX 10.5, *)
   func continueSpeaking()
   unowned(unsafe) var delegate: @sil_unmanaged NSSpeechSynthesizerDelegate?
   func voice() -> String?
-  func setVoice(voice: String?) -> Bool
+  func setVoice(_ voice: String?) -> Bool
   @available(OSX 10.5, *)
   var rate: Float
   @available(OSX 10.5, *)
   var volume: Float
   var usesFeedbackWindow: Bool
   @available(OSX 10.5, *)
-  func addSpeechDictionary(speechDictionary: [String : AnyObject])
+  func addSpeechDictionary(_ speechDictionary: [String : AnyObject])
   @available(OSX 10.5, *)
-  func phonemesFromText(text: String) -> String
+  func phonemesFromText(_ text: String) -> String
   @available(OSX 10.5, *)
-  func objectForProperty(property: String) throws -> AnyObject
+  func objectForProperty(_ property: String) throws -> AnyObject
   @available(OSX 10.5, *)
-  func setObject(object: AnyObject?, forProperty property: String) throws
+  func setObject(_ object: AnyObject?, forProperty property: String) throws
   class func isAnyApplicationSpeaking() -> Bool
   class func defaultVoice() -> String
   class func availableVoices() -> [String]
-  class func attributesForVoice(voice: String) -> [String : AnyObject]
-  init()
+  class func attributesForVoice(_ voice: String) -> [String : AnyObject]
 }
 protocol NSSpeechSynthesizerDelegate : NSObjectProtocol {
-  optional func speechSynthesizer(sender: NSSpeechSynthesizer, didFinishSpeaking finishedSpeaking: Bool)
-  optional func speechSynthesizer(sender: NSSpeechSynthesizer, willSpeakWord characterRange: NSRange, ofString string: String)
-  optional func speechSynthesizer(sender: NSSpeechSynthesizer, willSpeakPhoneme phonemeOpcode: Int16)
+  optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, didFinishSpeaking finishedSpeaking: Bool)
+  optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, willSpeakWord characterRange: NSRange, ofString string: String)
+  optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, willSpeakPhoneme phonemeOpcode: Int16)
   @available(OSX 10.5, *)
-  optional func speechSynthesizer(sender: NSSpeechSynthesizer, didEncounterErrorAtIndex characterIndex: Int, ofString string: String, message: String)
+  optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, didEncounterErrorAtIndex characterIndex: Int, ofString string: String, message message: String)
   @available(OSX 10.5, *)
-  optional func speechSynthesizer(sender: NSSpeechSynthesizer, didEncounterSyncMessage message: String)
+  optional func speechSynthesizer(_ sender: NSSpeechSynthesizer, didEncounterSyncMessage message: String)
 }
 @available(OSX 10.5, *)
 let NSSpeechStatusProperty: String

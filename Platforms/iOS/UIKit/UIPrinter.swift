@@ -9,12 +9,11 @@ class UIPrinter : NSObject {
   var makeAndModel: String? { get }
   var supportsColor: Bool { get }
   var supportsDuplex: Bool { get }
-  func contactPrinter(completionHandler: ((Bool) -> Void)?)
-  init()
+  func contactPrinter(_ completionHandler: ((Bool) -> Void)?)
 }
 @available(iOS 8.0, *)
 struct UIPrinterJobTypes : OptionSetType {
-  init(rawValue: Int)
+  init(rawValue rawValue: Int)
   let rawValue: Int
   static var Unknown: UIPrinterJobTypes { get }
   static var Document: UIPrinterJobTypes { get }

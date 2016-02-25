@@ -20,23 +20,22 @@ class NSMetadataQuery : NSObject {
   func disableUpdates()
   func enableUpdates()
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAtIndex(_ idx: Int) -> AnyObject
   @available(watchOS 2.0, *)
-  func enumerateResultsUsingBlock(block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResultsUsingBlock(_ block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(watchOS 2.0, *)
-  func enumerateResultsWithOptions(opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateResultsWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (AnyObject, Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   var results: [AnyObject] { get }
-  func indexOfResult(result: AnyObject) -> Int
+  func indexOfResult(_ result: AnyObject) -> Int
   var valueLists: [String : [NSMetadataQueryAttributeValueTuple]] { get }
   var groupedResults: [NSMetadataQueryResultGroup] { get }
-  func valueOfAttribute(attrName: String, forResultAtIndex idx: Int) -> AnyObject?
-  init()
+  func valueOfAttribute(_ attrName: String, forResultAtIndex idx: Int) -> AnyObject?
 }
 protocol NSMetadataQueryDelegate : NSObjectProtocol {
   @available(watchOS 2.0, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementObjectForResultObject result: NSMetadataItem) -> AnyObject
   @available(watchOS 2.0, *)
-  optional func metadataQuery(query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
+  optional func metadataQuery(_ query: NSMetadataQuery, replacementValueForAttribute attrName: String, value attrValue: AnyObject) -> AnyObject
 }
 @available(watchOS 2.0, *)
 let NSMetadataQueryDidStartGatheringNotification: String
@@ -62,17 +61,15 @@ let NSMetadataQueryUbiquitousDataScope: String
 let NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope: String
 @available(watchOS 2.0, *)
 class NSMetadataItem : NSObject {
-  func valueForAttribute(key: String) -> AnyObject?
-  func valuesForAttributes(keys: [String]) -> [String : AnyObject]?
+  func valueForAttribute(_ key: String) -> AnyObject?
+  func valuesForAttributes(_ keys: [String]) -> [String : AnyObject]?
   var attributes: [String] { get }
-  convenience init()
 }
 @available(watchOS 2.0, *)
 class NSMetadataQueryAttributeValueTuple : NSObject {
   var attribute: String { get }
   var value: AnyObject? { get }
   var count: Int { get }
-  init()
 }
 @available(watchOS 2.0, *)
 class NSMetadataQueryResultGroup : NSObject {
@@ -80,7 +77,6 @@ class NSMetadataQueryResultGroup : NSObject {
   var value: AnyObject { get }
   var subgroups: [NSMetadataQueryResultGroup]? { get }
   var resultCount: Int { get }
-  func resultAtIndex(idx: Int) -> AnyObject
+  func resultAtIndex(_ idx: Int) -> AnyObject
   var results: [AnyObject] { get }
-  init()
 }

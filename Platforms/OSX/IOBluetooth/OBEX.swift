@@ -2,7 +2,7 @@
 typealias OBEXError = Int32
 struct OBEXErrorCodes : RawRepresentable, Equatable {
   init(_ rawValue: Int32)
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   var rawValue: Int32
 }
 var kOBEXErrorRangeMin: OBEXErrorCodes { get }
@@ -34,7 +34,7 @@ var kOBEXSessionTimeoutError: OBEXErrorCodes { get }
 var kOBEXSessionAlreadyConnectedError: OBEXErrorCodes { get }
 struct OBEXHeaderIdentifiers : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXHeaderIDName: OBEXHeaderIdentifiers { get }
@@ -65,7 +65,7 @@ var kOBEXHeaderIDOBEX13SessionSequenceNumber: OBEXHeaderIdentifiers { get }
 var kOBEXHeaderIDOBEX13CreatorID: OBEXHeaderIdentifiers { get }
 struct OBEXOpCodeResponseValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXResponseCodeReservedRangeStart: OBEXOpCodeResponseValues { get }
@@ -148,7 +148,7 @@ var kOBEXResponseCodeDatabaseLocked: OBEXOpCodeResponseValues { get }
 var kOBEXResponseCodeDatabaseLockedWithFinalBit: OBEXOpCodeResponseValues { get }
 struct OBEXOpCodeCommandValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXOpCodeReserved: OBEXOpCodeCommandValues { get }
@@ -167,7 +167,7 @@ var kOBEXOpCodeUserDefinedStart: OBEXOpCodeCommandValues { get }
 var kOBEXOpCodeUserDefinedEnd: OBEXOpCodeCommandValues { get }
 struct OBEXConnectFlagValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXConnectFlagNone: OBEXConnectFlagValues { get }
@@ -181,7 +181,7 @@ var kOBEXConnectFlag6Reserved: OBEXConnectFlagValues { get }
 var kOBEXConnectFlag7Reserved: OBEXConnectFlagValues { get }
 struct OBEXPutFlagValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXPutFlagNone: OBEXPutFlagValues { get }
@@ -195,7 +195,7 @@ var kOBEXPutFlag6Reserved: OBEXPutFlagValues { get }
 var kOBEXPutFlag7Reserved: OBEXPutFlagValues { get }
 struct OBEXNonceFlagValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXNonceFlagNone: OBEXNonceFlagValues { get }
@@ -209,7 +209,7 @@ var kOBEXNonceFlag6Reserved: OBEXNonceFlagValues { get }
 var kOBEXNonceFlag7Reserved: OBEXNonceFlagValues { get }
 struct OBEXRealmValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXRealmASCII: OBEXRealmValues { get }
@@ -225,7 +225,7 @@ var kOBEXRealmISO88599: OBEXRealmValues { get }
 var kOBEXRealmUNICODE: OBEXRealmValues { get }
 struct OBEXOpCodeSessionValues : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXOpCodeCreateSession: OBEXOpCodeSessionValues { get }
@@ -235,7 +235,7 @@ var kOBEXOpCodeResumeSession: OBEXOpCodeSessionValues { get }
 var kOBEXOpCodeSetTimeout: OBEXOpCodeSessionValues { get }
 struct OBEXSessionParameterTags : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXSessionParameterTagDeviceAddress: OBEXSessionParameterTags { get }
@@ -246,7 +246,7 @@ var kOBEXSessionParameterTagTimeout: OBEXSessionParameterTags { get }
 var kOBEXSessionParameterTagSessionOpcode: OBEXSessionParameterTags { get }
 struct OBEXVersions : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXVersion10: OBEXVersions { get }
@@ -265,28 +265,28 @@ struct OBEXConnectCommandResponseData {
   var version: OBEXVersion
   var flags: OBEXFlags
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int, maxPacketSize: OBEXMaxPacketLength, version: OBEXVersion, flags: OBEXFlags)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int, maxPacketSize maxPacketSize: OBEXMaxPacketLength, version version: OBEXVersion, flags flags: OBEXFlags)
 }
 struct OBEXDisconnectCommandResponseData {
   var serverResponseOpCode: OBEXOpCode
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXPutCommandResponseData {
   var serverResponseOpCode: OBEXOpCode
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXGetCommandResponseData {
   var serverResponseOpCode: OBEXOpCode
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXSetPathCommandResponseData {
   var serverResponseOpCode: OBEXOpCode
@@ -295,14 +295,14 @@ struct OBEXSetPathCommandResponseData {
   var flags: OBEXFlags
   var constants: OBEXConstants
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int, flags: OBEXFlags, constants: OBEXConstants)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int, flags flags: OBEXFlags, constants constants: OBEXConstants)
 }
 struct OBEXAbortCommandResponseData {
   var serverResponseOpCode: OBEXOpCode
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(serverResponseOpCode: OBEXOpCode, headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(serverResponseOpCode serverResponseOpCode: OBEXOpCode, headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXConnectCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
@@ -311,26 +311,26 @@ struct OBEXConnectCommandData {
   var version: OBEXVersion
   var flags: OBEXFlags
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int, maxPacketSize: OBEXMaxPacketLength, version: OBEXVersion, flags: OBEXFlags)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int, maxPacketSize maxPacketSize: OBEXMaxPacketLength, version version: OBEXVersion, flags flags: OBEXFlags)
 }
 struct OBEXDisconnectCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXPutCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   var bodyDataLeftToSend: Int
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int, bodyDataLeftToSend: Int)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int, bodyDataLeftToSend bodyDataLeftToSend: Int)
 }
 struct OBEXGetCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXSetPathCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
@@ -338,24 +338,24 @@ struct OBEXSetPathCommandData {
   var flags: OBEXFlags
   var constants: OBEXConstants
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int, flags: OBEXFlags, constants: OBEXConstants)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int, flags flags: OBEXFlags, constants constants: OBEXConstants)
 }
 struct OBEXAbortCommandData {
   var headerDataPtr: UnsafeMutablePointer<Void>
   var headerDataLength: Int
   init()
-  init(headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength: Int)
+  init(headerDataPtr headerDataPtr: UnsafeMutablePointer<Void>, headerDataLength headerDataLength: Int)
 }
 struct OBEXErrorData {
   var error: OBEXError
   var dataPtr: UnsafeMutablePointer<Void>
   var dataLength: Int
   init()
-  init(error: OBEXError, dataPtr: UnsafeMutablePointer<Void>, dataLength: Int)
+  init(error error: OBEXError, dataPtr dataPtr: UnsafeMutablePointer<Void>, dataLength dataLength: Int)
 }
 struct OBEXSessionEventTypes : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kOBEXSessionEventTypeConnectCommandResponseReceived: OBEXSessionEventTypes { get }
@@ -387,19 +387,19 @@ struct OBEXSessionEvent {
     var setPathCommandData: OBEXSetPathCommandData
     var abortCommandData: OBEXAbortCommandData
     var errorData: OBEXErrorData
-    init(connectCommandResponseData: OBEXConnectCommandResponseData)
-    init(disconnectCommandResponseData: OBEXDisconnectCommandResponseData)
-    init(putCommandResponseData: OBEXPutCommandResponseData)
-    init(getCommandResponseData: OBEXGetCommandResponseData)
-    init(setPathCommandResponseData: OBEXSetPathCommandResponseData)
-    init(abortCommandResponseData: OBEXAbortCommandResponseData)
-    init(connectCommandData: OBEXConnectCommandData)
-    init(disconnectCommandData: OBEXDisconnectCommandData)
-    init(putCommandData: OBEXPutCommandData)
-    init(getCommandData: OBEXGetCommandData)
-    init(setPathCommandData: OBEXSetPathCommandData)
-    init(abortCommandData: OBEXAbortCommandData)
-    init(errorData: OBEXErrorData)
+    init(connectCommandResponseData connectCommandResponseData: OBEXConnectCommandResponseData)
+    init(disconnectCommandResponseData disconnectCommandResponseData: OBEXDisconnectCommandResponseData)
+    init(putCommandResponseData putCommandResponseData: OBEXPutCommandResponseData)
+    init(getCommandResponseData getCommandResponseData: OBEXGetCommandResponseData)
+    init(setPathCommandResponseData setPathCommandResponseData: OBEXSetPathCommandResponseData)
+    init(abortCommandResponseData abortCommandResponseData: OBEXAbortCommandResponseData)
+    init(connectCommandData connectCommandData: OBEXConnectCommandData)
+    init(disconnectCommandData disconnectCommandData: OBEXDisconnectCommandData)
+    init(putCommandData putCommandData: OBEXPutCommandData)
+    init(getCommandData getCommandData: OBEXGetCommandData)
+    init(setPathCommandData setPathCommandData: OBEXSetPathCommandData)
+    init(abortCommandData abortCommandData: OBEXAbortCommandData)
+    init(errorData errorData: OBEXErrorData)
     init()
   }
   var type: OBEXSessionEventType
@@ -410,7 +410,7 @@ struct OBEXSessionEvent {
   var reserved2: UnsafeMutablePointer<Void>
   var u: OBEXSessionEvent.__Unnamed_union_u
   init()
-  init(type: OBEXSessionEventType, session: OBEXSessionRef, refCon: UnsafeMutablePointer<Void>, isEndOfEventData: DarwinBoolean, reserved1: UnsafeMutablePointer<Void>, reserved2: UnsafeMutablePointer<Void>, u: OBEXSessionEvent.__Unnamed_union_u)
+  init(type type: OBEXSessionEventType, session session: OBEXSessionRef, refCon refCon: UnsafeMutablePointer<Void>, isEndOfEventData isEndOfEventData: DarwinBoolean, reserved1 reserved1: UnsafeMutablePointer<Void>, reserved2 reserved2: UnsafeMutablePointer<Void>, u u: OBEXSessionEvent.__Unnamed_union_u)
 }
 typealias OBEXSessionEventCallback = @convention(c) (UnsafePointer<OBEXSessionEvent>) -> Void
 var kCharsetStringISO88591: String { get }
@@ -441,23 +441,23 @@ var kOBEXHeaderIDKeyUnknownByteSequence: Unmanaged<CFString>!
 var kOBEXHeaderIDKeyUnknown1ByteQuantity: Unmanaged<CFString>!
 var kOBEXHeaderIDKeyUnknown4ByteQuantity: Unmanaged<CFString>!
 var kOBEXHeaderIDKeyUserDefined: Unmanaged<CFString>!
-func OBEXGetHeaders(inData: UnsafePointer<Void>, _ inDataSize: Int) -> CFDictionary!
-func OBEXHeadersToBytes(dictionaryOfHeaders: CFDictionary!) -> Unmanaged<CFMutableData>!
-func OBEXAddNameHeader(name: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddDescriptionHeader(description: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddCountHeader(count: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddTime4ByteHeader(time4Byte: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddLengthHeader(length: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddTypeHeader(type: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddTimeISOHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddTargetHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddHTTPHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddBodyHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ isEndOfBody: Bool, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddWhoHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddConnectionIDHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddApplicationParameterHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddByteSequenceHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddObjectClassHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddAuthorizationChallengeHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddAuthorizationResponseHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
-func OBEXAddUserDefinedHeader(inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXGetHeaders(_ inData: UnsafePointer<Void>, _ inDataSize: Int) -> CFDictionary!
+func OBEXHeadersToBytes(_ dictionaryOfHeaders: CFDictionary!) -> Unmanaged<CFMutableData>!
+func OBEXAddNameHeader(_ name: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddDescriptionHeader(_ description: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddCountHeader(_ count: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddTime4ByteHeader(_ time4Byte: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddLengthHeader(_ length: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddTypeHeader(_ type: CFString!, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddTimeISOHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddTargetHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddHTTPHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddBodyHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ isEndOfBody: Bool, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddWhoHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddConnectionIDHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddApplicationParameterHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddByteSequenceHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddObjectClassHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddAuthorizationChallengeHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddAuthorizationResponseHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError
+func OBEXAddUserDefinedHeader(_ inHeaderData: UnsafePointer<Void>, _ inHeaderDataLength: UInt32, _ dictRef: CFMutableDictionary!) -> OBEXError

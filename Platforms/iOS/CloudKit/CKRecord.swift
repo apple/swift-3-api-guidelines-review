@@ -5,9 +5,9 @@ protocol CKRecordValue : NSObjectProtocol {
 }
 @available(iOS 8.0, *)
 class CKRecord : NSObject, NSSecureCoding, NSCopying {
-  init(recordType: String)
-  init(recordType: String, recordID: CKRecordID)
-  init(recordType: String, zoneID: CKRecordZoneID)
+  init(recordType recordType: String)
+  init(recordType recordType: String, recordID recordID: CKRecordID)
+  init(recordType recordType: String, zoneID zoneID: CKRecordZoneID)
   var recordType: String { get }
   @NSCopying var recordID: CKRecordID { get }
   var recordChangeTag: String? { get }
@@ -15,20 +15,20 @@ class CKRecord : NSObject, NSSecureCoding, NSCopying {
   @NSCopying var creationDate: NSDate? { get }
   @NSCopying var lastModifiedUserRecordID: CKRecordID? { get }
   @NSCopying var modificationDate: NSDate? { get }
-  func objectForKey(key: String) -> CKRecordValue?
-  func setObject(object: CKRecordValue?, forKey key: String)
+  func objectForKey(_ key: String) -> CKRecordValue?
+  func setObject(_ object: CKRecordValue?, forKey key: String)
   func allKeys() -> [String]
   func allTokens() -> [String]
-  subscript (key: String) -> CKRecordValue?
+  subscript(_ key: String) -> CKRecordValue?
   func changedKeys() -> [String]
-  func encodeSystemFieldsWithCoder(coder: NSCoder)
+  func encodeSystemFieldsWithCoder(_ coder: NSCoder)
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension NSString : CKRecordValue {
 }

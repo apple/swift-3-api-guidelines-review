@@ -17,12 +17,11 @@ class NEFilterProviderConfiguration : NSObject, NSSecureCoding, NSCopying {
   @NSCopying var passwordReference: NSData?
   @available(OSX 10.11, *)
   @NSCopying var identityReference: NSData?
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

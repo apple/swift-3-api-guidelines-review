@@ -1,6 +1,6 @@
 
 enum UITextBorderStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Line
@@ -8,7 +8,7 @@ enum UITextBorderStyle : Int {
   case RoundedRect
 }
 enum UITextFieldViewMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Never
   case WhileEditing
@@ -45,26 +45,21 @@ class UITextField : UIControl, UITextInput, NSCoding {
   var leftViewMode: UITextFieldViewMode
   var rightView: UIView?
   var rightViewMode: UITextFieldViewMode
-  func borderRectForBounds(bounds: CGRect) -> CGRect
-  func textRectForBounds(bounds: CGRect) -> CGRect
-  func placeholderRectForBounds(bounds: CGRect) -> CGRect
-  func editingRectForBounds(bounds: CGRect) -> CGRect
-  func clearButtonRectForBounds(bounds: CGRect) -> CGRect
-  func leftViewRectForBounds(bounds: CGRect) -> CGRect
-  func rightViewRectForBounds(bounds: CGRect) -> CGRect
-  func drawTextInRect(rect: CGRect)
-  func drawPlaceholderInRect(rect: CGRect)
-  var inputView: UIView?
-  var inputAccessoryView: UIView?
+  func borderRectForBounds(_ bounds: CGRect) -> CGRect
+  func textRectForBounds(_ bounds: CGRect) -> CGRect
+  func placeholderRectForBounds(_ bounds: CGRect) -> CGRect
+  func editingRectForBounds(_ bounds: CGRect) -> CGRect
+  func clearButtonRectForBounds(_ bounds: CGRect) -> CGRect
+  func leftViewRectForBounds(_ bounds: CGRect) -> CGRect
+  func rightViewRectForBounds(_ bounds: CGRect) -> CGRect
+  func drawTextInRect(_ rect: CGRect)
+  func drawPlaceholderInRect(_ rect: CGRect)
   @available(iOS 6.0, *)
   var clearsOnInsertion: Bool
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
   @available(iOS 3.2, *)
-  func textInRange(range: UITextRange) -> String?
+  func textInRange(_ range: UITextRange) -> String?
   @available(iOS 3.2, *)
-  func replaceRange(range: UITextRange, withText text: String)
+  func replaceRange(_ range: UITextRange, withText text: String)
   @available(iOS 3.2, *)
   @NSCopying var selectedTextRange: UITextRange?
   @available(iOS 3.2, *)
@@ -72,7 +67,7 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   var markedTextStyle: [NSObject : AnyObject]?
   @available(iOS 2.0, *)
-  func setMarkedText(markedText: String?, selectedRange: NSRange)
+  func setMarkedText(_ markedText: String?, selectedRange selectedRange: NSRange)
   @available(iOS 2.0, *)
   func unmarkText()
   @available(iOS 3.2, *)
@@ -80,53 +75,53 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 3.2, *)
   var endOfDocument: UITextPosition { get }
   @available(iOS 3.2, *)
-  func textRangeFromPosition(fromPosition: UITextPosition, toPosition: UITextPosition) -> UITextRange?
+  func textRangeFromPosition(_ fromPosition: UITextPosition, toPosition toPosition: UITextPosition) -> UITextRange?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, offset: Int) -> UITextPosition?
+  func positionFromPosition(_ position: UITextPosition, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func positionFromPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection, offset: Int) -> UITextPosition?
+  func positionFromPosition(_ position: UITextPosition, inDirection direction: UITextLayoutDirection, offset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func comparePosition(position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
+  func comparePosition(_ position: UITextPosition, toPosition other: UITextPosition) -> NSComparisonResult
   @available(iOS 3.2, *)
-  func offsetFromPosition(from: UITextPosition, toPosition: UITextPosition) -> Int
+  func offsetFromPosition(_ from: UITextPosition, toPosition toPosition: UITextPosition) -> Int
   @available(iOS 2.0, *)
   weak var inputDelegate: @sil_weak UITextInputDelegate?
   @available(iOS 2.0, *)
   var tokenizer: UITextInputTokenizer { get }
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
+  func positionWithinRange(_ range: UITextRange, farthestInDirection direction: UITextLayoutDirection) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeByExtendingPosition(position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
+  func characterRangeByExtendingPosition(_ position: UITextPosition, inDirection direction: UITextLayoutDirection) -> UITextRange?
   @available(iOS 3.2, *)
-  func baseWritingDirectionForPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
+  func baseWritingDirectionForPosition(_ position: UITextPosition, inDirection direction: UITextStorageDirection) -> UITextWritingDirection
   @available(iOS 3.2, *)
-  func setBaseWritingDirection(writingDirection: UITextWritingDirection, forRange range: UITextRange)
+  func setBaseWritingDirection(_ writingDirection: UITextWritingDirection, forRange range: UITextRange)
   @available(iOS 3.2, *)
-  func firstRectForRange(range: UITextRange) -> CGRect
+  func firstRectForRange(_ range: UITextRange) -> CGRect
   @available(iOS 3.2, *)
-  func caretRectForPosition(position: UITextPosition) -> CGRect
+  func caretRectForPosition(_ position: UITextPosition) -> CGRect
   @available(iOS 6.0, *)
-  func selectionRectsForRange(range: UITextRange) -> [AnyObject]
+  func selectionRectsForRange(_ range: UITextRange) -> [AnyObject]
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint) -> UITextPosition?
+  func closestPositionToPoint(_ point: CGPoint) -> UITextPosition?
   @available(iOS 3.2, *)
-  func closestPositionToPoint(point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
+  func closestPositionToPoint(_ point: CGPoint, withinRange range: UITextRange) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterRangeAtPoint(point: CGPoint) -> UITextRange?
+  func characterRangeAtPoint(_ point: CGPoint) -> UITextRange?
   @available(iOS 6.0, *)
-  func shouldChangeTextInRange(range: UITextRange, replacementText text: String) -> Bool
+  func shouldChangeTextInRange(_ range: UITextRange, replacementText text: String) -> Bool
   @available(iOS 3.2, *)
-  func textStylingAtPosition(position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
+  func textStylingAtPosition(_ position: UITextPosition, inDirection direction: UITextStorageDirection) -> [String : AnyObject]?
   @available(iOS 3.2, *)
-  func positionWithinRange(range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
+  func positionWithinRange(_ range: UITextRange, atCharacterOffset offset: Int) -> UITextPosition?
   @available(iOS 3.2, *)
-  func characterOffsetOfPosition(position: UITextPosition, withinRange range: UITextRange) -> Int
+  func characterOffsetOfPosition(_ position: UITextPosition, withinRange range: UITextRange) -> Int
   @available(iOS 2.0, *)
   var textInputView: UIView { get }
   @available(iOS 2.0, *)
   var selectionAffinity: UITextStorageDirection
   @available(iOS 5.1, *)
-  func insertDictationResult(dictationResult: [UIDictationPhrase])
+  func insertDictationResult(_ dictationResult: [UIDictationPhrase])
   @available(iOS 2.0, *)
   func dictationRecordingDidEnd()
   @available(iOS 2.0, *)
@@ -134,19 +129,19 @@ class UITextField : UIControl, UITextInput, NSCoding {
   @available(iOS 2.0, *)
   func insertDictationResultPlaceholder() -> AnyObject
   @available(iOS 2.0, *)
-  func frameForDictationResultPlaceholder(placeholder: AnyObject) -> CGRect
+  func frameForDictationResultPlaceholder(_ placeholder: AnyObject) -> CGRect
   @available(iOS 2.0, *)
-  func removeDictationResultPlaceholder(placeholder: AnyObject, willInsertResult: Bool)
+  func removeDictationResultPlaceholder(_ placeholder: AnyObject, willInsertResult willInsertResult: Bool)
   @available(iOS 9.0, *)
-  func beginFloatingCursorAtPoint(point: CGPoint)
+  func beginFloatingCursorAtPoint(_ point: CGPoint)
   @available(iOS 9.0, *)
-  func updateFloatingCursorAtPoint(point: CGPoint)
+  func updateFloatingCursorAtPoint(_ point: CGPoint)
   @available(iOS 9.0, *)
   func endFloatingCursor()
   @available(iOS 2.0, *)
   func hasText() -> Bool
   @available(iOS 2.0, *)
-  func insertText(text: String)
+  func insertText(_ text: String)
   @available(iOS 2.0, *)
   func deleteBackward()
   @available(iOS 2.0, *)
@@ -167,23 +162,23 @@ class UITextField : UIControl, UITextInput, NSCoding {
   var secureTextEntry: Bool
 }
 extension UIView {
-  func endEditing(force: Bool) -> Bool
+  func endEditing(_ force: Bool) -> Bool
 }
 protocol UITextFieldDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func textFieldShouldBeginEditing(textField: UITextField) -> Bool
+  optional func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidBeginEditing(textField: UITextField)
+  optional func textFieldDidBeginEditing(_ textField: UITextField)
   @available(iOS 2.0, *)
-  optional func textFieldShouldEndEditing(textField: UITextField) -> Bool
+  optional func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldDidEndEditing(textField: UITextField)
+  optional func textFieldDidEndEditing(_ textField: UITextField)
   @available(iOS 2.0, *)
-  optional func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+  optional func textField(_ textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldShouldClear(textField: UITextField) -> Bool
+  optional func textFieldShouldClear(_ textField: UITextField) -> Bool
   @available(iOS 2.0, *)
-  optional func textFieldShouldReturn(textField: UITextField) -> Bool
+  optional func textFieldShouldReturn(_ textField: UITextField) -> Bool
 }
 let UITextFieldTextDidBeginEditingNotification: String
 let UITextFieldTextDidEndEditingNotification: String

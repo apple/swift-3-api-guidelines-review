@@ -19,29 +19,28 @@ class NSUndoManager : NSObject {
   var undoing: Bool { get }
   var redoing: Bool { get }
   func removeAllActions()
-  func removeAllActionsWithTarget(target: AnyObject)
-  func registerUndoWithTarget(target: AnyObject, selector: Selector, object anObject: AnyObject?)
-  func prepareWithInvocationTarget(target: AnyObject) -> AnyObject
+  func removeAllActionsWithTarget(_ target: AnyObject)
+  func registerUndoWithTarget(_ target: AnyObject, selector selector: Selector, object anObject: AnyObject?)
+  func prepareWithInvocationTarget(_ target: AnyObject) -> AnyObject
   @available(OSX 10.11, *)
-  func __registerUndoWithTarget(target: AnyObject, handler undoHandler: (AnyObject) -> Void)
+  func __registerUndoWithTarget(_ target: AnyObject, handler undoHandler: (AnyObject) -> Void)
   @available(OSX 10.7, *)
-  func setActionIsDiscardable(discardable: Bool)
+  func setActionIsDiscardable(_ discardable: Bool)
   @available(OSX 10.7, *)
   var undoActionIsDiscardable: Bool { get }
   @available(OSX 10.7, *)
   var redoActionIsDiscardable: Bool { get }
   var undoActionName: String { get }
   var redoActionName: String { get }
-  func setActionName(actionName: String)
+  func setActionName(_ actionName: String)
   var undoMenuItemTitle: String { get }
   var redoMenuItemTitle: String { get }
-  func undoMenuTitleForUndoActionName(actionName: String) -> String
-  func redoMenuTitleForUndoActionName(actionName: String) -> String
-  init()
+  func undoMenuTitleForUndoActionName(_ actionName: String) -> String
+  func redoMenuTitleForUndoActionName(_ actionName: String) -> String
 }
 
 extension NSUndoManager {
-  func registerUndoWithTarget<TargetType : AnyObject>(target: TargetType, handler: (TargetType) -> Void)
+  func registerUndoWithTarget<TargetType : AnyObject>(_ target: TargetType, handler handler: (TargetType) -> Void)
 }
 @available(OSX 10.7, *)
 let NSUndoManagerGroupIsDiscardableKey: String

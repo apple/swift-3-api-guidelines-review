@@ -7,16 +7,15 @@ let WebHistorySavedNotification: String
 let WebHistoryItemsKey: String
 class WebHistory : NSObject {
   class func optionalSharedHistory() -> WebHistory!
-  class func setOptionalSharedHistory(history: WebHistory!)
-  func loadFromURL(URL: NSURL!) throws
-  func saveToURL(URL: NSURL!) throws
-  func addItems(newItems: [AnyObject]!)
-  func removeItems(items: [AnyObject]!)
+  class func setOptionalSharedHistory(_ history: WebHistory!)
+  func loadFromURL(_ URL: NSURL!) throws
+  func saveToURL(_ URL: NSURL!) throws
+  func addItems(_ newItems: [AnyObject]!)
+  func removeItems(_ items: [AnyObject]!)
   func removeAllItems()
   var orderedLastVisitedDays: [AnyObject]! { get }
-  func orderedItemsLastVisitedOnDay(calendarDate: NSCalendarDate!) -> [AnyObject]!
-  func itemForURL(URL: NSURL!) -> WebHistoryItem!
+  func orderedItemsLastVisitedOnDay(_ calendarDate: NSCalendarDate!) -> [AnyObject]!
+  func itemForURL(_ URL: NSURL!) -> WebHistoryItem!
   var historyItemLimit: Int32
   var historyAgeInDaysLimit: Int32
-  init()
 }

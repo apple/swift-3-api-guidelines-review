@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum NEVPNStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Invalid
   case Disconnected
@@ -21,12 +21,11 @@ class NEVPNConnection : NSObject {
   @available(OSX 10.10, *)
   func startVPNTunnel() throws
   @available(OSX 10.11, *)
-  func startVPNTunnelWithOptions(options: [String : NSObject]?) throws
+  func startVPNTunnelWithOptions(_ options: [String : NSObject]?) throws
   @available(OSX 10.10, *)
   func stopVPNTunnel()
   @available(OSX 10.10, *)
   var status: NEVPNStatus { get }
   @available(OSX 10.11, *)
   var connectedDate: NSDate? { get }
-  init()
 }

@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 struct UIFontDescriptorSymbolicTraits : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var TraitItalic: UIFontDescriptorSymbolicTraits { get }
   static var TraitBold: UIFontDescriptorSymbolicTraits { get }
@@ -28,31 +28,30 @@ struct UIFontDescriptorSymbolicTraits : OptionSetType {
 typealias UIFontDescriptorClass = Int
 @available(watchOS 2.0, *)
 class UIFontDescriptor : NSObject, NSCopying, NSSecureCoding {
-  convenience init()
   init?(coder aDecoder: NSCoder)
   var postscriptName: String { get }
   var pointSize: CGFloat { get }
   var matrix: CGAffineTransform { get }
   var symbolicTraits: UIFontDescriptorSymbolicTraits { get }
-  func objectForKey(anAttribute: String) -> AnyObject?
+  func objectForKey(_ anAttribute: String) -> AnyObject?
   func fontAttributes() -> [String : AnyObject]
-  func matchingFontDescriptorsWithMandatoryKeys(mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
-  /*not inherited*/ init(name fontName: String, size: CGFloat)
-  /*not inherited*/ init(name fontName: String, matrix: CGAffineTransform)
-  class func preferredFontDescriptorWithTextStyle(style: String) -> UIFontDescriptor
+  func matchingFontDescriptorsWithMandatoryKeys(_ mandatoryKeys: Set<String>?) -> [UIFontDescriptor]
+  /*not inherited*/ init(name fontName: String, size size: CGFloat)
+  /*not inherited*/ init(name fontName: String, matrix matrix: CGAffineTransform)
+  class func preferredFontDescriptorWithTextStyle(_ style: String) -> UIFontDescriptor
   init(fontAttributes attributes: [String : AnyObject])
-  func fontDescriptorByAddingAttributes(attributes: [String : AnyObject]) -> UIFontDescriptor
-  func fontDescriptorWithSymbolicTraits(symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
-  func fontDescriptorWithSize(newPointSize: CGFloat) -> UIFontDescriptor
-  func fontDescriptorWithMatrix(matrix: CGAffineTransform) -> UIFontDescriptor
-  func fontDescriptorWithFace(newFace: String) -> UIFontDescriptor
-  func fontDescriptorWithFamily(newFamily: String) -> UIFontDescriptor
+  func fontDescriptorByAddingAttributes(_ attributes: [String : AnyObject]) -> UIFontDescriptor
+  func fontDescriptorWithSymbolicTraits(_ symbolicTraits: UIFontDescriptorSymbolicTraits) -> UIFontDescriptor
+  func fontDescriptorWithSize(_ newPointSize: CGFloat) -> UIFontDescriptor
+  func fontDescriptorWithMatrix(_ matrix: CGAffineTransform) -> UIFontDescriptor
+  func fontDescriptorWithFace(_ newFace: String) -> UIFontDescriptor
+  func fontDescriptorWithFamily(_ newFamily: String) -> UIFontDescriptor
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 @available(watchOS 2.0, *)
 let UIFontDescriptorFamilyAttribute: String

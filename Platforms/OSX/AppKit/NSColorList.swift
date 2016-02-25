@@ -2,20 +2,19 @@
 class NSColorList : NSObject, NSSecureCoding {
   class func availableColorLists() -> [NSColorList]
   /*not inherited*/ init?(named name: String)
-  init(name: String)
-  init?(name: String, fromFile path: String?)
+  init(name name: String)
+  init?(name name: String, fromFile path: String?)
   var name: String? { get }
-  func setColor(color: NSColor, forKey key: String)
-  func insertColor(color: NSColor, key: String, atIndex loc: Int)
-  func removeColorWithKey(key: String)
-  func colorWithKey(key: String) -> NSColor?
+  func setColor(_ color: NSColor, forKey key: String)
+  func insertColor(_ color: NSColor, key key: String, atIndex loc: Int)
+  func removeColorWithKey(_ key: String)
+  func colorWithKey(_ key: String) -> NSColor?
   var allKeys: [String] { get }
   var editable: Bool { get }
-  func writeToFile(path: String?) -> Bool
+  func writeToFile(_ path: String?) -> Bool
   func removeFile()
-  init()
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct _colorListFlags {
@@ -28,6 +27,6 @@ struct _colorListFlags {
   var hasAttemptedLoadingBundleForDirectory: UInt32
   var isProfileBased: UInt32
   init()
-  init(colorsLoaded: UInt32, editable: UInt32, hasDeviceSpecificLists: UInt32, dirty: UInt32, hasFrozen: UInt32, notificationsDisabled: UInt32, hasAttemptedLoadingBundleForDirectory: UInt32, isProfileBased: UInt32)
+  init(colorsLoaded colorsLoaded: UInt32, editable editable: UInt32, hasDeviceSpecificLists hasDeviceSpecificLists: UInt32, dirty dirty: UInt32, hasFrozen hasFrozen: UInt32, notificationsDisabled notificationsDisabled: UInt32, hasAttemptedLoadingBundleForDirectory hasAttemptedLoadingBundleForDirectory: UInt32, isProfileBased isProfileBased: UInt32)
 }
 let NSColorListDidChangeNotification: String

@@ -1,6 +1,6 @@
 
 enum NSLevelIndicatorStyle : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case RelevancyLevelIndicatorStyle
   case ContinuousCapacityLevelIndicatorStyle
@@ -8,7 +8,7 @@ enum NSLevelIndicatorStyle : UInt {
   case RatingLevelIndicatorStyle
 }
 class NSLevelIndicatorCell : NSActionCell {
-  init(levelIndicatorStyle: NSLevelIndicatorStyle)
+  init(levelIndicatorStyle levelIndicatorStyle: NSLevelIndicatorStyle)
   var levelIndicatorStyle: NSLevelIndicatorStyle
   var minValue: Double
   var maxValue: Double
@@ -17,11 +17,7 @@ class NSLevelIndicatorCell : NSActionCell {
   var tickMarkPosition: NSTickMarkPosition
   var numberOfTickMarks: Int
   var numberOfMajorTickMarks: Int
-  func rectOfTickMarkAtIndex(index: Int) -> NSRect
-  func tickMarkValueAtIndex(index: Int) -> Double
-  func setImage(image: NSImage?)
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
+  func rectOfTickMarkAtIndex(_ index: Int) -> NSRect
+  func tickMarkValueAtIndex(_ index: Int) -> Double
+  func setImage(_ image: NSImage?)
 }

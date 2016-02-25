@@ -14,7 +14,7 @@ class DOMUIEvent : DOMEvent {
   @available(OSX 10.5, *)
   var which: Int32 { get }
   @available(OSX 10.5, *)
-  func initUIEvent(type: String!, canBubble: Bool, cancelable: Bool, view: DOMAbstractView!, detail: Int32)
+  func initUIEvent(_ type: String!, canBubble canBubble: Bool, cancelable cancelable: Bool, view view: DOMAbstractView!, detail detail: Int32)
 }
 extension DOMUIEvent {
 }

@@ -7,7 +7,7 @@ class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   var transient: Bool
   var validationPredicates: [NSPredicate] { get }
   var validationWarnings: [AnyObject] { get }
-  func setValidationPredicates(validationPredicates: [NSPredicate]?, withValidationWarnings validationWarnings: [String]?)
+  func setValidationPredicates(_ validationPredicates: [NSPredicate]?, withValidationWarnings validationWarnings: [String]?)
   var userInfo: [NSObject : AnyObject]?
   @available(iOS 3.0, *)
   var indexed: Bool
@@ -21,12 +21,11 @@ class NSPropertyDescription : NSObject, NSCoding, NSCopying {
   var storedInExternalRecord: Bool
   @available(iOS 3.0, *)
   var renamingIdentifier: String?
-  init()
   @available(iOS 3.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 3.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 struct __propertyDescriptionFlags {
   var _isReadOnly: UInt32
@@ -40,5 +39,5 @@ struct __propertyDescriptionFlags {
   var _isOrdered: UInt32
   var _reservedPropertyDescription: UInt32
   init()
-  init(_isReadOnly: UInt32, _isTransient: UInt32, _isOptional: UInt32, _isIndexed: UInt32, _skipValidation: UInt32, _isIndexedBySpotlight: UInt32, _isStoredInExternalRecord: UInt32, _extraIvarsAreInDataBlob: UInt32, _isOrdered: UInt32, _reservedPropertyDescription: UInt32)
+  init(_isReadOnly _isReadOnly: UInt32, _isTransient _isTransient: UInt32, _isOptional _isOptional: UInt32, _isIndexed _isIndexed: UInt32, _skipValidation _skipValidation: UInt32, _isIndexedBySpotlight _isIndexedBySpotlight: UInt32, _isStoredInExternalRecord _isStoredInExternalRecord: UInt32, _extraIvarsAreInDataBlob _extraIvarsAreInDataBlob: UInt32, _isOrdered _isOrdered: UInt32, _reservedPropertyDescription _reservedPropertyDescription: UInt32)
 }

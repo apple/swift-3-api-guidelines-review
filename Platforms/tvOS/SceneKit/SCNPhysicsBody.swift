@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum SCNPhysicsBodyType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Static
   case Dynamic
@@ -9,7 +9,7 @@ enum SCNPhysicsBodyType : Int {
 }
 @available(tvOS 8.0, *)
 struct SCNPhysicsCollisionCategory : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Default: SCNPhysicsCollisionCategory { get }
   static var Static: SCNPhysicsCollisionCategory { get }
@@ -20,7 +20,7 @@ class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
   class func staticBody() -> Self
   class func dynamicBody() -> Self
   class func kinematicBody() -> Self
-  convenience init(type: SCNPhysicsBodyType, shape: SCNPhysicsShape?)
+  convenience init(type type: SCNPhysicsBodyType, shape shape: SCNPhysicsShape?)
   var type: SCNPhysicsBodyType
   var mass: CGFloat
   @available(tvOS 9.0, *)
@@ -46,17 +46,16 @@ class SCNPhysicsBody : NSObject, NSCopying, NSSecureCoding {
   var contactTestBitMask: Int
   @available(tvOS 9.0, *)
   var affectedByGravity: Bool
-  func applyForce(direction: SCNVector3, impulse: Bool)
-  func applyForce(direction: SCNVector3, atPosition position: SCNVector3, impulse: Bool)
-  func applyTorque(torque: SCNVector4, impulse: Bool)
+  func applyForce(_ direction: SCNVector3, impulse impulse: Bool)
+  func applyForce(_ direction: SCNVector3, atPosition position: SCNVector3, impulse impulse: Bool)
+  func applyTorque(_ torque: SCNVector4, impulse impulse: Bool)
   func clearAllForces()
   func resetTransform()
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

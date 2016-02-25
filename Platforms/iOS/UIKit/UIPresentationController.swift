@@ -1,13 +1,13 @@
 
 protocol UIAdaptivePresentationControllerDelegate : NSObjectProtocol {
   @available(iOS 8.0, *)
-  optional func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyleForPresentationController(_ controller: UIPresentationController) -> UIModalPresentationStyle
   @available(iOS 8.3, *)
-  optional func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  optional func adaptivePresentationStyleForPresentationController(_ controller: UIPresentationController, traitCollection traitCollection: UITraitCollection) -> UIModalPresentationStyle
   @available(iOS 8.0, *)
-  optional func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
+  optional func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController?
   @available(iOS 8.3, *)
-  optional func presentationController(presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator: UIViewControllerTransitionCoordinator?)
+  optional func presentationController(_ presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator transitionCoordinator: UIViewControllerTransitionCoordinator?)
 }
 @available(iOS 8.0, *)
 class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment {
@@ -16,10 +16,10 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   var presentationStyle: UIModalPresentationStyle { get }
   var containerView: UIView? { get }
   weak var delegate: @sil_weak UIAdaptivePresentationControllerDelegate?
-  init(presentedViewController: UIViewController, presentingViewController: UIViewController)
+  init(presentedViewController presentedViewController: UIViewController, presentingViewController presentingViewController: UIViewController)
   func adaptivePresentationStyle() -> UIModalPresentationStyle
   @available(iOS 8.3, *)
-  func adaptivePresentationStyleForTraitCollection(traitCollection: UITraitCollection) -> UIModalPresentationStyle
+  func adaptivePresentationStyleForTraitCollection(_ traitCollection: UITraitCollection) -> UIModalPresentationStyle
   func containerViewWillLayoutSubviews()
   func containerViewDidLayoutSubviews()
   func presentedView() -> UIView?
@@ -27,27 +27,26 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   func shouldPresentInFullscreen() -> Bool
   func shouldRemovePresentersView() -> Bool
   func presentationTransitionWillBegin()
-  func presentationTransitionDidEnd(completed: Bool)
+  func presentationTransitionDidEnd(_ completed: Bool)
   func dismissalTransitionWillBegin()
-  func dismissalTransitionDidEnd(completed: Bool)
+  func dismissalTransitionDidEnd(_ completed: Bool)
   @NSCopying var overrideTraitCollection: UITraitCollection?
-  init()
   @available(iOS 8.0, *)
   var traitCollection: UITraitCollection { get }
   @available(iOS 8.0, *)
-  func traitCollectionDidChange(previousTraitCollection: UITraitCollection?)
+  func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?)
   @available(iOS 8.0, *)
   var preferredContentSize: CGSize { get }
   @available(iOS 8.0, *)
-  func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func preferredContentSizeDidChangeForChildContentContainer(_ container: UIContentContainer)
   @available(iOS 8.0, *)
-  func systemLayoutFittingSizeDidChangeForChildContentContainer(container: UIContentContainer)
+  func systemLayoutFittingSizeDidChangeForChildContentContainer(_ container: UIContentContainer)
   @available(iOS 8.0, *)
-  func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
+  func sizeForChildContentContainer(_ container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize
   @available(iOS 8.0, *)
-  func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func viewWillTransitionToSize(_ size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 8.0, *)
-  func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+  func willTransitionToTraitCollection(_ newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
   @available(iOS 9.0, *)
   weak var preferredFocusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)
@@ -55,7 +54,7 @@ class UIPresentationController : NSObject, UIAppearanceContainer, UITraitEnviron
   @available(iOS 9.0, *)
   func updateFocusIfNeeded()
   @available(iOS 9.0, *)
-  func shouldUpdateFocusInContext(context: UIFocusUpdateContext) -> Bool
+  func shouldUpdateFocusInContext(_ context: UIFocusUpdateContext) -> Bool
   @available(iOS 9.0, *)
-  func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+  func didUpdateFocusInContext(_ context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
 }

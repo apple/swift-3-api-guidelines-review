@@ -42,28 +42,27 @@ class CWInterface : NSObject {
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use +[CWWiFiClient interfaceNames] instead")
   class func interfaceNames() -> Set<String>?
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use -[CWWiFiClient interfaceWithName:] instead")
-  convenience init(name: String)
+  convenience init(name name: String)
   @available(OSX, introduced=10.6, deprecated=10.10, message="Use -[CWWiFiClient interfaceWithName:] instead")
   init(interfaceName name: String)
   @available(OSX 10.6, *)
-  func setPower(power: Bool) throws
+  func setPower(_ power: Bool) throws
   @available(OSX 10.7, *)
-  func setWLANChannel(channel: CWChannel) throws
+  func setWLANChannel(_ channel: CWChannel) throws
   @available(OSX 10.6, *)
-  func setPairwiseMasterKey(key: NSData?) throws
+  func setPairwiseMasterKey(_ key: NSData?) throws
   @available(OSX 10.6, *)
-  func setWEPKey(key: NSData?, flags: CWCipherKeyFlags, index: Int) throws
+  func setWEPKey(_ key: NSData?, flags flags: CWCipherKeyFlags, index index: Int) throws
   @available(OSX 10.7, *)
-  func scanForNetworksWithSSID(ssid: NSData?) throws -> Set<CWNetwork>
+  func scanForNetworksWithSSID(_ ssid: NSData?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
-  func scanForNetworksWithName(networkName: String?) throws -> Set<CWNetwork>
+  func scanForNetworksWithName(_ networkName: String?) throws -> Set<CWNetwork>
   @available(OSX 10.7, *)
-  func associateToNetwork(network: CWNetwork, password: String?) throws
+  func associateToNetwork(_ network: CWNetwork, password password: String?) throws
   @available(OSX 10.6, *)
   func disassociate()
   @available(OSX 10.7, *)
-  func associateToEnterpriseNetwork(network: CWNetwork, identity: SecIdentity?, username: String?, password: String?) throws
+  func associateToEnterpriseNetwork(_ network: CWNetwork, identity identity: SecIdentity?, username username: String?, password password: String?) throws
   @available(OSX 10.7, *)
-  func startIBSSModeWithSSID(ssidData: NSData, security: CWIBSSModeSecurity, channel: Int, password: String?) throws
-  init()
+  func startIBSSModeWithSSID(_ ssidData: NSData, security security: CWIBSSModeSecurity, channel channel: Int, password password: String?) throws
 }

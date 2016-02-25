@@ -2,7 +2,6 @@
 @available(tvOS 8.0, *)
 class MTLComputePipelineReflection : NSObject {
   var arguments: [MTLArgument] { get }
-  init()
 }
 @available(tvOS 9.0, *)
 class MTLComputePipelineDescriptor : NSObject, NSCopying {
@@ -10,9 +9,8 @@ class MTLComputePipelineDescriptor : NSObject, NSCopying {
   var computeFunction: MTLFunction?
   var threadGroupSizeIsMultipleOfThreadExecutionWidth: Bool
   func reset()
-  init()
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 protocol MTLComputePipelineState : NSObjectProtocol {

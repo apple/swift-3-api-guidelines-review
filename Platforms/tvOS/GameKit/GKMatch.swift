@@ -1,12 +1,12 @@
 
 enum GKMatchSendDataMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Reliable
   case Unreliable
 }
 enum GKPlayerConnectionState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case StateUnknown
   case StateConnected
@@ -19,27 +19,26 @@ class GKMatch : NSObject {
   unowned(unsafe) var delegate: @sil_unmanaged GKMatchDelegate?
   var expectedPlayerCount: Int { get }
   @available(tvOS 8.0, *)
-  func sendData(data: NSData, toPlayers players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
-  func sendDataToAllPlayers(data: NSData, withDataMode mode: GKMatchSendDataMode) throws
+  func sendData(_ data: NSData, toPlayers players: [GKPlayer], dataMode mode: GKMatchSendDataMode) throws
+  func sendDataToAllPlayers(_ data: NSData, withDataMode mode: GKMatchSendDataMode) throws
   func disconnect()
-  func voiceChatWithName(name: String) -> GKVoiceChat?
+  func voiceChatWithName(_ name: String) -> GKVoiceChat?
   @available(tvOS 8.0, *)
-  func chooseBestHostingPlayerWithCompletionHandler(completionHandler: (GKPlayer?) -> Void)
+  func chooseBestHostingPlayerWithCompletionHandler(_ completionHandler: (GKPlayer?) -> Void)
   @available(tvOS 6.0, *)
-  func rematchWithCompletionHandler(completionHandler: ((GKMatch?, NSError?) -> Void)?)
-  init()
+  func rematchWithCompletionHandler(_ completionHandler: ((GKMatch?, NSError?) -> Void)?)
 }
 protocol GKMatchDelegate : NSObjectProtocol {
   @available(tvOS 8.0, *)
-  optional func match(match: GKMatch, didReceiveData data: NSData, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceiveData data: NSData, fromRemotePlayer player: GKPlayer)
   @available(tvOS 9.0, *)
-  optional func match(match: GKMatch, didReceiveData data: NSData, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
+  optional func match(_ match: GKMatch, didReceiveData data: NSData, forRecipient recipient: GKPlayer, fromRemotePlayer player: GKPlayer)
   @available(tvOS 4.1, *)
-  optional func match(match: GKMatch, player: GKPlayer, didChangeConnectionState state: GKPlayerConnectionState)
+  optional func match(_ match: GKMatch, player player: GKPlayer, didChangeConnectionState state: GKPlayerConnectionState)
   @available(tvOS 4.1, *)
-  optional func match(match: GKMatch, didFailWithError error: NSError?)
+  optional func match(_ match: GKMatch, didFailWithError error: NSError?)
   @available(tvOS 8.0, *)
-  optional func match(match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
+  optional func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool
 }
 extension GKMatch {
 }

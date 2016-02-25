@@ -113,10 +113,10 @@ let kCVImageBufferAlphaChannelIsOpaque: CFString
 typealias CVImageBufferRef = CVImageBuffer
 typealias CVImageBuffer = CVBuffer
 @available(iOS 4.0, *)
-func CVImageBufferGetEncodedSize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetEncodedSize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(iOS 4.0, *)
-func CVImageBufferGetDisplaySize(imageBuffer: CVImageBuffer) -> CGSize
+func CVImageBufferGetDisplaySize(_ imageBuffer: CVImageBuffer) -> CGSize
 @available(iOS 4.0, *)
-func CVImageBufferGetCleanRect(imageBuffer: CVImageBuffer) -> CGRect
+func CVImageBufferGetCleanRect(_ imageBuffer: CVImageBuffer) -> CGRect
 @available(iOS 4.0, *)
-func CVImageBufferIsFlipped(imageBuffer: CVImageBuffer) -> Bool
+func CVImageBufferIsFlipped(_ imageBuffer: CVImageBuffer) -> Bool

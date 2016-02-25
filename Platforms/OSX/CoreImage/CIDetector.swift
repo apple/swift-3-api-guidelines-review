@@ -2,12 +2,11 @@
 @available(OSX 10.7, *)
 class CIDetector : NSObject {
   @available(OSX 10.7, *)
-  /*not inherited*/ init(ofType type: String, context: CIContext?, options: [String : AnyObject]?)
+  /*not inherited*/ init(ofType type: String, context context: CIContext?, options options: [String : AnyObject]?)
   @available(OSX 10.7, *)
-  func featuresInImage(image: CIImage) -> [CIFeature]
+  func featuresInImage(_ image: CIImage) -> [CIFeature]
   @available(OSX 10.8, *)
-  func featuresInImage(image: CIImage, options: [String : AnyObject]?) -> [CIFeature]
-  init()
+  func featuresInImage(_ image: CIImage, options options: [String : AnyObject]?) -> [CIFeature]
 }
 @available(OSX 10.7, *)
 let CIDetectorTypeFace: String

@@ -11,5 +11,4 @@ class MLMediaGroup : NSObject {
   @NSCopying var URL: NSURL? { get }
   @NSCopying var modificationDate: NSDate? { get }
   var mediaObjects: [MLMediaObject]? { get }
-  init()
 }

@@ -1,13 +1,12 @@
 
 @available(OSX 10.6, *)
 enum NSTaskTerminationReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Exit
   case UncaughtSignal
 }
 class NSTask : NSObject {
-  init()
   var launchPath: String?
   var arguments: [String]?
   var environment: [String : String]?
@@ -31,7 +30,7 @@ class NSTask : NSObject {
   var qualityOfService: NSQualityOfService
 }
 extension NSTask {
-  class func launchedTaskWithLaunchPath(path: String, arguments: [String]) -> NSTask
+  class func launchedTaskWithLaunchPath(_ path: String, arguments arguments: [String]) -> NSTask
   func waitUntilExit()
 }
 let NSTaskDidTerminateNotification: String

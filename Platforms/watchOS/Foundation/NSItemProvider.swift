@@ -3,15 +3,14 @@ typealias NSItemProviderCompletionHandler = (NSSecureCoding?, NSError!) -> Void
 typealias NSItemProviderLoadHandler = (NSItemProviderCompletionHandler!, AnyClass!, [NSObject : AnyObject]!) -> Void
 @available(watchOS 2.0, *)
 class NSItemProvider : NSObject, NSCopying {
-  init(item: NSSecureCoding?, typeIdentifier: String?)
+  init(item item: NSSecureCoding?, typeIdentifier typeIdentifier: String?)
   convenience init?(contentsOfURL fileURL: NSURL!)
-  func registerItemForTypeIdentifier(typeIdentifier: String, loadHandler: NSItemProviderLoadHandler)
+  func registerItemForTypeIdentifier(_ typeIdentifier: String, loadHandler loadHandler: NSItemProviderLoadHandler)
   var registeredTypeIdentifiers: [AnyObject] { get }
-  func hasItemConformingToTypeIdentifier(typeIdentifier: String) -> Bool
-  func loadItemForTypeIdentifier(typeIdentifier: String, options: [NSObject : AnyObject]?, completionHandler: NSItemProviderCompletionHandler?)
-  convenience init()
+  func hasItemConformingToTypeIdentifier(_ typeIdentifier: String) -> Bool
+  func loadItemForTypeIdentifier(_ typeIdentifier: String, options options: [NSObject : AnyObject]?, completionHandler completionHandler: NSItemProviderCompletionHandler?)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(watchOS 2.0, *)
 let NSItemProviderPreferredImageSizeKey: String
@@ -19,7 +18,7 @@ extension NSItemProvider {
   @available(watchOS 2.0, *)
   var previewImageHandler: NSItemProviderLoadHandler?
   @available(watchOS 2.0, *)
-  func loadPreviewImageWithOptions(options: [NSObject : AnyObject]!, completionHandler: NSItemProviderCompletionHandler!)
+  func loadPreviewImageWithOptions(_ options: [NSObject : AnyObject]!, completionHandler completionHandler: NSItemProviderCompletionHandler!)
 }
 @available(watchOS 2.0, *)
 let NSExtensionJavaScriptPreprocessingResultsKey: String
@@ -29,7 +28,7 @@ let NSExtensionJavaScriptFinalizeArgumentKey: String
 let NSItemProviderErrorDomain: String
 @available(watchOS 2.0, *)
 enum NSItemProviderErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case UnknownError
   case ItemUnavailableError

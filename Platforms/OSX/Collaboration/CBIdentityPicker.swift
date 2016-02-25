@@ -5,8 +5,7 @@ class CBIdentityPicker : NSObject {
   var allowsMultipleSelection: Bool
   func runModal() -> Int
   @available(OSX, introduced=10.5, deprecated=10.11)
-  func runModalForWindow(window: NSWindow, modalDelegate delegate: AnyObject?, didEndSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func runModalForWindow(window: NSWindow, completionHandler: ((NSModalResponse) -> Void)?)
+  func runModalForWindow(_ window: NSWindow, modalDelegate delegate: AnyObject?, didEndSelector didEndSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func runModalForWindow(_ window: NSWindow, completionHandler completionHandler: ((NSModalResponse) -> Void)?)
   var identities: [CBIdentity] { get }
-  init()
 }

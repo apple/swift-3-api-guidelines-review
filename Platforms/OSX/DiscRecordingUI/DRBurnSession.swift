@@ -8,9 +8,9 @@ func DRBurnSessionGetTypeID() -> CFTypeID
 @available(OSX 10.3, *)
 func DRBurnSessionCreate() -> Unmanaged<DRBurnSession>!
 @available(OSX 10.3, *)
-func DRBurnSessionSetBurn(burnSession: DRBurnSession!, _ burn: DRBurnRef!)
+func DRBurnSessionSetBurn(_ burnSession: DRBurnSession!, _ burn: DRBurnRef!)
 @available(OSX 10.3, *)
-func DRBurnSessionGetBurn(burnSession: DRBurnSession!) -> Unmanaged<DRBurnRef>!
+func DRBurnSessionGetBurn(_ burnSession: DRBurnSession!) -> Unmanaged<DRBurnRef>!
 var kDRBurnSessionOK: Int { get }
 var kDRBurnSessionCancel: Int { get }
 var kBurnSessionSetupDialogOptionsCurrentVersion: Int { get }
@@ -24,7 +24,7 @@ struct DRBurnSessionSetupDialogOptions {
   var dialogOptionFlags: DRBurnSessionSetupDialogOptionFlags
   var defaultButtonTitle: Unmanaged<CFString>!
   init()
-  init(version: UInt32, dialogOptionFlags: DRBurnSessionSetupDialogOptionFlags, defaultButtonTitle: Unmanaged<CFString>!)
+  init(version version: UInt32, dialogOptionFlags dialogOptionFlags: DRBurnSessionSetupDialogOptionFlags, defaultButtonTitle defaultButtonTitle: Unmanaged<CFString>!)
 }
 var kDRBurnSessionSetupCallbacksCurrentVersion: Int { get }
 typealias DRBurnSessionDeviceCheckProcPtr = @convention(c) (DRBurnSession!, DRDeviceRef!) -> DarwinBoolean
@@ -36,10 +36,10 @@ struct DRBurnSessionSetupCallbacks {
   var containsSuitableMedia: DRBurnSessionMediaCheckProcPtr!
   var deviceSelectionChanged: DRBurnSessionDeviceSelectionNotificationProcPtr!
   init()
-  init(version: UInt32, deviceShouldBeTarget: DRBurnSessionDeviceCheckProcPtr!, containsSuitableMedia: DRBurnSessionMediaCheckProcPtr!, deviceSelectionChanged: DRBurnSessionDeviceSelectionNotificationProcPtr!)
+  init(version version: UInt32, deviceShouldBeTarget deviceShouldBeTarget: DRBurnSessionDeviceCheckProcPtr!, containsSuitableMedia containsSuitableMedia: DRBurnSessionMediaCheckProcPtr!, deviceSelectionChanged deviceSelectionChanged: DRBurnSessionDeviceSelectionNotificationProcPtr!)
 }
 @available(OSX 10.3, *)
-func DRBurnSessionSetupDialog(burnSession: DRBurnSession!, _ options: UnsafeMutablePointer<DRBurnSessionSetupDialogOptions>, _ setupCallbacks: UnsafeMutablePointer<DRBurnSessionSetupCallbacks>) -> Int8
+func DRBurnSessionSetupDialog(_ burnSession: DRBurnSession!, _ options: UnsafeMutablePointer<DRBurnSessionSetupDialogOptions>, _ setupCallbacks: UnsafeMutablePointer<DRBurnSessionSetupCallbacks>) -> Int8
 var kDRBurnProgressSetupCallbacksCurrentVersion: Int { get }
 typealias DRBurnSessionProgressBeginNotificationProcPtr = @convention(c) (DRBurnSession!) -> Void
 typealias DRBurnSessionProgressFinishNotificationProcPtr = @convention(c) (DRBurnSession!) -> Void
@@ -50,7 +50,7 @@ struct DRBurnSessionProgressCallbacks {
   var progressDidFinish: DRBurnSessionProgressFinishNotificationProcPtr!
   var burnDidFinish: DRBurnSessionBurnCompleteProcPtr!
   init()
-  init(version: UInt32, progressWillBegin: DRBurnSessionProgressBeginNotificationProcPtr!, progressDidFinish: DRBurnSessionProgressFinishNotificationProcPtr!, burnDidFinish: DRBurnSessionBurnCompleteProcPtr!)
+  init(version version: UInt32, progressWillBegin progressWillBegin: DRBurnSessionProgressBeginNotificationProcPtr!, progressDidFinish progressDidFinish: DRBurnSessionProgressFinishNotificationProcPtr!, burnDidFinish burnDidFinish: DRBurnSessionBurnCompleteProcPtr!)
 }
 var kBurnSessionProgressDialogOptionsCurrentVersion: Int { get }
 var kBurnSessionProgressDialogDefaultOptions: Int { get }
@@ -61,7 +61,7 @@ struct DRBurnSessionProgressDialogOptions {
   var dialogOptionFlags: DRBurnSessionProgressDialogOptionFlags
   var description: Unmanaged<CFString>!
   init()
-  init(version: UInt32, dialogOptionFlags: DRBurnSessionProgressDialogOptionFlags, description: Unmanaged<CFString>!)
+  init(version version: UInt32, dialogOptionFlags dialogOptionFlags: DRBurnSessionProgressDialogOptionFlags, description description: Unmanaged<CFString>!)
 }
 @available(OSX 10.3, *)
-func DRBurnSessionBeginProgressDialog(burnSession: DRBurnSession!, _ layout: CFTypeRef!, _ options: UnsafeMutablePointer<DRBurnSessionProgressDialogOptions>, _ progressCallbacks: UnsafeMutablePointer<DRBurnSessionProgressCallbacks>)
+func DRBurnSessionBeginProgressDialog(_ burnSession: DRBurnSession!, _ layout: CFTypeRef!, _ options: UnsafeMutablePointer<DRBurnSessionProgressDialogOptions>, _ progressCallbacks: UnsafeMutablePointer<DRBurnSessionProgressCallbacks>)

@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum WKAudioFilePlayerStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case ReadyToPlay
@@ -12,7 +12,7 @@ class WKAudioFilePlayer : NSObject {
   convenience init(playerItem item: WKAudioFilePlayerItem)
   func play()
   func pause()
-  func replaceCurrentItemWithPlayerItem(item: WKAudioFilePlayerItem?)
+  func replaceCurrentItemWithPlayerItem(_ item: WKAudioFilePlayerItem?)
   var currentItem: WKAudioFilePlayerItem? { get }
   var status: WKAudioFilePlayerStatus { get }
   var error: NSError? { get }
@@ -21,11 +21,10 @@ class WKAudioFilePlayer : NSObject {
 }
 @available(watchOS 2.0, *)
 class WKAudioFileQueuePlayer : WKAudioFilePlayer {
-  convenience init(items: [WKAudioFilePlayerItem])
+  convenience init(items items: [WKAudioFilePlayerItem])
   func advanceToNextItem()
-  func appendItem(item: WKAudioFilePlayerItem)
-  func removeItem(item: WKAudioFilePlayerItem)
+  func appendItem(_ item: WKAudioFilePlayerItem)
+  func removeItem(_ item: WKAudioFilePlayerItem)
   func removeAllItems()
   var items: [WKAudioFilePlayerItem] { get }
-  convenience init(playerItem item: WKAudioFilePlayerItem)
 }

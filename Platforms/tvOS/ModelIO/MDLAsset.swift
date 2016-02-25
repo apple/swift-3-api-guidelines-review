@@ -1,14 +1,14 @@
 
 @available(tvOS 9.0, *)
 class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
-  init(URL: NSURL)
-  init(URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?)
-  init(URL: NSURL, vertexDescriptor: MDLVertexDescriptor?, bufferAllocator: MDLMeshBufferAllocator?, preserveTopology: Bool, error: NSErrorPointer)
-  func exportAssetToURL(URL: NSURL) -> Bool
-  func exportAssetToURL(URL: NSURL, error: ()) throws
-  class func canImportFileExtension(extension: String) -> Bool
-  class func canExportFileExtension(extension: String) -> Bool
-  func boundingBoxAtTime(time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
+  init(URL URL: NSURL)
+  init(URL URL: NSURL, vertexDescriptor vertexDescriptor: MDLVertexDescriptor?, bufferAllocator bufferAllocator: MDLMeshBufferAllocator?)
+  init(URL URL: NSURL, vertexDescriptor vertexDescriptor: MDLVertexDescriptor?, bufferAllocator bufferAllocator: MDLMeshBufferAllocator?, preserveTopology preserveTopology: Bool, error error: NSErrorPointer)
+  func exportAssetToURL(_ URL: NSURL) -> Bool
+  func exportAssetToURL(_ URL: NSURL, error error: ()) throws
+  class func canImportFileExtension(_ extension: String) -> Bool
+  class func canExportFileExtension(_ extension: String) -> Bool
+  func boundingBoxAtTime(_ time: NSTimeInterval) -> MDLAxisAlignedBoundingBox
   var boundingBox: MDLAxisAlignedBoundingBox { get }
   var frameInterval: NSTimeInterval
   var startTime: NSTimeInterval
@@ -16,14 +16,13 @@ class MDLAsset : NSObject, NSCopying, NSFastEnumeration {
   var URL: NSURL? { get }
   var bufferAllocator: MDLMeshBufferAllocator { get }
   var vertexDescriptor: MDLVertexDescriptor? { get }
-  func addObject(object: MDLObject)
-  func removeObject(object: MDLObject)
+  func addObject(_ object: MDLObject)
+  func removeObject(_ object: MDLObject)
   var count: Int { get }
-  subscript (index: Int) -> MDLObject? { get }
-  func objectAtIndex(index: Int) -> MDLObject
-  init()
+  subscript(_ index: Int) -> MDLObject? { get }
+  func objectAtIndex(_ index: Int) -> MDLObject
   @available(tvOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 9.0, *)
-  func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumeratingWithState(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

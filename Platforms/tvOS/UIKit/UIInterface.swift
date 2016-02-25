@@ -1,7 +1,7 @@
 
 @available(tvOS 8.0, *)
 enum UIUserInterfaceSizeClass : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   case Compact

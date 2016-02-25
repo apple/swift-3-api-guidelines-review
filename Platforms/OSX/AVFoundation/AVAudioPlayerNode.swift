@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 struct AVAudioPlayerNodeBufferOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Loops: AVAudioPlayerNodeBufferOptions { get }
   static var Interrupts: AVAudioPlayerNodeBufferOptions { get }
@@ -9,21 +9,20 @@ struct AVAudioPlayerNodeBufferOptions : OptionSetType {
 }
 @available(OSX 10.10, *)
 class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, completionHandler: AVAudioNodeCompletionHandler?)
-  func scheduleBuffer(buffer: AVAudioPCMBuffer, atTime when: AVAudioTime?, options: AVAudioPlayerNodeBufferOptions, completionHandler: AVAudioNodeCompletionHandler?)
-  func scheduleFile(file: AVAudioFile, atTime when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler?)
-  func scheduleSegment(file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, atTime when: AVAudioTime?, completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleBuffer(_ buffer: AVAudioPCMBuffer, completionHandler completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleBuffer(_ buffer: AVAudioPCMBuffer, atTime when: AVAudioTime?, options options: AVAudioPlayerNodeBufferOptions, completionHandler completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleFile(_ file: AVAudioFile, atTime when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler?)
+  func scheduleSegment(_ file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, atTime when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler?)
   func stop()
-  func prepareWithFrameCount(frameCount: AVAudioFrameCount)
+  func prepareWithFrameCount(_ frameCount: AVAudioFrameCount)
   func play()
-  func playAtTime(when: AVAudioTime?)
+  func playAtTime(_ when: AVAudioTime?)
   func pause()
-  func nodeTimeForPlayerTime(playerTime: AVAudioTime) -> AVAudioTime?
-  func playerTimeForNodeTime(nodeTime: AVAudioTime) -> AVAudioTime?
+  func nodeTimeForPlayerTime(_ playerTime: AVAudioTime) -> AVAudioTime?
+  func playerTimeForNodeTime(_ nodeTime: AVAudioTime) -> AVAudioTime?
   var playing: Bool { get }
-  init()
   @available(OSX 10.11, *)
-  func destinationForMixer(mixer: AVAudioNode, bus: AVAudioNodeBus) -> AVAudioMixingDestination?
+  func destinationForMixer(_ mixer: AVAudioNode, bus bus: AVAudioNodeBus) -> AVAudioMixingDestination?
   @available(OSX 10.10, *)
   var volume: Float
   @available(OSX 10.10, *)

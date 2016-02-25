@@ -1,7 +1,7 @@
 
 struct CMMagneticFieldCalibrationAccuracy : RawRepresentable, Equatable {
   init(_ rawValue: Int32)
-  init(rawValue: Int32)
+  init(rawValue rawValue: Int32)
   var rawValue: Int32
 }
 var CMMagneticFieldCalibrationAccuracyUncalibrated: CMMagneticFieldCalibrationAccuracy { get }
@@ -12,7 +12,7 @@ struct CMCalibratedMagneticField {
   var field: CMMagneticField
   var accuracy: CMMagneticFieldCalibrationAccuracy
   init()
-  init(field: CMMagneticField, accuracy: CMMagneticFieldCalibrationAccuracy)
+  init(field field: CMMagneticField, accuracy accuracy: CMMagneticFieldCalibrationAccuracy)
 }
 @available(iOS 4.0, *)
 class CMDeviceMotion : CMLogItem {
@@ -22,6 +22,4 @@ class CMDeviceMotion : CMLogItem {
   var userAcceleration: CMAcceleration { get }
   @available(iOS 5.0, *)
   var magneticField: CMCalibratedMagneticField { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

@@ -17,38 +17,38 @@ let kCTFontCollectionIncludeDisabledFontsOption: CFString
 @available(OSX 10.7, *)
 let kCTFontCollectionDisallowAutoActivationOption: CFString
 @available(OSX 10.5, *)
-func CTFontCollectionCreateFromAvailableFonts(options: CFDictionary?) -> CTFontCollection
+func CTFontCollectionCreateFromAvailableFonts(_ options: CFDictionary?) -> CTFontCollection
 @available(OSX 10.5, *)
-func CTFontCollectionCreateWithFontDescriptors(queryDescriptors: CFArray?, _ options: CFDictionary?) -> CTFontCollection
+func CTFontCollectionCreateWithFontDescriptors(_ queryDescriptors: CFArray?, _ options: CFDictionary?) -> CTFontCollection
 @available(OSX 10.5, *)
-func CTFontCollectionCreateCopyWithFontDescriptors(original: CTFontCollection, _ queryDescriptors: CFArray?, _ options: CFDictionary?) -> CTFontCollection
+func CTFontCollectionCreateCopyWithFontDescriptors(_ original: CTFontCollection, _ queryDescriptors: CFArray?, _ options: CFDictionary?) -> CTFontCollection
 @available(OSX 10.7, *)
-func CTFontCollectionCreateMutableCopy(original: CTFontCollection) -> CTMutableFontCollection
+func CTFontCollectionCreateMutableCopy(_ original: CTFontCollection) -> CTMutableFontCollection
 @available(OSX 10.7, *)
-func CTFontCollectionCopyQueryDescriptors(collection: CTFontCollection) -> CFArray?
+func CTFontCollectionCopyQueryDescriptors(_ collection: CTFontCollection) -> CFArray?
 @available(OSX 10.7, *)
-func CTFontCollectionSetQueryDescriptors(collection: CTMutableFontCollection, _ descriptors: CFArray?)
+func CTFontCollectionSetQueryDescriptors(_ collection: CTMutableFontCollection, _ descriptors: CFArray?)
 @available(OSX 10.7, *)
-func CTFontCollectionCopyExclusionDescriptors(collection: CTFontCollection) -> CFArray?
+func CTFontCollectionCopyExclusionDescriptors(_ collection: CTFontCollection) -> CFArray?
 @available(OSX 10.7, *)
-func CTFontCollectionSetExclusionDescriptors(collection: CTMutableFontCollection, _ descriptors: CFArray?)
+func CTFontCollectionSetExclusionDescriptors(_ collection: CTMutableFontCollection, _ descriptors: CFArray?)
 @available(OSX 10.5, *)
-func CTFontCollectionCreateMatchingFontDescriptors(collection: CTFontCollection) -> CFArray?
+func CTFontCollectionCreateMatchingFontDescriptors(_ collection: CTFontCollection) -> CFArray?
 @available(OSX 10.5, *)
-func CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(collection: CTFontCollection, _ sortCallback: CTFontCollectionSortDescriptorsCallback?, _ refCon: UnsafeMutablePointer<Void>) -> CFArray?
+func CTFontCollectionCreateMatchingFontDescriptorsSortedWithCallback(_ collection: CTFontCollection, _ sortCallback: CTFontCollectionSortDescriptorsCallback?, _ refCon: UnsafeMutablePointer<Void>) -> CFArray?
 @available(OSX 10.7, *)
-func CTFontCollectionCreateMatchingFontDescriptorsWithOptions(collection: CTFontCollection, _ options: CFDictionary?) -> CFArray?
+func CTFontCollectionCreateMatchingFontDescriptorsWithOptions(_ collection: CTFontCollection, _ options: CFDictionary?) -> CFArray?
 @available(OSX 10.7, *)
-func CTFontCollectionCreateMatchingFontDescriptorsForFamily(collection: CTFontCollection, _ familyName: CFString, _ options: CFDictionary?) -> CFArray?
+func CTFontCollectionCreateMatchingFontDescriptorsForFamily(_ collection: CTFontCollection, _ familyName: CFString, _ options: CFDictionary?) -> CFArray?
 @available(OSX 10.7, *)
 struct CTFontCollectionCopyOptions : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var DefaultOptions: CTFontCollectionCopyOptions { get }
   static var Unique: CTFontCollectionCopyOptions { get }
   static var StandardSort: CTFontCollectionCopyOptions { get }
 }
 @available(OSX 10.7, *)
-func CTFontCollectionCopyFontAttribute(collection: CTFontCollection, _ attributeName: CFString, _ options: CTFontCollectionCopyOptions) -> CFArray
+func CTFontCollectionCopyFontAttribute(_ collection: CTFontCollection, _ attributeName: CFString, _ options: CTFontCollectionCopyOptions) -> CFArray
 @available(OSX 10.7, *)
-func CTFontCollectionCopyFontAttributes(collection: CTFontCollection, _ attributeNames: CFSet, _ options: CTFontCollectionCopyOptions) -> CFArray
+func CTFontCollectionCopyFontAttributes(_ collection: CTFontCollection, _ attributeNames: CFSet, _ options: CTFontCollectionCopyOptions) -> CFArray

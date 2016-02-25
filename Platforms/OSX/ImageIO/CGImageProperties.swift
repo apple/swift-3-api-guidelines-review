@@ -616,7 +616,7 @@ let kCGImagePropertyMakerCanonAspectRatioInfo: CFString
 @available(OSX 10.9, *)
 let kCGImagePropertyOpenEXRAspectRatio: CFString
 enum CGImagePropertyOrientation : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Up
   case UpMirrored

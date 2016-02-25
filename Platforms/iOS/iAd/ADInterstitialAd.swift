@@ -5,20 +5,19 @@ class ADInterstitialAd : NSObject {
   var loaded: Bool { get }
   var actionInProgress: Bool { get }
   func cancelAction()
-  func presentInView(containerView: UIView!) -> Bool
-  init()
+  func presentInView(_ containerView: UIView!) -> Bool
 }
 protocol ADInterstitialAdDelegate : NSObjectProtocol {
   @available(iOS 4.3, *)
-  func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!)
+  func interstitialAdDidUnload(_ interstitialAd: ADInterstitialAd!)
   @available(iOS 4.3, *)
-  func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!)
+  func interstitialAd(_ interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!)
   @available(iOS 5.0, *)
-  optional func interstitialAdWillLoad(interstitialAd: ADInterstitialAd!)
+  optional func interstitialAdWillLoad(_ interstitialAd: ADInterstitialAd!)
   @available(iOS 4.3, *)
-  optional func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!)
+  optional func interstitialAdDidLoad(_ interstitialAd: ADInterstitialAd!)
   @available(iOS 4.3, *)
-  optional func interstitialAdActionShouldBegin(interstitialAd: ADInterstitialAd!, willLeaveApplication willLeave: Bool) -> Bool
+  optional func interstitialAdActionShouldBegin(_ interstitialAd: ADInterstitialAd!, willLeaveApplication willLeave: Bool) -> Bool
   @available(iOS 4.3, *)
-  optional func interstitialAdActionDidFinish(interstitialAd: ADInterstitialAd!)
+  optional func interstitialAdActionDidFinish(_ interstitialAd: ADInterstitialAd!)
 }

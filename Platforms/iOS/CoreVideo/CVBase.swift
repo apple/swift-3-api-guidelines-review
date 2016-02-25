@@ -13,7 +13,7 @@ struct CVSMPTETime {
   var seconds: Int16
   var frames: Int16
   init()
-  init(subframes: Int16, subframeDivisor: Int16, counter: UInt32, type: UInt32, flags: UInt32, hours: Int16, minutes: Int16, seconds: Int16, frames: Int16)
+  init(subframes subframes: Int16, subframeDivisor subframeDivisor: Int16, counter counter: UInt32, type type: UInt32, flags flags: UInt32, hours hours: Int16, minutes minutes: Int16, seconds seconds: Int16, frames frames: Int16)
 }
 var kCVSMPTETimeType24: Int { get }
 var kCVSMPTETimeType25: Int { get }
@@ -31,7 +31,7 @@ struct CVTime {
   var timeScale: Int32
   var flags: Int32
   init()
-  init(timeValue: Int64, timeScale: Int32, flags: Int32)
+  init(timeValue timeValue: Int64, timeScale timeScale: Int32, flags flags: Int32)
 }
 struct CVTimeStamp {
   var version: UInt32
@@ -44,7 +44,7 @@ struct CVTimeStamp {
   var flags: UInt64
   var reserved: UInt64
   init()
-  init(version: UInt32, videoTimeScale: Int32, videoTime: Int64, hostTime: UInt64, rateScalar: Double, videoRefreshPeriod: Int64, smpteTime: CVSMPTETime, flags: UInt64, reserved: UInt64)
+  init(version version: UInt32, videoTimeScale videoTimeScale: Int32, videoTime videoTime: Int64, hostTime hostTime: UInt64, rateScalar rateScalar: Double, videoRefreshPeriod videoRefreshPeriod: Int64, smpteTime smpteTime: CVSMPTETime, flags flags: UInt64, reserved reserved: UInt64)
 }
 var kCVTimeStampVideoTimeValid: Int { get }
 var kCVTimeStampHostTimeValid: Int { get }

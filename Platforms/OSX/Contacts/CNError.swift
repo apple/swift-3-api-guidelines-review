@@ -3,8 +3,6 @@
 let CNErrorDomain: String
 @available(OSX 10.11, *)
 enum CNErrorCode : Int {
-  init?(rawValue: Int)
-  var rawValue: Int { get }
   case CommunicationError
   case DataAccessError
   case AuthorizationDenied
@@ -22,8 +20,6 @@ enum CNErrorCode : Int {
 
 @available(OSX 10.11, iOS 9.0, *)
 extension CNErrorCode : _BridgedNSError {
-  static var _NSErrorDomain: String { get }
-  typealias RawValue = Int
 }
 @available(OSX 10.11, *)
 let CNErrorUserInfoAffectedRecordsKey: String

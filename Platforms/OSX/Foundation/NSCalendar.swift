@@ -32,7 +32,7 @@ let NSCalendarIdentifierIslamicTabular: String
 @available(OSX 10.10, *)
 let NSCalendarIdentifierIslamicUmmAlQura: String
 struct NSCalendarUnit : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Era: NSCalendarUnit { get }
   static var Year: NSCalendarUnit { get }
@@ -91,7 +91,7 @@ struct NSCalendarUnit : OptionSetType {
   static var NSTimeZoneCalendarUnit: NSCalendarUnit { get }
 }
 struct NSCalendarOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var WrapComponents: NSCalendarOptions { get }
   @available(OSX 10.9, *)
@@ -163,71 +163,71 @@ class NSCalendar : NSObject, NSCopying, NSSecureCoding {
   var AMSymbol: String { get }
   @available(OSX 10.7, *)
   var PMSymbol: String { get }
-  func minimumRangeOfUnit(unit: NSCalendarUnit) -> NSRange
-  func maximumRangeOfUnit(unit: NSCalendarUnit) -> NSRange
-  func rangeOfUnit(smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
-  func ordinalityOfUnit(smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> Int
+  func minimumRangeOfUnit(_ unit: NSCalendarUnit) -> NSRange
+  func maximumRangeOfUnit(_ unit: NSCalendarUnit) -> NSRange
+  func rangeOfUnit(_ smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> NSRange
+  func ordinalityOfUnit(_ smaller: NSCalendarUnit, inUnit larger: NSCalendarUnit, forDate date: NSDate) -> Int
   @available(OSX 10.5, *)
-  func rangeOfUnit(unit: NSCalendarUnit, startDate datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
-  func dateFromComponents(comps: NSDateComponents) -> NSDate?
-  func components(unitFlags: NSCalendarUnit, fromDate date: NSDate) -> NSDateComponents
-  func dateByAddingComponents(comps: NSDateComponents, toDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
-  func components(unitFlags: NSCalendarUnit, fromDate startingDate: NSDate, toDate resultDate: NSDate, options opts: NSCalendarOptions) -> NSDateComponents
+  func rangeOfUnit(_ unit: NSCalendarUnit, startDate datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, forDate date: NSDate) -> Bool
+  func dateFromComponents(_ comps: NSDateComponents) -> NSDate?
+  func components(_ unitFlags: NSCalendarUnit, fromDate date: NSDate) -> NSDateComponents
+  func dateByAddingComponents(_ comps: NSDateComponents, toDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
+  func components(_ unitFlags: NSCalendarUnit, fromDate startingDate: NSDate, toDate resultDate: NSDate, options opts: NSCalendarOptions) -> NSDateComponents
   @available(OSX 10.9, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getEra(_ eraValuePointer: UnsafeMutablePointer<Int>, year yearValuePointer: UnsafeMutablePointer<Int>, month monthValuePointer: UnsafeMutablePointer<Int>, day dayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
   @available(OSX 10.9, *)
-  func getEra(eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getEra(_ eraValuePointer: UnsafeMutablePointer<Int>, yearForWeekOfYear yearValuePointer: UnsafeMutablePointer<Int>, weekOfYear weekValuePointer: UnsafeMutablePointer<Int>, weekday weekdayValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
   @available(OSX 10.9, *)
-  func getHour(hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
+  func getHour(_ hourValuePointer: UnsafeMutablePointer<Int>, minute minuteValuePointer: UnsafeMutablePointer<Int>, second secondValuePointer: UnsafeMutablePointer<Int>, nanosecond nanosecondValuePointer: UnsafeMutablePointer<Int>, fromDate date: NSDate)
   @available(OSX 10.9, *)
-  func component(unit: NSCalendarUnit, fromDate date: NSDate) -> Int
+  func component(_ unit: NSCalendarUnit, fromDate date: NSDate) -> Int
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
+  func dateWithEra(_ eraValue: Int, year yearValue: Int, month monthValue: Int, day dayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(OSX 10.9, *)
-  func dateWithEra(eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
+  func dateWithEra(_ eraValue: Int, yearForWeekOfYear yearValue: Int, weekOfYear weekValue: Int, weekday weekdayValue: Int, hour hourValue: Int, minute minuteValue: Int, second secondValue: Int, nanosecond nanosecondValue: Int) -> NSDate?
   @available(OSX 10.9, *)
-  func startOfDayForDate(date: NSDate) -> NSDate
+  func startOfDayForDate(_ date: NSDate) -> NSDate
   @available(OSX 10.9, *)
-  func componentsInTimeZone(timezone: NSTimeZone, fromDate date: NSDate) -> NSDateComponents
+  func componentsInTimeZone(_ timezone: NSTimeZone, fromDate date: NSDate) -> NSDateComponents
   @available(OSX 10.9, *)
-  func compareDate(date1: NSDate, toDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult
+  func compareDate(_ date1: NSDate, toDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> NSComparisonResult
   @available(OSX 10.9, *)
-  func isDate(date1: NSDate, equalToDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> Bool
+  func isDate(_ date1: NSDate, equalToDate date2: NSDate, toUnitGranularity unit: NSCalendarUnit) -> Bool
   @available(OSX 10.9, *)
-  func isDate(date1: NSDate, inSameDayAsDate date2: NSDate) -> Bool
+  func isDate(_ date1: NSDate, inSameDayAsDate date2: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func isDateInToday(date: NSDate) -> Bool
+  func isDateInToday(_ date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func isDateInYesterday(date: NSDate) -> Bool
+  func isDateInYesterday(_ date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func isDateInTomorrow(date: NSDate) -> Bool
+  func isDateInTomorrow(_ date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func isDateInWeekend(date: NSDate) -> Bool
+  func isDateInWeekend(_ date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func rangeOfWeekendStartDate(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containingDate date: NSDate) -> Bool
+  func rangeOfWeekendStartDate(_ datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, containingDate date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func nextWeekendStartDate(datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options: NSCalendarOptions, afterDate date: NSDate) -> Bool
+  func nextWeekendStartDate(_ datep: AutoreleasingUnsafeMutablePointer<NSDate?>, interval tip: UnsafeMutablePointer<NSTimeInterval>, options options: NSCalendarOptions, afterDate date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func components(unitFlags: NSCalendarUnit, fromDateComponents startingDateComp: NSDateComponents, toDateComponents resultDateComp: NSDateComponents, options: NSCalendarOptions) -> NSDateComponents
+  func components(_ unitFlags: NSCalendarUnit, fromDateComponents startingDateComp: NSDateComponents, toDateComponents resultDateComp: NSDateComponents, options options: NSCalendarOptions) -> NSDateComponents
   @available(OSX 10.9, *)
-  func dateByAddingUnit(unit: NSCalendarUnit, value: Int, toDate date: NSDate, options: NSCalendarOptions) -> NSDate?
+  func dateByAddingUnit(_ unit: NSCalendarUnit, value value: Int, toDate date: NSDate, options options: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func enumerateDatesStartingAfterDate(start: NSDate, matchingComponents comps: NSDateComponents, options opts: NSCalendarOptions, usingBlock block: (NSDate?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateDatesStartingAfterDate(_ start: NSDate, matchingComponents comps: NSDateComponents, options opts: NSCalendarOptions, usingBlock block: (NSDate?, Bool, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(OSX 10.9, *)
-  func nextDateAfterDate(date: NSDate, matchingComponents comps: NSDateComponents, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfterDate(_ date: NSDate, matchingComponents comps: NSDateComponents, options options: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func nextDateAfterDate(date: NSDate, matchingUnit unit: NSCalendarUnit, value: Int, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfterDate(_ date: NSDate, matchingUnit unit: NSCalendarUnit, value value: Int, options options: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func nextDateAfterDate(date: NSDate, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options: NSCalendarOptions) -> NSDate?
+  func nextDateAfterDate(_ date: NSDate, matchingHour hourValue: Int, minute minuteValue: Int, second secondValue: Int, options options: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func dateBySettingUnit(unit: NSCalendarUnit, value v: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
+  func dateBySettingUnit(_ unit: NSCalendarUnit, value v: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func dateBySettingHour(h: Int, minute m: Int, second s: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
+  func dateBySettingHour(_ h: Int, minute m: Int, second s: Int, ofDate date: NSDate, options opts: NSCalendarOptions) -> NSDate?
   @available(OSX 10.9, *)
-  func date(date: NSDate, matchesComponents components: NSDateComponents) -> Bool
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func date(_ date: NSDate, matchesComponents components: NSDateComponents) -> Bool
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.9, *)
@@ -264,16 +264,15 @@ class NSDateComponents : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   @NSCopying var date: NSDate? { get }
   @available(OSX 10.9, *)
-  func setValue(value: Int, forComponent unit: NSCalendarUnit)
+  func setValue(_ value: Int, forComponent unit: NSCalendarUnit)
   @available(OSX 10.9, *)
-  func valueForComponent(unit: NSCalendarUnit) -> Int
+  func valueForComponent(_ unit: NSCalendarUnit) -> Int
   @available(OSX 10.9, *)
   var validDate: Bool { get }
   @available(OSX 10.9, *)
-  func isValidDateInCalendar(calendar: NSCalendar) -> Bool
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func isValidDateInCalendar(_ calendar: NSCalendar) -> Bool
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

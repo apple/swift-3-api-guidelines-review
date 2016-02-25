@@ -1,7 +1,7 @@
 
 @available(tvOS 9.0, *)
 enum TVTextElementStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Title
@@ -13,7 +13,6 @@ enum TVTextElementStyle : Int {
 class TVTextElement : TVViewElement {
   var attributedText: NSAttributedString? { get }
   var textStyle: TVTextElementStyle { get }
-  func attributedStringWithFont(font: UIFont) -> NSAttributedString
-  func attributedStringWithFont(font: UIFont, foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
-  init()
+  func attributedStringWithFont(_ font: UIFont) -> NSAttributedString
+  func attributedStringWithFont(_ font: UIFont, foregroundColor foregroundColor: UIColor?, textAlignment alignment: NSTextAlignment) -> NSAttributedString
 }

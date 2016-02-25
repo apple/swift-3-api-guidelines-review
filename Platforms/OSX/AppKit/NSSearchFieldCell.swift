@@ -8,19 +8,15 @@ class NSSearchFieldCell : NSTextFieldCell {
   var cancelButtonCell: NSButtonCell?
   func resetSearchButtonCell()
   func resetCancelButtonCell()
-  func searchTextRectForBounds(rect: NSRect) -> NSRect
-  func searchButtonRectForBounds(rect: NSRect) -> NSRect
-  func cancelButtonRectForBounds(rect: NSRect) -> NSRect
+  func searchTextRectForBounds(_ rect: NSRect) -> NSRect
+  func searchButtonRectForBounds(_ rect: NSRect) -> NSRect
+  func cancelButtonRectForBounds(_ rect: NSRect) -> NSRect
   var searchMenuTemplate: NSMenu?
   var sendsWholeSearchString: Bool
   var maximumRecents: Int
   var recentSearches: [String]!
   var recentsAutosaveName: String?
   var sendsSearchStringImmediately: Bool
-  init(textCell aString: String)
-  init(imageCell image: NSImage?)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __sfFlags {
   var sendsWholeSearchString: UInt32
@@ -41,5 +37,5 @@ struct __sfFlags {
   var resumeEditingOnCancel: UInt32
   var reserved: UInt32
   init()
-  init(sendsWholeSearchString: UInt32, maximumRecents: UInt32, cancelVisible: UInt32, reserved2: UInt32, disableText: UInt32, menuTracking: UInt32, deferredUpdate: UInt32, sendsImmediately: UInt32, centeredLook: UInt32, renderingCentered: UInt32, becomeTransition: UInt32, resignTransition: UInt32, subclassOverridesRectForSearchButtonWhenCentered: UInt32, subclassOverridesRectForSearchTextWhenCentered: UInt32, subclassOverridesRectForCancelButtonWhenCentered: UInt32, resumeEditingOnCancel: UInt32, reserved: UInt32)
+  init(sendsWholeSearchString sendsWholeSearchString: UInt32, maximumRecents maximumRecents: UInt32, cancelVisible cancelVisible: UInt32, reserved2 reserved2: UInt32, disableText disableText: UInt32, menuTracking menuTracking: UInt32, deferredUpdate deferredUpdate: UInt32, sendsImmediately sendsImmediately: UInt32, centeredLook centeredLook: UInt32, renderingCentered renderingCentered: UInt32, becomeTransition becomeTransition: UInt32, resignTransition resignTransition: UInt32, subclassOverridesRectForSearchButtonWhenCentered subclassOverridesRectForSearchButtonWhenCentered: UInt32, subclassOverridesRectForSearchTextWhenCentered subclassOverridesRectForSearchTextWhenCentered: UInt32, subclassOverridesRectForCancelButtonWhenCentered subclassOverridesRectForCancelButtonWhenCentered: UInt32, resumeEditingOnCancel resumeEditingOnCancel: UInt32, reserved reserved: UInt32)
 }

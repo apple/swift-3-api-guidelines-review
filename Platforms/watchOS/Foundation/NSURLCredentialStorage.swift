@@ -1,27 +1,26 @@
 
 class NSURLCredentialStorage : NSObject {
   class func sharedCredentialStorage() -> NSURLCredentialStorage
-  func credentialsForProtectionSpace(space: NSURLProtectionSpace) -> [String : NSURLCredential]?
+  func credentialsForProtectionSpace(_ space: NSURLProtectionSpace) -> [String : NSURLCredential]?
   var allCredentials: [NSURLProtectionSpace : [String : NSURLCredential]] { get }
-  func setCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
-  func removeCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
+  func setCredential(_ credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
+  func removeCredential(_ credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
   @available(watchOS 2.0, *)
-  func removeCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options: [String : AnyObject]?)
-  func defaultCredentialForProtectionSpace(space: NSURLProtectionSpace) -> NSURLCredential?
-  func setDefaultCredential(credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
-  init()
+  func removeCredential(_ credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace, options options: [String : AnyObject]?)
+  func defaultCredentialForProtectionSpace(_ space: NSURLProtectionSpace) -> NSURLCredential?
+  func setDefaultCredential(_ credential: NSURLCredential, forProtectionSpace space: NSURLProtectionSpace)
 }
 extension NSURLCredentialStorage {
   @available(watchOS 2.0, *)
-  func getCredentialsForProtectionSpace(protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: ([String : NSURLCredential]?) -> Void)
+  func getCredentialsForProtectionSpace(_ protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask, completionHandler completionHandler: ([String : NSURLCredential]?) -> Void)
   @available(watchOS 2.0, *)
-  func setCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
+  func setCredential(_ credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask)
   @available(watchOS 2.0, *)
-  func removeCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options: [String : AnyObject]?, task: NSURLSessionTask)
+  func removeCredential(_ credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, options options: [String : AnyObject]?, task task: NSURLSessionTask)
   @available(watchOS 2.0, *)
-  func getDefaultCredentialForProtectionSpace(space: NSURLProtectionSpace, task: NSURLSessionTask, completionHandler: (NSURLCredential?) -> Void)
+  func getDefaultCredentialForProtectionSpace(_ space: NSURLProtectionSpace, task task: NSURLSessionTask, completionHandler completionHandler: (NSURLCredential?) -> Void)
   @available(watchOS 2.0, *)
-  func setDefaultCredential(credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task: NSURLSessionTask)
+  func setDefaultCredential(_ credential: NSURLCredential, forProtectionSpace protectionSpace: NSURLProtectionSpace, task task: NSURLSessionTask)
 }
 let NSURLCredentialStorageChangedNotification: String
 @available(watchOS 2.0, *)

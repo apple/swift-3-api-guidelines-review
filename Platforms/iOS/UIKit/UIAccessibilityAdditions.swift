@@ -1,11 +1,11 @@
 
 protocol UIPickerViewAccessibilityDelegate : UIPickerViewDelegate {
   @available(iOS 2.0, *)
-  optional func pickerView(pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> String?
+  optional func pickerView(_ pickerView: UIPickerView, accessibilityLabelForComponent component: Int) -> String?
   @available(iOS 2.0, *)
-  optional func pickerView(pickerView: UIPickerView, accessibilityHintForComponent component: Int) -> String?
+  optional func pickerView(_ pickerView: UIPickerView, accessibilityHintForComponent component: Int) -> String?
 }
 protocol UIScrollViewAccessibilityDelegate : UIScrollViewDelegate {
   @available(iOS 2.0, *)
-  optional func accessibilityScrollStatusForScrollView(scrollView: UIScrollView) -> String?
+  optional func accessibilityScrollStatusForScrollView(_ scrollView: UIScrollView) -> String?
 }

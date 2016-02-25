@@ -11,10 +11,10 @@ let HMCharacteristicValueKeyPath: String
 class HMEventTrigger : HMTrigger {
   var events: [HMEvent] { get }
   @NSCopying var predicate: NSPredicate? { get }
-  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringBeforeDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringOnDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerOccurringAfterDateWithComponents(dateComponents: NSDateComponents) -> NSPredicate
-  class func predicateForEvaluatingTriggerWithCharacteristic(characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeSignificantEvent(_ significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterSignificantEvent(_ significantEvent: String, applyingOffset offset: NSDateComponents?) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringBeforeDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringOnDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerOccurringAfterDateWithComponents(_ dateComponents: NSDateComponents) -> NSPredicate
+  class func predicateForEvaluatingTriggerWithCharacteristic(_ characteristic: HMCharacteristic, relatedBy operatorType: NSPredicateOperatorType, toValue value: AnyObject) -> NSPredicate
 }

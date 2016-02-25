@@ -2,7 +2,7 @@
 @available(OSX 10.11, *)
 class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   @available(OSX 10.11, *)
-  init(servers: [String])
+  init(servers servers: [String])
   @available(OSX 10.11, *)
   var servers: [String] { get }
   @available(OSX 10.11, *)
@@ -13,12 +13,11 @@ class NEDNSSettings : NSObject, NSSecureCoding, NSCopying {
   var matchDomains: [String]?
   @available(OSX 10.11, *)
   var matchDomainsNoSearch: Bool
-  init()
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

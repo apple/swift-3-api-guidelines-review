@@ -9,6 +9,6 @@ class DOMHTMLTableRowElement : DOMHTMLElement {
   var ch: String!
   var chOff: String!
   var vAlign: String!
-  func insertCell(index: Int32) -> DOMHTMLElement!
-  func deleteCell(index: Int32)
+  func insertCell(_ index: Int32) -> DOMHTMLElement!
+  func deleteCell(_ index: Int32)
 }

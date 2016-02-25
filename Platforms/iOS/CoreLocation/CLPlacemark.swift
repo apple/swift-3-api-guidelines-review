@@ -1,7 +1,7 @@
 
 @available(iOS 5.0, *)
 class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
-  init(placemark: CLPlacemark)
+  init(placemark placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(iOS 9.0, *)
@@ -20,12 +20,11 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var inlandWater: String? { get }
   var ocean: String? { get }
   var areasOfInterest: [String]? { get }
-  init()
   @available(iOS 5.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 5.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 5.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

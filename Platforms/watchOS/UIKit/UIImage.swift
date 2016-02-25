@@ -1,6 +1,6 @@
 
 enum UIImageOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Up
   case Down
@@ -12,14 +12,14 @@ enum UIImageOrientation : Int {
   case RightMirrored
 }
 enum UIImageResizingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Tile
   case Stretch
 }
 @available(watchOS 2.0, *)
 enum UIImageRenderingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Automatic
   case AlwaysOriginal
@@ -29,70 +29,68 @@ enum UIImageRenderingMode : Int {
 class UIImage : NSObject, NSSecureCoding {
   /*not inherited*/ init?(named name: String)
   init?(contentsOfFile path: String)
-  init?(data: NSData)
+  init?(data data: NSData)
   @available(watchOS 2.0, *)
-  init?(data: NSData, scale: CGFloat)
+  init?(data data: NSData, scale scale: CGFloat)
   init(CGImage cgImage: CGImage)
   @available(watchOS 2.0, *)
-  init(CGImage cgImage: CGImage, scale: CGFloat, orientation: UIImageOrientation)
+  init(CGImage cgImage: CGImage, scale scale: CGFloat, orientation orientation: UIImageOrientation)
   var size: CGSize { get }
   var CGImage: CGImage? { get }
   var imageOrientation: UIImageOrientation { get }
   @available(watchOS 2.0, *)
   var scale: CGFloat { get }
   @available(watchOS 2.0, *)
-  class func animatedImageNamed(name: String, duration: NSTimeInterval) -> UIImage?
+  class func animatedImageNamed(_ name: String, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(_ name: String, capInsets capInsets: UIEdgeInsets, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedResizableImageNamed(name: String, capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode, duration: NSTimeInterval) -> UIImage?
+  class func animatedResizableImageNamed(_ name: String, capInsets capInsets: UIEdgeInsets, resizingMode resizingMode: UIImageResizingMode, duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
-  class func animatedImageWithImages(images: [UIImage], duration: NSTimeInterval) -> UIImage?
+  class func animatedImageWithImages(_ images: [UIImage], duration duration: NSTimeInterval) -> UIImage?
   @available(watchOS 2.0, *)
   var images: [UIImage]? { get }
   @available(watchOS 2.0, *)
   var duration: NSTimeInterval { get }
-  func drawAtPoint(point: CGPoint)
-  func drawAtPoint(point: CGPoint, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawInRect(rect: CGRect)
-  func drawInRect(rect: CGRect, blendMode: CGBlendMode, alpha: CGFloat)
-  func drawAsPatternInRect(rect: CGRect)
+  func drawAtPoint(_ point: CGPoint)
+  func drawAtPoint(_ point: CGPoint, blendMode blendMode: CGBlendMode, alpha alpha: CGFloat)
+  func drawInRect(_ rect: CGRect)
+  func drawInRect(_ rect: CGRect, blendMode blendMode: CGBlendMode, alpha alpha: CGFloat)
+  func drawAsPatternInRect(_ rect: CGRect)
   @available(watchOS 2.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets) -> UIImage
+  func resizableImageWithCapInsets(_ capInsets: UIEdgeInsets) -> UIImage
   @available(watchOS 2.0, *)
-  func resizableImageWithCapInsets(capInsets: UIEdgeInsets, resizingMode: UIImageResizingMode) -> UIImage
+  func resizableImageWithCapInsets(_ capInsets: UIEdgeInsets, resizingMode resizingMode: UIImageResizingMode) -> UIImage
   @available(watchOS 2.0, *)
   var capInsets: UIEdgeInsets { get }
   @available(watchOS 2.0, *)
   var resizingMode: UIImageResizingMode { get }
   @available(watchOS 2.0, *)
-  func imageWithAlignmentRectInsets(alignmentInsets: UIEdgeInsets) -> UIImage
+  func imageWithAlignmentRectInsets(_ alignmentInsets: UIEdgeInsets) -> UIImage
   @available(watchOS 2.0, *)
   var alignmentRectInsets: UIEdgeInsets { get }
   @available(watchOS 2.0, *)
-  func imageWithRenderingMode(renderingMode: UIImageRenderingMode) -> UIImage
+  func imageWithRenderingMode(_ renderingMode: UIImageRenderingMode) -> UIImage
   @available(watchOS 2.0, *)
   var renderingMode: UIImageRenderingMode { get }
   @available(watchOS 2.0, *)
   func imageFlippedForRightToLeftLayoutDirection() -> UIImage
   @available(watchOS 2.0, *)
   var flipsForRightToLeftLayoutDirection: Bool { get }
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension UIImage : _ImageLiteralConvertible {
   convenience init!(failableImageLiteral name: String)
-  required convenience init(imageLiteral name: String)
 }
 extension UIImage {
-  func stretchableImageWithLeftCapWidth(leftCapWidth: Int, topCapHeight: Int) -> UIImage
+  func stretchableImageWithLeftCapWidth(_ leftCapWidth: Int, topCapHeight topCapHeight: Int) -> UIImage
   var leftCapWidth: Int { get }
   var topCapHeight: Int { get }
 }
-func UIImagePNGRepresentation(image: UIImage) -> NSData?
-func UIImageJPEGRepresentation(image: UIImage, _ compressionQuality: CGFloat) -> NSData?
+func UIImagePNGRepresentation(_ image: UIImage) -> NSData?
+func UIImageJPEGRepresentation(_ image: UIImage, _ compressionQuality: CGFloat) -> NSData?

@@ -3,7 +3,7 @@
 let SFContentBlockerErrorDomain: String
 @available(iOS 9.0, *)
 enum SFContentBlockerErrorCode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NoExtensionFound
   case NoAttachmentFound
@@ -11,6 +11,5 @@ enum SFContentBlockerErrorCode : Int {
 }
 @available(iOS 9.0, *)
 class SFContentBlockerManager : NSObject {
-  class func reloadContentBlockerWithIdentifier(identifier: String, completionHandler: ((NSError?) -> Void)?)
-  init()
+  class func reloadContentBlockerWithIdentifier(_ identifier: String, completionHandler completionHandler: ((NSError?) -> Void)?)
 }

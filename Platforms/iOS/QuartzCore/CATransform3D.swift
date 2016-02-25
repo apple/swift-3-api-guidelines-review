@@ -17,36 +17,36 @@ struct CATransform3D {
   var m43: CGFloat
   var m44: CGFloat
   init()
-  init(m11: CGFloat, m12: CGFloat, m13: CGFloat, m14: CGFloat, m21: CGFloat, m22: CGFloat, m23: CGFloat, m24: CGFloat, m31: CGFloat, m32: CGFloat, m33: CGFloat, m34: CGFloat, m41: CGFloat, m42: CGFloat, m43: CGFloat, m44: CGFloat)
+  init(m11 m11: CGFloat, m12 m12: CGFloat, m13 m13: CGFloat, m14 m14: CGFloat, m21 m21: CGFloat, m22 m22: CGFloat, m23 m23: CGFloat, m24 m24: CGFloat, m31 m31: CGFloat, m32 m32: CGFloat, m33 m33: CGFloat, m34 m34: CGFloat, m41 m41: CGFloat, m42 m42: CGFloat, m43 m43: CGFloat, m44 m44: CGFloat)
 }
 @available(iOS 2.0, *)
 let CATransform3DIdentity: CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DIsIdentity(t: CATransform3D) -> Bool
+func CATransform3DIsIdentity(_ t: CATransform3D) -> Bool
 @available(iOS 2.0, *)
-func CATransform3DEqualToTransform(a: CATransform3D, _ b: CATransform3D) -> Bool
+func CATransform3DEqualToTransform(_ a: CATransform3D, _ b: CATransform3D) -> Bool
 @available(iOS 2.0, *)
-func CATransform3DMakeTranslation(tx: CGFloat, _ ty: CGFloat, _ tz: CGFloat) -> CATransform3D
+func CATransform3DMakeTranslation(_ tx: CGFloat, _ ty: CGFloat, _ tz: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DMakeScale(sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> CATransform3D
+func CATransform3DMakeScale(_ sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DMakeRotation(angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> CATransform3D
+func CATransform3DMakeRotation(_ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DTranslate(t: CATransform3D, _ tx: CGFloat, _ ty: CGFloat, _ tz: CGFloat) -> CATransform3D
+func CATransform3DTranslate(_ t: CATransform3D, _ tx: CGFloat, _ ty: CGFloat, _ tz: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DScale(t: CATransform3D, _ sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> CATransform3D
+func CATransform3DScale(_ t: CATransform3D, _ sx: CGFloat, _ sy: CGFloat, _ sz: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DRotate(t: CATransform3D, _ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> CATransform3D
+func CATransform3DRotate(_ t: CATransform3D, _ angle: CGFloat, _ x: CGFloat, _ y: CGFloat, _ z: CGFloat) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DConcat(a: CATransform3D, _ b: CATransform3D) -> CATransform3D
+func CATransform3DConcat(_ a: CATransform3D, _ b: CATransform3D) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DInvert(t: CATransform3D) -> CATransform3D
+func CATransform3DInvert(_ t: CATransform3D) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DMakeAffineTransform(m: CGAffineTransform) -> CATransform3D
+func CATransform3DMakeAffineTransform(_ m: CGAffineTransform) -> CATransform3D
 @available(iOS 2.0, *)
-func CATransform3DIsAffine(t: CATransform3D) -> Bool
+func CATransform3DIsAffine(_ t: CATransform3D) -> Bool
 @available(iOS 2.0, *)
-func CATransform3DGetAffineTransform(t: CATransform3D) -> CGAffineTransform
+func CATransform3DGetAffineTransform(_ t: CATransform3D) -> CGAffineTransform
 extension NSValue {
   /*not inherited*/ init(CATransform3D t: CATransform3D)
   var CATransform3DValue: CATransform3D { get }

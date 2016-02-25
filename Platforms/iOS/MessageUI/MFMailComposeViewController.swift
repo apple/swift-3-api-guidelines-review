@@ -1,7 +1,7 @@
 
 struct MFMailComposeResult : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var MFMailComposeResultCancelled: MFMailComposeResult { get }
@@ -12,7 +12,7 @@ var MFMailComposeResultFailed: MFMailComposeResult { get }
 let MFMailComposeErrorDomain: String
 struct MFMailComposeErrorCode : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var MFMailComposeErrorCodeSaveFailed: MFMailComposeErrorCode { get }
@@ -22,25 +22,19 @@ class MFMailComposeViewController : UINavigationController {
   class func canSendMail() -> Bool
   unowned(unsafe) var mailComposeDelegate: @sil_unmanaged MFMailComposeViewControllerDelegate?
   @available(iOS 3.0, *)
-  func setSubject(subject: String)
+  func setSubject(_ subject: String)
   @available(iOS 3.0, *)
-  func setToRecipients(toRecipients: [String]?)
+  func setToRecipients(_ toRecipients: [String]?)
   @available(iOS 3.0, *)
-  func setCcRecipients(ccRecipients: [String]?)
+  func setCcRecipients(_ ccRecipients: [String]?)
   @available(iOS 3.0, *)
-  func setBccRecipients(bccRecipients: [String]?)
+  func setBccRecipients(_ bccRecipients: [String]?)
   @available(iOS 3.0, *)
-  func setMessageBody(body: String, isHTML: Bool)
+  func setMessageBody(_ body: String, isHTML isHTML: Bool)
   @available(iOS 3.0, *)
-  func addAttachmentData(attachment: NSData, mimeType: String, fileName filename: String)
-  @available(iOS 5.0, *)
-  init(navigationBarClass: AnyClass?, toolbarClass: AnyClass?)
-  init(rootViewController: UIViewController)
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func addAttachmentData(_ attachment: NSData, mimeType mimeType: String, fileName filename: String)
 }
 protocol MFMailComposeViewControllerDelegate : NSObjectProtocol {
   @available(iOS 3.0, *)
-  optional func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
+  optional func mailComposeController(_ controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error error: NSError?)
 }

@@ -15,11 +15,11 @@ typealias MTKTextureLoaderCallback = (MTLTexture?, NSError?) -> Void
 @available(iOS 9.0, *)
 class MTKTextureLoader : NSObject {
   var device: MTLDevice { get }
-  init(device: MTLDevice)
-  func newTextureWithContentsOfURL(URL: NSURL, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
-  func newTextureWithData(data: NSData, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
-  func newTextureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?, completionHandler: MTKTextureLoaderCallback)
-  func newTextureWithContentsOfURL(URL: NSURL, options: [String : NSNumber]?) throws -> MTLTexture
-  func newTextureWithData(data: NSData, options: [String : NSNumber]?) throws -> MTLTexture
-  func newTextureWithCGImage(cgImage: CGImage, options: [String : NSNumber]?) throws -> MTLTexture
+  init(device device: MTLDevice)
+  func newTextureWithContentsOfURL(_ URL: NSURL, options options: [String : NSNumber]?, completionHandler completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithData(_ data: NSData, options options: [String : NSNumber]?, completionHandler completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithCGImage(_ cgImage: CGImage, options options: [String : NSNumber]?, completionHandler completionHandler: MTKTextureLoaderCallback)
+  func newTextureWithContentsOfURL(_ URL: NSURL, options options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWithData(_ data: NSData, options options: [String : NSNumber]?) throws -> MTLTexture
+  func newTextureWithCGImage(_ cgImage: CGImage, options options: [String : NSNumber]?) throws -> MTLTexture
 }

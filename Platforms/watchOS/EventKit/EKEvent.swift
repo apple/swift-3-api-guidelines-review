@@ -1,6 +1,6 @@
 
 enum EKEventAvailability : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NotSupported
   case Busy
@@ -9,7 +9,7 @@ enum EKEventAvailability : Int {
   case Unavailable
 }
 enum EKEventStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Confirmed
@@ -18,24 +18,22 @@ enum EKEventStatus : Int {
 }
 @available(watchOS 2.0, *)
 class EKEvent : EKCalendarItem {
-  /*not inherited*/ init(eventStore: EKEventStore)
+  /*not inherited*/ init(eventStore eventStore: EKEventStore)
   var eventIdentifier: String { get }
   var allDay: Bool
   @NSCopying var startDate: NSDate
   @NSCopying var endDate: NSDate
   @available(watchOS 2.0, *)
   @NSCopying var structuredLocation: EKStructuredLocation?
-  func compareStartDateWithEvent(other: EKEvent) -> NSComparisonResult
+  func compareStartDateWithEvent(_ other: EKEvent) -> NSComparisonResult
   var organizer: EKParticipant? { get }
   var availability: EKEventAvailability
   var status: EKEventStatus { get }
   var isDetached: Bool { get }
   @available(watchOS 2.0, *)
   var occurrenceDate: NSDate { get }
-  func refresh() -> Bool
   @available(watchOS 2.0, *)
   var birthdayContactIdentifier: String? { get }
   @available(watchOS, introduced=2.0, deprecated=2.0, message="Use birthdayContactIdentifier instead")
   var birthdayPersonID: Int { get }
-  init()
 }

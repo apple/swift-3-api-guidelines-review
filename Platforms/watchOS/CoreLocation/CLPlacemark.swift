@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
-  init(placemark: CLPlacemark)
+  init(placemark placemark: CLPlacemark)
   @NSCopying var location: CLLocation? { get }
   @NSCopying var region: CLRegion? { get }
   @available(watchOS 2.0, *)
@@ -20,12 +20,11 @@ class CLPlacemark : NSObject, NSCopying, NSSecureCoding {
   var inlandWater: String? { get }
   var ocean: String? { get }
   var areasOfInterest: [String]? { get }
-  init()
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

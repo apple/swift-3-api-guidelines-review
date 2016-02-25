@@ -6,5 +6,4 @@ class WKPreferences : NSObject {
   var javaScriptCanOpenWindowsAutomatically: Bool
   var javaEnabled: Bool
   var plugInsEnabled: Bool
-  init()
 }

@@ -1,14 +1,14 @@
 
 class NSThread : NSObject {
   class func currentThread() -> NSThread
-  class func detachNewThreadSelector(selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
+  class func detachNewThreadSelector(_ selector: Selector, toTarget target: AnyObject, withObject argument: AnyObject?)
   class func isMultiThreaded() -> Bool
   var threadDictionary: NSMutableDictionary { get }
-  class func sleepUntilDate(date: NSDate)
-  class func sleepForTimeInterval(ti: NSTimeInterval)
+  class func sleepUntilDate(_ date: NSDate)
+  class func sleepForTimeInterval(_ ti: NSTimeInterval)
   class func exit()
   class func threadPriority() -> Double
-  class func setThreadPriority(p: Double) -> Bool
+  class func setThreadPriority(_ p: Double) -> Bool
   @available(OSX 10.6, *)
   var threadPriority: Double
   @available(OSX 10.10, *)
@@ -28,9 +28,7 @@ class NSThread : NSObject {
   @available(OSX 10.5, *)
   class func mainThread() -> NSThread
   @available(OSX 10.5, *)
-  init()
-  @available(OSX 10.5, *)
-  convenience init(target: AnyObject, selector: Selector, object argument: AnyObject?)
+  convenience init(target target: AnyObject, selector selector: Selector, object argument: AnyObject?)
   @available(OSX 10.5, *)
   var executing: Bool { get }
   @available(OSX 10.5, *)
@@ -48,20 +46,20 @@ let NSWillBecomeMultiThreadedNotification: String
 let NSDidBecomeSingleThreadedNotification: String
 let NSThreadWillExitNotification: String
 extension NSObject {
-  class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
-  class func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
-  func performSelectorOnMainThread(aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  class func performSelectorOnMainThread(_ aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func performSelectorOnMainThread(_ aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func performSelectorOnMainThread(_ aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func performSelectorOnMainThread(_ aSelector: Selector, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  class func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  class func performSelector(_ aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(OSX 10.5, *)
-  func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
+  func performSelector(_ aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool, modes array: [String]?)
   @available(OSX 10.5, *)
-  class func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  class func performSelector(_ aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  func performSelector(aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
+  func performSelector(_ aSelector: Selector, onThread thr: NSThread, withObject arg: AnyObject?, waitUntilDone wait: Bool)
   @available(OSX 10.5, *)
-  class func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
+  class func performSelectorInBackground(_ aSelector: Selector, withObject arg: AnyObject?)
   @available(OSX 10.5, *)
-  func performSelectorInBackground(aSelector: Selector, withObject arg: AnyObject?)
+  func performSelectorInBackground(_ aSelector: Selector, withObject arg: AnyObject?)
 }

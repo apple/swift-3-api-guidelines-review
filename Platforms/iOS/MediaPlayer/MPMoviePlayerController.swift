@@ -1,7 +1,7 @@
 
 @available(iOS, introduced=2.0, deprecated=9.0)
 enum MPMovieScalingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case AspectFit
@@ -10,7 +10,7 @@ enum MPMovieScalingMode : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMoviePlaybackState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Stopped
   case Playing
@@ -21,7 +21,7 @@ enum MPMoviePlaybackState : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieLoadState : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Unknown: MPMovieLoadState { get }
   static var Playable: MPMovieLoadState { get }
@@ -30,14 +30,14 @@ struct MPMovieLoadState : OptionSetType {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieRepeatMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case One
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieControlStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case Embedded
@@ -46,7 +46,7 @@ enum MPMovieControlStyle : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieFinishReason : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case PlaybackEnded
   case PlaybackError
@@ -54,7 +54,7 @@ enum MPMovieFinishReason : Int {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 struct MPMovieMediaTypeMask : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: MPMovieMediaTypeMask { get }
   static var Video: MPMovieMediaTypeMask { get }
@@ -62,7 +62,7 @@ struct MPMovieMediaTypeMask : OptionSetType {
 }
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieSourceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case File
@@ -81,11 +81,10 @@ class MPMoviePlayerController : NSObject, MPMediaPlayback {
   var repeatMode: MPMovieRepeatMode
   var shouldAutoplay: Bool
   var fullscreen: Bool
-  func setFullscreen(fullscreen: Bool, animated: Bool)
+  func setFullscreen(_ fullscreen: Bool, animated animated: Bool)
   var scalingMode: MPMovieScalingMode
   @available(iOS 6.0, *)
   var readyForDisplay: Bool { get }
-  convenience init()
   @available(iOS 2.0, *)
   func prepareToPlay()
   @available(iOS 2.0, *)
@@ -165,14 +164,14 @@ let MPMovieDurationAvailableNotification: String
 let MPMovieNaturalSizeAvailableNotification: String
 @available(iOS, introduced=3.2, deprecated=9.0)
 enum MPMovieTimeOption : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case NearestKeyFrame
   case Exact
 }
 extension MPMoviePlayerController {
   @available(iOS, introduced=3.2, deprecated=9.0)
-  func requestThumbnailImagesAtTimes(playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
+  func requestThumbnailImagesAtTimes(_ playbackTimes: [AnyObject]!, timeOption option: MPMovieTimeOption)
   @available(iOS, introduced=3.2, deprecated=9.0)
   func cancelAllThumbnailImageRequests()
 }
@@ -196,7 +195,6 @@ class MPTimedMetadata : NSObject {
   var value: AnyObject! { get }
   var timestamp: NSTimeInterval { get }
   var allMetadata: [NSObject : AnyObject]! { get }
-  init()
 }
 @available(iOS, introduced=4.0, deprecated=9.0)
 let MPMoviePlayerTimedMetadataUpdatedNotification: String
@@ -224,9 +222,8 @@ class MPMovieAccessLog : NSObject, NSCopying {
   var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
-  init()
   @available(iOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -234,9 +231,8 @@ class MPMovieErrorLog : NSObject, NSCopying {
   var extendedLogData: NSData! { get }
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AnyObject]! { get }
-  init()
   @available(iOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -255,9 +251,8 @@ class MPMovieAccessLogEvent : NSObject, NSCopying {
   var observedBitrate: Double { get }
   var indicatedBitrate: Double { get }
   var numberOfDroppedVideoFrames: Int { get }
-  init()
   @available(iOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 4.3, *)
 @available(iOS, introduced=4.3, deprecated=9.0)
@@ -269,9 +264,8 @@ class MPMovieErrorLogEvent : NSObject, NSCopying {
   var errorStatusCode: Int { get }
   var errorDomain: String! { get }
   var errorComment: String! { get }
-  init()
   @available(iOS 4.3, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension MPMoviePlayerController {
 }

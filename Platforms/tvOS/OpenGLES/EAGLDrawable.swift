@@ -10,6 +10,6 @@ protocol EAGLDrawable {
   var drawableProperties: [NSObject : AnyObject]! { get set }
 }
 extension EAGLContext {
-  func renderbufferStorage(target: Int, fromDrawable drawable: EAGLDrawable!) -> Bool
-  func presentRenderbuffer(target: Int) -> Bool
+  func renderbufferStorage(_ target: Int, fromDrawable drawable: EAGLDrawable!) -> Bool
+  func presentRenderbuffer(_ target: Int) -> Bool
 }

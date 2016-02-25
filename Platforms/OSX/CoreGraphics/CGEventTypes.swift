@@ -4,20 +4,20 @@ class CGEvent {
 @available(*, deprecated, renamed="CGEvent")
 typealias CGEventRef = CGEvent
 enum CGMouseButton : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Left
   case Right
   case Center
 }
 enum CGScrollEventUnit : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Pixel
   case Line
 }
 enum CGMomentumScrollPhase : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case None
   case Begin
@@ -25,7 +25,7 @@ enum CGMomentumScrollPhase : UInt32 {
   case End
 }
 enum CGScrollPhase : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Began
   case Changed
@@ -34,7 +34,7 @@ enum CGScrollPhase : UInt32 {
   case MayBegin
 }
 enum CGGesturePhase : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case None
   case Began
@@ -44,7 +44,7 @@ enum CGGesturePhase : UInt32 {
   case MayBegin
 }
 enum CGEventFlags : UInt64 {
-  init?(rawValue: UInt64)
+  init?(rawValue rawValue: UInt64)
   var rawValue: UInt64 { get }
   case MaskAlphaShift
   case MaskShift
@@ -57,7 +57,7 @@ enum CGEventFlags : UInt64 {
   case MaskNonCoalesced
 }
 enum CGEventType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Null
   case LeftMouseDown
@@ -81,7 +81,7 @@ enum CGEventType : UInt32 {
 }
 typealias CGEventTimestamp = UInt64
 enum CGEventField : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case MouseEventNumber
   case MouseEventClickState
@@ -143,27 +143,27 @@ enum CGEventField : UInt32 {
   case MouseEventWindowUnderMousePointerThatCanHandleThisEvent
 }
 enum CGEventMouseSubtype : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Default
   case TabletPoint
   case TabletProximity
 }
 enum CGEventTapLocation : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case CGHIDEventTap
   case CGSessionEventTap
   case CGAnnotatedSessionEventTap
 }
 enum CGEventTapPlacement : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case HeadInsertEventTap
   case TailAppendEventTap
 }
 enum CGEventTapOptions : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Default
   case ListenOnly
@@ -185,7 +185,7 @@ struct __CGEventTapInformation {
   var avgUsecLatency: Float
   var maxUsecLatency: Float
   init()
-  init(eventTapID: UInt32, tapPoint: CGEventTapLocation, options: CGEventTapOptions, eventsOfInterest: CGEventMask, tappingProcess: pid_t, processBeingTapped: pid_t, enabled: Bool, minUsecLatency: Float, avgUsecLatency: Float, maxUsecLatency: Float)
+  init(eventTapID eventTapID: UInt32, tapPoint tapPoint: CGEventTapLocation, options options: CGEventTapOptions, eventsOfInterest eventsOfInterest: CGEventMask, tappingProcess tappingProcess: pid_t, processBeingTapped processBeingTapped: pid_t, enabled enabled: Bool, minUsecLatency minUsecLatency: Float, avgUsecLatency avgUsecLatency: Float, maxUsecLatency maxUsecLatency: Float)
 }
 typealias CGEventTapInformation = __CGEventTapInformation
 @available(*, deprecated, renamed="CGEventSource")
@@ -193,7 +193,7 @@ typealias CGEventSourceRef = CGEventSource
 class CGEventSource {
 }
 enum CGEventSourceStateID : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case Private
   case CombinedSessionState

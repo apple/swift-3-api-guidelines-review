@@ -18,5 +18,4 @@ class GLKBaseEffect : NSObject, GLKNamedEffect {
   var constantColor: GLKVector4
   var fog: GLKEffectPropertyFog { get }
   var label: String?
-  init()
 }

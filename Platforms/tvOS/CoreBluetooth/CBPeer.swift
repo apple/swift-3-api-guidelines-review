@@ -4,5 +4,5 @@ class CBPeer : NSObject, NSCopying {
   @available(tvOS 7.0, *)
   var identifier: NSUUID { get }
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

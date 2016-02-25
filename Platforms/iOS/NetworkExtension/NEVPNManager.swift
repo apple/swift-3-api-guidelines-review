@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEVPNError : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ConfigurationInvalid
   case ConfigurationDisabled
@@ -19,11 +19,11 @@ class NEVPNManager : NSObject {
   @available(iOS 8.0, *)
   class func sharedManager() -> NEVPNManager
   @available(iOS 8.0, *)
-  func loadFromPreferencesWithCompletionHandler(completionHandler: (NSError?) -> Void)
+  func loadFromPreferencesWithCompletionHandler(_ completionHandler: (NSError?) -> Void)
   @available(iOS 8.0, *)
-  func removeFromPreferencesWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func removeFromPreferencesWithCompletionHandler(_ completionHandler: ((NSError?) -> Void)?)
   @available(iOS 8.0, *)
-  func saveToPreferencesWithCompletionHandler(completionHandler: ((NSError?) -> Void)?)
+  func saveToPreferencesWithCompletionHandler(_ completionHandler: ((NSError?) -> Void)?)
   @available(iOS 8.0, *)
   var onDemandRules: [NEOnDemandRule]?
   @available(iOS 8.0, *)
@@ -38,5 +38,4 @@ class NEVPNManager : NSObject {
   var connection: NEVPNConnection { get }
   @available(iOS 8.0, *)
   var enabled: Bool
-  init()
 }

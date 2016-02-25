@@ -1,14 +1,14 @@
 
 @available(iOS 9.0, *)
 enum CNContactType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Person
   case Organization
 }
 @available(iOS 9.0, *)
 enum CNContactSortOrder : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case UserDefault
@@ -51,21 +51,20 @@ class CNContact : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   @NSCopying var birthday: NSDateComponents? { get }
   @NSCopying var nonGregorianBirthday: NSDateComponents? { get }
   var dates: [CNLabeledValue] { get }
-  func isKeyAvailable(key: String) -> Bool
-  func areKeysAvailable(keyDescriptors: [CNKeyDescriptor]) -> Bool
-  class func localizedStringForKey(key: String) -> String
-  class func comparatorForNameSortOrder(sortOrder: CNContactSortOrder) -> NSComparator
+  func isKeyAvailable(_ key: String) -> Bool
+  func areKeysAvailable(_ keyDescriptors: [CNKeyDescriptor]) -> Bool
+  class func localizedStringForKey(_ key: String) -> String
+  class func comparatorForNameSortOrder(_ sortOrder: CNContactSortOrder) -> NSComparator
   class func descriptorForAllComparatorKeys() -> CNKeyDescriptor
-  func isUnifiedWithContactWithIdentifier(contactIdentifier: String) -> Bool
-  init()
+  func isUnifiedWithContactWithIdentifier(_ contactIdentifier: String) -> Bool
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 9.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 9.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 let CNContactPropertyNotFetchedExceptionName: String

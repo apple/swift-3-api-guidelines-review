@@ -21,33 +21,33 @@ var kDADiskDescriptionMatchVolumeUnrecognized: Unmanaged<CFDictionary>
 var kDADiskDescriptionWatchVolumeName: Unmanaged<CFArray>
 var kDADiskDescriptionWatchVolumePath: Unmanaged<CFArray>
 typealias DADiskAppearedCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Void
-func DARegisterDiskAppearedCallback(session: DASession, _ match: CFDictionary?, _ callback: DADiskAppearedCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskAppearedCallback(_ session: DASession, _ match: CFDictionary?, _ callback: DADiskAppearedCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskDescriptionChangedCallback = @convention(c) (DADisk, CFArray, UnsafeMutablePointer<Void>) -> Void
-func DARegisterDiskDescriptionChangedCallback(session: DASession, _ match: CFDictionary?, _ watch: CFArray?, _ callback: DADiskDescriptionChangedCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskDescriptionChangedCallback(_ session: DASession, _ match: CFDictionary?, _ watch: CFArray?, _ callback: DADiskDescriptionChangedCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskDisappearedCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Void
-func DARegisterDiskDisappearedCallback(session: DASession, _ match: CFDictionary?, _ callback: DADiskDisappearedCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskDisappearedCallback(_ session: DASession, _ match: CFDictionary?, _ callback: DADiskDisappearedCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskMountCallback = @convention(c) (DADisk, DADissenter?, UnsafeMutablePointer<Void>) -> Void
-func DADiskMount(disk: DADisk, _ path: CFURL?, _ options: DADiskMountOptions, _ callback: DADiskMountCallback?, _ context: UnsafeMutablePointer<Void>)
-func DADiskMountWithArguments(disk: DADisk, _ path: CFURL?, _ options: DADiskMountOptions, _ callback: DADiskMountCallback?, _ context: UnsafeMutablePointer<Void>, _ arguments: UnsafeMutablePointer<Unmanaged<CFString>?>)
+func DADiskMount(_ disk: DADisk, _ path: CFURL?, _ options: DADiskMountOptions, _ callback: DADiskMountCallback?, _ context: UnsafeMutablePointer<Void>)
+func DADiskMountWithArguments(_ disk: DADisk, _ path: CFURL?, _ options: DADiskMountOptions, _ callback: DADiskMountCallback?, _ context: UnsafeMutablePointer<Void>, _ arguments: UnsafeMutablePointer<Unmanaged<CFString>?>)
 typealias DADiskMountApprovalCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Unmanaged<DADissenter>?
-func DARegisterDiskMountApprovalCallback(session: DASession, _ match: CFDictionary?, _ callback: DADiskMountApprovalCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskMountApprovalCallback(_ session: DASession, _ match: CFDictionary?, _ callback: DADiskMountApprovalCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskRenameCallback = @convention(c) (DADisk, DADissenter?, UnsafeMutablePointer<Void>) -> Void
-func DADiskRename(disk: DADisk, _ name: CFString, _ options: DADiskRenameOptions, _ callback: DADiskRenameCallback?, _ context: UnsafeMutablePointer<Void>)
+func DADiskRename(_ disk: DADisk, _ name: CFString, _ options: DADiskRenameOptions, _ callback: DADiskRenameCallback?, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskUnmountCallback = @convention(c) (DADisk, DADissenter?, UnsafeMutablePointer<Void>) -> Void
-func DADiskUnmount(disk: DADisk, _ options: DADiskUnmountOptions, _ callback: DADiskUnmountCallback?, _ context: UnsafeMutablePointer<Void>)
+func DADiskUnmount(_ disk: DADisk, _ options: DADiskUnmountOptions, _ callback: DADiskUnmountCallback?, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskUnmountApprovalCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Unmanaged<DADissenter>?
-func DARegisterDiskUnmountApprovalCallback(session: DASession, _ match: CFDictionary?, _ callback: DADiskUnmountApprovalCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskUnmountApprovalCallback(_ session: DASession, _ match: CFDictionary?, _ callback: DADiskUnmountApprovalCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskEjectCallback = @convention(c) (DADisk, DADissenter?, UnsafeMutablePointer<Void>) -> Void
-func DADiskEject(disk: DADisk, _ options: DADiskEjectOptions, _ callback: DADiskEjectCallback?, _ context: UnsafeMutablePointer<Void>)
+func DADiskEject(_ disk: DADisk, _ options: DADiskEjectOptions, _ callback: DADiskEjectCallback?, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskEjectApprovalCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Unmanaged<DADissenter>?
-func DARegisterDiskEjectApprovalCallback(session: DASession, _ match: CFDictionary?, _ callback: DADiskEjectApprovalCallback, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskEjectApprovalCallback(_ session: DASession, _ match: CFDictionary?, _ callback: DADiskEjectApprovalCallback, _ context: UnsafeMutablePointer<Void>)
 typealias DADiskClaimCallback = @convention(c) (DADisk, DADissenter?, UnsafeMutablePointer<Void>) -> Void
 typealias DADiskClaimReleaseCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Unmanaged<DADissenter>?
-func DADiskClaim(disk: DADisk, _ options: DADiskClaimOptions, _ release: DADiskClaimReleaseCallback?, _ releaseContext: UnsafeMutablePointer<Void>, _ callback: DADiskClaimCallback?, _ callbackContext: UnsafeMutablePointer<Void>)
-func DADiskIsClaimed(disk: DADisk) -> Bool
-func DADiskUnclaim(disk: DADisk)
+func DADiskClaim(_ disk: DADisk, _ options: DADiskClaimOptions, _ release: DADiskClaimReleaseCallback?, _ releaseContext: UnsafeMutablePointer<Void>, _ callback: DADiskClaimCallback?, _ callbackContext: UnsafeMutablePointer<Void>)
+func DADiskIsClaimed(_ disk: DADisk) -> Bool
+func DADiskUnclaim(_ disk: DADisk)
 typealias DADiskPeekCallback = @convention(c) (DADisk, UnsafeMutablePointer<Void>) -> Void
-func DARegisterDiskPeekCallback(session: DASession, _ match: CFDictionary?, _ order: CFIndex, _ callback: DADiskPeekCallback, _ context: UnsafeMutablePointer<Void>)
-func DADiskGetOptions(disk: DADisk) -> DADiskOptions
-func DADiskSetOptions(disk: DADisk, _ options: DADiskOptions, _ value: Bool) -> DAReturn
-func DAUnregisterCallback(session: DASession, _ callback: UnsafeMutablePointer<Void>, _ context: UnsafeMutablePointer<Void>)
+func DARegisterDiskPeekCallback(_ session: DASession, _ match: CFDictionary?, _ order: CFIndex, _ callback: DADiskPeekCallback, _ context: UnsafeMutablePointer<Void>)
+func DADiskGetOptions(_ disk: DADisk) -> DADiskOptions
+func DADiskSetOptions(_ disk: DADisk, _ options: DADiskOptions, _ value: Bool) -> DAReturn
+func DAUnregisterCallback(_ session: DASession, _ callback: UnsafeMutablePointer<Void>, _ context: UnsafeMutablePointer<Void>)

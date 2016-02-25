@@ -2,19 +2,18 @@
 class NSFileHandle : NSObject, NSSecureCoding {
   @NSCopying var availableData: NSData { get }
   func readDataToEndOfFile() -> NSData
-  func readDataOfLength(length: Int) -> NSData
-  func writeData(data: NSData)
+  func readDataOfLength(_ length: Int) -> NSData
+  func writeData(_ data: NSData)
   var offsetInFile: UInt64 { get }
   func seekToEndOfFile() -> UInt64
-  func seekToFileOffset(offset: UInt64)
-  func truncateFileAtOffset(offset: UInt64)
+  func seekToFileOffset(_ offset: UInt64)
+  func truncateFileAtOffset(_ offset: UInt64)
   func synchronizeFile()
   func closeFile()
   init(fileDescriptor fd: Int32, closeOnDealloc closeopt: Bool)
-  init?(coder: NSCoder)
-  convenience init()
+  init?(coder coder: NSCoder)
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSFileHandle {
   class func fileHandleWithStandardInput() -> NSFileHandle
@@ -39,13 +38,13 @@ let NSFileHandleDataAvailableNotification: String
 let NSFileHandleNotificationDataItem: String
 let NSFileHandleNotificationFileHandleItem: String
 extension NSFileHandle {
-  func readInBackgroundAndNotifyForModes(modes: [String]?)
+  func readInBackgroundAndNotifyForModes(_ modes: [String]?)
   func readInBackgroundAndNotify()
-  func readToEndOfFileInBackgroundAndNotifyForModes(modes: [String]?)
+  func readToEndOfFileInBackgroundAndNotifyForModes(_ modes: [String]?)
   func readToEndOfFileInBackgroundAndNotify()
-  func acceptConnectionInBackgroundAndNotifyForModes(modes: [String]?)
+  func acceptConnectionInBackgroundAndNotifyForModes(_ modes: [String]?)
   func acceptConnectionInBackgroundAndNotify()
-  func waitForDataInBackgroundAndNotifyForModes(modes: [String]?)
+  func waitForDataInBackgroundAndNotifyForModes(_ modes: [String]?)
   func waitForDataInBackgroundAndNotify()
   @available(iOS 5.0, *)
   var readabilityHandler: ((NSFileHandle) -> Void)?
@@ -59,5 +58,4 @@ extension NSFileHandle {
 class NSPipe : NSObject {
   var fileHandleForReading: NSFileHandle { get }
   var fileHandleForWriting: NSFileHandle { get }
-  init()
 }

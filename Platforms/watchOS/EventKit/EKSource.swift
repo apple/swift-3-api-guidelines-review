@@ -7,6 +7,5 @@ class EKSource : EKObject {
   @available(watchOS, introduced=2.0, deprecated=2.0)
   var calendars: Set<EKCalendar> { get }
   @available(watchOS 2.0, *)
-  func calendarsForEntityType(entityType: EKEntityType) -> Set<EKCalendar>
-  init()
+  func calendarsForEntityType(_ entityType: EKEntityType) -> Set<EKCalendar>
 }

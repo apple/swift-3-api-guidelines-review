@@ -8,7 +8,7 @@ typealias CGDisplayStreamUpdateRef = CGDisplayStreamUpdate
 class CGDisplayStreamUpdate {
 }
 enum CGDisplayStreamUpdateRectType : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case RefreshedRects
   case MovedRects
@@ -16,7 +16,7 @@ enum CGDisplayStreamUpdateRectType : Int32 {
   case ReducedDirtyRects
 }
 enum CGDisplayStreamFrameStatus : Int32 {
-  init?(rawValue: Int32)
+  init?(rawValue rawValue: Int32)
   var rawValue: Int32 { get }
   case FrameComplete
   case FrameIdle
@@ -27,13 +27,13 @@ typealias CGDisplayStreamFrameAvailableHandler = (CGDisplayStreamFrameStatus, UI
 @available(OSX 10.8, *)
 func CGDisplayStreamUpdateGetTypeID() -> CFTypeID
 @available(OSX 10.8, *)
-func CGDisplayStreamUpdateGetRects(updateRef: CGDisplayStreamUpdate?, _ rectType: CGDisplayStreamUpdateRectType, _ rectCount: UnsafeMutablePointer<Int>) -> UnsafePointer<CGRect>
+func CGDisplayStreamUpdateGetRects(_ updateRef: CGDisplayStreamUpdate?, _ rectType: CGDisplayStreamUpdateRectType, _ rectCount: UnsafeMutablePointer<Int>) -> UnsafePointer<CGRect>
 @available(OSX 10.8, *)
-func CGDisplayStreamUpdateCreateMergedUpdate(firstUpdate: CGDisplayStreamUpdate?, _ secondUpdate: CGDisplayStreamUpdate?) -> CGDisplayStreamUpdate?
+func CGDisplayStreamUpdateCreateMergedUpdate(_ firstUpdate: CGDisplayStreamUpdate?, _ secondUpdate: CGDisplayStreamUpdate?) -> CGDisplayStreamUpdate?
 @available(OSX 10.8, *)
-func CGDisplayStreamUpdateGetMovedRectsDelta(updateRef: CGDisplayStreamUpdate?, _ dx: UnsafeMutablePointer<CGFloat>, _ dy: UnsafeMutablePointer<CGFloat>)
+func CGDisplayStreamUpdateGetMovedRectsDelta(_ updateRef: CGDisplayStreamUpdate?, _ dx: UnsafeMutablePointer<CGFloat>, _ dy: UnsafeMutablePointer<CGFloat>)
 @available(OSX 10.8, *)
-func CGDisplayStreamUpdateGetDropCount(updateRef: CGDisplayStreamUpdate?) -> Int
+func CGDisplayStreamUpdateGetDropCount(_ updateRef: CGDisplayStreamUpdate?) -> Int
 @available(OSX 10.8, *)
 let kCGDisplayStreamSourceRect: CFString
 @available(OSX 10.8, *)
@@ -59,12 +59,12 @@ let kCGDisplayStreamYCbCrMatrix_SMPTE_240M_1995: CFString
 @available(OSX 10.8, *)
 func CGDisplayStreamGetTypeID() -> CFTypeID
 @available(OSX 10.8, *)
-func CGDisplayStreamCreate(display: CGDirectDisplayID, _ outputWidth: Int, _ outputHeight: Int, _ pixelFormat: Int32, _ properties: CFDictionary?, _ handler: CGDisplayStreamFrameAvailableHandler?) -> CGDisplayStream?
+func CGDisplayStreamCreate(_ display: CGDirectDisplayID, _ outputWidth: Int, _ outputHeight: Int, _ pixelFormat: Int32, _ properties: CFDictionary?, _ handler: CGDisplayStreamFrameAvailableHandler?) -> CGDisplayStream?
 @available(OSX 10.8, *)
-func CGDisplayStreamCreateWithDispatchQueue(display: CGDirectDisplayID, _ outputWidth: Int, _ outputHeight: Int, _ pixelFormat: Int32, _ properties: CFDictionary?, _ queue: dispatch_queue_t, _ handler: CGDisplayStreamFrameAvailableHandler?) -> CGDisplayStream?
+func CGDisplayStreamCreateWithDispatchQueue(_ display: CGDirectDisplayID, _ outputWidth: Int, _ outputHeight: Int, _ pixelFormat: Int32, _ properties: CFDictionary?, _ queue: dispatch_queue_t, _ handler: CGDisplayStreamFrameAvailableHandler?) -> CGDisplayStream?
 @available(OSX 10.8, *)
-func CGDisplayStreamStart(displayStream: CGDisplayStream?) -> CGError
+func CGDisplayStreamStart(_ displayStream: CGDisplayStream?) -> CGError
 @available(OSX 10.8, *)
-func CGDisplayStreamStop(displayStream: CGDisplayStream?) -> CGError
+func CGDisplayStreamStop(_ displayStream: CGDisplayStream?) -> CGError
 @available(OSX 10.8, *)
-func CGDisplayStreamGetRunLoopSource(displayStream: CGDisplayStream?) -> CFRunLoopSource?
+func CGDisplayStreamGetRunLoopSource(_ displayStream: CGDisplayStream?) -> CFRunLoopSource?

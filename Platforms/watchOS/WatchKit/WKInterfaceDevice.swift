@@ -1,7 +1,7 @@
 
 @available(watchOS 2.0, *)
 enum WKHapticType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Notification
   case DirectionUp
@@ -15,14 +15,14 @@ enum WKHapticType : Int {
 }
 @available(watchOS 2.1, *)
 enum WKInterfaceLayoutDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case LeftToRight
   case RightToLeft
 }
 @available(watchOS 2.1, *)
 enum WKInterfaceSemanticContentAttribute : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   case Playback
@@ -38,7 +38,7 @@ class WKInterfaceDevice : NSObject {
   @available(watchOS 2.1, *)
   var layoutDirection: WKInterfaceLayoutDirection { get }
   @available(watchOS 2.1, *)
-  class func interfaceLayoutDirectionForSemanticContentAttribute(semanticContentAttribute: WKInterfaceSemanticContentAttribute) -> WKInterfaceLayoutDirection
+  class func interfaceLayoutDirectionForSemanticContentAttribute(_ semanticContentAttribute: WKInterfaceSemanticContentAttribute) -> WKInterfaceLayoutDirection
   @available(watchOS 2.0, *)
   var systemVersion: String { get }
   @available(watchOS 2.0, *)
@@ -50,6 +50,5 @@ class WKInterfaceDevice : NSObject {
   @available(watchOS 2.0, *)
   var systemName: String { get }
   @available(watchOS 2.0, *)
-  func playHaptic(type: WKHapticType)
-  init()
+  func playHaptic(_ type: WKHapticType)
 }

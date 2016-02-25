@@ -7,19 +7,19 @@ var kAUGraphErr_OutputNodeErr: OSStatus { get }
 var kAUGraphErr_CannotDoInCurrentContext: OSStatus { get }
 var kAUGraphErr_InvalidAudioUnit: OSStatus { get }
 @available(tvOS 2.0, *)
-func NewAUGraph(outGraph: UnsafeMutablePointer<AUGraph>) -> OSStatus
+func NewAUGraph(_ outGraph: UnsafeMutablePointer<AUGraph>) -> OSStatus
 @available(tvOS 2.0, *)
-func DisposeAUGraph(inGraph: AUGraph) -> OSStatus
+func DisposeAUGraph(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphAddNode(inGraph: AUGraph, _ inDescription: UnsafePointer<AudioComponentDescription>, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
+func AUGraphAddNode(_ inGraph: AUGraph, _ inDescription: UnsafePointer<AudioComponentDescription>, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphRemoveNode(inGraph: AUGraph, _ inNode: AUNode) -> OSStatus
+func AUGraphRemoveNode(_ inGraph: AUGraph, _ inNode: AUNode) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetNodeCount(inGraph: AUGraph, _ outNumberOfNodes: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AUGraphGetNodeCount(_ inGraph: AUGraph, _ outNumberOfNodes: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetIndNode(inGraph: AUGraph, _ inIndex: UInt32, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
+func AUGraphGetIndNode(_ inGraph: AUGraph, _ inIndex: UInt32, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphNodeInfo(inGraph: AUGraph, _ inNode: AUNode, _ outDescription: UnsafeMutablePointer<AudioComponentDescription>, _ outAudioUnit: UnsafeMutablePointer<AudioUnit>) -> OSStatus
+func AUGraphNodeInfo(_ inGraph: AUGraph, _ inNode: AUNode, _ outDescription: UnsafeMutablePointer<AudioComponentDescription>, _ outAudioUnit: UnsafeMutablePointer<AudioUnit>) -> OSStatus
 var kAUNodeInteraction_Connection: UInt32 { get }
 var kAUNodeInteraction_InputCallback: UInt32 { get }
 struct AudioUnitNodeConnection {
@@ -28,7 +28,7 @@ struct AudioUnitNodeConnection {
   var destNode: AUNode
   var destInputNumber: UInt32
   init()
-  init(sourceNode: AUNode, sourceOutputNumber: UInt32, destNode: AUNode, destInputNumber: UInt32)
+  init(sourceNode sourceNode: AUNode, sourceOutputNumber sourceOutputNumber: UInt32, destNode destNode: AUNode, destInputNumber destInputNumber: UInt32)
 }
 typealias AUNodeConnection = AudioUnitNodeConnection
 struct AUNodeRenderCallback {
@@ -36,62 +36,62 @@ struct AUNodeRenderCallback {
   var destInputNumber: AudioUnitElement
   var cback: AURenderCallbackStruct
   init()
-  init(destNode: AUNode, destInputNumber: AudioUnitElement, cback: AURenderCallbackStruct)
+  init(destNode destNode: AUNode, destInputNumber destInputNumber: AudioUnitElement, cback cback: AURenderCallbackStruct)
 }
 struct AUNodeInteraction {
   struct __Unnamed_union_nodeInteraction {
     var connection: AUNodeConnection
     var inputCallback: AUNodeRenderCallback
-    init(connection: AUNodeConnection)
-    init(inputCallback: AUNodeRenderCallback)
+    init(connection connection: AUNodeConnection)
+    init(inputCallback inputCallback: AUNodeRenderCallback)
     init()
   }
   var nodeInteractionType: UInt32
   var nodeInteraction: AUNodeInteraction.__Unnamed_union_nodeInteraction
   init()
-  init(nodeInteractionType: UInt32, nodeInteraction: AUNodeInteraction.__Unnamed_union_nodeInteraction)
+  init(nodeInteractionType nodeInteractionType: UInt32, nodeInteraction nodeInteraction: AUNodeInteraction.__Unnamed_union_nodeInteraction)
 }
 @available(tvOS 2.0, *)
-func AUGraphConnectNodeInput(inGraph: AUGraph, _ inSourceNode: AUNode, _ inSourceOutputNumber: UInt32, _ inDestNode: AUNode, _ inDestInputNumber: UInt32) -> OSStatus
+func AUGraphConnectNodeInput(_ inGraph: AUGraph, _ inSourceNode: AUNode, _ inSourceOutputNumber: UInt32, _ inDestNode: AUNode, _ inDestInputNumber: UInt32) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphSetNodeInputCallback(inGraph: AUGraph, _ inDestNode: AUNode, _ inDestInputNumber: UInt32, _ inInputCallback: UnsafePointer<AURenderCallbackStruct>) -> OSStatus
+func AUGraphSetNodeInputCallback(_ inGraph: AUGraph, _ inDestNode: AUNode, _ inDestInputNumber: UInt32, _ inInputCallback: UnsafePointer<AURenderCallbackStruct>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphDisconnectNodeInput(inGraph: AUGraph, _ inDestNode: AUNode, _ inDestInputNumber: UInt32) -> OSStatus
+func AUGraphDisconnectNodeInput(_ inGraph: AUGraph, _ inDestNode: AUNode, _ inDestInputNumber: UInt32) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphClearConnections(inGraph: AUGraph) -> OSStatus
+func AUGraphClearConnections(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetNumberOfInteractions(inGraph: AUGraph, _ outNumInteractions: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AUGraphGetNumberOfInteractions(_ inGraph: AUGraph, _ outNumInteractions: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetInteractionInfo(inGraph: AUGraph, _ inInteractionIndex: UInt32, _ outInteraction: UnsafeMutablePointer<AUNodeInteraction>) -> OSStatus
+func AUGraphGetInteractionInfo(_ inGraph: AUGraph, _ inInteractionIndex: UInt32, _ outInteraction: UnsafeMutablePointer<AUNodeInteraction>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphCountNodeInteractions(inGraph: AUGraph, _ inNode: AUNode, _ outNumInteractions: UnsafeMutablePointer<UInt32>) -> OSStatus
+func AUGraphCountNodeInteractions(_ inGraph: AUGraph, _ inNode: AUNode, _ outNumInteractions: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetNodeInteractions(inGraph: AUGraph, _ inNode: AUNode, _ ioNumInteractions: UnsafeMutablePointer<UInt32>, _ outInteractions: UnsafeMutablePointer<AUNodeInteraction>) -> OSStatus
+func AUGraphGetNodeInteractions(_ inGraph: AUGraph, _ inNode: AUNode, _ ioNumInteractions: UnsafeMutablePointer<UInt32>, _ outInteractions: UnsafeMutablePointer<AUNodeInteraction>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphUpdate(inGraph: AUGraph, _ outIsUpdated: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AUGraphUpdate(_ inGraph: AUGraph, _ outIsUpdated: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphOpen(inGraph: AUGraph) -> OSStatus
+func AUGraphOpen(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphClose(inGraph: AUGraph) -> OSStatus
+func AUGraphClose(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphInitialize(inGraph: AUGraph) -> OSStatus
+func AUGraphInitialize(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphUninitialize(inGraph: AUGraph) -> OSStatus
+func AUGraphUninitialize(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphStart(inGraph: AUGraph) -> OSStatus
+func AUGraphStart(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphStop(inGraph: AUGraph) -> OSStatus
+func AUGraphStop(_ inGraph: AUGraph) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphIsOpen(inGraph: AUGraph, _ outIsOpen: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AUGraphIsOpen(_ inGraph: AUGraph, _ outIsOpen: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphIsInitialized(inGraph: AUGraph, _ outIsInitialized: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AUGraphIsInitialized(_ inGraph: AUGraph, _ outIsInitialized: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphIsRunning(inGraph: AUGraph, _ outIsRunning: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func AUGraphIsRunning(_ inGraph: AUGraph, _ outIsRunning: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetCPULoad(inGraph: AUGraph, _ outAverageCPULoad: UnsafeMutablePointer<Float32>) -> OSStatus
+func AUGraphGetCPULoad(_ inGraph: AUGraph, _ outAverageCPULoad: UnsafeMutablePointer<Float32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphGetMaxCPULoad(inGraph: AUGraph, _ outMaxLoad: UnsafeMutablePointer<Float32>) -> OSStatus
+func AUGraphGetMaxCPULoad(_ inGraph: AUGraph, _ outMaxLoad: UnsafeMutablePointer<Float32>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphAddRenderNotify(inGraph: AUGraph, _ inCallback: AURenderCallback, _ inRefCon: UnsafeMutablePointer<Void>) -> OSStatus
+func AUGraphAddRenderNotify(_ inGraph: AUGraph, _ inCallback: AURenderCallback, _ inRefCon: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 2.0, *)
-func AUGraphRemoveRenderNotify(inGraph: AUGraph, _ inCallback: AURenderCallback, _ inRefCon: UnsafeMutablePointer<Void>) -> OSStatus
+func AUGraphRemoveRenderNotify(_ inGraph: AUGraph, _ inCallback: AURenderCallback, _ inRefCon: UnsafeMutablePointer<Void>) -> OSStatus

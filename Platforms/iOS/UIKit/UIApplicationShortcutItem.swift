@@ -1,7 +1,7 @@
 
 @available(iOS 9.0, *)
 enum UIApplicationShortcutIconType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Compose
   case Play
@@ -57,33 +57,25 @@ enum UIApplicationShortcutIconType : Int {
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutIcon : NSObject, NSCopying {
-  convenience init(type: UIApplicationShortcutIconType)
-  convenience init(templateImageName: String)
-  init()
+  convenience init(type type: UIApplicationShortcutIconType)
+  convenience init(templateImageName templateImageName: String)
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIApplicationShortcutItem : NSObject, NSCopying, NSMutableCopying {
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]?)
-  convenience init(type: String, localizedTitle: String)
+  init(type type: String, localizedTitle localizedTitle: String, localizedSubtitle localizedSubtitle: String?, icon icon: UIApplicationShortcutIcon?, userInfo userInfo: [NSObject : AnyObject]?)
+  convenience init(type type: String, localizedTitle localizedTitle: String)
   var type: String { get }
   var localizedTitle: String { get }
   var localizedSubtitle: String? { get }
   @NSCopying var icon: UIApplicationShortcutIcon? { get }
   var userInfo: [String : NSSecureCoding]? { get }
   @available(iOS 9.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(iOS 9.0, *)
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 9.0, *)
 class UIMutableApplicationShortcutItem : UIApplicationShortcutItem {
-  var type: String
-  var localizedTitle: String
-  var localizedSubtitle: String?
-  @NSCopying var icon: UIApplicationShortcutIcon?
-  var userInfo: [String : NSSecureCoding]?
-  init(type: String, localizedTitle: String, localizedSubtitle: String?, icon: UIApplicationShortcutIcon?, userInfo: [NSObject : AnyObject]?)
-  convenience init(type: String, localizedTitle: String)
 }

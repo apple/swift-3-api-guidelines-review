@@ -5,30 +5,27 @@ typealias NSTimeInterval = Double
 var NSTimeIntervalSince1970: Double { get }
 class NSDate : NSObject, NSCopying, NSSecureCoding {
   var timeIntervalSinceReferenceDate: NSTimeInterval { get }
-  init()
   init(timeIntervalSinceReferenceDate ti: NSTimeInterval)
   init?(coder aDecoder: NSCoder)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 
 extension NSDate : CustomPlaygroundQuickLookable {
   var summary: String { get }
-  func customPlaygroundQuickLook() -> PlaygroundQuickLook
 }
 extension NSDate {
-  func timeIntervalSinceDate(anotherDate: NSDate) -> NSTimeInterval
+  func timeIntervalSinceDate(_ anotherDate: NSDate) -> NSTimeInterval
   var timeIntervalSinceNow: NSTimeInterval { get }
   var timeIntervalSince1970: NSTimeInterval { get }
   @available(tvOS 2.0, *)
-  func dateByAddingTimeInterval(ti: NSTimeInterval) -> Self
-  func earlierDate(anotherDate: NSDate) -> NSDate
-  func laterDate(anotherDate: NSDate) -> NSDate
-  func compare(other: NSDate) -> NSComparisonResult
-  func isEqualToDate(otherDate: NSDate) -> Bool
-  var description: String { get }
-  func descriptionWithLocale(locale: AnyObject?) -> String
+  func dateByAddingTimeInterval(_ ti: NSTimeInterval) -> Self
+  func earlierDate(_ anotherDate: NSDate) -> NSDate
+  func laterDate(_ anotherDate: NSDate) -> NSDate
+  func compare(_ other: NSDate) -> NSComparisonResult
+  func isEqualToDate(_ otherDate: NSDate) -> Bool
+  func descriptionWithLocale(_ locale: AnyObject?) -> String
   class func timeIntervalSinceReferenceDate() -> NSTimeInterval
 }
 extension NSDate {

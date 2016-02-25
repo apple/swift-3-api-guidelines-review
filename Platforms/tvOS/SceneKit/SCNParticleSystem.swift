@@ -35,7 +35,7 @@ typealias SCNParticleEventBlock = (UnsafeMutablePointer<UnsafeMutablePointer<Voi
 typealias SCNParticleModifierBlock = (UnsafeMutablePointer<UnsafeMutablePointer<Void>>, UnsafeMutablePointer<Int>, Int, Int, Float) -> Void
 @available(tvOS 8.0, *)
 enum SCNParticleSortingMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case ProjectedDepth
@@ -45,7 +45,7 @@ enum SCNParticleSortingMode : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleBlendMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Additive
   case Subtract
@@ -56,7 +56,7 @@ enum SCNParticleBlendMode : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleOrientationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case BillboardScreenAligned
   case BillboardViewAligned
@@ -65,7 +65,7 @@ enum SCNParticleOrientationMode : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleBirthLocation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Surface
   case Volume
@@ -73,7 +73,7 @@ enum SCNParticleBirthLocation : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleBirthDirection : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Constant
   case SurfaceNormal
@@ -81,7 +81,7 @@ enum SCNParticleBirthDirection : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleImageSequenceAnimationMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Repeat
   case Clamp
@@ -89,7 +89,7 @@ enum SCNParticleImageSequenceAnimationMode : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleInputMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case OverLife
   case OverDistance
@@ -97,7 +97,7 @@ enum SCNParticleInputMode : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleModifierStage : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case PreDynamics
   case PostDynamics
@@ -106,7 +106,7 @@ enum SCNParticleModifierStage : Int {
 }
 @available(tvOS 8.0, *)
 enum SCNParticleEvent : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Birth
   case Death
@@ -114,21 +114,20 @@ enum SCNParticleEvent : Int {
 }
 @available(tvOS 8.0, *)
 class SCNParticlePropertyController : NSObject, NSSecureCoding, NSCopying {
-  convenience init(animation: CAAnimation)
+  convenience init(animation animation: CAAnimation)
   var animation: CAAnimation
   var inputMode: SCNParticleInputMode
   var inputScale: CGFloat
   var inputBias: CGFloat
   weak var inputOrigin: @sil_weak SCNNode?
   var inputProperty: String?
-  init()
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(tvOS 8.0, *)
 class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
@@ -194,54 +193,53 @@ class SCNParticleSystem : NSObject, NSCopying, NSSecureCoding, SCNAnimatable {
   var fresnelExponent: CGFloat
   var propertyControllers: [String : SCNParticlePropertyController]?
   func reset()
-  func handleEvent(event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
-  func addModifierForProperties(properties: [String], atStage stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
-  func removeModifiersOfStage(stage: SCNParticleModifierStage)
+  func handleEvent(_ event: SCNParticleEvent, forProperties properties: [String], withBlock block: SCNParticleEventBlock)
+  func addModifierForProperties(_ properties: [String], atStage stage: SCNParticleModifierStage, withBlock block: SCNParticleModifierBlock)
+  func removeModifiersOfStage(_ stage: SCNParticleModifierStage)
   func removeAllModifiers()
-  init()
   @available(tvOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(tvOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(tvOS 8.0, *)
-  func addAnimation(animation: CAAnimation, forKey key: String?)
+  func addAnimation(_ animation: CAAnimation, forKey key: String?)
   @available(tvOS 8.0, *)
   func removeAllAnimations()
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String)
+  func removeAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
   var animationKeys: [String] { get }
   @available(tvOS 8.0, *)
-  func animationForKey(key: String) -> CAAnimation?
+  func animationForKey(_ key: String) -> CAAnimation?
   @available(tvOS 8.0, *)
-  func pauseAnimationForKey(key: String)
+  func pauseAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
-  func resumeAnimationForKey(key: String)
+  func resumeAnimationForKey(_ key: String)
   @available(tvOS 8.0, *)
-  func isAnimationForKeyPaused(key: String) -> Bool
+  func isAnimationForKeyPaused(_ key: String) -> Bool
   @available(tvOS 8.0, *)
-  func removeAnimationForKey(key: String, fadeOutDuration duration: CGFloat)
+  func removeAnimationForKey(_ key: String, fadeOutDuration duration: CGFloat)
 }
 extension SCNNode {
   @available(tvOS 8.0, *)
-  func addParticleSystem(system: SCNParticleSystem)
+  func addParticleSystem(_ system: SCNParticleSystem)
   @available(tvOS 8.0, *)
   func removeAllParticleSystems()
   @available(tvOS 8.0, *)
-  func removeParticleSystem(system: SCNParticleSystem)
+  func removeParticleSystem(_ system: SCNParticleSystem)
   @available(tvOS 8.0, *)
   var particleSystems: [SCNParticleSystem]? { get }
 }
 extension SCNScene {
   @available(tvOS 8.0, *)
-  func addParticleSystem(system: SCNParticleSystem, withTransform transform: SCNMatrix4)
+  func addParticleSystem(_ system: SCNParticleSystem, withTransform transform: SCNMatrix4)
   @available(tvOS 8.0, *)
   func removeAllParticleSystems()
   @available(tvOS 8.0, *)
-  func removeParticleSystem(system: SCNParticleSystem)
+  func removeParticleSystem(_ system: SCNParticleSystem)
   @available(tvOS 8.0, *)
   var particleSystems: [SCNParticleSystem]? { get }
 }

@@ -1,72 +1,63 @@
 
 class NSIndexSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
   init(indexesInRange range: NSRange)
-  init(indexSet: NSIndexSet)
+  init(indexSet indexSet: NSIndexSet)
   convenience init(index value: Int)
-  func isEqualToIndexSet(indexSet: NSIndexSet) -> Bool
+  func isEqualToIndexSet(_ indexSet: NSIndexSet) -> Bool
   var count: Int { get }
   var firstIndex: Int { get }
   var lastIndex: Int { get }
-  func indexGreaterThanIndex(value: Int) -> Int
-  func indexLessThanIndex(value: Int) -> Int
-  func indexGreaterThanOrEqualToIndex(value: Int) -> Int
-  func indexLessThanOrEqualToIndex(value: Int) -> Int
-  func getIndexes(indexBuffer: UnsafeMutablePointer<Int>, maxCount bufferSize: Int, inIndexRange range: NSRangePointer) -> Int
+  func indexGreaterThanIndex(_ value: Int) -> Int
+  func indexLessThanIndex(_ value: Int) -> Int
+  func indexGreaterThanOrEqualToIndex(_ value: Int) -> Int
+  func indexLessThanOrEqualToIndex(_ value: Int) -> Int
+  func getIndexes(_ indexBuffer: UnsafeMutablePointer<Int>, maxCount bufferSize: Int, inIndexRange range: NSRangePointer) -> Int
   @available(iOS 2.0, *)
-  func countOfIndexesInRange(range: NSRange) -> Int
-  func containsIndex(value: Int) -> Bool
-  func containsIndexesInRange(range: NSRange) -> Bool
-  func containsIndexes(indexSet: NSIndexSet) -> Bool
-  func intersectsIndexesInRange(range: NSRange) -> Bool
+  func countOfIndexesInRange(_ range: NSRange) -> Int
+  func containsIndex(_ value: Int) -> Bool
+  func containsIndexesInRange(_ range: NSRange) -> Bool
+  func containsIndexes(_ indexSet: NSIndexSet) -> Bool
+  func intersectsIndexesInRange(_ range: NSRange) -> Bool
   @available(iOS 4.0, *)
-  func enumerateIndexesUsingBlock(block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexesUsingBlock(_ block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func enumerateIndexesWithOptions(opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexesWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func enumerateIndexesInRange(range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateIndexesInRange(_ range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (Int, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 4.0, *)
-  func indexPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexPassingTest(_ predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(iOS 4.0, *)
-  func indexWithOptions(opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexWithOptions(_ opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(iOS 4.0, *)
-  func indexInRange(range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
+  func indexInRange(_ range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> Int
   @available(iOS 4.0, *)
-  func indexesPassingTest(predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesPassingTest(_ predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(iOS 4.0, *)
-  func indexesWithOptions(opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesWithOptions(_ opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(iOS 4.0, *)
-  func indexesInRange(range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
+  func indexesInRange(_ range: NSRange, options opts: NSEnumerationOptions, passingTest predicate: (Int, UnsafeMutablePointer<ObjCBool>) -> Bool) -> NSIndexSet
   @available(iOS 5.0, *)
-  func enumerateRangesUsingBlock(block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRangesUsingBlock(_ block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 5.0, *)
-  func enumerateRangesWithOptions(opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateRangesWithOptions(_ opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 5.0, *)
-  func enumerateRangesInRange(range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
-  convenience init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func mutableCopyWithZone(zone: NSZone) -> AnyObject
+  func enumerateRangesInRange(_ range: NSRange, options opts: NSEnumerationOptions, usingBlock block: (NSRange, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func mutableCopyWithZone(_ zone: NSZone) -> AnyObject
   class func supportsSecureCoding() -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 
 extension NSIndexSet : SequenceType {
-  func generate() -> NSIndexSetGenerator
-  typealias Generator = NSIndexSetGenerator
-  typealias SubSequence = AnySequence<Element>
 }
 class NSMutableIndexSet : NSIndexSet {
-  func addIndexes(indexSet: NSIndexSet)
-  func removeIndexes(indexSet: NSIndexSet)
+  func addIndexes(_ indexSet: NSIndexSet)
+  func removeIndexes(_ indexSet: NSIndexSet)
   func removeAllIndexes()
-  func addIndex(value: Int)
-  func removeIndex(value: Int)
-  func addIndexesInRange(range: NSRange)
-  func removeIndexesInRange(range: NSRange)
-  func shiftIndexesStartingAtIndex(index: Int, by delta: Int)
-  init(indexesInRange range: NSRange)
-  init(indexSet: NSIndexSet)
-  convenience init(index value: Int)
-  convenience init()
-  init?(coder aDecoder: NSCoder)
+  func addIndex(_ value: Int)
+  func removeIndex(_ value: Int)
+  func addIndexesInRange(_ range: NSRange)
+  func removeIndexesInRange(_ range: NSRange)
+  func shiftIndexesStartingAtIndex(_ index: Int, by delta: Int)
 }

@@ -1,6 +1,6 @@
 
 struct NSTrackingAreaOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var MouseEnteredAndExited: NSTrackingAreaOptions { get }
   static var MouseMoved: NSTrackingAreaOptions { get }
@@ -15,15 +15,14 @@ struct NSTrackingAreaOptions : OptionSetType {
 }
 @available(OSX 10.5, *)
 class NSTrackingArea : NSObject, NSCopying, NSCoding {
-  init(rect: NSRect, options: NSTrackingAreaOptions, owner: AnyObject?, userInfo: [NSObject : AnyObject]?)
+  init(rect rect: NSRect, options options: NSTrackingAreaOptions, owner owner: AnyObject?, userInfo userInfo: [NSObject : AnyObject]?)
   var rect: NSRect { get }
   var options: NSTrackingAreaOptions { get }
   unowned(unsafe) var owner: @sil_unmanaged AnyObject? { get }
   var userInfo: [NSObject : AnyObject]? { get }
-  init()
   @available(OSX 10.5, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.5, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -11,14 +11,13 @@ class CMPedometerData : NSObject, NSSecureCoding, NSCopying {
   var currentPace: NSNumber? { get }
   @available(watchOS 2.0, *)
   var currentCadence: NSNumber? { get }
-  init()
   @available(watchOS 2.0, *)
   class func supportsSecureCoding() -> Bool
   @available(watchOS 2.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 typealias CMPedometerHandler = (CMPedometerData?, NSError?) -> Void
 @available(watchOS 2.0, *)
@@ -30,8 +29,7 @@ class CMPedometer : NSObject {
   class func isPaceAvailable() -> Bool
   @available(watchOS 2.0, *)
   class func isCadenceAvailable() -> Bool
-  func queryPedometerDataFromDate(start: NSDate, toDate end: NSDate, withHandler handler: CMPedometerHandler)
-  func startPedometerUpdatesFromDate(start: NSDate, withHandler handler: CMPedometerHandler)
+  func queryPedometerDataFromDate(_ start: NSDate, toDate end: NSDate, withHandler handler: CMPedometerHandler)
+  func startPedometerUpdatesFromDate(_ start: NSDate, withHandler handler: CMPedometerHandler)
   func stopPedometerUpdates()
-  init()
 }

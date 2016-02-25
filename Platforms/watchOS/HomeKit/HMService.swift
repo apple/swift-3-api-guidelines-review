@@ -12,5 +12,4 @@ class HMService : NSObject {
   @NSCopying var uniqueIdentifier: NSUUID { get }
   @available(watchOS 2.0, *)
   var userInteractive: Bool { get }
-  init()
 }

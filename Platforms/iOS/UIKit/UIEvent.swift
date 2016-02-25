@@ -1,6 +1,6 @@
 
 enum UIEventType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Touches
   case Motion
@@ -9,7 +9,7 @@ enum UIEventType : Int {
   case Presses
 }
 enum UIEventSubtype : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case MotionShake
@@ -32,13 +32,12 @@ class UIEvent : NSObject {
   var subtype: UIEventSubtype { get }
   var timestamp: NSTimeInterval { get }
   func allTouches() -> Set<UITouch>?
-  func touchesForWindow(window: UIWindow) -> Set<UITouch>?
-  func touchesForView(view: UIView) -> Set<UITouch>?
+  func touchesForWindow(_ window: UIWindow) -> Set<UITouch>?
+  func touchesForView(_ view: UIView) -> Set<UITouch>?
   @available(iOS 3.2, *)
-  func touchesForGestureRecognizer(gesture: UIGestureRecognizer) -> Set<UITouch>?
+  func touchesForGestureRecognizer(_ gesture: UIGestureRecognizer) -> Set<UITouch>?
   @available(iOS 9.0, *)
-  func coalescedTouchesForTouch(touch: UITouch) -> [UITouch]?
+  func coalescedTouchesForTouch(_ touch: UITouch) -> [UITouch]?
   @available(iOS 9.0, *)
-  func predictedTouchesForTouch(touch: UITouch) -> [UITouch]?
-  init()
+  func predictedTouchesForTouch(_ touch: UITouch) -> [UITouch]?
 }

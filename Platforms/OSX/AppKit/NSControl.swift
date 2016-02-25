@@ -2,7 +2,6 @@
 class NSControl : NSView {
   weak var target: @sil_weak AnyObject?
   var action: Selector
-  var tag: Int
   var ignoresMultiClick: Bool
   var continuous: Bool
   var enabled: Bool
@@ -20,21 +19,17 @@ class NSControl : NSView {
   var floatValue: Float
   var doubleValue: Double
   @available(OSX 10.10, *)
-  func sizeThatFits(size: NSSize) -> NSSize
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
+  func sizeThatFits(_ size: NSSize) -> NSSize
   func sizeToFit()
-  func sendActionOn(mask: Int) -> Int
-  func sendAction(theAction: Selector, to theTarget: AnyObject?) -> Bool
-  func takeIntValueFrom(sender: AnyObject?)
-  func takeFloatValueFrom(sender: AnyObject?)
-  func takeDoubleValueFrom(sender: AnyObject?)
-  func takeStringValueFrom(sender: AnyObject?)
-  func takeObjectValueFrom(sender: AnyObject?)
+  func sendActionOn(_ mask: Int) -> Int
+  func sendAction(_ theAction: Selector, to theTarget: AnyObject?) -> Bool
+  func takeIntValueFrom(_ sender: AnyObject?)
+  func takeFloatValueFrom(_ sender: AnyObject?)
+  func takeDoubleValueFrom(_ sender: AnyObject?)
+  func takeStringValueFrom(_ sender: AnyObject?)
+  func takeObjectValueFrom(_ sender: AnyObject?)
   @available(OSX 10.5, *)
-  func takeIntegerValueFrom(sender: AnyObject?)
-  func mouseDown(theEvent: NSEvent)
-  convenience init()
+  func takeIntegerValueFrom(_ sender: AnyObject?)
 }
 struct __conFlags {
   var enabled: UInt32
@@ -49,10 +44,10 @@ struct __conFlags {
   var dontValidate: UInt32
   var reserved: UInt32
   init()
-  init(enabled: UInt32, ignoreMultiClick: UInt32, calcSize: UInt32, drawingAncestor: UInt32, ibReserved: UInt32, updateCellFocus: UInt32, allowsLogicalLayoutDirection: UInt32, asmlwidth: UInt32, hsmlwidth: UInt32, dontValidate: UInt32, reserved: UInt32)
+  init(enabled enabled: UInt32, ignoreMultiClick ignoreMultiClick: UInt32, calcSize calcSize: UInt32, drawingAncestor drawingAncestor: UInt32, ibReserved ibReserved: UInt32, updateCellFocus updateCellFocus: UInt32, allowsLogicalLayoutDirection allowsLogicalLayoutDirection: UInt32, asmlwidth asmlwidth: UInt32, hsmlwidth hsmlwidth: UInt32, dontValidate dontValidate: UInt32, reserved reserved: UInt32)
 }
 extension NSControl {
-  func performClick(sender: AnyObject?)
+  func performClick(_ sender: AnyObject?)
 }
 extension NSControl {
   var alignment: NSTextAlignment
@@ -65,52 +60,52 @@ extension NSControl {
   @available(OSX 10.8, *)
   var allowsExpansionToolTips: Bool
   @available(OSX 10.10, *)
-  func expansionFrameWithFrame(contentFrame: NSRect) -> NSRect
+  func expansionFrameWithFrame(_ contentFrame: NSRect) -> NSRect
   @available(OSX 10.10, *)
-  func drawWithExpansionFrame(contentFrame: NSRect, inView view: NSView)
+  func drawWithExpansionFrame(_ contentFrame: NSRect, inView view: NSView)
 }
 extension NSControl {
   func currentEditor() -> NSText?
   func abortEditing() -> Bool
   func validateEditing()
   @available(OSX 10.10, *)
-  func editWithFrame(aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
+  func editWithFrame(_ aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, event theEvent: NSEvent)
   @available(OSX 10.10, *)
-  func selectWithFrame(aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
+  func selectWithFrame(_ aRect: NSRect, editor textObj: NSText, delegate anObject: AnyObject?, start selStart: Int, length selLength: Int)
   @available(OSX 10.10, *)
-  func endEditing(textObj: NSText)
+  func endEditing(_ textObj: NSText)
 }
 extension NSObject {
-  class func controlTextDidBeginEditing(obj: NSNotification)
-  func controlTextDidBeginEditing(obj: NSNotification)
-  class func controlTextDidEndEditing(obj: NSNotification)
-  func controlTextDidEndEditing(obj: NSNotification)
-  class func controlTextDidChange(obj: NSNotification)
-  func controlTextDidChange(obj: NSNotification)
+  class func controlTextDidBeginEditing(_ obj: NSNotification)
+  func controlTextDidBeginEditing(_ obj: NSNotification)
+  class func controlTextDidEndEditing(_ obj: NSNotification)
+  func controlTextDidEndEditing(_ obj: NSNotification)
+  class func controlTextDidChange(_ obj: NSNotification)
+  func controlTextDidChange(_ obj: NSNotification)
 }
 protocol NSControlTextEditingDelegate : NSObjectProtocol {
-  optional func control(control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool
-  optional func control(control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool
-  optional func control(control: NSControl, didFailToFormatString string: String, errorDescription error: String?) -> Bool
-  optional func control(control: NSControl, didFailToValidatePartialString string: String, errorDescription error: String?)
-  optional func control(control: NSControl, isValidObject obj: AnyObject) -> Bool
-  optional func control(control: NSControl, textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool
-  optional func control(control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
+  optional func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool
+  optional func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool
+  optional func control(_ control: NSControl, didFailToFormatString string: String, errorDescription error: String?) -> Bool
+  optional func control(_ control: NSControl, didFailToValidatePartialString string: String, errorDescription error: String?)
+  optional func control(_ control: NSControl, isValidObject obj: AnyObject) -> Bool
+  optional func control(_ control: NSControl, textView textView: NSTextView, doCommandBySelector commandSelector: Selector) -> Bool
+  optional func control(_ control: NSControl, textView textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String]
 }
 let NSControlTextDidBeginEditingNotification: String
 let NSControlTextDidEndEditingNotification: String
 let NSControlTextDidChangeNotification: String
 extension NSControl {
-  class func setCellClass(factoryId: AnyClass?)
+  class func setCellClass(_ factoryId: AnyClass?)
   class func cellClass() -> AnyClass?
   var cell: NSCell?
   func selectedCell() -> NSCell?
   func selectedTag() -> Int
   func setNeedsDisplay()
   func calcSize()
-  func updateCell(aCell: NSCell)
-  func updateCellInside(aCell: NSCell)
-  func drawCellInside(aCell: NSCell)
-  func drawCell(aCell: NSCell)
-  func selectCell(aCell: NSCell)
+  func updateCell(_ aCell: NSCell)
+  func updateCellInside(_ aCell: NSCell)
+  func drawCellInside(_ aCell: NSCell)
+  func drawCell(_ aCell: NSCell)
+  func selectCell(_ aCell: NSCell)
 }

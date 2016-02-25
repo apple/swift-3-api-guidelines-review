@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum SCNAntialiasingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case None
   case Multisampling2X
@@ -17,36 +17,33 @@ let SCNPreferredDeviceKey: String
 let SCNPreferLowPowerDeviceKey: String
 @available(OSX 10.8, *)
 class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
-  init(frame: NSRect, options: [String : AnyObject]?)
+  init(frame frame: NSRect, options options: [String : AnyObject]?)
   var scene: SCNScene?
   @NSCopying var backgroundColor: NSColor
   var allowsCameraControl: Bool
   @available(OSX 10.10, *)
   func snapshot() -> NSImage
-  @IBAction func play(sender: AnyObject?)
-  @IBAction func pause(sender: AnyObject?)
-  @IBAction func stop(sender: AnyObject?)
+  @IBAction func play(_ sender: AnyObject?)
+  @IBAction func pause(_ sender: AnyObject?)
+  @IBAction func stop(_ sender: AnyObject?)
   var openGLContext: NSOpenGLContext?
   @available(OSX 10.10, *)
   var antialiasingMode: SCNAntialiasingMode
   var pixelFormat: NSOpenGLPixelFormat?
-  init(frame frameRect: NSRect)
-  init?(coder: NSCoder)
-  convenience init()
   @available(OSX 10.10, *)
   var sceneTime: NSTimeInterval
   @available(OSX 10.8, *)
   unowned(unsafe) var delegate: @sil_unmanaged SCNSceneRendererDelegate?
   @available(OSX 10.8, *)
-  func hitTest(point: CGPoint, options: [String : AnyObject]?) -> [SCNHitTestResult]
+  func hitTest(_ point: CGPoint, options options: [String : AnyObject]?) -> [SCNHitTestResult]
   @available(OSX 10.9, *)
-  func isNodeInsideFrustum(node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
+  func isNodeInsideFrustum(_ node: SCNNode, withPointOfView pointOfView: SCNNode) -> Bool
   @available(OSX 10.11, *)
-  func nodesInsideFrustumWithPointOfView(pointOfView: SCNNode) -> [SCNNode]
+  func nodesInsideFrustumWithPointOfView(_ pointOfView: SCNNode) -> [SCNNode]
   @available(OSX 10.9, *)
-  func projectPoint(point: SCNVector3) -> SCNVector3
+  func projectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.9, *)
-  func unprojectPoint(point: SCNVector3) -> SCNVector3
+  func unprojectPoint(_ point: SCNVector3) -> SCNVector3
   @available(OSX 10.8, *)
   var playing: Bool
   @available(OSX 10.8, *)
@@ -58,9 +55,9 @@ class SCNView : NSView, SCNSceneRenderer, SCNTechniqueSupport {
   @available(OSX 10.8, *)
   var jitteringEnabled: Bool
   @available(OSX 10.9, *)
-  func prepareObject(object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
+  func prepareObject(_ object: AnyObject, shouldAbortBlock block: (() -> Bool)?) -> Bool
   @available(OSX 10.10, *)
-  func prepareObjects(objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
+  func prepareObjects(_ objects: [AnyObject], withCompletionHandler completionHandler: ((Bool) -> Void)?)
   @available(OSX 10.9, *)
   var showsStatistics: Bool
   @available(OSX 10.11, *)

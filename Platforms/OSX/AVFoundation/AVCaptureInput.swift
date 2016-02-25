@@ -2,7 +2,6 @@
 @available(OSX 10.7, *)
 class AVCaptureInput : NSObject {
   var ports: [AnyObject]! { get }
-  init()
 }
 @available(OSX 10.7, *)
 let AVCaptureInputPortFormatDescriptionDidChangeNotification: String
@@ -14,17 +13,15 @@ class AVCaptureInputPort : NSObject {
   var enabled: Bool
   @available(OSX 10.9, *)
   var clock: CMClock! { get }
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureDeviceInput : AVCaptureInput {
-  init(device: AVCaptureDevice!) throws
+  init(device device: AVCaptureDevice!) throws
   var device: AVCaptureDevice! { get }
-  init()
 }
 @available(OSX 10.7, *)
 class AVCaptureScreenInput : AVCaptureInput {
-  init!(displayID: CGDirectDisplayID)
+  init!(displayID displayID: CGDirectDisplayID)
   var minFrameDuration: CMTime
   var cropRect: CGRect
   var scaleFactor: CGFloat
@@ -33,5 +30,4 @@ class AVCaptureScreenInput : AVCaptureInput {
   var capturesCursor: Bool
   @available(OSX, introduced=10.8, deprecated=10.10)
   var removesDuplicateFrames: Bool
-  init()
 }

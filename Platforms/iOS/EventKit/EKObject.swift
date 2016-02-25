@@ -5,5 +5,4 @@ class EKObject : NSObject {
   func reset()
   func rollback()
   func refresh() -> Bool
-  init()
 }

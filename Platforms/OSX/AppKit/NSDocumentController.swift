@@ -1,53 +1,52 @@
 
 class NSDocumentController : NSObject, NSCoding, NSUserInterfaceValidations {
   class func sharedDocumentController() -> NSDocumentController
-  init()
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   var documents: [NSDocument] { get }
   var currentDocument: NSDocument? { get }
   var currentDirectory: String? { get }
-  func documentForURL(url: NSURL) -> NSDocument?
-  func documentForWindow(window: NSWindow) -> NSDocument?
-  func addDocument(document: NSDocument)
-  func removeDocument(document: NSDocument)
-  @IBAction func newDocument(sender: AnyObject?)
-  func openUntitledDocumentAndDisplay(displayDocument: Bool) throws -> NSDocument
-  func makeUntitledDocumentOfType(typeName: String) throws -> NSDocument
-  @IBAction func openDocument(sender: AnyObject?)
+  func documentForURL(_ url: NSURL) -> NSDocument?
+  func documentForWindow(_ window: NSWindow) -> NSDocument?
+  func addDocument(_ document: NSDocument)
+  func removeDocument(_ document: NSDocument)
+  @IBAction func newDocument(_ sender: AnyObject?)
+  func openUntitledDocumentAndDisplay(_ displayDocument: Bool) throws -> NSDocument
+  func makeUntitledDocumentOfType(_ typeName: String) throws -> NSDocument
+  @IBAction func openDocument(_ sender: AnyObject?)
   func URLsFromRunningOpenPanel() -> [NSURL]?
-  func runModalOpenPanel(openPanel: NSOpenPanel, forTypes types: [String]?) -> Int
+  func runModalOpenPanel(_ openPanel: NSOpenPanel, forTypes types: [String]?) -> Int
   @available(OSX 10.8, *)
-  func beginOpenPanelWithCompletionHandler(completionHandler: ([NSURL]?) -> Void)
+  func beginOpenPanelWithCompletionHandler(_ completionHandler: ([NSURL]?) -> Void)
   @available(OSX 10.8, *)
-  func beginOpenPanel(openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler: (Int) -> Void)
+  func beginOpenPanel(_ openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
-  func openDocumentWithContentsOfURL(url: NSURL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, NSError?) -> Void)
-  func makeDocumentWithContentsOfURL(url: NSURL, ofType typeName: String) throws -> NSDocument
+  func openDocumentWithContentsOfURL(_ url: NSURL, display displayDocument: Bool, completionHandler completionHandler: (NSDocument?, Bool, NSError?) -> Void)
+  func makeDocumentWithContentsOfURL(_ url: NSURL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
-  func reopenDocumentForURL(urlOrNil: NSURL?, withContentsOfURL contentsURL: NSURL, display displayDocument: Bool, completionHandler: (NSDocument?, Bool, NSError?) -> Void)
-  func makeDocumentForURL(urlOrNil: NSURL?, withContentsOfURL contentsURL: NSURL, ofType typeName: String) throws -> NSDocument
+  func reopenDocumentForURL(_ urlOrNil: NSURL?, withContentsOfURL contentsURL: NSURL, display displayDocument: Bool, completionHandler completionHandler: (NSDocument?, Bool, NSError?) -> Void)
+  func makeDocumentForURL(_ urlOrNil: NSURL?, withContentsOfURL contentsURL: NSURL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: NSTimeInterval
-  @IBAction func saveAllDocuments(sender: AnyObject?)
+  @IBAction func saveAllDocuments(_ sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
-  func reviewUnsavedDocumentsWithAlertTitle(title: String?, cancellable: Bool, delegate: AnyObject?, didReviewAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func closeAllDocumentsWithDelegate(delegate: AnyObject?, didCloseAllSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
+  func reviewUnsavedDocumentsWithAlertTitle(_ title: String?, cancellable cancellable: Bool, delegate delegate: AnyObject?, didReviewAllSelector didReviewAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func closeAllDocumentsWithDelegate(_ delegate: AnyObject?, didCloseAllSelector didCloseAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func duplicateDocumentWithContentsOfURL(url: NSURL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
-  func presentError(error: NSError, modalForWindow window: NSWindow, delegate: AnyObject?, didPresentSelector: Selector, contextInfo: UnsafeMutablePointer<Void>)
-  func presentError(error: NSError) -> Bool
-  func willPresentError(error: NSError) -> NSError
+  func duplicateDocumentWithContentsOfURL(_ url: NSURL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
+  func presentError(_ error: NSError, modalForWindow window: NSWindow, delegate delegate: AnyObject?, didPresentSelector didPresentSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func presentError(_ error: NSError) -> Bool
+  func willPresentError(_ error: NSError) -> NSError
   var maximumRecentDocumentCount: Int { get }
-  @IBAction func clearRecentDocuments(sender: AnyObject?)
-  func noteNewRecentDocument(document: NSDocument)
-  func noteNewRecentDocumentURL(url: NSURL)
+  @IBAction func clearRecentDocuments(_ sender: AnyObject?)
+  func noteNewRecentDocument(_ document: NSDocument)
+  func noteNewRecentDocumentURL(_ url: NSURL)
   var recentDocumentURLs: [NSURL] { get }
   var defaultType: String? { get }
-  func typeForContentsOfURL(url: NSURL) throws -> String
+  func typeForContentsOfURL(_ url: NSURL) throws -> String
   var documentClassNames: [String] { get }
-  func documentClassForType(typeName: String) -> AnyClass?
-  func displayNameForType(typeName: String) -> String?
-  func validateUserInterfaceItem(anItem: NSValidatedUserInterfaceItem) -> Bool
-  func encodeWithCoder(aCoder: NSCoder)
+  func documentClassForType(_ typeName: String) -> AnyClass?
+  func displayNameForType(_ typeName: String) -> String?
+  func validateUserInterfaceItem(_ anItem: NSValidatedUserInterfaceItem) -> Bool
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 extension NSDocumentController {
 }

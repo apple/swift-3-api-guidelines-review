@@ -1,10 +1,9 @@
 
 class CAMediaTimingFunction : NSObject, NSCoding {
-  convenience init(name: String)
+  convenience init(name name: String)
   init(controlPoints c1x: Float, _ c1y: Float, _ c2x: Float, _ c2y: Float)
-  func getControlPointAtIndex(idx: Int, values ptr: UnsafeMutablePointer<Float>)
-  init()
-  func encodeWithCoder(aCoder: NSCoder)
+  func getControlPointAtIndex(_ idx: Int, values ptr: UnsafeMutablePointer<Float>)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.5, *)

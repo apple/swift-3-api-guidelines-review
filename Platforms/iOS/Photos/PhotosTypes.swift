@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum PHImageContentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AspectFit
   case AspectFill
@@ -9,7 +9,7 @@ enum PHImageContentMode : Int {
 }
 @available(iOS 8.0, *)
 enum PHCollectionListType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case MomentList
   case Folder
@@ -17,7 +17,7 @@ enum PHCollectionListType : Int {
 }
 @available(iOS 8.0, *)
 enum PHCollectionListSubtype : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case MomentListCluster
   case MomentListYear
@@ -28,7 +28,7 @@ enum PHCollectionListSubtype : Int {
 }
 @available(iOS 8.0, *)
 enum PHCollectionEditOperation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case DeleteContent
   case RemoveContent
@@ -40,7 +40,7 @@ enum PHCollectionEditOperation : Int {
 }
 @available(iOS 8.0, *)
 enum PHAssetCollectionType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Album
   case SmartAlbum
@@ -48,7 +48,7 @@ enum PHAssetCollectionType : Int {
 }
 @available(iOS 8.0, *)
 enum PHAssetCollectionSubtype : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case AlbumRegular
   case AlbumSyncedEvent
@@ -75,7 +75,7 @@ enum PHAssetCollectionSubtype : Int {
 }
 @available(iOS 8.0, *)
 enum PHAssetEditOperation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Delete
   case Content
@@ -83,7 +83,7 @@ enum PHAssetEditOperation : Int {
 }
 @available(iOS 8.0, *)
 enum PHAssetMediaType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Image
@@ -92,7 +92,7 @@ enum PHAssetMediaType : Int {
 }
 @available(iOS 8.0, *)
 struct PHAssetMediaSubtype : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: PHAssetMediaSubtype { get }
   static var PhotoPanorama: PHAssetMediaSubtype { get }
@@ -107,7 +107,7 @@ struct PHAssetMediaSubtype : OptionSetType {
 }
 @available(iOS 8.0, *)
 struct PHAssetBurstSelectionType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: PHAssetBurstSelectionType { get }
   static var AutoPick: PHAssetBurstSelectionType { get }
@@ -115,7 +115,7 @@ struct PHAssetBurstSelectionType : OptionSetType {
 }
 @available(iOS 9.0, *)
 struct PHAssetSourceType : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var TypeNone: PHAssetSourceType { get }
   static var TypeUserLibrary: PHAssetSourceType { get }
@@ -124,7 +124,7 @@ struct PHAssetSourceType : OptionSetType {
 }
 @available(iOS 9.0, *)
 enum PHAssetResourceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Photo
   case Video

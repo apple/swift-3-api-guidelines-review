@@ -3,489 +3,489 @@ extension DOMCSSStyleDeclaration {
   @available(OSX 10.4, *)
   func azimuth() -> String!
   @available(OSX 10.4, *)
-  func setAzimuth(azimuth: String!)
+  func setAzimuth(_ azimuth: String!)
   @available(OSX 10.4, *)
   func background() -> String!
   @available(OSX 10.4, *)
-  func setBackground(background: String!)
+  func setBackground(_ background: String!)
   @available(OSX 10.4, *)
   func backgroundAttachment() -> String!
   @available(OSX 10.4, *)
-  func setBackgroundAttachment(backgroundAttachment: String!)
+  func setBackgroundAttachment(_ backgroundAttachment: String!)
   @available(OSX 10.4, *)
   func backgroundColor() -> String!
   @available(OSX 10.4, *)
-  func setBackgroundColor(backgroundColor: String!)
+  func setBackgroundColor(_ backgroundColor: String!)
   @available(OSX 10.4, *)
   func backgroundImage() -> String!
   @available(OSX 10.4, *)
-  func setBackgroundImage(backgroundImage: String!)
+  func setBackgroundImage(_ backgroundImage: String!)
   @available(OSX 10.4, *)
   func backgroundPosition() -> String!
   @available(OSX 10.4, *)
-  func setBackgroundPosition(backgroundPosition: String!)
+  func setBackgroundPosition(_ backgroundPosition: String!)
   @available(OSX 10.4, *)
   func backgroundRepeat() -> String!
   @available(OSX 10.4, *)
-  func setBackgroundRepeat(backgroundRepeat: String!)
+  func setBackgroundRepeat(_ backgroundRepeat: String!)
   @available(OSX 10.4, *)
   func border() -> String!
   @available(OSX 10.4, *)
-  func setBorder(border: String!)
+  func setBorder(_ border: String!)
   @available(OSX 10.4, *)
   func borderCollapse() -> String!
   @available(OSX 10.4, *)
-  func setBorderCollapse(borderCollapse: String!)
+  func setBorderCollapse(_ borderCollapse: String!)
   @available(OSX 10.4, *)
   func borderColor() -> String!
   @available(OSX 10.4, *)
-  func setBorderColor(borderColor: String!)
+  func setBorderColor(_ borderColor: String!)
   @available(OSX 10.4, *)
   func borderSpacing() -> String!
   @available(OSX 10.4, *)
-  func setBorderSpacing(borderSpacing: String!)
+  func setBorderSpacing(_ borderSpacing: String!)
   @available(OSX 10.4, *)
   func borderStyle() -> String!
   @available(OSX 10.4, *)
-  func setBorderStyle(borderStyle: String!)
+  func setBorderStyle(_ borderStyle: String!)
   @available(OSX 10.4, *)
   func borderTop() -> String!
   @available(OSX 10.4, *)
-  func setBorderTop(borderTop: String!)
+  func setBorderTop(_ borderTop: String!)
   @available(OSX 10.4, *)
   func borderRight() -> String!
   @available(OSX 10.4, *)
-  func setBorderRight(borderRight: String!)
+  func setBorderRight(_ borderRight: String!)
   @available(OSX 10.4, *)
   func borderBottom() -> String!
   @available(OSX 10.4, *)
-  func setBorderBottom(borderBottom: String!)
+  func setBorderBottom(_ borderBottom: String!)
   @available(OSX 10.4, *)
   func borderLeft() -> String!
   @available(OSX 10.4, *)
-  func setBorderLeft(borderLeft: String!)
+  func setBorderLeft(_ borderLeft: String!)
   @available(OSX 10.4, *)
   func borderTopColor() -> String!
   @available(OSX 10.4, *)
-  func setBorderTopColor(borderTopColor: String!)
+  func setBorderTopColor(_ borderTopColor: String!)
   @available(OSX 10.4, *)
   func borderRightColor() -> String!
   @available(OSX 10.4, *)
-  func setBorderRightColor(borderRightColor: String!)
+  func setBorderRightColor(_ borderRightColor: String!)
   @available(OSX 10.4, *)
   func borderBottomColor() -> String!
   @available(OSX 10.4, *)
-  func setBorderBottomColor(borderBottomColor: String!)
+  func setBorderBottomColor(_ borderBottomColor: String!)
   @available(OSX 10.4, *)
   func borderLeftColor() -> String!
   @available(OSX 10.4, *)
-  func setBorderLeftColor(borderLeftColor: String!)
+  func setBorderLeftColor(_ borderLeftColor: String!)
   @available(OSX 10.4, *)
   func borderTopStyle() -> String!
   @available(OSX 10.4, *)
-  func setBorderTopStyle(borderTopStyle: String!)
+  func setBorderTopStyle(_ borderTopStyle: String!)
   @available(OSX 10.4, *)
   func borderRightStyle() -> String!
   @available(OSX 10.4, *)
-  func setBorderRightStyle(borderRightStyle: String!)
+  func setBorderRightStyle(_ borderRightStyle: String!)
   @available(OSX 10.4, *)
   func borderBottomStyle() -> String!
   @available(OSX 10.4, *)
-  func setBorderBottomStyle(borderBottomStyle: String!)
+  func setBorderBottomStyle(_ borderBottomStyle: String!)
   @available(OSX 10.4, *)
   func borderLeftStyle() -> String!
   @available(OSX 10.4, *)
-  func setBorderLeftStyle(borderLeftStyle: String!)
+  func setBorderLeftStyle(_ borderLeftStyle: String!)
   @available(OSX 10.4, *)
   func borderTopWidth() -> String!
   @available(OSX 10.4, *)
-  func setBorderTopWidth(borderTopWidth: String!)
+  func setBorderTopWidth(_ borderTopWidth: String!)
   @available(OSX 10.4, *)
   func borderRightWidth() -> String!
   @available(OSX 10.4, *)
-  func setBorderRightWidth(borderRightWidth: String!)
+  func setBorderRightWidth(_ borderRightWidth: String!)
   @available(OSX 10.4, *)
   func borderBottomWidth() -> String!
   @available(OSX 10.4, *)
-  func setBorderBottomWidth(borderBottomWidth: String!)
+  func setBorderBottomWidth(_ borderBottomWidth: String!)
   @available(OSX 10.4, *)
   func borderLeftWidth() -> String!
   @available(OSX 10.4, *)
-  func setBorderLeftWidth(borderLeftWidth: String!)
+  func setBorderLeftWidth(_ borderLeftWidth: String!)
   @available(OSX 10.4, *)
   func borderWidth() -> String!
   @available(OSX 10.4, *)
-  func setBorderWidth(borderWidth: String!)
+  func setBorderWidth(_ borderWidth: String!)
   @available(OSX 10.4, *)
   func bottom() -> String!
   @available(OSX 10.4, *)
-  func setBottom(bottom: String!)
+  func setBottom(_ bottom: String!)
   @available(OSX 10.4, *)
   func captionSide() -> String!
   @available(OSX 10.4, *)
-  func setCaptionSide(captionSide: String!)
+  func setCaptionSide(_ captionSide: String!)
   @available(OSX 10.4, *)
   func clear() -> String!
   @available(OSX 10.4, *)
-  func setClear(clear: String!)
+  func setClear(_ clear: String!)
   @available(OSX 10.4, *)
   func clip() -> String!
   @available(OSX 10.4, *)
-  func setClip(clip: String!)
+  func setClip(_ clip: String!)
   @available(OSX 10.4, *)
   func color() -> String!
   @available(OSX 10.4, *)
-  func setColor(color: String!)
+  func setColor(_ color: String!)
   @available(OSX 10.4, *)
   func content() -> String!
   @available(OSX 10.4, *)
-  func setContent(content: String!)
+  func setContent(_ content: String!)
   @available(OSX 10.4, *)
   func counterIncrement() -> String!
   @available(OSX 10.4, *)
-  func setCounterIncrement(counterIncrement: String!)
+  func setCounterIncrement(_ counterIncrement: String!)
   @available(OSX 10.4, *)
   func counterReset() -> String!
   @available(OSX 10.4, *)
-  func setCounterReset(counterReset: String!)
+  func setCounterReset(_ counterReset: String!)
   @available(OSX 10.4, *)
   func cue() -> String!
   @available(OSX 10.4, *)
-  func setCue(cue: String!)
+  func setCue(_ cue: String!)
   @available(OSX 10.4, *)
   func cueAfter() -> String!
   @available(OSX 10.4, *)
-  func setCueAfter(cueAfter: String!)
+  func setCueAfter(_ cueAfter: String!)
   @available(OSX 10.4, *)
   func cueBefore() -> String!
   @available(OSX 10.4, *)
-  func setCueBefore(cueBefore: String!)
+  func setCueBefore(_ cueBefore: String!)
   @available(OSX 10.4, *)
   func cursor() -> String!
   @available(OSX 10.4, *)
-  func setCursor(cursor: String!)
+  func setCursor(_ cursor: String!)
   @available(OSX 10.4, *)
   func direction() -> String!
   @available(OSX 10.4, *)
-  func setDirection(direction: String!)
+  func setDirection(_ direction: String!)
   @available(OSX 10.4, *)
   func display() -> String!
   @available(OSX 10.4, *)
-  func setDisplay(display: String!)
+  func setDisplay(_ display: String!)
   @available(OSX 10.4, *)
   func elevation() -> String!
   @available(OSX 10.4, *)
-  func setElevation(elevation: String!)
+  func setElevation(_ elevation: String!)
   @available(OSX 10.4, *)
   func emptyCells() -> String!
   @available(OSX 10.4, *)
-  func setEmptyCells(emptyCells: String!)
+  func setEmptyCells(_ emptyCells: String!)
   @available(OSX 10.4, *)
   func cssFloat() -> String!
   @available(OSX 10.4, *)
-  func setCssFloat(cssFloat: String!)
+  func setCssFloat(_ cssFloat: String!)
   @available(OSX 10.4, *)
   func font() -> String!
   @available(OSX 10.4, *)
-  func setFont(font: String!)
+  func setFont(_ font: String!)
   @available(OSX 10.4, *)
   func fontFamily() -> String!
   @available(OSX 10.4, *)
-  func setFontFamily(fontFamily: String!)
+  func setFontFamily(_ fontFamily: String!)
   @available(OSX 10.4, *)
   func fontSize() -> String!
   @available(OSX 10.4, *)
-  func setFontSize(fontSize: String!)
+  func setFontSize(_ fontSize: String!)
   @available(OSX 10.4, *)
   func fontSizeAdjust() -> String!
   @available(OSX 10.4, *)
-  func setFontSizeAdjust(fontSizeAdjust: String!)
+  func setFontSizeAdjust(_ fontSizeAdjust: String!)
   @available(OSX 10.4, *)
   func fontStretch() -> String!
   @available(OSX 10.4, *)
-  func setFontStretch(fontStretch: String!)
+  func setFontStretch(_ fontStretch: String!)
   @available(OSX 10.4, *)
   func fontStyle() -> String!
   @available(OSX 10.4, *)
-  func setFontStyle(fontStyle: String!)
+  func setFontStyle(_ fontStyle: String!)
   @available(OSX 10.4, *)
   func fontVariant() -> String!
   @available(OSX 10.4, *)
-  func setFontVariant(fontVariant: String!)
+  func setFontVariant(_ fontVariant: String!)
   @available(OSX 10.4, *)
   func fontWeight() -> String!
   @available(OSX 10.4, *)
-  func setFontWeight(fontWeight: String!)
+  func setFontWeight(_ fontWeight: String!)
   @available(OSX 10.4, *)
   func height() -> String!
   @available(OSX 10.4, *)
-  func setHeight(height: String!)
+  func setHeight(_ height: String!)
   @available(OSX 10.4, *)
   func left() -> String!
   @available(OSX 10.4, *)
-  func setLeft(left: String!)
+  func setLeft(_ left: String!)
   @available(OSX 10.4, *)
   func letterSpacing() -> String!
   @available(OSX 10.4, *)
-  func setLetterSpacing(letterSpacing: String!)
+  func setLetterSpacing(_ letterSpacing: String!)
   @available(OSX 10.4, *)
   func lineHeight() -> String!
   @available(OSX 10.4, *)
-  func setLineHeight(lineHeight: String!)
+  func setLineHeight(_ lineHeight: String!)
   @available(OSX 10.4, *)
   func listStyle() -> String!
   @available(OSX 10.4, *)
-  func setListStyle(listStyle: String!)
+  func setListStyle(_ listStyle: String!)
   @available(OSX 10.4, *)
   func listStyleImage() -> String!
   @available(OSX 10.4, *)
-  func setListStyleImage(listStyleImage: String!)
+  func setListStyleImage(_ listStyleImage: String!)
   @available(OSX 10.4, *)
   func listStylePosition() -> String!
   @available(OSX 10.4, *)
-  func setListStylePosition(listStylePosition: String!)
+  func setListStylePosition(_ listStylePosition: String!)
   @available(OSX 10.4, *)
   func listStyleType() -> String!
   @available(OSX 10.4, *)
-  func setListStyleType(listStyleType: String!)
+  func setListStyleType(_ listStyleType: String!)
   @available(OSX 10.4, *)
   func margin() -> String!
   @available(OSX 10.4, *)
-  func setMargin(margin: String!)
+  func setMargin(_ margin: String!)
   @available(OSX 10.4, *)
   func marginTop() -> String!
   @available(OSX 10.4, *)
-  func setMarginTop(marginTop: String!)
+  func setMarginTop(_ marginTop: String!)
   @available(OSX 10.4, *)
   func marginRight() -> String!
   @available(OSX 10.4, *)
-  func setMarginRight(marginRight: String!)
+  func setMarginRight(_ marginRight: String!)
   @available(OSX 10.4, *)
   func marginBottom() -> String!
   @available(OSX 10.4, *)
-  func setMarginBottom(marginBottom: String!)
+  func setMarginBottom(_ marginBottom: String!)
   @available(OSX 10.4, *)
   func marginLeft() -> String!
   @available(OSX 10.4, *)
-  func setMarginLeft(marginLeft: String!)
+  func setMarginLeft(_ marginLeft: String!)
   @available(OSX 10.4, *)
   func markerOffset() -> String!
   @available(OSX 10.4, *)
-  func setMarkerOffset(markerOffset: String!)
+  func setMarkerOffset(_ markerOffset: String!)
   @available(OSX 10.4, *)
   func marks() -> String!
   @available(OSX 10.4, *)
-  func setMarks(marks: String!)
+  func setMarks(_ marks: String!)
   @available(OSX 10.4, *)
   func maxHeight() -> String!
   @available(OSX 10.4, *)
-  func setMaxHeight(maxHeight: String!)
+  func setMaxHeight(_ maxHeight: String!)
   @available(OSX 10.4, *)
   func maxWidth() -> String!
   @available(OSX 10.4, *)
-  func setMaxWidth(maxWidth: String!)
+  func setMaxWidth(_ maxWidth: String!)
   @available(OSX 10.4, *)
   func minHeight() -> String!
   @available(OSX 10.4, *)
-  func setMinHeight(minHeight: String!)
+  func setMinHeight(_ minHeight: String!)
   @available(OSX 10.4, *)
   func minWidth() -> String!
   @available(OSX 10.4, *)
-  func setMinWidth(minWidth: String!)
+  func setMinWidth(_ minWidth: String!)
   @available(OSX 10.4, *)
   func orphans() -> String!
   @available(OSX 10.4, *)
-  func setOrphans(orphans: String!)
+  func setOrphans(_ orphans: String!)
   @available(OSX 10.4, *)
   func outline() -> String!
   @available(OSX 10.4, *)
-  func setOutline(outline: String!)
+  func setOutline(_ outline: String!)
   @available(OSX 10.4, *)
   func outlineColor() -> String!
   @available(OSX 10.4, *)
-  func setOutlineColor(outlineColor: String!)
+  func setOutlineColor(_ outlineColor: String!)
   @available(OSX 10.4, *)
   func outlineStyle() -> String!
   @available(OSX 10.4, *)
-  func setOutlineStyle(outlineStyle: String!)
+  func setOutlineStyle(_ outlineStyle: String!)
   @available(OSX 10.4, *)
   func outlineWidth() -> String!
   @available(OSX 10.4, *)
-  func setOutlineWidth(outlineWidth: String!)
+  func setOutlineWidth(_ outlineWidth: String!)
   @available(OSX 10.4, *)
   func overflow() -> String!
   @available(OSX 10.4, *)
-  func setOverflow(overflow: String!)
+  func setOverflow(_ overflow: String!)
   @available(OSX 10.4, *)
   func padding() -> String!
   @available(OSX 10.4, *)
-  func setPadding(padding: String!)
+  func setPadding(_ padding: String!)
   @available(OSX 10.4, *)
   func paddingTop() -> String!
   @available(OSX 10.4, *)
-  func setPaddingTop(paddingTop: String!)
+  func setPaddingTop(_ paddingTop: String!)
   @available(OSX 10.4, *)
   func paddingRight() -> String!
   @available(OSX 10.4, *)
-  func setPaddingRight(paddingRight: String!)
+  func setPaddingRight(_ paddingRight: String!)
   @available(OSX 10.4, *)
   func paddingBottom() -> String!
   @available(OSX 10.4, *)
-  func setPaddingBottom(paddingBottom: String!)
+  func setPaddingBottom(_ paddingBottom: String!)
   @available(OSX 10.4, *)
   func paddingLeft() -> String!
   @available(OSX 10.4, *)
-  func setPaddingLeft(paddingLeft: String!)
+  func setPaddingLeft(_ paddingLeft: String!)
   @available(OSX 10.4, *)
   func page() -> String!
   @available(OSX 10.4, *)
-  func setPage(page: String!)
+  func setPage(_ page: String!)
   @available(OSX 10.4, *)
   func pageBreakAfter() -> String!
   @available(OSX 10.4, *)
-  func setPageBreakAfter(pageBreakAfter: String!)
+  func setPageBreakAfter(_ pageBreakAfter: String!)
   @available(OSX 10.4, *)
   func pageBreakBefore() -> String!
   @available(OSX 10.4, *)
-  func setPageBreakBefore(pageBreakBefore: String!)
+  func setPageBreakBefore(_ pageBreakBefore: String!)
   @available(OSX 10.4, *)
   func pageBreakInside() -> String!
   @available(OSX 10.4, *)
-  func setPageBreakInside(pageBreakInside: String!)
+  func setPageBreakInside(_ pageBreakInside: String!)
   @available(OSX 10.4, *)
   func pause() -> String!
   @available(OSX 10.4, *)
-  func setPause(pause: String!)
+  func setPause(_ pause: String!)
   @available(OSX 10.4, *)
   func pauseAfter() -> String!
   @available(OSX 10.4, *)
-  func setPauseAfter(pauseAfter: String!)
+  func setPauseAfter(_ pauseAfter: String!)
   @available(OSX 10.4, *)
   func pauseBefore() -> String!
   @available(OSX 10.4, *)
-  func setPauseBefore(pauseBefore: String!)
+  func setPauseBefore(_ pauseBefore: String!)
   @available(OSX 10.4, *)
   func pitch() -> String!
   @available(OSX 10.4, *)
-  func setPitch(pitch: String!)
+  func setPitch(_ pitch: String!)
   @available(OSX 10.4, *)
   func pitchRange() -> String!
   @available(OSX 10.4, *)
-  func setPitchRange(pitchRange: String!)
+  func setPitchRange(_ pitchRange: String!)
   @available(OSX 10.4, *)
   func playDuring() -> String!
   @available(OSX 10.4, *)
-  func setPlayDuring(playDuring: String!)
+  func setPlayDuring(_ playDuring: String!)
   @available(OSX 10.4, *)
   func position() -> String!
   @available(OSX 10.4, *)
-  func setPosition(position: String!)
+  func setPosition(_ position: String!)
   @available(OSX 10.4, *)
   func quotes() -> String!
   @available(OSX 10.4, *)
-  func setQuotes(quotes: String!)
+  func setQuotes(_ quotes: String!)
   @available(OSX 10.4, *)
   func richness() -> String!
   @available(OSX 10.4, *)
-  func setRichness(richness: String!)
+  func setRichness(_ richness: String!)
   @available(OSX 10.4, *)
   func right() -> String!
   @available(OSX 10.4, *)
-  func setRight(right: String!)
+  func setRight(_ right: String!)
   @available(OSX 10.4, *)
   func size() -> String!
   @available(OSX 10.4, *)
-  func setSize(size: String!)
+  func setSize(_ size: String!)
   @available(OSX 10.4, *)
   func speak() -> String!
   @available(OSX 10.4, *)
-  func setSpeak(speak: String!)
+  func setSpeak(_ speak: String!)
   @available(OSX 10.4, *)
   func speakHeader() -> String!
   @available(OSX 10.4, *)
-  func setSpeakHeader(speakHeader: String!)
+  func setSpeakHeader(_ speakHeader: String!)
   @available(OSX 10.4, *)
   func speakNumeral() -> String!
   @available(OSX 10.4, *)
-  func setSpeakNumeral(speakNumeral: String!)
+  func setSpeakNumeral(_ speakNumeral: String!)
   @available(OSX 10.4, *)
   func speakPunctuation() -> String!
   @available(OSX 10.4, *)
-  func setSpeakPunctuation(speakPunctuation: String!)
+  func setSpeakPunctuation(_ speakPunctuation: String!)
   @available(OSX 10.4, *)
   func speechRate() -> String!
   @available(OSX 10.4, *)
-  func setSpeechRate(speechRate: String!)
+  func setSpeechRate(_ speechRate: String!)
   @available(OSX 10.4, *)
   func stress() -> String!
   @available(OSX 10.4, *)
-  func setStress(stress: String!)
+  func setStress(_ stress: String!)
   @available(OSX 10.4, *)
   func tableLayout() -> String!
   @available(OSX 10.4, *)
-  func setTableLayout(tableLayout: String!)
+  func setTableLayout(_ tableLayout: String!)
   @available(OSX 10.4, *)
   func textAlign() -> String!
   @available(OSX 10.4, *)
-  func setTextAlign(textAlign: String!)
+  func setTextAlign(_ textAlign: String!)
   @available(OSX 10.4, *)
   func textDecoration() -> String!
   @available(OSX 10.4, *)
-  func setTextDecoration(textDecoration: String!)
+  func setTextDecoration(_ textDecoration: String!)
   @available(OSX 10.4, *)
   func textIndent() -> String!
   @available(OSX 10.4, *)
-  func setTextIndent(textIndent: String!)
+  func setTextIndent(_ textIndent: String!)
   @available(OSX 10.4, *)
   func textShadow() -> String!
   @available(OSX 10.4, *)
-  func setTextShadow(textShadow: String!)
+  func setTextShadow(_ textShadow: String!)
   @available(OSX 10.4, *)
   func textTransform() -> String!
   @available(OSX 10.4, *)
-  func setTextTransform(textTransform: String!)
+  func setTextTransform(_ textTransform: String!)
   @available(OSX 10.4, *)
   func top() -> String!
   @available(OSX 10.4, *)
-  func setTop(top: String!)
+  func setTop(_ top: String!)
   @available(OSX 10.4, *)
   func unicodeBidi() -> String!
   @available(OSX 10.4, *)
-  func setUnicodeBidi(unicodeBidi: String!)
+  func setUnicodeBidi(_ unicodeBidi: String!)
   @available(OSX 10.4, *)
   func verticalAlign() -> String!
   @available(OSX 10.4, *)
-  func setVerticalAlign(verticalAlign: String!)
+  func setVerticalAlign(_ verticalAlign: String!)
   @available(OSX 10.4, *)
   func visibility() -> String!
   @available(OSX 10.4, *)
-  func setVisibility(visibility: String!)
+  func setVisibility(_ visibility: String!)
   @available(OSX 10.4, *)
   func voiceFamily() -> String!
   @available(OSX 10.4, *)
-  func setVoiceFamily(voiceFamily: String!)
+  func setVoiceFamily(_ voiceFamily: String!)
   @available(OSX 10.4, *)
   func volume() -> String!
   @available(OSX 10.4, *)
-  func setVolume(volume: String!)
+  func setVolume(_ volume: String!)
   @available(OSX 10.4, *)
   func whiteSpace() -> String!
   @available(OSX 10.4, *)
-  func setWhiteSpace(whiteSpace: String!)
+  func setWhiteSpace(_ whiteSpace: String!)
   @available(OSX 10.4, *)
   func widows() -> String!
   @available(OSX 10.4, *)
-  func setWidows(widows: String!)
+  func setWidows(_ widows: String!)
   @available(OSX 10.4, *)
   func width() -> String!
   @available(OSX 10.4, *)
-  func setWidth(width: String!)
+  func setWidth(_ width: String!)
   @available(OSX 10.4, *)
   func wordSpacing() -> String!
   @available(OSX 10.4, *)
-  func setWordSpacing(wordSpacing: String!)
+  func setWordSpacing(_ wordSpacing: String!)
   @available(OSX 10.4, *)
   func zIndex() -> String!
   @available(OSX 10.4, *)
-  func setZIndex(zIndex: String!)
+  func setZIndex(_ zIndex: String!)
 }

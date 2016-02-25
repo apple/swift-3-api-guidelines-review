@@ -1,13 +1,12 @@
 
 var NSImageRepMatchesDevice: Int { get }
 class NSImageRep : NSObject, NSCopying, NSCoding {
-  init()
-  init?(coder: NSCoder)
+  init?(coder coder: NSCoder)
   func draw() -> Bool
-  func drawAtPoint(point: NSPoint) -> Bool
-  func drawInRect(rect: NSRect) -> Bool
+  func drawAtPoint(_ point: NSPoint) -> Bool
+  func drawInRect(_ rect: NSRect) -> Bool
   @available(OSX 10.6, *)
-  func drawInRect(dstSpacePortionRect: NSRect, fromRect srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints: [String : AnyObject]?) -> Bool
+  func drawInRect(_ dstSpacePortionRect: NSRect, fromRect srcSpacePortionRect: NSRect, operation op: NSCompositingOperation, fraction requestedAlpha: CGFloat, respectFlipped respectContextIsFlipped: Bool, hints hints: [String : AnyObject]?) -> Bool
   var size: NSSize
   var alpha: Bool
   var opaque: Bool
@@ -15,17 +14,17 @@ class NSImageRep : NSObject, NSCopying, NSCoding {
   var bitsPerSample: Int
   var pixelsWide: Int
   var pixelsHigh: Int
-  class func registerImageRepClass(imageRepClass: AnyClass)
-  class func unregisterImageRepClass(imageRepClass: AnyClass)
+  class func registerImageRepClass(_ imageRepClass: AnyClass)
+  class func unregisterImageRepClass(_ imageRepClass: AnyClass)
   class func registeredImageRepClasses() -> [AnyClass]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassForFileType(type: String) -> AnyClass?
+  class func imageRepClassForFileType(_ type: String) -> AnyClass?
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageRepClassForType: instead")
-  class func imageRepClassForPasteboardType(type: String) -> AnyClass?
+  class func imageRepClassForPasteboardType(_ type: String) -> AnyClass?
   @available(OSX 10.5, *)
-  class func imageRepClassForType(type: String) -> AnyClass?
-  class func imageRepClassForData(data: NSData) -> AnyClass?
-  class func canInitWithData(data: NSData) -> Bool
+  class func imageRepClassForType(_ type: String) -> AnyClass?
+  class func imageRepClassForData(_ data: NSData) -> AnyClass?
+  class func canInitWithData(_ data: NSData) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
   class func imageUnfilteredFileTypes() -> [String]
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use +imageUnfilteredTypes instead")
@@ -38,17 +37,17 @@ class NSImageRep : NSObject, NSCopying, NSCoding {
   class func imageUnfilteredTypes() -> [String]
   @available(OSX 10.5, *)
   class func imageTypes() -> [String]
-  class func canInitWithPasteboard(pasteboard: NSPasteboard) -> Bool
-  class func imageRepsWithContentsOfFile(filename: String) -> [NSImageRep]?
+  class func canInitWithPasteboard(_ pasteboard: NSPasteboard) -> Bool
+  class func imageRepsWithContentsOfFile(_ filename: String) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfFile filename: String)
-  class func imageRepsWithContentsOfURL(url: NSURL) -> [NSImageRep]?
+  class func imageRepsWithContentsOfURL(_ url: NSURL) -> [NSImageRep]?
   /*not inherited*/ init?(contentsOfURL url: NSURL)
-  class func imageRepsWithPasteboard(pasteboard: NSPasteboard) -> [NSImageRep]?
-  /*not inherited*/ init?(pasteboard: NSPasteboard)
+  class func imageRepsWithPasteboard(_ pasteboard: NSPasteboard) -> [NSImageRep]?
+  /*not inherited*/ init?(pasteboard pasteboard: NSPasteboard)
   @available(OSX 10.6, *)
-  func CGImageForProposedRect(proposedDestRect: UnsafeMutablePointer<NSRect>, context: NSGraphicsContext?, hints: [String : AnyObject]?) -> CGImage?
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func CGImageForProposedRect(_ proposedDestRect: UnsafeMutablePointer<NSRect>, context context: NSGraphicsContext?, hints hints: [String : AnyObject]?) -> CGImage?
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
 }
 struct __repFlags {
   var hasAlpha: UInt32
@@ -64,6 +63,6 @@ struct __repFlags {
   var bitsPerSample: UInt32
   var gsaved: UInt32
   init()
-  init(hasAlpha: UInt32, isOpaque: UInt32, cacheParamsComputed: UInt32, cacheAlphaComputed: UInt32, loadState: UInt32, keepCacheWindow: UInt32, reserved: UInt32, bitsPerSample: UInt32, gsaved: UInt32)
+  init(hasAlpha hasAlpha: UInt32, isOpaque isOpaque: UInt32, cacheParamsComputed cacheParamsComputed: UInt32, cacheAlphaComputed cacheAlphaComputed: UInt32, loadState loadState: UInt32, keepCacheWindow keepCacheWindow: UInt32, reserved reserved: UInt32, bitsPerSample bitsPerSample: UInt32, gsaved gsaved: UInt32)
 }
 let NSImageRepRegistryDidChangeNotification: String

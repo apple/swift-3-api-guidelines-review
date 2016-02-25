@@ -3,9 +3,9 @@
 var NSAttachmentCharacter: Int { get }
 protocol NSTextAttachmentContainer : NSObjectProtocol {
   @available(tvOS 7.0, *)
-  func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func imageForBounds(_ imageBounds: CGRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBoundsForTextContainer(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBoundsForTextContainer(_ textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
 }
 @available(tvOS 7.0, *)
 class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
@@ -20,16 +20,15 @@ class NSTextAttachment : NSObject, NSTextAttachmentContainer, NSCoding {
   @available(tvOS 7.0, *)
   var bounds: CGRect
   var fileWrapper: NSFileWrapper?
-  convenience init()
   @available(tvOS 7.0, *)
-  func imageForBounds(imageBounds: CGRect, textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
+  func imageForBounds(_ imageBounds: CGRect, textContainer textContainer: NSTextContainer?, characterIndex charIndex: Int) -> UIImage?
   @available(tvOS 7.0, *)
-  func attachmentBoundsForTextContainer(textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
+  func attachmentBoundsForTextContainer(_ textContainer: NSTextContainer?, proposedLineFragment lineFrag: CGRect, glyphPosition position: CGPoint, characterIndex charIndex: Int) -> CGRect
   @available(tvOS 7.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 extension NSAttributedString {
   @available(tvOS 7.0, *)
-  /*not inherited*/ init(attachment: NSTextAttachment)
+  /*not inherited*/ init(attachment attachment: NSTextAttachment)
 }

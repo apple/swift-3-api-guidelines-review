@@ -5,5 +5,5 @@ class HMRoom : NSObject {
   var accessories: [HMAccessory] { get }
   @available(iOS 9.0, *)
   @NSCopying var uniqueIdentifier: NSUUID { get }
-  func updateName(name: String, completionHandler completion: (NSError?) -> Void)
+  func updateName(_ name: String, completionHandler completion: (NSError?) -> Void)
 }

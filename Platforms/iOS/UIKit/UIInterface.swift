@@ -1,6 +1,6 @@
 
 enum UIBarStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Black
@@ -9,7 +9,7 @@ enum UIBarStyle : Int {
 }
 @available(iOS 8.0, *)
 enum UIUserInterfaceSizeClass : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   case Compact

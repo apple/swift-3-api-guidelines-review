@@ -1,7 +1,7 @@
 
 @available(iOS 7.0, *)
 enum UIAttachmentBehaviorType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Items
   case Anchor
@@ -10,33 +10,33 @@ struct UIFloatRange {
   var minimum: CGFloat
   var maximum: CGFloat
   init()
-  init(minimum: CGFloat, maximum: CGFloat)
+  init(minimum minimum: CGFloat, maximum maximum: CGFloat)
 }
 @available(iOS 9.0, *)
 let UIFloatRangeZero: UIFloatRange
 @available(iOS 9.0, *)
 let UIFloatRangeInfinite: UIFloatRange
 @available(iOS 9.0, *)
-func UIFloatRangeIsInfinite(range: UIFloatRange) -> Bool
+func UIFloatRangeIsInfinite(_ range: UIFloatRange) -> Bool
 @available(iOS 9.0, *)
-func UIFloatRangeIsEqualToRange(range: UIFloatRange, _ otherRange: UIFloatRange) -> Bool
-func UIFloatRangeMake(minimum: CGFloat, _ maximum: CGFloat) -> UIFloatRange
+func UIFloatRangeIsEqualToRange(_ range: UIFloatRange, _ otherRange: UIFloatRange) -> Bool
+func UIFloatRangeMake(_ minimum: CGFloat, _ maximum: CGFloat) -> UIFloatRange
 @available(iOS 7.0, *)
 class UIAttachmentBehavior : UIDynamicBehavior {
-  convenience init(item: UIDynamicItem, attachedToAnchor point: CGPoint)
-  init(item: UIDynamicItem, offsetFromCenter offset: UIOffset, attachedToAnchor point: CGPoint)
+  convenience init(item item: UIDynamicItem, attachedToAnchor point: CGPoint)
+  init(item item: UIDynamicItem, offsetFromCenter offset: UIOffset, attachedToAnchor point: CGPoint)
   convenience init(item item1: UIDynamicItem, attachedToItem item2: UIDynamicItem)
   init(item item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedToItem item2: UIDynamicItem, offsetFromCenter offset2: UIOffset)
   @available(iOS 9.0, *)
-  class func slidingAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachmentWithItem(_ item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
   @available(iOS 9.0, *)
-  class func slidingAttachmentWithItem(item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
+  class func slidingAttachmentWithItem(_ item: UIDynamicItem, attachmentAnchor point: CGPoint, axisOfTranslation axis: CGVector) -> Self
   @available(iOS 9.0, *)
-  class func limitAttachmentWithItem(item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedToItem item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
+  class func limitAttachmentWithItem(_ item1: UIDynamicItem, offsetFromCenter offset1: UIOffset, attachedToItem item2: UIDynamicItem, offsetFromCenter offset2: UIOffset) -> Self
   @available(iOS 9.0, *)
-  class func fixedAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func fixedAttachmentWithItem(_ item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
   @available(iOS 9.0, *)
-  class func pinAttachmentWithItem(item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
+  class func pinAttachmentWithItem(_ item1: UIDynamicItem, attachedToItem item2: UIDynamicItem, attachmentAnchor point: CGPoint) -> Self
   var items: [UIDynamicItem] { get }
   var attachedBehaviorType: UIAttachmentBehaviorType { get }
   var anchorPoint: CGPoint
@@ -47,5 +47,4 @@ class UIAttachmentBehavior : UIDynamicBehavior {
   var frictionTorque: CGFloat
   @available(iOS 9.0, *)
   var attachmentRange: UIFloatRange
-  convenience init()
 }

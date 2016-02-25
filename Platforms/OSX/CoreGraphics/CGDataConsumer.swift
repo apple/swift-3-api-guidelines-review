@@ -9,13 +9,13 @@ struct CGDataConsumerCallbacks {
   var putBytes: CGDataConsumerPutBytesCallback?
   var releaseConsumer: CGDataConsumerReleaseInfoCallback?
   init()
-  init(putBytes: CGDataConsumerPutBytesCallback?, releaseConsumer: CGDataConsumerReleaseInfoCallback?)
+  init(putBytes putBytes: CGDataConsumerPutBytesCallback?, releaseConsumer releaseConsumer: CGDataConsumerReleaseInfoCallback?)
 }
 @available(OSX 10.2, *)
 func CGDataConsumerGetTypeID() -> CFTypeID
 @available(OSX 10.0, *)
-func CGDataConsumerCreate(info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointer<CGDataConsumerCallbacks>) -> CGDataConsumer?
+func CGDataConsumerCreate(_ info: UnsafeMutablePointer<Void>, _ cbks: UnsafePointer<CGDataConsumerCallbacks>) -> CGDataConsumer?
 @available(OSX 10.0, *)
-func CGDataConsumerCreateWithURL(url: CFURL?) -> CGDataConsumer?
+func CGDataConsumerCreateWithURL(_ url: CFURL?) -> CGDataConsumer?
 @available(OSX 10.4, *)
-func CGDataConsumerCreateWithCFData(data: CFMutableData?) -> CGDataConsumer?
+func CGDataConsumerCreateWithCFData(_ data: CFMutableData?) -> CGDataConsumer?

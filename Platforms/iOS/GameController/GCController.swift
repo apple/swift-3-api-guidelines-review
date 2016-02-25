@@ -2,7 +2,7 @@
 let GCControllerDidConnectNotification: String
 let GCControllerDidDisconnectNotification: String
 enum GCControllerPlayerIndex : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case IndexUnset
   case Index1
@@ -23,7 +23,6 @@ class GCController : NSObject {
   @available(iOS 8.0, *)
   var motion: GCMotion? { get }
   class func controllers() -> [GCController]
-  class func startWirelessControllerDiscoveryWithCompletionHandler(completionHandler: (() -> Void)?)
+  class func startWirelessControllerDiscoveryWithCompletionHandler(_ completionHandler: (() -> Void)?)
   class func stopWirelessControllerDiscovery()
-  init()
 }

@@ -5,19 +5,18 @@ class AVAssetReaderOutput : NSObject {
   @available(OSX 10.8, *)
   var alwaysCopiesSampleData: Bool
   func copyNextSampleBuffer() -> CMSampleBuffer?
-  init()
 }
 extension AVAssetReaderOutput {
   @available(OSX 10.10, *)
   var supportsRandomAccess: Bool
   @available(OSX 10.10, *)
-  func resetForReadingTimeRanges(timeRanges: [NSValue])
+  func resetForReadingTimeRanges(_ timeRanges: [NSValue])
   @available(OSX 10.10, *)
   func markConfigurationAsFinal()
 }
 @available(OSX 10.7, *)
 class AVAssetReaderTrackOutput : AVAssetReaderOutput {
-  init(track: AVAssetTrack, outputSettings: [String : AnyObject]?)
+  init(track track: AVAssetTrack, outputSettings outputSettings: [String : AnyObject]?)
   var track: AVAssetTrack { get }
   var outputSettings: [String : AnyObject]? { get }
   @available(OSX 10.9, *)
@@ -25,7 +24,7 @@ class AVAssetReaderTrackOutput : AVAssetReaderOutput {
 }
 @available(OSX 10.7, *)
 class AVAssetReaderAudioMixOutput : AVAssetReaderOutput {
-  init(audioTracks: [AVAssetTrack], audioSettings: [String : AnyObject]?)
+  init(audioTracks audioTracks: [AVAssetTrack], audioSettings audioSettings: [String : AnyObject]?)
   var audioTracks: [AVAssetTrack] { get }
   var audioSettings: [String : AnyObject]? { get }
   @NSCopying var audioMix: AVAudioMix?
@@ -34,7 +33,7 @@ class AVAssetReaderAudioMixOutput : AVAssetReaderOutput {
 }
 @available(OSX 10.7, *)
 class AVAssetReaderVideoCompositionOutput : AVAssetReaderOutput {
-  init(videoTracks: [AVAssetTrack], videoSettings: [String : AnyObject]?)
+  init(videoTracks videoTracks: [AVAssetTrack], videoSettings videoSettings: [String : AnyObject]?)
   var videoTracks: [AVAssetTrack] { get }
   var videoSettings: [String : AnyObject]? { get }
   @NSCopying var videoComposition: AVVideoComposition?
@@ -49,6 +48,6 @@ class AVAssetReaderOutputMetadataAdaptor : NSObject {
 }
 @available(OSX 10.10, *)
 class AVAssetReaderSampleReferenceOutput : AVAssetReaderOutput {
-  init(track: AVAssetTrack)
+  init(track track: AVAssetTrack)
   var track: AVAssetTrack { get }
 }

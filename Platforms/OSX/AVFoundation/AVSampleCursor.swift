@@ -1,19 +1,19 @@
 
 @available(OSX 10.10, *)
 class AVSampleCursor : NSObject, NSCopying {
-  func stepInDecodeOrderByCount(stepCount: Int64) -> Int64
-  func stepInPresentationOrderByCount(stepCount: Int64) -> Int64
-  func stepByDecodeTime(deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
-  func stepByPresentationTime(deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
+  func stepInDecodeOrderByCount(_ stepCount: Int64) -> Int64
+  func stepInPresentationOrderByCount(_ stepCount: Int64) -> Int64
+  func stepByDecodeTime(_ deltaDecodeTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
+  func stepByPresentationTime(_ deltaPresentationTime: CMTime, wasPinned outWasPinned: UnsafeMutablePointer<ObjCBool>) -> CMTime
   @available(OSX 10.10, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
-  func comparePositionInDecodeOrderWithPositionOfCursor(cursor: AVSampleCursor) -> NSComparisonResult
-  func samplesWithEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
-  func samplesWithLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor(cursor: AVSampleCursor) -> Bool
+  func comparePositionInDecodeOrderWithPositionOfCursor(_ cursor: AVSampleCursor) -> NSComparisonResult
+  func samplesWithEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor(_ cursor: AVSampleCursor) -> Bool
+  func samplesWithLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor(_ cursor: AVSampleCursor) -> Bool
 }
 extension AVSampleCursor {
   var currentSampleDuration: CMTime { get }
@@ -28,7 +28,7 @@ struct AVSampleCursorSyncInfo {
   var sampleIsPartialSync: ObjCBool
   var sampleIsDroppable: ObjCBool
   init()
-  init(sampleIsFullSync: ObjCBool, sampleIsPartialSync: ObjCBool, sampleIsDroppable: ObjCBool)
+  init(sampleIsFullSync sampleIsFullSync: ObjCBool, sampleIsPartialSync sampleIsPartialSync: ObjCBool, sampleIsDroppable sampleIsDroppable: ObjCBool)
 }
 struct AVSampleCursorDependencyInfo {
   var sampleIndicatesWhetherItHasDependentSamples: ObjCBool
@@ -38,7 +38,7 @@ struct AVSampleCursorDependencyInfo {
   var sampleIndicatesWhetherItHasRedundantCoding: ObjCBool
   var sampleHasRedundantCoding: ObjCBool
   init()
-  init(sampleIndicatesWhetherItHasDependentSamples: ObjCBool, sampleHasDependentSamples: ObjCBool, sampleIndicatesWhetherItDependsOnOthers: ObjCBool, sampleDependsOnOthers: ObjCBool, sampleIndicatesWhetherItHasRedundantCoding: ObjCBool, sampleHasRedundantCoding: ObjCBool)
+  init(sampleIndicatesWhetherItHasDependentSamples sampleIndicatesWhetherItHasDependentSamples: ObjCBool, sampleHasDependentSamples sampleHasDependentSamples: ObjCBool, sampleIndicatesWhetherItDependsOnOthers sampleIndicatesWhetherItDependsOnOthers: ObjCBool, sampleDependsOnOthers sampleDependsOnOthers: ObjCBool, sampleIndicatesWhetherItHasRedundantCoding sampleIndicatesWhetherItHasRedundantCoding: ObjCBool, sampleHasRedundantCoding sampleHasRedundantCoding: ObjCBool)
 }
 extension AVSampleCursor {
   var currentChunkStorageURL: NSURL { get }
@@ -51,7 +51,7 @@ struct AVSampleCursorStorageRange {
   var offset: Int64
   var length: Int64
   init()
-  init(offset: Int64, length: Int64)
+  init(offset offset: Int64, length length: Int64)
 }
 struct AVSampleCursorChunkInfo {
   var chunkSampleCount: Int64
@@ -59,5 +59,5 @@ struct AVSampleCursorChunkInfo {
   var chunkHasUniformSampleDurations: ObjCBool
   var chunkHasUniformFormatDescriptions: ObjCBool
   init()
-  init(chunkSampleCount: Int64, chunkHasUniformSampleSizes: ObjCBool, chunkHasUniformSampleDurations: ObjCBool, chunkHasUniformFormatDescriptions: ObjCBool)
+  init(chunkSampleCount chunkSampleCount: Int64, chunkHasUniformSampleSizes chunkHasUniformSampleSizes: ObjCBool, chunkHasUniformSampleDurations chunkHasUniformSampleDurations: ObjCBool, chunkHasUniformFormatDescriptions chunkHasUniformFormatDescriptions: ObjCBool)
 }

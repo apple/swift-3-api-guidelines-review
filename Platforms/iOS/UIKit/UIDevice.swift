@@ -1,6 +1,6 @@
 
 enum UIDeviceOrientation : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Portrait
@@ -18,7 +18,7 @@ extension UIDeviceOrientation {
   var isValidInterfaceOrientation: Bool { get }
 }
 enum UIDeviceBatteryState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case Unplugged
@@ -26,7 +26,7 @@ enum UIDeviceBatteryState : Int {
   case Full
 }
 enum UIUserInterfaceIdiom : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unspecified
   @available(iOS 3.2, *)
@@ -36,8 +36,8 @@ enum UIUserInterfaceIdiom : Int {
   @available(iOS 9.0, *)
   case TV
 }
-func UIDeviceOrientationIsPortrait(orientation: UIDeviceOrientation) -> Bool
-func UIDeviceOrientationIsLandscape(orientation: UIDeviceOrientation) -> Bool
+func UIDeviceOrientationIsPortrait(_ orientation: UIDeviceOrientation) -> Bool
+func UIDeviceOrientationIsLandscape(_ orientation: UIDeviceOrientation) -> Bool
 @available(iOS 2.0, *)
 class UIDevice : NSObject {
   class func currentDevice() -> UIDevice
@@ -68,7 +68,6 @@ class UIDevice : NSObject {
   var userInterfaceIdiom: UIUserInterfaceIdiom { get }
   @available(iOS 4.2, *)
   func playInputClick()
-  init()
 }
 protocol UIInputViewAudioFeedback : NSObjectProtocol {
   optional var enableInputClicksWhenVisible: Bool { get }

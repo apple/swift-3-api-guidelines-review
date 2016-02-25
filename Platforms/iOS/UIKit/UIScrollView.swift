@@ -1,6 +1,6 @@
 
 enum UIScrollViewIndicatorStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Default
   case Black
@@ -8,7 +8,7 @@ enum UIScrollViewIndicatorStyle : Int {
 }
 @available(iOS 7.0, *)
 enum UIScrollViewKeyboardDismissMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case None
   case OnDrag
@@ -36,24 +36,24 @@ class UIScrollView : UIView, NSCoding {
   var indicatorStyle: UIScrollViewIndicatorStyle
   @available(iOS 3.0, *)
   var decelerationRate: CGFloat
-  func setContentOffset(contentOffset: CGPoint, animated: Bool)
-  func scrollRectToVisible(rect: CGRect, animated: Bool)
+  func setContentOffset(_ contentOffset: CGPoint, animated animated: Bool)
+  func scrollRectToVisible(_ rect: CGRect, animated animated: Bool)
   func flashScrollIndicators()
   var tracking: Bool { get }
   var dragging: Bool { get }
   var decelerating: Bool { get }
   var delaysContentTouches: Bool
   var canCancelContentTouches: Bool
-  func touchesShouldBegin(touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
-  func touchesShouldCancelInContentView(view: UIView) -> Bool
+  func touchesShouldBegin(_ touches: Set<UITouch>, withEvent event: UIEvent?, inContentView view: UIView) -> Bool
+  func touchesShouldCancelInContentView(_ view: UIView) -> Bool
   var minimumZoomScale: CGFloat
   var maximumZoomScale: CGFloat
   @available(iOS 3.0, *)
   var zoomScale: CGFloat
   @available(iOS 3.0, *)
-  func setZoomScale(scale: CGFloat, animated: Bool)
+  func setZoomScale(_ scale: CGFloat, animated animated: Bool)
   @available(iOS 3.0, *)
-  func zoomToRect(rect: CGRect, animated: Bool)
+  func zoomToRect(_ rect: CGRect, animated animated: Bool)
   var bouncesZoom: Bool
   var zooming: Bool { get }
   var zoomBouncing: Bool { get }
@@ -64,35 +64,32 @@ class UIScrollView : UIView, NSCoding {
   var pinchGestureRecognizer: UIPinchGestureRecognizer? { get }
   @available(iOS 7.0, *)
   var keyboardDismissMode: UIScrollViewKeyboardDismissMode
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 protocol UIScrollViewDelegate : NSObjectProtocol {
   @available(iOS 2.0, *)
-  optional func scrollViewDidScroll(scrollView: UIScrollView)
+  optional func scrollViewDidScroll(_ scrollView: UIScrollView)
   @available(iOS 3.2, *)
-  optional func scrollViewDidZoom(scrollView: UIScrollView)
+  optional func scrollViewDidZoom(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func scrollViewWillBeginDragging(scrollView: UIScrollView)
+  optional func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
   @available(iOS 5.0, *)
-  optional func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
+  optional func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset targetContentOffset: UnsafeMutablePointer<CGPoint>)
   @available(iOS 2.0, *)
-  optional func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+  optional func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool)
   @available(iOS 2.0, *)
-  optional func scrollViewWillBeginDecelerating(scrollView: UIScrollView)
+  optional func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+  optional func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+  optional func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)
   @available(iOS 2.0, *)
-  optional func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView?
+  optional func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView?
   @available(iOS 3.2, *)
-  optional func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?)
+  optional func scrollViewWillBeginZooming(_ scrollView: UIScrollView, withView view: UIView?)
   @available(iOS 2.0, *)
-  optional func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
+  optional func scrollViewDidEndZooming(_ scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat)
   @available(iOS 2.0, *)
-  optional func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool
+  optional func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool
   @available(iOS 2.0, *)
-  optional func scrollViewDidScrollToTop(scrollView: UIScrollView)
+  optional func scrollViewDidScrollToTop(_ scrollView: UIScrollView)
 }

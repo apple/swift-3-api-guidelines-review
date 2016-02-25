@@ -3,9 +3,8 @@
 class SKReachConstraints : NSObject, NSCoding {
   var lowerAngleLimit: CGFloat
   var upperAngleLimit: CGFloat
-  init(lowerAngleLimit: CGFloat, upperAngleLimit: CGFloat)
-  convenience init()
+  init(lowerAngleLimit lowerAngleLimit: CGFloat, upperAngleLimit upperAngleLimit: CGFloat)
   @available(tvOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

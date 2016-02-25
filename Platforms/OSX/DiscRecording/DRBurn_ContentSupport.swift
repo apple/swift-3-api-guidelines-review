@@ -1,4 +1,4 @@
 
 extension DRBurn {
-  class func layoutForImageFile(path: String!) -> AnyObject!
+  class func layoutForImageFile(_ path: String!) -> AnyObject!
 }

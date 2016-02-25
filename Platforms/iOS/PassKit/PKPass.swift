@@ -1,14 +1,14 @@
 
 @available(iOS 8.0, *)
 enum PKPassType : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Barcode
   case Payment
   case Any
 }
 class PKPass : PKObject {
-  init(data: NSData, error: NSErrorPointer)
+  init(data data: NSData, error error: NSErrorPointer)
   @available(iOS 8.0, *)
   var passType: PKPassType { get }
   @available(iOS 8.0, *)
@@ -29,6 +29,5 @@ class PKPass : PKObject {
   var remotePass: Bool { get }
   @available(iOS 9.0, *)
   var deviceName: String { get }
-  func localizedValueForFieldKey(key: String) -> AnyObject?
-  init()
+  func localizedValueForFieldKey(_ key: String) -> AnyObject?
 }

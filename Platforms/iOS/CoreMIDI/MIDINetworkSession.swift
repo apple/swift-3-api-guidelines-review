@@ -6,7 +6,7 @@ let MIDINetworkNotificationContactsDidChange: String
 @available(iOS 4.2, *)
 let MIDINetworkNotificationSessionDidChange: String
 enum MIDINetworkConnectionPolicy : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case NoOne
   case HostsInContactList
@@ -14,22 +14,20 @@ enum MIDINetworkConnectionPolicy : UInt {
 }
 @available(iOS 4.2, *)
 class MIDINetworkHost : NSObject {
-  convenience init(name: String, address: String, port: Int)
-  convenience init(name: String, netService: NSNetService)
-  convenience init(name: String, netServiceName: String, netServiceDomain: String)
-  func hasSameAddressAs(other: MIDINetworkHost) -> Bool
+  convenience init(name name: String, address address: String, port port: Int)
+  convenience init(name name: String, netService netService: NSNetService)
+  convenience init(name name: String, netServiceName netServiceName: String, netServiceDomain netServiceDomain: String)
+  func hasSameAddressAs(_ other: MIDINetworkHost) -> Bool
   var name: String { get }
   var address: String { get }
   var port: Int { get }
   var netServiceName: String? { get }
   var netServiceDomain: String? { get }
-  init()
 }
 @available(iOS 4.2, *)
 class MIDINetworkConnection : NSObject {
-  convenience init(host: MIDINetworkHost)
+  convenience init(host host: MIDINetworkHost)
   var host: MIDINetworkHost { get }
-  init()
 }
 @available(iOS 4.2, *)
 class MIDINetworkSession : NSObject {
@@ -40,12 +38,11 @@ class MIDINetworkSession : NSObject {
   var localName: String { get }
   var connectionPolicy: MIDINetworkConnectionPolicy
   func contacts() -> Set<MIDINetworkHost>
-  func addContact(contact: MIDINetworkHost) -> Bool
-  func removeContact(contact: MIDINetworkHost) -> Bool
+  func addContact(_ contact: MIDINetworkHost) -> Bool
+  func removeContact(_ contact: MIDINetworkHost) -> Bool
   func connections() -> Set<MIDINetworkConnection>
-  func addConnection(connection: MIDINetworkConnection) -> Bool
-  func removeConnection(connection: MIDINetworkConnection) -> Bool
+  func addConnection(_ connection: MIDINetworkConnection) -> Bool
+  func removeConnection(_ connection: MIDINetworkConnection) -> Bool
   func sourceEndpoint() -> MIDIEndpointRef
   func destinationEndpoint() -> MIDIEndpointRef
-  init()
 }

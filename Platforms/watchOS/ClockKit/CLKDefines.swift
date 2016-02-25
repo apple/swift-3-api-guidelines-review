@@ -1,6 +1,6 @@
 
 enum CLKComplicationFamily : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ModularSmall
   case ModularLarge
@@ -9,27 +9,27 @@ enum CLKComplicationFamily : Int {
   case CircularSmall
 }
 struct CLKComplicationTimeTravelDirections : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: CLKComplicationTimeTravelDirections { get }
   static var Forward: CLKComplicationTimeTravelDirections { get }
   static var Backward: CLKComplicationTimeTravelDirections { get }
 }
 enum CLKComplicationPrivacyBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case ShowOnLockScreen
   case HideOnLockScreen
 }
 enum CLKComplicationTimelineAnimationBehavior : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Never
   case Grouped
   case Always
 }
 enum CLKComplicationColumnAlignment : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Leading
   case Trailing
@@ -41,7 +41,7 @@ enum CLKComplicationColumnAlignment : Int {
   static var Right: CLKComplicationColumnAlignment { get }
 }
 enum CLKComplicationRingStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Closed
   case Open

@@ -1,9 +1,9 @@
 
 @available(iOS 7.0, *)
 class UIDynamicItemBehavior : UIDynamicBehavior {
-  init(items: [UIDynamicItem])
-  func addItem(item: UIDynamicItem)
-  func removeItem(item: UIDynamicItem)
+  init(items items: [UIDynamicItem])
+  func addItem(_ item: UIDynamicItem)
+  func removeItem(_ item: UIDynamicItem)
   var items: [UIDynamicItem] { get }
   var elasticity: CGFloat
   var friction: CGFloat
@@ -15,9 +15,8 @@ class UIDynamicItemBehavior : UIDynamicBehavior {
   @available(iOS 9.0, *)
   var anchored: Bool
   var allowsRotation: Bool
-  func addLinearVelocity(velocity: CGPoint, forItem item: UIDynamicItem)
-  func linearVelocityForItem(item: UIDynamicItem) -> CGPoint
-  func addAngularVelocity(velocity: CGFloat, forItem item: UIDynamicItem)
-  func angularVelocityForItem(item: UIDynamicItem) -> CGFloat
-  convenience init()
+  func addLinearVelocity(_ velocity: CGPoint, forItem item: UIDynamicItem)
+  func linearVelocityForItem(_ item: UIDynamicItem) -> CGPoint
+  func addAngularVelocity(_ velocity: CGFloat, forItem item: UIDynamicItem)
+  func angularVelocityForItem(_ item: UIDynamicItem) -> CGFloat
 }

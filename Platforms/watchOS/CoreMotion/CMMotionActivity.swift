@@ -1,6 +1,6 @@
 
 enum CMMotionActivityConfidence : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Low
   case Medium
@@ -17,6 +17,4 @@ class CMMotionActivity : CMLogItem {
   var automotive: Bool { get }
   @available(watchOS 2.0, *)
   var cycling: Bool { get }
-  init()
-  init?(coder aDecoder: NSCoder)
 }

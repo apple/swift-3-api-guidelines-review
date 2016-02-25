@@ -1,7 +1,7 @@
 
 @available(tvOS 7.0, *)
 enum SKLabelVerticalAlignmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Baseline
   case Center
@@ -10,14 +10,14 @@ enum SKLabelVerticalAlignmentMode : Int {
 }
 @available(tvOS 7.0, *)
 enum SKLabelHorizontalAlignmentMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Center
   case Left
   case Right
 }
 class SKLabelNode : SKNode {
-  convenience init(text: String?)
+  convenience init(text text: String?)
   init(fontNamed fontName: String?)
   var verticalAlignmentMode: SKLabelVerticalAlignmentMode
   var horizontalAlignmentMode: SKLabelHorizontalAlignmentMode
@@ -28,7 +28,4 @@ class SKLabelNode : SKNode {
   var colorBlendFactor: CGFloat
   var color: UIColor?
   var blendMode: SKBlendMode
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
 }

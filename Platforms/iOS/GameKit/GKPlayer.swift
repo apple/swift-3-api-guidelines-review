@@ -1,20 +1,19 @@
 
 @available(iOS 4.1, *)
 class GKPlayer : NSObject {
-  class func loadPlayersForIdentifiers(identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
+  class func loadPlayersForIdentifiers(_ identifiers: [String], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)?)
   var playerID: String? { get }
   @available(iOS 6.0, *)
   var displayName: String? { get }
   var alias: String? { get }
   @available(iOS 9.0, *)
-  class func anonymousGuestPlayerWithIdentifier(guestIdentifier: String) -> Self
+  class func anonymousGuestPlayerWithIdentifier(_ guestIdentifier: String) -> Self
   @available(iOS 9.0, *)
   var guestIdentifier: String? { get }
-  init()
 }
 extension GKPlayer {
   @available(iOS 5.0, *)
-  func loadPhotoForSize(size: GKPhotoSize, withCompletionHandler completionHandler: ((UIImage?, NSError?) -> Void)?)
+  func loadPhotoForSize(_ size: GKPhotoSize, withCompletionHandler completionHandler: ((UIImage?, NSError?) -> Void)?)
 }
 var GKPhotoSizeSmall: Int { get }
 var GKPhotoSizeNormal: Int { get }

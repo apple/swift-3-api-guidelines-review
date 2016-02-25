@@ -1,6 +1,6 @@
 
 enum NSAnimationCurve : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case EaseInOut
   case EaseIn
@@ -8,7 +8,7 @@ enum NSAnimationCurve : UInt {
   case Linear
 }
 enum NSAnimationBlockingMode : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Blocking
   case Nonblocking
@@ -18,7 +18,7 @@ typealias NSAnimationProgress = Float
 let NSAnimationProgressMarkNotification: String
 let NSAnimationProgressMark: String
 class NSAnimation : NSObject, NSCopying, NSCoding {
-  init(duration: NSTimeInterval, animationCurve: NSAnimationCurve)
+  init(duration duration: NSTimeInterval, animationCurve animationCurve: NSAnimationCurve)
   func startAnimation()
   func stopAnimation()
   var animating: Bool { get }
@@ -30,16 +30,15 @@ class NSAnimation : NSObject, NSCopying, NSCoding {
   var currentValue: Float { get }
   unowned(unsafe) var delegate: @sil_unmanaged NSAnimationDelegate?
   var progressMarks: [NSNumber]
-  func addProgressMark(progressMark: NSAnimationProgress)
-  func removeProgressMark(progressMark: NSAnimationProgress)
-  func startWhenAnimation(animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
-  func stopWhenAnimation(animation: NSAnimation, reachesProgress stopProgress: NSAnimationProgress)
+  func addProgressMark(_ progressMark: NSAnimationProgress)
+  func removeProgressMark(_ progressMark: NSAnimationProgress)
+  func startWhenAnimation(_ animation: NSAnimation, reachesProgress startProgress: NSAnimationProgress)
+  func stopWhenAnimation(_ animation: NSAnimation, reachesProgress stopProgress: NSAnimationProgress)
   func clearStartAnimation()
   func clearStopAnimation()
   var runLoopModesForAnimating: [String]? { get }
-  init()
-  func copyWithZone(zone: NSZone) -> AnyObject
-  func encodeWithCoder(aCoder: NSCoder)
+  func copyWithZone(_ zone: NSZone) -> AnyObject
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 struct __aFlags {
@@ -53,21 +52,21 @@ struct __aFlags {
   var sendProgressAllTheTime: UInt32
   var reserved: UInt32
   init()
-  init(delegateAnimationShouldStart: UInt32, delegateAnimationDidStop: UInt32, delegateAnimationDidEnd: UInt32, delegateAnimationValueForProgress: UInt32, delegateAnimationDidReachProgressMark: UInt32, animating: UInt32, blocking: UInt32, sendProgressAllTheTime: UInt32, reserved: UInt32)
+  init(delegateAnimationShouldStart delegateAnimationShouldStart: UInt32, delegateAnimationDidStop delegateAnimationDidStop: UInt32, delegateAnimationDidEnd delegateAnimationDidEnd: UInt32, delegateAnimationValueForProgress delegateAnimationValueForProgress: UInt32, delegateAnimationDidReachProgressMark delegateAnimationDidReachProgressMark: UInt32, animating animating: UInt32, blocking blocking: UInt32, sendProgressAllTheTime sendProgressAllTheTime: UInt32, reserved reserved: UInt32)
 }
 struct __aSettings {
   var animationCurve: UInt32
   var animationBlockingMode: UInt32
   var reserved: UInt32
   init()
-  init(animationCurve: UInt32, animationBlockingMode: UInt32, reserved: UInt32)
+  init(animationCurve animationCurve: UInt32, animationBlockingMode animationBlockingMode: UInt32, reserved reserved: UInt32)
 }
 protocol NSAnimationDelegate : NSObjectProtocol {
-  optional func animationShouldStart(animation: NSAnimation) -> Bool
-  optional func animationDidStop(animation: NSAnimation)
-  optional func animationDidEnd(animation: NSAnimation)
-  optional func animation(animation: NSAnimation, valueForProgress progress: NSAnimationProgress) -> Float
-  optional func animation(animation: NSAnimation, didReachProgressMark progress: NSAnimationProgress)
+  optional func animationShouldStart(_ animation: NSAnimation) -> Bool
+  optional func animationDidStop(_ animation: NSAnimation)
+  optional func animationDidEnd(_ animation: NSAnimation)
+  optional func animation(_ animation: NSAnimation, valueForProgress progress: NSAnimationProgress) -> Float
+  optional func animation(_ animation: NSAnimation, didReachProgressMark progress: NSAnimationProgress)
 }
 let NSViewAnimationTargetKey: String
 let NSViewAnimationStartFrameKey: String
@@ -76,16 +75,13 @@ let NSViewAnimationEffectKey: String
 let NSViewAnimationFadeInEffect: String
 let NSViewAnimationFadeOutEffect: String
 class NSViewAnimation : NSAnimation {
-  init(viewAnimations: [[String : AnyObject]])
+  init(viewAnimations viewAnimations: [[String : AnyObject]])
   var viewAnimations: [[String : AnyObject]]
-  init(duration: NSTimeInterval, animationCurve: NSAnimationCurve)
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 struct __vaFlags {
   var reserved: UInt32
   init()
-  init(reserved: UInt32)
+  init(reserved reserved: UInt32)
 }
 protocol NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
@@ -93,9 +89,9 @@ protocol NSAnimatablePropertyContainer {
   @available(OSX 10.5, *)
   var animations: [String : AnyObject] { get set }
   @available(OSX 10.5, *)
-  func animationForKey(key: String) -> AnyObject?
+  func animationForKey(_ key: String) -> AnyObject?
   @available(OSX 10.5, *)
-  static func defaultAnimationForKey(key: String) -> AnyObject?
+  static func defaultAnimationForKey(_ key: String) -> AnyObject?
 }
 @available(OSX 10.5, *)
 let NSAnimationTriggerOrderIn: String

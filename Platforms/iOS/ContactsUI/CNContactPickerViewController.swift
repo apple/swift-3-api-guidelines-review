@@ -6,15 +6,12 @@ class CNContactPickerViewController : UIViewController {
   @NSCopying var predicateForEnablingContact: NSPredicate?
   @NSCopying var predicateForSelectionOfContact: NSPredicate?
   @NSCopying var predicateForSelectionOfProperty: NSPredicate?
-  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
 }
 @available(iOS 9.0, *)
 protocol CNContactPickerDelegate : NSObjectProtocol {
-  optional func contactPickerDidCancel(picker: CNContactPickerViewController)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty)
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact])
-  optional func contactPicker(picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty])
+  optional func contactPickerDidCancel(_ picker: CNContactPickerViewController)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelectContact contact: CNContact)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelectContactProperty contactProperty: CNContactProperty)
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact])
+  optional func contactPicker(_ picker: CNContactPickerViewController, didSelectContactProperties contactProperties: [CNContactProperty])
 }

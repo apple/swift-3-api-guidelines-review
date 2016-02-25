@@ -7,7 +7,6 @@ class AVPlayerItemTrack : NSObject {
   var currentVideoFrameRate: Float { get }
   @available(OSX 10.10, *)
   var videoFieldMode: String?
-  init()
 }
 @available(OSX 10.10, *)
 let AVPlayerItemTrackVideoFieldModeDeinterlaceFields: String

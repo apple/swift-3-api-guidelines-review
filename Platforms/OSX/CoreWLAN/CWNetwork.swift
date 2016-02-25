@@ -22,17 +22,16 @@ class CWNetwork : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.7, *)
   var ibss: Bool { get }
   @available(OSX 10.6, *)
-  func isEqualToNetwork(network: CWNetwork) -> Bool
+  func isEqualToNetwork(_ network: CWNetwork) -> Bool
   @available(OSX 10.7, *)
-  func supportsSecurity(security: CWSecurity) -> Bool
+  func supportsSecurity(_ security: CWSecurity) -> Bool
   @available(OSX 10.8, *)
-  func supportsPHYMode(phyMode: CWPHYMode) -> Bool
-  init()
+  func supportsPHYMode(_ phyMode: CWPHYMode) -> Bool
   @available(OSX 10.6, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.6, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.6, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

@@ -1,6 +1,6 @@
 
 enum GKVoiceChatPlayerState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Connected
   case Disconnected
@@ -13,7 +13,7 @@ class GKVoiceChat : NSObject {
   func start()
   func stop()
   @available(tvOS 8.0, *)
-  func setPlayer(player: GKPlayer, muted isMuted: Bool)
+  func setPlayer(_ player: GKPlayer, muted isMuted: Bool)
   @available(tvOS 8.0, *)
   var playerVoiceChatStateDidChangeHandler: (GKPlayer, GKVoiceChatPlayerState) -> Void
   var name: String { get }
@@ -22,7 +22,6 @@ class GKVoiceChat : NSObject {
   @available(tvOS 8.0, *)
   var players: [GKPlayer] { get }
   class func isVoIPAllowed() -> Bool
-  init()
 }
 extension GKVoiceChat {
 }

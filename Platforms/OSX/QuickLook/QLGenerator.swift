@@ -5,25 +5,25 @@ class QLThumbnailRequest {
 @available(*, deprecated, renamed="QLThumbnailRequest")
 typealias QLThumbnailRequestRef = QLThumbnailRequest
 func QLThumbnailRequestGetTypeID() -> CFTypeID
-func QLThumbnailRequestCopyURL(thumbnail: QLThumbnailRequest!) -> Unmanaged<CFURL>!
-func QLThumbnailRequestCopyOptions(thumbnail: QLThumbnailRequest!) -> Unmanaged<CFDictionary>!
-func QLThumbnailRequestCopyContentUTI(thumbnail: QLThumbnailRequest!) -> Unmanaged<CFString>!
-func QLThumbnailRequestGetMaximumSize(thumbnail: QLThumbnailRequest!) -> CGSize
-func QLThumbnailRequestGetGeneratorBundle(thumbnail: QLThumbnailRequest!) -> Unmanaged<CFBundle>!
+func QLThumbnailRequestCopyURL(_ thumbnail: QLThumbnailRequest!) -> Unmanaged<CFURL>!
+func QLThumbnailRequestCopyOptions(_ thumbnail: QLThumbnailRequest!) -> Unmanaged<CFDictionary>!
+func QLThumbnailRequestCopyContentUTI(_ thumbnail: QLThumbnailRequest!) -> Unmanaged<CFString>!
+func QLThumbnailRequestGetMaximumSize(_ thumbnail: QLThumbnailRequest!) -> CGSize
+func QLThumbnailRequestGetGeneratorBundle(_ thumbnail: QLThumbnailRequest!) -> Unmanaged<CFBundle>!
 @available(OSX 10.6, *)
-func QLThumbnailRequestSetDocumentObject(thumbnail: QLThumbnailRequest!, _ object: UnsafePointer<Void>, _ callbacks: UnsafePointer<CFArrayCallBacks>)
+func QLThumbnailRequestSetDocumentObject(_ thumbnail: QLThumbnailRequest!, _ object: UnsafePointer<Void>, _ callbacks: UnsafePointer<CFArrayCallBacks>)
 @available(OSX 10.6, *)
-func QLThumbnailRequestGetDocumentObject(thumbnail: QLThumbnailRequest!) -> UnsafePointer<Void>
-func QLThumbnailRequestSetImage(thumbnail: QLThumbnailRequest!, _ image: CGImage!, _ properties: CFDictionary!)
-func QLThumbnailRequestSetImageWithData(thumbnail: QLThumbnailRequest!, _ data: CFData!, _ properties: CFDictionary!)
-func QLThumbnailRequestCreateContext(thumbnail: QLThumbnailRequest!, _ size: CGSize, _ isBitmap: Bool, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
-func QLThumbnailRequestFlushContext(thumbnail: QLThumbnailRequest!, _ context: CGContext!)
-func QLThumbnailRequestSetImageAtURL(thumbnail: QLThumbnailRequest!, _ url: CFURL!, _ properties: CFDictionary!)
+func QLThumbnailRequestGetDocumentObject(_ thumbnail: QLThumbnailRequest!) -> UnsafePointer<Void>
+func QLThumbnailRequestSetImage(_ thumbnail: QLThumbnailRequest!, _ image: CGImage!, _ properties: CFDictionary!)
+func QLThumbnailRequestSetImageWithData(_ thumbnail: QLThumbnailRequest!, _ data: CFData!, _ properties: CFDictionary!)
+func QLThumbnailRequestCreateContext(_ thumbnail: QLThumbnailRequest!, _ size: CGSize, _ isBitmap: Bool, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
+func QLThumbnailRequestFlushContext(_ thumbnail: QLThumbnailRequest!, _ context: CGContext!)
+func QLThumbnailRequestSetImageAtURL(_ thumbnail: QLThumbnailRequest!, _ url: CFURL!, _ properties: CFDictionary!)
 @available(OSX 10.6, *)
-func QLThumbnailRequestSetThumbnailWithDataRepresentation(thumbnail: QLThumbnailRequest!, _ data: CFData!, _ contentTypeUTI: CFString!, _ previewProperties: CFDictionary!, _ properties: CFDictionary!)
+func QLThumbnailRequestSetThumbnailWithDataRepresentation(_ thumbnail: QLThumbnailRequest!, _ data: CFData!, _ contentTypeUTI: CFString!, _ previewProperties: CFDictionary!, _ properties: CFDictionary!)
 @available(OSX 10.6, *)
-func QLThumbnailRequestSetThumbnailWithURLRepresentation(thumbnail: QLThumbnailRequest!, _ url: CFURL!, _ contentTypeUTI: CFString!, _ previewProperties: CFDictionary!, _ properties: CFDictionary!)
-func QLThumbnailRequestIsCancelled(thumbnail: QLThumbnailRequest!) -> Bool
+func QLThumbnailRequestSetThumbnailWithURLRepresentation(_ thumbnail: QLThumbnailRequest!, _ url: CFURL!, _ contentTypeUTI: CFString!, _ previewProperties: CFDictionary!, _ properties: CFDictionary!)
+func QLThumbnailRequestIsCancelled(_ thumbnail: QLThumbnailRequest!) -> Bool
 @available(OSX 10.6, *)
 let kQLThumbnailPropertyExtensionKey: CFString!
 @available(OSX 10.6, *)
@@ -43,7 +43,7 @@ let kQLPreviewPropertyBaseBundlePathKey: CFString!
 let kQLPreviewPropertyStringEncodingKey: CFString!
 struct QLPreviewPDFStyle : RawRepresentable, Equatable {
   init(_ rawValue: UInt32)
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   var rawValue: UInt32
 }
 var kQLPreviewPDFStandardStyle: QLPreviewPDFStyle { get }
@@ -55,20 +55,20 @@ let kQLPreviewPropertyPDFStyleKey: CFString!
 let kQLPreviewOptionCursorKey: CFString!
 @available(OSX 10.6, *)
 let kQLPreviewPropertyCursorKey: CFString!
-func QLPreviewRequestCopyURL(preview: QLPreviewRequest!) -> Unmanaged<CFURL>!
-func QLPreviewRequestCopyOptions(preview: QLPreviewRequest!) -> Unmanaged<CFDictionary>!
-func QLPreviewRequestCopyContentUTI(preview: QLPreviewRequest!) -> Unmanaged<CFString>!
-func QLPreviewRequestGetGeneratorBundle(preview: QLPreviewRequest!) -> Unmanaged<CFBundle>!
+func QLPreviewRequestCopyURL(_ preview: QLPreviewRequest!) -> Unmanaged<CFURL>!
+func QLPreviewRequestCopyOptions(_ preview: QLPreviewRequest!) -> Unmanaged<CFDictionary>!
+func QLPreviewRequestCopyContentUTI(_ preview: QLPreviewRequest!) -> Unmanaged<CFString>!
+func QLPreviewRequestGetGeneratorBundle(_ preview: QLPreviewRequest!) -> Unmanaged<CFBundle>!
 @available(OSX 10.6, *)
-func QLPreviewRequestSetDocumentObject(preview: QLPreviewRequest!, _ object: UnsafePointer<Void>, _ callbacks: UnsafePointer<CFArrayCallBacks>)
+func QLPreviewRequestSetDocumentObject(_ preview: QLPreviewRequest!, _ object: UnsafePointer<Void>, _ callbacks: UnsafePointer<CFArrayCallBacks>)
 @available(OSX 10.6, *)
-func QLPreviewRequestGetDocumentObject(preview: QLPreviewRequest!) -> UnsafePointer<Void>
-func QLPreviewRequestIsCancelled(preview: QLPreviewRequest!) -> Bool
-func QLPreviewRequestSetDataRepresentation(preview: QLPreviewRequest!, _ data: CFData!, _ contentTypeUTI: CFString!, _ properties: CFDictionary!)
-func QLPreviewRequestSetURLRepresentation(preview: QLPreviewRequest!, _ url: CFURL!, _ contentTypeUTI: CFString!, _ properties: CFDictionary!)
-func QLPreviewRequestCreateContext(preview: QLPreviewRequest!, _ size: CGSize, _ isBitmap: Bool, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
-func QLPreviewRequestCreatePDFContext(preview: QLPreviewRequest!, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary!, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
-func QLPreviewRequestFlushContext(preview: QLPreviewRequest!, _ context: CGContext!)
+func QLPreviewRequestGetDocumentObject(_ preview: QLPreviewRequest!) -> UnsafePointer<Void>
+func QLPreviewRequestIsCancelled(_ preview: QLPreviewRequest!) -> Bool
+func QLPreviewRequestSetDataRepresentation(_ preview: QLPreviewRequest!, _ data: CFData!, _ contentTypeUTI: CFString!, _ properties: CFDictionary!)
+func QLPreviewRequestSetURLRepresentation(_ preview: QLPreviewRequest!, _ url: CFURL!, _ contentTypeUTI: CFString!, _ properties: CFDictionary!)
+func QLPreviewRequestCreateContext(_ preview: QLPreviewRequest!, _ size: CGSize, _ isBitmap: Bool, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
+func QLPreviewRequestCreatePDFContext(_ preview: QLPreviewRequest!, _ mediaBox: UnsafePointer<CGRect>, _ auxiliaryInfo: CFDictionary!, _ properties: CFDictionary!) -> Unmanaged<CGContext>!
+func QLPreviewRequestFlushContext(_ preview: QLPreviewRequest!, _ context: CGContext!)
 let kQLPreviewPropertyMIMETypeKey: CFString!
 let kQLPreviewPropertyTextEncodingNameKey: CFString!
 let kQLPreviewPropertyAttachmentDataKey: CFString!
@@ -84,5 +84,5 @@ struct QLGeneratorInterfaceStruct {
   var GeneratePreviewForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!, CFURL!, CFString!, CFDictionary!) -> OSStatus)!
   var CancelPreviewGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!) -> Void)!
   init()
-  init(_reserved: UnsafeMutablePointer<Void>, QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, GenerateThumbnailForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!, CFURL!, CFString!, CFDictionary!, CGSize) -> OSStatus)!, CancelThumbnailGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!) -> Void)!, GeneratePreviewForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!, CFURL!, CFString!, CFDictionary!) -> OSStatus)!, CancelPreviewGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!) -> Void)!)
+  init(_reserved _reserved: UnsafeMutablePointer<Void>, QueryInterface QueryInterface: (@convention(c) (UnsafeMutablePointer<Void>, REFIID, UnsafeMutablePointer<LPVOID>) -> HRESULT)!, AddRef AddRef: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, Release Release: (@convention(c) (UnsafeMutablePointer<Void>) -> ULONG)!, GenerateThumbnailForURL GenerateThumbnailForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!, CFURL!, CFString!, CFDictionary!, CGSize) -> OSStatus)!, CancelThumbnailGeneration CancelThumbnailGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLThumbnailRequest!) -> Void)!, GeneratePreviewForURL GeneratePreviewForURL: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!, CFURL!, CFString!, CFDictionary!) -> OSStatus)!, CancelPreviewGeneration CancelPreviewGeneration: (@convention(c) (UnsafeMutablePointer<Void>, QLPreviewRequest!) -> Void)!)
 }

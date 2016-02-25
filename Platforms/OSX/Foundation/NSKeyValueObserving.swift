@@ -1,6 +1,6 @@
 
 struct NSKeyValueObservingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var New: NSKeyValueObservingOptions { get }
   static var Old: NSKeyValueObservingOptions { get }
@@ -10,7 +10,7 @@ struct NSKeyValueObservingOptions : OptionSetType {
   static var Prior: NSKeyValueObservingOptions { get }
 }
 enum NSKeyValueChange : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case Setting
   case Insertion
@@ -18,7 +18,7 @@ enum NSKeyValueChange : UInt {
   case Replacement
 }
 enum NSKeyValueSetMutationKind : UInt {
-  init?(rawValue: UInt)
+  init?(rawValue rawValue: UInt)
   var rawValue: UInt { get }
   case UnionSetMutation
   case MinusSetMutation
@@ -32,62 +32,50 @@ let NSKeyValueChangeIndexesKey: String
 @available(OSX 10.5, *)
 let NSKeyValueChangeNotificationIsPriorKey: String
 extension NSObject {
-  class func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
-  func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  class func observeValueForKeyPath(_ keyPath: String?, ofObject object: AnyObject?, change change: [String : AnyObject]?, context context: UnsafeMutablePointer<Void>)
+  func observeValueForKeyPath(_ keyPath: String?, ofObject object: AnyObject?, change change: [String : AnyObject]?, context context: UnsafeMutablePointer<Void>)
 }
 extension NSObject {
-  class func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  class func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions, context context: UnsafeMutablePointer<Void>)
+  func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions, context context: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  class func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
+  class func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  class func removeObserver(observer: NSObject, forKeyPath keyPath: String)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String)
+  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
+  class func removeObserver(_ observer: NSObject, forKeyPath keyPath: String)
+  func removeObserver(_ observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSArray {
-  func addObserver(observer: NSObject, toObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
+  func addObserver(_ observer: NSObject, toObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, options options: NSKeyValueObservingOptions, context context: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String)
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  @available(OSX 10.7, *)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String)
+  func removeObserver(_ observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String, context context: UnsafeMutablePointer<Void>)
+  func removeObserver(_ observer: NSObject, fromObjectsAtIndexes indexes: NSIndexSet, forKeyPath keyPath: String)
 }
 extension NSOrderedSet {
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  @available(OSX 10.7, *)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSSet {
-  func addObserver(observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions, context: UnsafeMutablePointer<Void>)
-  @available(OSX 10.7, *)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutablePointer<Void>)
-  func removeObserver(observer: NSObject, forKeyPath keyPath: String)
 }
 extension NSObject {
-  class func willChangeValueForKey(key: String)
-  func willChangeValueForKey(key: String)
-  class func didChangeValueForKey(key: String)
-  func didChangeValueForKey(key: String)
-  class func willChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  func willChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  class func didChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  func didChange(changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
-  class func willChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
-  func willChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
-  class func didChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
-  func didChangeValueForKey(key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
+  class func willChangeValueForKey(_ key: String)
+  func willChangeValueForKey(_ key: String)
+  class func didChangeValueForKey(_ key: String)
+  func didChangeValueForKey(_ key: String)
+  class func willChange(_ changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
+  func willChange(_ changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
+  class func didChange(_ changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
+  func didChange(_ changeKind: NSKeyValueChange, valuesAtIndexes indexes: NSIndexSet, forKey key: String)
+  class func willChangeValueForKey(_ key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
+  func willChangeValueForKey(_ key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
+  class func didChangeValueForKey(_ key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
+  func didChangeValueForKey(_ key: String, withSetMutation mutationKind: NSKeyValueSetMutationKind, usingObjects objects: Set<NSObject>)
 }
 extension NSObject {
   @available(OSX 10.5, *)
-  class func keyPathsForValuesAffectingValueForKey(key: String) -> Set<String>
-  class func automaticallyNotifiesObserversForKey(key: String) -> Bool
+  class func keyPathsForValuesAffectingValueForKey(_ key: String) -> Set<String>
+  class func automaticallyNotifiesObserversForKey(_ key: String) -> Bool
   var observationInfo: UnsafeMutablePointer<Void>
   class func observationInfo() -> UnsafeMutablePointer<Void>
-  class func setObservationInfo(observationInfo: UnsafeMutablePointer<Void>)
+  class func setObservationInfo(_ observationInfo: UnsafeMutablePointer<Void>)
 }
 extension NSObject {
 }

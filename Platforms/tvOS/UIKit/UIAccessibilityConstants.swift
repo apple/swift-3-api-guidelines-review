@@ -53,7 +53,7 @@ let UIAccessibilityNotificationSwitchControlIdentifier: String
 let UIAccessibilityNotificationVoiceOverIdentifier: String
 @available(tvOS 8.0, *)
 enum UIAccessibilityNavigationStyle : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Automatic
   case Separate

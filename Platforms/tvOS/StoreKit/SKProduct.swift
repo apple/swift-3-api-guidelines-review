@@ -17,5 +17,4 @@ class SKProduct : NSObject {
   var downloadContentLengths: [NSNumber] { get }
   @available(tvOS 6.0, *)
   var downloadContentVersion: String { get }
-  init()
 }

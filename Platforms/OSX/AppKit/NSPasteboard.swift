@@ -34,7 +34,7 @@ let NSFindPboard: String
 let NSDragPboard: String
 class NSPasteboard : NSObject {
   class func generalPasteboard() -> NSPasteboard
-  /*not inherited*/ init(name: String)
+  /*not inherited*/ init(name name: String)
   class func pasteboardWithUniqueName() -> NSPasteboard
   var name: String { get }
   var changeCount: Int { get }
@@ -42,40 +42,39 @@ class NSPasteboard : NSObject {
   @available(OSX 10.6, *)
   func clearContents() -> Int
   @available(OSX 10.6, *)
-  func writeObjects(objects: [NSPasteboardWriting]) -> Bool
+  func writeObjects(_ objects: [NSPasteboardWriting]) -> Bool
   @available(OSX 10.6, *)
-  func readObjectsForClasses(classArray: [AnyClass], options: [String : AnyObject]?) -> [AnyObject]?
+  func readObjectsForClasses(_ classArray: [AnyClass], options options: [String : AnyObject]?) -> [AnyObject]?
   @available(OSX 10.6, *)
   var pasteboardItems: [NSPasteboardItem]? { get }
   @available(OSX 10.6, *)
-  func indexOfPasteboardItem(pasteboardItem: NSPasteboardItem) -> Int
+  func indexOfPasteboardItem(_ pasteboardItem: NSPasteboardItem) -> Int
   @available(OSX 10.6, *)
-  func canReadItemWithDataConformingToTypes(types: [String]) -> Bool
+  func canReadItemWithDataConformingToTypes(_ types: [String]) -> Bool
   @available(OSX 10.6, *)
-  func canReadObjectForClasses(classArray: [AnyClass], options: [String : AnyObject]?) -> Bool
-  func declareTypes(newTypes: [String], owner newOwner: AnyObject?) -> Int
-  func addTypes(newTypes: [String], owner newOwner: AnyObject?) -> Int
+  func canReadObjectForClasses(_ classArray: [AnyClass], options options: [String : AnyObject]?) -> Bool
+  func declareTypes(_ newTypes: [String], owner newOwner: AnyObject?) -> Int
+  func addTypes(_ newTypes: [String], owner newOwner: AnyObject?) -> Int
   var types: [String]? { get }
-  func availableTypeFromArray(types: [String]) -> String?
-  func setData(data: NSData?, forType dataType: String) -> Bool
-  func setPropertyList(plist: AnyObject, forType dataType: String) -> Bool
-  func setString(string: String, forType dataType: String) -> Bool
-  func dataForType(dataType: String) -> NSData?
-  func propertyListForType(dataType: String) -> AnyObject?
-  func stringForType(dataType: String) -> String?
-  init()
+  func availableTypeFromArray(_ types: [String]) -> String?
+  func setData(_ data: NSData?, forType dataType: String) -> Bool
+  func setPropertyList(_ plist: AnyObject, forType dataType: String) -> Bool
+  func setString(_ string: String, forType dataType: String) -> Bool
+  func dataForType(_ dataType: String) -> NSData?
+  func propertyListForType(_ dataType: String) -> AnyObject?
+  func stringForType(_ dataType: String) -> String?
 }
 extension NSPasteboard {
-  class func typesFilterableTo(type: String) -> [String]
+  class func typesFilterableTo(_ type: String) -> [String]
   /*not inherited*/ init(byFilteringFile filename: String)
   /*not inherited*/ init(byFilteringData data: NSData, ofType type: String)
   /*not inherited*/ init(byFilteringTypesInPasteboard pboard: NSPasteboard)
 }
 extension NSObject {
-  class func pasteboard(sender: NSPasteboard, provideDataForType type: String)
-  func pasteboard(sender: NSPasteboard, provideDataForType type: String)
-  class func pasteboardChangedOwner(sender: NSPasteboard)
-  func pasteboardChangedOwner(sender: NSPasteboard)
+  class func pasteboard(_ sender: NSPasteboard, provideDataForType type: String)
+  func pasteboard(_ sender: NSPasteboard, provideDataForType type: String)
+  class func pasteboardChangedOwner(_ sender: NSPasteboard)
+  func pasteboardChangedOwner(_ sender: NSPasteboard)
 }
 @available(OSX 10.6, *)
 let NSPasteboardURLReadingFileURLsOnlyKey: String
@@ -83,19 +82,19 @@ let NSPasteboardURLReadingFileURLsOnlyKey: String
 let NSPasteboardURLReadingContentsConformToTypesKey: String
 @available(OSX 10.6, *)
 struct NSPasteboardWritingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var Promised: NSPasteboardWritingOptions { get }
 }
 protocol NSPasteboardWriting : NSObjectProtocol {
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  optional func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
+  optional func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
 }
 @available(OSX 10.6, *)
 struct NSPasteboardReadingOptions : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var AsData: NSPasteboardReadingOptions { get }
   static var AsString: NSPasteboardReadingOptions { get }
@@ -103,31 +102,31 @@ struct NSPasteboardReadingOptions : OptionSetType {
   static var AsKeyedArchive: NSPasteboardReadingOptions { get }
 }
 protocol NSPasteboardReading : NSObjectProtocol {
-  static func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  static func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  optional static func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  optional static func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
 extension NSURL : NSPasteboardWriting, NSPasteboardReading {
   /*not inherited*/ init?(fromPasteboard pasteBoard: NSPasteboard)
-  func writeToPasteboard(pasteBoard: NSPasteboard)
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writeToPasteboard(_ pasteBoard: NSPasteboard)
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
-  class func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
+  class func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
 extension NSString : NSPasteboardWriting, NSPasteboardReading {
-  func writableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  func writingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
-  func pasteboardPropertyListForType(type: String) -> AnyObject?
-  class func readableTypesForPasteboard(pasteboard: NSPasteboard) -> [String]
+  func writingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardWritingOptions
+  func pasteboardPropertyListForType(_ type: String) -> AnyObject?
+  class func readableTypesForPasteboard(_ pasteboard: NSPasteboard) -> [String]
   @available(OSX 10.6, *)
-  class func readingOptionsForType(type: String, pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
+  class func readingOptionsForType(_ type: String, pasteboard pasteboard: NSPasteboard) -> NSPasteboardReadingOptions
   init?(pasteboardPropertyList propertyList: AnyObject, ofType type: String)
 }
 let NSStringPboardType: String
@@ -151,13 +150,13 @@ let NSFilesPromisePboardType: String
 @available(OSX 10.6, *)
 let NSPasteboardTypeFindPanelSearchOptions: String
 extension NSPasteboard {
-  func writeFileContents(filename: String) -> Bool
-  func readFileContentsType(type: String?, toFile filename: String) -> String?
-  func writeFileWrapper(wrapper: NSFileWrapper) -> Bool
+  func writeFileContents(_ filename: String) -> Bool
+  func readFileContentsType(_ type: String?, toFile filename: String) -> String?
+  func writeFileWrapper(_ wrapper: NSFileWrapper) -> Bool
   func readFileWrapper() -> NSFileWrapper?
 }
 let NSFileContentsPboardType: String
-func NSCreateFilenamePboardType(fileType: String) -> String?
-func NSCreateFileContentsPboardType(fileType: String) -> String?
-func NSGetFileType(pboardType: String) -> String?
-func NSGetFileTypes(pboardTypes: [String]) -> [String]?
+func NSCreateFilenamePboardType(_ fileType: String) -> String?
+func NSCreateFileContentsPboardType(_ fileType: String) -> String?
+func NSGetFileType(_ pboardType: String) -> String?
+func NSGetFileTypes(_ pboardTypes: [String]) -> [String]?

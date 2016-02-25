@@ -1,11 +1,11 @@
 
 @available(OSX 10.4, *)
 class CIVector : NSObject, NSCopying, NSSecureCoding {
-  init(values: UnsafePointer<CGFloat>, count: Int)
-  convenience init(x: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat, z: CGFloat)
-  convenience init(x: CGFloat, y: CGFloat, z: CGFloat, w: CGFloat)
+  init(values values: UnsafePointer<CGFloat>, count count: Int)
+  convenience init(x x: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat, z z: CGFloat)
+  convenience init(x x: CGFloat, y y: CGFloat, z z: CGFloat, w w: CGFloat)
   @available(OSX 10.9, *)
   convenience init(CGPoint p: CGPoint)
   @available(OSX 10.9, *)
@@ -13,7 +13,7 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.9, *)
   convenience init(CGAffineTransform r: CGAffineTransform)
   convenience init(string representation: String)
-  func valueAtIndex(index: Int) -> CGFloat
+  func valueAtIndex(_ index: Int) -> CGFloat
   var count: Int { get }
   var X: CGFloat { get }
   var Y: CGFloat { get }
@@ -26,12 +26,11 @@ class CIVector : NSObject, NSCopying, NSSecureCoding {
   @available(OSX 10.9, *)
   var CGAffineTransformValue: CGAffineTransform { get }
   var stringRepresentation: String { get }
-  convenience init()
   @available(OSX 10.4, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.4, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.4, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }

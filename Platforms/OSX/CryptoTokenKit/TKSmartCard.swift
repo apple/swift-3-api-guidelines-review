@@ -3,12 +3,11 @@
 class TKSmartCardSlotManager : NSObject {
   class func defaultManager() -> Self?
   var slotNames: [String] { get }
-  func getSlotWithName(name: String, reply: (TKSmartCardSlot?) -> Void)
-  init()
+  func getSlotWithName(_ name: String, reply reply: (TKSmartCardSlot?) -> Void)
 }
 @available(OSX 10.10, *)
 enum TKSmartCardSlotState : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Missing
   case Empty
@@ -18,7 +17,7 @@ enum TKSmartCardSlotState : Int {
 }
 @available(OSX 10.11, *)
 enum TKSmartCardPINCharset : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Numeric
   case Alphanumeric
@@ -26,7 +25,7 @@ enum TKSmartCardPINCharset : Int {
 }
 @available(OSX 10.11, *)
 enum TKSmartCardPINEncoding : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Binary
   case ASCII
@@ -34,14 +33,14 @@ enum TKSmartCardPINEncoding : Int {
 }
 @available(OSX 10.11, *)
 enum TKSmartCardPINJustification : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Left
   case Right
 }
 @available(OSX 10.11, *)
 struct TKSmartCardPINCompletion : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var MaxLength: TKSmartCardPINCompletion { get }
   static var Key: TKSmartCardPINCompletion { get }
@@ -49,7 +48,7 @@ struct TKSmartCardPINCompletion : OptionSetType {
 }
 @available(OSX 10.11, *)
 struct TKSmartCardPINConfirmation : OptionSetType {
-  init(rawValue: UInt)
+  init(rawValue rawValue: UInt)
   let rawValue: UInt
   static var None: TKSmartCardPINConfirmation { get }
   static var New: TKSmartCardPINConfirmation { get }
@@ -66,26 +65,24 @@ class TKSmartCardPINFormat : NSObject {
   var PINBitOffset: Int
   var PINLengthBitOffset: Int
   var PINLengthBitSize: Int
-  init()
 }
 @available(OSX 10.11, *)
 protocol TKSmartCardUserInteractionDelegate {
-  optional func characterEnteredInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func correctionKeyPressedInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func validationKeyPressedInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func invalidCharacterEnteredInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func oldPINRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func newPINRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
-  optional func newPINConfirmationRequestedInUserInteraction(interaction: TKSmartCardUserInteraction)
+  optional func characterEnteredInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func correctionKeyPressedInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func validationKeyPressedInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func invalidCharacterEnteredInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func oldPINRequestedInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func newPINRequestedInUserInteraction(_ interaction: TKSmartCardUserInteraction)
+  optional func newPINConfirmationRequestedInUserInteraction(_ interaction: TKSmartCardUserInteraction)
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteraction : NSObject {
   weak var delegate: @sil_weak TKSmartCardUserInteractionDelegate?
   var initialTimeout: NSTimeInterval
   var interactionTimeout: NSTimeInterval
-  func runWithReply(reply: (Bool, NSError?) -> Void)
+  func runWithReply(_ reply: (Bool, NSError?) -> Void)
   func cancel() -> Bool
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
@@ -94,16 +91,13 @@ class TKSmartCardUserInteractionForPINOperation : TKSmartCardUserInteraction {
   var locale: NSLocale!
   var resultSW: UInt16
   var resultData: NSData?
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForSecurePINVerification : TKSmartCardUserInteractionForPINOperation {
-  init()
 }
 @available(OSX 10.11, *)
 class TKSmartCardUserInteractionForSecurePINChange : TKSmartCardUserInteractionForPINOperation {
   var PINConfirmation: TKSmartCardPINConfirmation
-  init()
 }
 @available(OSX 10.10, *)
 class TKSmartCardSlot : NSObject {
@@ -113,7 +107,6 @@ class TKSmartCardSlot : NSObject {
   var maxInputLength: Int { get }
   var maxOutputLength: Int { get }
   func makeSmartCard() -> TKSmartCard?
-  init()
 }
 @available(OSX 10.10, *)
 class TKSmartCard : NSObject {
@@ -123,17 +116,16 @@ class TKSmartCard : NSObject {
   var currentProtocol: TKSmartCardProtocol { get }
   var sensitive: Bool
   var context: AnyObject?
-  func beginSessionWithReply(reply: (Bool, NSError?) -> Void)
-  func transmitRequest(request: NSData, reply: (NSData?, NSError?) -> Void)
+  func beginSessionWithReply(_ reply: (Bool, NSError?) -> Void)
+  func transmitRequest(_ request: NSData, reply reply: (NSData?, NSError?) -> Void)
   func endSession()
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINVerificationWithPINFormat(PINFormat: TKSmartCardPINFormat, APDU: NSData, PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
+  func userInteractionForSecurePINVerificationWithPINFormat(_ PINFormat: TKSmartCardPINFormat, APDU APDU: NSData, PINByteOffset PINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINVerification?
   @available(OSX 10.11, *)
-  func userInteractionForSecurePINChangeWithPINFormat(PINFormat: TKSmartCardPINFormat, APDU: NSData, currentPINByteOffset: Int, newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
-  init()
+  func userInteractionForSecurePINChangeWithPINFormat(_ PINFormat: TKSmartCardPINFormat, APDU APDU: NSData, currentPINByteOffset currentPINByteOffset: Int, newPINByteOffset newPINByteOffset: Int) -> TKSmartCardUserInteractionForSecurePINChange?
 }
 extension TKSmartCard {
   var cla: UInt8
   var useExtendedLength: Bool
-  func sendIns(ins: UInt8, p1: UInt8, p2: UInt8, data requestData: NSData?, le: NSNumber?, reply: (NSData?, UInt16, NSError?) -> Void)
+  func sendIns(_ ins: UInt8, p1 p1: UInt8, p2 p2: UInt8, data requestData: NSData?, le le: NSNumber?, reply reply: (NSData?, UInt16, NSError?) -> Void)
 }

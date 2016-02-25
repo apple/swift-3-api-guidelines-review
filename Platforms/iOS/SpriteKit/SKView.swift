@@ -17,14 +17,11 @@ class SKView : UIView {
   @available(iOS 8.0, *)
   var shouldCullNonVisibleNodes: Bool
   var frameInterval: Int
-  func presentScene(scene: SKScene?)
-  func presentScene(scene: SKScene, transition: SKTransition)
+  func presentScene(_ scene: SKScene?)
+  func presentScene(_ scene: SKScene, transition transition: SKTransition)
   var scene: SKScene? { get }
-  func textureFromNode(node: SKNode) -> SKTexture?
-  func textureFromNode(node: SKNode, crop: CGRect) -> SKTexture?
-  func convertPoint(point: CGPoint, toScene scene: SKScene) -> CGPoint
-  func convertPoint(point: CGPoint, fromScene scene: SKScene) -> CGPoint
-  init(frame: CGRect)
-  init?(coder aDecoder: NSCoder)
-  convenience init()
+  func textureFromNode(_ node: SKNode) -> SKTexture?
+  func textureFromNode(_ node: SKNode, crop crop: CGRect) -> SKTexture?
+  func convertPoint(_ point: CGPoint, toScene scene: SKScene) -> CGPoint
+  func convertPoint(_ point: CGPoint, fromScene scene: SKScene) -> CGPoint
 }

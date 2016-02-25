@@ -11,29 +11,28 @@ class SCNAudioSource : NSObject, NSCopying, NSSecureCoding {
   var loops: Bool
   var shouldStream: Bool
   func load()
-  convenience init()
   @available(OSX 10.11, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
   @available(OSX 10.11, *)
   class func supportsSecureCoding() -> Bool
   @available(OSX 10.11, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
 }
 @available(OSX 10.11, *)
 class SCNAudioPlayer : NSObject {
-  init(source: SCNAudioSource)
+  init(source source: SCNAudioSource)
   var willStartPlayback: (() -> Void)?
   var didFinishPlayback: (() -> Void)?
   var audioSource: SCNAudioSource? { get }
 }
 extension SCNNode {
   @available(OSX 10.11, *)
-  func addAudioPlayer(player: SCNAudioPlayer)
+  func addAudioPlayer(_ player: SCNAudioPlayer)
   @available(OSX 10.11, *)
   func removeAllAudioPlayers()
   @available(OSX 10.11, *)
-  func removeAudioPlayer(player: SCNAudioPlayer)
+  func removeAudioPlayer(_ player: SCNAudioPlayer)
   @available(OSX 10.11, *)
   var audioPlayers: [SCNAudioPlayer] { get }
 }

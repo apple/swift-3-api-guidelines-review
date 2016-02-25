@@ -1,21 +1,18 @@
 
 @available(OSX 10.8, *)
 class GKFriendRequestComposeViewController : NSViewController, GKViewController {
-  init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-  init?(coder: NSCoder)
-  convenience init()
 }
 extension GKFriendRequestComposeViewController {
   class func maxNumberOfRecipients() -> Int
-  func setMessage(message: String?)
+  func setMessage(_ message: String?)
   @available(OSX 10.10, *)
-  func addRecipientPlayers(players: [GKPlayer])
+  func addRecipientPlayers(_ players: [GKPlayer])
   @available(OSX, introduced=10.8, deprecated=10.10, message="use addRecipientPlayers:")
-  func addRecipientsWithPlayerIDs(playerIDs: [String])
-  func addRecipientsWithEmailAddresses(emailAddresses: [String])
+  func addRecipientsWithPlayerIDs(_ playerIDs: [String])
+  func addRecipientsWithEmailAddresses(_ emailAddresses: [String])
   unowned(unsafe) var composeViewDelegate: @sil_unmanaged GKFriendRequestComposeViewControllerDelegate?
 }
 protocol GKFriendRequestComposeViewControllerDelegate {
   @available(OSX 10.8, *)
-  func friendRequestComposeViewControllerDidFinish(viewController: GKFriendRequestComposeViewController)
+  func friendRequestComposeViewControllerDidFinish(_ viewController: GKFriendRequestComposeViewController)
 }

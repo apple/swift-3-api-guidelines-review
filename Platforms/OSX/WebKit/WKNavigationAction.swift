@@ -1,7 +1,7 @@
 
 @available(OSX 10.10, *)
 enum WKNavigationType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case LinkActivated
   case FormSubmitted
@@ -18,5 +18,4 @@ class WKNavigationAction : NSObject {
   @NSCopying var request: NSURLRequest { get }
   var modifierFlags: NSEventModifierFlags { get }
   var buttonNumber: Int { get }
-  init()
 }

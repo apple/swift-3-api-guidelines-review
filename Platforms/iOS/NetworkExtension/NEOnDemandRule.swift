@@ -1,7 +1,7 @@
 
 @available(iOS 8.0, *)
 enum NEOnDemandRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Connect
   case Disconnect
@@ -10,7 +10,7 @@ enum NEOnDemandRuleAction : Int {
 }
 @available(iOS 8.0, *)
 enum NEOnDemandRuleInterfaceType : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   @available(iOS 9.0, *)
   case Any
@@ -33,40 +33,31 @@ class NEOnDemandRule : NSObject, NSSecureCoding, NSCopying {
   var SSIDMatch: [String]?
   @available(iOS 8.0, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleConnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleDisconnect : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleIgnore : NEOnDemandRule {
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 class NEOnDemandRuleEvaluateConnection : NEOnDemandRule {
   @available(iOS 8.0, *)
   var connectionRules: [NEEvaluateConnectionRule]?
-  init()
-  init?(coder aDecoder: NSCoder)
 }
 @available(iOS 8.0, *)
 enum NEEvaluateConnectionRuleAction : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case ConnectIfNeeded
   case NeverConnect
@@ -83,12 +74,11 @@ class NEEvaluateConnectionRule : NSObject, NSSecureCoding, NSCopying {
   var useDNSServers: [String]?
   @available(iOS 8.0, *)
   @NSCopying var probeURL: NSURL?
-  init()
   @available(iOS 8.0, *)
   class func supportsSecureCoding() -> Bool
   @available(iOS 8.0, *)
-  func encodeWithCoder(aCoder: NSCoder)
+  func encodeWithCoder(_ aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(iOS 8.0, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

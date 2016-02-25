@@ -43,78 +43,78 @@ class DOMDocument : DOMNode {
   var selectedStylesheetSet: String!
   @available(OSX 10.6, *)
   var activeElement: DOMElement! { get }
-  func createElement(tagName: String!) -> DOMElement!
+  func createElement(_ tagName: String!) -> DOMElement!
   func createDocumentFragment() -> DOMDocumentFragment!
-  func createTextNode(data: String!) -> DOMText!
-  func createComment(data: String!) -> DOMComment!
-  func createCDATASection(data: String!) -> DOMCDATASection!
+  func createTextNode(_ data: String!) -> DOMText!
+  func createComment(_ data: String!) -> DOMComment!
+  func createCDATASection(_ data: String!) -> DOMCDATASection!
   @available(OSX 10.5, *)
-  func createProcessingInstruction(target: String!, data: String!) -> DOMProcessingInstruction!
-  func createAttribute(name: String!) -> DOMAttr!
-  func createEntityReference(name: String!) -> DOMEntityReference!
-  func getElementsByTagName(tagname: String!) -> DOMNodeList!
+  func createProcessingInstruction(_ target: String!, data data: String!) -> DOMProcessingInstruction!
+  func createAttribute(_ name: String!) -> DOMAttr!
+  func createEntityReference(_ name: String!) -> DOMEntityReference!
+  func getElementsByTagName(_ tagname: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func importNode(importedNode: DOMNode!, deep: Bool) -> DOMNode!
+  func importNode(_ importedNode: DOMNode!, deep deep: Bool) -> DOMNode!
   @available(OSX 10.5, *)
-  func createElementNS(namespaceURI: String!, qualifiedName: String!) -> DOMElement!
+  func createElementNS(_ namespaceURI: String!, qualifiedName qualifiedName: String!) -> DOMElement!
   @available(OSX 10.5, *)
-  func createAttributeNS(namespaceURI: String!, qualifiedName: String!) -> DOMAttr!
+  func createAttributeNS(_ namespaceURI: String!, qualifiedName qualifiedName: String!) -> DOMAttr!
   @available(OSX 10.5, *)
-  func getElementsByTagNameNS(namespaceURI: String!, localName: String!) -> DOMNodeList!
+  func getElementsByTagNameNS(_ namespaceURI: String!, localName localName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func adoptNode(source: DOMNode!) -> DOMNode!
-  func createEvent(eventType: String!) -> DOMEvent!
+  func adoptNode(_ source: DOMNode!) -> DOMNode!
+  func createEvent(_ eventType: String!) -> DOMEvent!
   func createRange() -> DOMRange!
   @available(OSX 10.5, *)
-  func createNodeIterator(root: DOMNode!, whatToShow: UInt32, filter: DOMNodeFilter!, expandEntityReferences: Bool) -> DOMNodeIterator!
+  func createNodeIterator(_ root: DOMNode!, whatToShow whatToShow: UInt32, filter filter: DOMNodeFilter!, expandEntityReferences expandEntityReferences: Bool) -> DOMNodeIterator!
   @available(OSX 10.5, *)
-  func createTreeWalker(root: DOMNode!, whatToShow: UInt32, filter: DOMNodeFilter!, expandEntityReferences: Bool) -> DOMTreeWalker!
+  func createTreeWalker(_ root: DOMNode!, whatToShow whatToShow: UInt32, filter filter: DOMNodeFilter!, expandEntityReferences expandEntityReferences: Bool) -> DOMTreeWalker!
   @available(OSX 10.5, *)
-  func getOverrideStyle(element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
+  func getOverrideStyle(_ element: DOMElement!, pseudoElement pseudoElement: String!) -> DOMCSSStyleDeclaration!
   @available(OSX 10.5, *)
-  func createExpression(expression: String!, resolver: DOMXPathNSResolver!) -> DOMXPathExpression!
+  func createExpression(_ expression: String!, resolver resolver: DOMXPathNSResolver!) -> DOMXPathExpression!
   @available(OSX 10.5, *)
-  func createNSResolver(nodeResolver: DOMNode!) -> DOMXPathNSResolver!
+  func createNSResolver(_ nodeResolver: DOMNode!) -> DOMXPathNSResolver!
   @available(OSX 10.5, *)
-  func evaluate(expression: String!, contextNode: DOMNode!, resolver: DOMXPathNSResolver!, type: UInt16, inResult: DOMXPathResult!) -> DOMXPathResult!
+  func evaluate(_ expression: String!, contextNode contextNode: DOMNode!, resolver resolver: DOMXPathNSResolver!, type type: UInt16, inResult inResult: DOMXPathResult!) -> DOMXPathResult!
   @available(OSX 10.5, *)
-  func execCommand(command: String!, userInterface: Bool, value: String!) -> Bool
+  func execCommand(_ command: String!, userInterface userInterface: Bool, value value: String!) -> Bool
   @available(OSX 10.5, *)
-  func execCommand(command: String!, userInterface: Bool) -> Bool
+  func execCommand(_ command: String!, userInterface userInterface: Bool) -> Bool
   @available(OSX 10.5, *)
-  func execCommand(command: String!) -> Bool
+  func execCommand(_ command: String!) -> Bool
   @available(OSX 10.5, *)
-  func queryCommandEnabled(command: String!) -> Bool
+  func queryCommandEnabled(_ command: String!) -> Bool
   @available(OSX 10.5, *)
-  func queryCommandIndeterm(command: String!) -> Bool
+  func queryCommandIndeterm(_ command: String!) -> Bool
   @available(OSX 10.5, *)
-  func queryCommandState(command: String!) -> Bool
+  func queryCommandState(_ command: String!) -> Bool
   @available(OSX 10.5, *)
-  func queryCommandSupported(command: String!) -> Bool
+  func queryCommandSupported(_ command: String!) -> Bool
   @available(OSX 10.5, *)
-  func queryCommandValue(command: String!) -> String!
-  func getElementsByName(elementName: String!) -> DOMNodeList!
+  func queryCommandValue(_ command: String!) -> String!
+  func getElementsByName(_ elementName: String!) -> DOMNodeList!
   @available(OSX 10.5, *)
-  func elementFromPoint(x: Int32, y: Int32) -> DOMElement!
+  func elementFromPoint(_ x: Int32, y y: Int32) -> DOMElement!
   @available(OSX 10.5, *)
   func createCSSStyleDeclaration() -> DOMCSSStyleDeclaration!
   @available(OSX 10.5, *)
-  func getComputedStyle(element: DOMElement!, pseudoElement: String!) -> DOMCSSStyleDeclaration!
+  func getComputedStyle(_ element: DOMElement!, pseudoElement pseudoElement: String!) -> DOMCSSStyleDeclaration!
   @available(OSX 10.5, *)
-  func getMatchedCSSRules(element: DOMElement!, pseudoElement: String!) -> DOMCSSRuleList!
+  func getMatchedCSSRules(_ element: DOMElement!, pseudoElement pseudoElement: String!) -> DOMCSSRuleList!
   @available(OSX 10.5, *)
-  func getMatchedCSSRules(element: DOMElement!, pseudoElement: String!, authorOnly: Bool) -> DOMCSSRuleList!
+  func getMatchedCSSRules(_ element: DOMElement!, pseudoElement pseudoElement: String!, authorOnly authorOnly: Bool) -> DOMCSSRuleList!
   @available(OSX 10.6, *)
-  func getElementsByClassName(classNames: String!) -> DOMNodeList!
+  func getElementsByClassName(_ classNames: String!) -> DOMNodeList!
   @available(OSX 10.6, *)
   func hasFocus() -> Bool
   @available(OSX 10.6, *)
   func webkitCancelFullScreen()
-  func getElementById(elementId: String!) -> DOMElement!
+  func getElementById(_ elementId: String!) -> DOMElement!
   @available(OSX 10.6, *)
-  func querySelector(selectors: String!) -> DOMElement!
+  func querySelector(_ selectors: String!) -> DOMElement!
   @available(OSX 10.6, *)
-  func querySelectorAll(selectors: String!) -> DOMNodeList!
+  func querySelectorAll(_ selectors: String!) -> DOMNodeList!
 }
 extension DOMDocument {
 }

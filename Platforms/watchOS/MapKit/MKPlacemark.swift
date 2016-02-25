@@ -1,11 +1,8 @@
 
 @available(watchOS 2.0, *)
 class MKPlacemark : CLPlacemark, MKAnnotation {
-  init(coordinate: CLLocationCoordinate2D, addressDictionary: [String : AnyObject]?)
+  init(coordinate coordinate: CLLocationCoordinate2D, addressDictionary addressDictionary: [String : AnyObject]?)
   var countryCode: String? { get }
-  init(placemark: CLPlacemark)
-  init()
-  init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
   var coordinate: CLLocationCoordinate2D { get }
   @available(watchOS 2.0, *)

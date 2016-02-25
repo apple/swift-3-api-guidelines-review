@@ -11,27 +11,27 @@ var kMusicEventType_Parameter: UInt32 { get }
 var kMusicEventType_AUPreset: UInt32 { get }
 typealias MusicEventType = UInt32
 struct MusicSequenceLoadFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var SMF_PreserveTracks: MusicSequenceLoadFlags { get }
   static var SMF_ChannelsToTracks: MusicSequenceLoadFlags { get }
 }
 enum MusicSequenceType : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case Beats
   case Seconds
   case Samples
 }
 enum MusicSequenceFileTypeID : UInt32 {
-  init?(rawValue: UInt32)
+  init?(rawValue rawValue: UInt32)
   var rawValue: UInt32 { get }
   case AnyType
   case MIDIType
   case iMelodyType
 }
 struct MusicSequenceFileFlags : OptionSetType {
-  init(rawValue: UInt32)
+  init(rawValue rawValue: UInt32)
   let rawValue: UInt32
   static var Default: MusicSequenceFileFlags { get }
   static var EraseFile: MusicSequenceFileFlags { get }
@@ -45,7 +45,7 @@ struct MIDINoteMessage {
   var releaseVelocity: UInt8
   var duration: Float32
   init()
-  init(channel: UInt8, note: UInt8, velocity: UInt8, releaseVelocity: UInt8, duration: Float32)
+  init(channel channel: UInt8, note note: UInt8, velocity velocity: UInt8, releaseVelocity releaseVelocity: UInt8, duration duration: Float32)
 }
 struct MIDIChannelMessage {
   var status: UInt8
@@ -53,13 +53,13 @@ struct MIDIChannelMessage {
   var data2: UInt8
   var reserved: UInt8
   init()
-  init(status: UInt8, data1: UInt8, data2: UInt8, reserved: UInt8)
+  init(status status: UInt8, data1 data1: UInt8, data2 data2: UInt8, reserved reserved: UInt8)
 }
 struct MIDIRawData {
   var length: UInt32
   var data: (UInt8)
   init()
-  init(length: UInt32, data: (UInt8))
+  init(length length: UInt32, data data: (UInt8))
 }
 struct MIDIMetaEvent {
   var metaEventType: UInt8
@@ -69,13 +69,13 @@ struct MIDIMetaEvent {
   var dataLength: UInt32
   var data: (UInt8)
   init()
-  init(metaEventType: UInt8, unused1: UInt8, unused2: UInt8, unused3: UInt8, dataLength: UInt32, data: (UInt8))
+  init(metaEventType metaEventType: UInt8, unused1 unused1: UInt8, unused2 unused2: UInt8, unused3 unused3: UInt8, dataLength dataLength: UInt32, data data: (UInt8))
 }
 struct MusicEventUserData {
   var length: UInt32
   var data: (UInt8)
   init()
-  init(length: UInt32, data: (UInt8))
+  init(length length: UInt32, data data: (UInt8))
 }
 struct ExtendedNoteOnEvent {
   var instrumentID: MusicDeviceInstrumentID
@@ -83,7 +83,7 @@ struct ExtendedNoteOnEvent {
   var duration: Float32
   var extendedParams: MusicDeviceNoteParams
   init()
-  init(instrumentID: MusicDeviceInstrumentID, groupID: MusicDeviceGroupID, duration: Float32, extendedParams: MusicDeviceNoteParams)
+  init(instrumentID instrumentID: MusicDeviceInstrumentID, groupID groupID: MusicDeviceGroupID, duration duration: Float32, extendedParams extendedParams: MusicDeviceNoteParams)
 }
 struct ParameterEvent {
   var parameterID: AudioUnitParameterID
@@ -91,12 +91,12 @@ struct ParameterEvent {
   var element: AudioUnitElement
   var value: AudioUnitParameterValue
   init()
-  init(parameterID: AudioUnitParameterID, scope: AudioUnitScope, element: AudioUnitElement, value: AudioUnitParameterValue)
+  init(parameterID parameterID: AudioUnitParameterID, scope scope: AudioUnitScope, element element: AudioUnitElement, value value: AudioUnitParameterValue)
 }
 struct ExtendedTempoEvent {
   var bpm: Float64
   init()
-  init(bpm: Float64)
+  init(bpm bpm: Float64)
 }
 struct AUPresetEvent {
   var scope: AudioUnitScope
@@ -110,7 +110,7 @@ struct CABarBeatTime {
   var subbeatDivisor: UInt16
   var reserved: UInt16
   init()
-  init(bar: Int32, beat: UInt16, subbeat: UInt16, subbeatDivisor: UInt16, reserved: UInt16)
+  init(bar bar: Int32, beat beat: UInt16, subbeat subbeat: UInt16, subbeatDivisor subbeatDivisor: UInt16, reserved reserved: UInt16)
 }
 typealias MusicPlayer = COpaquePointer
 typealias MusicSequence = COpaquePointer
@@ -139,143 +139,143 @@ struct MusicTrackLoopInfo {
   var loopDuration: MusicTimeStamp
   var numberOfLoops: Int32
   init()
-  init(loopDuration: MusicTimeStamp, numberOfLoops: Int32)
+  init(loopDuration loopDuration: MusicTimeStamp, numberOfLoops numberOfLoops: Int32)
 }
 @available(tvOS 5.0, *)
-func NewMusicPlayer(outPlayer: UnsafeMutablePointer<MusicPlayer>) -> OSStatus
+func NewMusicPlayer(_ outPlayer: UnsafeMutablePointer<MusicPlayer>) -> OSStatus
 @available(tvOS 5.0, *)
-func DisposeMusicPlayer(inPlayer: MusicPlayer) -> OSStatus
+func DisposeMusicPlayer(_ inPlayer: MusicPlayer) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerSetSequence(inPlayer: MusicPlayer, _ inSequence: MusicSequence) -> OSStatus
+func MusicPlayerSetSequence(_ inPlayer: MusicPlayer, _ inSequence: MusicSequence) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerGetSequence(inPlayer: MusicPlayer, _ outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
+func MusicPlayerGetSequence(_ inPlayer: MusicPlayer, _ outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerSetTime(inPlayer: MusicPlayer, _ inTime: MusicTimeStamp) -> OSStatus
+func MusicPlayerSetTime(_ inPlayer: MusicPlayer, _ inTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerGetTime(inPlayer: MusicPlayer, _ outTime: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
+func MusicPlayerGetTime(_ inPlayer: MusicPlayer, _ outTime: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerGetHostTimeForBeats(inPlayer: MusicPlayer, _ inBeats: MusicTimeStamp, _ outHostTime: UnsafeMutablePointer<UInt64>) -> OSStatus
+func MusicPlayerGetHostTimeForBeats(_ inPlayer: MusicPlayer, _ inBeats: MusicTimeStamp, _ outHostTime: UnsafeMutablePointer<UInt64>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerGetBeatsForHostTime(inPlayer: MusicPlayer, _ inHostTime: UInt64, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
+func MusicPlayerGetBeatsForHostTime(_ inPlayer: MusicPlayer, _ inHostTime: UInt64, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerPreroll(inPlayer: MusicPlayer) -> OSStatus
+func MusicPlayerPreroll(_ inPlayer: MusicPlayer) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerStart(inPlayer: MusicPlayer) -> OSStatus
+func MusicPlayerStart(_ inPlayer: MusicPlayer) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerStop(inPlayer: MusicPlayer) -> OSStatus
+func MusicPlayerStop(_ inPlayer: MusicPlayer) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerIsPlaying(inPlayer: MusicPlayer, _ outIsPlaying: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func MusicPlayerIsPlaying(_ inPlayer: MusicPlayer, _ outIsPlaying: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerSetPlayRateScalar(inPlayer: MusicPlayer, _ inScaleRate: Float64) -> OSStatus
+func MusicPlayerSetPlayRateScalar(_ inPlayer: MusicPlayer, _ inScaleRate: Float64) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicPlayerGetPlayRateScalar(inPlayer: MusicPlayer, _ outScaleRate: UnsafeMutablePointer<Float64>) -> OSStatus
+func MusicPlayerGetPlayRateScalar(_ inPlayer: MusicPlayer, _ outScaleRate: UnsafeMutablePointer<Float64>) -> OSStatus
 @available(tvOS 5.0, *)
-func NewMusicSequence(outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
+func NewMusicSequence(_ outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
 @available(tvOS 5.0, *)
-func DisposeMusicSequence(inSequence: MusicSequence) -> OSStatus
+func DisposeMusicSequence(_ inSequence: MusicSequence) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceNewTrack(inSequence: MusicSequence, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
+func MusicSequenceNewTrack(_ inSequence: MusicSequence, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceDisposeTrack(inSequence: MusicSequence, _ inTrack: MusicTrack) -> OSStatus
+func MusicSequenceDisposeTrack(_ inSequence: MusicSequence, _ inTrack: MusicTrack) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetTrackCount(inSequence: MusicSequence, _ outNumberOfTracks: UnsafeMutablePointer<UInt32>) -> OSStatus
+func MusicSequenceGetTrackCount(_ inSequence: MusicSequence, _ outNumberOfTracks: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetIndTrack(inSequence: MusicSequence, _ inTrackIndex: UInt32, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
+func MusicSequenceGetIndTrack(_ inSequence: MusicSequence, _ inTrackIndex: UInt32, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetTrackIndex(inSequence: MusicSequence, _ inTrack: MusicTrack, _ outTrackIndex: UnsafeMutablePointer<UInt32>) -> OSStatus
+func MusicSequenceGetTrackIndex(_ inSequence: MusicSequence, _ inTrack: MusicTrack, _ outTrackIndex: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetTempoTrack(inSequence: MusicSequence, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
+func MusicSequenceGetTempoTrack(_ inSequence: MusicSequence, _ outTrack: UnsafeMutablePointer<MusicTrack>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceSetAUGraph(inSequence: MusicSequence, _ inGraph: AUGraph) -> OSStatus
+func MusicSequenceSetAUGraph(_ inSequence: MusicSequence, _ inGraph: AUGraph) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetAUGraph(inSequence: MusicSequence, _ outGraph: UnsafeMutablePointer<AUGraph>) -> OSStatus
+func MusicSequenceGetAUGraph(_ inSequence: MusicSequence, _ outGraph: UnsafeMutablePointer<AUGraph>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceSetSequenceType(inSequence: MusicSequence, _ inType: MusicSequenceType) -> OSStatus
+func MusicSequenceSetSequenceType(_ inSequence: MusicSequence, _ inType: MusicSequenceType) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetSequenceType(inSequence: MusicSequence, _ outType: UnsafeMutablePointer<MusicSequenceType>) -> OSStatus
+func MusicSequenceGetSequenceType(_ inSequence: MusicSequence, _ outType: UnsafeMutablePointer<MusicSequenceType>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceFileLoad(inSequence: MusicSequence, _ inFileRef: CFURL, _ inFileTypeHint: MusicSequenceFileTypeID, _ inFlags: MusicSequenceLoadFlags) -> OSStatus
+func MusicSequenceFileLoad(_ inSequence: MusicSequence, _ inFileRef: CFURL, _ inFileTypeHint: MusicSequenceFileTypeID, _ inFlags: MusicSequenceLoadFlags) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceFileLoadData(inSequence: MusicSequence, _ inData: CFData, _ inFileTypeHint: MusicSequenceFileTypeID, _ inFlags: MusicSequenceLoadFlags) -> OSStatus
-func MusicSequenceSetSMPTEResolution(fps: Int8, _ ticks: UInt8) -> Int16
-func MusicSequenceGetSMPTEResolution(inRes: Int16, _ fps: UnsafeMutablePointer<Int8>, _ ticks: UnsafeMutablePointer<UInt8>)
+func MusicSequenceFileLoadData(_ inSequence: MusicSequence, _ inData: CFData, _ inFileTypeHint: MusicSequenceFileTypeID, _ inFlags: MusicSequenceLoadFlags) -> OSStatus
+func MusicSequenceSetSMPTEResolution(_ fps: Int8, _ ticks: UInt8) -> Int16
+func MusicSequenceGetSMPTEResolution(_ inRes: Int16, _ fps: UnsafeMutablePointer<Int8>, _ ticks: UnsafeMutablePointer<UInt8>)
 @available(tvOS 5.0, *)
-func MusicSequenceFileCreate(inSequence: MusicSequence, _ inFileRef: CFURL, _ inFileType: MusicSequenceFileTypeID, _ inFlags: MusicSequenceFileFlags, _ inResolution: Int16) -> OSStatus
+func MusicSequenceFileCreate(_ inSequence: MusicSequence, _ inFileRef: CFURL, _ inFileType: MusicSequenceFileTypeID, _ inFlags: MusicSequenceFileFlags, _ inResolution: Int16) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceFileCreateData(inSequence: MusicSequence, _ inFileType: MusicSequenceFileTypeID, _ inFlags: MusicSequenceFileFlags, _ inResolution: Int16, _ outData: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
+func MusicSequenceFileCreateData(_ inSequence: MusicSequence, _ inFileType: MusicSequenceFileTypeID, _ inFlags: MusicSequenceFileFlags, _ inResolution: Int16, _ outData: UnsafeMutablePointer<Unmanaged<CFData>?>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceReverse(inSequence: MusicSequence) -> OSStatus
+func MusicSequenceReverse(_ inSequence: MusicSequence) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetSecondsForBeats(inSequence: MusicSequence, _ inBeats: MusicTimeStamp, _ outSeconds: UnsafeMutablePointer<Float64>) -> OSStatus
+func MusicSequenceGetSecondsForBeats(_ inSequence: MusicSequence, _ inBeats: MusicTimeStamp, _ outSeconds: UnsafeMutablePointer<Float64>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetBeatsForSeconds(inSequence: MusicSequence, _ inSeconds: Float64, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
+func MusicSequenceGetBeatsForSeconds(_ inSequence: MusicSequence, _ inSeconds: Float64, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceSetUserCallback(inSequence: MusicSequence, _ inCallback: MusicSequenceUserCallback?, _ inClientData: UnsafeMutablePointer<Void>) -> OSStatus
+func MusicSequenceSetUserCallback(_ inSequence: MusicSequence, _ inCallback: MusicSequenceUserCallback?, _ inClientData: UnsafeMutablePointer<Void>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceBeatsToBarBeatTime(inSequence: MusicSequence, _ inBeats: MusicTimeStamp, _ inSubbeatDivisor: UInt32, _ outBarBeatTime: UnsafeMutablePointer<CABarBeatTime>) -> OSStatus
+func MusicSequenceBeatsToBarBeatTime(_ inSequence: MusicSequence, _ inBeats: MusicTimeStamp, _ inSubbeatDivisor: UInt32, _ outBarBeatTime: UnsafeMutablePointer<CABarBeatTime>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceBarBeatTimeToBeats(inSequence: MusicSequence, _ inBarBeatTime: UnsafePointer<CABarBeatTime>, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
+func MusicSequenceBarBeatTimeToBeats(_ inSequence: MusicSequence, _ inBarBeatTime: UnsafePointer<CABarBeatTime>, _ outBeats: UnsafeMutablePointer<MusicTimeStamp>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicSequenceGetInfoDictionary(inSequence: MusicSequence) -> CFDictionary
+func MusicSequenceGetInfoDictionary(_ inSequence: MusicSequence) -> CFDictionary
 @available(tvOS 5.0, *)
-func MusicTrackGetSequence(inTrack: MusicTrack, _ outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
+func MusicTrackGetSequence(_ inTrack: MusicTrack, _ outSequence: UnsafeMutablePointer<MusicSequence>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackSetDestNode(inTrack: MusicTrack, _ inNode: AUNode) -> OSStatus
+func MusicTrackSetDestNode(_ inTrack: MusicTrack, _ inNode: AUNode) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackGetDestNode(inTrack: MusicTrack, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
+func MusicTrackGetDestNode(_ inTrack: MusicTrack, _ outNode: UnsafeMutablePointer<AUNode>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackSetProperty(inTrack: MusicTrack, _ inPropertyID: UInt32, _ inData: UnsafeMutablePointer<Void>, _ inLength: UInt32) -> OSStatus
+func MusicTrackSetProperty(_ inTrack: MusicTrack, _ inPropertyID: UInt32, _ inData: UnsafeMutablePointer<Void>, _ inLength: UInt32) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackGetProperty(inTrack: MusicTrack, _ inPropertyID: UInt32, _ outData: UnsafeMutablePointer<Void>, _ ioLength: UnsafeMutablePointer<UInt32>) -> OSStatus
+func MusicTrackGetProperty(_ inTrack: MusicTrack, _ inPropertyID: UInt32, _ outData: UnsafeMutablePointer<Void>, _ ioLength: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackMoveEvents(inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp, _ inMoveTime: MusicTimeStamp) -> OSStatus
+func MusicTrackMoveEvents(_ inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp, _ inMoveTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackClear(inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp) -> OSStatus
+func MusicTrackClear(_ inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackCut(inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp) -> OSStatus
+func MusicTrackCut(_ inTrack: MusicTrack, _ inStartTime: MusicTimeStamp, _ inEndTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackCopyInsert(inSourceTrack: MusicTrack, _ inSourceStartTime: MusicTimeStamp, _ inSourceEndTime: MusicTimeStamp, _ inDestTrack: MusicTrack, _ inDestInsertTime: MusicTimeStamp) -> OSStatus
+func MusicTrackCopyInsert(_ inSourceTrack: MusicTrack, _ inSourceStartTime: MusicTimeStamp, _ inSourceEndTime: MusicTimeStamp, _ inDestTrack: MusicTrack, _ inDestInsertTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackMerge(inSourceTrack: MusicTrack, _ inSourceStartTime: MusicTimeStamp, _ inSourceEndTime: MusicTimeStamp, _ inDestTrack: MusicTrack, _ inDestInsertTime: MusicTimeStamp) -> OSStatus
+func MusicTrackMerge(_ inSourceTrack: MusicTrack, _ inSourceStartTime: MusicTimeStamp, _ inSourceEndTime: MusicTimeStamp, _ inDestTrack: MusicTrack, _ inDestInsertTime: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewMIDINoteEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMessage: UnsafePointer<MIDINoteMessage>) -> OSStatus
+func MusicTrackNewMIDINoteEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMessage: UnsafePointer<MIDINoteMessage>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewMIDIChannelEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMessage: UnsafePointer<MIDIChannelMessage>) -> OSStatus
+func MusicTrackNewMIDIChannelEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMessage: UnsafePointer<MIDIChannelMessage>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewMIDIRawDataEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inRawData: UnsafePointer<MIDIRawData>) -> OSStatus
+func MusicTrackNewMIDIRawDataEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inRawData: UnsafePointer<MIDIRawData>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewExtendedNoteEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inInfo: UnsafePointer<ExtendedNoteOnEvent>) -> OSStatus
+func MusicTrackNewExtendedNoteEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inInfo: UnsafePointer<ExtendedNoteOnEvent>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewParameterEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inInfo: UnsafePointer<ParameterEvent>) -> OSStatus
+func MusicTrackNewParameterEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inInfo: UnsafePointer<ParameterEvent>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewExtendedTempoEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inBPM: Float64) -> OSStatus
+func MusicTrackNewExtendedTempoEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inBPM: Float64) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewMetaEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMetaEvent: UnsafePointer<MIDIMetaEvent>) -> OSStatus
+func MusicTrackNewMetaEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inMetaEvent: UnsafePointer<MIDIMetaEvent>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewUserEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inUserData: UnsafePointer<MusicEventUserData>) -> OSStatus
+func MusicTrackNewUserEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inUserData: UnsafePointer<MusicEventUserData>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicTrackNewAUPresetEvent(inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inPresetEvent: UnsafePointer<AUPresetEvent>) -> OSStatus
+func MusicTrackNewAUPresetEvent(_ inTrack: MusicTrack, _ inTimeStamp: MusicTimeStamp, _ inPresetEvent: UnsafePointer<AUPresetEvent>) -> OSStatus
 @available(tvOS 5.0, *)
-func NewMusicEventIterator(inTrack: MusicTrack, _ outIterator: UnsafeMutablePointer<MusicEventIterator>) -> OSStatus
+func NewMusicEventIterator(_ inTrack: MusicTrack, _ outIterator: UnsafeMutablePointer<MusicEventIterator>) -> OSStatus
 @available(tvOS 5.0, *)
-func DisposeMusicEventIterator(inIterator: MusicEventIterator) -> OSStatus
+func DisposeMusicEventIterator(_ inIterator: MusicEventIterator) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorSeek(inIterator: MusicEventIterator, _ inTimeStamp: MusicTimeStamp) -> OSStatus
+func MusicEventIteratorSeek(_ inIterator: MusicEventIterator, _ inTimeStamp: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorNextEvent(inIterator: MusicEventIterator) -> OSStatus
+func MusicEventIteratorNextEvent(_ inIterator: MusicEventIterator) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorPreviousEvent(inIterator: MusicEventIterator) -> OSStatus
+func MusicEventIteratorPreviousEvent(_ inIterator: MusicEventIterator) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorGetEventInfo(inIterator: MusicEventIterator, _ outTimeStamp: UnsafeMutablePointer<MusicTimeStamp>, _ outEventType: UnsafeMutablePointer<MusicEventType>, _ outEventData: UnsafeMutablePointer<UnsafePointer<Void>>, _ outEventDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
+func MusicEventIteratorGetEventInfo(_ inIterator: MusicEventIterator, _ outTimeStamp: UnsafeMutablePointer<MusicTimeStamp>, _ outEventType: UnsafeMutablePointer<MusicEventType>, _ outEventData: UnsafeMutablePointer<UnsafePointer<Void>>, _ outEventDataSize: UnsafeMutablePointer<UInt32>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorSetEventInfo(inIterator: MusicEventIterator, _ inEventType: MusicEventType, _ inEventData: UnsafePointer<Void>) -> OSStatus
+func MusicEventIteratorSetEventInfo(_ inIterator: MusicEventIterator, _ inEventType: MusicEventType, _ inEventData: UnsafePointer<Void>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorSetEventTime(inIterator: MusicEventIterator, _ inTimeStamp: MusicTimeStamp) -> OSStatus
+func MusicEventIteratorSetEventTime(_ inIterator: MusicEventIterator, _ inTimeStamp: MusicTimeStamp) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorDeleteEvent(inIterator: MusicEventIterator) -> OSStatus
+func MusicEventIteratorDeleteEvent(_ inIterator: MusicEventIterator) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorHasPreviousEvent(inIterator: MusicEventIterator, _ outHasPrevEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func MusicEventIteratorHasPreviousEvent(_ inIterator: MusicEventIterator, _ outHasPrevEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorHasNextEvent(inIterator: MusicEventIterator, _ outHasNextEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func MusicEventIteratorHasNextEvent(_ inIterator: MusicEventIterator, _ outHasNextEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
 @available(tvOS 5.0, *)
-func MusicEventIteratorHasCurrentEvent(inIterator: MusicEventIterator, _ outHasCurEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus
+func MusicEventIteratorHasCurrentEvent(_ inIterator: MusicEventIterator, _ outHasCurEvent: UnsafeMutablePointer<DarwinBoolean>) -> OSStatus

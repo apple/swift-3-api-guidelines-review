@@ -10,31 +10,30 @@ let ABAddressBookErrorDomain: String
 let ABMultiValueIdentifiersErrorKey: String
 class ABAddressBook : NSObject {
   class func sharedAddressBook() -> ABAddressBook!
-  func recordsMatchingSearchElement(search: ABSearchElement!) -> [AnyObject]!
+  func recordsMatchingSearchElement(_ search: ABSearchElement!) -> [AnyObject]!
   func save() -> Bool
   @available(OSX 10.5, *)
   func saveAndReturnError() throws
   func hasUnsavedChanges() -> Bool
   func me() -> ABPerson!
-  func setMe(moi: ABPerson!)
-  func recordForUniqueId(uniqueId: String!) -> ABRecord!
+  func setMe(_ moi: ABPerson!)
+  func recordForUniqueId(_ uniqueId: String!) -> ABRecord!
   @available(OSX 10.7, *)
-  func addRecord(record: ABRecord!, error: ()) throws
-  func addRecord(record: ABRecord!) -> Bool
+  func addRecord(_ record: ABRecord!, error error: ()) throws
+  func addRecord(_ record: ABRecord!) -> Bool
   @available(OSX 10.7, *)
-  func removeRecord(record: ABRecord!, error: ()) throws
-  func removeRecord(record: ABRecord!) -> Bool
+  func removeRecord(_ record: ABRecord!, error error: ()) throws
+  func removeRecord(_ record: ABRecord!) -> Bool
   func people() -> [AnyObject]!
   func groups() -> [AnyObject]!
   @available(OSX 10.3, *)
-  func recordClassFromUniqueId(uniqueId: String!) -> String!
+  func recordClassFromUniqueId(_ uniqueId: String!) -> String!
   @available(OSX 10.3, *)
-  func formattedAddressFromDictionary(address: [NSObject : AnyObject]!) -> NSAttributedString!
+  func formattedAddressFromDictionary(_ address: [NSObject : AnyObject]!) -> NSAttributedString!
   @available(OSX 10.3, *)
   func defaultCountryCode() -> String!
   @available(OSX 10.3, *)
   func defaultNameOrdering() -> Int
-  init()
 }
 struct __ABBookflags {
   var hasUnsavedChanges: UInt32
@@ -50,5 +49,5 @@ struct __ABBookflags {
   var tracksAllSources: UInt32
   var _reserved: UInt32
   init()
-  init(hasUnsavedChanges: UInt32, readOnly: UInt32, importMe: UInt32, needConversion: UInt32, cleanedUp: UInt32, importTips: UInt32, restoreFromMetaData: UInt32, prefsNeedSync: UInt32, waitingForReset: UInt32, enforcesConstraints: UInt32, tracksAllSources: UInt32, _reserved: UInt32)
+  init(hasUnsavedChanges hasUnsavedChanges: UInt32, readOnly readOnly: UInt32, importMe importMe: UInt32, needConversion needConversion: UInt32, cleanedUp cleanedUp: UInt32, importTips importTips: UInt32, restoreFromMetaData restoreFromMetaData: UInt32, prefsNeedSync prefsNeedSync: UInt32, waitingForReset waitingForReset: UInt32, enforcesConstraints enforcesConstraints: UInt32, tracksAllSources tracksAllSources: UInt32, _reserved _reserved: UInt32)
 }

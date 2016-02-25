@@ -1,7 +1,7 @@
 
 @available(OSX 10.9, *)
 enum SKSceneScaleMode : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Fill
   case AspectFill
@@ -10,14 +10,14 @@ enum SKSceneScaleMode : Int {
 }
 @available(OSX 10.10, *)
 protocol SKSceneDelegate : NSObjectProtocol {
-  optional func update(currentTime: NSTimeInterval, forScene scene: SKScene)
-  optional func didEvaluateActionsForScene(scene: SKScene)
-  optional func didSimulatePhysicsForScene(scene: SKScene)
-  optional func didApplyConstraintsForScene(scene: SKScene)
-  optional func didFinishUpdateForScene(scene: SKScene)
+  optional func update(_ currentTime: NSTimeInterval, forScene scene: SKScene)
+  optional func didEvaluateActionsForScene(_ scene: SKScene)
+  optional func didSimulatePhysicsForScene(_ scene: SKScene)
+  optional func didApplyConstraintsForScene(_ scene: SKScene)
+  optional func didFinishUpdateForScene(_ scene: SKScene)
 }
 class SKScene : SKEffectNode {
-  init(size: CGSize)
+  init(size size: CGSize)
   var size: CGSize
   var scaleMode: SKSceneScaleMode
   @available(OSX 10.11, *)
@@ -29,20 +29,17 @@ class SKScene : SKEffectNode {
   unowned(unsafe) var delegate: @sil_unmanaged SKSceneDelegate?
   var anchorPoint: CGPoint
   var physicsWorld: SKPhysicsWorld { get }
-  func convertPointFromView(point: CGPoint) -> CGPoint
-  func convertPointToView(point: CGPoint) -> CGPoint
+  func convertPointFromView(_ point: CGPoint) -> CGPoint
+  func convertPointToView(_ point: CGPoint) -> CGPoint
   weak var view: @sil_weak SKView? { get }
-  func update(currentTime: NSTimeInterval)
+  func update(_ currentTime: NSTimeInterval)
   func didEvaluateActions()
   func didSimulatePhysics()
   @available(OSX 10.10, *)
   func didApplyConstraints()
   @available(OSX 10.10, *)
   func didFinishUpdate()
-  func didMoveToView(view: SKView)
-  func willMoveFromView(view: SKView)
-  func didChangeSize(oldSize: CGSize)
-  init()
-  init?(coder aDecoder: NSCoder)
-  convenience init?(fileNamed filename: String)
+  func didMoveToView(_ view: SKView)
+  func willMoveFromView(_ view: SKView)
+  func didChangeSize(_ oldSize: CGSize)
 }

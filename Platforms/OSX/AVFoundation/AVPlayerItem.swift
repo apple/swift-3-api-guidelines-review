@@ -14,7 +14,7 @@ let AVPlayerItemNewErrorLogEntryNotification: String
 @available(OSX 10.7, *)
 let AVPlayerItemFailedToPlayToEndTimeErrorKey: String
 enum AVPlayerItemStatus : Int {
-  init?(rawValue: Int)
+  init?(rawValue rawValue: Int)
   var rawValue: Int { get }
   case Unknown
   case ReadyToPlay
@@ -22,14 +22,14 @@ enum AVPlayerItemStatus : Int {
 }
 @available(OSX 10.7, *)
 class AVPlayerItem : NSObject, NSCopying {
-  convenience init(URL: NSURL)
-  convenience init(asset: AVAsset)
+  convenience init(URL URL: NSURL)
+  convenience init(asset asset: AVAsset)
   @available(OSX 10.9, *)
-  init(asset: AVAsset, automaticallyLoadedAssetKeys: [String]?)
+  init(asset asset: AVAsset, automaticallyLoadedAssetKeys automaticallyLoadedAssetKeys: [String]?)
   var status: AVPlayerItemStatus { get }
   var error: NSError? { get }
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 extension AVPlayerItem {
   var asset: AVAsset { get }
@@ -62,19 +62,19 @@ extension AVPlayerItem {
   var forwardPlaybackEndTime: CMTime
   var reversePlaybackEndTime: CMTime
   var seekableTimeRanges: [NSValue] { get }
-  func seekToTime(time: CMTime)
+  func seekToTime(_ time: CMTime)
   @available(OSX 10.7, *)
-  func seekToTime(time: CMTime, completionHandler: (Bool) -> Void)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime)
+  func seekToTime(_ time: CMTime, completionHandler completionHandler: (Bool) -> Void)
+  func seekToTime(_ time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime)
   @available(OSX 10.7, *)
-  func seekToTime(time: CMTime, toleranceBefore: CMTime, toleranceAfter: CMTime, completionHandler: (Bool) -> Void)
+  func seekToTime(_ time: CMTime, toleranceBefore toleranceBefore: CMTime, toleranceAfter toleranceAfter: CMTime, completionHandler completionHandler: (Bool) -> Void)
   @available(OSX 10.7, *)
   func cancelPendingSeeks()
   func currentDate() -> NSDate?
-  func seekToDate(date: NSDate) -> Bool
+  func seekToDate(_ date: NSDate) -> Bool
   @available(OSX 10.9, *)
-  func seekToDate(date: NSDate, completionHandler: (Bool) -> Void) -> Bool
-  func stepByCount(stepCount: Int)
+  func seekToDate(_ date: NSDate, completionHandler completionHandler: (Bool) -> Void) -> Bool
+  func stepByCount(_ stepCount: Int)
   @available(OSX 10.8, *)
   var timebase: CMTimebase? { get }
 }
@@ -106,11 +106,11 @@ extension AVPlayerItem {
 }
 extension AVPlayerItem {
   @available(OSX 10.8, *)
-  func selectMediaOption(mediaSelectionOption: AVMediaSelectionOption?, inMediaSelectionGroup mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOption(_ mediaSelectionOption: AVMediaSelectionOption?, inMediaSelectionGroup mediaSelectionGroup: AVMediaSelectionGroup)
   @available(OSX 10.9, *)
-  func selectMediaOptionAutomaticallyInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup)
+  func selectMediaOptionAutomaticallyInMediaSelectionGroup(_ mediaSelectionGroup: AVMediaSelectionGroup)
   @available(OSX 10.8, *)
-  func selectedMediaOptionInMediaSelectionGroup(mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
+  func selectedMediaOptionInMediaSelectionGroup(_ mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   @available(OSX 10.11, *)
   var currentMediaSelection: AVMediaSelection { get }
 }
@@ -122,9 +122,9 @@ extension AVPlayerItem {
 }
 extension AVPlayerItem {
   @available(OSX 10.8, *)
-  func addOutput(output: AVPlayerItemOutput)
+  func addOutput(_ output: AVPlayerItemOutput)
   @available(OSX 10.8, *)
-  func removeOutput(output: AVPlayerItemOutput)
+  func removeOutput(_ output: AVPlayerItemOutput)
   @available(OSX 10.8, *)
   var outputs: [AVPlayerItemOutput] { get }
 }
@@ -133,18 +133,16 @@ class AVPlayerItemAccessLog : NSObject, NSCopying {
   func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemAccessLogEvent] { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLog : NSObject, NSCopying {
   func extendedLogData() -> NSData?
   var extendedLogDataStringEncoding: UInt { get }
   var events: [AVPlayerItemErrorLogEvent] { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
@@ -181,9 +179,8 @@ class AVPlayerItemAccessLogEvent : NSObject, NSCopying {
   var mediaRequestsWWAN: Int { get }
   @available(OSX 10.9, *)
   var switchBitrate: Double { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }
 @available(OSX 10.7, *)
 class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
@@ -194,7 +191,6 @@ class AVPlayerItemErrorLogEvent : NSObject, NSCopying {
   var errorStatusCode: Int { get }
   var errorDomain: String { get }
   var errorComment: String? { get }
-  init()
   @available(OSX 10.7, *)
-  func copyWithZone(zone: NSZone) -> AnyObject
+  func copyWithZone(_ zone: NSZone) -> AnyObject
 }

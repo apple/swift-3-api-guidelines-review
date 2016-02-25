@@ -13,9 +13,9 @@ let NSHTTPCookieDiscard: String
 let NSHTTPCookieMaximumAge: String
 let NSHTTPCookiePort: String
 class NSHTTPCookie : NSObject {
-  init?(properties: [String : AnyObject])
-  class func requestHeaderFieldsWithCookies(cookies: [NSHTTPCookie]) -> [String : String]
-  class func cookiesWithResponseHeaderFields(headerFields: [String : String], forURL URL: NSURL) -> [NSHTTPCookie]
+  init?(properties properties: [String : AnyObject])
+  class func requestHeaderFieldsWithCookies(_ cookies: [NSHTTPCookie]) -> [String : String]
+  class func cookiesWithResponseHeaderFields(_ headerFields: [String : String], forURL URL: NSURL) -> [NSHTTPCookie]
   var properties: [String : AnyObject]? { get }
   var version: Int { get }
   var name: String { get }
@@ -29,5 +29,4 @@ class NSHTTPCookie : NSObject {
   var comment: String? { get }
   @NSCopying var commentURL: NSURL? { get }
   var portList: [NSNumber]? { get }
-  init()
 }
