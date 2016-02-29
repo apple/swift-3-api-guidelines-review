@@ -12,12 +12,12 @@ enum NSTabViewType : UInt {
   case noTabsNoBorder
 }
 class NSTabView : NSView {
-  func select(_ tabViewItem: NSTabViewItem?)
+  func selectTabViewItem(_ tabViewItem: NSTabViewItem?)
   func selectItem(at index: Int)
   func selectItem(identifier identifier: AnyObject)
   func takeSelectedTabViewItemFromSender(_ sender: AnyObject?)
   func selectFirstTabViewItem(_ sender: AnyObject?)
-  func selectLastItem(_ sender: AnyObject?)
+  func selectLastTabViewItem(_ sender: AnyObject?)
   func selectNextTabViewItem(_ sender: AnyObject?)
   func selectPreviousTabViewItem(_ sender: AnyObject?)
   var selectedTabViewItem: NSTabViewItem? { get }
@@ -30,8 +30,8 @@ class NSTabView : NSView {
   var controlTint: NSControlTint
   var controlSize: NSControlSize
   func add(_ tabViewItem: NSTabViewItem)
-  func insert(_ tabViewItem: NSTabViewItem, at index: Int)
-  func remove(_ tabViewItem: NSTabViewItem)
+  func insertTabViewItem(_ tabViewItem: NSTabViewItem, at index: Int)
+  func removeTabViewItem(_ tabViewItem: NSTabViewItem)
   unowned(unsafe) var delegate: @sil_unmanaged NSTabViewDelegate?
   func tabViewItem(at point: NSPoint) -> NSTabViewItem?
   var contentRect: NSRect { get }

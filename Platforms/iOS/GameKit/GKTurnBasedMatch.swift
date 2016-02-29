@@ -100,7 +100,7 @@ class GKTurnBasedMatch : NSObject {
   @available(iOS 5.0, *)
   func declineInvite(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func remove(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  func loadData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
+  func loadMatchData(completionHandler completionHandler: ((NSData?, NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)
   func endTurn(nextParticipants nextParticipants: [GKTurnBasedParticipant], turnTimeout timeout: NSTimeInterval, match matchData: NSData, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   @available(iOS 6.0, *)

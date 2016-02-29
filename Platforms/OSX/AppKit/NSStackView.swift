@@ -37,9 +37,9 @@ class NSStackView : NSView {
   var orientation: NSUserInterfaceLayoutOrientation
   var alignment: NSLayoutAttribute
   var edgeInsets: NSEdgeInsets
-  func add(_ aView: NSView, in gravity: NSStackViewGravity)
-  func insert(_ aView: NSView, at index: Int, in gravity: NSStackViewGravity)
-  func remove(_ aView: NSView)
+  func addView(_ aView: NSView, in gravity: NSStackViewGravity)
+  func insertView(_ aView: NSView, at index: Int, in gravity: NSStackViewGravity)
+  func removeView(_ aView: NSView)
   func views(in gravity: NSStackViewGravity) -> [NSView]
   func setViews(_ views: [NSView], in gravity: NSStackViewGravity)
   var views: [NSView] { get }

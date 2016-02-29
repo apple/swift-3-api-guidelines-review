@@ -11,14 +11,14 @@ class UIPasteboard : NSObject {
   var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]
-  func containsTypes(_ pasteboardTypes: [String]) -> Bool
+  func containsPasteboardTypes(_ pasteboardTypes: [String]) -> Bool
   func data(forPasteboardType pasteboardType: String) -> NSData?
   func value(forPasteboardType pasteboardType: String) -> AnyObject?
   func setValue(_ value: AnyObject, forPasteboardType pasteboardType: String)
   func setData(_ data: NSData, forPasteboardType pasteboardType: String)
   var numberOfItems: Int { get }
   func pasteboardTypes(forItemSet itemSet: NSIndexSet?) -> [AnyObject]?
-  func containsTypes(_ pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
+  func containsPasteboardTypes(_ pasteboardTypes: [String], inItemSet itemSet: NSIndexSet?) -> Bool
   func itemSet(withPasteboardTypes pasteboardTypes: [AnyObject]) -> NSIndexSet?
   func values(forPasteboardType pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?
   func data(forPasteboardType pasteboardType: String, inItemSet itemSet: NSIndexSet?) -> [AnyObject]?

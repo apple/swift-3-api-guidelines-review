@@ -5,7 +5,7 @@ class DOMHTMLScriptElement : DOMHTMLElement {
   var htmlFor: String!
   var event: String!
   var charset: String!
-  var `defer`: Bool
+  var defer: Bool
   var src: String!
   var type: String!
 }

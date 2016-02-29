@@ -35,7 +35,7 @@ extension NSOrderedSet {
   func isEqual(to other: NSOrderedSet) -> Bool
   func contains(_ object: AnyObject) -> Bool
   func intersects(_ other: NSOrderedSet) -> Bool
-  func intersects(_ set: Set<NSObject>) -> Bool
+  func intersectsSet(_ set: Set<NSObject>) -> Bool
   func isSubset(of other: NSOrderedSet) -> Bool
   func isSubset(of set: Set<NSObject>) -> Bool
   @available(tvOS 6.0, *)
@@ -96,9 +96,9 @@ extension NSMutableOrderedSet {
   func intersect(_ other: NSOrderedSet)
   func minus(_ other: NSOrderedSet)
   func union(_ other: NSOrderedSet)
-  func intersect(_ other: Set<NSObject>)
-  func minus(_ other: Set<NSObject>)
-  func union(_ other: Set<NSObject>)
+  func intersectSet(_ other: Set<NSObject>)
+  func minusSet(_ other: Set<NSObject>)
+  func unionSet(_ other: Set<NSObject>)
   func sort(comparator cmptr: NSComparator)
   func sort(_ opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
   func sortRange(_ range: NSRange, options opts: NSSortOptions = [], usingComparator cmptr: NSComparator)
