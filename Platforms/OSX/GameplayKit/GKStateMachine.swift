@@ -3,7 +3,7 @@
 class GKStateMachine : NSObject {
   var currentState: GKState? { get }
   init(states states: [GKState])
-  func update(deltaTime sec: NSTimeInterval)
+  func update(withDeltaTime sec: NSTimeInterval)
   func canEnterState(_ stateClass: AnyClass) -> Bool
   func enterState(_ stateClass: AnyClass) -> Bool
 }

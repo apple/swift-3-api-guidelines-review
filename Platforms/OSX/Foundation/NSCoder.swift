@@ -31,7 +31,7 @@ extension NSCoder {
   func encodeBytes(_ byteaddr: UnsafePointer<Void>, length length: Int)
   func decodeObject() -> AnyObject?
   func decodeArray(ofObjCType itemType: UnsafePointer<Int8>, count count: Int, at array: UnsafeMutablePointer<Void>)
-  func decodeBytes(returnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
+  func decodeBytes(withReturnedLength lengthp: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<Void>
   func encodePropertyList(_ aPropertyList: AnyObject)
   func decodePropertyList() -> AnyObject?
   var systemVersion: UInt32 { get }

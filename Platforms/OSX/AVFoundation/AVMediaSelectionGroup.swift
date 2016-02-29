@@ -32,7 +32,7 @@ class AVMediaSelectionOption : NSObject, NSCopying {
   func associatedMediaSelectionOption(in mediaSelectionGroup: AVMediaSelectionGroup) -> AVMediaSelectionOption?
   func propertyList() -> AnyObject
   @available(OSX 10.9, *)
-  func displayName(_ locale: NSLocale) -> String
+  func displayName(with locale: NSLocale) -> String
   @available(OSX 10.9, *)
   var displayName: String { get }
   @available(OSX 10.8, *)

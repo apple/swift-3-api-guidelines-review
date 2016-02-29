@@ -36,13 +36,13 @@ class GKAchievementChallenge : GKChallenge {
 }
 extension GKScore {
   @available(tvOS 8.0, *)
-  func challengeComposeController(message message: String?, players players: [GKPlayer]?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(withMessage message: String?, players players: [GKPlayer]?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(tvOS 7.0, *)
   class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(tvOS 8.0, *)
-  func challengeComposeController(message message: String?, players players: [GKPlayer], completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(withMessage message: String?, players players: [GKPlayer], completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(tvOS 8.0, *)
   func selectChallengeablePlayers(_ players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(tvOS 7.0, *)

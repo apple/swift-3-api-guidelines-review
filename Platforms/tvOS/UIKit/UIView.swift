@@ -282,13 +282,13 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
+  class func animate(withDuration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
+  class func animate(withDuration duration: NSTimeInterval, animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
-  class func animate(duration duration: NSTimeInterval, animations animations: () -> Void)
+  class func animate(withDuration duration: NSTimeInterval, animations animations: () -> Void)
   @available(tvOS 7.0, *)
-  class func animate(duration duration: NSTimeInterval, delay delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
+  class func animate(withDuration duration: NSTimeInterval, delay delay: NSTimeInterval, usingSpringWithDamping dampingRatio: CGFloat, initialSpringVelocity velocity: CGFloat, options options: UIViewAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
   class func transition(with view: UIView, duration duration: NSTimeInterval, options options: UIViewAnimationOptions = [], animations animations: (() -> Void)?, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 4.0, *)
@@ -298,9 +298,9 @@ extension UIView {
 }
 extension UIView {
   @available(tvOS 7.0, *)
-  class func animateKeyframes(duration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewKeyframeAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
+  class func animateKeyframes(withDuration duration: NSTimeInterval, delay delay: NSTimeInterval, options options: UIViewKeyframeAnimationOptions = [], animations animations: () -> Void, completion completion: ((Bool) -> Void)? = nil)
   @available(tvOS 7.0, *)
-  class func addKeyframe(relativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations animations: () -> Void)
+  class func addKeyframe(withRelativeStartTime frameStartTime: Double, relativeDuration frameDuration: Double, animations animations: () -> Void)
 }
 extension UIView {
   @available(tvOS 3.2, *)

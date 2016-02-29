@@ -45,7 +45,7 @@ class NSViewController : NSResponder, NSCoding, NSSeguePerforming, NSUserInterfa
   @available(OSX 10.10, *)
   func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegue(identifier identifier: String, sender sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
   @available(OSX 10.5, *)
@@ -113,5 +113,5 @@ extension NSViewController : NSExtensionRequestHandling {
   @available(OSX 10.10, *)
   var preferredMaximumSize: NSSize { get }
   @available(OSX 10.10, *)
-  func beginRequest(_ context: NSExtensionContext)
+  func beginRequest(with context: NSExtensionContext)
 }

@@ -145,5 +145,5 @@ class MDLMaterial : NSObject, MDLNamed, NSFastEnumeration {
   subscript(_ name: String) -> MDLMaterialProperty? { get }
   var count: Int { get }
   @available(OSX 10.11, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

@@ -20,7 +20,7 @@ extension AVPlayer {
 }
 extension AVPlayer {
   var currentItem: AVPlayerItem? { get }
-  func replaceCurrentItem(_ item: AVPlayerItem?)
+  func replaceCurrentItem(with item: AVPlayerItem?)
   var actionAtItemEnd: AVPlayerActionAtItemEnd
 }
 enum AVPlayerActionAtItemEnd : Int {

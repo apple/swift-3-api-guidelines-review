@@ -94,7 +94,7 @@ class AUAudioUnitBusArray : NSObject, NSFastEnumeration {
   unowned(unsafe) var ownerAudioUnit: @sil_unmanaged AUAudioUnit { get }
   var busType: AUAudioUnitBusType { get }
   @available(OSX 10.11, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 @available(OSX 10.11, *)
 class AUAudioUnitBus : NSObject {

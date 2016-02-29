@@ -7,7 +7,7 @@ class NSColorList : NSObject, NSSecureCoding {
   var name: String? { get }
   func setColor(_ color: NSColor, forKey key: String)
   func insert(_ color: NSColor, key key: String, at loc: Int)
-  func removeColor(key key: String)
+  func removeColor(withKey key: String)
   func color(withKey key: String) -> NSColor?
   var allKeys: [String] { get }
   var isEditable: Bool { get }

@@ -49,6 +49,6 @@ extension CKContainer {
 extension CKContainer {
   func fetchUserRecordID(completionHandler completionHandler: (CKRecordID?, NSError?) -> Void)
   func discoverAllContactUserInfos(completionHandler completionHandler: ([CKDiscoveredUserInfo]?, NSError?) -> Void)
-  func discoverUserInfo(emailAddress email: String, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
-  func discoverUserInfo(userRecordID userRecordID: CKRecordID, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func discoverUserInfo(withEmailAddress email: String, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
+  func discoverUserInfo(withUserRecordID userRecordID: CKRecordID, completionHandler completionHandler: (CKDiscoveredUserInfo?, NSError?) -> Void)
 }

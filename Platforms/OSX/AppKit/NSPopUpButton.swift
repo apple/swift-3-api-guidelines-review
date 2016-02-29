@@ -4,10 +4,10 @@ class NSPopUpButton : NSButton {
   var pullsDown: Bool
   var autoenablesItems: Bool
   var preferredEdge: NSRectEdge
-  func addItem(title title: String)
-  func addItems(titles itemTitles: [String])
-  func insertItem(title title: String, at index: Int)
-  func removeItem(title title: String)
+  func addItem(withTitle title: String)
+  func addItems(withTitles itemTitles: [String])
+  func insertItem(withTitle title: String, at index: Int)
+  func removeItem(withTitle title: String)
   func removeItem(at index: Int)
   func removeAllItems()
   var itemArray: [NSMenuItem] { get }
@@ -22,8 +22,8 @@ class NSPopUpButton : NSButton {
   var lastItem: NSMenuItem? { get }
   func select(_ item: NSMenuItem?)
   func selectItem(at index: Int)
-  func selectItem(title title: String)
-  func selectItem(tag tag: Int) -> Bool
+  func selectItem(withTitle title: String)
+  func selectItem(withTag tag: Int) -> Bool
   func setTitle(_ aString: String)
   var selectedItem: NSMenuItem? { get }
   var indexOfSelectedItem: Int { get }

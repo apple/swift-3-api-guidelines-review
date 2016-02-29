@@ -33,13 +33,13 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(tvOS 7.0, *)
-  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?)
+  func draw(with rect: CGRect, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?)
   @available(tvOS 7.0, *)
   func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(tvOS 6.0, *)
-  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?)
+  func draw(with rect: CGRect, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?)
   @available(tvOS 6.0, *)
   func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?) -> CGRect
 }

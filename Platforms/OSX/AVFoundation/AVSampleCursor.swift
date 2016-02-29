@@ -11,7 +11,7 @@ class AVSampleCursor : NSObject, NSCopying {
 extension AVSampleCursor {
   var presentationTimeStamp: CMTime { get }
   var decodeTimeStamp: CMTime { get }
-  func comparePositionInDecodeOrder(positionOf cursor: AVSampleCursor) -> NSComparisonResult
+  func comparePositionInDecodeOrder(withPositionOf cursor: AVSampleCursor) -> NSComparisonResult
   func samples(withEarlierDecodeTimeStampsMayHaveLaterPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
   func samples(withLaterDecodeTimeStampsMayHaveEarlierPresentationTimeStampsThanCursor cursor: AVSampleCursor) -> Bool
 }

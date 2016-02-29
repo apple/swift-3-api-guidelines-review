@@ -39,7 +39,7 @@ class AVAsynchronousVideoCompositionRequest : NSObject, NSCopying {
   var sourceTrackIDs: [NSNumber] { get }
   var videoCompositionInstruction: AVVideoCompositionInstructionProtocol { get }
   func sourceFrame(byTrackID trackID: CMPersistentTrackID) -> CVPixelBuffer?
-  func finish(composedVideoFrame composedVideoFrame: CVPixelBuffer)
+  func finish(withComposedVideoFrame composedVideoFrame: CVPixelBuffer)
   func finishWithError(_ error: NSError)
   func finishCancelledRequest()
   @available(tvOS 7.0, *)

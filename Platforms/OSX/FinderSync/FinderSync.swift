@@ -33,5 +33,5 @@ class FIFinderSync : NSObject, FIFinderSyncProtocol, NSExtensionRequestHandling 
   @NSCopying var toolbarItemImage: NSImage { get }
   var toolbarItemToolTip: String { get }
   @available(OSX 10.10, *)
-  func beginRequest(_ context: NSExtensionContext)
+  func beginRequest(with context: NSExtensionContext)
 }

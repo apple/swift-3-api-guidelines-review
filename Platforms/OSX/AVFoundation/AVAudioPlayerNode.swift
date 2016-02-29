@@ -14,7 +14,7 @@ class AVAudioPlayerNode : AVAudioNode, AVAudioMixing {
   func scheduleFile(_ file: AVAudioFile, at when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
   func scheduleSegment(_ file: AVAudioFile, startingFrame startFrame: AVAudioFramePosition, frameCount numberFrames: AVAudioFrameCount, at when: AVAudioTime?, completionHandler completionHandler: AVAudioNodeCompletionHandler? = nil)
   func stop()
-  func prepare(frameCount frameCount: AVAudioFrameCount)
+  func prepare(withFrameCount frameCount: AVAudioFrameCount)
   func play()
   func play(at when: AVAudioTime?)
   func pause()

@@ -14,7 +14,7 @@ class UIDynamicAnimator : NSObject {
   var referenceView: UIView? { get }
   var behaviors: [UIDynamicBehavior] { get }
   func items(in rect: CGRect) -> [UIDynamicItem]
-  func updateItem(currentState item: UIDynamicItem)
+  func updateItem(usingCurrentState item: UIDynamicItem)
   var isRunning: Bool { get }
   func elapsedTime() -> NSTimeInterval
   weak var delegate: @sil_weak UIDynamicAnimatorDelegate?

@@ -52,7 +52,7 @@ extension NSStream {
 }
 extension NSStream {
   @available(watchOS 2.0, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getBoundStreams(withBufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSInputStream {
   convenience init?(fileAtPath path: String)

@@ -100,8 +100,8 @@ class CALayer : NSObject, NSCoding, CAMediaTiming {
   func needsLayout() -> Bool
   func layoutIfNeeded()
   func layoutSublayers()
-  func resizeSublayers(oldSize size: CGSize)
-  func resize(oldSuperlayerSize size: CGSize)
+  func resizeSublayers(withOldSize size: CGSize)
+  func resize(withOldSuperlayerSize size: CGSize)
   class func defaultAction(forKey event: String) -> CAAction?
   func action(forKey event: String) -> CAAction?
   var actions: [String : CAAction]?

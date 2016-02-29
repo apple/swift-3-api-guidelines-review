@@ -11,8 +11,8 @@ class NSMenu : NSObject, NSCopying, NSCoding {
   unowned(unsafe) var supermenu: @sil_unmanaged NSMenu?
   func insert(_ newItem: NSMenuItem, at index: Int)
   func add(_ newItem: NSMenuItem)
-  func insertItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
-  func addItem(title aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
+  func insertItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String, at index: Int) -> NSMenuItem?
+  func addItem(withTitle aString: String, action aSelector: Selector, keyEquivalent charCode: String) -> NSMenuItem?
   func removeItem(at index: Int)
   func remove(_ item: NSMenuItem)
   func setSubmenu(_ aMenu: NSMenu?, for anItem: NSMenuItem)

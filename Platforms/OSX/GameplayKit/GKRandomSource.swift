@@ -29,7 +29,7 @@ class GKRandomSource : NSObject, GKRandom, NSSecureCoding, NSCopying {
 class GKARC4RandomSource : GKRandomSource {
   @NSCopying var seed: NSData
   init(seed seed: NSData)
-  func dropValues(count count: Int)
+  func dropValues(withCount count: Int)
 }
 @available(OSX 10.11, *)
 class GKLinearCongruentialRandomSource : GKRandomSource {

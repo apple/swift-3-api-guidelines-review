@@ -37,7 +37,7 @@ class NSFileWrapper : NSObject, NSCoding {
   func write(to url: NSURL, options options: NSFileWrapperWritingOptions = [], originalContentsURL originalContentsURL: NSURL?) throws
   @NSCopying var serializedRepresentation: NSData? { get }
   func addFileWrapper(_ child: NSFileWrapper) -> String
-  func addRegularFile(contents data: NSData, preferredFilename fileName: String) -> String
+  func addRegularFile(withContents data: NSData, preferredFilename fileName: String) -> String
   func removeFileWrapper(_ child: NSFileWrapper)
   var fileWrappers: [String : NSFileWrapper]? { get }
   func key(for child: NSFileWrapper) -> String?
@@ -59,9 +59,9 @@ extension NSFileWrapper {
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -writeToURL:options:originalContentsURL:error: instead.")
   func write(toFile path: String, atomically atomicFlag: Bool, updateFilenames updateFilenamesFlag: Bool) -> Bool
   @available(OSX, introduced=10.0, deprecated=10.10, message="Instantiate a new NSFileWrapper with -initWithURL:options:error:, send it -setPreferredFileName: if necessary, then use -addFileWrapper: instead.")
-  func addFile(path path: String) -> String
+  func addFile(withPath path: String) -> String
   @available(OSX, introduced=10.0, deprecated=10.10, message="Instantiate a new NSFileWrapper with -initWithSymbolicLinkDestinationURL:, send it -setPreferredFileName: if necessary, then use -addFileWrapper: instead.")
-  func addSymbolicLink(destination path: String, preferredFilename filename: String) -> String
+  func addSymbolicLink(withDestination path: String, preferredFilename filename: String) -> String
   @available(OSX, introduced=10.0, deprecated=10.10, message="Use -symbolicLinkDestinationURL instead.")
   func symbolicLinkDestination() -> String
 }

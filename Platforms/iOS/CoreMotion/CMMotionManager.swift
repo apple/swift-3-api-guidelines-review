@@ -45,9 +45,9 @@ class CMMotionManager : NSObject {
   func startDeviceMotionUpdates()
   func startDeviceMotionUpdates(to queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
   @available(iOS 5.0, *)
-  func startDeviceMotionUpdates(_ referenceFrame: CMAttitudeReferenceFrame)
+  func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame)
   @available(iOS 5.0, *)
-  func startDeviceMotionUpdates(_ referenceFrame: CMAttitudeReferenceFrame, to queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
+  func startDeviceMotionUpdates(using referenceFrame: CMAttitudeReferenceFrame, to queue: NSOperationQueue, withHandler handler: CMDeviceMotionHandler)
   func stopDeviceMotionUpdates()
   @available(iOS 5.0, *)
   var showsDeviceMovementDisplay: Bool

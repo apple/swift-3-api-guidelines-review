@@ -261,7 +261,7 @@ class NSEvent : NSObject, NSCopying, NSCoding {
   class func stopPeriodicEvents()
   class func mouseEvent(with type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, eventNumber eNum: Int, clickCount cNum: Int, pressure pressure: Float) -> NSEvent?
   class func keyEvent(with type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, characters keys: String, charactersIgnoringModifiers ukeys: String, isARepeat flag: Bool, keyCode code: UInt16) -> NSEvent?
-  class func enterExitEvent(_ type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
+  class func enterExitEvent(with type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, eventNumber eNum: Int, trackingNumber tNum: Int, userData data: UnsafeMutablePointer<Void>) -> NSEvent?
   class func otherEvent(with type: NSEventType, location location: NSPoint, modifierFlags flags: NSEventModifierFlags, timestamp time: NSTimeInterval, windowNumber wNum: Int, context context: NSGraphicsContext?, subtype subtype: Int16, data1 d1: Int, data2 d2: Int) -> NSEvent?
   class func mouseLocation() -> NSPoint
   @available(OSX 10.6, *)

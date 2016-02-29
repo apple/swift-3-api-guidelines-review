@@ -11,15 +11,15 @@ class CIKernel : NSObject {
   @available(tvOS 9.0, *)
   func setROISelector(_ method: Selector)
   @available(tvOS 8.0, *)
-  func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
+  func apply(withExtent extent: CGRect, roiCallback callback: CIKernelROICallback, arguments args: [AnyObject]?) -> CIImage?
 }
 @available(tvOS 8.0, *)
 class CIColorKernel : CIKernel {
   @available(tvOS 8.0, *)
-  func apply(extent extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
+  func apply(withExtent extent: CGRect, arguments args: [AnyObject]?) -> CIImage?
 }
 @available(tvOS 8.0, *)
 class CIWarpKernel : CIKernel {
   @available(tvOS 8.0, *)
-  func apply(extent extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
+  func apply(withExtent extent: CGRect, roiCallback callback: CIKernelROICallback, inputImage image: CIImage, arguments args: [AnyObject]?) -> CIImage?
 }

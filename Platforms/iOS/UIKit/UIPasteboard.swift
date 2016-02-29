@@ -7,7 +7,7 @@ class UIPasteboard : NSObject {
   /*not inherited*/ init?(name pasteboardName: String, create create: Bool)
   class func withUniqueName() -> UIPasteboard
   var name: String { get }
-  class func remove(name pasteboardName: String)
+  class func remove(withName pasteboardName: String)
   var isPersistent: Bool
   var changeCount: Int { get }
   func pasteboardTypes() -> [String]

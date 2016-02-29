@@ -65,7 +65,7 @@ class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   var transactionID: AETransactionID { get }
   func setParamDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
   func paramDescriptor(forKeyword keyword: AEKeyword) -> NSAppleEventDescriptor?
-  func removeParamDescriptor(keyword keyword: AEKeyword)
+  func removeParamDescriptor(withKeyword keyword: AEKeyword)
   func setAttributeDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
   func attributeDescriptor(forKeyword keyword: AEKeyword) -> NSAppleEventDescriptor?
   @available(OSX 10.11, *)
@@ -78,7 +78,7 @@ class NSAppleEventDescriptor : NSObject, NSCopying, NSSecureCoding {
   func remove(at index: Int)
   func setDescriptor(_ descriptor: NSAppleEventDescriptor, forKeyword keyword: AEKeyword)
   func forKeyword(_ keyword: AEKeyword) -> NSAppleEventDescriptor?
-  func remove(keyword keyword: AEKeyword)
+  func remove(withKeyword keyword: AEKeyword)
   func keywordForDescriptor(at index: Int) -> AEKeyword
   func coerce(toDescriptorType descriptorType: DescType) -> NSAppleEventDescriptor?
   func copy(with zone: NSZone = nil) -> AnyObject

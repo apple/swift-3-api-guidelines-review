@@ -4,7 +4,7 @@ extension GKFriendRequestComposeViewController {
   func setMessage(_ message: String?)
   @available(tvOS 8.0, *)
   func addRecipientPlayers(_ players: [GKPlayer])
-  func addRecipients(emailAddresses emailAddresses: [String])
+  func addRecipients(withEmailAddresses emailAddresses: [String])
   unowned(unsafe) var composeViewDelegate: @sil_unmanaged GKFriendRequestComposeViewControllerDelegate?
 }
 protocol GKFriendRequestComposeViewControllerDelegate {

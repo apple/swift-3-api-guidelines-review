@@ -12,5 +12,5 @@ class NSPDFPanel : NSObject {
   var accessoryController: NSViewController?
   var options: NSPDFPanelOptions
   var defaultFileName: String
-  func beginSheet(_ pdfInfo: NSPDFInfo, modalFor docWindow: NSWindow?, completionHandler completionHandler: (Int) -> Void)
+  func beginSheet(with pdfInfo: NSPDFInfo, modalFor docWindow: NSWindow?, completionHandler completionHandler: (Int) -> Void)
 }

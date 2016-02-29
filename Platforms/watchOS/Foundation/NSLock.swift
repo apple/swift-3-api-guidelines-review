@@ -17,7 +17,7 @@ class NSConditionLock : NSObject, NSLocking {
   func lock(whenCondition condition: Int)
   func tryLock() -> Bool
   func tryWhenCondition(_ condition: Int) -> Bool
-  func unlock(condition condition: Int)
+  func unlock(withCondition condition: Int)
   func lock(before limit: NSDate) -> Bool
   func lock(whenCondition condition: Int, before limit: NSDate) -> Bool
   @available(watchOS 2.0, *)

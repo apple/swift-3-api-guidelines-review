@@ -41,7 +41,7 @@ class NSNetService : NSObject {
   func stop()
   class func dictionary(fromTXTRecord txtData: NSData) -> [String : NSData]
   class func data(fromTXTRecord txtDictionary: [String : NSData]) -> NSData
-  func resolve(timeout timeout: NSTimeInterval)
+  func resolve(withTimeout timeout: NSTimeInterval)
   func getInputStream(_ inputStream: UnsafeMutablePointer<NSInputStream?>, outputStream outputStream: UnsafeMutablePointer<NSOutputStream?>) -> Bool
   func setTXTRecord(_ recordData: NSData?) -> Bool
   func txtRecordData() -> NSData?

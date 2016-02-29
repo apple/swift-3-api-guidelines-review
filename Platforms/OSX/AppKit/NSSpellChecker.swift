@@ -18,9 +18,9 @@ class NSSpellChecker : NSObject {
   func userQuotesArray(forLanguage language: String) -> [String]
   @available(OSX 10.6, *)
   var userReplacementsDictionary: [String : String] { get }
-  func updateSpellingPanel(misspelledWord word: String)
+  func updateSpellingPanel(withMisspelledWord word: String)
   @available(OSX 10.5, *)
-  func updateSpellingPanel(grammarString string: String, detail detail: [String : AnyObject])
+  func updateSpellingPanel(withGrammarString string: String, detail detail: [String : AnyObject])
   var spellingPanel: NSPanel { get }
   var accessoryView: NSView?
   @available(OSX 10.6, *)
@@ -39,7 +39,7 @@ class NSSpellChecker : NSObject {
   func completions(forPartialWordRange range: NSRange, in string: String, language language: String?, inSpellDocumentWithTag tag: Int) -> [String]?
   @available(OSX 10.7, *)
   func language(forWordRange range: NSRange, in string: String, orthography orthography: NSOrthography?) -> String?
-  func closeSpellDocument(tag tag: Int)
+  func closeSpellDocument(withTag tag: Int)
   @available(OSX 10.7, *)
   func record(_ response: NSCorrectionResponse, toCorrection correction: String, forWord word: String, language language: String?, inSpellDocumentWithTag tag: Int)
   @available(OSX 10.7, *)

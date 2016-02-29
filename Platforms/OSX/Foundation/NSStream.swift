@@ -50,13 +50,13 @@ class NSOutputStream : NSStream {
 }
 extension NSStream {
   @available(OSX 10.10, *)
-  class func getStreamsToHost(name hostname: String, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getStreamsToHost(withName hostname: String, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
   @available(OSX, introduced=10.3, deprecated=10.10, message="Please use getStreamsToHostWithName:port:inputStream:outputStream: instead")
   class func getStreamsTo(_ host: NSHost, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSStream {
   @available(OSX 10.10, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getBoundStreams(withBufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSInputStream {
   convenience init?(fileAtPath path: String)

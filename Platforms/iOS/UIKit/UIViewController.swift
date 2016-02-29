@@ -63,7 +63,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(iOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(iOS 5.0, *)
-  func performSegue(identifier identifier: String, sender sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender sender: AnyObject?)
   @available(iOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
   @available(iOS 5.0, *)
@@ -271,7 +271,7 @@ extension UIViewController : NSExtensionRequestHandling {
   @available(iOS 8.0, *)
   var extensionContext: NSExtensionContext? { get }
   @available(iOS 8.0, *)
-  func beginRequest(_ context: NSExtensionContext)
+  func beginRequest(with context: NSExtensionContext)
 }
 extension UIViewController {
   @available(iOS 8.0, *)
@@ -298,7 +298,7 @@ protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
 }
 extension UIViewController {
   @available(iOS 9.0, *)
-  func registerForPreviewing(_ delegate: UIViewControllerPreviewingDelegate, sourceView sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(with delegate: UIViewControllerPreviewingDelegate, sourceView sourceView: UIView) -> UIViewControllerPreviewing
   @available(iOS 9.0, *)
   func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }

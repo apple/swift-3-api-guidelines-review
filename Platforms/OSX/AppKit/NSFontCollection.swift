@@ -12,7 +12,7 @@ class NSFontCollection : NSObject, NSCopying, NSMutableCopying, NSCoding {
   class func withAllAvailableDescriptors() -> NSFontCollection
   /*not inherited*/ init?(locale locale: NSLocale)
   class func show(_ collection: NSFontCollection, withName name: String, visibility visibility: NSFontCollectionVisibility) throws
-  class func hide(name name: String, visibility visibility: NSFontCollectionVisibility) throws
+  class func hide(withName name: String, visibility visibility: NSFontCollectionVisibility) throws
   class func renameFontCollection(withName name: String, visibility visibility: NSFontCollectionVisibility, toName name: String) throws
   class func allFontCollectionNames() -> [String]
   /*not inherited*/ init?(name name: String)

@@ -54,7 +54,7 @@ class UIViewController : UIResponder, NSCoding, UIAppearanceContainer, UITraitEn
   @available(tvOS 5.0, *)
   var storyboard: UIStoryboard? { get }
   @available(tvOS 5.0, *)
-  func performSegue(identifier identifier: String, sender sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender sender: AnyObject?)
   @available(tvOS 6.0, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
   @available(tvOS 5.0, *)
@@ -224,7 +224,7 @@ extension UIViewController : NSExtensionRequestHandling {
   @available(tvOS 8.0, *)
   var extensionContext: NSExtensionContext? { get }
   @available(tvOS 8.0, *)
-  func beginRequest(_ context: NSExtensionContext)
+  func beginRequest(with context: NSExtensionContext)
 }
 extension UIViewController {
   @available(tvOS 8.0, *)
@@ -251,7 +251,7 @@ protocol UIViewControllerPreviewingDelegate : NSObjectProtocol {
 }
 extension UIViewController {
   @available(tvOS 9.0, *)
-  func registerForPreviewing(_ delegate: UIViewControllerPreviewingDelegate, sourceView sourceView: UIView) -> UIViewControllerPreviewing
+  func registerForPreviewing(with delegate: UIViewControllerPreviewingDelegate, sourceView sourceView: UIView) -> UIViewControllerPreviewing
   @available(tvOS 9.0, *)
   func unregisterForPreviewing(withContext previewing: UIViewControllerPreviewing)
 }

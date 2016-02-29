@@ -3,7 +3,7 @@ protocol PHContentEditingController : NSObjectProtocol {
   @available(iOS 8.0, *)
   func canHandle(_ adjustmentData: PHAdjustmentData!) -> Bool
   @available(iOS 8.0, *)
-  func startContentEditing(_ contentEditingInput: PHContentEditingInput!, placeholderImage placeholderImage: UIImage!)
+  func startContentEditing(with contentEditingInput: PHContentEditingInput!, placeholderImage placeholderImage: UIImage!)
   @available(iOS 8.0, *)
   func finishContentEditing(completionHandler completionHandler: ((PHContentEditingOutput!) -> Void)!)
   func cancelContentEditing()

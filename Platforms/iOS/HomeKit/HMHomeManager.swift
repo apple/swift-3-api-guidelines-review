@@ -5,7 +5,7 @@ class HMHomeManager : NSObject {
   var primaryHome: HMHome? { get }
   var homes: [HMHome] { get }
   func updatePrimaryHome(_ home: HMHome, completionHandler completion: (NSError?) -> Void)
-  func addHome(name homeName: String, completionHandler completion: (HMHome?, NSError?) -> Void)
+  func addHome(withName homeName: String, completionHandler completion: (HMHome?, NSError?) -> Void)
   func removeHome(_ home: HMHome, completionHandler completion: (NSError?) -> Void)
 }
 @available(iOS 8.0, *)

@@ -62,10 +62,10 @@ class UIControl : UIView {
   var state: UIControlState { get }
   var isTracking: Bool { get }
   var isTouchInside: Bool { get }
-  func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
-  func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool
-  func endTracking(_ touch: UITouch?, with event: UIEvent?)
-  func cancelTracking(_ event: UIEvent?)
+  func beginTracking(with touch: UITouch, with event: UIEvent?) -> Bool
+  func continueTracking(with touch: UITouch, with event: UIEvent?) -> Bool
+  func endTracking(with touch: UITouch?, with event: UIEvent?)
+  func cancelTracking(with event: UIEvent?)
   func addTarget(_ target: AnyObject?, action action: Selector, for controlEvents: UIControlEvents)
   func removeTarget(_ target: AnyObject?, action action: Selector, for controlEvents: UIControlEvents)
   func allTargets() -> Set<NSObject>

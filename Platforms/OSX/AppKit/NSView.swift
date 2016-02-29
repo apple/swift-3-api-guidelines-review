@@ -107,8 +107,8 @@ class NSView : NSResponder, NSAnimatablePropertyContainer, NSUserInterfaceItemId
   @available(OSX 10.7, *)
   func viewDidChangeBackingProperties()
   var postsFrameChangedNotifications: Bool
-  func resizeSubviews(oldSize oldSize: NSSize)
-  func resize(oldSuperviewSize oldSize: NSSize)
+  func resizeSubviews(withOldSize oldSize: NSSize)
+  func resize(withOldSuperviewSize oldSize: NSSize)
   var autoresizesSubviews: Bool
   var autoresizingMask: NSAutoresizingMaskOptions
   func setFrameOrigin(_ newOrigin: NSPoint)
@@ -877,10 +877,10 @@ extension NSView {
   func adjustPageHeightNew(_ newBottom: UnsafeMutablePointer<CGFloat>, top oldTop: CGFloat, bottom oldBottom: CGFloat, limit bottomLimit: CGFloat)
   func rect(forPage page: Int) -> NSRect
   func location(ofPrint aRect: NSRect) -> NSPoint
-  func drawPageBorder(_ borderSize: NSSize)
+  func drawPageBorder(with borderSize: NSSize)
   @NSCopying var pageHeader: NSAttributedString { get }
   @NSCopying var pageFooter: NSAttributedString { get }
-  func drawSheetBorder(_ borderSize: NSSize)
+  func drawSheetBorder(with borderSize: NSSize)
   var printJobTitle: String { get }
   func beginDocument()
   func endDocument()
@@ -889,7 +889,7 @@ extension NSView {
 }
 extension NSView {
   @available(OSX 10.7, *)
-  func beginDraggingSession(_ items: [NSDraggingItem], event event: NSEvent, source source: NSDraggingSource) -> NSDraggingSession
+  func beginDraggingSession(with items: [NSDraggingItem], event event: NSEvent, source source: NSDraggingSource) -> NSDraggingSession
   var registeredDraggedTypes: [String] { get }
   func register(forDraggedTypes newTypes: [String])
   func unregisterDraggedTypes()

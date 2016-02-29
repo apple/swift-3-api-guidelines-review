@@ -9,7 +9,7 @@ class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
   func mutableCopy(with zone: NSZone = nil) -> AnyObject
   class func supportsSecureCoding() -> Bool
   func encode(with aCoder: NSCoder)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSDictionary : DictionaryLiteralConvertible {

@@ -15,7 +15,7 @@ class NSOrderedSet : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFa
   @available(iOS 5.0, *)
   func encode(with aCoder: NSCoder)
   @available(iOS 5.0, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 
 extension NSOrderedSet : SequenceType {

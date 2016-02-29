@@ -33,13 +33,13 @@ struct NSStringDrawingOptions : OptionSetType {
 }
 extension NSString {
   @available(iOS 7.0, *)
-  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?)
+  func draw(with rect: CGRect, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?)
   @available(iOS 7.0, *)
   func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], attributes attributes: [String : AnyObject]? = [:], context context: NSStringDrawingContext?) -> CGRect
 }
 extension NSAttributedString {
   @available(iOS 6.0, *)
-  func draw(_ rect: CGRect, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?)
+  func draw(with rect: CGRect, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?)
   @available(iOS 6.0, *)
   func boundingRect(with size: CGSize, options options: NSStringDrawingOptions = [], context context: NSStringDrawingContext?) -> CGRect
 }

@@ -50,7 +50,7 @@ class UIScreen : NSObject, UITraitEnvironment {
   @available(iOS 8.0, *)
   var nativeScale: CGFloat { get }
   @available(iOS 4.0, *)
-  func displayLink(target target: AnyObject, selector sel: Selector) -> CADisplayLink?
+  func displayLink(withTarget target: AnyObject, selector sel: Selector) -> CADisplayLink?
   @available(iOS 9.0, *)
   weak var focusedView: @sil_weak UIView? { get }
   @available(iOS 9.0, *)

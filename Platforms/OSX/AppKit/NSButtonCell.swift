@@ -93,7 +93,7 @@ class NSButtonCell : NSActionCell {
   func setKeyEquivalentFont(_ fontName: String, size fontSize: CGFloat)
   func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView)
   func drawTitle(_ title: NSAttributedString, withFrame frame: NSRect, in controlView: NSView) -> NSRect
-  func drawBezel(frame frame: NSRect, in controlView: NSView)
+  func drawBezel(withFrame frame: NSRect, in controlView: NSView)
 }
 enum NSGradientType : UInt {
   init?(rawValue rawValue: UInt)

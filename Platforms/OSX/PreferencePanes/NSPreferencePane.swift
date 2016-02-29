@@ -30,5 +30,5 @@ class NSPreferencePane : NSObject {
   var lastKeyView: NSView?
   var autoSaveTextFields: Bool { get }
   var isSelected: Bool { get }
-  func updateHelpMenu(_ inArrayOfMenuItems: [[String : String]]?)
+  func updateHelpMenu(with inArrayOfMenuItems: [[String : String]]?)
 }

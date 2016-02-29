@@ -18,9 +18,9 @@ class MDLVoxelArray : NSObject {
   func setVoxelsFor(_ mesh: MDLMesh, divisions divisions: Int32, interiorNBWidth interiorNBWidth: Float, exteriorNBWidth exteriorNBWidth: Float, patchRadius patchRadius: Float)
   func voxels(within extent: MDLVoxelIndexExtent) -> NSData?
   func voxelIndices() -> NSData?
-  func union(_ voxels: MDLVoxelArray)
+  func union(with voxels: MDLVoxelArray)
   func difference(with voxels: MDLVoxelArray)
-  func intersect(_ voxels: MDLVoxelArray)
+  func intersect(with voxels: MDLVoxelArray)
   func index(ofSpatialLocation location: vector_float3) -> MDLVoxelIndex
   func spatialLocation(ofIndex index: MDLVoxelIndex) -> vector_float3
   func voxelBoundingBox(atIndex index: MDLVoxelIndex) -> MDLAxisAlignedBoundingBox

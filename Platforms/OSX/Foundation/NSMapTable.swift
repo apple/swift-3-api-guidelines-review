@@ -38,7 +38,7 @@ class NSMapTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(OSX 10.5, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }
 struct NSMapEnumerator {
   var _pi: Int

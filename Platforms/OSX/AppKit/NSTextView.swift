@@ -113,8 +113,8 @@ extension NSTextView {
   func pasteAsRichText(_ sender: AnyObject?)
 }
 extension NSTextView {
-  func dragSelection(_ event: NSEvent, offset mouseOffset: NSSize, slideBack slideBack: Bool) -> Bool
-  func dragImageForSelection(_ event: NSEvent, origin origin: NSPointPointer) -> NSImage?
+  func dragSelection(with event: NSEvent, offset mouseOffset: NSSize, slideBack slideBack: Bool) -> Bool
+  func dragImageForSelection(with event: NSEvent, origin origin: NSPointPointer) -> NSImage?
   var acceptableDragTypes: [String] { get }
   func dragOperation(for dragInfo: NSDraggingInfo, type type: String) -> NSDragOperation
   func cleanUpAfterDragOperation()

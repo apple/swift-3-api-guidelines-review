@@ -21,13 +21,13 @@ class CSSearchableIndex : NSObject {
   init(name name: String)
   init(name name: String, protectionClass protectionClass: String?)
   func indexSearchableItems(_ items: [CSSearchableItem], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  func deleteSearchableItems(identifiers identifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
-  func deleteSearchableItems(domainIdentifiers domainIdentifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func deleteSearchableItems(withIdentifiers identifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func deleteSearchableItems(withDomainIdentifiers domainIdentifiers: [String], completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func deleteAllSearchableItems(completionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension CSSearchableIndex {
   func beginBatch()
-  func endBatch(clientState clientState: NSData, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
+  func endBatch(withClientState clientState: NSData, completionHandler completionHandler: ((NSError?) -> Void)? = nil)
   func fetchLastClientState(completionHandler completionHandler: (NSData?, NSError?) -> Void)
 }
 @available(iOS 9.0, *)

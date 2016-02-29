@@ -16,7 +16,7 @@ class CNContactViewController : UIViewController {
   var allowsEditing: Bool
   var allowsActions: Bool
   var shouldShowLinkedContacts: Bool
-  func highlightProperty(key key: String, identifier identifier: String?)
+  func highlightProperty(withKey key: String, identifier identifier: String?)
 }
 @available(iOS 9.0, *)
 protocol CNContactViewControllerDelegate : NSObjectProtocol {

@@ -50,11 +50,11 @@ class NSOutputStream : NSStream {
 }
 extension NSStream {
   @available(iOS 8.0, *)
-  class func getStreamsToHost(name hostname: String, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getStreamsToHost(withName hostname: String, port port: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSStream {
   @available(iOS 8.0, *)
-  class func getBoundStreams(bufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
+  class func getBoundStreams(withBufferSize bufferSize: Int, inputStream inputStream: AutoreleasingUnsafeMutablePointer<NSInputStream?>, outputStream outputStream: AutoreleasingUnsafeMutablePointer<NSOutputStream?>)
 }
 extension NSInputStream {
   convenience init?(fileAtPath path: String)

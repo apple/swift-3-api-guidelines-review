@@ -34,7 +34,7 @@ extension NSObjectController {
   var managedObjectContext: NSManagedObjectContext?
   var entityName: String?
   var fetchPredicate: NSPredicate?
-  func fetch(_ fetchRequest: NSFetchRequest?, merge merge: Bool) throws
+  func fetch(with fetchRequest: NSFetchRequest?, merge merge: Bool) throws
   func fetch(_ sender: AnyObject?)
   @available(OSX 10.5, *)
   var usesLazyFetching: Bool

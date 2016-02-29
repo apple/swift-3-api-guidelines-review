@@ -18,7 +18,7 @@ extension GKLocalPlayer : GKSavedGameListener {
   @available(iOS 8.0, *)
   func saveGameData(_ data: NSData, withName name: String, completionHandler handler: ((GKSavedGame?, NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
-  func deleteSavedGames(name name: String, completionHandler handler: ((NSError?) -> Void)? = nil)
+  func deleteSavedGames(withName name: String, completionHandler handler: ((NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)
   func resolveConflictingSavedGames(_ conflictingSavedGames: [GKSavedGame], with data: NSData, completionHandler handler: (([GKSavedGame]?, NSError?) -> Void)? = nil)
   @available(iOS 8.0, *)

@@ -10,12 +10,12 @@ class NSMenuItemCell : NSButtonCell {
   var keyEquivalentWidth: CGFloat { get }
   func stateImageRect(forBounds cellFrame: NSRect) -> NSRect
   func keyEquivalentRect(forBounds cellFrame: NSRect) -> NSRect
-  func drawSeparatorItem(frame cellFrame: NSRect, in controlView: NSView)
-  func drawStateImage(frame cellFrame: NSRect, in controlView: NSView)
-  func drawImage(frame cellFrame: NSRect, in controlView: NSView)
-  func drawTitle(frame cellFrame: NSRect, in controlView: NSView)
-  func drawKeyEquivalent(frame cellFrame: NSRect, in controlView: NSView)
-  func drawBorderAndBackground(frame cellFrame: NSRect, in controlView: NSView)
+  func drawSeparatorItem(withFrame cellFrame: NSRect, in controlView: NSView)
+  func drawStateImage(withFrame cellFrame: NSRect, in controlView: NSView)
+  func drawImage(withFrame cellFrame: NSRect, in controlView: NSView)
+  func drawTitle(withFrame cellFrame: NSRect, in controlView: NSView)
+  func drawKeyEquivalent(withFrame cellFrame: NSRect, in controlView: NSView)
+  func drawBorderAndBackground(withFrame cellFrame: NSRect, in controlView: NSView)
 }
 struct __micFlags {
   var needsSizing: UInt32

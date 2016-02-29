@@ -16,8 +16,8 @@ class UISegmentedControl : UIControl, NSCoding {
   var numberOfSegments: Int { get }
   @available(tvOS 5.0, *)
   var apportionsSegmentWidthsByContent: Bool
-  func insertSegment(title title: String?, at segment: Int, animated animated: Bool)
-  func insertSegment(_ image: UIImage?, at segment: Int, animated animated: Bool)
+  func insertSegment(withTitle title: String?, at segment: Int, animated animated: Bool)
+  func insertSegment(with image: UIImage?, at segment: Int, animated animated: Bool)
   func removeSegment(at segment: Int, animated animated: Bool)
   func removeAllSegments()
   func setTitle(_ title: String?, forSegmentAt segment: Int)

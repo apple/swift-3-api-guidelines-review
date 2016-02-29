@@ -12,7 +12,7 @@ class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
   func compact()
   var count: Int
   @available(tvOS 6.0, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(tvOS 6.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(tvOS 6.0, *)

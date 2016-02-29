@@ -38,7 +38,7 @@ extension NSMutableAttributedString {
   func updateAttachments(fromPath path: String)
 }
 protocol NSTextAttachmentCellProtocol : NSObjectProtocol {
-  func draw(frame cellFrame: NSRect, in controlView: NSView?)
+  func draw(withFrame cellFrame: NSRect, in controlView: NSView?)
   func wantsToTrackMouse() -> Bool
   func highlight(_ flag: Bool, withFrame cellFrame: NSRect, in controlView: NSView?)
   func trackMouse(_ theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, untilMouseUp flag: Bool) -> Bool
@@ -46,9 +46,9 @@ protocol NSTextAttachmentCellProtocol : NSObjectProtocol {
   func cellBaselineOffset() -> NSPoint
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment? { get set }
-  func draw(frame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(withFrame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func draw(frame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager layoutManager: NSLayoutManager)
+  func draw(withFrame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager layoutManager: NSLayoutManager)
   func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(_ theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)
@@ -60,9 +60,9 @@ class NSTextAttachmentCell : NSCell, NSTextAttachmentCellProtocol {
   func cellBaselineOffset() -> NSPoint
   @available(OSX 10.0, *)
   unowned(unsafe) var attachment: @sil_unmanaged NSTextAttachment?
-  func draw(frame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
+  func draw(withFrame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int)
   @available(OSX 10.0, *)
-  func draw(frame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager layoutManager: NSLayoutManager)
+  func draw(withFrame cellFrame: NSRect, in controlView: NSView?, characterIndex charIndex: Int, layoutManager layoutManager: NSLayoutManager)
   func wantsToTrackMouse(for theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int) -> Bool
   func trackMouse(_ theEvent: NSEvent, in cellFrame: NSRect, of controlView: NSView?, atCharacterIndex charIndex: Int, untilMouseUp flag: Bool) -> Bool
   @available(OSX 10.0, *)

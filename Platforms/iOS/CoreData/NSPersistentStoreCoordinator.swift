@@ -83,7 +83,7 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   func url(for store: NSPersistentStore) -> NSURL
   @available(iOS 3.0, *)
   func setURL(_ url: NSURL, for store: NSPersistentStore) -> Bool
-  func addPersistentStore(type storeType: String, configuration configuration: String?, url storeURL: NSURL?, options options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
+  func addPersistentStore(withType storeType: String, configuration configuration: String?, url storeURL: NSURL?, options options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(_ store: NSPersistentStore) throws
   func setMetadata(_ metadata: [String : AnyObject]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : AnyObject]

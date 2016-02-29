@@ -320,7 +320,7 @@ class AVAudioSessionDataSourceDescription : NSObject {
 protocol AVAudioSessionDelegate : NSObjectProtocol {
   optional func beginInterruption()
   @available(iOS 4.0, *)
-  optional func endInterruption(flags flags: Int)
+  optional func endInterruption(withFlags flags: Int)
   optional func endInterruption()
   optional func inputIsAvailableChanged(_ isInputAvailable: Bool)
 }

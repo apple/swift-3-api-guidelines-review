@@ -17,7 +17,7 @@ class ACAccountStore : NSObject {
   func accountType(withAccountTypeIdentifier typeIdentifier: String!) -> ACAccountType!
   func accounts(with accountType: ACAccountType!) -> [AnyObject]!
   func saveAccount(_ account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreSaveCompletionHandler!)
-  func requestAccessToAccounts(_ accountType: ACAccountType!, options options: [NSObject : AnyObject]! = [:], completion completion: ACAccountStoreRequestAccessCompletionHandler!)
+  func requestAccessToAccounts(with accountType: ACAccountType!, options options: [NSObject : AnyObject]! = [:], completion completion: ACAccountStoreRequestAccessCompletionHandler!)
   func renewCredentials(for account: ACAccount!, completion completionHandler: ACAccountStoreCredentialRenewalHandler!)
   func removeAccount(_ account: ACAccount!, withCompletionHandler completionHandler: ACAccountStoreRemoveCompletionHandler!)
 }

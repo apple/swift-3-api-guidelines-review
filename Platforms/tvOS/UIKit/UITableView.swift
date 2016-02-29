@@ -179,11 +179,11 @@ class UITableView : UIScrollView, NSCoding {
   var cellLayoutMarginsFollowReadableWidth: Bool
   var tableHeaderView: UIView?
   var tableFooterView: UIView?
-  func dequeueReusableCell(identifier identifier: String) -> UITableViewCell?
+  func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell?
   @available(tvOS 6.0, *)
-  func dequeueReusableCell(identifier identifier: String, for indexPath: NSIndexPath) -> UITableViewCell
+  func dequeueReusableCell(withIdentifier identifier: String, for indexPath: NSIndexPath) -> UITableViewCell
   @available(tvOS 6.0, *)
-  func dequeueReusableHeaderFooterView(identifier identifier: String) -> UITableViewHeaderFooterView?
+  func dequeueReusableHeaderFooterView(withIdentifier identifier: String) -> UITableViewHeaderFooterView?
   @available(tvOS 5.0, *)
   func register(_ nib: UINib?, forCellReuseIdentifier identifier: String)
   @available(tvOS 6.0, *)

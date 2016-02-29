@@ -5,7 +5,7 @@ class SKPaymentQueue : NSObject {
   class func canMakePayments() -> Bool
   func add(_ payment: SKPayment)
   func restoreCompletedTransactions()
-  func restoreCompletedTransactions(applicationUsername username: String?)
+  func restoreCompletedTransactions(withApplicationUsername username: String?)
   func finishTransaction(_ transaction: SKPaymentTransaction)
   func add(_ observer: SKPaymentTransactionObserver)
   func remove(_ observer: SKPaymentTransactionObserver)

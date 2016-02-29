@@ -10,7 +10,7 @@ class SKPaymentQueue : NSObject {
   @available(iOS 3.0, *)
   func restoreCompletedTransactions()
   @available(iOS 7.0, *)
-  func restoreCompletedTransactions(applicationUsername username: String?)
+  func restoreCompletedTransactions(withApplicationUsername username: String?)
   @available(iOS 3.0, *)
   func finishTransaction(_ transaction: SKPaymentTransaction)
   @available(iOS 6.0, *)

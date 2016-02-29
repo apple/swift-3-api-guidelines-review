@@ -23,7 +23,7 @@ class GKRuleSystem : NSObject {
 class GKRule : NSObject {
   var salience: Int
   func evaluatePredicate(with system: GKRuleSystem) -> Bool
-  func performAction(_ system: GKRuleSystem)
+  func performAction(with system: GKRuleSystem)
   convenience init(predicate predicate: NSPredicate, assertingFact fact: NSObjectProtocol, grade grade: Float)
   convenience init(predicate predicate: NSPredicate, retractingFact fact: NSObjectProtocol, grade grade: Float)
   convenience init(blockPredicate predicate: (GKRuleSystem) -> Bool, action action: (GKRuleSystem) -> Void)

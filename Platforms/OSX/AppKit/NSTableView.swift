@@ -131,7 +131,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   unowned(unsafe) var highlightedTableColumn: @sil_unmanaged NSTableColumn?
   var verticalMotionCanBeginDrag: Bool
   func canDragRows(with rowIndexes: NSIndexSet, at mouseDownPoint: NSPoint) -> Bool
-  func dragImageForRows(_ dragRows: NSIndexSet, tableColumns tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
+  func dragImageForRows(with dragRows: NSIndexSet, tableColumns tableColumns: [NSTableColumn], event dragEvent: NSEvent, offset dragImageOffset: NSPointPointer) -> NSImage
   func setDraggingSourceOperationMask(_ mask: NSDragOperation, forLocal isLocal: Bool)
   func setDropRow(_ row: Int, dropOperation dropOperation: NSTableViewDropOperation)
   var allowsMultipleSelection: Bool
@@ -180,7 +180,7 @@ class NSTableView : NSControl, NSUserInterfaceValidations, NSTextViewDelegate, N
   @available(OSX 10.7, *)
   func column(for view: NSView) -> Int
   @available(OSX 10.7, *)
-  func make(identifier identifier: String, owner owner: AnyObject?) -> NSView?
+  func make(withIdentifier identifier: String, owner owner: AnyObject?) -> NSView?
   @available(OSX 10.7, *)
   func enumerateAvailableRowViews(_ handler: (NSTableRowView, Int) -> Void)
   @available(OSX 10.7, *)

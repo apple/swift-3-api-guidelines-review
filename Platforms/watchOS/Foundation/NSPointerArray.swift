@@ -12,7 +12,7 @@ class NSPointerArray : NSObject, NSFastEnumeration, NSCopying, NSCoding {
   func compact()
   var count: Int
   @available(watchOS 2.0, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
   @available(watchOS 2.0, *)
   func copy(with zone: NSZone = nil) -> AnyObject
   @available(watchOS 2.0, *)

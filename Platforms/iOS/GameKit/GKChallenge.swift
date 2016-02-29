@@ -40,13 +40,13 @@ class GKAchievementChallenge : GKChallenge {
 }
 extension GKScore {
   @available(iOS 8.0, *)
-  func challengeComposeController(message message: String?, players players: [GKPlayer]?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(withMessage message: String?, players players: [GKPlayer]?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(iOS 7.0, *)
   class func report(_ scores: [GKScore], withEligibleChallenges challenges: [GKChallenge], withCompletionHandler completionHandler: ((NSError?) -> Void)? = nil)
 }
 extension GKAchievement {
   @available(iOS 8.0, *)
-  func challengeComposeController(message message: String?, players players: [GKPlayer], completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
+  func challengeComposeController(withMessage message: String?, players players: [GKPlayer], completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController
   @available(iOS 8.0, *)
   func selectChallengeablePlayers(_ players: [GKPlayer], withCompletionHandler completionHandler: (([GKPlayer]?, NSError?) -> Void)? = nil)
   @available(iOS 7.0, *)
@@ -54,11 +54,11 @@ extension GKAchievement {
 }
 extension GKScore {
   @available(iOS, introduced=7.0, deprecated=8.0, message="pass GKPlayers to challengeComposeControllerWithMessage:players:")
-  func challengeComposeController(players playerIDs: [String]?, message message: String?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController?
+  func challengeComposeController(withPlayers playerIDs: [String]?, message message: String?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController?
 }
 extension GKAchievement {
   @available(iOS, introduced=6.0, deprecated=8.0, message="pass GKPlayers to selectChallengeablePlayers:")
   func selectChallengeablePlayerIDs(_ playerIDs: [String]?, withCompletionHandler completionHandler: (([String]?, NSError?) -> Void)? = nil)
   @available(iOS, introduced=7.0, deprecated=8.0, message="pass GKPlayers to challengeComposeControllerWithMessage:players:")
-  func challengeComposeController(players playerIDs: [String]?, message message: String?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController?
+  func challengeComposeController(withPlayers playerIDs: [String]?, message message: String?, completionHandler completionHandler: GKChallengeComposeCompletionBlock? = nil) -> UIViewController?
 }

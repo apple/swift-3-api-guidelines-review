@@ -32,23 +32,23 @@ extension HMHome {
 }
 extension HMHome {
   var rooms: [HMRoom] { get }
-  func addRoom(name roomName: String, completionHandler completion: (HMRoom?, NSError?) -> Void)
+  func addRoom(withName roomName: String, completionHandler completion: (HMRoom?, NSError?) -> Void)
   func removeRoom(_ room: HMRoom, completionHandler completion: (NSError?) -> Void)
   func roomForEntireHome() -> HMRoom
 }
 extension HMHome {
   var zones: [HMZone] { get }
-  func addZone(name zoneName: String, completionHandler completion: (HMZone?, NSError?) -> Void)
+  func addZone(withName zoneName: String, completionHandler completion: (HMZone?, NSError?) -> Void)
   func removeZone(_ zone: HMZone, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   var serviceGroups: [HMServiceGroup] { get }
-  func addServiceGroup(name serviceGroupName: String, completionHandler completion: (HMServiceGroup?, NSError?) -> Void)
+  func addServiceGroup(withName serviceGroupName: String, completionHandler completion: (HMServiceGroup?, NSError?) -> Void)
   func removeServiceGroup(_ group: HMServiceGroup, completionHandler completion: (NSError?) -> Void)
 }
 extension HMHome {
   var actionSets: [HMActionSet] { get }
-  func addActionSet(name actionSetName: String, completionHandler completion: (HMActionSet?, NSError?) -> Void)
+  func addActionSet(withName actionSetName: String, completionHandler completion: (HMActionSet?, NSError?) -> Void)
   func removeActionSet(_ actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
   func executeActionSet(_ actionSet: HMActionSet, completionHandler completion: (NSError?) -> Void)
   @available(iOS 9.0, *)

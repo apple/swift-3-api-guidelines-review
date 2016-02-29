@@ -20,18 +20,18 @@ class NSDocumentController : NSObject, NSCoding, NSUserInterfaceValidations {
   @available(OSX 10.8, *)
   func begin(_ openPanel: NSOpenPanel, forTypes inTypes: [String]?, completionHandler completionHandler: (Int) -> Void)
   @available(OSX 10.7, *)
-  func openDocument(contentsOf url: NSURL, display displayDocument: Bool, completionHandler completionHandler: (NSDocument?, Bool, NSError?) -> Void)
-  func makeDocument(contentsOf url: NSURL, ofType typeName: String) throws -> NSDocument
+  func openDocument(withContentsOf url: NSURL, display displayDocument: Bool, completionHandler completionHandler: (NSDocument?, Bool, NSError?) -> Void)
+  func makeDocument(withContentsOf url: NSURL, ofType typeName: String) throws -> NSDocument
   @available(OSX 10.7, *)
   func reopenDocument(for urlOrNil: NSURL?, withContentsOf contentsURL: NSURL, display displayDocument: Bool, completionHandler completionHandler: (NSDocument?, Bool, NSError?) -> Void)
   func makeDocument(for urlOrNil: NSURL?, withContentsOf contentsURL: NSURL, ofType typeName: String) throws -> NSDocument
   var autosavingDelay: NSTimeInterval
   @IBAction func saveAllDocuments(_ sender: AnyObject?)
   var hasEditedDocuments: Bool { get }
-  func reviewUnsavedDocuments(alertTitle title: String?, cancellable cancellable: Bool, delegate delegate: AnyObject?, didReviewAllSelector didReviewAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
-  func closeAllDocuments(delegate delegate: AnyObject?, didCloseAllSelector didCloseAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func reviewUnsavedDocuments(withAlertTitle title: String?, cancellable cancellable: Bool, delegate delegate: AnyObject?, didReviewAllSelector didReviewAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
+  func closeAllDocuments(withDelegate delegate: AnyObject?, didCloseAllSelector didCloseAllSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   @available(OSX 10.7, *)
-  func duplicateDocument(contentsOf url: NSURL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
+  func duplicateDocument(withContentsOf url: NSURL, copying duplicateByCopying: Bool, displayName displayNameOrNil: String?) throws -> NSDocument
   func presentError(_ error: NSError, modalFor window: NSWindow, delegate delegate: AnyObject?, didPresent didPresentSelector: Selector, contextInfo contextInfo: UnsafeMutablePointer<Void>)
   func presentError(_ error: NSError) -> Bool
   func willPresentError(_ error: NSError) -> NSError

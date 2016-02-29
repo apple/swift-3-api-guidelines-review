@@ -24,11 +24,11 @@ extension NSObject {
   func perform(_ aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval, inModes modes: [String])
   class func perform(_ aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
   func perform(_ aSelector: Selector, with anArgument: AnyObject?, afterDelay delay: NSTimeInterval)
-  class func cancelPreviousPerformRequests(target aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
-  class func cancelPreviousPerformRequests(target aTarget: AnyObject)
+  class func cancelPreviousPerformRequests(withTarget aTarget: AnyObject, selector aSelector: Selector, object anArgument: AnyObject?)
+  class func cancelPreviousPerformRequests(withTarget aTarget: AnyObject)
 }
 extension NSRunLoop {
   func perform(_ aSelector: Selector, target target: AnyObject, argument arg: AnyObject?, order order: Int, modes modes: [String])
   func cancelPerform(_ aSelector: Selector, target target: AnyObject, argument arg: AnyObject?)
-  func cancelPerformSelectors(target target: AnyObject)
+  func cancelPerformSelectors(withTarget target: AnyObject)
 }

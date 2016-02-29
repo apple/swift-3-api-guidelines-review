@@ -55,7 +55,7 @@ class WebView : NSView {
   var isLoading: Bool { get }
   func element(at point: NSPoint) -> [NSObject : AnyObject]!
   var pasteboardTypesForSelection: [AnyObject]! { get }
-  func writeSelection(pasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
+  func writeSelection(withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
   func pasteboardTypes(forElement element: [NSObject : AnyObject]!) -> [AnyObject]!
   func writeElement(_ element: [NSObject : AnyObject]!, withPasteboardTypes types: [AnyObject]!, to pasteboard: NSPasteboard!)
   func moveDragCaret(to point: NSPoint)
@@ -109,10 +109,10 @@ extension WebView {
   func styleDeclaration(withText text: String!) -> DOMCSSStyleDeclaration!
 }
 extension WebView {
-  func replaceSelection(_ node: DOMNode!)
-  func replaceSelection(text text: String!)
-  func replaceSelection(markupString markupString: String!)
-  func replaceSelection(_ archive: WebArchive!)
+  func replaceSelection(with node: DOMNode!)
+  func replaceSelection(withText text: String!)
+  func replaceSelection(withMarkupString markupString: String!)
+  func replaceSelection(with archive: WebArchive!)
   func deleteSelection()
   func applyStyle(_ style: DOMCSSStyleDeclaration!)
 }

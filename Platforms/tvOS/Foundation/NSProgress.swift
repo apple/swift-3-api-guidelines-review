@@ -8,7 +8,7 @@ class NSProgress : NSObject {
   @available(tvOS 9.0, *)
   /*not inherited*/ init(totalUnitCount unitCount: Int64, parent parent: NSProgress, pendingUnitCount portionOfParentTotalUnitCount: Int64)
   init(parent parentProgressOrNil: NSProgress?, userInfo userInfoOrNil: [NSObject : AnyObject]? = [:])
-  func becomeCurrent(pendingUnitCount unitCount: Int64)
+  func becomeCurrent(withPendingUnitCount unitCount: Int64)
   func resignCurrent()
   @available(tvOS 9.0, *)
   func addChild(_ child: NSProgress, withPendingUnitCount inUnitCount: Int64)

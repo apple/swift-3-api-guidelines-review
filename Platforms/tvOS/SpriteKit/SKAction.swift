@@ -43,8 +43,8 @@ extension SKAction {
   class func group(_ actions: [SKAction]) -> SKAction
   class func repeatAction(_ action: SKAction, count count: Int) -> SKAction
   class func repeatForever(_ action: SKAction) -> SKAction
-  class func fadeIn(duration sec: NSTimeInterval) -> SKAction
-  class func fadeOut(duration sec: NSTimeInterval) -> SKAction
+  class func fadeIn(withDuration sec: NSTimeInterval) -> SKAction
+  class func fadeOut(withDuration sec: NSTimeInterval) -> SKAction
   class func fadeAlpha(by factor: CGFloat, duration sec: NSTimeInterval) -> SKAction
   class func fadeAlpha(to alpha: CGFloat, duration sec: NSTimeInterval) -> SKAction
   @available(tvOS 8.0, *)
@@ -59,12 +59,12 @@ extension SKAction {
   class func setTexture(_ texture: SKTexture, resize resize: Bool) -> SKAction
   @available(tvOS 9.0, *)
   class func setNormalTexture(_ texture: SKTexture, resize resize: Bool) -> SKAction
-  class func animate(_ textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
+  class func animate(with textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
   @available(tvOS 9.0, *)
-  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
-  class func animate(_ textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize resize: Bool, restore restore: Bool) -> SKAction
+  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: NSTimeInterval) -> SKAction
+  class func animate(with textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize resize: Bool, restore restore: Bool) -> SKAction
   @available(tvOS 9.0, *)
-  class func animate(normalTextures textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize resize: Bool, restore restore: Bool) -> SKAction
+  class func animate(withNormalTextures textures: [SKTexture], timePerFrame sec: NSTimeInterval, resize resize: Bool, restore restore: Bool) -> SKAction
   class func playSoundFileNamed(_ soundFile: String, waitForCompletion wait: Bool) -> SKAction
   class func colorize(with color: UIColor, colorBlendFactor colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction
   class func colorize(withColorBlendFactor colorBlendFactor: CGFloat, duration sec: NSTimeInterval) -> SKAction

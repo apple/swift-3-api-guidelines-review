@@ -13,9 +13,9 @@ class GKObstacleGraph : GKGraph {
   var obstacles: [GKPolygonObstacle] { get }
   var bufferRadius: Float { get }
   init(obstacles obstacles: [GKPolygonObstacle], bufferRadius bufferRadius: Float)
-  func connectNode(obstacles node: GKGraphNode2D)
-  func connectNode(obstacles node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
-  func connectNode(obstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
+  func connectNode(usingObstacles node: GKGraphNode2D)
+  func connectNode(usingObstacles node: GKGraphNode2D, ignoring obstaclesToIgnore: [GKPolygonObstacle])
+  func connectNode(usingObstacles node: GKGraphNode2D, ignoringBufferRadiusOf obstaclesBufferRadiusToIgnore: [GKPolygonObstacle])
   func addObstacles(_ obstacles: [GKPolygonObstacle])
   func removeObstacles(_ obstacles: [GKPolygonObstacle])
   func removeAllObstacles()

@@ -42,7 +42,7 @@ class SKNode : UIResponder, NSCopying, NSCoding {
   func removeFromParent()
   func move(toParent parent: SKNode)
   func childNode(withName name: String) -> SKNode?
-  func enumerateChildNodes(name name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
+  func enumerateChildNodes(withName name: String, using block: (SKNode, UnsafeMutablePointer<ObjCBool>) -> Void)
   @available(iOS 8.0, *)
   subscript(_ name: String) -> [SKNode] { get }
   func inParentHierarchy(_ parent: SKNode) -> Bool

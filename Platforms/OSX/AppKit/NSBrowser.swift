@@ -143,7 +143,7 @@ class NSBrowser : NSControl {
   @available(OSX 10.6, *)
   func defaultColumnWidth() -> CGFloat
   var columnsAutosaveName: String
-  class func removeSavedColumns(autosaveName name: String)
+  class func removeSavedColumns(withAutosaveName name: String)
   @available(OSX 10.5, *)
   func canDragRows(with rowIndexes: NSIndexSet, inColumn column: Int, with event: NSEvent) -> Bool
   @available(OSX 10.5, *)

@@ -26,7 +26,7 @@ class NSWindowController : NSResponder, NSCoding, NSSeguePerforming {
   @available(OSX 10.10, *)
   func prepare(for segue: NSStoryboardSegue, sender sender: AnyObject?)
   @available(OSX 10.10, *)
-  func performSegue(identifier identifier: String, sender sender: AnyObject?)
+  func performSegue(withIdentifier identifier: String, sender sender: AnyObject?)
   @available(OSX 10.10, *)
   func shouldPerformSegue(withIdentifier identifier: String, sender sender: AnyObject?) -> Bool
 }

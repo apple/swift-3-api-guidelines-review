@@ -51,7 +51,7 @@ class MKMapView : NSView, NSCoding {
   @available(OSX 10.9, *)
   func annotations(in mapRect: MKMapRect) -> Set<NSObject>
   func view(for annotation: MKAnnotation) -> MKAnnotationView?
-  func dequeueReusableAnnotationView(identifier identifier: String) -> MKAnnotationView?
+  func dequeueReusableAnnotationView(withIdentifier identifier: String) -> MKAnnotationView?
   func selectAnnotation(_ annotation: MKAnnotation, animated animated: Bool)
   func deselectAnnotation(_ annotation: MKAnnotation?, animated animated: Bool)
   var selectedAnnotations: [MKAnnotation]

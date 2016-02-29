@@ -105,7 +105,7 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   func url(for store: NSPersistentStore) -> NSURL
   @available(OSX 10.5, *)
   func setURL(_ url: NSURL, for store: NSPersistentStore) -> Bool
-  func addPersistentStore(type storeType: String, configuration configuration: String?, url storeURL: NSURL?, options options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
+  func addPersistentStore(withType storeType: String, configuration configuration: String?, url storeURL: NSURL?, options options: [NSObject : AnyObject]? = [:]) throws -> NSPersistentStore
   func removePersistentStore(_ store: NSPersistentStore) throws
   func setMetadata(_ metadata: [String : AnyObject]?, for store: NSPersistentStore)
   func metadata(for store: NSPersistentStore) -> [String : AnyObject]
@@ -129,7 +129,7 @@ class NSPersistentStoreCoordinator : NSObject, NSLocking {
   @available(OSX 10.9, *)
   class func removeUbiquitousContentAndPersistentStore(at storeURL: NSURL, options options: [NSObject : AnyObject]? = [:]) throws
   @available(OSX 10.6, *)
-  func importStore(identifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: NSURL, to destinationURL: NSURL, options options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
+  func importStore(withIdentifier storeIdentifier: String?, fromExternalRecordsDirectory externalRecordsURL: NSURL, to destinationURL: NSURL, options options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   func migratePersistentStore(_ store: NSPersistentStore, to URL: NSURL, options options: [NSObject : AnyObject]? = [:], withType storeType: String) throws -> NSPersistentStore
   @available(OSX 10.11, *)
   func destroyPersistentStore(at url: NSURL, withType storeType: String, options options: [NSObject : AnyObject]? = [:]) throws

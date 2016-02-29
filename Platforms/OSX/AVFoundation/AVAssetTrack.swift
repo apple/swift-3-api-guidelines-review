@@ -77,7 +77,7 @@ extension AVAssetTrack {
   @available(OSX 10.10, *)
   var canProvideSampleCursors: Bool { get }
   @available(OSX 10.10, *)
-  func makeSampleCursor(presentationTimeStamp presentationTimeStamp: CMTime) -> AVSampleCursor?
+  func makeSampleCursor(withPresentationTimeStamp presentationTimeStamp: CMTime) -> AVSampleCursor?
   @available(OSX 10.10, *)
   func makeSampleCursorAtFirstSampleInDecodeOrder() -> AVSampleCursor?
   @available(OSX 10.10, *)

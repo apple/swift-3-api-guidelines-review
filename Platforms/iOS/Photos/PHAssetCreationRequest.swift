@@ -11,6 +11,6 @@ class PHAssetResourceCreationOptions : NSObject, NSCopying {
 class PHAssetCreationRequest : PHAssetChangeRequest {
   class func forAsset() -> Self
   class func supportsAssetResourceTypes(_ types: [NSNumber]) -> Bool
-  func addResource(_ type: PHAssetResourceType, fileURL fileURL: NSURL, options options: PHAssetResourceCreationOptions?)
-  func addResource(_ type: PHAssetResourceType, data data: NSData, options options: PHAssetResourceCreationOptions?)
+  func addResource(with type: PHAssetResourceType, fileURL fileURL: NSURL, options options: PHAssetResourceCreationOptions?)
+  func addResource(with type: PHAssetResourceType, data data: NSData, options options: PHAssetResourceCreationOptions?)
 }

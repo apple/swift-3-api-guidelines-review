@@ -6,7 +6,7 @@ enum NSRulerOrientation : UInt {
   case verticalRuler
 }
 class NSRulerView : NSView {
-  class func registerUnit(name unitName: String, abbreviation abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle stepUpCycle: [NSNumber], stepDownCycle stepDownCycle: [NSNumber])
+  class func registerUnit(withName unitName: String, abbreviation abbreviation: String, unitToPointsConversionFactor conversionFactor: CGFloat, stepUpCycle stepUpCycle: [NSNumber], stepDownCycle stepDownCycle: [NSNumber])
   init(scrollView scrollView: NSScrollView?, orientation orientation: NSRulerOrientation)
   unowned(unsafe) var scrollView: @sil_unmanaged NSScrollView?
   var orientation: NSRulerOrientation

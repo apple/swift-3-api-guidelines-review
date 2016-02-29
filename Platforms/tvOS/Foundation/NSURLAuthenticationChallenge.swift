@@ -4,7 +4,7 @@ protocol NSURLAuthenticationChallengeSender : NSObjectProtocol {
   func continueWithoutCredential(for challenge: NSURLAuthenticationChallenge)
   func cancel(_ challenge: NSURLAuthenticationChallenge)
   optional func performDefaultHandling(for challenge: NSURLAuthenticationChallenge)
-  optional func rejectProtectionSpaceAndContinue(_ challenge: NSURLAuthenticationChallenge)
+  optional func rejectProtectionSpaceAndContinue(with challenge: NSURLAuthenticationChallenge)
 }
 class NSURLAuthenticationChallenge : NSObject, NSSecureCoding {
   init(protectionSpace space: NSURLProtectionSpace, proposedCredential credential: NSURLCredential?, previousFailureCount previousFailureCount: Int, failureResponse response: NSURLResponse?, error error: NSError?, sender sender: NSURLAuthenticationChallengeSender)

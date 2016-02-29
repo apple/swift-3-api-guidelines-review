@@ -13,14 +13,14 @@ class UIAlertView : UIView {
   weak var delegate: @sil_weak AnyObject?
   var title: String
   var message: String?
-  func addButton(title title: String?) -> Int
+  func addButton(withTitle title: String?) -> Int
   func buttonTitle(at buttonIndex: Int) -> String?
   var numberOfButtons: Int { get }
   var cancelButtonIndex: Int
   var firstOtherButtonIndex: Int { get }
   var isVisible: Bool { get }
   func show()
-  func dismiss(clickedButtonIndex buttonIndex: Int, animated animated: Bool)
+  func dismiss(withClickedButtonIndex buttonIndex: Int, animated animated: Bool)
   @available(iOS 5.0, *)
   var alertViewStyle: UIAlertViewStyle
   @available(iOS 5.0, *)

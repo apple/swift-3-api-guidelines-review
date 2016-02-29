@@ -37,7 +37,7 @@ class NSMutableCharacterSet : NSCharacterSet, NSCopying, NSMutableCopying {
   func removeCharacters(in aRange: NSRange)
   func addCharacters(in aString: String)
   func removeCharacters(in aString: String)
-  func formUnion(_ otherSet: NSCharacterSet)
-  func formIntersection(_ otherSet: NSCharacterSet)
+  func formUnion(with otherSet: NSCharacterSet)
+  func formIntersection(with otherSet: NSCharacterSet)
   func invert()
 }

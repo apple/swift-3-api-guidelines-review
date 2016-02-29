@@ -16,6 +16,6 @@ protocol UIDocumentMenuDelegate : NSObjectProtocol {
 class UIDocumentMenuViewController : UIViewController {
   init(documentTypes allowedUTIs: [String], in mode: UIDocumentPickerMode)
   init(url url: NSURL, in mode: UIDocumentPickerMode)
-  func addOption(title title: String, image image: UIImage?, order order: UIDocumentMenuOrder, handler handler: () -> Void)
+  func addOption(withTitle title: String, image image: UIImage?, order order: UIDocumentMenuOrder, handler handler: () -> Void)
   weak var delegate: @sil_weak UIDocumentMenuDelegate?
 }

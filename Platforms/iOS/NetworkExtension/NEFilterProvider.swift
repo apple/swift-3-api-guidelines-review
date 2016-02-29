@@ -12,7 +12,7 @@ class NEFilterProvider : NEProvider {
   @available(iOS 9.0, *)
   func startFilter(completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
-  func stopFilter(_ reason: NEProviderStopReason, completionHandler completionHandler: () -> Void)
+  func stopFilter(with reason: NEProviderStopReason, completionHandler completionHandler: () -> Void)
   @available(iOS 9.0, *)
   var filterConfiguration: NEFilterProviderConfiguration { get }
 }
@@ -44,9 +44,9 @@ class NEFilterNewFlowVerdict : NEFilterVerdict, NSSecureCoding, NSCopying {
 @available(iOS 9.0, *)
 class NEFilterControlVerdict : NEFilterNewFlowVerdict, NSSecureCoding, NSCopying {
   @available(iOS 9.0, *)
-  class func allow(updateRules updateRules: Bool) -> NEFilterControlVerdict
+  class func allow(withUpdateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
-  class func drop(updateRules updateRules: Bool) -> NEFilterControlVerdict
+  class func drop(withUpdateRules updateRules: Bool) -> NEFilterControlVerdict
   @available(iOS 9.0, *)
   class func updateRules() -> NEFilterControlVerdict
 }

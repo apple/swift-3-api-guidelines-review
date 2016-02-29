@@ -17,7 +17,7 @@ let NEAppProxyErrorDomain: String
 @available(iOS 9.0, *)
 class NEAppProxyFlow : NSObject {
   @available(iOS 9.0, *)
-  func open(localEndpoint localEndpoint: NWHostEndpoint?, completionHandler completionHandler: (NSError?) -> Void)
+  func open(withLocalEndpoint localEndpoint: NWHostEndpoint?, completionHandler completionHandler: (NSError?) -> Void)
   @available(iOS 9.0, *)
   func closeReadWithError(_ error: NSError?)
   @available(iOS 9.0, *)

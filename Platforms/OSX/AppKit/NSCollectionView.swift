@@ -118,7 +118,7 @@ class NSCollectionView : NSView, NSDraggingSource, NSDraggingDestination {
   @available(OSX 10.11, *)
   func register(_ nib: NSNib?, forSupplementaryViewOfKind kind: String, withIdentifier identifier: String)
   @available(OSX 10.11, *)
-  func makeItem(identifier identifier: String, for indexPath: NSIndexPath) -> NSCollectionViewItem
+  func makeItem(withIdentifier identifier: String, for indexPath: NSIndexPath) -> NSCollectionViewItem
   @available(OSX 10.11, *)
   func makeSupplementaryView(ofKind elementKind: String, withIdentifier identifier: String, for indexPath: NSIndexPath) -> NSView
   func newItem(forRepresentedObject object: AnyObject) -> NSCollectionViewItem

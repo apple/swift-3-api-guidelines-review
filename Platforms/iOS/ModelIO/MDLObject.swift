@@ -20,5 +20,5 @@ class MDLObjectContainer : NSObject, MDLObjectContainerComponent {
   @available(iOS 9.0, *)
   var objects: [MDLObject] { get }
   @available(iOS 9.0, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

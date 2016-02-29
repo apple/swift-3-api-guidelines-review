@@ -71,7 +71,7 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   func setClip()
   @NSCopying var flattening: NSBezierPath { get }
   @NSCopying var reversing: NSBezierPath { get }
-  func transform(_ transform: NSAffineTransform)
+  func transform(using transform: NSAffineTransform)
   var isEmpty: Bool { get }
   var currentPoint: NSPoint { get }
   var controlPointBounds: NSRect { get }
@@ -81,17 +81,17 @@ class NSBezierPath : NSObject, NSCopying, NSCoding {
   func element(at index: Int) -> NSBezierPathElement
   func setAssociatedPoints(_ points: NSPointArray, at index: Int)
   func append(_ path: NSBezierPath)
-  func append(_ rect: NSRect)
-  func append(_ points: NSPointArray, count count: Int)
+  func append(with rect: NSRect)
+  func append(with points: NSPointArray, count count: Int)
   func appendWithOval(in rect: NSRect)
-  func appendWithArc(center center: NSPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat, clockwise clockwise: Bool)
-  func appendWithArc(center center: NSPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat)
+  func appendWithArc(withCenter center: NSPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat, clockwise clockwise: Bool)
+  func appendWithArc(withCenter center: NSPoint, radius radius: CGFloat, startAngle startAngle: CGFloat, endAngle endAngle: CGFloat)
   func appendWithArc(from point1: NSPoint, to point2: NSPoint, radius radius: CGFloat)
-  func append(glyph glyph: NSGlyph, in font: NSFont)
-  func append(glyphs glyphs: UnsafeMutablePointer<NSGlyph>, count count: Int, in font: NSFont)
-  func append(packedGlyphs packedGlyphs: UnsafePointer<Int8>)
+  func append(withGlyph glyph: NSGlyph, in font: NSFont)
+  func append(withGlyphs glyphs: UnsafeMutablePointer<NSGlyph>, count count: Int, in font: NSFont)
+  func append(withPackedGlyphs packedGlyphs: UnsafePointer<Int8>)
   @available(OSX 10.5, *)
-  func append(roundedRect rect: NSRect, xRadius xRadius: CGFloat, yRadius yRadius: CGFloat)
+  func append(withRoundedRect rect: NSRect, xRadius xRadius: CGFloat, yRadius yRadius: CGFloat)
   func contains(_ point: NSPoint) -> Bool
   func copy(with zone: NSZone = nil) -> AnyObject
   func encode(with aCoder: NSCoder)

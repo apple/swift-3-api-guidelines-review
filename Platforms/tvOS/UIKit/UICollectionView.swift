@@ -84,7 +84,7 @@ class UICollectionView : UIScrollView {
   func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String)
   func register(_ viewClass: AnyClass?, forSupplementaryViewOfKind elementKind: String, withReuseIdentifier identifier: String)
   func register(_ nib: UINib?, forSupplementaryViewOfKind kind: String, withReuseIdentifier identifier: String)
-  func dequeueReusableCell(reuseIdentifier identifier: String, for indexPath: NSIndexPath) -> UICollectionViewCell
+  func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: NSIndexPath) -> UICollectionViewCell
   func dequeueReusableSupplementaryView(ofKind elementKind: String, withReuseIdentifier identifier: String, for indexPath: NSIndexPath) -> UICollectionReusableView
   var allowsSelection: Bool
   var allowsMultipleSelection: Bool

@@ -10,7 +10,7 @@ class SKPaymentQueue : NSObject {
   @available(tvOS 3.0, *)
   func restoreCompletedTransactions()
   @available(tvOS 7.0, *)
-  func restoreCompletedTransactions(applicationUsername username: String?)
+  func restoreCompletedTransactions(withApplicationUsername username: String?)
   @available(tvOS 3.0, *)
   func finishTransaction(_ transaction: SKPaymentTransaction)
   @available(tvOS 6.0, *)

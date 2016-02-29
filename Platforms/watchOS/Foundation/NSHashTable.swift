@@ -39,5 +39,5 @@ class NSHashTable : NSObject, NSCopying, NSCoding, NSFastEnumeration {
   func encode(with aCoder: NSCoder)
   init?(coder aDecoder: NSCoder)
   @available(watchOS 2.0, *)
-  func countByEnumerating(_ state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
+  func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>, objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>, count len: Int) -> Int
 }

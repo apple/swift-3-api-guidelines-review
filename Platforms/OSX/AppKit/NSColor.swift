@@ -78,7 +78,7 @@ class NSColor : NSObject, NSCopying, NSSecureCoding, NSPasteboardReading, NSPast
   class func alternateSelectedControl() -> NSColor
   class func alternateSelectedControlText() -> NSColor
   class func controlAlternatingRowBackgroundColors() -> [NSColor]
-  func highlight(level val: CGFloat) -> NSColor?
+  func highlight(withLevel val: CGFloat) -> NSColor?
   func shadow(withLevel val: CGFloat) -> NSColor?
   /*not inherited*/ init(for controlTint: NSControlTint)
   class func currentControlTint() -> NSControlTint

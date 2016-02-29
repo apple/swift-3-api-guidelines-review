@@ -81,7 +81,7 @@ let NSTextCheckingAirlineKey: String
 let NSTextCheckingFlightKey: String
 extension NSTextCheckingResult {
   class func orthographyCheckingResult(with range: NSRange, orthography orthography: NSOrthography) -> NSTextCheckingResult
-  class func spell(_ range: NSRange) -> NSTextCheckingResult
+  class func spell(with range: NSRange) -> NSTextCheckingResult
   class func grammarCheckingResult(with range: NSRange, details details: [String]) -> NSTextCheckingResult
   class func dateCheckingResult(with range: NSRange, date date: NSDate) -> NSTextCheckingResult
   class func dateCheckingResult(with range: NSRange, date date: NSDate, timeZone timeZone: NSTimeZone, duration duration: NSTimeInterval) -> NSTextCheckingResult
@@ -96,7 +96,7 @@ extension NSTextCheckingResult {
   @available(watchOS 2.0, *)
   class func regularExpressionCheckingResult(withRanges ranges: NSRangePointer, count count: Int, regularExpression regularExpression: NSRegularExpression) -> NSTextCheckingResult
   @available(watchOS 2.0, *)
-  class func phoneNumber(_ range: NSRange, phoneNumber phoneNumber: String) -> NSTextCheckingResult
+  class func phoneNumber(with range: NSRange, phoneNumber phoneNumber: String) -> NSTextCheckingResult
   @available(watchOS 2.0, *)
   class func transitInformationCheckingResult(with range: NSRange, components components: [String : String]) -> NSTextCheckingResult
 }

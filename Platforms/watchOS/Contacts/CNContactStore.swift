@@ -20,7 +20,7 @@ class CNContactStore : NSObject {
   func requestAccess(for entityType: CNEntityType, completionHandler completionHandler: (Bool, NSError?) -> Void)
   func unifiedContacts(matching predicate: NSPredicate, keysToFetch keys: [CNKeyDescriptor]) throws -> [CNContact]
   func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
-  func enumerateContacts(_ fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
+  func enumerateContacts(with fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
   func groups(matching predicate: NSPredicate?) throws -> [CNGroup]
   func containers(matching predicate: NSPredicate?) throws -> [CNContainer]
   func defaultContainerIdentifier() -> String

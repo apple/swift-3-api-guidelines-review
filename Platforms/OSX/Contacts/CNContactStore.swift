@@ -22,7 +22,7 @@ class CNContactStore : NSObject {
   func unifiedContact(withIdentifier identifier: String, keysToFetch keys: [CNKeyDescriptor]) throws -> CNContact
   @available(OSX 10.11, *)
   func unifiedMeContactWithKeys(toFetch keys: [CNKeyDescriptor]) throws -> CNContact
-  func enumerateContacts(_ fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
+  func enumerateContacts(with fetchRequest: CNContactFetchRequest, usingBlock block: (CNContact, UnsafeMutablePointer<ObjCBool>) -> Void) throws
   func groups(matching predicate: NSPredicate?) throws -> [CNGroup]
   func containers(matching predicate: NSPredicate?) throws -> [CNContainer]
   func execute(_ saveRequest: CNSaveRequest) throws
